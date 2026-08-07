@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plotka Novel - Tahanın Köy Arşivi</title>
+    
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-cote: #bb86fc;     /* COTE - Mor */
+            --accent-rezero: #00d2ff;   /* Re:Zero - Açık Mavi */
+            --accent-mushoku: #ff4d4d;  /* Mushoku Tensei - Kırmızı */
+            --border-color: #2a2a2a;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 100px 20px 40px; 
+            display: flex;
+            justify-content: center;
+        }
+
+        /* --- ÜST MENÜ & LOGO --- */
+        .top-nav {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            background-color: #16161f;
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            padding: 0 20px;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #ffffff, var(--accent-cote));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-cote);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background-color: #101014;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 6px 12px;
+        }
+
+        .search-box:focus-within { border-color: var(--accent-cote); }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: #fff;
+            outline: none;
+            padding: 4px;
+            font-size: 0.9rem;
+            width: 150px;
+        }
+
+        .search-box input::placeholder { color: #666; }
+
+        .search-box button {
+            background: transparent;
+            border: none;
+            color: #888;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-auth-open {
+            background: var(--accent-cote);
+            color: #121212;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-left: 12px;
+            border-left: 1px solid var(--border-color);
+        }
+
+        .profile-avatar {
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            background-color: var(--accent-cote);
+            color: #121212;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .profile-info { display: flex; flex-direction: column; }
+        .profile-name { font-size: 0.85rem; color: #fff; font-weight: bold; }
+        .profile-role { font-size: 0.7rem; color: var(--accent-cote); }
+
+        .btn-logout {
+            background: none; border: none;
+            color: #ff4d4d; font-size: 0.7rem;
+            cursor: pointer; padding: 0; text-align: left;
+        }
+
+        /* --- ANA İÇERİK --- */
+        .main-container { max-width: 1200px; width: 100%; }
+        header { text-align: center; margin-bottom: 35px; }
+
+        .site-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--accent-cote);
+            margin: 0 0 10px 0;
+            text-shadow: 0 0 20px rgba(187, 134, 252, 0.2);
+        }
+
+        .site-subtitle { font-size: 1.05rem; color: #888; margin: 0 0 25px 0; }
+
+        .news-bar {
+            background-color: #1a1a24;
+            border: 1px solid #333;
+            border-left: 4px solid var(--accent-cote);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        .news-bar span { color: var(--accent-cote); font-weight: bold; }
+
+        .grid-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        /* --- KARTLAR VE FOTOĞRAF DÜZENİ --- */
+        .series-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .series-card:hover { transform: translateY(-6px); }
+
+        .series-card.cote:hover { border-color: var(--accent-cote); box-shadow: 0 10px 25px rgba(187, 134, 252, 0.15); }
+        .series-card.cote .badge { color: var(--accent-cote); border-color: var(--accent-cote); }
+        .series-card.cote .card-footer strong { color: var(--accent-cote); }
+
+        .series-card.rezero:hover { border-color: var(--accent-rezero); box-shadow: 0 10px 25px rgba(0, 210, 255, 0.15); }
+        .series-card.rezero .badge { color: var(--accent-rezero); border-color: var(--accent-rezero); }
+        .series-card.rezero .card-footer strong { color: var(--accent-rezero); }
+
+        .series-card.mushoku:hover { border-color: var(--accent-mushoku); box-shadow: 0 10px 25px rgba(255, 77, 77, 0.15); }
+        .series-card.mushoku .badge { color: var(--accent-mushoku); border-color: var(--accent-mushoku); }
+        .series-card.mushoku .card-footer strong { color: var(--accent-mushoku); }
+
+        .banner-container {
+            width: 100%;
+            background-color: #101014;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-banner {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .series-card:hover .card-banner { transform: scale(1.02); }
+
+        .badge {
+            position: absolute;
+            top: 15px; right: 15px;
+            background: rgba(0, 0, 0, 0.85);
+            font-size: 0.75rem; font-weight: bold;
+            padding: 4px 10px; border-radius: 20px;
+            z-index: 2; border: 1px solid;
+        }
+
+        .badge.gray { color: #aaa; border-color: #555; }
+
+        .card-body { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; }
+        .card-title { font-size: 1.25rem; font-weight: 700; margin: 0 0 10px 0; color: #fff; }
+        .card-desc { font-size: 0.88rem; color: #a0a0a0; line-height: 1.5; margin-bottom: 20px; }
+
+        .card-footer {
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 0.8rem; color: #666;
+            border-top: 1px solid #2a2a2a; padding-top: 12px;
+        }
+
+        .fav-btn {
+            background: none; border: none; font-size: 1.3rem;
+            cursor: pointer; padding: 4px; color: #555; transition: transform 0.2s;
+        }
+        .fav-btn:hover { transform: scale(1.25); }
+        .fav-btn.active { color: #e74c3c; }
+
+        .series-card.coming-soon {
+            border: 2px dashed #333; background: rgba(30, 30, 30, 0.3); opacity: 0.75; cursor: default;
+        }
+
+        .extra-sections {
+            display: grid; grid-template-columns: 2fr 1fr; gap: 25px; margin-top: 20px;
+        }
+
+        .info-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px; padding: 20px 25px;
+        }
+        .info-box h3 {
+            color: var(--accent-cote); margin-top: 0; font-size: 1.1rem;
+            border-bottom: 1px solid #2a2a2a; padding-bottom: 10px;
+        }
+        .info-box p { font-size: 0.9rem; color: #aaa; line-height: 1.6; margin: 0; }
+
+        .hidden { display: none !important; }
+
+        /* --- MODAL --- */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(4px);
+            z-index: 2000; display: flex; justify-content: center; align-items: center;
+            opacity: 0; pointer-events: none; transition: opacity 0.3s;
+        }
+        .modal-overlay.open { opacity: 1; pointer-events: all; }
+        .auth-card {
+            background: #181820; border: 1px solid var(--border-color);
+            border-radius: 14px; width: 100%; max-width: 360px; padding: 25px; position: relative;
+        }
+        .modal-close {
+            position: absolute; top: 12px; right: 15px;
+            background: none; border: none; color: #888; font-size: 1.3rem; cursor: pointer;
+        }
+        .auth-tabs { display: flex; gap: 15px; border-bottom: 1px solid #333; margin-bottom: 20px; padding-bottom: 8px; }
+        .auth-tab { background: none; border: none; color: #777; font-size: 0.95rem; font-weight: bold; cursor: pointer; }
+        .auth-tab.active { color: var(--accent-cote); }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 0.8rem; color: #aaa; margin-bottom: 5px; }
+        .form-group input {
+            width: 100%; padding: 10px; background: #101014; border: 1px solid #333;
+            border-radius: 8px; color: #fff; box-sizing: border-box; outline: none;
+        }
+        .form-group input:focus { border-color: var(--accent-cote); }
+        .btn-submit {
+            width: 100%; padding: 10px; background: var(--accent-cote); color: #121212;
+            border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 5px;
+        }
+
+        @media (max-width: 850px) {
+            .extra-sections { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ÜST MENÜ -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="#" class="nav-logo" id="logo-link">
+                    <span class="logo-text">Plotka Novel</span>
+                </a>
+
+                <div class="nav-links">
+                    <a href="#" id="link-anasayfa" class="active">Ana Sayfa</a>
+                    <a href="#" id="link-kitaplik">Kitaplık</a>
+                    <a href="https://ihateportals.github.io/?utm_source=ig&utm_medium=social&utm_content=link_in_bio" target="_blank">S.S.S.</a>
+                </div>
+            </div>
+
+            <div class="nav-right">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Seri ara...">
+                    <button type="button">
+                        <svg width="15" height="15" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <button class="btn-auth-open" id="btnAuthOpen">Giriş Yap</button>
+
+                <div class="user-profile hidden" id="userProfile">
+                    <div class="profile-avatar" id="userAvatar">T</div>
+                    <div class="profile-info">
+                        <span class="profile-name" id="userName">Taha</span>
+                        <span class="profile-role">Kullanıcı</span>
+                        <button class="btn-logout" id="btnLogout">Çıkış Yap</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SAYFA İÇERİĞİ -->
+    <div class="main-container">
+        <header>
+            <h1 class="site-title" id="page-title">Plotka Novel</h1>
+            <p class="site-subtitle" id="page-subtitle">Köy için Hazırlanmış Özel Light Novel Arşivi</p>
+            <div class="news-bar">
+                🔥 <span>GÜNCELLEME:</span> Classroom of the Elite 2. Yıl 10. Cilt Bölüm 1 Eklendi!, Re zero Arc7 Bolum7 bitti!
+            </div>
+        </header>
+
+        <div class="grid-wrapper" id="series-grid">
+            
+            <!-- COTE (MOR) -->
+            <a href="cote/index.html" class="series-card cote" data-id="cote">
+                <span class="badge">CİLT 23 9. BÖLÜM</span>
+                <div class="banner-container">
+                    <img src="cote.jpg" alt="Classroom of the Elite" class="card-banner">
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h2 class="card-title">Classroom of the Elite</h2>
+                        <p class="card-desc">Ayanokoji'nin okul içindeki akıl oyunları ve stratejileri. Cilt 21, 22 ve 23 burada!</p>
+                    </div>
+                    <div class="card-footer">
+                        <span>Son Eklenen: <strong>2. Yıl 10. Cilt</strong></span>
+                        <button class="fav-btn" title="Kitaplığa Ekle">🤍</button>
+                    </div>
+                </div>
+            </a>
+
+            <!-- RE:ZERO (AÇIK MAVİ) -->
+            <a href="rezero/index.html" class="series-card rezero" data-id="rezero">
+                <span class="badge">ARC7 BAŞLANDI</span>
+                <div class="banner-container">
+                    <img src="rezero.jpg" alt="Re:Zero" class="card-banner">
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h2 class="card-title">Re:Zero</h2>
+                        <p class="card-desc">Subaru'nun trajik ve cesur döngüleri. Arc 6, Arc 7 ve Arc 8 çevirileri.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span>Mevcut: <strong>Kısım VI, VII, VIII</strong></span>
+                        <button class="fav-btn" title="Kitaplığa Ekle">🤍</button>
+                    </div>
+                </div>
+            </a>
+
+            <!-- MUSHOKU TENSEI (KIRMIZI) -->
+            <a href="mushokudevam/index.html" class="series-card mushoku" data-id="mushokudevam">
+                <span class="badge">CİLT2 BİTTİ</span>
+                <div class="banner-container">
+                    <img src="mushoku.jpg" alt="Mushoku Tensei" class="card-banner">
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h2 class="card-title">Mushoku Tensei Devamı</h2>
+                        <p class="card-desc">Rudeus sonrası dönemin ve çocuklarının maceralarının anlatıldığı özel seriler.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span>Kategori: <strong>Redundancy</strong></span>
+                        <button class="fav-btn" title="Kitaplığa Ekle">🤍</button>
+                    </div>
+                </div>
+            </a>
+
+            <!-- YAKINDA -->
+            <div class="series-card coming-soon" id="coming-soon-card">
+                <span class="badge gray">YAKINDA</span>
+                <div class="card-body" style="justify-content: center; text-align: center; min-height: 250px;">
+                    <h2 class="card-title" style="color: #666;">Yeni Seri Yolda...</h2>
+                    <p class="card-desc" style="color: #555;">Kütüphanemize eklenecek bir sonraki efsanevi Light Novel serisi için takipte kalın!</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="extra-sections" id="extra-info">
+            <div class="info-box">
+                <h3>📖 Okuma Rehberi & Bilgilendirme</h3>
+                <p>Kiybi adlı arkadaşımın isteği üzerine Re:Zero Noveliyle beraber arka tema değiştirme ve metin arkasını kutucukla kaplama geldi. COTE noveli için bu durum geçerli değildir ama sonraki novellerde olacaktır.</p>
+            </div>
+            <div class="info-box">
+                <h3>📢 BİLGİ</h3>
+                <p>Bu site herhangi bir ticari amaç gütmemektedir. Sitenin asıl amacı köyde daha rahat bir şekilde novel okumak ve arkadaşlarımında faydalanmasını sağlamaktır. Lütfen telif atmadan önce bana @t4hagrt instagram hesabıma dm atsın en yakın zamanda bakmaya çalışacağım. Eğer sitemin temasını kullanmak istiyorsanız bana yazarsanız yardımcı olabilirim.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- GİRİŞ / KAYIT MODALI -->
+    <div class="modal-overlay" id="authModal">
+        <div class="auth-card">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="tabLogin">Giriş Yap</button>
+                <button class="auth-tab" id="tabRegister">Kayıt Ol</button>
+            </div>
+            <form id="authForm">
+                <div class="form-group">
+                    <label>Kullanıcı Adı</label>
+                    <input type="text" id="usernameInput" placeholder="Kullanıcı adınız" required>
+                </div>
+                <div class="form-group">
+                    <label>Şifre</label>
+                    <input type="password" id="passwordInput" placeholder="******" required>
+                </div>
+                <button type="submit" class="btn-submit" id="btnSubmit">Giriş Yap</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const seriesCards = document.querySelectorAll('.series-card[data-id]');
+            const searchInput = document.getElementById('searchInput');
+            const linkAnasayfa = document.getElementById('link-anasayfa');
+            const linkKitaplik = document.getElementById('link-kitaplik');
+            const logoLink = document.getElementById('logo-link');
+            const pageTitle = document.getElementById('page-title');
+            const pageSubtitle = document.getElementById('page-subtitle');
+            const extraInfo = document.getElementById('extra-info');
+            const comingSoonCard = document.getElementById('coming-soon-card');
+
+            // Auth Elements
+            const authModal = document.getElementById('authModal');
+            const btnAuthOpen = document.getElementById('btnAuthOpen');
+            const modalClose = document.getElementById('modalClose');
+            const tabLogin = document.getElementById('tabLogin');
+            const tabRegister = document.getElementById('tabRegister');
+            const authForm = document.getElementById('authForm');
+            const usernameInput = document.getElementById('usernameInput');
+            const passwordInput = document.getElementById('passwordInput');
+            const btnSubmit = document.getElementById('btnSubmit');
+            const userProfile = document.getElementById('userProfile');
+            const userAvatar = document.getElementById('userAvatar');
+            const userName = document.getElementById('userName');
+            const btnLogout = document.getElementById('btnLogout');
+
+            let isRegisterMode = false;
+            let currentUser = JSON.parse(localStorage.getItem('plotka_current_user')) || null;
+            let showingLibrary = false;
+
+            function getFavKey() {
+                return currentUser ? `plotka_favs_${currentUser.username.toLowerCase()}` : 'plotka_favs_guest';
+            }
+
+            function updateAuthUI() {
+                if (currentUser) {
+                    btnAuthOpen.classList.add('hidden');
+                    userProfile.classList.remove('hidden');
+                    userName.textContent = currentUser.username;
+                    userAvatar.textContent = currentUser.username.charAt(0).toUpperCase();
+                } else {
+                    btnAuthOpen.classList.remove('hidden');
+                    userProfile.classList.add('hidden');
+                }
+                loadFavorites();
+            }
+
+            // Auth Modal
+            btnAuthOpen.addEventListener('click', () => authModal.classList.add('open'));
+            modalClose.addEventListener('click', () => authModal.classList.remove('open'));
+            authModal.addEventListener('click', (e) => { if (e.target === authModal) authModal.classList.remove('open'); });
+
+            tabLogin.addEventListener('click', () => {
+                isRegisterMode = false;
+                tabLogin.classList.add('active');
+                tabRegister.classList.remove('active');
+                btnSubmit.textContent = "Giriş Yap";
+            });
+
+            tabRegister.addEventListener('click', () => {
+                isRegisterMode = true;
+                tabRegister.classList.add('active');
+                tabLogin.classList.remove('active');
+                btnSubmit.textContent = "Kayıt Ol";
+            });
+
+            authForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const uName = usernameInput.value.trim();
+                const uPass = passwordInput.value.trim();
+                let users = JSON.parse(localStorage.getItem('plotka_users')) || [];
+
+                if (isRegisterMode) {
+                    if (users.find(u => u.username.toLowerCase() === uName.toLowerCase())) {
+                        alert("Bu kullanıcı adı zaten alınmış!");
+                        return;
+                    }
+                    const newUser = { username: uName, password: uPass };
+                    users.push(newUser);
+                    localStorage.setItem('plotka_users', JSON.stringify(users));
+                    currentUser = newUser;
+                } else {
+                    const found = users.find(u => u.username.toLowerCase() === uName.toLowerCase() && u.password === uPass);
+                    if (!found) {
+                        alert("Kullanıcı adı veya şifre hatalı!");
+                        return;
+                    }
+                    currentUser = found;
+                }
+
+                localStorage.setItem('plotka_current_user', JSON.stringify(currentUser));
+                authModal.classList.remove('open');
+                usernameInput.value = '';
+                passwordInput.value = '';
+                updateAuthUI();
+                if (showingLibrary) showLibrary();
+            });
+
+            btnLogout.addEventListener('click', () => {
+                localStorage.removeItem('plotka_current_user');
+                currentUser = null;
+                updateAuthUI();
+                showHome();
+            });
+
+            // Favoriler
+            function loadFavorites() {
+                const favs = JSON.parse(localStorage.getItem(getFavKey())) || [];
+                seriesCards.forEach(card => {
+                    const id = card.getAttribute('data-id');
+                    const btn = card.querySelector('.fav-btn');
+                    if (favs.includes(id)) {
+                        btn.classList.add('active');
+                        btn.innerHTML = '❤️';
+                    } else {
+                        btn.classList.remove('active');
+                        btn.innerHTML = '🤍';
+                    }
+                });
+            }
+
+            seriesCards.forEach(card => {
+                const favBtn = card.querySelector('.fav-btn');
+                const novelId = card.getAttribute('data-id');
+
+                favBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    let favs = JSON.parse(localStorage.getItem(getFavKey())) || [];
+                    if (favs.includes(novelId)) {
+                        favs = favs.filter(id => id !== novelId);
+                        favBtn.classList.remove('active');
+                        favBtn.innerHTML = '🤍';
+                        if (showingLibrary) card.classList.add('hidden');
+                    } else {
+                        favs.push(novelId);
+                        favBtn.classList.add('active');
+                        favBtn.innerHTML = '❤️';
+                    }
+                    localStorage.setItem(getFavKey(), JSON.stringify(favs));
+                });
+            });
+
+            // Menü Görünümleri
+            function showHome(e) {
+                if(e) e.preventDefault();
+                showingLibrary = false;
+                linkAnasayfa.classList.add('active');
+                linkKitaplik.classList.remove('active');
+
+                pageTitle.textContent = "Plotka Novel";
+                pageSubtitle.textContent = "Köy için Hazırlanmış Özel Light Novel Arşivi";
+                extraInfo.style.display = "grid";
+                searchInput.value = "";
+
+                seriesCards.forEach(card => card.classList.remove('hidden'));
+                if(comingSoonCard) comingSoonCard.classList.remove('hidden');
+            }
+
+            function showLibrary(e) {
+                if(e) e.preventDefault();
+                showingLibrary = true;
+                linkKitaplik.classList.add('active');
+                linkAnasayfa.classList.remove('active');
+                
+                const uname = currentUser ? currentUser.username : "Misafir";
+                pageTitle.textContent = `${uname} - Kitaplığı`;
+                pageSubtitle.textContent = "Favorilere eklediğin seriler burada görünür.";
+                extraInfo.style.display = "none";
+                searchInput.value = "";
+
+                const favs = JSON.parse(localStorage.getItem(getFavKey())) || [];
+                seriesCards.forEach(card => {
+                    const id = card.getAttribute('data-id');
+                    if (favs.includes(id)) card.classList.remove('hidden');
+                    else card.classList.add('hidden');
+                });
+                if(comingSoonCard) comingSoonCard.classList.add('hidden');
+            }
+
+            linkAnasayfa.addEventListener('click', showHome);
+            logoLink.addEventListener('click', showHome);
+            linkKitaplik.addEventListener('click', showLibrary);
+
+            searchInput.addEventListener('input', (e) => {
+                const term = e.target.value.toLowerCase();
+                const favs = JSON.parse(localStorage.getItem(getFavKey())) || [];
+
+                seriesCards.forEach(card => {
+                    const id = card.getAttribute('data-id');
+                    if (showingLibrary && !favs.includes(id)) return;
+
+                    const title = card.querySelector('.card-title').textContent.toLowerCase();
+                    const desc = card.querySelector('.card-desc').textContent.toLowerCase();
+
+                    if (title.includes(term) || desc.includes(term)) card.classList.remove('hidden');
+                    else card.classList.add('hidden');
+                });
+            });
+
+            updateAuthUI();
+        });
+    </script>
+</body>
+</html>
