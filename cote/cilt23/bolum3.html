@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt 23 - Bölüm 3 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #bb86fc;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Navigasyon ve Kontrol Barı */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-btn, .font-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .font-btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        .font-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        .novel-text ul {
+            margin-bottom: 1.4em;
+            padding-left: 2em;
+        }
+
+        .novel-text li {
+            margin-bottom: 0.5em;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <a href="bolum2.html" class="nav-btn">← Önceki Bölüm</a>
+            <div class="font-controls">
+                <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+            </div>
+            <a href="bolum4.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Cilt 23 - Bölüm 3</h1>
+            <div class="subtitle">Plotka Novel</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Kei ile okuldan birlikte dönerken Hashimoto’yla konuştuğum o zamanları birazcık anlamıştım.</p>
+            <p>Gelecek hafta yapılması planlanan Yıl Sonu Özel Sınavı yaklaşıyordu.</p>
+            <p>Kuralların ayrıntılarını henüz bilmiyorduk ancak sınıf puanlarındaki dalgalanmanın bariz bir şekilde büyük önem taşıdığını söyleyebilirdim.</p>
+            <p>Kazanan tarafın yüzü gülerken, kaybeden taraf da muhtemelen göz yaşlarına boğulacaktı. Bu açıdan bakıldığında sınavda bir kazan-kaybet durumu vardı, dolayısıyla kazananlar ve kaybedenler kim olursa olsun bu tepkiler gayet doğaldı.</p>
+            <p>Ancak, ilk planda yer almayan bir husus vardı. O da özel sınavın içeriği ne olursa olsun Sakayanagi ve Ryūen’in arasındaki, kaybedenin okuldan ayrılmasına sebep olan bahisti.</p>
+            <p>Kurallarda belirtildiği üzere beraberlik söz konusu olmayacak ve böylece net bir kazanan belirlenecekti. Bu durum, özel sınav sona erdiğinde ikisinden birinin okuldan ayrılacağı anlamına geliyordu.</p>
+            <p>Üçüncü sınıfa her dört sınıfın da A Sınıfı olma potansiyelini koruduğu bir senaryoyla başlama hedefimin esasen suya düştüğünü söyleyebilirdim.</p>
+            <p>Hangi sınıfın kazanıp hangisinin kaybettiğine bakılmaksızın duruma müdahale edebilmek adına gerekli hazırlıkları yapmıştım.</p>
+            <p>Sakayanagi ve Ryūen gibi yerleri kolay kolay doldurulamayacak isimler elenme tehlikesiyle karşı karşıya kaldıklarında onlara yardım eli uzatmayı planlamıştım, ki nitekim yaptığım da tam olarak buydu.</p>
+            <p>Dürüst olmak gerekirse daha en başından dört sınıfın da A Sınıfı’na ulaşma ihtimalini açık bırakmak pek de olası bir durum değildi.</p>
+            <p>Okuldaki rekabetin doğası göz önüne alındığında, öğrenciler muhtemelen başka bir sınıfla kıran kırana ve başa baş bir rekabet içine girmek istemeyeceklerdir.</p>
+            <p>Öğrencilerin yetenekli olduklarında ve her zaman ellerinden gelenin en iyisini yaptıklarında kazanmalarının asıl sebebi buydu.</p>
+            <p>Hem Horikita Manabu hem de Nagumo Miyabi, bu çabaların ötesine geçip öne çıkan tek bir baskın oyuncudan yararlanan bir sistem kurmuşlardı.</p>
+            <p>Aksi takdirde, A Sınıfı ve B Sınıfı gibi iki sınıf birbirleriyle birebir mücadeleye girmez miydi? Bu okulun tarihi, tam da bu senaryonun bir tekrarı olmalıydı.</p>
+            <p>İşte bu düşünceyle o mevcut düzeni yıkmak adına sınıflar arasında dörtlü bir rekabet ortamı yaratmaya karar vermiştim. Bu kesinlikle öngördüğüm gelecek senaryolarından biriydi ancak…</p>
+            <p>Yaklaşan müsabaka için yaptıkları bahsin uygulamaya konulmadan önce iptal edilmesi mümkün olsa da üçüncü bir tarafın iki kişinin üzerinde anlaştığı bir konuya müdahale etmemesi gerekirdi.</p>
+            <p>Peki taraflardan birinin yakın gelecekte gideceği çoktan kararlaştırılmışsa ne yapmalıydım?</p>
+            <p>Hem Ryūen’in hem de Sakayanagi’nin sınıfları yetenekli ve becerikli bireylere sahipti, dolayısıyla da bir araya gelince sağlam bir sınıf oluşturuyorlardı. Ancak yine de mevcut liderlerinin yerini alacak kapasitede değillerdi.</p>
+            <p>Denge kesinlikle bozulurdu.</p>
+            <p>Eğer o dördünü dengede tutmak imkânsız hale gelseydi, izlenecek en iyi yol ne olurdu?</p>
+            <p>Şu ana kadar beklettiğim kararlar da dahil olmak üzere, Yıl Sonu Özel Sınavının sonuçlarıyla beraber karara varmam mı gerekiyordu?</p>
+            <p>“Hey, Kiyotaka…”</p>
+            <p>Kelimeleri sanki etrafa saçılan damlalarmışçasına Kei, benimle yürürken kısık bir ses tonuyla mırıldandı.</p>
+            <p>“Ne oldu?”</p>
+            <p>Benimle konuşan o olmasına rağmen bu kısa soruyla karşılık verdiğimde şaşkın bir ifadeyle bana baktı.</p>
+            <p>“Şey, yani biliyorsun. Film… Dört gözle bekliyorum.”</p>
+            <p>“Evet, doğru.”</p>
+            <p>Ona cevap vermeme rağmen, Kei epey mesafeli görünüyordu.</p>
+            <p>“Başka bir şey hakkında düşünüyorsun, değil mi?”</p>
+            <p>“Üzgünüm. Dikkatim mi dağınık acaba? Özel sınavı düşünüyordum da.”</p>
+            <p>Belirli bir yüz ifadesi takındığımın ya da bir mimik yaptığımın farkında değildim ama Kei’nin sezgisel olarak bir şeyleri fark etmiş olabileceğini düşündüm.</p>
+            <p>Kei’nin kişisel bir yeteneğinden ziyade, sevgili olarak geçirdiğimiz zaman sayesinde edindiği bir his olduğunu söylemek daha doğruydu.</p>
+            <p>“Sanırım birlikte yurtlara dönerken düşünmem gereken bir şey değil bu. Kızdın mı?”</p>
+            <p>“Yok öyle değil sadece… acaba bu sefer sınıfa yardım edecek misin?”</p>
+            <p>“Emin değilim. Şu anda düşünmem gereken çok şey var. Ancak, eğer herhangi bir konu hakkında konuşmak istersen Kei, seni can kulağı ile dinliyorum.”</p>
+            <p>Bana sanki asıl niyetini gizliyormuş gibi geldi, bu yüzden dikkatimi Kei’nin son durumuna çevirdim.</p>
+            <p>Ancak Kei bu konuda konuşmaktan geri adım atıyor gibi görünüyordu.</p>
+            <p>“Hayır, hayır, benim için endişelenme. Sonuçta final sınavı süper önemli bir sınav. Ama eminim ki sen ciddiye alırsan sınıfımız kesinlikle kazanacaktır Kiyotaka. Ve 250 Sınıf puanı kazanırsak belki de A Sınıfına yükselebiliriz, değil mi?”</p>
+            <p>Yüzüne bir gülümseme yerleştirdi. Bu tavrıyla aslında bana “Yani, seni rahatsız etmek istemiyorum.” diyordu.</p>
+            <p>Elbette, onun bu takdire şayan düşünceli tavrının sadece göstermelik olduğu gün gibi ortadaydı, yine de bundan yararlanmakta tereddüt etmemeye karar verdim.</p>
+            <p>“O halde, bu hafta sonu yapacağımız buluşmayı iptal edebilir miyiz? Elbette haftaya bunu telafi edeceğim.”</p>
+            <p>“Şey, tamam, sorun yok, sanırım. Ama gerçekten iptal etmemize gerek var mı? Kendi açımdan, bu hafta ve sonraki haftayı seninle geçirmeyi tercih ederim.”</p>
+            <p>“Mümkünse final sınavından önce her bir sınıf lideriyle buluşup konuşmak istiyorum.”</p>
+            <p>Aslında dört sınıf liderinin dışında konuşmak istediğim birkaç kişi daha vardı ama bu kısımdan bahsetmenin gerekli olmadığına karar verdim.</p>
+            <p>“Her bir sınıf lideriyle… Bekle, demek istediğin tek görüşeceğin kişi Horikita-san değil mi?”</p>
+            <p>Normalde insan yalnızca kendi sınıfının kazanmasını sağlamaya odaklanırdı bu yüzden Kei’nin sadece Horikita ile görüşmemin yeterli olacağını düşünmesi gayet doğaldı.</p>
+            <p>“Dördüyle de görüşeceğim. Ichinose ile buluşmam fikri hoşuna gitmedi mi?”</p>
+            <p>“Şey…”</p>
+            <p>Tam on ikiden vurmuştum ki o da şaşkınlıkla ve refleks olarak irkilerek tepki verdi.</p>
+            <p>“Hayır, hayır öyle değil. Şey, yani öyle öyle değil, sanırım. Elbette ki hoşuma gitmedi, bariz bir şekilde… Ama bu senin için gerekli, değil mi Kiyotaka?”</p>
+            <p>“Bu seferki durum gerçekten önemli.”</p>
+            <p>Ona başımı sallayıp söylediklerini onayladığımda, her ne kadar gönülsüzce olsa da o da başını sallayarak karşılık verdi.</p>
+            <p>“Sanırım saklaman gereken bir şey ya da suçluluk duyacağın bir durum olsaydı, onunla iletişime geçip kimseye belli etmeden buluşabilirdin. Bunu dilediğin kadar yapabilirdin. Ama yine de benden izin istemeye özen gösterdin, yani…”</p>
+            <p>Benimle konuşurken sanki kendini ikna etmeye çalışıyor gibiydi. Sonunda benden teyit istedi.</p>
+            <p>“Sana inanabilirim, değil mi?”</p>
+            <p>“Bu sefer her bir sınıf lideriyle buluşmamın sebebi, gelecekte neler yaşanacağını görmek istemem. Ne daha fazlası ne daha azı.”</p>
+            <p>Buradaki asıl niyetimi Kei’ye açıklasam bile onun her şeyin açıklığa kavuştuğunu hissetmesinin hiçbir yolu yoktu.</p>
+            <p>Kei’nin son zamanlardaki davranışlarına dönüp baktığımda bir şeylerin eskisine kıyasla bariz bir şekilde değişmeye başladığı görülüyordu. Elbette buna sebep olanın da ben olduğum gayet açıktı.</p>
+            <p>Romantik bir ilişki, temelinde hem partnerine güvenmeyi hem de partnerinin sana güvenmesini gerektiriyordu.</p>
+            <p>Ancak ilişkide çatlaklar belirmeye başlamıştı.</p>
+            <p>Böyle bir durumun yaşanmasına yol açan etkenler çeşitlilik gösteriyordu: para, şiddet, sadakatsizlik ve hatta ilişkinin tekdüzeliğe saplanıp kalması.</p>
+            <p>Bir ilişkinin başarısızlıkla sonuçlanmasının sayısız nedeni olabilirdi.</p>
+            <p>Her şeye rağmen partnerinizi öylece sorguya çekemezdiniz.</p>
+            <p>Beni artık sevmiyor musun?</p>
+            <p>Başka birisine mi âşık oldun?</p>
+            <p>Benden sıkıldın mı?</p>
+            <p>Aklınızda bir şey olsa bile bunu partnerinize söylemek cesaret isterdi.</p>
+            <p>Ve endişelerinizi yüksek sesle dile getirseniz bile sorunun çözüleceğinin bir garantisi yoktu.</p>
+            <p>“Pekâlâ, o zaman bu konu hakkında daha fazla bir şey söylemeyeceğim. Ve bunun hakkında detaylı bir rapora da ihtiyacım yok.”</p>
+            <p>Bu sözleri, onlarla görüştüğümde neler konuştuğumuz hakkında beni sorgulamak istemediğini ifade etme biçimi gibi görünüyordu.</p>
+            <p>“Teşekkür ederim. Bunu takdir ediyorum.”</p>
+            <p>Artık Yıl Sonu Özel Sınavıyla rahatça ilgilenebilirdim.</p>
+            <p>“Yani, hey, bugün… sende kalabilir miyim?”</p>
+            <p>Bu tür şeyleri kelimelere dökmekte zorlanan Kei için yapabileceğim tek şey, olabildiğince uzun süre onunla kalmaktı.</p>
+            <p>Birlikte geçirdiğimiz zaman içinde yapabileceği her şeyi yapmak ve bir şekilde beni partneri olarak tutmak, beni kendine bağlamak istediğini fark ettim.</p>
+            <p>O an da isteğini reddetmek için hiçbir özel sebebim yoktu.</p>
+            <p>Ortada bir kalp kırıklığı olmadığı sürece, benim açımdan herhangi bir dezavantaj doğmazdı.</p>
+            <p>Yine de onun isteğini geri çevirmeye karar verdim.</p>
+            <p>“Hayır, bunu bu hafta yapmayalım. Okul yılının sonu için bir strateji geliştirmekle fazlasıyla meşgul olacağım.”</p>
+            <p>Umudun varlığını sürdürebileceğine dair bir beklenti yaratmak yerine, umutları kökten kesip atacak hazırlık aşamalarına giriyordum. Çünkü o bağ ne kadar ince ya da kırılgan olursa olsun, Kei her şeyi göze alıp ona uzanmaya ve tutunmaya çalışırdı.</p>
+            <p>“Hiç mi?… azıcık bile olsa…”</p>
+            <p>“Azıcık bile olmaz, hayır. Çünkü seninle bir şeyleri sadece yarım yamalak yapsaydım kendimi kötü hissederdim.”</p>
+            <p>Sanki gerçekten bana sıkıca tutunmaya ve beni bırakmamaya çalışıyormuş gibi, Kei pes etmeden konuşmaya devam etti.</p>
+            <p>“Pekâlâ, buna razıyım. Bu sana hizmet etmek anlamına gelse bile, Kiyotaka… B-Beni daha çok sevmeni sağlamak için çok çabalayacağım!”</p>
+            <p>Sanki ona sempati gösteriyormuşum gibi sözlerine karşılık olarak Kei’ye şöyle bir baktığımda, hafifçe dudağını ısırıp gözlerini kapattı.</p>
+            <p>“Üzgünüm… Sonuçta sen hayır demiştin ve bense böyle davranıyorum. Final özel sınavı gibi böylesine önemli bir dönemde bencilce davrandığım için üzgünüm.”</p>
+            <p>“Sorun değil. Sınav bittikten sonra beraber sinemaya gidelim.”</p>
+            <p>Sınavdan sonra buluşmayı önerdim.</p>
+            <p>Kei başını salladı ve sessizce “Tamam.” dedi.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum2.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="bolum4.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Font Ayarlama JS -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+    </script>
+</body>
+</html>

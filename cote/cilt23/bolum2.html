@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt 23 - Bölüm 2 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #bb86fc;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Navigasyon ve Kontrol Barı */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-btn, .font-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .font-btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        .font-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        .novel-text ul {
+            margin-bottom: 1.4em;
+            padding-left: 2em;
+        }
+
+        .novel-text li {
+            margin-bottom: 0.5em;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <a href="bolum1.html" class="nav-btn">← Önceki Bölüm</a>
+            <div class="font-controls">
+                <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+            </div>
+            <a href="bolum3.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Cilt 23 - Bölüm 2</h1>
+            <div class="subtitle">Plotka Novel</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Mart ayının ikinci haftası. Perşembe günü.</p>
+            <p>Okuldaki hayatımızın ikinci yılı nihayet doruk noktasına ulaşmıştı.</p>
+            <p>Geride bıraktığımız bu yıl en az ilki kadar yoğun ve unutulmazdı. Pek çok öğrenci için iyi ve kötü bir çok anının yaşandığını varsayıyordum ancak bizler için yılı nasıl geçirdiğimizi belirleyecek olan şey, önümüzdeki sınavı sağ salim geçip geçemeyeceğimizdi. Bunun sebebi Yıl Sonu Özel Sınavının diğer sınavlara göre ayrı bir konumda olmasıydı.</p>
+            <p>Size geçen sene biz birinci sınıftayken yapılan o özel sınavı hatırlatayım. Bu bire bir sınıf mücadelesi şeklinde yapılan “Etkinlik Seçim Sınavı”ydı. Kurallar gereği yedi turda kazanılan her bir etkinlik için rakibinizden 30 Sınıf Puanı alabiliyordunuz. Sonuçlar her ne kadar başa baş gitse de üst üste yedi galibiyet toplamda 210 Sınıf Puanı kazandırabiliyordu. Buna ek olarak, kazanan sınıf 100 Sınıf Puanı ile ödüllendiriliyordu. Bu da kazanan ve kaybeden arasında 520 puanlık bir farkın oluşabileceği anlamına geliyordu. Sadece bu durum bile, size yıl sonunda yapılan özel sınavların ne kadar önemli olduğu hakkında bilgi verecektir.</p>
+            <p>“Günaydın.”</p>
+            <p>Chabashira-sensei sakin ve soğukkanlı bir tavırla sınıfa girdi. Sınıftaki öğrenciler onun selamına karşılık verdi.</p>
+            <p>Son birkaç gündür öğrenciler Chabashira-sensei’nin sabah selamlamasının ardından neler söyleyeceklerine odaklanmışlardı. Bir dizi sıradan gelişmenin ardından, nihayet bir şeylerin harekete geçeceği gün gelip çatmış gibi görünüyordu.</p>
+            <p>“Size Yıl Sonu Özel Sınavı’nın içeriği hakkında bilgi vereceğim. Ama ondan önce sizinle kısa bir süreliğine kişisel bir konu hakkında konuşmak istiyorum.”</p>
+            <p>Sınıf öğretmenimiz Chabashira-sensei’den şu ana kadar özel sınavlarla ilgili pek çok şey duymuştuk. Ancak bu kez söze başlayış şekli diğerlerinden farklıydı.</p>
+            <p>“Bu yıl, İleri Düzey Eğitim Lisesi’ndeki öğretmenlik görevimin sekizinci yılı. Geçmişte iki sınıfın sorumluluğunu üstlendim. Bu sekiz yılın altısında sınıf öğretmenliği yaptım ancak bu altı yılda sınıfım bir kez bile D sınıfından yukarı çıkamadı. Bu okula geldiğim zamanki söylemlerime ve eylemlerime bakıyorum da, bu pek de şaşırtıcı değil sanırım.”</p>
+            <p>Şu an bunu hayal etmek biraz zor olsa da okula ilk geldiğimde Chabashira-sensei olaylara soğuk ve kayıtsız bir tavırla yaklaşıyordu. Onun hakkında diğer öğrencilere kıyasla daha fazla şey bildiğimden, benim açımdan üzerine çok da kafa yorulacak bir hikâye değildi.</p>
+            <p>“Daha önceki iki sınıfımın sorumluluğunu üstlendiğimde aklımda tek bir şey vardı: Gereksiz duyguların işin içine girmesine izin vermeden, adil ve sakin bir duruşla onları gözetmeye devam etmek. İyi ve kötü anlar fark etmeksizin bir öğretmen olarak öğrencilerimle arama mesafe koymanın en iyisi olduğuna inanıyordum. Elbette bu perspektif okulun eğitim ideolojisiyle örtüşüyordu o yüzden bunda bir sorun yoktu. Ancak şimdi, bunun aynı zamanda öğretmenlikteki deneyimsizliğimden kaçmanın bir yolu olduğunu da hissediyorum.”</p>
+            <p>Öğrenciler sessiz bir şekilde can kulağıyla onu dinliyordu.</p>
+            <p>“Adalet önemlidir. Bir öğretmen sınıf içi bir rekabete müdahale edip sonucu etkilememelidir. Ancak bir öğretmen, bir yetişkin ve toplumun bir bireyi olarak; öğrencilerin gelişim fırsatlarını ellerinden almak da doğru değildir. Bunu ancak yakın zamanda fark edebildim.”</p>
+            <p>Geçmişteki davranışlarını gözden geçirirken bunları içsel bir sorgulamayla dile getirdi.</p>
+            <p>“Bunu bana fark ettiren, bu sınıftaki siz öğrencilersiniz. Bu okula ilk geldiğinizde D sınıfı öğrencilerinin bir üst sınıfa çıkamamasının doğal bir şey olduğunu duymuş olabilirsiniz. Çok geçmeden bu durum insanlar arasında alay konusu haline geldi ve zamanla D sınıfı öğrencilerinin ‘kusurlu ürün’ olarak anıldığı vakalar görülmeye başlandı.”</p>
+            <p>Kısa bir aradan sonra konuşmaya devam etti.</p>
+            <p>“Ama artık kusurlu olarak nitelendirilebilecek tek bir öğrenci bile kalmadı. Bu sınıf sayesinde geçmişte oluşmuş bu imajı sildiğinizi söyleyebiliriz.”</p>
+            <p>Öğrencileri överek bu cümleleri söyledi.</p>
+            <p>Chabashira-sensei tableti kullanarak monitörü açtı.</p>
+            <p>Ekranda 1 Mart itibariyle dört sınıfın sıralaması ve puan durumu görünüyordu:</p>
+            <p><strong>2-A Sınıfı:</strong> 1098 Puan<br>
+            <strong>2-B Sınıfı:</strong> 983 Puan<br>
+            <strong>2-C Sınıfı:</strong> 730 Puan<br>
+            <strong>2-D Sınıfı:</strong> 654 Puan</p>
+            <p>Ekranda gösterilenlere ek olarak belirtmek gerekirse A Sınıfı Sakayanagi’nin, B Sınıfı Horikita’nın, C Sınıfı Ryūen’in ve D Sınıfı Ichinose’nin liderliğindeki sınıflardı.</p>
+            <p>Özel sınavların yapıldığı dönemlerde sınıf puanları büyük dalgalanmalar gösterse de kayda değer bir olayın yaşanmadığı sıradan aylarda puanlarda yalnızca ufak değişiklikler oluyordu.</p>
+            <p>Bu okula ilk geldiğimizde geç kalma, devamsızlık ya da göremediğimiz başka etkenlerden dolayı sınıf puanımızda kesintiler yapılıyordu ancak artık hiçbir öğrenci bu tür sebeplerden dolayı puan kaybı beklemiyordu.</p>
+            <p>Sınıf sıralamaları tablosuna bir kez daha bakıldığında, bu sınıfın nasıl bir yükseliş içinde olduğunu görmek kolaydı. Ayrıca böyle hissedenler sadece öğrenciler değildi.</p>
+            <p>“983 Sınıf puanımız var.” diye duyurdu Chabashira-sensei.</p>
+            <p>“Bu sayıyı kaç kez gördüğümün bir önemi yok, bu inanılmaz bir puan sayısı. Okula başladıktan yalnızca bir ay sonra tüm sınıf puanlarını kaybetmiş sınıfın bu sınıf olduğunu hayal bile edemiyorum.”</p>
+            <p>Öğretmenimiz de sınıf sıralamalarına bakarken hayretler içerisindeydi ancak önceki iki yılı hatırladığı anda duraksadı.</p>
+            <p>“Ama daha da önemlisi, siz artık 2-B sınıfısınız. B Sınıfı… Kaç kez böyle söylersem söyleyeyim, bu konumda olmanın hissettirdiği tuhaflığı üstümden atamıyorum. B sınıfı asıl hedefiniz değil. Yıl Sonu Özel Sınavının sonuçlarına bağlı olarak bu sınıfın sene sonunda A sınıfına yükselme ihtimali var.”</p>
+            <p>Şu anda A sınıfıyla aramızda yaklaşık yüz puan fark vardı. Chabashira-sensei’nin hayalini kurduğu; hayır, hayalini kurmasına bile izin verilmediği A sınıfına giden yol, artık ulaşılabilirdi.</p>
+            <p>“Ancak kibirlenmenizi istemem. Şu anda hedefe giden yola yaklaştığınıza göre, gevşemeden hedefinize doğru ilerlemeye devam etmenizi istiyorum. Bu, yetersiz öğretmeninizin bir ricası.”</p>
+            <p>Sözlerinin ardından Chabashira-sensei öğrencilerin önünde hafifçe eğildi.</p>
+            <p>Ardından yavaşça başını kaldırdı, derin bir nefes aldı ve gözlerini sonuna kadar açtı.</p>
+            <p>“Şimdi size Yıl Sonu Özel Sınavı hakkında kısa bir özet vereceğim.”</p>
+            <p>Chabashira-sensei’nin bu sözleri öğrencilere güç ve kararlılık hissi vermiş gibiydi. Kimse paniğe kapılmamış aksine onun sözlerini benimsemişlerdi.</p>
+            <p>Öğretmenin tabletini kullanmasıyla monitörde özel sınavın içeriği belirdi.</p>
+            
+            <p><strong>Yıl Sonu Özel Sınavı</strong><br>
+            Sınav yeri: Özel Bina<br>
+            Sınıf Eşleşmeleri:<br>
+            2-A Sınıfı vs 2-C Sınıfı<br>
+            2-B Sınıfı vs 2-D Sınıfı</p>
+            
+            <p><strong>Ön Hazırlıklar:</strong><br>
+            Sınav sabahından önce bir öncü, bir merkez ve bir general olmak üzere üç temsilci seçin. (En az bir erkek ve bir kız öğrenci temsilci olarak seçilmelidir.)<br>
+            Sınav günü bir temsilcinin bulunamaması ihtimaline karşı gönüllü yedek temsilciler belirlenebilir.<br>
+            Sınav günü yedekler de dahil olmak üzere belirlenen temsilci sayısının üçten az olması durumunda, okul yönetimi rastgele seçim yaparak temsilcileri belirleyecektir.</p>
+            
+            <p><strong>Sınav Kuralları - Temsilci Genel Bakışı</strong><br>
+            Her sınıftan (öncü > merkez > general) temsilcilerin yer aldığı turnuva tarzı bir sistem uygulanacaktır.<br>
+            Öncülere beş, merkezlere yedi ve generallere on Yaşam Puanı verilir.<br>
+            Generali tüm Yaşam Puanlarını ilk kaybeden sınıf mağlup sayılır.<br>
+            Sınav belirlenmiş kurallar çerçevesinde bire bir mücadele şeklinde gerçekleştirilecektir.<br>
+            Beraberlik olmayacak ve bir sonuca ulaşılana kadar sınav gerektiği ölçüde uzatılacaktır.</p>
+
+            <p>Daha önceden bildiğimiz sınıf eşleşmeleri, ön hazırlıklar başlıklı bir bölüm ve son derece basit kurallar ekranda gösteriliyordu. Ancak şu aşamada yarışmanın tam olarak neleri kapsayacağı henüz belli değildi.</p>
+            <p>“Yıl Sonu Özel Sınavına hazırlık aşamasında vermeniz gereken bazı önemli kararlar var. Eminim sadece monitördeki bilgilere bakarak bile anlamışsınızdır ancak ne olur ne olmaz diye sözlü bir şekilde de açıklayacağım. Ardından, üç temsilcinizi belirlemek üzere bir sınıf tartışması yapmanız gerekecek. Bu kişiler özel sınavı kimin kazanacağını belirlemede son derece hayati bir role sahip olacaklar bu yüzden konuyu etraflıca tartışmanızı ve hiçbirinizin pişman olmayacağı bir karar vermenizi istiyorum.”</p>
+            <p>Bu, üç temsilcisi de mağlup olan bir sınıfın kaybedeceği anlamına mı geliyordu? Ne olduğu fark etmeksizin sınavın içeriğinin önemli olduğu gayet açıktı.</p>
+            <p>Temelde istediğimiz kişiyi seçebiliriz gibi görünüyordu ancak tek kısıtlamanın cinsiyet olması nedeniyle, üç erkek ya da üç kızdan oluşan bir temsilci grubu oluşturmanın mümkün olmadığını da akılda tutmamız gerekiyordu.</p>
+            <p>Ayrıca, bir temsilcinin katılamaması gibi düşük bir ihtimale karşı yedek temsilci de ayarlayabiliyorduk. Bu durumda tedbiri elden bırakmamak adına birkaç aday bulundurmakta muhtemelen bir sakınca olmazdı.</p>
+            <p>“Temsilcilerin hangi sırayla dövüşeceği de üstlendikleri rollere göre belirleniyor: öncü, merkez ve general. Temsilciler tek maçlı eleme usulü bir turnuva formatında birbirleriyle karşılaşacaklar. Diğer bir deyişle, önce öncüler birbirleriyle mücadele edecek, kazanan öncü kalan Yaşam Puan değeriyle yoluna devam edecek ve tüm puanlarını kaybedene kadar rakip sınıfın merkez ve general oyuncularıyla dövüşmeyi sürdürebilecek. Bu çok uç bir örnek olsa da eğer tek bir öncü, general de dahil olmak üzere diğer üç temsilcinin tamamını yenebilirse, o öncünün ait olduğu sınıf galip gelecektir. Eğer yetenekli olduğunu düşündüğünüz bir öğrenciyi öncü olarak seçerseniz böyle bir olayın yaşanması mümkün ancak… mümkün olsa bile tavsiye etmem.”</p>
+            <p>Chabashira-sensei’in bahsettiği senaryo aşırı duygusal bir kahramanlık hikayesini andırsa da gerçekçi bir bakış açısıyla bakarsak, bunu hayata geçirmek zor olurdu.</p>
+            <p>Generale, öncü ve merkez birliklerine kıyasla tam on adet Yaşam Puanı verildiğini göz önüne alırsak, daha yetenekli öğrencileri dizilimin arka kısmında konumlandırmanın daha mantıklı bir fikir olduğu herkes için makul olandı.</p>
+            <p>Sakayanagi, Ryūen veya Ichinose gibi liderleri sürpriz bir saldırı başlatmak üzere öncü birlik olarak en öne yerleştirmenin, onları arka saflarda konumlandırmanın sağladığı kesin avantajlardan daha ağır basması pek olası değildi. Elbette bu sınav, öncü birliklerin avantajda olduğu bir sınav olsaydı bu düşünülebilirdi ancak sınav kuralları hakkında elimizdeki mevcut bilgilerle bunu öngörmemiz mümkün değildi. Üstelik Chabashira-sensei’nin tavrına bakılırsa böyle bir durumun gerçekleşme ihtimalinin son derece düşük olduğunu varsayıp bunu göz ardı etmek en doğrusu gibi görünüyordu.</p>
+            <p>“Temsilcilerinize karar vermek için çok vaktiniz kalmadı. Pazar gününün sonuna kadar süreniz var. Eğer zamanında karar veremezseniz okul sizin yerinize bu üç öğrenciyi rastgele bir şekilde seçecek.”</p>
+            <p>Süre aşımı sonucu okulun bizim yerimize rastgele seçim yapması standart prosedürdü. Doğal olarak da sınıfların hiçbiri süre sınırını aşmayacaktı.</p>
+            <p>“Yani demek istediğiniz… bu sınavda kimin kazanıp kimin kaybedeceğine sadece bu üç temsilci mi karar verecek?”</p>
+            <p>Şu ana kadar duyduklarımız göz önüne alındığında, böyle düşünmek şaşırtıcı değildi. Yōsuke’nin bu konuda endişeli olduğu açıktı.</p>
+            <p>“Evet, bu ön hazırlıklara ve sınav kurallarına bakılırsa durumun kesinlikle böyle yorumlanacağını sanıyorum. Elbette üç temsilci dışındaki öğrencilere de önemli roller verilecek. Temsilciler haricindeki diğer tüm öğrencilerin kendilerine verilen rolleri uygun şekilde yerine getirmesi beklenecek.”</p>
+            <p>“Ö-Önemli roller mi?”</p>
+            <p>Chabashira-sensei tabletine dokunarak monitördeki görüntüyü değiştirdi.</p>
+            
+            <p><strong>Sınav Kuralları - Katılımcı Genel Bakışı</strong><br>
+            Temsilcilerin dışındaki öğrenciler sınavda katılımcı olarak yer alacaklar.<br>
+            Katılımcıların sayısının hastalık veya diğer nedenlerle otuz beşin altına düşmesi durumunda ceza uygulanacak.<br>
+            Ceza: Kişi başına Beş Sınıf Puanı ödenecektir.<br>
+            Otuz altı ya da daha fazla katılımcısı olan sınıflarda, otuz beşin üstündeki her bir kişi için Beş Sınıf Puanı kazanılacaktır.</p>
+
+            <p>“Temsilci olmayan herkesin, özel sınavdaki katılımcılar olarak üzerlerine düşen rolü yerine getirmesi gerekiyor. Genel bilgilendirmenin cezalarla ilgili kısmına gelirsek, bu sınıfta otuz sekiz kişi var. Üç temsilciyi çıkardığımızda otuz beş kişi kalıyor. Diğer bir deyişle, sebep ne olursa olsun bir kişi bile sınava katılmazsa ceza ile karşı karşıya kalacaksınız. Buna karşılık, fazladan kişiye sahip bir sınıf beklenmedik durumların üstesinden gelebilir veya bir ölçüde avantaj sağlayabilir.”</p>
+            <p>Horikita’nın sınıfında otuz sekiz, Sakayanagi’nin sınıfında ise otuz yedi kişi vardı, bu da demek oluyor ki bu sınıflarda ekstra katılımcı olmayacaktı. Diğer yandan Ryūen ve Ichinose’nin sınıflarında ise kırk kişi vardı ki bu da on puan demekti. Ne kadar cömert davranırsanız davranın, bu büyük bir puan artışı değildi ancak mesele puanın miktarından ziyade puan kazanmak olduğunda, bu fark inanılmaz derecede önemli oluyordu.</p>
+            <p>Rekabet ortamı ne olursa olsun, o puanların verilmesi memnuniyet verici bir gelişmeydi. İçinde bulunduğumuz koşullar göz önüne alındığında bu durumun adaletsiz olduğundan yakınamazdık.</p>
+            <p>Ichinose’nin sınıfı şu ana kadar tek bir kişi bile kaybetmeden iki yıl boyunca mücadele etmişti. Aslında sınavın bu yönünü sınıftaki herkesi korumanın bir ödülü olarak düşünürseniz, ek on sınıf puanı yetersiz bir ödüldü.</p>
+            <p>Ryūen’in sınıfı, Manabe’yi kaybettikten sonra Katsuragi’yi getirmek için çok fazla para harcamıştı. Onların bakış açısıyla bakarsanız, bu onlar için de yeterli bir kazanç sayılmazdı.</p>
+            <p>Her neyse, katılımcı rolünün içeriği temsilcilerinkinden bile daha belirsizdi. Kesin olan tek şey, temsilcilerin ve katılımcıların rolünün birbirinden tamamen farklı olduğuydu.</p>
+            <p>Tam bize daha fazla ayrıntı gösterileceğini düşünmüştüm ki, ekran aniden karardı.</p>
+            <p>Herkes ekran kararmasını bir ekipman arızası ya da kullanıcı hatası olduğunu sanıyordu ama görünüşe göre durum öyle değildi.</p>
+            <p>“Şu an için size söylebileceklerim bunlardan ibaret.”</p>
+            <p>Şu ana kadar sessizce dinleyen Horikita, Chabashira-sensei’nin bu tuhaf sözleri üzerine araya girdi.</p>
+            <p>“Ne demek istiyorsunuz? Açıkçası özel sınavın neleri kapsayacağına dair hâlâ hiçbir şey bilmiyoruz.”</p>
+            <p>“Evet anlıyorum. Ancak az önce de dediğim gibi. Şu ana kadar anlattıklarımdan daha fazlasını anlatamam. Size karşı acımasız davranıp bilgi saklamaya çalışmıyorum. Okul bana da henüz bir açıklama yapmadı. Daha fazla bilgi sınav günü açıklanacak.”</p>
+            <p>Şaşırtıcı olmayan bir şekilde, Chabashira-sensei’nin bu sarsıcı açıklamalarının ardından sınıftaki hava bir anda değişti.</p>
+            <p>Sınıf öğretmenimize bile bir açıklama yapılmamış olması alışılmadık bir durumdu.</p>
+            <p>Burada geçirdiğimiz iki yıl boyunca daha önce hiç duymadığımız türden bir duyuruydu.</p>
+            <p>“İlk göreviniz üç temsilci seçmek. Temsilci olmanın tek başına bir avantajı olmadığı gibi dezavantajı da yok. Daha basit bir ifadeyle, bu rolü üstlenerek çok sayıda Kişisel Puan kazanmayacaksınız, öte yandan olur da temsilci olarak seçilip sınavda kaybederseniz okuldan atılma riski ile de karşılaşmayacaksınız.”</p>
+            <p>Ortada kesin olarak bilinen tek şey, bunun önemli bir pozisyon olduğuydu.</p>
+            <p>“Kuralları sizin de bilmediğinizi anlıyorum, sensei. Ancak şu anda temsilcilerimizi belirlememizi sağlayacak herhangi bir kriterimiz yok. Seçimlerimizi neye dayanarak yapmalıyız?” diye sordu Yōsuke.</p>
+            <p>“Keşke size söyleyebilseydim ama ne yazık ki tıpkı kurallarda olduğu gibi, bu konuda da hiçbir şey bilmiyorum.”</p>
+            <p>Sanki kendisine seçim kriterleri hakkında bile bilgi verilmemiş gibi, elindeki kısıtlı tahminleri bizimle paylaşırken yüzünde sıkıntılı bir ifade vardı.</p>
+            <p>“Kesin bir şey söyleyemesem de öğrencilerin kız ya da erkek ayrımı olmaksızın birbirleriyle rekabet edeceği ve sınavın özel binada yapılacağı göz önüne alındığında, bunun fiziksel yeteneğe dayalı bir yarışma olması pek olası görünmüyor.”</p>
+            <p>Hiçbir garanti veremese de konum ve roller göz önüne alındığında tahmini muhtemelen doğruydu.</p>
+            <p>Bu durumda acaba tam tersi yönde ilerleyip temsilci olarak daha çalışkan tipleri seçip seçmememiz gerektiğini merak ettim ancak muhtemelen bunun cevabı ‘hayır’dı.</p>
+            <p>Varsayımsal olarak yarışma yalnızca akademik yeteneğe dayanıyorsa bizden bilgi saklanacağını hayal etmek zordu.</p>
+            <p>Akademik başarı ya da fiziksel aktiviteye dayalı olmayan, bire bir eşleşmeli bir maç.</p>
+            <p>İyi de o zaman, bu sınav ne hakkındaydı ki?</p>
+            <p>“…Diyalog yoluyla mücadele… böyle bir şey olma ihtimali var mı?”</p>
+            <p>Horikita sandalyesinden kalkarken, bu soruyu yüksek sesle yarı kendi kendine sordu.</p>
+            <p>“Evet bu gayet mümkün.”</p>
+            <p>Durumun kesinlikle böyle olduğunu söyleyemese de rekabetin bir münazara ya da benzeri bir formatta gerçekleşme ihtimalini de göz ardı edemezdi.</p>
+            <p>Eğer iyi iletişim becerileri gerekiyorsa Yōsuke ve Kushida gibi öğrenciler muhtemelen ilk tercihler olurdu.</p>
+            <p>Sınav içeriğinin diyalogla hiçbir ilgisi olmasa bile, bu iki öğrenci seçilirse sahip oldukları üstün genel yetenekler sayesinde görevin üstesinden rahatlıkla gelebilirlerdi.</p>
+            <p>Kısacası sınavın içeriği ne olursa olsun rekabet edebilecek öğrencilerin seçilmesi gereken bir durumdu bu.</p>
+            <p>“Gelelim ödüllerin olduğu kısma. Kazanan sınıf 200 Sınıf Puanı alacak. Kaybederseniz de hiçbir ödül alamayacaksınız. Ancak sonuçlar Oy Birliği Özel Sınavını da yansıtacağından eğer kazanırsanız sizin durumunuzda bu ödül 250 Sınıf Puanı olacak.” *(Çevirmen Notu: Sakura’nın elendiği sınavda sorulardan biri final sınavında seçilen sınıfın getirdiği puanların, final sınavında ödüllere eklenmesiydi. O zamanlar Ichinose’nin sınıfı B sınıfı olduğundan kazanırlarsa ekstradan 50 puan alacaklar.)*</p>
+            <p>Söylediklerinden anladığım ilk şey, mağlup olsalar bile kimsenin Sınıf Puanı kaybetmeyeceğiydi.</p>
+            <p>Puanlarının ellerinden alınması endişesini taşımamak bir teselli kaynağı olsa da aradaki farkın büyük olması durumunda bunun pek bir önemi kalmıyordu.</p>
+            <p>Kazanılacak ödüllerin bu denli büyük olduğu düşünüldüğünde, geride kalmaları halinde kaybeden tarafın göreceği zarar yine de kayda değer boyutta olacaktı.</p>
+            <p>Özellikle Ichinose’nin sınıfının kaybetmesi halinde bu durum onları köşeye sıkıştıracak ve sınav dışında bile gidecek hiçbir yerleri kalmayacaktı.</p>
+            <p>Eğer sınıfları Sınıf Puanı bakımından zirveden daha da uzaklaşacak olursa, gelecek yıl yapılacak tüm özel sınavlarda zafer kazansalar bile durumu ne ölçüde tersine çevirip toparlanabileceklerini öngörmek zor olacağından, onlar adına tablo oldukça karamsar bir hal alacaktı.</p>
+            <p>“Açıklamam bu kadar. Temsilcilerinize karar verdiğiniz anda gelip benimle konuşun.”</p>
+            <p>Chabashira-sensei’nin bu sözleriyle beraber, açıklama sona erdi.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum1.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="bolum3.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Font Ayarlama JS -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt 22 - Bölüm 11 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #bb86fc;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Navigasyon ve Kontrol Barı */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-btn, .font-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .font-btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        .font-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Çevirmen Notu Kutusu */
+        .tl-note {
+            background-color: #1a1a1a;
+            border-left: 4px solid var(--accent-color);
+            padding: 12px 15px;
+            margin: 20px 0;
+            font-size: 0.9em;
+            color: #aaa;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <a href="bolum10.html" class="nav-btn">← Önceki Bölüm</a>
+            <div class="font-controls">
+                <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+            </div>
+            <a href="bolum12.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Cilt 22 - Bölüm 11</h1>
+            <div class="subtitle">Plotka Novel</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Değişim kampının ilk gecesi.</p>
+            <p>Geçen yılki kamptan en büyük fark belki de buydu.</p>
+            <p>Öğrencilerin kaldığı odalar bu kez gruplanarak düzenlenmişti.</p>
+            <p>Yani birinci sınıf öğrencileriyle ikinci sınıf öğrencileri aynı odayı paylaşıyordu.</p>
+            <p>Bu saatler, kişiliklerine göre, hem birinci sınıflar hem de ikinci sınıflar için günün en gergin zamanı olabiliyordu.</p>
+            <p>İşte bu yüzden Hashimoto, ortamın yumuşaması için erkenden harekete geçip rahat bir atmosfer oluşturmaya çalışmıştı.</p>
+            <p>Görünen o ki bu yöntem işe yaramıştı; birinci sınıflar şimdiden onunla rahat rahat konuşabilecek seviyeye gelmişti.</p>
+            <p>Ama odada bulunan sekiz kişi arasında, diğerleriyle en az iletişim kuran hâlâ bendim.</p>
+            <p>“İlk gün bütün maçları kazanmak gerçekten etkileyiciydi, Hashimoto-senpai.”</p>
+            <p>“Kiminle eşleşeceğimizi bilmiyorduk, bu yüzden ne olacağını biz de pek tahmin edemedik açıkçası.”</p>
+            <p>Toyohashi ve Yanagi neşeli bir şekilde konuşuyorlardı.</p>
+            <p>Bugün üçüncü ve dördüncü turlarda masa tenisi oynamışlardı, bu da morallerini belli ki yükseltmişti.</p>
+            <p>Shintoku ve Obokata da başlarıyla onayladı ama ikisi de biraz çekingen duruyordu.</p>
+            <p>“Üzgünüz… Henüz hiçbir oyuna katılamadık biz…”</p>
+            <p>“Dert etmeyin. Bugün gördüğüm kadarıyla, öğrencilerin yarısı zaten hiç katılmadı. Açıkçası oyun kısmı işin eğlencesi. Katılmayanlar için amaç, deneyimlemek ve gözlemlemek zaten.”</p>
+            <p>Öğrencilerin oyunlara katıldıkça damga topladığı “deneyim kartı” sistemi ilk başta biraz şüpheyle karşılanmıştı, ama beklenenden daha çok işe yaramış gibi görünüyordu.</p>
+            <p>Arkadaşlar, üst sınıflar ve alt sınıflar arasında bağ kurmak için iyi bir fırsat sunuyordu.</p>
+            <p>Bugünkü beş oyunda da zafer peşinde koşan tek bir grup bile görmemiştim.</p>
+            <p>Belki de bu rahatlık, etkinliğin dostça havasını korumasını sağlıyordu.</p>
+            <p>Ama bu demek değildi ki zirveye oynamak kolaydı.</p>
+            <p>Bugünkü oyun sonuçlarına bakılırsa, asıl zorlu mücadele yarından itibaren başlayacaktı.</p>
+            <p>Bizim grubumuz da dahil olmak üzere, beş maçın tamamını kazanan dört grup vardı.</p>
+            <p>Dört galibiyetle gelen üç grup da vardı.</p>
+            <p>Ve beş maçın hepsini kaybeden dört grup.</p>
+            <p>Bu galibiyet-mağlubiyet dağılımı, grupların değişim kampına ne kadar farklı yaklaştığını açıkça gösteriyordu.</p>
+            <p>Bir ya da iki maç kazanmış olan gruplar arasında gerçekten ciddi şekilde oynayanlar da olabilir, ama ilk sıralara tırmanamadıkları sürece yarından itibaren nasıl devam edecekleri belirsizdi.</p>
+            <p>Görünüşe göre yarından itibaren grupların yarısı birincilik için mücadele edecekti.</p>
+            <p>“Nagumo-senpai’nin grubu da birincilik adaylarından biri, değil mi?”</p>
+            <p>Sınıf 2-C’den Takumi Oda, günün maçlarını düşünerek içinden geçenleri söyledi.</p>
+            <p>“Bence de. Onlar da beş maçın hepsini kazanmış gibi görünüyordu.”</p>
+            <p>O gruptaki öğrencilerin çoğu ciddi ve disiplinliydi—bu da en büyük avantajlarıydı.</p>
+            <p>Tembellik etmeyi aklından geçiren tek bir kişi bile yoktu.</p>
+            <p>Bu da doğrudan galibiyet oranlarına yansıyordu.</p>
+            <p>Görünen o ki çeşitli tecrübeler edinmişler, bu süreçten dersler çıkarmışlardı.</p>
+            <p>Bu bir akademik başarı yarışması olmadığı için, bu alanda onlarla eşit şartlarda rekabet edebiliyorduk.</p>
+            <p>Tabii çoğu öğrencinin bu tür oyunlarda deneyimsiz olması, bazı gruplar arasında fark yaratmıştı.</p>
+            <p>“Bu arada Hashimoto-senpai, bizim sınıfla ilgili olarak—”</p>
+            <p>Sohbet sadece değişim kampı etrafında dönmüyor, aynı zamanda kişisel ve gündelik konulara da kayıyordu.</p>
+            <p>Ben ise, odadaki yedi kişilik muhabbeti biraz dışarıdan izliyordum.</p>
+            <p>Daha birkaç saat önce tanışmış olmalarına rağmen, birinci sınıflar çoktan Hashimoto’ya hayranlık duymaya başlamış gibiydi ve konuşmalar da onun etrafında dönüyordu.</p>
+            <p>Kendine güveniyle öne çıkan birine yakışır şekilde davranıyordu.</p>
+            <p>İnsanlarla sanki uzun zamandır arkadaşmış gibi ilişki kurmayı başarmıştı.</p>
+            <p>Yōsuke ve çevresine kolayca uyum sağlayan diğerleri de benzer şekilde sosyaldi, ama Hashimoto’nun tarzı farklıydı.</p>
+            <p>Biraz şaşırtıcı olan, Oda’nın da ortama gayet iyi ayak uydurmuş olmasıydı…</p>
+            <p>“Bugün birçok açıdan gerçekten sürprizlerle doluydu.”</p>
+            <p>Hashimoto homurdandı, elinde okul tarafından duyurulan grup sonuçlarının yazılı olduğu not kâğıdıyla.</p>
+            <p>“Ryūen’in grubu iki kez kaybetmiş, Sakayanagi’ninki ise üç kez. Muhtemelen yarın yarıştan tamamen kopabilirler.”</p>
+            <p>Bugün bu iki grupla maçımız olmamıştı, bu yüzden ayrıntıları bilmiyorduk.</p>
+            <p>Eğer Hashimoto birinci sınıf öğrencilerini organize etmekle ilgilenmeseydi, muhtemelen daha fazla bilgi toplayabilirdi. Ama belli ki bu kadarına bile vakit bulamamıştı.</p>
+            <p>“Garip. Sakayanagi-senpai hep güçlü biriymiş gibi gelirdi bana. Acaba üçüncü sınıf birinin komutasında olmak mı buna yol açtı?”</p>
+            <p>OAA kayıtlarına göre, üçüncü sınıf D Sınıfı öğrencisi Iki’nin notları genel olarak düşüktü.</p>
+            <p>Özellikle akademik başarısı zayıftı.</p>
+            <p>Notu D+ seviyesindeydi, bu da oldukça yetersiz sayılırdı.</p>
+            <p>Bu da onun üniversiteye hazırlanan çekirdek grupta yer alma olasılığını düşürüyordu.</p>
+            <p>“Eğer Sakayanagi kazanmak isteseydi, liderliği kendine alması normal olurdu. Üçüncü sınıf falan fark etmez. Nagumo-senpai ya da Kiryūin-senpai gibi rakipleri bile olsa geri adım atmazdı. Iki-senpai söz konusuysa, hele hiç durmaz, hemen kontrolü ele geçirirdi… Hayır, ondan da önce, Sakayanagi zaten işi becerebilecek kişilere bırakma eğilimindedir.”</p>
+            <p>Görünüşe göre Hashimoto, Iki’nin nasıl biri olduğu hakkında az çok fikir sahibiydi.</p>
+            <p>“Yani mesele tamamen yetersizlik mi?”</p>
+            <p>Şimdiye kadar sessiz kalan Kosumi bunu mırıldandı ama Toyohashi hemen itiraz etti:</p>
+            <p>“En azından birinci sınıflar gayet iyi. İkinci sınıflar da muhtemelen öyle, değil mi?”</p>
+            <p>Toyohashi’nin dediği gibi, Sakayanagi’nin bulunduğu grup o kadar da kötü değildi.</p>
+            <p>Iki de, hem birinci hem ikinci sınıftan belli bir seviyede öğrencileri seçmişe benziyordu ve kazanmayı hesaba katmıştı.</p>
+            <p>Bu yüzden, Hashimoto’nun, Sakayanagi’nin kendisinden zayıf olduğunu düşündüğü bir gruba kaybetmesini sorgulaması doğaldı.</p>
+            <p>“İster özel sınav olsun, ister değişim etkinliği… Sakayanagi her zaman kazanmayı hedefler.”</p>
+            <p>Hashimoto, onun yanında yer almış biri olarak bunu herkesten iyi biliyordu.</p>
+            <p>Üç mağlubiyetin ardından kafasında ister istemez soru işaretleri oluşmuştu.</p>
+            <p>“Bana da öyle geliyor. Bir planı var gibi.”</p>
+            <p>Oda da Sakayanagi’nin aldığı üç mağlubiyeti kafasına takmış gibiydi ve derin düşüncelere dalmıştı.</p>
+            <p>Ama burada sadece düşünmekle bir sonuca ulaşmak mümkün değildi.</p>
+            <p>Bir süre sonra, yedi kişilik grup bambaşka bir konuya geçip neşeyle konuşmaya başladı.</p>
+            <p>Biraz zaman geçtikten sonra Hashimoto, birinci sınıflardan uzaklaşıp, olup biteni uzaktan izleyen bana doğru geldi.</p>
+            <p>Yol üstünde televizyon kumandasını aldı ve özellikle ortam gürültülü olsun diye bir eğlence programı açtı.</p>
+            <p>“Kamuro’yu kaybetmesi ciddi bir darbe olmuş olabilir mi?”</p>
+            <p>Üç mağlubiyetin nedenini anlamaya çalışan Hashimoto bana bu soruyu yöneltti.</p>
+            <p>“Olabilir.”</p>
+            <p>Şu anki sonuçlara bakarak kesin bir şey söylemek zordu, ama aksi yönde bir veri de yoktu.</p>
+            <p>“Gerçekten gücünden kaybediyorsa, benim için iyi haber. Yıl sonu sınavlarına böyle girerse, kazanma şansım olabilir.”</p>
+            <p>Ama Hashimoto, bu sonuçlara yüzeyden bakacak kadar saf biri değildi.</p>
+            <p>“Sakayanagi’nin gerçekte ne planladığını sen öğrenemez misin, Ayanokōji?”</p>
+            <p>“Bu tarz işler senin alanın, benim değil.”</p>
+            <p>Cevabı hemen reddettim ama Hashimoto yine de kulağıma eğilip fısıldadı:</p>
+            <p>“Bu seferlik bana bir kıyak geç. Şu an A Sınıfı’nda herkesin gözündeyim. Özellikle Kitō… Gerçekten sinirli görünüyor. Şimdilik Sakayanagi bir şey demediği için ortam sessiz ama ihanetim ortaya çıktığında ne olur, hiç bilmiyorum.”</p>
+            <p>Bunu derken olanları kafasında canlandırıyor gibiydi.</p>
+            <p>Kendine söylenerek kollarını kavuşturdu.</p>
+            <p>Ama yüzünde belli belirsiz bir gülümseme hâlâ vardı.</p>
+            <p>“Korkuyor gibi değilsin.”</p>
+            <p>“Eğer blöf bile yapamayacaksam, sınıfı satmaya kalkışmamın anlamı ne olurdu ki?”</p>
+            <p>Bu da mantıklıydı.</p>
+            <p>“Hem… senin sayende kafamı toparladım. Bunun için de sana minnettarım.”</p>
+            <p>İki kişilik görüşmenin olduğu gün odama gelip her şeyi anlatmıştı.</p>
+            <p>O konuşmanın etkisiyle şu an biraz daha ayakta durabiliyor gibiydi.</p>
+            <p>Ama bu etki geçici olabilirdi.</p>
+            <p>İhanetinin yankıları ortaya çıktığında her şey değişecekti.</p>
+            <p>Hashimoto’nun zamanı daralıyordu.</p>
+            <p>“Sen Sakayanagi’yle doğrudan iletişime geçebiliyorsun, değil mi?”</p>
+            <p>“Ne istersen iste özgürsün, ama ben ne zaman senin müttefikin oldum? Başımı belaya sokmak istemem.”</p>
+            <p>“Ama en azından bu değişim toplantısında aynı takımdayız. Üç kez kaybetmiş olsa da, Sakayanagi oradaysa, dikkat etmemiz gereken birinci adaydır. Yarın karşılaşabileceğimizi düşünürsek, şimdiden onu gözlemlemek kötü olmaz.”</p>
+            <p>Grup savaşlarını pek önemsemeyen adam, bu konuda cesur görünüyordu.</p>
+            <p>“Mantıklı. Ama seninle ben aynı grupta olduğumuz sürece, Sakayanagi normalden daha temkinli olur. Benden faydalı bilgi bekleme.”</p>
+            <p>“Anladım. Sadece fazladan bir artı olarak düşünürüm, tamam mı?”</p>
+            <p>“Pekala. Şimdilik elimden geleni yaparım.”</p>
+            <p>“Sana güveniyorum.”</p>
+            <p>Ben de üç yenilginin nedenini öğrenmek istiyordum.</p>
+            <p>Ama edindiğim bilgileri Hashimoto’ya verip vermemek başka bir meseleydi.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum10.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="bolum12.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Font Ayarlama JS -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+    </script>
+</body>
+</html>

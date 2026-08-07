@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt 21 - Bölüm 13 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #bb86fc;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Navigasyon ve Kontrol Barı */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-btn, .font-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .font-btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        .font-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Görsel Alanı */
+        .novel-illustration {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .novel-illustration img {
+            max-width: 70%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        @media (max-width: 600px) {
+            .novel-illustration img {
+                max-width: 85%;
+            }
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <a href="bolum12.html" class="nav-btn">← Önceki Bölüm</a>
+            <div class="font-controls">
+                <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+            </div>
+            <a href="bolum14.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Cilt 21 - Bölüm 13</h1>
+            <div class="subtitle">Classroom of the Elite</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Ertesi gün geldi. Cumartesi sabahı, saat 11:30’a yaklaşıyordu.</p>
+            <p>Mii-chan ile buluşmamı beklerken yurt lobisindeki koltukta oturuyordum.</p>
+            <p>Cuma gecesi gizlice odamda kalan ve sabahın erken saatlerini benimle geçiren Kei, derin bir uykudaydı. Planladığımız öğleden sonraki buluşmamızı ertelemeyi düşünüyordum. Kurulan monitörden Mii-chan’ın asansörden indiğini görünce koltuktan kalktım.</p>
+            <p>“Günaydın.”</p>
+            <p>“Günaydın, Ayanokōji-kun.”</p>
+            <p>Bir gün önce aldığı belli olan teşekkür hediyesini kâğıt bir torbada tutuyordu.</p>
+            <p>“Eee? Kōenji ile nerede buluşuyorsun?”</p>
+            <p>“Ha?”</p>
+            <p>“Şimdi Kōenji ile buluşmaya gitmiyor musun?”</p>
+            <p>“Evet.”</p>
+            <p>“O zaman Kōenji ile buluşuyorsun, değil mi?”</p>
+            <p>“…Aslında buluşmuyorum.”</p>
+            <p>Mii-chan’ın yanıtıyla etrafımızdaki hava dondu. Sessizlik oldu, zaman geçti. Ama sonsuza kadar sessiz kalamazdım, bu yüzden konuşmayı yeniden başlattım.</p>
+            <p>“Yani, Kōenji bugün hakkında hiçbir şey bilmiyor.”</p>
+            <p>Mii-chan, başıyla onaylarken, sanki ağlamak üzereymiş gibi görünüyordu.</p>
+            <p>“Ah, bu zaten bariz bir durum olmalıydı, değil mi? Heyecandan ve gerginlikten hiç düşünememişim. Bende Kōenji-kun’un iletişim bilgileri bile yok. Senin ayarladığını sanmıştım. Kendi kendime öyle düşündüm… Gerçekten çok üzgünüm!”</p>
+            <p>Konuşurken Mii-chan artık gözyaşlarını tutamıyordu. Neyse ki lobide kimse yoktu, ama biri görürse yanlış anlaşılabilirdi.</p>
+            <p>“Öncelikle sakin olmalısın. Kōenji ile pek yakın değilim ama onu nerede bulabileceğimi biliyorum.”</p>
+            <p>“Gerçekten mi?”</p>
+            <p>Kesin olmamakla birlikte, onu bulma olasılığım yüksekti.</p>
+            <p>“Sanırım bu saatte, Kōenji spor salonunda olabilir.”</p>
+            <p>“Spor salonu mu? Keyaki Alışveriş Merkezi’nin ikinci katındaki mi?”</p>
+            <p>“Evet. Son zamanlarda ben de gitmeye başladım. Kōenji genelde cumartesi ve pazar sabahları gelir.”</p>
+            <p>Öğle vakti antrenmanını bitirip çıkarken onu birkaç kez görmüştüm. Durumun olumlu görünmesiyle, Mii-chan kendini toparladı ve Keyaki Alışveriş Merkezi’ne doğru yola çıktık. Yolda, gözleri hâlâ biraz kırmızı olan Mii-chan’a göz ucuyla bakarken düşündüm; derslerinde başarılı ve sessiz bir kişiliği var, ama beklenmedik durumlarla karşılaştığında oldukça zayıf ve kırılgan. Nadir bir tip değildi, yaygın da değil, ama kesinlikle her lisede bulunabilecek bir kızdı. Bu yüzden Kōenji ile olan bağlantısı ilgi çekiciydi. Onu sevip sevmemesi başka bir mesele olsa da, nesnel olarak bakıldığında Mii-chan’ın görünüşü ortalamanın epey üzerindeydi. Belki Kōenji’nin zevkine denk gelmiş ve gizlice onu beğenmişti. Ancak Kōenji, hoşlandığı kadını gizlice beğenen biri gibi bir izlenim vermiyordu. Hatta, ilgilendiği birisi varsa, ona daha aktif bir şekilde yaklaşacağını düşünebilirdim. Kendine mutlak güveni olan bir adamın ilgilendiği kadına yaklaşmaması çelişkili olurdu. Eğer bu doğruysa, Kōenji’nin kendine olan o mutlak güveninin aslında olmadığı anlamına gelirdi. Belki de öyle değildi. Herkesin zevki farklıdır. Kōenji, sevdiği kadınlara mesafeli durmayı tercih ettiğini ve bunun sevgisini gösterme şekli olduğunu iddia edebilirdi. Bu konuda birçok şekilde düşündüm, ama yine de tek bir sonuca varabildim. Kōenji’nin düşüncelerini anlamaya çalışmak sadece zaman kaybıydı. Sonuçta, gerçek niyetini anlamanın tek yolu onunla yüz yüze gelip, bunu ondan duymaktı. Keyaki Alışveriş Merkezi’ne girdim, açık olan dükkânlardan hiçbiriyle oyalanmadan doğruca ikinci kata çıktım. Sonra Mii-chan’ı spor salonunun önünde beklemeye bıraktım ve salonu kontrol etmek için içeri girdim.</p>
+            <p>“Beklediğim gibi, burada.”</p>
+            <p>Tahmin ettiğim gibi, Kōenji antrenmandaydı. Ve bench press yapıyordu; muhtemelen kısa sürede bitirecekti. Sonuçta, Kōenji her zaman spor salonundan çıkmadan önce bench press yaparak antrenmanını bitirirdi. Yorgunluğuna rağmen, 200 kilogramlık ağırlığı gülümseyerek ve ter içinde kaldırıyordu. Acaba lise ikinci sınıfta bu kadar rahat bir şekilde bunu yapabilecek başka biri var mıydı? Her neyse, antrenmanının bitmesine az kalmıştı. Kesin olan bir şey vardı; duş alacak ve kısa süre sonra çıkacaktı. Rahatsız edici bir karşılaşmadan kaçınmak için hızla antrenman odasından çıktım. Çıktıktan sonra, spor salonu çalışanı Akiyama-san yanıma yaklaştı, kısa bir selamlaştıktan sonra ayrıldım. Mashima-sensei ile de görüşme sözüm vardı, ama bugün için bunu atlayabilirdim.</p>
+            <p>“Nasıl geçti?”</p>
+            <p>“Sanırım 20-30 dakika içinde çıkar. Eğer istersen burada bekleyebiliriz.”</p>
+            <p>“E-Evet.”</p>
+            <p>Bunun üzerine spor salonunun girişine yakın bir bankta oturup bekledik.</p>
+            <p>“…”</p>
+            <p>“…”</p>
+            <p>Aramızda çok fazla konuşma olmadan sadece Keyaki Alışveriş Merkezi’nde çalan müziği dinledik.</p>
+            <p>“Yavaş yavaş gerginleşmeye başladım.”</p>
+            <p>Zaman geçtikçe, stres yaşamaya başlamış gibiydi.</p>
+            <p>“Kōenji’nin buna nasıl tepki vereceğini hiç bilmiyorum.”</p>
+            <p>“Ben de bilmiyorum…”</p>
+            <p>“Bu arada, ona ne aldın?”</p>
+            <p>“Şey, ne alacağımı bilemedim, bu yüzden yüz ve el havlusu almaya karar verdim.”</p>
+            <p>“Bu oldukça beklenmedik bir hediye.”</p>
+            <p>“Öyle düşünebilirsin, ama onun hoşuna gidebileceğini düşündüm. Kōenji-kun’u sık sık ikisini de kullanırken görüyorum.”</p>
+            <p>“Öyle mi? El aynasını biliyordum ama bunu fark etmemiştim.”</p>
+            <p>“Evet. Eğer lüks, organik pamuk bir havlu alırsam kabul edebilir diye düşündüm.”</p>
+            <p>“Bayağı pahalı olmuş bu.”</p>
+            <p>Mii-chan, küçük bir hediye verme tavsiyeme sadık kalamamış gibi görünüyordu.</p>
+            <p>“Şey… e-evet. Özür dilerim…”</p>
+            <p>“Kaça mal oldu?”</p>
+            <p>“Yaklaşık… 12.000 yen civarında.”</p>
+            <p>Yani verilen miktarın toplamı ya da biraz üstü kadar olmuştu. Mii-chan’ın kişiliği göz önünde bulundurulduğunda böyle bir durum tahmin edilebilirdi.</p>
+            <p>“Tamam. Umarım Kōenji beğenir.”</p>
+            <p>“Evet. Yardımının karşılığını düzgün bir şekilde vermeliyim.”</p>
+            <p>Gergin ve telaşlı hissediyor olmasına rağmen, Mii-chan kararlılıkla cevap verdi. Sonunda, bütçeyi aşacak kadar değerli bir hediye seçmesi doğru karar olmuş olabilir. Beklediğimiz süre neredeyse 40 dakikayı bulduğunda, beklenenden daha uzun sürdü ve Kōenji spor salonundan çıktı.</p>
+            <p>“G-geldi.”</p>
+            <p>Kōenji’nin hemen bizi fark ettiği belliydi, ama ifadesinde hiçbir değişiklik yapmadan yanımızdan sessizce geçti. Sanki hiç ilgisini çekmiyorduk. Davranışını görünce, Mii-chan’a karşı herhangi bir ilgisi olduğu ya da onu gizlice desteklediği izlenimi edinmek zordu. Ancak, market çalışanının ifadesine dayanarak, bunun %99 oranında Kōenji olduğu kesindi. Bu nedenle gerçeği ondan öğrenmekten başka çare yoktu. Mii-chan hızla banktan kalktı ve Kōenji’nin peşinden koşmaya başladı.</p>
+            <p>“Şey, Kōenji-kun! Bir dakikanı alabilir miyim!?”</p>
+            <p>Mii-chan’ın arkasından seslenmesi üzerine, Kōenji zarif bir şekilde durup arkasına döndü.</p>
+            <p>“Benden ne istiyorsun, Wang kızı?”</p>
+            <p>“Eh, wang-ne?”</p>
+            <p>Kōenji, Mii-chan’ın gerçek adı olan Wang Mei-Yui’ye atıfta bulunarak ona “Wang kızı” demişti. Bu, muhtemelen sadece Kōenji’nin kullanacağı bir lakaptı ve Mii-chan bu yüzden şaşırmıştı. Mii-chan lakabı kavrayamamış gibi görünse de, şaşkınlığını yutup kararlılığını topladı. Elindeki kağıt torbanın saplarını sıkıca kavradı.</p>
+            <p>“Seninle konuşmak istiyordum. Biraz zamanını alabilir miyim?”</p>
+            <p>Mii-chan, nazik ama kararlı bir sesle Kōenji’ye hitap etti. Kōenji bir an durumu düşündü, ardından kolunu hızla kaldırıp başını salladı.</p>
+            <p>“Üzgünüm, ama şu anda biraz acelem var. Başka zaman konuşalım. Hahaha.”</p>
+            <p>Bununla birlikte, bize doğru gülerek arkasını döndü ve yeniden yürümeye başladı.</p>
+            <p>“Ne…”</p>
+            <p>Dikkatlice düşünen birisi gibi görünen Mii-chan, Kōenji’nin beklenmedik bir şekilde reddetmesiyle açıkça afallamıştı. Ben de biraz şaşırmıştım.</p>
+            <p>“Şimdi ne yapmalıyız…?”</p>
+            <p>“Tekrar dene?”</p>
+            <p>“Ah… Bu sefer yaklaşmak için çok cesaret topladım… Tekrar denemem gerekirse o cesareti geri toplayamam.”</p>
+            <p>Kesinlikle Mii-chan için aynı durumda Kōenji’ye bir daha yaklaşmak çok zor olacaktı. Bu durumda, bugün üstesinden gelmekten başka çaremiz yoktu.</p>
+            <p>“O zaman Kōenji’yi takip edelim.”</p>
+            <p>“Ama bu büyük bir rahatsızlık olmaz mı?”</p>
+            <p>“Normalde evet. Ama tekrar denemeyeceksen, ne kadar rahatsız edici olursa olsun devam etmemiz gerek, değil mi?”</p>
+            <p>“Ne yapalım? Onu gözden kaçırırsak vazgeçmek zorunda kalacağız.”</p>
+            <p>“Ne yapalım…”</p>
+            <p>İlerlemekle geri adım atmak arasında tereddüt ediyordu. Duruşundan Kōenji’yi takip etmenin asıl niyeti olduğu açıktı. O halde, öncülük etmeye devam etmeli miydim?</p>
+            <p>“Yakalansak bile sorumluluğu ben üstlenirim. Hadi gidelim.”</p>
+            <p>“E-evet! Gizli takip o zaman!”</p>
+            <p>Ve böylece Kōenji’yi takip etmeye karar verdik. Uzak bir mesafeden gözlemliyorduk. Gizliliğe gerek olduğunu düşünmesem de, Mii-chan istekliydi, bu yüzden gereksiz itirazlarda bulunmamaya karar verdim.</p>
+            <p>Kōenji yürüyen merdivenden aşağı inerken, gittiği yönü yavaşça kontrol ederek alt kata indim ve Mii-chan’ı arka tarafıma aldım. Bu sırada, uzun adımlarıyla Kōenji alışveriş merkezinin derinliklerine doğru ilerlemeye devam etti.</p>
+            <p>“Hızlanmamız gerekmiyor mu? Onu kaybedebiliriz.”</p>
+            <p>“Kaybedersek de sorun değil.”</p>
+            <p>Herkes her gün alışveriş merkezine gidiyordu. Çoğu öğrenci, zihninde buranın bir haritasını çizmişti.</p>
+            <p>Elbette, Kōenji’nin yolunda birkaç mağaza vardı, ama hiçbiri geniş bir alana sahip değildi.</p>
+            <p>Hızlı bir bakış tüm müşterileri görmek için yeterliydi.</p>
+            <p>En sonunda açık bir kafe alanı vardı. Yolda hazırlanan birkaç çıkış noktasını kullanmadığı sürece onu gözden kaybetme endişemiz yoktu.</p>
+            <p>O çıkışlara gelince, eğer eve dönüyorsa geldiği yoldan geri dönmek daha hızlı olurdu.</p>
+            <p>Belirli bir çıkışı kullanma olasılığı pek yüksek değildi.</p>
+            <p>Merdivenlerin sonunda, uzaklaşan Kōenji’nin küçülen siluetini gördüm.</p>
+            <p>“Sanırım kafeye gidiyor. Bu bizim işimizi kolaylaştırır.”</p>
+            <p>“Kesinlikle.”</p>
+            <p>Kōenji’nin siparişini verdiğini ve elinde bir bardak tuttuğunu uzaktan onayladıktan sonra, yaklaştım ve Kōenji’nin bir kız öğrenciyle iki kişilik bir masada oturduğunu fark ettim.</p>
+            <p>“O kim?”</p>
+            <p>“O, 3-B sınıfından Enoshima Midoriko.”</p>
+            <p>“Onu tanıyor musun?”</p>
+            <p>“Sadece OAA uygulamasında gördüm. Daha yakına gidelim.”</p>
+            <p>“Ama Kōenji-kun bizi fark etmez mi?”</p>
+            <p>“Şimdiye kadar onu takip ettik, ama gerçekten gerekli mi, merak ediyorum.”</p>
+            <p>Kōenji’nin buluşması bitene kadar beklemek bizim için en iyisiydi. Tabii ki, saklanıp onu yalnız bırakmasını beklediğimizi söylemek daha kötü olurdu. Zaten ne konuştukları da beni pek ilgilendirmiyordu.</p>
+            <p>“Bu noktada, Kōenji-kun’un genelde ne tür konuşmalar yaptığını bilmek isterdim.”</p>
+            <p>Ancak Mii-chan sanki bir düğmeye basmış gibi daha keşfedilmek istemiyor gibiydi.</p>
+            <p>“Yani, kulak kabartmak mı istiyorsun?”</p>
+            <p>“Yanlış olduğunu biliyorum, ama… Bana verdiği hediyenin sebebini dürüstçe açıklamamış olabilir, ve belki de konuşmalarında ipuçları vardır!”</p>
+            <p>Hayır, Kōenji’nin Enoshima ile konuşmasında herhangi bir ipucu olacağını pek sanmıyorum…</p>
+            <p>“Onu takip etmeye devam edelim!”</p>
+            <p>“Bu seni tatmin edecekse Mii-chan, benim bir itirazım yok. Bu taraftan ilerleyelim.”</p>
+            <p>Kōenji Enoshima ile sohbet ederken, muhtemelen etrafına dikkat etmiyordu.</p>
+            <p>Ama eğer görüş alanına girersek, bizi fark etmeyeceğinden emin olamazdık. Mii-chan ile alışveriş merkezinin yan kapısından stratejik bir şekilde çıkış yaptık ve karşı taraftan tekrar giriş yapmayı hedefledik. Etrafı dolaşmak birkaç dakikamızı aldı, ama Kōenji henüz yeni içeceğini aldığına göre bir süre daha kalırdı.</p>
+            <p>Ancak—</p>
+            <p>Alışveriş merkezine geri dönüp kafeye vardığımızda, Kōenji ortalıkta yoktu. Sadece Enoshima oradaydı ve telefonunu kurcalıyordu.</p>
+            <p>“Acaba lavaboda mı?”</p>
+            <p>“…Hayır. Kōenji’nin içeceği de gitmiş. Bu olamaz. Enoshima ile işini bitirip bu kısa sürede ayrılmış olmalı.”</p>
+            <p>“Yani… Bugün onunla görüşemeyecek miyiz?”</p>
+            <p>“Öyle olabilir, ama acele etmeye gerek yok gibi görünüyor.”</p>
+            <p>Geldiği yoldan geri dönen, hiç çekinmeden kendini gösteren Kōenji’yi fark ettik.</p>
+            <p>“Kōenji-kun!”</p>
+            <p>“Ah? Wang kızı ve Ayanokōji çocuğu. Yine peşime mi düştünüz? Popüler olmak zor iş. Hahaha.”</p>
+            <p>Tam bir yanlış anlaşılma, ama sanırım Kōenji işlerini bitirmişti.</p>
+            <p>“Bir dakikan var mı?”</p>
+            <p>Bu aceleyle kekeleyecek zamanı olmadan, Mii-chan sorunsuz bir şekilde konuşmaya başladı.</p>
+            <p>İçeceği yanında yoktu.</p>
+            <p>Onu hemen bitirmiş olabilir mi?</p>
+            <p>“Tabii. Kişisel işlerim beklenenden hızlı bitti.”</p>
+            <p>Enoshima-senpai ile kısa bir görüşme yapmıştı.</p>
+            <p>Ne konuştuklarını tahmin bile edemiyordum.</p>
+            <p>“Okuldan yok olduğum sırada kapımın önüne marketten aldığın şeyleri bırakan sen miydin, Kōenji-kun…?”</p>
+            <p>Uzun zamandır aranan destekçi.</p>
+            <p>Mii-chan, Kōenji’nin bu hareketinin nedenini öğrenmeye çalışıyordu.</p>
+            <p>Kōenji dürüstçe itiraf edecek miydi?</p>
+            <p>Şaşırıp afallayacak mıydı?</p>
+            <p>Yoksa inkâr mı edecekti—</p>
+            <p>“O eşyaları sana bırakan bendim, ama bunun ne önemi var?”</p>
+            <p>Kōenji, en ufak bir tereddüt ya da dürüst olmayan bir tutum sergilemeden kendinden emin bir şekilde onayladı.</p>
+            <p>Gerçekten çok Kōenji tarzı, beklenmedik bir tavırdı.</p>
+            <p>“Şey, neden… bunu yaptın…?”</p>
+            <p>“Neden mi? Birisi zor durumdaysa, ona yardım ederim. Sen de aynı türden bir insan değil misin?”</p>
+            <p>“…Eh?”</p>
+            <p>Makul bir yanıtla karşılık veren Mii-chan, şaşkınlıktan ne diyeceğini bilemedi.</p>
+            <p>“Eğer sorunu yanıtladıysam, artık gidebilirsin sanırım?”</p>
+            <p>Mii-chan, Kōenji’nin bu sözüne nasıl cevap vereceğini bilmiyor gibi görünüyordu.</p>
+            <p>“Bir saniye. Belki de beni ilgilendirmez, ama kafama takılan bir şey var. Birine zor durumda yardım etmek doğal. Ama dürüst olmak gerekirse, seni gözlemlediğim kadarıyla herkese yardım etmediğini görüyorum. Yine de Mii-chan’a yardım ettin. Bu birkaç kez oldu, bu da bunun arkasında özel bir sebep olduğunu gösteriyor.”</p>
+            <p>Daha araştırıcı bir tavırla, belirsiz ifadelerle onu dürtmeye çalıştım.</p>
+            <p>“Kelimelerini gerçekten iyi seçiyorsun, Ayanokōji çocuk. Bunun bir anlık heves olduğunu söyleyerek kaçmama izin vermeyeceksin. Wang kızına bir hevesle yardım etmedim. İkiyüzlülükten nefret ederim. Ama bu, iyi niyeti küçümsediğim anlamına gelmez. Samimi bir borç hissettiğimde, onu geri ödemenin doğal olduğunu düşünürüm. Bu kadar basit.”</p>
+            <p>Kōenji her ne kadar havalı bir şeyler söylüyor gibi görünse de, Mii-chan durumu anlamamış gibi görünüyordu.</p>
+            <p>Hâlâ donmuş gibiydi.</p>
+            <p>Kesin olan bir şey vardı, o da Kōenji’nin Mii-chan’a karşı beklenmedik romantik duygular taşımadığıydı.</p>
+            <p>“Burada işimiz bitti mi?”</p>
+            <p>Kōenji bunu söylediğinde, Mii-chan için durmuş olan zaman nihayet tekrar akmaya başladı.</p>
+            <p>“…Ben, ben sana hiçbir şey yaptığımı hatırlamıyorum. Sana bir şey borçlu olduğumu sanmıyorum. Söylediklerine göre, daha önce sana yardım etmişim gibi görünüyordu…”</p>
+            <p>Durumu anladıktan sonra, biraz mahcup bir şekilde ama onaylayarak sordu.</p>
+            <p>Kōenji hafifçe saçlarını geriye attı.</p>
+            <p>“Hahaha!”</p>
+            <p>Neşeyle güldü.</p>
+            <p>“Bu yüzden bu, iki yüzlülükten değil, iyi niyetten. Hatırlamana bile gerek olmayan önemsiz bir mesele.”</p>
+            <p>Başka bir deyişle, açıklaması şuydu: Kōenji, Mii-chan tarafından bir şekilde yardım görmüştü. Ve ona yardım edilen şey, iki yüzlülükten değil, doğal bir iyi niyetten kaynaklanmıştı.</p>
+            <p>Bu yüzden Kōenji, Mii-chan’a karşı alışılmadık bir şekilde düşünceli davranmıştı.</p>
+            <p>Bu sefer okuldan yokken bile ona yardım ediyordu—bu, bunun anlamıydı.</p>
+            <p>“Hiç hatırlamıyorum… ama, peki, bunu lütfen şimdilik kabul et.”</p>
+            <p>Bunu söylerken, teşekkür hediyesi olarak aldığı havlu setinin bulunduğu kağıt torbayı Kōenji’ye uzattı.</p>
+            <p>“Buna ihtiyacım yok. Bunun bir teşekkür kabul etmekle ilgili olduğunu sanmıyorum.”</p>
+            <p>“E-eğer bunu beğenmediysen, kabul etmemen önemli değil. Ama bu durumda, bana borcunu geri ödettirir misin? Benim için harcadığın para az değil.”</p>
+            <p>“Maalesef, şu an paraya ihtiyacım yok. İstemiyorum.”</p>
+            <p>Söylediği şey bana garip geldi.</p>
+            <p>Elbette, sıradan bir öğrenci için bunda dikkat çekici bir şey olmazdı.</p>
+            <p>Issız ada testinde servet kazanan Kōenji’nin bol parası olduğunu düşünmek doğaldı.</p>
+            <p>Ancak Kōenji, savurgan bir karakter olarak biliniyordu.</p>
+            <p>Daha önce, parayı bir gece bile yanında tutmamaya inandığını belirtmişti.</p>
+            <p>Elbette, eğer şimdi tasarruf ettiğini söyleseydi, bu işin sonu olurdu. Ama daha yeni büyük bir televizyon aldığını göz önünde bulundurursak, parayı hâlâ savurduğunu düşünebilirdik.</p>
+            <p>Bu, sadece Mii-chan’dan puan almak istememek için uydurduğu bir yalan, uygun bir bahane olabilirdi.</p>
+            <p>“Ama bu bir sorun yaratır! Bu… Suçluluk duygusunu üzerimden atamıyorum… O halde, bana ne yaptığımı söyler misin?”</p>
+            <p>“Ah, aman. Oldukça zor bir kişiliğin var gibi görünüyor. Söylemedim mi? Hatırlamana bile gerek olmayan önemsiz bir mesele bu. Ne eksik ne de fazla. Söyleyecek başka bir şey yok.”</p>
+            <p>Mii-chan, Kōenji ile konuşmayı sürdürmenin bir yolunu daha bulamamış gibiydi.</p>
+            <p>Biraz üzgün bir ifadeyle başını Kōenji’ye doğru eğdi.</p>
+            <p>“Şimdi gitmeme izin verir misin?”</p>
+            <p>“E-Evet.”</p>
+            <p>“Sana özel bir şey sormak istiyorum,” diye araya girdim.</p>
+            <p>“Erkekler tarafından popüler olmak istemem, ama sen de anlaşılan beni sorgulamaya heveslisin.”</p>
+            <p>“Bu önemli. Eğer bir minnettarlık hissediyorsan, gelecekte sınıfla işbirliği yapma ihtimalin var, değil mi?”</p>
+            <p>“Bu saçmalık, Ayanokōji çocuk. Sınıfın kazanması için bana ihtiyacı var, bunun için bana iyi niyet göstermelisin. Bu da iki yüzlülüğe dönüşür, görüyorsun ya?”</p>
+            <p>Bir karşılık almak için yapılan hiçbir davranışı gerçek bir iyi niyet olarak kabul etmeyecekti.</p>
+            <p>Bu sadece doğal bir şekilde olabilirdi.</p>
+            <p>“Bu okulun kuralları altında yaşadığımız sürece, iyi niyet olamaz. Yanılıyor muyum?”</p>
+            <p>“Belki.”</p>
+            <p>“Bunu zaten biliyor olmalısın. Beni müttefikin yapmanın bir yolu yok, hiçbir şekilde.”</p>
+            <p>“Bu doğru. Şimdiye kadar kaç kez denesem de, tam anlamıyla iş birliği yapman için garantili bir yol bulamadım.”</p>
+            <p>“Doğru. Mezun olana kadar, hatta sonrasında da değişmeyeceğim. Sizler ne kadar zeki olursanız olun, düşünceleriniz benim kalbime ulaşamayacak. Tabii, bu sen de dâhil.”</p>
+            <p>“Peki, bu özel sınavda ne yapmayı düşünüyorsun? Ya Horikita seni korumamaya karar verirse? Sana verdiği sözü bozma ihtimalinin sıfır olduğunu söyleyemeyiz. Sonradan ne kadar yaygara çıkarsan da, okuldan atılmayı engelleyemeyeceğin bir durum olabilir.”</p>
+            <p>Onu tehdit edip yardıma zorlayabilirdik.</p>
+            <p>“Ben her zaman kendimi korudum. İşte bu kadar basit.”</p>
+            <p>Başka bir deyişle, koruma olmadan bile bu işin üstesinden geleceğinden emindi.</p>
+            <p>“Eh, bu işimizi kolaylaştırır. Horikita’ya seni korumasına gerek olmadığını söyleyeceğim.”</p>
+            <p>Sınıfta korumamız gereken bir öğrenci daha az olması bize avantaj sağlıyordu. Doğal olarak, Horikita’nın onun güvenini boşa çıkaracağını düşünmüyordum.</p>
+            <p>“İstediğini yap. Ne olursa olsun, bana zorunluluk yüklemeye çalışmanın bir anlamı yok çünkü karşılığını vermeyeceğim.”</p>
+            <p>Ve işte orada, Kōenji kıpır kıpır olmasına rağmen sanki yerinden kımıldamayan bir heykel gibi davranıyordu. Eğer durum böyleyse, belki bu durumu kendi avantajıma kullanıp Kōenji’yi dışlayabilirdim. Kōenji’nin olağanüstü yetenekleri vardı, ama varlığı iki ucu keskin bir kılıç gibiydi. Özel sınavın detaylarına bağlı olarak, Horikita onun yüzünden engellenmeye devam edebilirdi. Eğer sınıf lideri ben olsaydım, dürüst olmak gerekirse, Kōenji gereksiz olurdu. Issız adadaki kurallar sadece Horikita ve benim aramdaydı, üçüncü şahısların bir karışımı yoktu. Onu elemek için fırsatım varken kesip atmak bir seçenek olabilirdi, ama…</p>
+            <p>“Ancak.”</p>
+            <p>Şu ana kadar kaygısız olan Kōenji aniden tonunu değiştirdi ve bakışları keskinleşti.</p>
+            <p>“Eğer ‘biri’ beni dışlamaya çalışırsa, hazırlıklı olsa iyi olur.”</p>
+            <p>Düşüncelerimi mi okumuştu? Hayır, bu onun vahşi sezgisi olmalıydı.</p>
+            <p>“Hazırlıklı olmak mı? Ne yapmayı düşünüyorsun bakalım.”</p>
+            <p>“Bu işin sürpriz kısmı.”</p>
+            <p>Bu, belirli bir kişiye basitçe saldırmak gibi olmayacaktı. Sınıfın konumunu sarsabilecek hamlelere hazırlıklı olmak gerekirdi.</p>
+            <p>“O kutuyu açar mısın? Gerçi, bu, kendine fazla değer biçtiğini tekrar gözden geçirmene neden olabilir.”</p>
+            <p>“Şahsen bunu yapmayı planlamıyorum. Sınıf lideri Horikita.”</p>
+            <p>“Öyle olsun. Bundan sonra randevularım var, gitsem iyi olur.”</p>
+            <p>Randevusuna dair alışılbadık bir kelime seçimi yapmayı neden tercih ettiğini anlamadım, ama Kōenji ile kısa zamanda tekrar konuşacağımı sanmıyorum.</p>
+            <p><em>(ÇN NOTU: Kōenji, birden fazla randevusu olduğunu ima ediyor, デート (Dēto, tipik yazım şekli) yerine デーツ (Dētsu, Kōenji’nin kullandığı kelime, “Randevu” kelimesinin normal yazımından ve telaffuzundan farklı). Bu, daha “İngilizcevari” bir hava katmak ve gösteriş yapmak için yapılmış.)</em></p>
+            <p>Uzun süredir aynı sınıfta Kōenji’yi gözlemliyordum. Gerçekten tuhaf biriydi, ama onu taşırken kazanmak zorunda olduğumuz da bir gerçekti.</p>
+            <p>“Ah, şey… Ayanokōji-kun.”</p>
+            <p>“Üzgünüm. Sadece bize sıra dışı bir şey söylediği için ona birkaç soru sormak istemiştim, biraz fazla ileri gittim.”</p>
+            <p>Yalnız bıraktığım Mii-chan’a hafif bir özür diledim.</p>
+            <p>“Nedir?”</p>
+            <p>“Bu sorun değil, ama… şey…”</p>
+            <p>“Hayır, bir şey değil.”</p>
+            <p>Kōenji’ye biraz tehditkâr bir ton kullandım. Sanırım bu, Mii-chan’ı rahatsız eden bir şeydi.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum12.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="../index.html" class="nav-btn">🏠 Cilt Sayfası</a>
+            <a href="bolum14.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Font Ayarlama JS -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+    </script>
+</body>
+</html>

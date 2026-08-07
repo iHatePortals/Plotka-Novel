@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt 22 - Bölüm 5: Eğitim Kampı | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #bb86fc;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Navigasyon ve Kontrol Barı */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-btn, .font-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .font-btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        .font-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Çevirmen Notu Kutusu */
+        .tl-note {
+            background-color: #1a1a1a;
+            border-left: 4px solid var(--accent-color);
+            padding: 12px 15px;
+            margin: 20px 0;
+            font-size: 0.9em;
+            color: #aaa;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Bilgi Kutu ve Listeleri */
+        .info-card {
+            background-color: #181818;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 18px;
+            margin: 25px 0;
+        }
+
+        .info-card-title {
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #2a2a2a;
+            padding-bottom: 6px;
+        }
+
+        .info-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .info-card li {
+            margin-bottom: 8px;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <a href="bolum4.html" class="nav-btn">← Önceki Bölüm</a>
+            <div class="font-controls">
+                <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+            </div>
+            <a href="bolum6.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Cilt 22 - Bölüm 5</h1>
+            <div class="subtitle">Eğitim Kampı</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Perşembe sabahı saat 9:30’du.</p>
+            <p>Bir dizi otobüs park etmişti.</p>
+            <p>Motorların rölantide çıkardığı egzoz gazının hafif kokusunu hissederken, öğrenciler hafif adımlarla otobüslere biniyordu.</p>
+            <p>Kulüp etkinlikleri ve yarışmalar için seferlere katılanlar hariç, birçok ikinci sınıf öğrencisi için bu, terk edilmiş ada sınavı ve okul gezisinin ardından yılın üçüncü etkinliğiydi; tüm sınıfların katıldığı bir eğitim kampı.</p>
+            <p>Ancak, bu yılki karma eğitim kampının format olarak “kamplar” kategorisinde yer almasına rağmen, doğasının tamamen değiştiği ve çok farklı olduğu önceden duyurulmuştu.</p>
+            <p>Bu yüzden “özel sınav” terimi kullanılmamıştı.</p>
+            <p>Yolculuk başlamadan önce dikkat çeken şey, öğrenciler için hazırlanan otobüs sayısıydı.</p>
+            <p>Normalde her sınıfa bir otobüs düşerdi. Yani, eğer tüm yıllardan katılım varsa, 12 otobüs olması gerekirdi.</p>
+            <p>Ancak bu sefer toplanan sadece dokuz otobüs vardı.</p>
+            <p>Fakat bu gizem, otobüslerine binen öğrencilere bakıldığında hemen çözüldü.</p>
+            <p>Üçüncü sınıf öğrencileri için sadece bir otobüs hazırlanmıştı.</p>
+            <p>Görünüşe göre 3. sınıflardan toplanan öğrenci sayısı oldukça azdı, sadece 20 civarındaydı.</p>
+            <p>Herkesin yüzünü görmediğim için kesin konuşamazdım, ama görebildiğim kadarıyla, üçüncü sınıftan A’dan D’ye kadar her dört sınıftan beşer öğrenci çağrılmış gibiydi.</p>
+            <p>Otobüse binme talimatı verildiğinde, belirli bir oturma düzeni yoktu ve istediğimiz yere oturabileceğimiz söylenmişti.</p>
+            <p>Bunu duyar duymaz, Kei hemen koluma yapıştı.</p>
+            <p>“Kiyotaka’yla oturacağım.”</p>
+            <p>Bazı erkeklerden soğuk bakışlar alsa da, kabul ettim ve otobüse binerek sağ tarafta, arkadan üçüncü sıradaki pencere kenarına oturdum. Kei de yanıma oturdu.</p>
+            <p>“Kızlarla takılsan daha iyi olmaz mıydı?”</p>
+            <p>“Dönüşte öyle yaparım. Gidişte birlikte olmamızda sorun yok, değil mi?”</p>
+            <p>Özel zamanlarımızın çoğunu birlikte geçiriyorduk, ama yine de otobüste de birlikte olmak istiyordu.</p>
+            <p>Fark neydi bilmiyordum, ama her zamankinden daha mutlu görünüyordu.</p>
+            <p>Herkes otobüse bindikten ve diğer otobüsler hazır olduktan sonra, Chabashira-sensei de bindi.</p>
+            <p>“Bu bana geçen yılın eğitim kampını hatırlatıyor. O zaman da birbirimizle çok fazla etkileşimde bulunmuştuk.”</p>
+            <p>“Doğru.”</p>
+            <p>O zamandan beri bir yıl geçmişti.</p>
+            <p>O zamanlar, ne Kei ne de ben ilişkimizin bu kadar derinleşeceğini düşünmüştük.</p>
+            <p>Sadece Kei değil, etrafımızdaki insanlarla olan ilişkilerimiz de büyük ölçüde değişmişti.</p>
+            <p>“Ah, doğru. Dün öğrendim ki en sevdiğim film yakında gösterime girecekmiş. Vizyona girdiğinde birlikte izlemeye gidelim.”</p>
+            <p>Kei, gözleri sevinçle kısılarak bir film posteri gibi görünen bir resmi gösterdi bana.</p>
+            <p>Kei için bu doğal bir şekilde açtığı sıradan sohbetlerden biriydi.</p>
+            <p>Ama aklımı kurcalayan bir şey vardı.</p>
+            <p>“Film ne zaman gösterime girecek?”</p>
+            <p>“Hmm, ne zamandı ki? Fragmanı en son izlediğimde baharda gösterime girecek gibiydi.”</p>
+            <p>“Tam tarihini bilmek istiyorum.”</p>
+            <p>“Ha? Bir sorun mu var? Bakayım… Ah, burada yazıyor.”</p>
+            <p>Kei’nin gösterdiği web sitesinde filmin 26 Mart’ta gösterime gireceği yazıyordu.</p>
+            <p>Neyse ki, bu tarih yeni dönem başlamadan önceydi, bahar tatili sırasında.</p>
+            <p>“Anladım. Hadi gidip izleyelim.”</p>
+            <p>“Yaşasın! Süper. Senin de hoşuna gideceğini düşünüyorum,” Kei gülümseyerek dedi, ama yüzümü görünce gülümsemesi dondu.</p>
+            <p>“Bir sorun mu var?”</p>
+            <p>“Yok, bir şey değil.”</p>
+            <p>Kei, cevap verip gözlerini benden ayırdıktan sonra, mırıldanarak bir karakter ilişkileri şeması gibi görünen bir sayfaya bakarak film için hazırlık yapmaya başladı.</p>
+
+            <div class="tl-note">
+                <strong>Çevirmen Notu:</strong> Murat Soner tarzı Japonca versiyon ilişkiler şemasına gönderme yapılmaktadır.
+            </div>
+
+            <p>Sonrasında öğrenciler dışarıdaki manzarayı seyrederek sohbet ettiler.</p>
+            <p>Otobüs şehirden ayrıldıktan yaklaşık 20 dakika sonra Chabashira-sensei bir mikrofon alarak otobüsteki öğrencilere baktı.</p>
+            <p>“Sanırım artık eğitim kampının detaylarını açıklamanın zamanı geldi. Okulda kısaca bahsettiğim gibi, tüm sınıflar için üç gece dört gün sürecek bir deneyimsel öğrenme ve etkileşim toplantısı düzenlenmesine karar verildi.”</p>
+            <p>Normalde bu gergin bir an olurdu, ama otobüsteki öğrencilerde hiçbir gerginlik belirtisi yoktu.</p>
+            <p>Chabashira-sensei’nin sözlerini dinlerken, dışarıdaki manzarayı seyrediyor ya da dinleniyorlardı, bu da her zamankinden farklı bir hava yaratıyordu.</p>
+            <p>Daha önce de dediğim gibi, bu bir özel sınav değil, basit bir etkileşim toplantısıydı.</p>
+            <p>“Bu etkileşim toplantısını bir özel sınav olarak görmemenizi hatırlatmak isterim. Bu sefer sınıf puanlarında bir değişiklik olmayacak. Öğrencilik çerçevesinden sapmayan davranışlarda bulunmadığınız sürece, muhtemelen uzaklaştırılma riskiniz yok. Bazı oyunlara katılarak özel puanlar kazanabilirsiniz, ama bu daha çok gönüllü katılıma dayalı bir sistem.”</p>
+            <p>Chabashira-sensei’nin bunu vurgulamak için açıklama yapması doğaldı.</p>
+            <p>Öğrenciler, bu okuldaki uzun yaşamları boyunca daha temkinli hale gelmişlerdi.</p>
+            <p>Etkileşim toplantısının arkasında bir şeyler olabileceğinden şüphelenmeye alışmışlardı.</p>
+            <p>İşte bu yüzden bunun bir özel sınav olmadığını, sınıf puanlarının değişmeyeceğini ve onları bekleyen uzaklaştırma gibi cezalar olmadığını duyuruyordu.</p>
+            <p>Bu, öğrencilere iç rahatlığı veriyordu.</p>
+            <p>“Ichihashi’nin hastalık nedeniyle evde kalması üzücü oldu, ama bu bir nevi şans oldu. Sonuçta daha az öğrenciyle çalışmak sizin için daha verimli olacak aynı zamanda da benim için daha rahat olacak.”</p>
+            <p>Bu mevsimde soğuk algınlığının yaygın olması nedeniyle sağlığı kötü olan azımsanamayacak sayıda öğrenci vardı.</p>
+            <p>“Sanırım bazılarınız fark etmiş olabilir, ama tüm sınıflar için olsa bile, bu sefer üçüncü sınıflardan her sınıftan sadece beş temsilci katılıyor. Bu, çeşitli durumlar göz önünde bulundurularak alınan bir karar.”</p>
+            <p>Chabashira-sensei kısaca değindi, ama detaya girmedi.</p>
+            <p>“Ana hedefiniz birinci sınıf öğrencileriyle etkileşim kurmak olacak, ama bizim belirsiz talimatlarımızla herkesle anlaşabilmeniz mümkün değil. Kamp alanına varır varmaz, tüm sınıflar 20 gruba ayrılacak. Her grupta temsilci olarak görev yapacak 20 üçüncü sınıf öğrencisi, birinci ve ikinci sınıf öğrencilerinin tam listesine göre üyeleri zaten organize etmiş durumda.”</p>
+            <p>Bu, grupların önceden belirlendiği ve hangi grupta olduğumuzun bize söylenmediği anlamına geliyordu.</p>
+            <p>“Şimdi organizasyon şemasını dağıtacağım, hangi grupta olduğunuzu hatırlayın. Kişi sayısı ve cinsiyet oranında bazı farklılıklar olabilir, ama sınıf ve not dengesi mümkün olduğunca ayarlandı. Oyunlar gruplar arasında kazananı belirlemek için yapılacak.”</p>
+            <p>Chabashira-sensei, önünde oturan öğrencilere çıktıları dağıttı.</p>
+            <p>Öğrenciler gerekli çıktıları aldı ve arkalarındaki öğrencilere iletti.</p>
+            <p>“Bu çıktıda ayrıca oyunlardan kazanabileceğiniz bazı ödüller ve onları alma koşulları da yazıyor. Dikkatlice okumalısınız.”</p>
+            <p>“Bu bir sınav olmadığı için daha rahatım, ama yine de özel puan istiyorum. İyi bir gruba denk gelip gelmemen kazanma şansını çok etkiliyor gibi görünüyor, değil mi?”</p>
+            <p>“Evet.”</p>
+            <p>Grubunda mümkün olduğunca çok sayıda başarılı öğrenci olmasını ummak doğaldı.</p>
+            <p>Tabii ki, kazananı belirlemek için hangi becerilerin gerekli olacağı bilinmiyordu.</p>
+            <p>Önümüzde oturan Hondō ayağa kalktı ve bize kalan çıktıları verdi.</p>
+            <p>Kei onları aldı ve daha arkadakilere iletti.</p>
+            <p>“Keşke seninle aynı grupta olsaydım, Kiyotaka.”</p>
+            <p>Çıktılar beşerli gruplar halinde zımbalanmıştı, grup etkinlikleri, etkileşim toplantısı ödülleri ve üçüncü sayfadan itibaren öğrenci isimlerinin listesi vardı.</p>
+            <p>Ayrıca, katlanmış bir kartın da eklendiğini fark ettim, normal bir kartvizit boyutundaydı.</p>
+            <p>Neyse ki, çıktılar sadece bizim için hazırlanmıştı, bu yüzden bu sınıftaki öğrencilerin isimlerinde işaretler vardı.</p>
+            <p>Bu, ismimi bulmayı kolaylaştırıyordu.</p>
+            <p>Devamsızlık yapanların isimleri de listelenmişti.</p>
+            <p>İkinci sınıflardan Ichihashi ve Ichinose olmak üzere iki öğrenci vardı, ama birinci sınıflardan dört öğrenci vardı, ki bu oldukça fazlaydı.</p>
+            <p>Bunların arasında Ishigami’nin adı da vardı.</p>
+
+            <div class="tl-note">
+                <strong>Çevirmen Notu:</strong> Üzümlü kekim hastalanmış...
+            </div>
+
+            <p>Muhtemelen sağlık durumlarının kötü olması bir tesadüftü.</p>
+            <p>Bu yüzden, onlarla etkileşime geçme fırsatım olmayacaktı.</p>
+            <p>“Tanaka-senpai’yle yedinci gruptayım. Sen orada değilsin… ama…”</p>
+            <p>Kei, ilk sayfanın ortasında ismini hızla buldu, ayrı düştüğümüz için hayal kırıklığına uğramış ama bir yandan da biraz rahatlamış görünüyordu.</p>
+            <p>Acaba neden?</p>
+            <p>“Ama ne?”</p>
+            <p>“Görünüşe göre kampta aynı gruptaki kızlarla bir odada kalacağım, ve birlikte olmak istemediğim biri var… Onların olmamasına sevindim,” dedi.</p>
+            <p>Çıktının başında oyunların yanı sıra, cinsiyete göre ayrılmış odalarda birlikte kalacağımız yazıyordu.</p>
+            <p>Muhtemelen bunu fark ettiği için böyle tepki vermişti.</p>
+            <p>Kim olduğunu belirtmedi, ama şüphesiz Ichinose’den bahsediyordu.</p>
+            <p>Son özel sınavda, stratejilerinin bir parçası olsa bile art arda aday gösterilmesine şaşırmıştı.</p>
+            <p>“Ichinose-san’dan nefret ettiğim falan yok, ama, bilmiyorum. Biraz korkuyorum.”</p>
+            <p>Bunu mırıldandı ve sonra bana dik dik baktı.</p>
+            <p>“Sen Ichinose-san’la yakınsın, Kiyotaka. Bazen çeşitli şeylerden şüphe duyuyorum.”</p>
+            <p>Kei bunu bana başkalarının duyamayacağı bir sesle fısıldadı.</p>
+            <p>“Demek çatışma yaşamanın nedeni buymuş.”</p>
+            <p>“Ichinose’yle aynı grupta olma ihtimalin var, değil mi?”</p>
+            <p>Şaşırtıcı bir şekilde, Ichinose’un varlığı Kei’nin zihninde olumsuz bir şekilde büyümüş gibiydi.</p>
+            <p>“Görünüşe göre ben Kiryūin-senpai’yle birlikte 20. gruptayım, beşinci sayfanın sonunda.”</p>
+            <p>Hızlıca tüm 20 grubun listesine göz attım ve Chabashira-sensei’nin daha önce açıkladığı gibi, cinsiyet oranı mümkün olduğunca adildi ve sınıflara göre öğrenci dağılımı ya minimum bir ya da maksimum üç—temel olarak ikişer kişiydi.</p>
+            <p>Mümkün olduğunca eşit görünüyordu.</p>
+            <p>Ancak, bazı gruplarda ürkütücü bir yanlılık ve eşitsizlik hissediyordum.</p>
+            <p>Diğer öğrenciler hâlâ isimlerini arıyorlardı, bu yüzden muhtemelen fark eden çok az kişi vardı, ama soruların ortaya çıkması an meselesiydi.</p>
+            <p>Hiçbir şey fark etmemiş olan Kei, ayrı düştüğümüz için hâlâ hayal kırıklığına uğramış bir ifadeyle listeye bakıyordu.</p>
+            <p>Dikkatimi ilk sayfanın üstündeki ödül bölümüne çevirdim.</p>
+
+            <div class="info-card">
+                <div class="info-card-title">Grup Sıralama Ödülleri</div>
+                <ul>
+                    <li><strong>1. olan:</strong> Her öğrenci için 30.000 özel puan</li>
+                    <li><strong>2. olan:</strong> Her öğrenci için 20.000 özel puan</li>
+                    <li><strong>3. olan:</strong> Her öğrenci için 10.000 özel puan</li>
+                    <li><strong>4.-10. olan:</strong> Her öğrenci için 5.000 özel puan</li>
+                    <li><strong>11.-15. olan:</strong> Her öğrenci için 3.000 özel puan</li>
+                    <li><strong>16.-20. olan:</strong> Her öğrenci için 1.000 özel puan</li>
+                </ul>
+                <p style="text-indent: 0; font-size: 0.85em; color: #888; margin-top: 10px; margin-bottom: 0;">
+                    *Bu etkileşim toplantısında kazanılan özel puanlar transfer edilemez.<br>
+                    *Keyaki Mall içinde alışveriş yapmakla sınırlıdır.<br>
+                    *Ödülü almak için puan kartının koşullarını yerine getirmelisiniz.
+                </p>
+            </div>
+
+            <p>Bu bir özel sınav olmadığı için, çok büyük bir ödül alamıyorduk.</p>
+            <p>Ayrıca, sadece belirli sınıfların yararlandığı bir sistem de değildi.</p>
+            <p>Lise öğrencileri için bile fazladan 1000 veya 2000 yen önemsiz değildi, bu yüzden doğal olarak en yükseği hedeflemek isterdik.</p>
+            <p>Transfer edilememesi veya kullanılabilecek yerlerin sınırlı olması gibi dezavantajlar olsa da, stratejik olarak kullanmanın neredeyse imkansız olması bir avantajdı. Ödülü çekinmeden özgürce kullanabilmekti.</p>
+            <p>Öğrenciler bir süre listeye baktılar.</p>
+            <p>“Şey… Chabashira-sensei. Bir soru sorabilir miyim?”</p>
+            <p>Sonoda, gruplar hakkında kabaca bir fikir edindikten sonra elini kaldırdı.</p>
+            <p>“Aklında bir şeyler var, değil mi?”</p>
+            <p>“Evet. Eğer ayrı gruplarda oyunlar oynayacaksak, bu… adil mi? Yani, mükemmel bir adalet sağlamak imkansız olsa bile, biraz dengesiz görünüyor… Mesela Nagumo-senpai’nin grubu hakkında böyle hissediyorum.”</p>
+            <p>“Denge ÖYD notlarınıza göre gözetilmiyor. Büyük bir yanlılık olması şaşırtıcı değil.”</p>
+            <p>Soruyu yanıtlayan Chabashira-sensei, kısa ve net bir cevap verdi.</p>
+            <p>“Vay canına, doğru. Nagumo-senpai’nin grubu oldukça tehlikeli değil mi?”</p>
+            <p>Soruyu dinlerken listeye bakan Ike, Nagumo’nun liderlik ettiği grubu görünce konuştu.</p>
+            <p>Nagumo, tanınmış bir eski öğrenci konseyi başkanı ve ÖYD’de tüm notları A veya üzeri olan bir öğrenciydi.</p>
+            <p>Ama şaşırtıcı olan, grupta olağanüstü yeteneklere sahip yüzlerin olmasıydı.</p>
+
+            <div class="info-card">
+                <div class="info-card-title">Nagumo Grubu Üye Listesi</div>
+                <p style="text-indent: 0; margin-bottom: 5px;"><strong>[Birinci Sınıf Öğrencileri]</strong></p>
+                <ul>
+                    <li><strong>A Sınıfı:</strong> Takahashi Osamu, Toudou Rin, Amasawa Ichika</li>
+                    <li><strong>B Sınıfı:</strong> Hagiwara Chihaya, Fukuchi Hinano</li>
+                    <li><strong>C Sınıfı:</strong> Namekawa Azuki, Iguchi Yuri</li>
+                    <li><strong>D Sınıfı:</strong> Tatewaki Aoi, Osaki Noa</li>
+                </ul>
+                <br>
+                <p style="text-indent: 0; margin-bottom: 5px;"><strong>[İkinci Sınıf Öğrencileri]</strong></p>
+                <ul>
+                    <li><strong>A Sınıfı:</strong> Sanada Kousei, Sawada Yasumi</li>
+                    <li><strong>B Sınıfı:</strong> Horikita Suzune, Hirata Yosuke</li>
+                    <li><strong>C Sınıfı:</strong> Kaneda Satoru, Katsuragi Kouhei</li>
+                    <li><strong>D Sınıfı:</strong> Kanzaki Ryuji</li>
+                </ul>
+            </div>
+
+            <div class="tl-note">
+                <strong>Çevirmen Notu:</strong> Hey Maşallah kadroya bak.
+            </div>
+
+            <p>Hepsi derslerinde başarılıydı ve ya spor konusunda iyiydiler ya da talimatları doğru bir şekilde uygulayabiliyorlardı.</p>
+            <p>Grubu bir arada tutabilecek öğrencileri seçerken tereddüt etmemişlerdi.</p>
+            <p>Bireysel yeteneklerden bahsedecek olursak, Sakayanagi, Ryuen ve Kōenji gibi olağanüstü yeteneklere sahip öğrenciler vardı, ama onlar bir araya geldiğinde nasıl bir etkileşim olacağı bilinmiyordu.</p>
+            <p>Kurulan grup, bundan kaçınmak için oluşturulmuş dengeli bir grup gibi görünüyordu.</p>
+            <p>Bunu gördükten sonra, diğer birçok grup kaçınılmaz olarak solgun kalacaktı.</p>
+            <p>Eğer Sakayanagi veya Ryuuen gibi öğrencilerin olduğu bir gruptaysanız, en güçlü gruba karşı bir atılım yapıp kazanabilirdiniz, ama diğer gruplar için yenilgi kaçınılmazdı.</p>
+            <p>Eğer sadece akademik yeteneğe dayalı bir oyun olsaydı, yetenek açısından kazanmak neredeyse imkansız olurdu.</p>
+            <p>“Bazılarınız grup atamalarının biraz adaletsiz olduğunu düşünebilir, ama yapabileceğimiz bir şey yok. Başarılı öğrencilerin istikrarlı gruplara çekilmesi doğaldır.”</p>
+            <p>Chabashira-sensei, elinde bir çıktı tutarak sert bir ifadeyle cevap verdi.</p>
+            <p>Soru soran Sonoda, bu ifade karşısında geri çekildi.</p>
+            <p>Bir kez söylendiğinde itiraz edilemeyecek makul bir argümandı.</p>
+            <p>Uyarının biraz ağır olduğunu düşünerek öğretmen ifadesini yumuşattı ve hafif bir gülümseme gösterdi.</p>
+            <p>“Ama başarılı olmaları her zaman kazanacakları anlamına gelmez. Özellikle de bu durumda.”</p>
+            <p>Sonoda’ya hâlâ umut olduğunu söyledi ve açıklamasına devam etti.</p>
+            <p>“Bu etkileşim toplantısı, üç gün sürecek bir lig usulü oyun olacak. Gruplar birbirleriyle yarışacak, ama bir grup diğerine karşı olacak ve maç sıraları açıklanmayacak. Ayrıca, oyunların içeriği her seferinde önceden belirlenmiş bir listeden rastgele seçilecek.”</p>
+            <p>Chabashira-sensei ayrıntılı kuralları sözlü olarak aktarmaya devam etti, ama etkileşim toplantısının kuralları şu şekilde özetlenebilirdi:</p>
+
+            <div class="info-card">
+                <div class="info-card-title">Etkileşim Toplantısı Deneyimsel Öğrenme Oyunu Genel Bakış</div>
+                <ul>
+                    <li><strong>Süre:</strong> Üç gün boyunca yapılacak</li>
+                    <li><strong>Maç Dağılımı:</strong> 1. Gün: 5 maç | 2. Gün: 7 maç | 3. Gün: 7 maç (Her maç arasında 30 dakika ara)</li>
+                    <li><strong>Maç Yöntemi:</strong> Tüm 20 grup arasında lig usulü maçlar yapılacak. Maç sıraları açıklanmayacak.</li>
+                    <li><strong>Kurallar:</strong> Her oyun için, her grup üçüncü sınıfın grubundan beş oyuncu seçecek. Sadece birinci ve ikinci sınıf öğrencileri oyuna katılımcı olarak seçilebilir.</li>
+                    <li><strong>Format:</strong> Temel fikir bire bir maçlardır, üç galibiyet alan ilk grup kazanır. Yenilgi kesin olsa bile, oyun beş oyuncu için de devam edecek.</li>
+                    <li><strong>Katılım Sınırı:</strong> Katılım sınırı yok, bir kişi istediği kadar oyuna katılabilir.</li>
+                    <li><strong>Oyun İçeriği:</strong> Okul önceden belirlenmiş bir listeden rastgele seçim yapacak, oyun detayları periyodik olarak açıklanacak.</li>
+                    <li><strong>Kazanma Koşulları:</strong> En yüksek galibiyet sayısına göre ödüller dağıtılacak. (*Üçüncülük ve üzeri için eşitlik durumında ek maçlar yapılacak.)</li>
+                </ul>
+            </div>
+
+            <p>Bir oyun olarak etiketlenen bir şeyden beklenebileceği gibi, içerik gerçekten hafif görünüyordu. Okul tarafından hazırlanan listeden bir bakışta anlaşılıyordu; “çiçek kurutma” ve “çömlekçilik” gibi bir eğitim kampına özgü benzersiz aktiviteler vardı. Ayrıca “iskambil” ve “UNO” gibi oyun tabanlı aktivitelerin yanı sıra “masa tenisi” gibi spor temelli olanlar da vardı.</p>
+            <p>Tabii ki, biraz beyin gücü gerektiren ve akademik becerilere dayalı olanlar da vardı, ama onlar ana odak gibi görünmüyordu.</p>
+            <p>Ayrıca çiçek düzenleme ve bonsai gibi aktiviteler de vardı, ve onlara bakınca, gerçekten ilginç bir seçimdi. Ve listelenen tüm bu oyunlar, sadece maçlar sırasında değil, her zaman deneyimlemek için hazır görünüyordu.</p>
+
+            <div class="tl-note">
+                <strong>Çevirmen Notu:</strong> Bonsai: Özel tekniklerle ağaçların saksılar içinde budanarak, bodurlaştırarak, şekil verilerek yetiştirilmesi sanatıdır.
+            </div>
+
+            <p>Aynı oyunun iki veya üç kez seçilmesi de mümkündü.</p>
+            <p>Detaylar açıklamayla netleşti.</p>
+            <p>Üç gece dört gün boyunca, kōhailerle etkileşim kurmak, bir şeyler yapmak, oyunlar oynamak, sıralama için yarışmak ve arkadaşlıkları derinleştirmek fikriydi.</p>
+            <p>İlgilenmeyen öğrenciler için sıkıcı olabilirdi, ama ben şahsen bir şeyler yaratmayı deneyimleyebileceğim için heyecanlıydım.</p>
+            <p>“Otobüste dağıtılan çıktılara eklenmiş bir puan kartı var. Kamp sırasında çeşitli deneyimsel öğrenme aktivitelerine katıldığınızda damga toplayabilirsiniz. Bunu doldurmak, ödül almanın bir koşulu, bu yüzden dikkatli olun.”</p>
+            <p>Puan kartı, deneyimsel öğrenmeye gönüllü katılımı teşvik etmek için bir yöntem gibi görünüyordu.</p>
+            <p>Günde toplanabilecek damga sayısında bir sınır ve aynı oyun için birden fazla damga alamama gibi birkaç kural vardı, ama endişelenmeyi gerektirecek bir şey gibi görünmüyordu.</p>
+            <p>Neyse, okulda genellikle yapamayacağım çeşitli şeyleri denemek istiyordum.</p>
+            <p>İçerik anlaşıldığına göre, genel ÖYD yetenekleri düşük olan gruplar bile bolca fırsat görebilirdi.</p>
+            <p>Bu kurallarla, herhangi bir gruba karşı kazanma şansının olduğunu söylemek güvenliydi.</p>
+            <p>“Umarım bu sefer kazanma veya kaybetme konusunda çok endişelenmenize gerek olmadığı açıktır. Tabii ki, ödüller için birinci olmayı hedefleyebilir ve birlikte çalışabilirsiniz, ama gördüğünüz gibi çeşitli oyunlar listesinde asıl odak, deneyimsel öğrenmeyi kullanarak etkileşimler. Diğer gruplarla aktif olarak etkileşime geçmek ve arkadaşlıkları derinleştirmeye odaklanmak da gayet iyi.”</p>
+            <p>Şimdiye kadar, okuldan çeşitli görevler ve kurallar almıştık, tıpkı özel sınavlarda olduğu gibi.</p>
+            <p>İlk kez, kazanmak zorunda olmadığımızı ve kaybetmenin de sorun olmadığını kabul ettiler.</p>
+            <p>“Bu gezi gerçekten rahat hissettiriyor. Sonuncu bile olsak 1.000 yen alacağız.”</p>
+            <p>Şimdilik, Kei’nin de aralarında olduğu bir çok öğrenci, gezinin içeriği karşısında rahatlamıştı.</p>
+            <p>“Doğru. Bu sefer kaybetmenin sorun olmaması büyük bir şey.”</p>
+            <p>Açıklamayı alan sınıf arkadaşları gevşemeye başladı ve rahat zaman geçirdiler.</p>
+            <p>Bazıları yüksek sesle şarkı söylemeye bile başladı.</p>
+            <p>“Belirli bir özgürlüğe sahip olsanız da, okulun programına uymayı unutmayın.”</p>
+            <p>Bu biraz moral bozucuydu.</p>
+            <p>Kei ve ben çıktıda yazılı programı kontrol ettik.</p>
+
+            <div class="info-card">
+                <div class="info-card-title">Günlük Program</div>
+                <ul>
+                    <li><strong>Uyanma / Öğle Arası / Işıkların Kapanması:</strong> 07:00 / 13:00-14:00 / 22:00</li>
+                    <li><strong>Kahvaltı / Öğle Yemeği / Akşam Yemeği:</strong> 08:00-09:00 / 12:00-13:00 / 19:00-20:00</li>
+                    <li><strong>Büyük Banyo:</strong> 06:00-08:00 & 20:00-22:00</li>
+                    <li><strong>Etkileşim Toplantısı:</strong> Sabah Oturumu: 09:00-12:00 / Öğleden Sonra Oturumu: 14:00-18:00</li>
+                </ul>
+            </div>
+
+            <p>Oyunlara ayrılan zaman dışında, temelde tüm zamanımız serbestti.</p>
+            <p>Aşırı durumlarda, öğle yemeği yemeden şekerleme yapmak ya da bir şeyler yapmaya kendini adamak kişinin kendi tercihine kalmıştı.</p>
+            <p>Eğer grup lideri oyuna katılım emri verirse, bu geçerli olmazdı, ama reddetmenin bir cezası yok gibi görünüyordu.</p>
+            <p>İlk gün, öğle saatlerinde varacağımız açıklandı, ve oradan gruplar halinde toplanıp öğle yemeği yiyecektik, sonra sadece öğleden sonraki etkileşim toplantısı planlanmıştı.</p>
+            <p>“Umarım eğitim kampında bir senpai olarak utanç verici davranmazsınız.”</p>
+            <p>Bununla, açıklama bitmiş gibiydi ve Chabashira-sensei mikrofonu kapattı ve oturdu.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum4.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="bolum6.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Font Ayarlama JS -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+    </script>
+</body>
+</html>

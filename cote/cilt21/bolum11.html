@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt 21 - Bölüm 11 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #bb86fc;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Navigasyon ve Kontrol Barı */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-btn, .font-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .font-btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        .font-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Görsel Alanı */
+        .novel-illustration {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .novel-illustration img {
+            max-width: 70%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        @media (max-width: 600px) {
+            .novel-illustration img {
+                max-width: 85%;
+            }
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <a href="bolum10.html" class="nav-btn">← Önceki Bölüm</a>
+            <div class="font-controls">
+                <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+            </div>
+            <a href="bolum12.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Cilt 21 - Bölüm 11</h1>
+            <div class="subtitle">Classroom of the Elite</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Cuma günüydü, okuldan sonra, özel sınavın açıklandığı günün ertesi…</p>
+            <p>Dünkü öğle yemeği sırasındaki sınıf tartışmasından sonra sınıfla topluca bir toplantı yapılmamıştı, bu yüzden sınava dair herhangi bir adım atılmamıştı.</p>
+            <p>Sınıfı yönetme sorumluluğunu taşıyan Horikita’nın gece boyunca stratejilerini ve fikirlerini ilerlettiğini umuyordum.</p>
+            <p>Detayları bilmiyordum ama benimle iletişime geçmemişti.</p>
+            <p>Hâlâ bir hafta vardı, acele etmeye gerek yoktu.</p>
+            <p>Ona düşünmesi için zaman tanımak istiyordum.</p>
+            <p>“Ayanokōji-kun… şey, bir dakikan var mı?”</p>
+            <p>Mii-chan, sınıftan yalnız çıkmaya hazırlanırken bana seslendi.</p>
+            <p>Kei, hafta sonuna kadar arkadaşlarıyla geçireceği planlar yapmıştı, bu yüzden çoktan gitmişti.</p>
+            <p>Bu nedenle şu anda tamamen boştaydım ve zaman ayırabilirdim.</p>
+            <p>“Ne oldu?”</p>
+            <p>“Bunu sınıfta değil de başka bir yerde konuşmak istiyorum… burada rahat hissetmiyorum.”</p>
+            <p>Etrafımızdaki öğrenciler rahatsız olmuş gibi görünmüyordu, ancak Mii-chan burada rahat değildi.</p>
+            <p>Tavırlarından, konunun ciddi olduğunu hissettim.</p>
+            <p>“Anladım. Yurda giderken konuşsak nasıl olur?”</p>
+            <p>“Tabii ki!”</p>
+            <p>Sınıfta kalmam için başka bir sebep olmadığı için çantamı aldım ve dışarı çıktık.</p>
+            <p>Boş bir yer aramaya gerek yoktu. Koridor ve giriş, okul çıkışı öğrencilerle dolu ve gürültülüydü.</p>
+            <p>“Ne oldu?”</p>
+            <p>Sormamın ardından Mii-chan etrafına bir bakış attı ve ardından konuşmaya başladı.</p>
+            <p>“Bir süre okula gelemediğimi hatırlıyor musun? Söylemek biraz utanç verici ama Hirata-kun’la ilgiliydi… Şey…”</p>
+            <p>Bu, Eylül sonlarındaydı, Kushida’nın oybirliğiyle yapılan sınavda Mii-chan’ın Hirata’ya aşık olduğunu ortaya çıkardığı zamandı.</p>
+            <p>“Bununla ilgili bir şey mi oldu?”</p>
+            <p>“Birinin, dışarı çıkamadığım zamanlarda bana yemek getirdiğini duydum…”</p>
+            <p>“Hatırlıyorum. Biri cömertçe sana destek oluyordu, değil mi?”</p>
+            <p>Bana Mii-chan’a yemek getiren kişinin ben olup olmadığının sorulduğu zamanı hatırladım.</p>
+            <p>“Daha önce bahsetmiştim sana, Ayanokōji-kun, ve yardımını istemek istiyordum…”</p>
+            <p>“Anladım…”</p>
+            <p>Oldukça uzun bir zaman geçmişti, ama şimdi bunu gündeme getiriyorsa, demek ki—</p>
+            <p>“O kişinin kim olduğunu öğrendin mi?”</p>
+            <p>“Şey, henüz öğrenmedim, ama denersek öğrenebileceğimizi düşünüyorum…”</p>
+            <p>“Denersek öğrenebilir miyiz?”</p>
+            <p>Onun sözlerini tekrarladım ve Mii-chan başıyla onaylayarak yavaşça konuşmaya başladı.</p>
+            <p>Okula dönme cesaretini topladıktan sonra bile, Mii-chan, kendisine destek olan kişiyi hâlâ merak ediyordu.</p>
+            <p>O kişinin kim olduğunu öğrenmekten vazgeçtiğini sanmıştım, ama ısrarcı görünüyordu ve minnettarlığını ifade etmek istiyordu.</p>
+            <p>İki ipucu vardı.</p>
+            <p>Birincisi, marketten gelen yiyeceklerin bulunduğu çantadaki bir nottu; yalnızca oda numarasını içeriyordu ve bu, Mii-chan’a bir hediye olduğuna işaret ediyordu.</p>
+            <p>El yazısı belirgin olsaydı, bu önemli bir ipucu olabilirdi.</p>
+            <p>Ne yazık ki, bu oldukça karmaşık bir durumdu.</p>
+            <p>Mii-chan, yazıyı görmem için getirmişti, ancak yazı kasıtlı olarak kimliği belirlemenin imkânsız olduğu bir şekilde yazılmıştı.</p>
+            <p>“Sana bu hediyeleri veren kişi oldukça kurnaz.”</p>
+            <p>“Evet.”</p>
+            <p>Geriye kalan tek yöntem bu kanıtı takip etmekti.</p>
+            <p>Tüm yiyeceklerin marketten satın alınmış olması doğruydu.</p>
+            <p>Mii-chan, aldığı her bir öğeyi not etmişti.</p>
+            <p>Bu, bu ürünleri market çalışanlarına tarif ederek, aynı şeyleri kimin satın aldığını bulabileceğimiz anlamına geliyordu.</p>
+            <p>Market çalışanlarına sormak, hediye veren kişiyi bulmaya çalışırken klasik bir yöntemdi.</p>
+            <p>Ancak zaman geçtikçe, onların hafızası doğal olarak zayıflayacağı için hızlı hareket etmemiz gerekiyordu.</p>
+            <p>Mii-chan’ın bunu bilmediğini varsaymıştım, ama onun cevabını duyduğumda şaşırdım.</p>
+            <p>“Okula döndüğümde market çalışanıyla hemen konuşmayı denedim.”</p>
+            <p>Aldığı yanıt iyi değildi.</p>
+            <p>Mii-chan’ın sorduğu çalışan, markete yeni atanmıştı ve hediyeyi getiren kişinin yaptığı alışveriş sırasında orada çalışmıyordu.</p>
+            <p>O dönemde orada çalışan müdür, başka bir mağazaya transfer edilmişti.</p>
+            <p>Bir dedektif, muhtemelen güvenlik kamerası görüntülerine bakardı, ancak elbette, ben bunu yapamazdım.</p>
+            <p>“Market çalışanlarına sordum, ama yardımcı olamadılar. O dönemde çalışmadıkları için bir şey hatırlayamadılar. Eski müdür de başka bir mağazaya transfer edilmiş,” dedi Mii-chan, üzgün bir şekilde.</p>
+            <p>Dedektifler bu durumda güvenlik kameralarını incelemeyi tercih edebilirdi, ama bizim böyle bir şansımız yoktu.</p>
+            <p>“Kızlar yurdumdaki diğer öğrencilere de sordum, ama hiçbirinin bir fikri yoktu. O noktada vazgeçmeye karar verdim.”</p>
+            <p>Hiçbir ipucu olmadığında, sıradan bir öğrencinin yapabileceği pek bir şey kalmazdı.</p>
+            <p>“Sanırım o zaman yapabileceğin bir şey yokmuş.”</p>
+            <p>“Evet…”</p>
+            <p>Ancak, Mii-chan, bir çıkmaza girdiğini düşündüğü bir anda beklenmedik bir bilgiye ulaşmış.</p>
+            <p>Geçen gün alışveriş için markete gittiğinde, bir çalışan ona seslenmiş.</p>
+            <p>Transfer olan müdür ve şu anki çalışan karşılaşmışlar ve çalışan, Mii-chan’ın endişelendiği konuyu müdüre hatırlatmış.</p>
+            <p>Müdür, olayın hemen transferinden önce olduğunu hatırlamış ve ilgili olabilecek bir öğrenciyi hatırlamış.</p>
+            <p>Sonuç olarak, müdür, o öğrencinin adını Mii-chan’a iletmek istemiş. Ancak—</p>
+            <p>“Bu haberle karşılaşınca şoke oldum ve… geri döneceğimi söyleyip oradan kaçtım.”</p>
+            <p>“Kaçtın mı?”</p>
+            <p>“Evet… kaçtım…”</p>
+            <p>Böyle bir durumda neden kaçtığını yalnızca Mii-chan bilebilirdi.</p>
+            <p>“Bu ne zaman oldu?”</p>
+            <p>“Şey… Bu…”</p>
+            <p>Soruyu cevaplamakta zorlanması, bunun pek de yeni bir bilgi olmadığını gösteriyordu.</p>
+            <p>“…Bugün altıncı gün.”</p>
+            <p>“Oldukça uzun bir süredir kaçıyorsun.”</p>
+            <p>“Kaçıyorum…”</p>
+            <p>Utanç ya da pişmanlık nedeniyle yüzü kızardı.</p>
+            <p>“Sanırım yakında gitmeliyim, ama… çok gerginim. Kim olduğunu bilmezsem yokmuş gibi davranabilirim, ama bir kere öğrendikten sonra görmezden gelemem. En önemlisi, hediyeleri veren kişi bunu gizli tutmak istemiş olabilir, değil mi?”</p>
+            <p>Kendisini destekleyen kişiye teşekkür etmek istemişti, üstelik kim olduğunu bilmemesine rağmen.</p>
+            <p>Ancak kim olduğunu bilmediği için, bu konuda yapacak bir şeyi olmadığını kabul etmişti.</p>
+            <p>Zaman geçtikçe, bu düşünce muhtemelen onun içinde daha da yerleşmişti.</p>
+            <p>“Bu doğru.”</p>
+            <p>Mii-chan’ı gölgelerde gizlice destekleyen kişi kimliğini açıklamamıştı.</p>
+            <p>Bu durumda, gizli kalmak istemelerinin birçok sebebi olabilirdi.</p>
+            <p>“Sence bunun nedeni ne olabilir?”</p>
+            <p>“Birçok neden olabilir.”</p>
+            <p>Şu anki bilgilerle bu nedenleri daraltmak imkansızdı.</p>
+            <p>“Muhtemelen sınıf arkadaşım olduğunu düşünüyorum… Çok fazla arkadaşım yok, ama benimle bunu gizleyecek biri olduğunu sanmıyorum. Anlayamıyorum…”</p>
+            <p>Mii-chan, arkadaşları arasında kimin bu kişi olabileceğini düşünüyordu.</p>
+            <p>Tabii ki, bir yabancının ona hediye göndermesini bekleyemezdik.</p>
+            <p>“Aslında… Bu sadece olasılıklardan biri— Hayır, boşver.”</p>
+            <p>“Ne demek istiyorsun? Lütfen söyle.”</p>
+            <p>Bunu dile getirmenin onun için ağır olabileceğini düşündüğümden tereddüt etmiştim, ama Mii-chan öğrenmekte ısrarcıydı.</p>
+            <p>“Lütfen söyle.”</p>
+            <p>Yeniden sorduğu için konuşmaya devam etmeye karar verdim.</p>
+            <p>“Varsayımlarına meydan okumak gibi olmasın, ama bu kişi sınıf arkadaşın olmayabilir. Neden okula gelemediğin bilinmese de, devamsızlık yaptığın öğrenilebilirdi.”</p>
+            <p>“Ama diğer sınıflardaki insanlarla pek iletişimim yok ki…”</p>
+            <p>“Bu pek önemli değil. Yakın bir ilişkinin olması gerekmiyor. Ayrıca bu bir kız olmak zorunda da değil.”</p>
+            <p>“Ne?”</p>
+            <p>Bu, onu şaşırtmıştı; erkeklerle daha az etkileşimi olduğunu biliyordum.</p>
+            <p>“Açık konuşmak gerekirse, mesela gizlice senden hoşlanan bir erkek olabilir, değil mi? Hoşlandığı kişi okulda yokken endişelenip ona bir hediye göndermiş olabilir.”</p>
+            <p>“Ee!? Ne!?”</p>
+            <p>Bu duydukları karşısında neredeyse yere düşecekti. Dikkat çekmemeye çalışıyordu ama hayli şaşırmıştı.</p>
+            <p>Bunu fark edince nefesini yavaşlattı, ama hâlâ belli ki kafası karışmıştı.</p>
+            <p>“Bu sadece bir olasılık, telaşlanmana gerek yok.”</p>
+            <p>Mutlaka böyle olması gerekmiyordu. Sadece beklenmedik bir sebep olabileceğini örneklendiriyordum.</p>
+            <p>“Şey… e-evet, haklısın!?”</p>
+            <p>Ama sakinleşmiş görünmüyordu.</p>
+            <p>Galiba bu, gereksiz bir varsayımdı.</p>
+            <p>“Konumuza dönelim. Kararını vermen daha iyi olmaz mı?”</p>
+            <p>Düşüncelerini büyük ölçüde anlamış olmama rağmen, yine de Mii-chan’ın kendi kararını duymak istiyordum.</p>
+            <p>“Şu an ne yapmam gerektiğini bilmiyorum. Kim olduğunu öğrenmeli miyim? Teşekkür etmeli miyim?”</p>
+            <p>“Şu an bir karar vermek en doğrusu olur.”</p>
+            <p>Mii-chan hafifçe başını salladı, pek de emin görünmüyordu.</p>
+            <p>“Bu durumda sen olsaydın ne yapardın, Ayanokōji-kun?”</p>
+            <p>“Ben olsam mı…?”</p>
+            <p>Biraz düşündüm, ama dürüstçe cevap vermek daha iyi olurdu.</p>
+            <p>“Yardım eder mi bilmiyorum, ama ben olsaydım kim olduğunu öğrenmek isterdim. Sonrasında ise, onlara yaklaşıp yaklaşmamaya karar verirdim.”</p>
+            <p>“Yani, kim olduğunu bilsen bile onlara teşekkür etmeyecek bir ihtimal var mı diyorsun?”</p>
+            <p>“Eğer bu ben olsaydım. Daha önceki örnekte olduğu gibi, eğer aramızda bir bağ yoksa tereddüt ederdim. Ayrıca, onların kimliğini araştırdığını öğrenmenin iyi olmayacağı durumlar da var, değil mi?”</p>
+            <p>“Sanırım bu mantıklı.”</p>
+            <p>Sevdikleri kişiyi gizlice desteklemişlerdi.</p>
+            <p>Eğer mağazada kimliklerini öğrendikten sonra teşekkür etmeye gelseydi, bu şok edici olurdu.</p>
+            <p>Bu, işin içinde romantizm olmasa bile böyleydi.</p>
+            <p>“Diğer taraf sırlarını korumak istiyorsa, iş daha da karmaşık hale gelir.”</p>
+            <p>“Evet…”</p>
+            <p>“Üstelik, kimliğini öğrendikten sonra sessiz kalıp kalamayacağın da başka bir konu. Gördüğüm kadarıyla, bu yaklaşım senin için pek uygun değil, Mii-chan.”</p>
+            <p>“Bu… evet…”</p>
+            <p>Eğer cevabı bilseydi, duygularını saklamakta muhtemelen başarısız olurdu.</p>
+            <p>“Vazgeçmek kötü bir şey değil.”</p>
+            <p>“Yine de…”</p>
+            <p>Ancak, Mii-chan kendisine yardım eden kişiye teşekkür edememenin suçluluğunu hissediyordu.</p>
+            <p>Bastırmaya çalıştığı duyguları bir kez daha hatırlatılmıştı.</p>
+            <p>Kimliğini öğrenmemeye karar verse bile, bu duygularının silinmesi uzun zaman alacaktı.</p>
+            <p>“Pandora’nın Kutusu’nu bir kez açtığında, onu tekrar kapatamazsın.”</p>
+            <p>Mii-chan’ın duygusal istikrarsızlığını göz önünde bulundurursak, kaçmayı seçmesinde şaşılacak bir şey yoktu.</p>
+            <p>Ayrıca, kimliğini öğrenmemek kararının kendine özgü olumlu bir yönü vardı.</p>
+            <p>Bu gizemli yardımseverin kim olduğunu bilmek, o kişi kim olursa olsun ona karşı algısını değiştirecekti.</p>
+            <p>“Ben…”</p>
+            <p>Kararsız Mii-chan cevabını bulmak için kendine zaman tanıdı.</p>
+            <p>“Ben… bilmek istiyorum…”</p>
+            <p>“Bu pişmanlığa yol açsa bile mi?”</p>
+            <p>“…Evet.”</p>
+            <p>Kararını verdikten sonra, artık başka bir şey söylememin anlamı yoktu.</p>
+            <p>“O zaman markete gitmelisin.”</p>
+            <p>Tepkime rağmen, Mii-chan hâlâ tereddütlü görünüyordu ve bana bakıyordu.</p>
+            <p>“…”</p>
+            <p>“…”</p>
+            <p>Hava garip bir gerilimle dolmuştu, ama Mii-chan’ın ne söylemeye çalıştığı açıktı.</p>
+            <p>“Marketle birlikte gitmemizi ister misin?”</p>
+            <p>“B-Bunu yapabilir miyiz?”</p>
+            <p>Gerçeği öğrenmeye hazırlanmasına rağmen, yalnız gitmeye cesaret edemiyordu.</p>
+            <p>“Sana biraz cesaret verecekse, seninle gelebilirim.”</p>
+            <p>“Teş-teşekkür ederim, Ayanokōji-kun!”</p>
+            <p>Mii-chan’ın büyük ve minnettar gülümsemesi eşliğinde markete doğru yürüdük.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum10.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="../index.html" class="nav-btn">🏠 Cilt Sayfası</a>
+            <a href="bolum12.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Font Ayarlama JS -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+    </script>
+</body>
+</html>

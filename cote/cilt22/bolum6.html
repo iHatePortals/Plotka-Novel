@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt 22 - Bölüm 6: Eğitim Kampı (Part 2) | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #bb86fc;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Navigasyon ve Kontrol Barı */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-btn, .font-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .font-btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        .font-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Görsel Alanı */
+        .illustration-container {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .illustration-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .illustration-caption {
+            font-size: 0.85em;
+            color: #888;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* Çevirmen Notu Kutusu */
+        .tl-note {
+            background-color: #1a1a1a;
+            border-left: 4px solid var(--accent-color);
+            padding: 12px 15px;
+            margin: 20px 0;
+            font-size: 0.9em;
+            color: #aaa;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <a href="bolum5.html" class="nav-btn">← Önceki Sayfa</a>
+            <div class="font-controls">
+                <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+            </div>
+            <a href="bolum7.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Cilt 22 - Bölüm 6</h1>
+            <div class="subtitle">Eğitim Kampı (Kısım 2)</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Öğle yemeğini bitirdikten sonra telefonumda birinden gelen mesaja bakarak yerimden kalktım.</p>
+            <p>Saat henüz öğleden sonra bire geliyordu. Günün ilk oyununa yaklaşık bir saat vardı.</p>
+            <p>“Kusura bakma, ama biraz dışarı çıkmam gerekiyor. Toplantı odasında buluşsak olur mu?”</p>
+            <p>“Tabii, sorun değil. Ben birinci sınıfları alıp biraz deneyim kazandırmaya çalışırım.”</p>
+            <p>Kōhailerle olmanın zorluklarını üstlenen Hashimoto’ya teşekkür ederek, “Dinlenme Alanı” yazan bekleme odasına doğru yöneldim.</p>
+            <p>Kısa süre sonra oraya vardığımda, beni çağıran kişiyi iki kişilik bir kanepede tek başına otururken, pencereden dışarıya sıkılmış bir şekilde bakarken gördüm.</p>
+            <p>Pencerenin yanında duran ve dışarıyı izleyen bir başka kişi daha vardı.</p>
+            <p>Bu ikiliyi göz önüne alınca, bir tesadüf olmadığı belliydi.</p>
+            <p>“Benden bir şey mi istiyorsunuz, Nagumo-senpai?”</p>
+            <p>“İstek mi? Pek değil, ama konuşacak birkaç şey var.”</p>
+            <p>Parmak uçlarıyla beni yanına çağırdı.</p>
+            <p>Ben de itiraz etmeden önümdeki boş koltuğa oturdum.</p>
+            <p>Pencerenin yanında duran Asahina arkasını döndü.</p>
+            <p>“Selam, Ayanokōji-kun.”</p>
+            <p>Sonra bulunduğu yerden ayrılıp Nagumo’yu kanepenin sağ tarafına iterek yanına oturdu.</p>
+            <p>“Özel bir sınav bekliyordum, ama sadece bir etkileşim toplantısı çıktı. Açıkçası hayal kırıklığına uğradım.”</p>
+            <p>Bana doğrudan bakan Nagumo’nun ilk sözleri, bu eğitim kampına dair hayal kırıklığıydı.</p>
+            <p>“Gerçekten şanssızım.”</p>
+            <p>Nagumo talihsizliğinden yakınarak hafifçe gülümsedi ve başını salladı.</p>
+            <p>“Sen de aynı fikirde değil misin?”</p>
+            <p>Dirseğini koltuğun kenarına dayamış, yanağını hafifçe avucuna yaslamış olan Nagumo, tiksinti dolu bir ifadeyle sordu.</p>
+            <p>“Geçen yılın karma eğitim kampıyla karşılaştırıldığında, bu yılkinin çok daha sönük kaldığı inkar edilemez. Muhtemelen bu yüzden bir özel sınav yerine etkileşim toplantısı olarak adlandırılıyor.”</p>
+            <p>Geçen yıl sınıftan atılma riski vardı, ama bu yıl belirtilen bir ceza bile yoktu.</p>
+            <p>Nagumo’nun neden bu kadar hayal kırıklığına uğradığını anlayabiliyordum.</p>
+            <p>“Ama bunun böyle olacağını biliyordun, değil mi Asahina? Kampın zamanlamasını düşününce.”</p>
+            <p>“…Evet, sanırım.”</p>
+            <p>Şubat ayında olduğumuz için, tüm sınıfları kapsayan zorlu bir özel sınav yapılması pek mümkün görünmüyordu.</p>
+            <p>Asahina da bunu ifade ediyordu.</p>
+            <p>“Geçen yıl olduğu gibi tüm üçüncü sınıf öğrencilerinin katılımı neredeyse imkansız olurdu.”</p>
+            <p>Bunu mırıldandığımda Nagumo yanıt verdi:</p>
+            <p>“Çoğumuz üniversite sınavları ve iş başvurularıyla uğraşıyoruz şu sıralar. Sadece geleceğini netleştirmiş ve boş vakti olanlar bu kampa katılabilir. Ne kadar özel puan verirlerse versinler, çoğu öğrenci her dakikasını değerlendirmek ister.”</p>
+            <p>Üçüncü sınıf öğrencileri, Nagumo’nun önderliğinde özel puanları toplamak ve yönetmek için bir kural oluşturmuştu.</p>
+            <p>Eğer 20 milyon puan toplayabilirlerse, birisi A Sınıfı’na geçebilecekti.</p>
+            <p>Ancak bu sefer ödül transfer edilemiyor, sadece Keyaki Alışveriş Merkezi’nde kullanılabiliyordu ve miktarı da çok büyük değildi.</p>
+            <p>Üniversite sınavlarına hazırlanan öğrenciler için, özel üniversitelerin sınavları genellikle Ocak sonunda başlıyordu.</p>
+            <p>Devlet ve vakıf üniversiteleri için ise Şubat sonuydu.</p>
+            <p>Şubat başında olduğumuz için, birçok öğrencinin asıl sınavlarına hazırlandığı bir dönemdi.</p>
+            <p>Böyle bir durumda, dört gün boyunca kōhailerine bakmaları çok büyük bir fedakarlık olurdu.</p>
+            <p>“Geçen yıl karma eğitim kampı bir ay erken yapılmıştı, ama yine de üçüncü sınıflar için oldukça zorlu olmuştu değil miydi?”</p>
+            <p>“Sanırım öyle. Ders kitaplarını getiren birçok üçüncü sınıf öğrencisi vardı. Belki de bu yüzden bu sene daha rahat bir program hazırlandı.”</p>
+            <p>Bunu düşününce, Horikita Manabu’nun dönemi arka planda çok zorlanmış olmalıydı.</p>
+            <p>Okulun bazı kolaylıklar sağlamış olması mümkündü, ama bunu bilemezdik.</p>
+            <p>Yoğun bir dönemde olsalar bile, bu seyahatin daha rahat olduğu söylense de, bu etkileşim toplantısına katılan üçüncü sınıf öğrencileri muhtemelen gelecekleri konusunda net bir hedefi olanlardı.</p>
+            <p>“Etkileşim toplantısına katılan üçüncü sınıf öğrencilerinin gönüllü olduğunu varsayabilir miyiz?”</p>
+            <p>Sorum üzerine Asahina başını salladı.</p>
+            <p>“Her sınıftan beş gönüllü seçtiler. Eğer 20 kişiye ulaşamazlarsa, grup sayısını azaltıp ayarlayacaklardı.”</p>
+            <p>Görünüşe göre okul da üçüncü sınıf öğrencilerini düşünmüştü.</p>
+            <p>“Şimdiye kadar sormamıştım, ama siz ve Nagumo-senpai mezun olduktan sonra ne yapacaksınız?”</p>
+            <p>Konuşmanın akışına uygun olarak sorduğumda, Nagumo soruya şaşırarak baktı.</p>
+            <p>“Öğrenmek mi istiyorsun?”</p>
+            <p>İlgimi çektiği için memnun görünüyordu.</p>
+            <p>Burada belirsiz bir cevap verirsem sinirlenebileceğini düşünerek dürüstçe başımı salladım.</p>
+            <p>“Üniversiteye gideceğim. A Sınıfı ayrıcalığını kullanmaya niyetim yok.”</p>
+            <p>Başka bir deyişle, kendi başarısıyla kazanabileceğine güveniyordu.</p>
+            <p>“Ben de Miyabi gibi üniversiteye gideceğim. Ama onunkinden farklı olacak. Geçenlerde girdiğim ortak sınavda aldığım puan kesme çizgisinin biraz altındaydı, ve seviyem için biraz zor olabilir. Eğer A Sınıfı’ndan mezun olursam, okulun desteğiyle zorlayabilirim belki… ama muhtemelen yapmayacağım.”</p>
+            <p>Üniversitenin adı geçmedi, ama Nagumo’nun gideceği üniversite prestijli görünüyordu.</p>
+            <p>Asahina’nın çok yüksek hedefler koymaması muhtemelen doğru bir karardı.</p>
+            <p>Okulumuzun yetkisiyle daha üst düzey bir üniversiteye zorla girmeye çalışırsanız, kayıt sonrası çeşitli riskler olabilirdi.</p>
+            <p>Keisei’nin de daha önce belirttiği gibi, A Sınıfı ayrıcalığı en iyi iş başvurularında kullanılırdı.</p>
+            <p>“A Sınıfı ayrıcalığının kendisi benim için bir değer taşımıyor. Neden biliyor musun?”</p>
+            <p>“Çünkü hedeflerine ulaşmak için gerekli güce zaten sahipsin.”</p>
+            <p>“Bu, üçüncü sınıfı domine edip ezici bir varlık haline gelmemin nedenlerinden biri. Mezuniyette B Sınıfı ya da D Sınıfı’nda olsam bile, istediğim üniversiteye girebileceğime ve istediğim şirkette iş bulabileceğime inanıyorum.”</p>
+            <p>Asahina yanındaki Nagumo’ya kasıtlı olarak tiksinti dolu bir bakış attı, ama muhtemelen doğruydu.</p>
+            <p>“Yani herkes birleşip seni B Sınıfı’na düşürse bile, sonucun ne olacağını biliyorlar. Bu motivasyonlarını artırmazdı ve sürdürmek zor olurdu. İşte bu yüzden şu anki sonuçlar ortaya çıktı.”</p>
+            <p>Nagumo onaylar şekilde başını salladı.</p>
+            <p>Ancak tabii ki, A Sınıfı ayrıcalığına sahip olmak daha iyiydi.</p>
+            <p>Fark, bu ayrıcalıklara güvenmek mi yoksa sadece bir sigorta olarak görmek miydi?</p>
+            <p>“Bu arada, Horikita-senpai de Miyabi’nin gideceği üniversitede. Bu onu ne kadar takdir ettiğini gösteriyor.”</p>
+            <p>Üniversite kararında etkili olan, gitmek istediği yer değil, Horikita Manabu’nun gittiği yerdi.</p>
+            <p>“Beni rahat bırak. İstersen sen de gelecek yıl sınava girip aynı üniversiteye gelebilirsin. Seni memnuniyetle karşılarım.”</p>
+            <p>“Eğer gelsem, ortak sınavda gerçekten çok çalışmam gerekecek… değil mi?”</p>
+            <p>“Ben katılmam. Akademik yeteneğimle bile oldukça zor olurdu.”</p>
+            <p>Asahina’nın aksine, sözlerim Nagumo’ya ulaşmamış gibiydi.</p>
+            <p>Ciddi olmayan cevabıma güldü ve omuz silkti.</p>
+            <p>“Asıl konuya gelelim. Açıkçası, bu etkileşim toplantısından kazanacağın tek şey özel puanlar ve kaybedecek bir şeyin yok. Yani ciddiye alan insan sayısı az. Ben sadece heyecan eksikliği yaşamıyorum, aynı zamanda hiç olmamasındansa var olmasının daha iyi olduğunu düşünüyorum.”</p>
+            <p>Oyun bir oyundur, maç bir maçtır. Bu şüphesiz son fırsat olacak.</p>
+            <p>“Öyle olduğunu düşünmüştüm. Bu etkileşim toplantısında benimle yarışmak istiyorsun, değil mi?”</p>
+            <p>“Doğru.”</p>
+            <p>Üçüncü sınıf öğrencileri için bu etkileşim toplantısının getirisi çok azdı.</p>
+            <p>Nagumo, benimle bir maç ayarlamak için zaman harcamıştı.</p>
+            <p>Bu sözleri duyunca, Asahina yüzünü Nagumo’ya yaklaştırdı.</p>
+            <p>“Mesele bu mu? Ayanokōji-kun’a haksızlık etmek doğru değil, değil mi?”</p>
+            <p>“Yani onu korumak için mi katıldın? Çok naziksin.”</p>
+            <p>“Ama Ayanokōji-kun’un hiçbir suçu yok. Senin tarafından hedef alınması adil değil. Neden ona bu kadar takıntılısın?”</p>
+            <p>Omuzlarıyla Nagumo’yu itti.</p>
+            <p>Ama bu Nagumo’yu biraz sinirlendirmiş gibiydi, alaycı bir gülümsemeyle karşılık verdi:</p>
+            <p>“Horikita Suzune’nin neden öğrenci konseyine katıldığını biliyor musun, Nazuna?”</p>
+            <p>“Ağabeyinin izinden gitmek istediği için değil mi?”</p>
+            <p>“Hayır, öyle değil. Şu an için bilmiyorum, ama ilk katıldığında öyle değildi.”</p>
+            <p>“Öyle mi? Peki motivasyonu neydi?”</p>
+            <p>“İşte buradaki adam. Ayanokōji, beni gözlemlemek için Suzune’yi kullanıyordu.”</p>
+            <p>“Ha?”</p>
+            <p>Asahina şaşkınlıkla ağzını açtı.</p>
+            <p>“Sanırım beni kötü bir öğrenci konseyi başkanı olarak değerlendirdi, ama sonuçta öyle değildi, değil mi?”</p>
+            <p>Tabii ki Nagumo’nun hareketlerinin aşırı olduğu durumlar vardı, ama Horikita Manabu’nun dikkatini çekecek kadar sorunlu bir davranış sergilememişti.</p>
+            <p>“Bu doğru. Yaptıklarının okula iyi değişiklikler getirdiğini düşünüyorum.”</p>
+            <p>“Belki de Horikita-senpai’den fazla etkilendin, iyi ya da kötü?”</p>
+            <p>Okula girmeden önce başkalarıyla sosyal etkileşimlerim yoktu, bu yüzden Horikita Manabu’dan büyük ölçüde etkilendiğim kesindi.</p>
+            <p>Okul istikrarı tercih ederken, Nagumo reformu tercih ediyordu.</p>
+            <p>Bu iki ideoloji asla birleşemezdi.</p>
+            <p>“Horikita-senpai bana bayrağı devretti, sonuçta.”</p>
+            <p>“Yani kabul ediyorsun.”</p>
+            <p>“Artık inkar etmek için çok geç.”</p>
+            <p>“Bekle, bekle bir dakika. Bu benim düşündüğümden biraz farklı.”</p>
+            <p>Şaşkınlık içinde olan Asahina, benle Nagumo arasında bakarak ağzını açtı.</p>
+            <p>“İfadesiz yüzüne rağmen, perde arkasında ipleri o çekiyor. Her neyse—”</p>
+            <p>Nagumo bir an durakladı ve tekrar sordu:</p>
+            <p>“Benimle bir maç yapmayı kabul ettiğini varsayabilirim, değil mi?”</p>
+            <p>“Neden etkileşim toplantısı için hazırlanan kurallar ve ödüllerin ötesinde koşullar eklememiz gerekiyor?”</p>
+            <p>“Böyle bırakmayı düşündüm, ama kabul edilemez. Eğer ben, öğrenci konseyi başkanı olarak, kişisel nedenlerle seni okulun hazırladığı maçlarda tuzağa düşürürsem, bu sorun yaratır.”</p>
+            <p>Nagumo’nun dediği gibi, aynı sınıfta bile olmayan ikimiz riskli bahislere girersek, okul bundan memnun olmazdı.</p>
+            <p>“Aslında buna maç demek abartı olur. Daha çok küçük bir bahis diyebiliriz.”</p>
+            <p>“Bahis mi?”</p>
+            <p>“Evet. Eğer bahisi kazanırsan, sana güzel bir ödül vereceğim.”</p>
+            <p>“Yani kaybedersem özel puanlarımı vermek zorunda değilim?”</p>
+            <p>“Kulağa kolay geliyor, değil mi?”</p>
+            <p>Bir maç ya da bahisten çok bir oyuna benziyordu.</p>
+            <p>Ancak sadece Nagumo’nun dezavantajlı olduğu biraz şüpheliydi.</p>
+            <p>“Reddetmek için bir neden göremiyorum, ama şu anki kurallarla ikimizin de yapabileceği pek bir şey yok. Lider sensin, yani oyunlara doğrudan katılamazsın, değil mi?”</p>
+            <p>Öğrencileri yönlendiren Kiryūin, yani üçüncü sınıf öğrencileriydi.</p>
+            <p>Ve oyunları oynayanlar birinci ve ikinci sınıf öğrencileriydi.</p>
+            <p>Başlangıçtan itibaren sahneye konduğun yer farklıydı.</p>
+            <p>“Yoksa etkileşim toplantısını görmezden gelip başka bir şekilde maç yapmayı mı düşünüyorsun?”</p>
+            <p>Bu deneyimsel tesis, bunu yapmak için gerekli mekan ve araçlarla donatılmıştı.</p>
+            <p>“Etkileşim toplantısı dışında bir maç yapmak kötü bir fikir değil, ama eğer öyle yapacaksak, bu kampa bağlı kalmamıza gerek yok.”</p>
+            <p>“Doğru. Okulda daha meşru bir maç yapabilirdik.”</p>
+            <p>“Eğer okul bir etkileşim toplantısı düzenle diyorsa, resmi kurallara uyacağım.”</p>
+            <p>Bunu söyleyen Nagumo devam etti:</p>
+            <p>“Başta senin lider olmanı ve birinci ile ikinci sınıf öğrencilerini yönlendirerek bir maç yapmayı düşündüm.”</p>
+            <p>Görünüşte lider üçüncü sınıf öğrencisi Kiryūin-senpai’ydi, ama asıl atamaları ve talimatları verecek olan bendim.</p>
+            <p>Ve görünüşe göre onun oyunlara katılmayacağını da öngörmüştü.</p>
+            <p>“Fena değil, değil mi?”</p>
+            <p>“Evet, ama adil olması için grup üyelerini seçmesine izin vermemiz gerekir, yoksa adil olmaz, değil mi?”</p>
+            <p>Nagumo tüm grup üyelerini kendisi seçmişti.</p>
+            <p>Öte yandan, eğer Kiryūin kendi seçtiği grup üyelerini bana emanet etseydi, kesinlikle adil bir başlangıç olmazdı.</p>
+            <p>Aslında, birinci ve ikinci sınıf öğrencilerine otobüse binene kadar hiçbir şey söylenmemişti.</p>
+            <p>“Ve işler açığa çıktığında, herkesin birbiriyle yarıştığı bir sistem olduğunu görüyorsun. Eğer üç gün boyunca sürükleyip tek bir doğrudan karşılaşma yaparsan, heyecanı eksik kalır, değil mi? Bu yüzden burada aynı koşullarda ısrar etmeyi bırakmaya karar verdim.”</p>
+            <p>Bunu söyleyen Nagumo, işaret parmağını bana doğrulttu.</p>
+            <p>“Tüm oyunlara katılacaksın. Ve üç kez kaybedersen, yenilgi senin olacak.”</p>
+            <p>“Grubun kazanıp kaybetmesi konusunda endişelenmem gerekmiyor, değil mi?”</p>
+            <p>“Evet. Kiryūin’in grubu 19 kez üst üste kaybetse bile, eğer sen hiç kimseye kaybetmezsen, kazanmış olursun.”</p>
+            <p>Toplam 19 oyun. Yani bireysel olarak 17’sini kazanmam gerekiyor.</p>
+            <p>“İki kez kaybetmeme izin vererek çok cömertsiniz.”</p>
+            <p>“Eğer yenilmezlik koşulu koysaydım ve ilk maçta kaybetseydin, bu büyük bir hayal kırıklığı olurdu, değil mi? Seni olabildiğince uzun süre tutmak daha eğlenceli.”</p>
+            <p>Nagumo, üç kayıp sınırını koymasının nedeninin sadece kendi zevki olduğunu söyledi.</p>
+            <p>“Eh? Bu Ayanokōji-kun için çok dezavantajlı değil mi? Kart oyunları tamamen şansa bağlı.”</p>
+            <p>“Kazanmazsa bile kaybedecek bir şeyi yok, değil mi? Kuralları belirleme hakkı doğal olarak bizim.”</p>
+            <p>“Ah, evet… Sanırım öyle.”</p>
+            <p>Biraz memnuniyetsizdim, ama en sert içerikle karşılaşsam bile, benim açımdan risk sıfır olduğu için reddetmek için bir neden yoktu.</p>
+            <p>“Tek istediğim senin yenilgin. Yüksek bir kazanma olasılığı talep etmem doğal. Ayrıca özel puanları da tazminat olarak sunuyorum.”</p>
+            <p>“Mezun olmaya yakınken bir kōhai ile uğraşmak iyi mi?”</p>
+            <p>“Seni böyle tedavi etmeyi seviyorum.”</p>
+            <p>Her halükarda, Nagumo’nun isteklerine bir şekilde yanıt vermek zarar vermezdi.</p>
+            <p>Zaten Mart ayında mezun olacaktı.</p>
+            <p>“Anlaşıldı. O zaman teklifinizi tereddütsüz kabul ediyorum.”</p>
+            <p>Kabulüm üzerine Nagumo hafifçe başını salladı.</p>
+            <p>“Tabii ki, Kiryūin’e tüm oyunlara katılacağını söyledim.”</p>
+            <p>Görünüşe göre kabul edeceğim varsayılarak arka planda pazarlıklar yapılmıştı.</p>
+            <p>“Bir dışarıdan olarak söylemem doğru olmaz ama, eğer istemiyorsan açıkça reddedebilirsin, biliyor musun? Kaybedersen bir şey ödemeyeceğini söylesen bile, kaybetmiş olmanın gerçeği kalıcıdır.”</p>
+            <p>Nagumo’nun istediği tam da buydu, ‘kazanmak’ ve ‘kaybetmek’ meselesi.</p>
+            <p>“Eğer Ayanokōji kabul edeceğini söylüyorsa, gereksiz konuşmana gerek yok.”</p>
+            <p>Kaba bir şekilde muamele gören Asahina memnuniyetsizlikle yanaklarını şişirdi ama benim için sorun olmadığını görünce geri çekildi.</p>
+            <p>“Ama gerçekten seçimlerinizde hiç çekinmemişsiniz, Senpai. Diğer gruplara atanan öğrenciler biraz şaşırmıştı.”</p>
+            <p>Bunu söylediğimde herhangi bir hoşnutsuzluk göstermedi, hatta bunun doğal olduğunu ifade edercesine gülümsedi.</p>
+            <p>“Önemsiz bir etkileşim toplantısında bile, oyun bir oyundur. Eski bir öğrenci konseyi başkanı olarak, itibarımı göstermem gerekiyor.”</p>
+            <p>Görünüşe göre, lider olarak katıldığı etkileşim toplantısında da kazanmayı planlıyordu, benimle olan mücadelesinden ayrı olarak.</p>
+            <p>Bu Nagumo’nun özgürlüğüydü; beni ilgilendirmezdi.</p>
+            <p>“Eğer art arda birkaç oyun kazanmaya başlarsan, grubu doğrudan yönetebilirsem seni durdurmak daha kolay olur.”</p>
+            <p>“Vay canına. Gerçekten acımasızsın, Miyabi.”</p>
+            <p>“Hayır, öyle düşünmüyorum. Nagumo-senpai’nin düşünme şeklinin doğru olduğunu düşünüyorum.”</p>
+            <p>Rakibini kendi ringine çekebilmek, kendin için avantajlı bir durum yarattıktan sonra bir beceri meselesiydi.</p>
+            <p>Her grupla sadece bir kez karşılaşma yapısı ve etkileşim toplantısının atmosferi göz önüne alındığında, belirli bir bireyin kaç kez oyuna katıldığının net olmayacağı söylenebilirdi.</p>
+            <p>Ama bu da benim avantajımaydı.</p>
+            <p>İkinci sınıf öğrencisi olarak bir gruba karşı çıkmak çok dikkat çekici olurdu, ama eğer sadece bireysel bir mücadeleyse, dikkatleri üzerime çekmekten kaçınabilirdim.</p>
+            <p>Kendisi için avantajlı bir durum yaratırken, benim için de düşünmüştü.</p>
+            <p>“Nazuna yanılıyor galiba, ama zafer veya yenilgi sadece birinin mükemmel olup olmamasına bağlı değildir. Eğer üstteki kişi daha yetenekli değilse, yetenekli birini kullanmak sadece onların kaybetmesine yol açar.”</p>
+            <p>Nagumo’nun söylediği doğruydu.</p>
+            <p>Satrançta ne kadar çok taş verilirse verilsin, yetenek yetersizse kazanmak garanti değildir.</p>
+            <p>“Geç kaldığım için özür dilerim. Tartışma sonuçlandı mı?”</p>
+            <p>Kiryūin bekleme odasına geldi.</p>
+            <p>“Ah, her şey yolunda gidiyor. Planlandığı gibi ben ve Ayanokōji arasında bir maç olacak,” dedi Nagumo bana dönmeden önce.</p>
+            <p>“Kiryūin, sana meydan okumayı planladığımı sezmiş olmalı ki bu rol için gönüllü oldu.”</p>
+            <p>“Doğru,” diye onayladı Kiryūin.</p>
+            <p>“İstersen, liderlik yetkisini bile sana verebilirim. Tabii ki, yüzeyde katılımcıları benim seçtiğim izlenimini yaratacağım. Böylece grup olarak yarışabiliriz, değil mi?”</p>
+            <p>Kazan-kazan bir durum önerdi, ama acaba Kiryūin sadece benim zaferimi veya yenilgimi en yakın koltuktan, hiçbir şey yapmadan izlemek mi istiyordu?</p>
+            <p>“Anlıyorum. Biraz rahatsız olduğum bir kısmı vardı. Şimdi neden A Sınıfı’ndan o üç kişinin aynı grupta olduğunu anlıyorum.”</p>
+            <p>Hashimoto ve Morishita markete uğradıklarında Yamamura’ya rastlamışlardı, ve Kiryūin de aynı anda oradaydı.</p>
+            <p>Bu, aynı grubu seçmelerinde belirleyici faktör olmuş olabilirdi.</p>
+            <p>Eğer bana yetkiyi devrederse, dostlukları derinleştirmek için mümkün olduğunca fazla zaman kazanmak bir nevi kolaylık sağlardı.</p>
+            <p>“Şu anki arkadaşlık ilişkilerin hakkında pek bir şey bilmiyorum. Tesadüfi bir karşılaşmaydı, ve seni rastgele seçmene izin verdim. Eğer grupta rahatsız hissedersen, gerçek yeteneklerini göstermek zor olurdu, değil mi?”</p>
+            <p>Hashimoto ve Hiyori sayesinde, konuşmanın sorunsuz ilerleyeceği anlaşılıyordu.</p>
+            <p>“Düşünceniz için minnettarım, ama teklifinizi reddedeceğim. Maalesef, sosyalleşmekte pek iyi değilim ve kōhailerimle iyi geçinmeye çalışırken oldukça meşgulüm.”</p>
+            <p>Kiryūin hayal kırıklığına uğramış gibi yanıt verdi, ama çok da üzülmüş görünmüyordu.</p>
+            <p>“Kiryūin-senpai’nin bu işe karışacağını beklemiyordum.”</p>
+            <p>Nagumo ve Kiryūin tam olarak arkadaş sayılmazdı. Hatta zıt pozisyonlardaydılar.</p>
+            <p>Böyle cevap verdiğimde, Kiryūin mutlu bir şekilde gülümsedi.</p>
+            <p>“Her neyse, maçın gerçekleşeceğine sevindim, Nagumo. Üçüncü sınıf öğrencilerinin oyunlara doğrudan katılamaması üzücü.”</p>
+            <p>Kiryūin, etkileşim toplantısı hakkındaki duygularını ifade etti, gerçek mi değil mi bilinmez.</p>
+            <p>“Eğer katılıma izin veren bir kural olsaydı, var gücünle katılır mıydın?”</p>
+            <p>“Ayanokōji’yi içeren nadir bir fırsat. Tabii ki beklentilerini karşılamak isterim.”</p>
+            <p>“Hah, gerçekten Ayanokōji’ye inanmışsın. İstersen sadece bu etkileşim toplantısında değil, bireysel olarak da sana meydan okuyabilirim. İkimiz de üçüncü sınıf öğrencisiyiz, geri durmaya gerek yok. A Sınıfı bileti için bile bahse girerim.”</p>
+            <p>“Üzgünüm, ama reddedeceğim. O bilet tüm yılın kanı ve teriyle ıslanmış. Buna dahil olmayan benim gibi biri için çok ağır, değil mi?”</p>
+            <p>Kiryūin de kendi yenilgisini düşünmeyen kendinden emin bir tipti.</p>
+            <p>Sözleri güçlüydü.</p>
+            <p>Eğer yarışsaydı kazanacağını kesin bir dille ima ediyordu.</p>
+            <p>“Bu çok kötü.”</p>
+            <p>Ancak Nagumo, onu üç yıldır tanıdığı için alışkındı ve Kiryūin’e derin bir ilgi göstermedi.</p>
+            <p>“Pekala, lider olarak yapmam gereken bazı şeyler var, bu yüzden önce izin vereceğim. Sonra görüşürüz.”</p>
+            <p>Kısa işini halledip Kiryūin ayrıldı.</p>
+            <p>“Fūka-chan her zaman havalıdır.”</p>
+            <p>“O sadece bir kadın, sonuçta.”</p>
+            <p>“Vay canına, bu söylediğin çok korkunç Miyabi. Bu sözler üzerine öldürülsen bile şikayet edemezsin.”</p>
+            <p>“Beni yanlış anlama. Sadece aynı cinsiyetten olanlar arasında en üstte olmak istiyorum, herhangi bir ayrımcılık falan yok.”</p>
+            <p>Farklı bir cinsiyet olduğu için tutku duyamıyordu.</p>
+            <p>“Yine de konuşma şeklin yanlış anlaşılmalara neden olabilir, biliyor musun?”</p>
+            <p>Bu da doğru bir noktaydı.</p>
+            <p>Kendini biraz daha diplomatik ifade etse ceza almazdı.</p>
+            <p>Koltuktan kalktığımda, Nagumo ve Asahina da ayağa kalktı.</p>
+            <p>Hep birlikte bekleme odasından ayrıldık.</p>
+            <p>“Sen de biraz pratik yapıp maça hazırlanmalısın.”</p>
+            <p>“Yapacağım.”</p>
+            <p>“Ah, sonunda çıktınız. Konuşmanız bitti, değil mi?”</p>
+            <p>Dağılmak üzereyken, Amasawa koridorun ilerisinden sabırsızca bekler gibi görünerek yanımıza geldi.</p>
+            <p>Nagumo, Amasawa’nın gelişi ve sözleri üzerine başının arkasını kaşıdı.</p>
+            <p>“Talimatlarımı duymadın mı? Beklemeni söylemiştim, değil mi?”</p>
+            <p>“Sorun değil. Sınavlarda iki kat fazla çalışacağım.”</p>
+            <p>“Henüz sözlerine güvenemiyorum. Eğer yine kendi başına bir şey yaparsan, bir daha şans verilmeyeceğini aklında bulundur.”</p>
+            <p>“Bu çok sert. Anladım, talimatlara uygun hareket edeceğim.”</p>
+            <p>“Nagumo, bu kız… şey…”</p>
+            <p>“Amasawa. Birinci sınıf A Sınıfı’ndan.”</p>
+            <p>“Ah, doğru. Amasawa-chan’sın. Miyabi’nin grubuna çağrılmak için oldukça iyi olmalısın, değil mi?”</p>
+            <p>“Yani, o kadar da değil…”</p>
+            <p>OAA’da hem akademik hem de fiziksel yeteneklerde nadir görülen A derecesini almış olması şaşırtıcı değildi.</p>
+            <p>Ancak genel yetenek ve hızlı düşünme açısından bakıldığında, Amasawa’nın seçilmesi için ilk aday olması gerekmiyordu.</p>
+            <p>“Benim seçimim değildi. Bir şekilde söylentileri duymuş ve bir sonraki sosyal etkinlik hakkında bilgi sahibi olmuş.”</p>
+            <p>“Bu yüzden kendimi öne çıkardım. Birinci olmaya katkı sağlayacağıma söz verdim.”</p>
+            <p>“Açıkçası, onu seçmek konusunda biraz tereddüt ettim.”</p>
+            <p>Amasawa’nın kişiliği mi yoksa benimle olan ilişkisi mi, Nagumo belirtmedi.</p>
+            <p>Muhtemelen küçük bir sorun olarak gördüğü için onu seçmeye karar vermişti.</p>
+            <p>“Kendi grubunu da organize etmelisin, Nazuna. A Sınıfı öğrencisisin, kazanmayı hedefle. Bize güvenmeye devam edemezsin.”</p>
+            <p>“Eh, aman tanrım, saat bu kadar geç mi oldu!? Gitmem gerekiyor, ama eğer sorun yaşarsanız bana danışmaktan çekinmeyin!”</p>
+            <p>Telefonundaki saati kontrol eden Asahina, telaşla uzaklaştı.</p>
+            <p>Yolda neredeyse tökezliyordu, ama köşeyi dönüp gözden kayboldu.</p>
+            <p>“Acaba Nazuna o tavırla bir gruba liderlik edebilir mi…?”</p>
+            <p>Amasawa, şaşkınlık içinde iç çeken Nagumo’ya doğru eğilerek sırıttı.</p>
+            <p>“Yoksa Asahina-senpai’yle çıkıyor musunuz?”</p>
+            <p>“Ha? Hayır, çıkmıyorum.”</p>
+            <p>“Ama bana Ayanokōji-senpai’yle önemli şeyler konuşacağınız için beklememi söylemiştiniz, ama Asahina-senpai’yi yanınızda tutmuşsunuz, değil mi? Bu özel bir durum, değil mi?”</p>
+            <p>Özel olmayı sevgili olmayla eşitlemek biraz abartı olabilirdi, ama kim bilir?</p>
+            <p>“Bu seni ilgilendirmez.”</p>
+            <p>“Eh~ ilgilendirir. Bakın, eğer Nagumo-senpai’yi hedefliyorsam, o benim rakibim.”</p>
+            <p>“Mezun olmak üzere olan bir adamı mı hedefliyorsun?”</p>
+            <p>“Sabırlı bir kadınım, uzun mesafe ilişkilerine toleranslıyım.”</p>
+            <p>“Üzgünüm, ama sevimli görünmeye çalışan veya bana yalakalık yapan kadınlardan hoşlanmıyorum.”</p>
+            <p>Amasawa, Nagumo’nun sert reddine aşırı tepki vererek incinmiş gibi yaptı.</p>
+            <p>Muhtemelen bu tür davranışlardan hoşlanmıyordu. Bilerek bakışlarını kaçırdı.</p>
+            <p>“Şimdi gidiyorum. Elinden gelenin en iyisini yap, Ayanokōji.”</p>
+            <p>Nagumo ayrıldıktan sonra, koridorda sadece Amasawa ve ben kaldık.</p>
+            <p>“Sevilmiyor muyum?”</p>
+            <p>“Eğer sevilmeyecek şeyler söylersen, tabii ki sevilmezsin.”</p>
+            <p>“Ama bak, sen de sevilmiyorsun, Ayanokōji-senpai, bu yüzden aynı grupta olmak istedim.”</p>
+            <p>Ne tür bir gruptu bu?</p>
+            <p>“Bence gerçekten çıkmıyorlar, ama ilişkileri özel gibi görünüyor, değil mi?”</p>
+            <p>“Evet. Arkadaşlığın ötesine geçmiş gibiler.”</p>
+            <p>Amasawa’nın bu noktada haklı olduğunu düşündüm. Mantıklıydı.</p>
+
+            <!-- Görsel Alanı -->
+            <div class="illustration-container">
+                <img src="amasawa.jpg" alt="Amasawa Ichika Görseli">
+                <div class="illustration-caption"> </div>
+            </div>
+
+            <p>“Bu arada, görünüşe göre etkileşim toplantısını önceden biliyormuşsun.”</p>
+            <p>“Bize ne tür bir etkileşim toplantısı yapılacağı önceden söylenmişti.”</p>
+            <p>Buradaki “biz,” Tsukishiro’nun yönettiği ve o adamın hazırladığı Yagami’yi de kapsıyordu.</p>
+            <p>Görünüşe göre bu okula girdiklerinde yılın programını öğrenmişlerdi.</p>
+            <p>Beni okuldan atmak istiyorlarsa, önceden bilgi vermek daha iyi olurdu.</p>
+            <p>“Neden Nagumo’yla takım olmayı seçtiğini anlamıyorum.”</p>
+            <p>“Eh? Kazanma şansı yüksek göründüğü için değil mi? Sonuçta o öğrenci konseyi başkanıydı. Ben de genç bir kızım, özel puan istiyorum.”</p>
+            <p>Amasawa cevap verdi, ama açıkça yalan söylüyordu.</p>
+            <p>Ancak, gerçek duygularını saklamak gibi bir niyeti yokmuş gibi hemen düzeltme yaptı.</p>
+            <p>“Sen ve Nagumo-senpai’nin yakında yarışacağınızı düşündüm. Senin tarafında olup destek olmak güzel olabilirdi, ama bu eğlenceli olmazdı, değil mi?”</p>
+            <p>“Sebep bu mu?”</p>
+            <p>“Evet, sebep bu. Nagumo-senpai’nin tarafında olursak iyi bir maç izleyebileceğimizi düşündüm…”</p>
+            <p>Amasawa iç çekti ve yanağını eline dayadı.</p>
+            <p>“Nagumo-senpai’nin hayal kırıklığını görebiliyorum. Okulun verdiği liste sadece oyunlarla dolu. Ona karşı taş-kağıt-makas veya kart oyunu kazanmak tatmin edici olmazdı. Ona karşı çıkmama gerek yoktu.”</p>
+            <p>“Bu konuda yapabileceğimiz bir şey yok.”</p>
+            <p>“Nagumo-senpai’den önce duydum, ama kurallar üç kez kaybedersen yenilgi sayılıyor, değil mi? Onun senin herhangi bir şekilde kaybetmeni istediğini hissedebiliyorum. Sonucu görmek için sabırsızlanıyorum.”</p>
+            <p>“Umarım beklenilecek bir şeydir, ama herhangi bir sürpriz göstermeden üç kez kaybetme ihtimalim de yüksek.”</p>
+            <p>Gerçekte, içeriğe bağlı olarak hiçbir şey yapamadan kaybetme ihtimalim oldukça yüksekti.</p>
+            <p>“Ama en azından Nagumo-senpai ve ben öyle düşünmüyoruz.”</p>
+            <p>“Nagumo’nun hislerini de anlıyor musun?”</p>
+            <p>“Dalga geçtiğim için tartışmaya katılmama izin verilmedi.”</p>
+            <p>“Reddedilmiş olmana rağmen buraya gelip beni görmeye mi geldin?”</p>
+            <p>“İyi değil miydi?”</p>
+            <p>İyi değildi demek değildi, ama Nagumo’nun kızgınlığını riske atarak onunla temas kurmaya çalışmanın bir anlamı yoktu.</p>
+            <p>Grup içinde daha fazla öne çıkmak için sadece yetenek değil, aynı zamanda sevilip sevilmediğin de önemli olacaktı.</p>
+            <p>“Pekala, grubum tarafından çağrıldım, bu yüzden geri döneceğim. Sonra görüşürüz.”</p>
+            <p>Hızlı bir dönüş yaparak Amasawa neşeyle uzaklaştı.</p>
+            <p>Amasawa ile yaptığım bu rastgele sohbet sırasında aklımı kurcalayan bir şey vardı.</p>
+            <p>Amasawa, bu etkileşim toplantısı hakkında Tsukishiro ve diğerleri tarafından önceden bilgilendirildiğini söylemişti, ama eğer öyleyse, daha önceki konuşmada küçük bir çelişki vardı.</p>
+            <p>“Acaba neyin peşinde?”</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum5.html" class="nav-btn">← Önceki Sayfa</a>
+            <a href="bolum7.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Font Ayarlama JS -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+    </script>
+</body>
+</html>

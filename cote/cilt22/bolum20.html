@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt 22 - Bölüm 20 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #bb86fc;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Navigasyon ve Kontrol Barı */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-btn, .font-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .font-btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        .font-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        .novel-img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 25px auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <a href="bolum19.html" class="nav-btn">← Önceki Bölüm</a>
+            <div class="font-controls">
+                <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+            </div>
+            <a href="bolum21.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Cilt 22 - Bölüm 20</h1>
+            <div class="subtitle">Plotka Novel</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>O zamanlar, Ryūen, Tokitō ve Hōsen arasında bir tartışmanın yaşandığını bilmiyordum.</p>
+            <p>Banyodan sonra lobideki kanepede oturuyordum, tavana sakin sakin bakıyordum.</p>
+            <p>Burası sabah Sakayanagi’nin oturduğu koltuğun hemen yanındaydı.</p>
+            <p>Hashimoto’nun istediği araştırma—sabah iletişime geçmiş ve kişisel olarak sonuçlardan memnun kalmıştım, ama henüz rapor etmemiştim, muhtemelen hâlâ benden bir sonuç bekliyordu.</p>
+            <p>İşim yokmuş gibi hissetmeme rağmen, en azından bir şeyler yapıyormuş gibi görünmeliyim diye düşündüm ve buraya geldim.</p>
+            <p>“Ah! Ayanokōji-kun! Hey, hikayemi dinleyebilir misin!?”</p>
+            <p>Ortak odasına dönmek üzere olan Satō, beni görünce rotasını değiştirdi ve hayal kırıklığıyla bana doğru geldi.</p>
+            <p>“Ne oldu?”</p>
+            <p>“Değişim toplantısı… değişim toplantısı. Gerçekten en üste çıkmayı hedefliyordum, bu yüzden…”</p>
+            <p>Hayal kırıklığını saklamaya çalışmadı, omuzları dramatik bir şekilde çökmüştü.</p>
+            <p>“Bir şey almak istemiştim, kendi çapımda elimden geleni yaptım. Ahh.”</p>
+            <p>Satō’nun grubu iki günde 12 maç oynadı, yedi galibiyet ve beş mağlubiyet aldı.</p>
+            <p>İyi gidiyorlardı ama üçüncü sırada bitirmek istiyorlarsa, işler onlar adına hiçte kolay değildi.</p>
+            <p>“İyi iş çıkarırsanız, ilk ona girme şansınız bayağı yüksek, değil mi?”</p>
+            <p>Sadece o sırayı elde etmekle 5000 puan kazanabilirlerdi.</p>
+            <p>Fena bir miktar değildi.</p>
+            <p>“Evet, kesinlikle hedefimiz bu. Ama bugün alınan sonuçlar nedeniyle grubun motivasyonu bayağı düştü, bu beni endişelendiriyor…”</p>
+            <p>Yüksek bir sıralamayı hedefliyorlarsa, morali bozulmuş hissetmeleri doğal olurdu.</p>
+            <p>Değişim toplantısında en üst ile en alt arasındaki fark aşırı fazlaydı.</p>
+            <p>Kaybeden gruplar 12 oyunda 11 veya 12 mağlubiyet almıştı ve kazanmaları imkansız görünüyordu.</p>
+            <p>Buna karşılık, galibiyetler, işleri ciddiye alan Nagumo grubu gibi gruplarda yoğunlaşmıştı.</p>
+            <p>Üçüncü sıradaki grup ile Satō’nun grubu arasındaki fark üç galibiyetti.</p>
+            <p>Oldukça kayda değer bir fark.</p>
+            <p>“Bugünkü son maç… pişman oldum…”</p>
+            <p>“Peki, son olarak hangi grupla karşılaştınız?”</p>
+            <p>Satō’nun hangi grupla mücadele ettiğini bilmediğim için sordum.</p>
+            <p>Satō biraz pişman bir yüz ifadesi göstererek söyledi:</p>
+            <p>“—Minamikawa-senpai’nin grubu ileydi.”</p>
+            <p>O, 3-C sınıfındandı.</p>
+            <p>Minamikawa grubunda Onodera’nın olduğunu hatırlıyorum.</p>
+            <p>Başından beri anlaşamayan Satō ve Onodera’nın iyi geçinmediği bilinen bir gerçekti.</p>
+            <p>Yanlış bir şey söylediklerini düşünmüşlerse, anlaşmazlıklarının nedeni muhtemelen bu olurdu.</p>
+            <p>Gözlemlediğim kadarıyla Satō ve Onodera sıradan kız öğrencilerdi.</p>
+            <p>Dışarıdan bakıldığında iyi anlaşmaları garip olmazdı, ama insan ilişkileri böyle işlemiyor.</p>
+            <p>Hala Onodera’dan hoşlanmıyor mu? Kolayca sorulabilir ama sormam gereken bir şey değildi.</p>
+            <p>“Bu pişmanlığı yarına taşımaktan başka çaren yok. Ne kadar çabalarsan, bir o kadar şansın olur.”</p>
+            <p>“…Evet.”</p>
+            <p>Konuyu değiştirdikten ve biraz konuştuktan sonra, Satō grubunun çağrısıyla ayrıldı.</p>
+            <p>Bundan sonra kayda değer bir şey elde edemeden, ortak odamıza döndüm.</p>
+            <p>“Kimse yok.”</p>
+            <p>Oda, hafif dağılmış bir futon dışında boştu.</p>
+            <p>Telefonumu açtığımda yaklaşık on dakika önce gelmiş Hashimoto’dan bir mesaj gördüm.</p>
+            <p>[Kızlar odasına gidiyorum, orada buluşalım.]</p>
+            <p>Araştırma talep eden biri için oldukça kaygısızdı.</p>
+            <p>Ama bir eğitim kampında karşı cinsin odasına gidip takılmak klasiklerden biri olabilir.</p>
+            <p>Dağılmış futonu toparladıktan sonra kızlar odasına gitmeye karar verdim.</p>
+            <p>Hashimoto’nun mesajını okuduktan yaklaşık beş dakika sonra kızların ortak odasına vardım.</p>
+            <p>Aynı bina, aynı düzen, aynı mobilya ve dekorasyonlar.</p>
+            <p>Bu doğal bir durumdu ama erkeklerin kullandığı ortak odadan gerçekten fark yoktu.</p>
+            <p>Tek fark karşı cinsin varlığıydı.</p>
+            <p>Odamızdan ne daha fazla ne daha az olmasına rağmen, neden bu kadar farklı görünüyor?</p>
+            <p>Bunu iyi ya da kötü bir alan olarak algılamanız, tamamen kişisel algınıza bağlıydı.</p>
+            <p>Birinci sınıf öğrencilerinden üçüncü sınıftaki Kiryūin’e kadar tüm kızlar oradaydı.</p>
+            <p>Birinci sınıf erkeklerinin hepsi gergin ama bir o kadar da mutluydu.</p>
+            <p>Yamamura ise biraz keyifsiz görünüyordu, ifadesi her zamankinden daha karanlıktı.</p>
+            <p>Değişim toplantısında hiçbir rolü yoktu ve grupta zamanını nasıl geçirdiği hakkında en az şey bildiğim kişiydi.</p>
+            <p>“Hey, geldin.”</p>
+            <p>“Sen çağırdın.”</p>
+            <p>Erkekler düşündüğümden daha çok eğleniyor gibiydi.</p>
+            <p>Ama kızların enerjisi beklediğimden daha düşüktü.</p>
+            <p>Yani eğleniyor gibi görünmüyorlardı.</p>
+            <p>Bu iki bilgi bir anda zihnime yerleşti.</p>
+            <p>Hashimoto muhtemelen erkekleri biraz zorlayarak kızların odasına getirmişti.</p>
+            <p>“Biraz sıkışıp kaldık. Ortamı canlandıracak bir şeyin var mı? Odanın havası biraz ağır değil mi? Hadi bir espri falan patlat da dağılsın.”</p>
+            <p>“Öyle bir şakam yok, ama eğlenmelik bir fikrim var.”</p>
+            <p>Eşofmanın cebine sıkıştırdığım bir kutuyu çıkardım ve ona gösterdim.</p>
+            <p>“Oh, güzelmiş. Oldukça düşüncelisin.”</p>
+            <p>Deneyim etkinlikleri listesinde kart oyunları da olduğundan, bolca hazırlanmış ve hemen elde edilebiliyordu.</p>
+            <p>Hashimoto bunu memnuniyetle karşıladı, elini uzatıp kutuyu istedi.</p>
+            <p>Aldığında kutuyu açtı ve içinden bir deste kart çıkardı.</p>
+            <p>“İskambil klasiklerin klasiğidir, değil mi Ayanokōji?”</p>
+            <p>Telefonuna bakarak oturan Kiryūin ayağa kalkmadan bana seslendi.</p>
+            <p>“Bir keresinde sarışın bir senpai bana iskambilin kampların olmazsa olmazı olduğunu söylemişti.”</p>
+            <p>“Ha? Yoksa Nagumo mu?”</p>
+            <p>Sandalyeye yaslanarak ilgileniyormuş gibi sordu.</p>
+            <p>Onaylamak için başımı sallayınca Kiryūin biraz güldü, bu gerçeği eğlenceli bulmuş gibiydi.</p>
+            <p>“O adam da böyle klişe şeyler yapıyor demek.”</p>
+            <p>“Ayrıca bugün grubumuz kart oyununda ilk kez kaybetti, bu yüzden biraz da kendimi sorguluyorum.”</p>
+            <p>“İskambil, ha?”</p>
+            <p>Kiryūin’in yanında pencereden bakan Morishita, bir şey fark etmiş gibi mırıldandı.</p>
+            <p>Sonra tatamiye elleriyle destek olarak sürüne sürüne, seiza pozisyonunda yaklaştı.</p>
+            <p>“Hadi oynayalım. Sonda kimin elinde Joker kalırsa kaybeder.”</p>
+            <p>“Oldukça hevesli görünüyorsun… Kart oyunlarını seviyor musun?”</p>
+            <p>“Seviyor muyum sevmiyor muyum bilemem. Hiç oynamadım.”</p>
+            <p>“Hiç mi oynamadın? Hâlâ taş devrinden kalma insanlar var demek?”</p>
+            <p>Hashimoto şaşkınlıkla gözlerini açtı.</p>
+            <p>“Kart oynayacak değer biri yoktu.”</p>
+            <p>Yani şimdiye kadar bunun için hiç arkadaşı olmamış mıydı?</p>
+            <p>“Bir dakika. Bu garip değil mi? Kendine kart oyunlarında beş puan vermemiş miydin?”</p>
+            <p>Gerçekten de Morishita kart oyunlarında kendine en yüksek puan olan beşi vermişti.</p>
+            <p>“Deneyimsiz olsam bile yeteneğim sayesinde başarılı olacağımı düşündüm. Sonuçta, bu iyi miyim değil miyim sorusu değildi, özgüvenimi birden beşe kadar değerlendirme sorusuydu. Yani beş.”</p>
+            <p>Göğsünü şişirerek kendinden emin bir şekilde cevapladı.</p>
+            <p>Kesinlikle kendine güveniyordu.</p>
+            <p>“Ama bugünkü oyunda çağrılmamıştın.”</p>
+            <p>Neden seçilmediğini yalnızca lider Kiryūin biliordu.</p>
+            <p>“Doğru. Peki neden beni seçmedin?”</p>
+            <p>“Kart oyununda bu kadar özgüvenli olduğunu söylemen şüpheli değil mi? O yüzden seni dışarıda bıraktım.”</p>
+            <p>Anlaşılan bu kararı değerlendirme listesindeki puanına bakarak vermişti.</p>
+            <p>Onun izlenimi doğruydu.</p>
+            <p>“Neyse boşverin onu. Hadi oynayalım. Lütfen kartları hızlıca dağıt, Ayanokōji Kiyotaka.”</p>
+            <p>Gerçekten oynamak istediği belliydi, bu yüzden getirdiğim için pişman olmadım.</p>
+            <p>Ama herkes aynı anda oynayamazdı, peki ne yapılmalıydı?</p>
+            <p>“Şöyle yapalım: Dört kişi bir oyun. Önce sadece erkekler, sonra sadece kızlar, sonra da karışık bir oyun.”</p>
+            <p>Benim kararsızlığımı fark eden Hashimoto oyuncuları düzenlemek için bir öneride bulundu.</p>
+            <p>“Fena fikir değil. Hadi öyle yapalım.”</p>
+            <p>Morishita zaten hevesliydi, en ufak bir isteksizlik göstermiyordu.</p>
+            <p>Sessiz duran Tsubaki’nin oynamak istemeyeceğini düşünmüştüm ama görünüşe göre diğer birinci sınıflar, Tsubaki dahil, şaşırtıcı derecede istekliydi.</p>
+            <p>“Sen de gelsene, Yamamura?”</p>
+            <p>Uzakta tek başına oturan Yamamura’ya seslendim ama o başını yana salladı.</p>
+            <p>“Şey… ben… izlerim.”</p>
+            <p>“Emin misin?”</p>
+            <p>Katılmaya hiç niyeti olmayan Yamamura, hafifçe başını eğerek reddetti.</p>
+            <p>“Oynamak istemediğini söyleyen birini dahil etmeye gerek yok. Hadi başlayalım.”</p>
+            <p>Morishita’nın enerjik baskısıyla kızların kart oyunu maçı hemen başladı.</p>
+            <p>“Bu değişim toplantısı, iyi bir değişim toplantısı.”</p>
+            <p>(Bu şekilde konuşması bilinçli; tarzı bu.)</p>
+            <p>“Ucuz bir değerlendirme. Sırf kart oynayabiliyorsun diye tatmin mi oldun?”</p>
+            <p>Bağdaş kurarak oturan Hashimoto, dirseğini dizine dayayıp mırıldandı.</p>
+            <p>“Ben tatmin oldu ama lütfen kartlarıma arkadan bakma.”</p>
+            <p>“Elini açık etmem.”</p>
+            <p>“Hashimoto Masayoshi’nin ne zaman ihanet edeceği belli olmaz.”</p>
+            <p>Bunu söylerken elini vücuduyla sakladı.</p>
+            <p>Hashimoto buruk bir gülümseme takındı ama gerçekten de bir hain gibiydi…</p>
+            <p>“Ama artık yavaş yavaş netleşiyor.”</p>
+            <p>Morishita ilk kez oynuyordu ama sadece eğlenmekle kalmıyor, aynı zamanda kendi analizini de yapıyordu.</p>
+            <p>“Bu oyunda birkaç strateji var.”</p>
+            <p>Bunu derken bir elinde tek bir kart tutuyor, diğer kartlarından ayrı ve özellikle göze çarpacak şekilde gösteriyordu.</p>
+            <p>“Buyur, Shiina Hiyori. Çekinmeden istediğin kartı al.”</p>
+            <p>“Nedense… o tek karta biraz takıldım.”</p>
+            <p>“Öyle mi? Bu, benim geliştirdiğim ileri seviye bir strateji.”</p>
+            <p>Bu arada, Hashimoto artık göremiyordu ama benim bulunduğum yerden Morishita’nın elini net bir şekilde görebiliyordum.</p>
+            <p>O tek ayrı duran kart büyük ihtimalle Joker’di.</p>
+            <p>Çok şüpheli olduğu için Joker olamazmış gibi görünmesi… işte amacı da buydu.</p>
+            <p>Stratejik açıdan bakınca kötü bir hamle sayılmazdı.</p>
+            <p>Kanıtlanabilir bir olasılık artışı yoktu ama karşı tarafta yeterince psikolojik etki yaratıyordu.</p>
+            <p>“Acaba o mu?” diye düşündürmek için fazlasıyla yeterliydi.</p>
+            <p>“Ne yapsam…?”</p>
+            <p>Şüphelenen Hiyori, Morishita’nın sağ elindeki dört karta yönelmek istedi ama parmakları duraksadı.</p>
+            <p>Sol elindeki tek karta takılıp kalmıştı.</p>
+            <p>“Lütfen istediğin gibi seç.”</p>
+            <p>Morishita’nın duygusuzluğu ve kişiliği, mükemmel bir dikkat dağıtma aracı olmuştu.</p>
+            <p>Uzun bir düşünmenin ardından Hiyori büyülenmiş gibi o tek karta yöneldi.</p>
+            <p>Kartı çekti, çevirdi ve seçtiği kartın Joker olduğunu görünce hayal kırıklığına uğradı.</p>
+            <img src="Hiyori.jpg" alt="Shiina Hiyori" class="novel-img">
+            <p>Herkes, onun yüz ifadesinden Joker’i kimin çektiğini anlamış olmalıydı.</p>
+            <p>“Yüzüne bu kadar belli edersen hâlâ öğrenecek çok şeyin var.”</p>
+            <p>Bundan sonra birkaç tur boyunca oyun sessizlik içinde devam etti.</p>
+            <p>İlk elenen birinci sınıf öğrencisi Eikura oldu, ardından Hatsukawa.</p>
+            <p>Joker’i erkenden elden çıkarmayı başaran Morishita ise sonraki kart eşleşmelerinde iki birinci sınıfa kaybetti ve finalde Hiyori’yle baş başa kaldı.</p>
+            <p>Böylece sahne şu hale geldi: Hiyori’nin elinde iki kart, Morishita’nın elinde tek kart.</p>
+            <p>“Buyur, Morishita-san.”</p>
+            <p>Hiyori aynı şekilde iki kartını uzattı.</p>
+            <p>Morishita dikkatle bakarak sağdaki kartı parmak uçlarıyla tuttu.</p>
+            <p>Ama hemen çekmedi; önce Hiyori’ye bir soru yöneltti.</p>
+            <p>“Bu mu?”</p>
+            <p>“…Ne?”</p>
+            <p>“Bunun Joker olmadığını düşündüm.”</p>
+            <p>“Ona cevap veremem.”</p>
+            <p>“Bence Joker bu.”</p>
+            <p>“Öyle mi… o zaman ondan kaçınmak isteyebilirsin. Karşıdaki karta geçmek ister misin?”</p>
+            <p>“Gerçekten mi? Kaybedeceksin biliyorsun?”</p>
+            <p>“Ama ben aslında Joker’in hangisi olduğunu bilmiyorum.”</p>
+            <p>“Safsın, Shiina Hiyori. Gizem çoktan çözüldü.”</p>
+            <p>Morishita tuttuğu kartı bıraktı, solundakini kavrayıp hızla çekti.</p>
+            <p>Gösterdiği kart… kupa beşlisiydi.</p>
+            <p>“Ben kazandım!”</p>
+            <p>“Eh, kaybettim.”</p>
+            <p>Hiyori kaybetmiş olsa da eğleniyor gibiydi, ama yüzünde yine de biraz hayal kırıklığı vardı.</p>
+            <p>Öte yandan Morishita, kazanma arzusuyla tamamen sürüklenmiş gibiydi.</p>
+            <p>Ardından erkekler arasında bir oyun oynandı, sonrasında da kız ve erkeklerin karıştığı bir oyun.</p>
+            <p>“Hadi sıradaki oyuna geçelim! Bir sonraki oyuna!”</p>
+            <p>Morishita hâlâ oynamak istiyordu, ama ben aklımdaki bir endişeyi dile getirdim.</p>
+            <p>“Artık Yamamura da katılsa iyi olmaz mı?”</p>
+            <p>“…Hayır, ben… iyiyim…”</p>
+            <p>Bizi baştan beri izliyordu ama bakışları oyuna hiç düşmemişti.</p>
+            <p>Dikkati dağınık, enerjisiz görünüyordu.</p>
+            <p>Kart oyununun moralini düzelteceğini ummuştum ama fazla beklenti olmuş olmalıydı.</p>
+            <p>“Yamamura-san, bize katılmaz mısın? Eğlenceli.”</p>
+            <p>O sırada Hiyori yanına yaklaştı ve nazikçe davet etti.</p>
+            <p>“Ama…”</p>
+            <p>“Hadi, lütfen katıl.”</p>
+            <p>Hiyori’nin yumuşak tavırlarına karşı koyamayan Yamamura, isteksizce oyuna dahil oldu.</p>
+            <p>Ama oyun başlar başlamaz beklenmedik sorunlar çıktı.</p>
+            <p>“Şey… sıra bende…”</p>
+            <p>“Ah, pardon Yamashita-senpai. Buyur, çek.”</p>
+            <p>Yanındaki öğrenci neredeyse onu atlayacakken, Yamamura aceleyle kartlarını uzattı.</p>
+            <p>Adını yanlış söylediler ama düzeltme zahmetine bile girmedi.</p>
+            <p>Hepimiz bir çember halinde oturmamıza rağmen kart çeken öğrenci Yamamura’yı yok saymıştı.</p>
+            <p>Belki de bu yüzden kart oyununa girmekten kaçınıyordu.</p>
+            <p>Tek bir hata gözden kaçabilirdi ama üst üste olunca, benim gibi kenardan izleyen biri için bile fark edilir hale gelmişti.</p>
+            <p>Acaba Yamamura’nın varlığı gerçekten bu kadar sönük müydü?</p>
+            <p>Onun iz sürme yeteneğini uzun süredir biliyordum, ama çıplak gözle bakarken bile bu kadar fark edilmeyecek biri olması garipti.</p>
+            <p>Fakat bunun sebebi benim onu bilinçli olarak fark etmeye çalışmam mıydı, yoksa diğerlerinin hiç dikkat etmemesi mi, emin değildim.</p>
+            <p>Bir dahaki fırsatta birine bunu sormaya karar verdim.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum19.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="bolum21.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Font Ayarlama JS -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+    </script>
+</body>
+</html>

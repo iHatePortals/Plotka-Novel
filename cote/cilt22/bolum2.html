@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt 21 - Bölüm 2 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #bb86fc;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Navigasyon ve Kontrol Barı */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-btn, .font-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .font-btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        .font-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* İllüstrasyon Görsel Alanı */
+        .illustration-container {
+            margin: 35px 0;
+            text-align: center;
+        }
+
+        .illustration-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Çevirmen Notu Kutusu */
+        .tl-note {
+            background-color: #1a1a1a;
+            border-left: 4px solid var(--accent-color);
+            padding: 12px 15px;
+            margin: 20px 0;
+            font-size: 0.9em;
+            color: #aaa;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <a href="bolum1.html" class="nav-btn">← Önceki Bölüm</a>
+            <div class="font-controls">
+                <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+            </div>
+            <a href="bolum3.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Cilt 21 - Bölüm 2</h1>
+            <div class="subtitle">İkili Görüşmeler</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Hayatta kalma ve elenme sınavı sona ereli pek olmamıştı.</p>
+            <p>Sakayanagi’ye yakın olan Kamuro’nun okuldan ayrılması, ikinci sınıf öğrencilerini şaşkına çevirmişti.</p>
+            <p>Ancak Kamuro’nun diğer sınıflardan yakın arkadaşları olmadığı için şok uzun sürmedi.</p>
+            <p>Ama tek sebep bu değildi.</p>
+            <p>Onlar artık bu hisse alışıyorlardı.</p>
+            <p>Bu göz ardı edilemezdi.</p>
+            <p>Bir arkadaşlarını kaybetmenin acısına karşı giderek duyarsızlaşıyorlardı.</p>
+            <p>Şubat ayı gelir gelmez açıklanan “ikili görüşme”nin tarihi ve detayları duyuruldu.</p>
+            <p>Kişi başı 15 dakika olmak üzere, beş gün boyunca yapılacaktı.</p>
+            <p>Görüşme için gereken zaman, öğleden sonraki derslerin serbest çalışmaya ayrılması ve okul sonrası saatlerin kullanılmasıyla sağlandı.</p>
+            <p>Öğrenciler ihtiyaç duyuldukça ayrı bir odaya çağrılıyordu.</p>
+            <p>Güneşin batmasıyla birlikte sınıf penceresinden görünen manzara büyük ölçüde değişmişti.</p>
+            <p>Bugün, benim ikili görüşmemin yapılacağı beşinci ve son gündü.</p>
+            <p>Son saatteydim.</p>
+            <p>Sınıfta beklerken telefonuma gelen öğretmen talimatıyla kariyer danışmanlık odasına gitmeye karar verdim.</p>
+            <p>Okulda neredeyse hiç öğrenci kalmamıştı, karşılaştığım tek kişiler kulüp etkinliklerinden dönenlerdi.</p>
+            <p>Kariyer danışmanlık odasının önüne geldiğimde, hafifçe yumruğumu sıktım ve parmağımın ilk eklemiyle üç kez nazikçe kapıyı tıkladım.</p>
+            <p>Doğal olarak, Chabashira-sensei’nin içeri girmeme izin veren sesini duydum.</p>
+            <p>“Affedersiniz.”</p>
+            <p>Sessizce kapıyı açtığımda, Chabashira-sensei masasında oturmuş, tabletinin ekranına dokunuyordu.</p>
+            <p>“Sonunda geldin. Otur.”</p>
+            <p>Hızlıca bana baktıktan sonra tekrar tabletine döndü.</p>
+            <p>“Meşgul görünüyorsunuz.”</p>
+            <p>“Bir sınıf öğretmeni olarak bu dönemde meşgul olmamak elde değil. Ama ikili görüşmelerin bugün bitecek olması biraz rahatlatıyor. İki ‘tuhaf’ öğrenciyi sona saklamak iyi bir karardı.”</p>
+
+            <!-- Görsel Alanı -->
+            <div class="illustration-container">
+                <img src="sae.jpg" alt="Chabashira Sae" class="illustration-image">
+            </div>
+
+            <p>Cevabını verdikten sonra oturmamı söyledi, ben de masanın karşısındaki boş koltuğa oturdum.</p>
+            <p>“İki tuhaf öğrenci mi?”</p>
+            <p>“Ne, Kōenji ile aynı kefeye konduğuna şaşırdın mı?”</p>
+            <p>“Hiçbir şey düşünmediğimi söylersem yalan olur.”</p>
+            <p>Chabashira-sensei gülümseyerek tabletini masaya bıraktı.</p>
+            <p>“Kōenji’nin daha tuhaf olduğunu mu düşünüyorsun? Bunu düşünmeni anlayabiliyorum, ama bana göre ikiniz arasında pek fark yok. Sen de oldukça ‘tuhaf’sın.”</p>
+            <p>Görünüşe göre bir öğretmenin gözünde ben böyle biriydim.</p>
+            <p>Aslına bakarsanız bunu reddetmek istiyordum, ama katlanıp geçmeye karar verdim.</p>
+            <p>“Neyse, her öğrenciyle çok fazla konuşamıyorum. Gelecek planlarını konuşmadan önce, okul hayatın hakkında konuşalım. Okulun geliştirmesini istediğin bir şey varsa, dinlemek isterim.”</p>
+            <p>“Özel bir isteğim yok. Birey olarak memnunum.”</p>
+            <p>“Anlıyorum. Arkadaş ilişkilerinde sorun yaşıyor musun ya da danışmak istediğin bir şey var mı?”</p>
+            <p>“Yok.”</p>
+            <p>Tereddüt etmeden cevaplamaya devam ettim, Chabashira-sensei hafif acı bir gülümseme gösterdi.</p>
+            <p>“Çoğu öğrenci en azından bir iki fikir verir ya da düşündüğüne dair bir işaret gösterir. Senin bir şeyleri sakladığını sanmıyorum ama…”</p>
+            <p>Beklediğinden daha hızlı cevap verdiğim için biraz şaşırmış gibiydi, ama yapabileceği bir şey yoktu.</p>
+            <p>“Gerçekten bir şikayetim yok.”</p>
+            <p>Eğer bir isteğim olsaydı, muhtemelen tereddüt etmeden söylerdim.</p>
+            <p>“Pekala, öyleyse sorun yok… ama gerçekten hiçbir şey yok mu?”</p>
+            <p>Bir sınıf öğretmeni olarak endişesi ortaya çıkmıştı ve tekrar tekrar kontrol ediyordu.</p>
+            <p>“Hiçbir şey yok. Okul hayatımdan memnunum ve özel bir sorunum yok.”</p>
+            <p>Endişesini tamamen gizleyememiş gibiydi, ama şimdilik öğrencisinin sözlerini olduğu gibi kabul etmeye karar vermişti.</p>
+            <p>Tabletine bunları yazmaya başladı.</p>
+            <p>“Chabashira-sensei, siz de oldukça değiştiniz.”</p>
+            <p>Bunun mantıklı geldiğini düşünmüş olacak ki, iç çekerek acı bir gülümseme gösterdi.</p>
+            <p>“Değiştiğimi sanmıyorum. Ama belki eskisinden daha dürüst oldum.”</p>
+            <p>Kendisi de bir öğrenciyken yaşadığı oybirliği sınavı.</p>
+            <p>Ve bir öğretmen olarak yaşadığı oybirliği sınavı.</p>
+
+            <div class="tl-note">
+                <strong>Çevirmen Notu:</strong> Hatırlamayanlar için oy birliği sınavı tüm öğrencilerin aynı oyu verene kadar oylamanın tekrarlandığı ve sürenize bağlı olarak sınıf puanı kaybettiğiniz veya kazandığınız önceki ciltlerde yaşanan bir sınavdı.
+            </div>
+
+            <p>Bu iki deneyimden kazandıkları ve kaybettikleri.</p>
+            <p>Okul yılının başında, karşımda gülümseyen bu öğretmeni hayal bile edemeyeceğimi düşünmek nostaljikti.</p>
+            <p>“… Neyse. Okul hayatında endişelendiğin bir şey olursa, bana söylemekten çekinme.”</p>
+            <p>“Anlaşıldı.”</p>
+            <p>Cevabımın ardından açılış konuşmamız kısa sürede sona erdi ve ikili görüşmenin asıl konusuna geçtik.</p>
+            <p>“Yükseköğrenime devam etmeyi mi yoksa işe girmeyi mi düşündüğünü öğrenmek istiyorum. Karar verdiysen, lütfen söyle.”</p>
+            <p>Lise öğrencileri için bu hayatlarının önemli bir dönüm noktasıydı.</p>
+            <p>Bu yüzden öğretmenler, öğrencilerin kaybolmaması için onlara doğru yolu göstermeliydi.</p>
+            <p>Ancak muhtemelen Chabashira-sensei’nin beklentilerini karşılayamayacaktım.</p>
+            <p>“Sanırım geleceğimle ilgili kararı ailem verecek. Burada tartışılacak bir şey olduğunu düşünmüyorum.”</p>
+            <p>“Ailen mi karar verecek? Yani babanın planını mı takip edeceksin?”</p>
+            <p>Okul kayıtlarında annemin olmadığı yazıyordu.</p>
+            <p>“Evet.”</p>
+            <p>“Anlıyorum. Nadir bir durum, ama ebeveynlerinin isteklerini ön planda tutan öğrenciler de var. Ancak genellikle yükseköğrenime mi devam edeceklerini yoksa işe mi gireceklerini önceden bildirirler. Bu okul ebeveynlerden gelen iletişime her zaman açıktır ve birçok durumda ebeveynler düşüncelerini çocuklarına iletir. Ama şu ana kadar ailenizden yükseköğrenim veya işle ilgili bir danışma almadık.”</p>
+            <p>Doğrusu, ebeveynlerimi takip etsem bile hiçbir planımın olmaması tuhaf olurdu.</p>
+            <p>Ancak yükseköğrenime devam etmeyecek veya işe girmeyecek biri olarak, onları bilgilendirmek gereksizdi.</p>
+            <p>Yine de, Chabashira-sensei’nin bu senaryoyu anlaması imkansızdı.</p>
+            <p>“Bence sorun yok.”</p>
+            <p>“Sorun yok diyorsun… ama eğer yükseköğrenime devam etmek istiyorsan, şimdiden plan yapmaya başlamalıydın. İstediğin üniversitenin seviyesine uygun sınavlara hazırlanmak için gereken çaba…”</p>
+            <p>Chabashira-sensei bıkkın bir ifadeyle konuşmaya başladı, ama cümlesini yarıda kesti.</p>
+            <p>Sonra duruşunu düzeltti ve gözlerimin içine baktı.</p>
+            <p>“Geçmişin hakkında fazla bir şey bilmiyorum. Onu biliyormuş gibi yapıp bundan faydalanmaya çalışmam yanlıştı. Ama şimdi, bir sınıf öğretmeni olarak, sorumlu olduğum öğrencilerin yeteneklerini tam olarak anlamak istiyorum. Bu benim görevim.”</p>
+            <p>“Anlıyorum. Buna müdahale etmek gibi bir niyetim yok.”</p>
+            <p>Tabletin ekranını yansımalar yüzünden iyi göremiyordum, ama eğer cevapları boş bırakırsa, Chabashira-sensei bunu okula sunduğunda suçlanacaktı.</p>
+            <p>Ve muhtemelen okula bağlıydı, ama bir öğrencinin gelecek planlarının gerçekleşip gerçekleşmemesi, yüksek seviyeli bir üniversiteye veya işe gidip gidememesi bazen öğretmenin notları ve değerlendirmeleriyle bağlantılı olabiliyordu.</p>
+            <p>“Öyleyse söyle, eğer ailen yükseköğrenime devam etmeni isterse, bunu yapabilecek yeteneğe sahip olduğunu varsayabilir miyim?”</p>
+            <p>Ne cevap verirsem vereyim, gelecek değişmeyecekti.</p>
+            <p>Ama benim gibi yabancı bir varlık yüzünden gereksiz yere onun değerlendirmesini düşürmek acımasızlık olurdu.</p>
+            <p>Eğer bir şey söyleyeceksek, Chabashira-sensei için faydalı bir cevap vermek en iyisiydi.</p>
+            <p>“Sanırım herhangi bir üniversiteyi kazanabilirim.”</p>
+            <p>“… Gerçekten mi? Normalde böyle saçma bir iddiaya karşı uyarırdım, ama bunu sen söylediğine göre doğru olmalı. Bu kadarını anlayabiliyorum.”</p>
+            <p>Chabashira-sensei itiraz etmeden pes etti ve devam etti.</p>
+            <p>“Oldukça elit bir eğitim almış görünüyorsun. Bu kadar tereddütsüz iddiada bulunacak kadar zekiysen, keşke düzenli olarak sınıfa daha fazla katkıda bulunsan… ama bunu şimdilik bir kenara bırakalım.”</p>
+            <p>Tabletine az önce konuştuklarımızı yazmayı bitirdikten sonra, Chabashira-sensei başını kaldırdı.</p>
+            <p>“Mevcut durumu anlıyorum. Ama Ayanokōji, senin fikrin nedir? Ailenin isteklerini düşündüğünü anlıyorum, ama hedeflemek istediğin bir gelecek vizyonun yok mu?”</p>
+            <p>“Yok. Olsa bile, ne yazık ki karar verme hakkına sahip değilim.”</p>
+            <p>Bu noktada, zaman harcamak anlamsız bir tartışmaydı.</p>
+            <p>“Üzgünüm. Bu rahatsız edici bir soru olmuş olabilir.”</p>
+            <p>“Sorun değil. Aslında şu an hiçbir hayalim veya umudum yok. Eğer gelecekte hedeflemek istediğim bir şey bulursam, danışacağım.”</p>
+            <p>“Anlıyorum. Yani şimdilik ailenin isteklerini takip edeceksin. O zaman veli görüşmesi, üçüncü dönem sonrası bahar tatilinde yapılacak. Planı resmi olarak o zaman belirlemek uygun mu?”</p>
+            <p>“Uygun.”</p>
+            <p>Ancak, bir ebeveynin katılacağı üçlü görüşme muhtemelen gerçekleşmeyecekti.</p>
+            <p>En fazla, o adamın bir elçisi gelip anlamsız bir konuşma yapacaktı.</p>
+            <p>Belliydi.</p>
+            <p>Beyaz Oda ile ilgili hiçbir şeyden bahsetmeyecekti.</p>
+            <p>“Üçlü görüşmen şu an 1 Nisan’a planlandı. Babanı uzun zaman sonra ilk kez göreceksin. Gerekirse daha fazla zaman da ayırabiliriz. Bunu geleceğin hakkında özgürce konuşmak için iyi bir fırsat olarak düşünmeni istiyorum.”</p>
+            <p>Sanki babamın geleceğine dair en ufak bir şüphesi yokmuş gibi konuşuyordu.</p>
+            <p>Yoksa öyle miydi?</p>
+            <p>“… Bir şey sorabilir miyim?”</p>
+            <p>Pek mümkün görünmese de, kontrol etmeye değer olduğunu düşündüm.</p>
+            <p>“Hmm?”</p>
+            <p>“Babam gerçekten mi geliyor? Başka biri değil? Vekil değil?”</p>
+            <p>Niyetimi anlayamayan Chabashira-sensei şaşkın bir ifadeyle başını salladı.</p>
+            <p>“Evet, öyle duydum.”</p>
+            <p>“Üçlü görüşme fikrini hemen reddedeceğini düşünmüştüm?”</p>
+            <p>Şaşkınlıkla bakan Chabashira-sensei kısa sürede bir anlayış gösterdi.</p>
+            <p>“Doğrusu, üçlü görüşmeyi ilk e-postayla bildirdiğimde, yoğun programı nedeniyle bir vekil göndermeyi planladığını söylemişti. Bu anlamda senin ifaden doğru. Ancak, bu varsayımla üçlü görüşme için belirli bir tarih bildirdiğimde, durum değişmiş gibi görünüyor.”</p>
+            <p>Tabletinde tekrar kontrol ederek devam etti.</p>
+            <p>“Beni aradı ve babanızın bizzat geleceğine dair bir yanıt aldım. Doğrudan ondan duydum, yanlışlık yok.”</p>
+            <p>“… Bu beklenmedik oldu.”</p>
+            <p>Ne tür bir dönüş bu?</p>
+            <p>O adam önceki cevabını bu kadar kolay geri çekmezdi.</p>
+            <p>En azından Beyaz Oda öğrencileri için durum böyleydi.</p>
+            <p>Bu okulda benimle görüşmeyeceğini açıklamasına rağmen, neden üçlü bir görüşmeye katılma zahmetine girsin?</p>
+            <p>Başta reddettiği gerçeğinden yola çıkarsak, tahmin ettiğim şekilde gelişmeliydi.</p>
+            <p>Ancak fikrini değiştirip bizzat geleceğini belirtti?</p>
+            <p>Bir art niyet olmadığını düşünmek imkansızdı.</p>
+            <p>“Babamdan bir telefon aldığınızı söylediniz, tam olarak ne konuştunuz?”</p>
+            <p>“Ne? Derin bir konuşma yapmadık. Bir vekil atamıştı, ama zamanı olduğu için üçlü görüşmeye katılabileceğini söyledi. Ancak, kendisine verilen programda en ufak bir değişiklik olursa bilgilendirilmek istediğini belirtti. Meşgul ebeveynler için bu olağandışı bir durum değil, değil mi?”</p>
+            <p>“Doğru.”</p>
+            <p>Normalde üçlü bir görüşmeye katılacak zamanı olmazdı, ama belirlenen programa bakıp katılabileceğine karar verdiği için okulu aramıştı.</p>
+            <p>Anlaşılması kolaydı ve tuhaf bir yanı yoktu.</p>
+            <p>“Ama… Ah hayır, bunu sana söyleyemem.”</p>
+            <p>Chabashira-sensei bir şey söylemeye başladı ama sonra vazgeçti.</p>
+            <p>“Ama ne?”</p>
+            <p>Bir ipucu arıyordum, bu yüzden cümlenin devamını sordum.</p>
+            <p>“Önemli bir şey değil. Ama biraz tuhaf olduğunu düşündüm. Program değişikliklerinin bildirilmesini istemek doğal, ama bu genellikle çocuğunun görüşmesinin tarih ve saatiyle sınırlıdır. Ancak babanız, bana verilen tüm sınıf programında en ufak bir değişiklik olursa bile bilgilendirilmek istediğini söyledi.”</p>
+            <p>“Yani, örneğin farklı bir günde, alakasız bir sınıf arkadaşımın görüşmesi değişirse bile mi?”</p>
+            <p>“Evet. Biraz paranoyakça olduğunu düşündüm, ama sadece bilgilendirmenin bir zararı yok.”</p>
+            <p>Böylece Chabashira-sensei fazla düşünmeden kabul etmişti.</p>
+            <p>Ancak, eğer o adamın üçlü görüşmeye katılma gibi bir niyeti varsa muhakkak bir hedefi veya ilgilendiği biri vardı.</p>
+            <p>“Mümkünse, üçlü görüşme programını görebilir miyim?”</p>
+            <p>“Program mı? Sanırım bir sakıncası yok.”</p>
+            <p>Chabashira-sensei tabletini kullanarak ekranı bana çevirdi.</p>
+            <p>“Bu, tüm sınıfın üçlü görüşme programı. Temelde ikili görüşmelerle aynı şekilde yapılandırıldı. Yani sen son saatte planlandın.”</p>
+            <p>26 Mart, 28 Mart, 30 Mart ve 1 Nisan.</p>
+            <p>Dört güne yayılan üçlü görüşmelerin programı buydu.</p>
+            <p>Chabashira-sensei’nin dediği gibi, adım 1 Nisan’da, günün son saatinde, saat 17:00’de listelenmişti.</p>
+            <p>“Görecek özel bir şey yok. Şimdi tamam mı?”</p>
+            <p>“Evet, teşekkürler.”</p>
+            <p>Chabashira-sensei bana gösterdiği tablet ekranını tekrar kendine çevirdi.</p>
+            <p>“Ebeveyninle olan ilişkin konusunda gergin olmamanı söylemeyeceğim. Detayları bilmiyorum, ama çocuğunu sevmeyen ebeveyn yoktur. Seni kendi haline bırakamayacağını hissetmiş olmalı.”</p>
+            <p>“Bu doğru olabilir.”</p>
+            <p>Böyle cevapladım, çünkü onun düşüncelerini ve o adamı burada tartışmanın bir anlamı yoktu.</p>
+            <p>Ama gerçekte, onun üçlü görüşmeye bu nedenle katılacağını hayal edemezdim.</p>
+            <p>Beni kendi elleriyle uzaklaştırmak isteyip, başkalarına bırakmak istemiyor muydu?</p>
+            <p>Yine de, önceki seferden bunun doğrudan bana karşı yapıldığında anlamsız olduğunu anlamış olmalıydı.</p>
+            <p>Hâlâ üçlü görüşmeye katılma amacını bilmiyordum.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum1.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="bolum3.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Font Ayarlama JS -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+    </script>
+</body>
+</html>

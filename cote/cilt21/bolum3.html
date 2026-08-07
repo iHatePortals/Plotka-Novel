@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt 21 - Bölüm 3 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #bb86fc;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Navigasyon ve Kontrol Barı */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-btn, .font-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .font-btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        .font-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <a href="bolum2.html" class="nav-btn">← Önceki Bölüm</a>
+            <div class="font-controls">
+                <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+            </div>
+            <a href="bolum4.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Cilt 21 - Bölüm 3</h1>
+            <div class="subtitle">Classroom of the Elite</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Chabashira-sensei sınıftan ayrıldıktan sonra, sınıf öğretmen-veli görüşmeleri ve gelecekleri hakkında hararetle konuşmaya başladı.</p>
+            <p>“Hemen ne yapmamız gerektiğine karar vermemiz gerekiyor, değil mi?”</p>
+            <p>“Önce A sınıfından mezun olup olmayacağımızı tartışmamız gerekiyor. Sen ne düşünüyorsun, Hirata-kun?”</p>
+            <p>Kızlar sınıfın ortasında oturan Yōsuke’nin etrafını sarmış ve tartışmayı başlatmışlardı.</p>
+            <p>“A sınıfından mezun olsam da olmasam da üniversiteye gitmeyi planlıyorum. Küçüklüğümden beri ailem, üniversiteye gitmemi istedi.”</p>
+            <p>Kulak misafiri olmak istemesem de, sohbetleri kolayca duyulabilecek bir düzeydeydi ve duymadan edemedim.</p>
+            <p>Yōsuke, şu anda bir iş bulmak yerine üniversiteyi tercih edecek gibi görünüyor ve akademik yetenekleri doğrultusunda eğitimine devam etmeyi planlıyordu.</p>
+            <p>Onun derslere karşı tutumu ve akademik yetenekleri düşünüldüğünde, bu oldukça doğal bir tercih gibi görünüyordu.</p>
+            <p>A Sınıfı ayrıcalıklarına sahip olsa da olmasa da, eğer kararlılığı yoksa bu ayrıcalıkları tam anlamıyla kullanamazdı. Zaten bu, hayatın her alanı için geçerli bir kuraldı.</p>
+            <p>“Gerçekten mi? Ben kesinlikle futbolcu olacağını düşünmüştüm!”</p>
+            <p>“Haha, o kadar değil. A Sınıfı ayrıcalıklarını kullanarak profesyonel futbolcu olsam bile, yeteneklerim yeterli değilse kısa sürede bırakılacağım aşikâr. Üniversiteye gitsem bile, futbol oynamaya hobi olarak devam edeceğim sadece.”</p>
+            <p>Sportif alanda iş bulmak, gerçekten zor bir hedefti.</p>
+            <p>Ayrıcalıkları kullanarak kariyerine devam etmesi gerekenler, yetenekli olup bir şekilde keşfedilememiş olanlar ya da başka sorunlar yüzünden normal yollardan ilerleyemeyenlerle doluydu.</p>
+            <p>Peki, A Sınıfı’ndan mezun olmanın getirdiği faydalar nasıl en iyi şekilde kullanılırdı?</p>
+            <p>Sınıfımızın en başarılı öğrencisi olan Keisei, söze girdi:</p>
+            <p>“Eğer A Sınıfı ayrıcalıklarından bahsediyorsak, kesinlikle üst düzey bir şirkette iş bulmayı tercih etmeliyiz. Yeteneklerimiz çok göze batacak düzeyde kötü olmadığı ve başkaları kadar çalıştığımız sürece kolayca işten çıkarılmayız. Bizim için, girdiğimiz anda kazandığımız bir dünyaya atılmak en iyi seçenek olabilir.”</p>
+            <p>Sınıf arkadaşlarımız, Keisei’nin mantıklı açıklamasını onaylarcasına başlarını salladı.</p>
+            <p>Bir şirket, birini işe alırken büyük bir sorumluluk üstlenir.</p>
+            <p>Büyük bir hata yapılmadığı sürece, yalnızca kişisel sebeplerle birini işten çıkarmak adil olmaz.</p>
+            <p>Okulumuz, yeni kurulmuş bir okul değildi ve hükümet tarafından tanındığı için varlığı geniş çevrelerce biliniyor.</p>
+            <p>Bugüne kadar da A Sınıfı’ndan mezun olan birçok öğrenciyi kabul etmiş olmalılar.</p>
+            <p>Bu anlamda, üst düzey bir şirketi seçersek, uzun süre sorumluluklarımızı yerine getirip rahatlayabiliriz.</p>
+            <p>“Verimlilik açısından bakarsak, Yukimura-kun’un tercihi doğru olabilir. Ama bence istediğin şeyi yapmak da önemli.”</p>
+            <p>Bu da doğru cevaplardan biriydi. İnsan sadece istikrarlı bir iş ya da paraya kendini adamak zorunda değildi, sonuçta bir hayatı vardı.</p>
+            <p>Hayalinin peşinden gitmek ya da gerçekçi bir işe yönelmek arasında seçim yapmak.</p>
+            <p>Er ya da geç, bu sınıftaki öğrenciler bu yol ayrımında takılacaklardı.</p>
+            <p>Açıkçası, her karar için hem doğru hem de yanlış seçimler vardır.</p>
+            <p>Mezun olduktan sonra her öğrenci bir yol seçecek, fakat bu yolun doğru mu yoksa yanlış mı olduğu, ancak çok daha ileride ortaya çıkacak.</p>
+            <p>‘Doğru bir hayat yaşıyor muyum?’</p>
+            <p>Bu sorunun cevabı, ileride geçmişinize dönüp baktığınızda ne şekilde yorumlayacağınıza bağlı.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum2.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="../index.html" class="nav-btn">🏠 Cilt Sayfası</a>
+            <a href="bolum4.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Font Ayarlama JS -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+    </script>
+</body>
+</html>

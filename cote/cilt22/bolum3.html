@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt 22 - Bölüm 3 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #bb86fc;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Navigasyon ve Kontrol Barı */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-btn, .font-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .font-btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        .font-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <a href="bolum2.html" class="nav-btn">← Önceki Bölüm</a>
+            <div class="font-controls">
+                <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+            </div>
+            <a href="bolum4.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Cilt 22 - Bölüm 3</h1>
+            <div class="subtitle">Hashimoto ve Sakayanagi</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>İki yönlü görüşmenin ardından kafamda soru işaretleriyle yurduma döndüm.</p>
+            <p>Hava kararmadan asansöre bindim.</p>
+            <p>Bugün saat 19.00’da Kei ile yemek planım vardı, bu yüzden yaklaşık bir saat içinde hazırlanmam gerekiyordu.</p>
+            <p>Önce odama gidip ellerimi yıkamalıydım.</p>
+            <p>Asansörden inerken kafamda detaylı planlar yapıyordum ki…</p>
+            <p>“Eh, eve geç geldin, Ayanokōji.”</p>
+            <p>Nadir görülen bir figür odamın kapısına yaslanmış beni bekliyordu.</p>
+            <p>Sakayanagi’nin sınıfından Hashimoto Masayoshi.</p>
+            <p>Uzun süre beklediğini belli edercesine dizine hafifçe vuruyordu.</p>
+            <p>“Yalnız çıktığına göre randevuda değildin herhalde.”</p>
+            <p>Kapandıktan sonra boş kalan asansöre bakarak sordu.</p>
+            <p>“Bugün ikili görüşme günüydü, o yüzden geç kaldım.”</p>
+            <p>“Ah, anlıyorum… Bu aklıma gelmemişti. Sana diyecek bir iki şeyim var. Laflamak için vaktin var mı?”</p>
+            <p>Kendi gözden kaçırdığı detayı düşünürken, bekleyişinin nedenini ortaya attı.</p>
+            <p>“Ayaküstü konuşmaya uygun bir mesele değil gibi duruyor.”</p>
+            <p>“Haklısın. Bunu göz önünde bulundurursan sevinirim.”</p>
+            <p>O zaman niyetini anlamaktan başka çarem yoktu.</p>
+            <p>“Odam müsait, eğer senin için sorun olmazsa içeri gelebilirsin.”</p>
+            <p>Yemek hazırlık süremden biraz feragat edecektim ama biraz zaman ayırabilirdim.</p>
+            <p>Reddetmek için bir sebep olmadığından, Hashimoto’yu içeri davet ettim.</p>
+            <p>“Bundan dolayı özür dilerim.”</p>
+            <p>“Dediklerini dinleyebilirim, ama benden fazla misafirperverlik bekleme.”</p>
+            <p>“Sadece dinlemen yeterli.”</p>
+            <p>Kendisiyle alay edercesine güldü ve anahtarı kilide sokarken sırtıma hafifçe vurdu.</p>
+            <p>Kapıyı açtığımda, bir anlığına acil çıkış merdivenlerine göz attım.</p>
+            <p>Birinin beni izlediğini hissettim, ama Hashimoto’nun bunun farkında olup olmadığını anlamak zordu.</p>
+            <p>Şimdilik, takmadan içeri girdim.</p>
+            <p>“Affedersin… oh, ilişkisi olan bir erkeğin odası gerçekten farklı oluyor.”</p>
+            <p>Odaya adım atar atmaz, Kei’nin etrafa saçılmış eşyalarını görünce ıslık çaldı.</p>
+            <p>“Yatağa oturabilir miyim? Yoksa bu biraz fazla mı olur?”</p>
+            <p>“Fazla mı? İstediğini yapabilirsin.”</p>
+            <p>Bu sözler üzerine Hashimoto tereddüt etti ama yavaşça yatağa oturdu.</p>
+            <p>Başkasının yatağına oturmakta çekingen davranıyordu.</p>
+            <p>Düşünceliydi.</p>
+            <p>“Ee? Hikaye ne?”</p>
+            <p>“Oldukça ağır bir konu. Ne yapacağımı bilemiyorum. Kendimle ilgili ne yapacağımı… Derdimi dinlemeni istiyorum.”</p>
+            <p>Lafı dolandırmadan konuya girmeye çalışıyordu, ama daha en başında bir sıkıntı hissettim.</p>
+            <p>Yine de, baştan sözünü kesmek kabalık olurdu, bu yüzden devam etmesine izin verdim.</p>
+            <p>“‘Kendimle ne yapacağım’ derken?”</p>
+            <p>“Duymadın mı? Kamuro-chan’ın okuldan ayrılmasına ne sebep oldu?”</p>
+            <p>“Bazı söylentiler duydum. Özel sınav sırasında birisi Ryūen’e bilgi sızdırmış. Sonuçta, A Sınıfı en dipte kaldı.”</p>
+            <p>“Aynen öyle. Bilgi sızarsa, kazanma şansın yok.”</p>
+            <p>Hashimoto’nun dediği gibi, yenilginin belirleyici faktörü ihanetti.</p>
+            <p>Eğer bir sızıntı olmasaydı, A Sınıfı’nın en dipte olmaktan kurtulma ihtimali yüksekti.</p>
+            <p>“İlk şüpheli bendim. Şimdi, sınıftaki herkes her gün bana şüpheyle bakıyor…”</p>
+            <p>Aslında, bu sadece sınıfla sınırlı değildi.</p>
+            <p>Kendi sınıfına ihanet etmek, bir şok ve tehditti.</p>
+            <p>“Açıkçası, ben de böyle söylentiler duydum. Şu anki durumuna sempati duyuyorum.”</p>
+            <p>Şu an en yaygın söylenti, Hashimoto’nun A Sınıfı’na ihanet ettiğiydi.</p>
+            <p>Ryūen ile iletişime geçip gizli bir anlaşma yaptığı iddia ediliyordu.</p>
+            <p>Geçmişte gösterdiği şüpheli hareketler düşünüldüğünde, bu doğal bir sonuçtu.</p>
+            <p>Ancak, somut bir kanıt duymamıştım.</p>
+            <p>Şu an, eleme yöntemiyle Hashimoto olabileceği düşünülüyordu.</p>
+            <p>“Bunu kabullenmekten başka çarem yok mu? Günlük davranışlarımdan dolayı mı?”</p>
+            <p>“Kabullenmek istemiyorsan, masumiyetini kanıtlamak için harekete geçebilirsin.”</p>
+            <p>“‘Suçlu olmadığın kanıtlanana kadar masumsun’ derler, ama bence gerçek dünyada bu tam tersi. Şüphe altındayken sesini yükseltirsen, şüpheler daha da artar. Seni hiçbir temel olmadan suçlu ilan edenler, çaresizliğine bile şüpheyle bakacaktır.”</p>
+            <p>Bu tam da “yankı odası” fenomeniydi.</p>
+            <p>Benzer düşüncelere sahip öğrenciler bir araya gelip haklı olduklarını sanıyorlardı.</p>
+            <p>Bu eğilim, izole bir okulda daha da güçlüydü.</p>
+            <p>Ne yazık ki, Hashimoto kendisi kesin bir kanıt sunmadıkça, bu durumu değiştirmenin bir yolu yoktu.</p>
+            <p>“Haklı olabilirsin. Ben sessiz kalmayı seçtim.”</p>
+            <p>“Gördün mü?”</p>
+            <p>Aksi yönde net bir kanıtın yoksa, ağzını açman durumu değiştirmez. Hatta, dikkatsiz bir söz daha fazla şüphe uyandırabilir.</p>
+            <p>“Ağlayasım geliyor.”</p>
+            <p>Gözlerini ovuşturuyormuş gibi yaparken bile, ben söze girdim.</p>
+            <p>“Bu kadar giriş yeterli değil mi? Neden Sakayanagi’ye ihanet ettin?”</p>
+            <p>Bu sözler üzerine Hashimoto’nun hareketleri aniden durdu ve parmakları yavaşça gözlerinden çekildi.</p>
+            <p>“Hey, biraz daha hazırlık yapaydım. Zavallı rolü yaparken kendimi aptal gibi hissediyorum.”</p>
+            <p>“Sadece zaman kaybı olduğunu düşündüm. Zaten geç oldu ve bir an önce yemek hazırlığına başlamak istiyorum.”</p>
+            <p>Bunu söylerken, Kei’nin bu gece odama geleceğini belirtmedim.</p>
+            <p>“Ne, sevgilinle randevun mu var?”</p>
+            <p>“Öyle de denebilir.”</p>
+            <p>“‘Öyle de denebilir’ ne demek? Bizim arkadaşlığımız bir kadından daha sağlam olmalı.”</p>
+            <p>“Üzgünüm, ama programımı değiştirmem imkansız. Ayrıca, derin bir arkadaşlığımız olduğunu da hatırlamıyorum.”</p>
+            <p>Gerçeği söyleyince, Hashimoto iki elini yatağa koyup derin bir nefes aldı.</p>
+            <p>“Pekala, durumu soğukkanlılıkla karşılıyorsan, sorun yok. Şu an benim için daha uygun.”</p>
+            <p>Bir duraksamanın ardından, hemen konunun özüne dokundu.</p>
+            <p>“Sence neden Sakayanagi’ye ihanet ettim?”</p>
+            <p>Cevabı duymadan önce, kendim düşünmem için bana sordu.</p>
+            <p>“O kadarını bilmiyorum. Aklıma gelen tek şey, karşılığında büyük miktarda özel puan aldığın.”</p>
+            <p>Dışarıdan birinin tahmin edeceği senaryoyu seslendirdim.</p>
+            <p>Ancak, buna değer miydi, emin değildim. Sakayanagi zarar görmüştü, ama sadece bir kez.</p>
+            <p>Ve sınıf sadece 100 sınıf puanı kaybetmişti. Yakın dostu Kamuro’nun ayrılması ise sadece bir yan üründü.</p>
+            <p>Bir sınıfa ihanet etmenin bedeli ağırdı; 500.000 ya da 1 milyon bile az gelirdi.</p>
+            <p>“Benim duymak istediğim, herkesin aklına gelebilecek bir cevap değil, senin fikrin.”</p>
+            <p>Hashimoto, ciddi cevap vermediğimin farkındaydı.</p>
+            <p>“Üzgünüm, ama fikir yürütme modunda değilim.”</p>
+            <p>“Ha? Neden? Aramızda bir bağ olmadığı için mi?”</p>
+            <p>“Öyle değil. Çünkü sen ciddi konuşmuyorsun.”</p>
+            <p>“Ha? Cidden tavsiye istiyorum. Umutsuzca bir çıkış yolu arıyorum.”</p>
+            <p>“Eğer gerçekten öyle diyorsan çok geç.”</p>
+            <p>“Çok geç mi…”</p>
+            <p>“Nasıl davranacağına karar veremeyen ve en baştan kaybolmuş biri sınıfına ihanet etmez.”</p>
+            <p>Sakayanagi’ye kılıç çekmek, bir generalin kellesini istemekle eşti.</p>
+            <p>Anlık bir karar değil, tüm sonuçları hesaplayarak verilen bir hamleydi.</p>
+            <p>“Anlıyorum. Gerçekten de nasıl davranacağımı sormak aptallıkmış…”</p>
+            <p>Tartışma başlar başlamaz hissettiğim sıkıntı buydu.</p>
+            <p>Hashimoto hatası için defalarca özür diledi ve sonra konuşmaya yeniden başladı.</p>
+            <p>“Sakayanagi’ye ihanet etmemin nedeni, senin varlığındı, Ayanokōji. Beni tetikleyen, Sakayanagi’yi ne pahasına olursa olsun seni A Sınıfı’na çekmeye ikna etme girişimimdi.”</p>
+            <p>“İkna mı? İkna etmek değil, sınıfı zarara sokmak.”</p>
+            <p>“İlginç bir ifade. Aslında çoğunlukla doğru.”</p>
+            <p>Hashimoto gülerek cevap verdi, ama rahat mı değil mi anlayamadım.</p>
+            <p>Zayıflıklarını saklamak için bilerek duygularını gizlediğini sezdim.</p>
+            <p>Muhtemelen bana karşı hiçbir zayıflık göstermek istemiyordu.</p>
+            <p>Bana gerçekleri içeren bir şeyler anlatıyor olsa da, içinde hala birçok sır sakladığını hissediyordum.</p>
+            <p>“Sorular birikmeye devam ediyor. Her şeyden önce, beni denkleme katarak Sakayanagi’ye ihanet etmek? Diğer öğrencilerin kafalarını kaşıyarak inanmayacağı bir hikaye olduğunu düşünmüyor musun?”</p>
+            <p>“Kafalarını kaşıyanlar beceriksizdir. Bu durumda alçakgönüllülüğe gerek yok. Ben herkesten daha fazla çalışıp bilgi topladım ve senin en iyi olduğuna ikna oldum. Gerekirse en baştan anlatabilirim, ama değerli vaktini harcamak istemem.”</p>
+            <p>“İnkâr etsem de ikna olmayacaksın, değil mi?”</p>
+            <p>“Olmayacağım. Sen tek başına sınıf sıralamasını alt üst edebilecek yeteneğe sahipsin. Bu yüzden Sakayanagi’yi, seni güvence altına almazsa tekrar ihanet edeceğim diye tehdit ettim. Eğer beni dinleseydi, A Sınıfı’na gelir ve her şey yoluna girerdi. Kazanma formülü tamamlanırdı.”</p>
+            <p>Hashimoto sıkıca yumruğunu sıktı, ama planı fazlasıyla ütopik ve gerçekçilikten uzaktı.</p>
+            <p>“Üzülerek söylüyorum, bu fazla hayalperestçe. Hayal ettiğin yeteneklere sahip olsam bile, Sakayanagi’yi düşman edinmem anlamsız olurdu. Ayrıca, daha önce davet edildiğimde olumlu düşüneceğimi söylemiştim, ama resmen geleceğimi söylediğimi hatırlamıyorum.”</p>
+            <p>Taahhüt almadan tek taraflı hareket etmiş, açıkça aceleci davranmıştı.</p>
+            <p>“Yani, transferi ayarlasam bile yine de A Sınıfı’na gelmeyecek misin?”</p>
+            <p>“Şu an için sadece bunu söyleyebilirim. Sakayanagi ile çatışmaya ilgi duymuyorum.”</p>
+            <p>Doğal düşündüğüm şeyi ilettikten sonra Hashimoto şok olmuş gibiydi, ama “demek öyle” diye mırıldandı.</p>
+            <p>“En iyi cevap ‘evet’ olurdu, ama sanırım o kadar kolay değil.”</p>
+            <p>Sakin cevap vermesi, A Sınıfı’nı seçmeyeceğim ihtimalini düşündüğünü gösteriyordu.</p>
+            <p>Peki, bu ihanetin amacı neydi?</p>
+            <p>Şu anki bilgilerle net bir sonuç çıkarmak zordu.</p>
+            <p>“Hey, ben sınıfa ihanet edecek bir tip miyim? İlk şüphelenen Sakayanagi oldu.”</p>
+            <p>“Karakterin bu.”</p>
+            <p>“Beni biraz savunsana… Şaka yapıyorum. Başlatan ben olsam da, bana doğrudan savaş ilan edildi. Normalde, kazanma şansım milyonda bir bile değil.”</p>
+            <p>Kamuro’yu gözden çıkarmak zorunda kalmasına neden olan hainden nefretinin, Hashimoto’nun düşündüğünden daha güçlü olduğunu düşünmek mantıklıydı.</p>
+            <p>“Ama bu ihanet tamamen benim hatam mı? A Sınıfı’ndan mezun olmanın en iyi yolunu önerdiğimi düşünüyordum. Sadece dinlemediği için sert davrandım. Hata nerede?”</p>
+            <p>“Dirençlisin. Ama sezgilerin yanlış değil. Sakayanagi’nin emirlerine körü körüne uymaya devam edersen, gelecekte A Sınıfı’nda kalabileceğinin garantisi yok.”</p>
+            <p>Sınıf puanlarındaki fark giderek kapanıyordu.</p>
+            <p>“Anlıyorum.”</p>
+            <p>“Ama büyük bir hata da yaptın.”</p>
+            <p>“Sakayanagi’yi düşman mı ettim?”</p>
+            <p>“Doğru, ama eksik. Sakayanagi’yi düşman etmek kötü değil. Hata, onu düşman ettiğinde bile kazanma şansın olmadan hareket etmendi. Kazanma şansın düşükse, farklı bir yol seçmeliydin.”</p>
+            <p>“Kendi açımdan düşündüm. Ama bunun tek yol olduğu sonucuna vardım.”</p>
+            <p>“Kendi içinde hesaplayıp bulduğun cevap… doğru olduğunu söyleyemem.”</p>
+            <p>Hashimoto inkar etmedi ve sonra olacakları hayal etti.</p>
+            <p>“Eğer hatamı geri alamazsam, Sakayanagi tarafından yutulacağımı mı düşünüyorsun?”</p>
+            <p>“Büyük ihtimalle. Eğer bunu istemiyorsan, geriye kalan tek seçenek onu yenmek.”</p>
+            <p>“Sence Sakayanagi ile savaşıp kazanabilir miyim?”</p>
+            <p>“Sadece netleştirmek için, Sakayanagi’yi yenmek derken, onu okuldan attırmaktan bahsediyorsun, değil mi?”</p>
+            <p>Hashimoto başını salladı.</p>
+            <p>Yani, uzlaşma yolu yoktu.</p>
+            <p>Öyleyse, tek bir cevap vardı.</p>
+            <p>“Kendimi ne kadar kayırsam da, yardımın olsa bile şansım çok düşük. Gelecekteki sınavlara bağlı olduğu için kesin konuşamam, ama bir anlamda Sakayanagi şu an Ryūen’den çok seni atmak istiyor. Açıkçası, sen misilleme yapıp Sakayanagi’yi attırsan bile, ikiniz birlikte düşebilirsiniz.”</p>
+            <p>Bu olursa, Ryūen sorun çıkaran hain Hashimoto’yu almak zorunda kalmaz, aynı zamanda güçlü bir düşmanı da alt etmiş olur.</p>
+            <p>Hayır, karşılıklı yok oluşa hazır olsan bile, Sakayanagi’yi yenmek zordu.</p>
+            <p>Şu an Sakayanagi ile Hashimoto arasında büyük bir yetenek farkı vardı.</p>
+            <p>Rakip her zaman birkaç adım öndeydi ve hatta bir Koruma Puanı bile vardı.</p>
+            <p>Yani, onu yenmek için iki kez vurman gerekecekti.</p>
+            <p>Ve şimdi, Hashimoto sadece Sakayanagi ile savaşmayı düşünüyordu.</p>
+            <p>Ama bu bence nafile bir düşünceydi.</p>
+            <p>Oyun bittiğinde her şeyin çözüleceğini söyleme isteğini anlıyordum.</p>
+            <p>Ama Sakayanagi’yi yenmiş olsa bile, bu sadece başlangıç olurdu.</p>
+            <p>Çöken bir sınıfı yeniden inşa etmek.</p>
+            <p>İntikam için gelecek olanlar.</p>
+            <p>Sorunlar peş peşe patlak verecekti.</p>
+            <p>Benim müttefik olacağıma dair bir güvencesi olmadan, Sakayanagi’ye karşı dezavantajlı olduğunu bilerek sınıfına ihanet etmişti.</p>
+            <p>Buna ne denirdi?</p>
+            <p>“Konuşmamızda dikkat çeken bir şey, insanlara güvenmiyor oluşun.”</p>
+            <p>Her şeyi açık etmedi, kendi kafasına göre yargıladı ve hareket etti.</p>
+            <p>Başarılı olsa sorun olmazdı, ama başarısız olma eşiğindeyse güvenecek kimsesi olmayacaktı.</p>
+            <p>“İnkâr etmeyeceğim. Ama Ryūen ve Sakayanagi de aynı, değil mi? Diğer insanlar işe yaramaz.”</p>
+            <p>“Onlar, bizzat kendileri hareket etmeden savaşacak güce sahipler.”</p>
+            <p>“İşte durum yine aynı noktaya dönüyor.”</p>
+            <p>Hashimoto, geleceği öngörme gücünden yoksun biri değildi.</p>
+            <p>Düşman olarak beni görürse, sonunda kaybedeceğini hissediyordu.</p>
+            <p>Bu kötü bir şey değildi.</p>
+            <p>Ancak, şimdiye kadar olduğu gibi bundan sonra da her şeyi kendi başına düşünüp sonuçlandırmaya devam edecekti.</p>
+            <p>Başkalarına güvenememenin dezavantajı, onu bu zor duruma sürüklemişti.</p>
+            <p>Eğer Hashimoto’nun yürekten güvendiği birden fazla insan olsaydı, belki de şu anki durum biraz daha iyi olabilirdi.</p>
+            <p>“Hiçbir kazanma şansım olmadan Sakayanagi’ye isyan ettiğimi düşünmeni istemiyorum. O kadar aptal değilim.”</p>
+            <p>Hashimoto, kendince kazanma şansları olduğunu mırıldandı.</p>
+            <p>Devam etmesini dinlemeye çalıştım, ancak bana baktı ve detay vermeye niyetli görünmüyordu.</p>
+            <p>“Devamını sana anlatmadan önce, gerçekten doğrulamam gereken bir şey var.”</p>
+            <p>Ve böylece Hashimoto bana bir soru yöneltti.</p>
+            <p>O zaman neden Sakayanagi’ye ihanet etmiş ve büyük bir kumar oynamaya karar vermişti?</p>
+            <p>Hikâyeyi başlatacak bir soru.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum2.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="bolum4.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Font Ayarlama JS -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+    </script>
+</body>
+</html>

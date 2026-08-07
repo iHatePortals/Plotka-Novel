@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt 21 - Bölüm 8 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #bb86fc;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Navigasyon ve Kontrol Barı */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-btn, .font-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .font-btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        .font-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <a href="bolum7.html" class="nav-btn">← Önceki Bölüm</a>
+            <div class="font-controls">
+                <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+            </div>
+            <a href="bolum9.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Cilt 21 - Bölüm 8</h1>
+            <div class="subtitle">Classroom of the Elite</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Öğrencilerden öğle yemeği olmayanlar aceleyle kafeterya ya da büfeye koştular ve ardından sınıfa geri döndüler.</p>
+            <p>Öğle tatili başladıktan yaklaşık 10 dakika sonra, Kōenji hariç 37 sınıf arkadaşı sınıfta toplanmıştı. Tabii ki yaklaşan özel sınavı tartışmak için oradaydılar.</p>
+            <p>Plan, zamanı etkili kullanmak için aynı anda yemek yiyip tartışmaktı. Birkaç önemli konu vardı, ancak ilki, özel sınavı düzgün bir şekilde anlamak ve Horikita’nın daha önce bahsettiği gibi ona karşı durabilmekti.</p>
+            <p>Diğeri ise muhtemelen liderin seçilmesiydi. Horikita, fiili lider olarak çoğu işi yaptığı için aday olursa pek az kişi itiraz ederdi, ancak tartışma yeni başladığından kendisi konuşmadı. Önemli sorumluluklardan kaçan biri olmamasına rağmen, muhtemelen önce diğer sınıf arkadaşlarının fikirlerini duymak istedi. Başka aday olmak isteyenler de olabilirdi.</p>
+            <p>Ancak Horikita kendisi konuşmasa bile, diğerleri onu lider olarak aday göstermeyi düşünebilirdi.</p>
+            <p>“Horikita-san, resmi tartışmaya başlamadan önce size bir sorum var. Bu özel sınavda sizden lider olmanızı istersek, kabul eder misiniz?”</p>
+            <p>Yōsuke, sınıfın muhtemelen bilmek istediği soruyu sormada inisiyatifi aldı. Aniden beklenmedik bir öğrencinin lider olmak için gönüllü olmasındansa, sınıfın iyiliği için güvenilir sonuçlar elde etmesi muhtemel Horikita’yı erken aday göstermek daha güvenliydi.</p>
+            <p>Ancak, herkesin düşünceleri Yōsuke’ninkiyle örtüşmeyebilirdi. Oybirliğiyle yapılan özel sınavda, sınıf politikasını değiştirip kafa karışıklığına neden olduğu için, Horikita sınıfta olumsuz bir izlenim bırakmıştı. Ancak beklendiği gibi, Yōsuke bu tür duygular göstermedi.</p>
+            <p>“Eğer birçok kişi tarafından aday gösterilirsem, reddetmek gibi bir niyetim yok. Ancak bu özel sınavda, lider büyük sorumluluk taşısa da, okuldan atılma ya da ayrılma riski taşımayan bir kural var. Başka adaylar varsa, onların fikirlerini dinlemek isterim.”</p>
+            <p>Diğer taraftan, Horikita kararları aceleyle almak istemiyordu. Sınavın doğasını anladığı için, kararlarında dikkatli olmak istiyordu. Bu sefer, lider strateji oluşturma ve aday gösterme sorumluluğunu taşıdığı gibi, okuldan atılma riskinden kaçınma ayrıcalığına da sahipti.</p>
+            <p>Sınıftaki 37 kişinin hiçbiri atılmak istemiyordu. O halde Horikita’dan daha fazla yetenekli biri çıkıp atılma ayrıcalığından faydalanarak etkili bir liderlik sergileyebilirdi. Ancak çoğu durumda bu gerçekleşmezdi—bu idealist bir senaryoydu. Sonuçta, sadece güvenliğini garanti altına almak için lider olmak isteyenler öne çıkardı. Birisi kendini koruma amacıyla liderliğe gönüllü olsa bile, sınıfın o kişiyi tanımaması doğaldı. Sonuçta, liderden sorumluluk, hazırlık ve sınıfı kazanma konusunda güven duygusu beklenirdi.</p>
+            <p>“Burada lider olmak isteyen biri var mı? Eğer varsa, lütfen bize söyleyin.”</p>
+            <p>Sınıfın tamamını görebileceği bir kürsüye doğru ilerleyen Horikita bu soruyu sordu. Sınıf anında sessizliğe büründü ve öğrenciler sadece birbirlerine bakarken zaman geçti. Bir adayın ortaya çıkmasını bekledikten yaklaşık 30 saniye sonra, Yōsuke başını salladı.</p>
+            <p>“Sanırım bu doğru cevap. Açıkçası, liderin elenme ya da okuldan atılma ayrıcalığından muaf tutulmasının büyük bir fayda olduğunu düşünmüyorum. Bu kadar önemli bir sorumluluğu üstlenebilecek başka bir öğrenci yoksa, gerçekten bunu sana bırakmak isterim, Horikita-san. Ne dersin?”</p>
+            <p>Liderlik pozisyonu için başka aday olmadığı için, Yōsuke, Horikita’yı erken bir karar vermeye ikna etmeye çalışıyordu. Her ne kadar acele edilmese de, liderin belirlenmesi önemli bir meseleydi. Horikita’dan bir yanıt bekleniyordu, ancak telefon ekranına bakarken tepkisi biraz gecikti. Konuşmayı dinlediği anlaşılıyordu, çünkü ekranını kapatır kapatmaz cevap verdi.</p>
+            <p>“Evet, tabii ki. Başka insanların fikirlerini duymak için çekimser bir tavır sergiledim, ancak her zaman lider rolünü üstlenmeyi amaçladım. Eğer itiraz yoksa…”</p>
+            <p>“Bir saniye bekleyin!”</p>
+            <p>Karar verildi. Lider Horikita olacak. Tam bu atmosfer oluşurken, Maezono tereddüt etmesine rağmen elini kaldırdı.</p>
+            <p>“Sanırım biraz daha tartışabiliriz…”</p>
+            <p>Yōsuke bir an için dondu, ancak çabucak kendine geldi ve gülümsemesini korudu. Normalde zayıflık göstermeyen biri olmasına rağmen, bugün farklıydı. Bu ihtiyat, muhtemelen özel sınavın birinin atılmasına yol açabileceği içindi.</p>
+            <p>“Tabii ki Horikita-san güvenilir biri. Lider olarak bu kadar sorumluluk almak istemesi çok takdir edilesi. Ancak… bu özel sınavı kaybetmeyi göze alamayız, değil mi? Eğer son sırada yer alırsak ve bir elenme olursa, o kişi sınıftan atılacak. Bu yüzden, kazanma şansımızı en yüksek seviyeye çıkaracak kişiyi lider olarak atamalı mıyız?”</p>
+            <p>Lider olmak için güvenliğini garanti altına almak isteyen biri olsaydı, Yōsuke bunu hemen reddederdi. Ancak bu, Horikita’nın liderlik yeteneğiyle ilgili bir soruydu.</p>
+            <p>“Elbette dediğiniz gibi, kazanma şansımızı en yükseğe çıkaracak kişi lider olmalı, ancak Horikita-san sınıfı kazanmak için uygun kararları almaz mıydı?”</p>
+            <p>Yōsuke, Horikita’nın liderlik için en uygun kişi olduğuna inanıyordu. Bu yüzden tereddüt etmeden yanıt verdi.</p>
+            <p>“Horikita-san’ın yeteneklerinden hiç şüphe etmiyorum. Ama gerçekten en iyi seçenek mi? Bence biraz daha tartışabiliriz. Sınıfta daha iyi kararlar alabilecek birini bulamaz mıyız?”</p>
+            <p>Maezono, Yōsuke de dahil olmak üzere sınıf arkadaşlarına seslenerek kimseyi doğrudan işaret etmeden fikrini dile getirdi. Yōsuke, gülümsemesini korumayı başardı ve birkaç kez başını salladı, ancak yanıt vermekte zorlandı. Maezono’nun sorusu mantıklıydı, ancak biraz garip bir duruma yol açabilirdi.</p>
+
+            <p>Bu sırada, derin düşüncelere dalmamış gibi görünen Ike beklenmedik bir tepki verdi.</p>
+            <p>“Yani, Maezono, aklında daha iyi biri mi var? Ben anlamadım.”</p>
+            <p>“Sakin ol. Bu sadece benim kişisel görüşüm, ancak bunu dile getirebilir miyim?”</p>
+            <p>Ike ile aynı fikirde olan Maezono, aklında birini olduğu izlenimini veriyordu. Kimse onun konuşmasını engelleme hakkına sahip değildi, bu yüzden devam etti.</p>
+            <p>“Oybirliğiyle yapılan özel sınavda, Horikita-san Kushida-san’ın elenmesi doğrultusunda kararını değiştirdi, değil mi? O sırada sorumluluğu üstlenmesi gereken kişi, karşı oy kullanmaya devam eden bir öğrenci olmalıydı. Ama sadece bu konuda kararlı durmadığını hissediyorum. Bu sefer lider her şeyi belirliyor, değil mi? Ve elemelerde kimlerin eleneceğini seçmek göz ardı edilemeyecek bir şey. Ah, bu arada, onun kararının yanlış olduğunu söylemek istemiyorum. Her ne kadar tüm sorunlar çözülmemiş olsa da, Kushida-san’ın hala sınıfta olması büyük bir artı.”</p>
+            <p>Kushida’ya karşı kişisel bir sebeple hoşnutsuzluk beslemediğini vurguladı ve dikkatlice konuştu. Doğal olarak, isminin anılması Kushida’yı rahatsız etmiş olabilirdi. Son zamanlarda maskesini çıkarmak için daha fazla fırsatı olmuştu, ancak şimdilik hala gülümsüyordu. Ancak o gülümsemenin sıcak olup olmadığı başka bir konuydu…</p>
+            <p>Her şeyden önce, Maezono Horikita’nın kararlılığından ve ona güvenilip güvenilmeyeceğinden şüphe ediyordu. Ayrıca, strateji ile ilgili tartışmaların, bilgi sızdırılması açısından dikkatle yürütülmesi gerektiğini belirtti.</p>
+            <p>Fikirler akla geldikçe memnuniyetle karşılanacak, ancak bunlar insanların geçtiği sınıflar ve koridorlar gibi kamuya açık yerlerde veya kayıtların kolayca tutulabileceği cep telefonlarında paylaşılmayacaktı.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum7.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="../index.html" class="nav-btn">🏠 Cilt Sayfası</a>
+            <a href="bolum9.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Font Ayarlama JS -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+    </script>
+</body>
+</html>

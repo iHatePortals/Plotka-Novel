@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt 23 - Bölüm 7 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #bb86fc;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Navigasyon ve Kontrol Barı */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-btn, .font-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .font-btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        .font-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        .novel-text ul {
+            margin-bottom: 1.4em;
+            padding-left: 2em;
+        }
+
+        .novel-text li {
+            margin-bottom: 0.5em;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <a href="bolum6.html" class="nav-btn">← Önceki Bölüm</a>
+            <div class="font-controls">
+                <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+            </div>
+            <a href="bolum8.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Cilt 23 - Bölüm 7</h1>
+            <div class="subtitle">Plotka Novel</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Karaoke odası, gizli buluşmalar yapmak isteyen öğrenciler için klasik bir yerdi.</p>
+            <p>Bana gelen mesajdaki numarayı takip ederek odayı buldum. Kapıyı açtığımda, içerdeki sessiz odada bacak bacak üstüne atmış şekilde oturan öğrenci bakışlarını bana doğru çevirdi.</p>
+            <p>“Bugün yancılarından hiçbiri buralarda değil, ha?”</p>
+            <p>“Vay canına, ne sürpriz. Daha canlı bir ortam mı bekliyordun yoksa?”</p>
+            <p>“Eğer Ibuki ya da Ishizaki burada olsaydı bu gergin havayı dağıtacak bir şeyler yapabilirler diye düşünüyordum.”</p>
+            <p>“Beni buraya çağıran kişi olarak epey saçma sapan şeyler söylüyorsun.”</p>
+            <p>“Sanırım haklısın.”</p>
+            <p>“Eh, sorun değil. Aslında bu sefer ben de sana ulaşmayı düşünüyordum. Bu seferlik göz yumacağım.”</p>
+            <p>Ryūen, hafifçe gülümseyerek:</p>
+            <p>“Görünüşe göre benzer konuları tartışacağız.”</p>
+            <p>“O halde sen başla.”</p>
+            <p>İlk benim konuşmamı isteyince hala girişin yanında dururken söze başladım:</p>
+            <p>“Sakayanagi ile olan bahsini duydum.”</p>
+            <p>“Oh?”</p>
+            <p>Ryūen konunun özel sınav olduğunu tahmin etmiş olmalıydı ancak bu konunun ilk sırada açılmasını bekleyip beklemediği yüzde elli elliydi.</p>
+            <p>“Görünüşe göre kaybeden okuldan atılacak. Bir daha görüşemeyebileceğimiz için, en azından yüzünü bir göreyim dedim.”</p>
+            <p>“O zaman çok geç olmadan Sakayanagi’yle buluşmalısın.”</p>
+            <p>“Plan bu zaten ama Sakayanagi’nin de benzer bir şey söyleyeceğine eminim.”</p>
+            <p>‘Veda etmek zorunda kalmadan önce Ryūen’le görüşsen iyi olur’ derdi kesin.</p>
+            <p>Beklediğim gibi ikisi de kendisinin kaybedeceğini düşünmüyordu.</p>
+            <p>“Utangaç olma, gel otur.”</p>
+            <p>İkimizin de konuşacak konuları olduğu için buluşmuştuk ama görünüşe göre inisiyatifi o almıştı.</p>
+            <p>“Mümkünse bundan kaçınmayı tercih ederim. Yine üzerime üzüm suyu dökmeyi mi planlıyorsun?”</p>
+            <p>Karşımda oturan Ryūen, elinin uzanabileceği mesafede duran şüpheli görünümlü mor bir bardağa doğru sağ elini uzattı. Onun normalde böyle bir şeyi içtiğini hayal edemiyordum zaten içecek de hiç dokunulmamış gibi görünüyordu.</p>
+            <p>“Olayı fazla abartıyorsun. Üstelik istersen bundan kaçınabilirsin, değil mi?”</p>
+            <p>“Bana sanki bir tür medyummuşum gibi davranma. Kaçınmamım mümkün olmadığı pek çok durum var.”</p>
+            <p>“Örnek olarak?”</p>
+            <p>“Örnek olarak… Şey…”</p>
+            <p>Ryūen, girişin yanına oturmam için ısrar etti.</p>
+            <p>“Personel bir şey getirirken bir şey olursa, kaçmanın tek bir yolu var. Bundan tamamen kaçınmak imkansız olur.”</p>
+            <p>Ryūen, bir sonraki hamlesini planlarken geniş bir alanı hedefledi.</p>
+            <p>“Oldukça şüpheci birisin.”</p>
+            <p>“Öyle olsa bile, bunu pek eğlenceli bulmuyor gibisin.”</p>
+            <p>Sonunda Ryūen’in dediğini yapmaya karar verip oturdum.</p>
+            <p>Geniş bir karaoke odasında ikimizin birbirine karşı oturması, adeta gerçek dışı bir manzaraydı.</p>
+            <p>“Oldukça büyük bir risk aldın. Bir sonraki özel sınav akademik yetenek üzerine odaklanmış olsaydı, neredeyse kesin olarak kaybederdin. Risk alıp işleri perde arkasından halletmeye çalışsan bile, iyi huylu Ichinose’nin aksine, Sakayanagi buna tamamen engel olurdu.”</p>
+            <p>“Bu, yılda bir kez gelen bir ölüm kalım savaşı. Akademik olarak başarılı olmayanların bile kazanma şansının olabileceği türden bir mücadele olduğunu düşündüm. Eğer okulda bu tarz bir eğlence anlayışı olmasaydı, bu teklifi bizzat reddederdim.”</p>
+            <p>Ryūen cevaplarken güldü. Belli ki bunu tamamen bir kumar olarak değerlendirmemişti. Horikita Manabu’nun, Nagumo’nun ve bizim dönemimizin yıl sonu sınavlarının trendlerine bakarak bu sınavın sadece akademik yetenek odaklı bir sınav olmayacağını anlamıştı.</p>
+            <p>Sınıflarımızın durumuna uygun bir yarışmanın seçileceğinden emindi.</p>
+            <p>“Özel sınava hazır mısın? Umarım geçen yıl Ichinose’nin sınıfına denediğin gibi aptalca planlar yapmıyorsundur.”</p>
+            <p>Yıl sonu özel sınavlarında, sınav gününde devamsızlık yapmak cezaya yol açabilirdi. Bu nedenle, rakibi önceden zayıflatmak iyi bir strateji olabilirdi.</p>
+            <p>“Umarım o zaman bana söylediğin şeyi hatırlıyorsundur. ‘Daha etkili bir şekilde olgunlaşmaya çalış.’ Buna benzer bir şey demiştin, değil mi?”</p>
+            <p>“Doğru. Zaten bu yüzden öyle demiştim.”</p>
+            <p>Ryūen, benim bu sözlerime burnundan sertçe üfleyerek karşılık verdi ve bakışlarını keskinleştirdi.</p>
+            <p>“Sana ve Sakayanagi’ye gerçekte neler yapabileceğimi göstereceğim. Bu benim tarzım değil ama onu adil ve dürüst bir şekilde ezip geçeceğim.”</p>
+            <p>“Bu oldukça cesur bir iddia. Eğer blöf yapıyorsan, yanlış kişiyle konuşuyorsun. Adil olacağını söylesen bile, söylediğin tek bir kelimeye bile güvenmiyorum. Sakayanagi’ye bundan bahsetmeyeceğim bile.”</p>
+            <p>Sakayanagi’yi hazırlıksız yakalamak için beni kullanamayacağını kesin bir şekilde ifade ettim.</p>
+            <p>“Aynen öyle. İşte bu yüzden bir anlamı var.”</p>
+            <p>“Anlıyorum. Başka bir deyişle, bu durum, adil mücadele edeceğin yönündeki iddiana inandırıcılık kazandıracak.”</p>
+            <p>Bu, bakış açısının olayları nasıl değiştirebileceğinin güzel bir örneğiydi.</p>
+            <p>“Bunu başkasına anlatmana gerek yok. Senin bilmen yeterli.”</p>
+            <p>“Anladım.”</p>
+            <p>Ryūen’in bel altı taktiklere başvurup başvurmayacağı ona kalmıştı, ancak bu sözleri, gelecekte benim tarafımdan nasıl değerlendirileceğini ve yargılanacağını belirleyecekti.</p>
+            <p>“Hiç baskı ya da endişe hissetmiyor gibisin.”</p>
+            <p>Böyle bir şey olamaz, dedi Ryūen, elini hafifçe sallayarak.</p>
+            <p>“Öyleyse görelim bakalım: Sakayanagi ile kafa kafaya mücadele ederken nasıl bir performans sergileyeceksin.”</p>
+            <p>Ayağa kalktım ve Ryūen’e sırtımı döndüm.</p>
+            <p>“Ayanokōji, sınava temsilci olarak katılmıyor musun?”</p>
+            <p>“Bu konuda endişeli misin? Bu sefer ne yaparsam yapayım, önemi yok.”</p>
+            <p>“Normalde, Ichinose gibi birine karşı bu kadar zahmete girmeye gerek yoktur. Ama o kadından tuhaf bir koku geliyor. Horikita’yı parça parça edebilir.”</p>
+            <p>Bu, bir şakadan daha çok onun ciddi yorumuydu.</p>
+            <p>“Yine de, sınıfımızın stratejisine göre hamle yapma sırası bende değil.”</p>
+            <p>Bunu söyledim ve Ryūen ilgisiz bir şekilde burnunu çekti.</p>
+            <p>“Peki. Sınıfınızın kaybetmesi bizim için daha uygun olur.”</p>
+            <p>Neyse ki, üzerime meyve suyu fırlatılmayacak gibi görünüyordu, içim rahatladı.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum6.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="bolum8.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Font Ayarlama JS -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+    </script>
+</body>
+</html>

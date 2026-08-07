@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt 22 - Bölüm 4 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #bb86fc;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Navigasyon ve Kontrol Barı */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-btn, .font-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .font-btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        .font-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Çevirmen Notu Kutusu */
+        .tl-note {
+            background-color: #1a1a1a;
+            border-left: 4px solid var(--accent-color);
+            padding: 12px 15px;
+            margin: 20px 0;
+            font-size: 0.9em;
+            color: #aaa;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <a href="bolum3.html" class="nav-btn">← Önceki Bölüm</a>
+            <div class="font-controls">
+                <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+            </div>
+            <a href="bolum5.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Cilt 22 - Bölüm 4</h1>
+            <div class="subtitle">Beklenmedik Karşılaşmalar</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Hashimoto ile olan görüşmemiz beklenenden uzun sürmüş gibiydi.</p>
+            <p>“Kusura bakma. Karuizawa ile olan buluşmanı sonraya aldın, değil mi? Fazla konuştum galiba.”</p>
+            <p>“Yapacak bir şey yok. Yarıda kesebileceğimiz bir konu değildi zaten.”</p>
+            <p>“Bunu ‘zamanına değecek bir konu’ olarak yorumlayabilir miyim?”</p>
+            <p>Onaylar şekilde başımı sallayınca, Hashimoto da aynı şekilde karşılık verdi.</p>
+            <p>Yüz ifadesi, önceki dumanlı halinin aksine, şimdi daha berraktı.</p>
+            <p>Sanki içinde biriktirdiği bir şeyi döküp atmış gibiydi.</p>
+            <p>Hashimoto’yu uğurlarken, ben de dışarı çıkmaya karar verdim.</p>
+            <p>“Bugün akşam yemeğini marketten alacağım.”</p>
+            <p>Üst kat düğmesine basmak üzere olan Hashimoto’ya söylediğimde, parmağını aniden çekip alt kat düğmesine bastı.</p>
+            <p>“O zaman ben de katılabilir miyim? Tabii, ağır konular yok, tamam mı?”</p>
+            <p>Doğal olarak, Hashimoto da oldukça yorgun görünüyordu.</p>
+            <p>Hızlı bir yemek ihtiyacını hissederek, onunla birlikte markete gitmeye karar verdim.</p>
+            <p>Asansöre binip lobiye indik.</p>
+            <p>Tam o sırada, yurda yeni dönmüş gibi duran Hashimoto’nun sınıf arkadaşı Morishita ile karşılaştık.</p>
+            <p>“Ne tesadüf, Ayanokōji Kiyotaka.”</p>
+            <p>“Gerçekten de öyle.”</p>
+            <p>İnsan ilişkilerimdeki değişimi hissettiğim bir andı.</p>
+            <p>İki yıllık okul hayatım boyunca Morishita ile defalarca karşılaşmıştım.</p>
+            <p>Eskiden onunla yollarımızın kesişmesini pek umursamazdım, ama şimdi karşılaştığımızda ikimiz de doğal bir şekilde durup konuşmaya başlıyorduk.</p>
+            <p>“Bir de hain, Hashimoto Masayoshi burada.”</p>
+            <p>“Hey, hadi ama böyle başlama. Bırak şunu.”</p>
+            <p>“Özür dilerim. Kesin kanıtım henüz yok. Sözümü geri alıyorum.”</p>
+            <p>Sözünü düzeltmiş olsa da, onun bu şekilde düşünülmesi gerçeğini değiştirmiyordu.</p>
+            <p>Hashimoto gerçekten bir haindi, yanında olduğum ve Morishita ile baş başa rastlamadığı için şanslı hissetmiş olmalıydı.</p>
+            <p>“Ayanokōji Kiyotaka, hiç şaşırmamışsın gibi görünüyorsun.”</p>
+            <p>“Bu dedikodu bir süredir dolaşıyor. Ayrıca, A Sınıfı’ndakilerin aksine, ben gerçeği bu kadar merak etmiyorum.”</p>
+            <p>“Anlıyorum. Hain tarafından sana danışıldığını düşünmüştüm.”</p>
+
+            <div class="tl-note">
+                <strong>Çevirmen Notu:</strong> Burada Morishita genel olarak dolaylı bir dil kullanıyor. Hainden kasıt Hashimoto; aslında demek istediği şey "Hashimoto'nun ne yapacağı konusunda sana danıştığını düşünmüştüm". Karakterin doğallığını bozmamak adına cümle orijinal yapısında bırakılmıştır.
+            </div>
+
+            <p>Açıkça düşündüklerini ve spekülasyonlarını ifade ederek, acımasızca üzerime geliyordu.</p>
+            <p>Onun bu cüretine hayranlık duyarken, Hashimoto araya girdi.</p>
+            <p>“Kes şunu. Beni hain olarak şüphelenmekte özgürsün, ama prensesin talimatı olmadan dışarıdan insanları işin içine katmaman daha iyi olur.”</p>
+            <p>Morishita’yı, bir haine ait olmayan özgüvenli bir tonla durdurdu.</p>
+            <p>“Peki. Ama vakit geç oldu. Şimdi nereye gidiyorsunuz?”</p>
+            <p>Hashimoto’yu daha fazla zorlamak yerine, sorusunu bana yöneltti.</p>
+            <p>“Markete gidip akşam yemeği alacağım.”</p>
+            <p>“Ben de.”</p>
+            <p>“Sana sormadım, Hashimoto Masayoshi, ama anladım. Ancak, Ayanokōji Kiyotaka, senin genellikle kendi yemeğini yaptığını düşünürdüm… Birisiyle konuşurken zamanın nasıl geçtiğini anlamadın mı?”</p>
+            <p>Son zamanlarda sık sık yemek yapıyordum, ama bu bilgiyi nereden edinmişti?</p>
+            <p>Morishita’nın şüpheleri giderek artıyor gibiydi ve kasıtlı olarak kuşkularını dile getirdi.</p>
+            <p>“Ben sadece Ayanokōji ile asansörde karşılaştım. Görünüşe göre ikili bir görüşme yüzünden geç kalmış.”</p>
+            <p>Belki de sorgulanmanın sıkıntı yaratacağını düşünen Hashimoto rahat bir cevap verdi.</p>
+            <p>Ancak Morishita daha da şüphelenmiş görünüyordu.</p>
+            <p>“Garip. Ayanokōji Kiyotaka’nın ikili görüşmesi çoktan bitmiş olmalıydı. Görünüşe göre ikiniz çok uzun konuşmuşsunuz.”</p>
+            <p>Morishita, Horikita’nın sınıfının iç işlerini araştırıyor olmalıydı, çünkü Hashimoto’nun bile bilmediği detaylara hakimdi.</p>
+            <p>Hashimoto’nun üstünkörü geçiştirme girişimi ters tepmiş gibiydi.</p>
+            <p>“Hayır, dediğim gibi, benim bununla bir alakam yok. Ayanokōji’nin ne yaptığı hakkında hiçbir fikrim yok.”</p>
+            <p>“Ama dördüncü kattaki asansörden beri birliktesiniz, değil mi?”</p>
+            <p>Kaçış yollarını kapatırcasına bunu söylerken, asansör monitörüne göz attı.</p>
+            <p>“Kahretsin, izleniyor muyduk biz…?”</p>
+            <p>“Başkaları için önemsiz olabilir, ama görüldüğün kişi açısından şanssız bir günündesin.”</p>
+
+            <div class="tl-note">
+                <strong>Çevirmen Notu:</strong> Görüldüğün kişiden kasıt, Morishita'nın kendisi tarafından Hashimoto'nun görüldüğüne atıfta bulunmasıdır.
+            </div>
+
+            <p>Hashimoto, yenilmişlik duygusuyla acı bir gülümseme gösterdi.</p>
+            <p>Ancak bu karşılaşma karşısında ne paniklemiş ne de telaşlanmış görünüyordu.</p>
+            <p>“Bir hain böyle mi davranır yani?”</p>
+            <p>“Ha? Hain derken?”</p>
+            <p>“Yani, sınıfının arkasından iş çeviren biri.”</p>
+            <p>Anlamını açıkladığında, Hashimoto hayal kırıklığına uğramış gibi abartılı bir şekilde omuzlarını düşürdü.</p>
+            <p>“Bırak şunu, Morishita. Bu tamamen farklı bir mesele.”</p>
+            <p>“Farklı mesele derken?”</p>
+            <p>“Onu söyleyemem. Erkeklerin arasında konuşulan şeyler vardır, değil mi?”</p>
+            <p>Yardım istediğini hissederek, ben de ona uydum.</p>
+            <p>“Cinsiyet meselesiyse, daha fazla üzerine gidemem. Sorguyla yüzleşmekten kaçmanın kolay bir yolu.”</p>
+            <p>“Ne desem fayda etmiyor.”</p>
+            <p>Hashimoto, pes ederek omuz silkti.</p>
+            <p>Az önce konuştuğumuz gibi, ne kadar çok konuşursa, o kadar çok şüphe uyandırıyordu.</p>
+            <p>“Neyse, sorun değil. Ben de markete size katılabilir miyim?”</p>
+            <p>“Olur, ama özel bir sebebin mi var?”</p>
+            <p>“Evet, ben de gelirsem mutlaka bir sebep bulurum. Sanırım bir şeyler düşünebilirim.”</p>
+            <p>Özel bir motivasyonu olmadığını itiraf ediyordu, ama onu reddetme hakkım yoktu.</p>
+            <p>Reddetmiş olsam bile, yine de peşimize takılacaktı.</p>
+            <p>“Pekala. Madem buraya kadar geldik, üçümüz birlikte gidelim.”</p>
+            <p>“O zaman size eşlik edeceğim.”</p>
+            <p>Morishita, arkasını dönerek önden yürümeye başladı.</p>
+            <p>“Niye önden gidiyor ki… Anlaşılması zor biri olmaya devam ediyor. Kusura bakma, Ayanokōji.”</p>
+            <p>“Sorun değil. Büyük bir mesele değil.”</p>
+            <p>Birden, Morishita’nın A Sınıfı’nda nasıl algılandığını merak ettim.</p>
+            <p>Akademik başarısı OAA’dan biliniyor olmalıydı.</p>
+            <p>Ama dürüst olmak gerekirse, başka hiçbir şey bilmiyordum. Belki sormak iyi bir fikir olabilirdi.</p>
+            <p>“Morishita sınıfta nasıl bir öğrenci?”</p>
+            <p>“Gördüğün gibi. Zeki ama tuhaf, ve her zaman tek başına hareket eden biri.”</p>
+            <p>“Yakın arkadaşları var mı?”</p>
+            <p>“Hatırladığım kadarıyla yok.”</p>
+            <p>Bu bilginin, sürekli bilgi toplamakla meşgul biri tarafından verildiğini düşünürsek, oldukça güvenilir görünüyordu.</p>
+            <p>Morishita’nın arkasını izlerken, Hashimoto işaret parmağı ve başparmağıyla çenesine dokunarak düşünceli bir ifade takındı.</p>
+            <p>“Bu yüzden bu kadar tuhaf. Normalde böyle bir konuşma başlatacak biri değildir.”</p>
+            <p>Bunu mırıldandıktan sonra bana yan gözle baktı, ben de inisiyatifi ele aldım.</p>
+            <p>“Sadece haini gözetliyor olmasın?”</p>
+            <p>“Yani… İmkansız değil… Ama sen de gerçeği saklamıyorsun, değil mi?”</p>
+            <p>“Eğer dikkatli olmam gerekirse olurum.”</p>
+            <p>“Kahretsin. Asıl merak ettiğim şey, bildiğim kadarıyla Morishita, Sakayanagi’ye aşırı bağlı biri değil. Ona ne yakın ne de uzak. Ama kendi inisiyatifiyle sorunları çözmeye çalışan biri de değil. Yani, onun bu şekilde sorgulama yapması için bir neden göremiyorum.”</p>
+            <p>Morishita inisiyatif alan biri değil mi? Gerçekten öyle mi?</p>
+            <p>Etkileşimlerimiz kısıtlı olsa da, benim izlenimim tam tersiydi.</p>
+            <p>Daha çok, sorunları çözmek için aktif olarak tek başına çalışan biri gibi görünüyordu.</p>
+            <p>Tabii ki, Morishita’nın fikri, şimdiye kadar konumunu sağlamlaştıran Sakayanagi’nin yenilgisini gördükten sonra değişmiş olabilirdi.</p>
+            <p>Ancak, Hashimoto’nun bu detaydan tamamen habersiz olduğuna inanmak zordu.</p>
+            <p>Doğruyu ve yalanı benzer oranlarda karıştırarak, hiç aldatma belirtisi göstermeden konuşuyordu.</p>
+            <p>Hatta şu anki durum, üçümüzün birlikte yürümesi bile basit bir tesadüf olmayabilirdi.</p>
+            <p>Hashimoto, Sakayanagi’ye benimle temas kurduğunu dolaylı yoldan fark ettirmek istemiş olabilirdi.</p>
+            <p>Böyle bir planı olduğunu varsaymak mantıklı olabilirdi.</p>
+            <p>Eğer ortaya çıkmak istemeseydi, odamın önünde fark edilebileceği bir yerde beklemezdi.</p>
+            <p>İkimiz de birbirimizin iletişim bilgilerini biliyorduk, istediğimiz kadar gizlice iletişim kurabilirdik.</p>
+            <p>Hain Hashimoto’nun, Sakayanagi’ye benimle temas kurduğunu doğrudan veya dolaylı yoldan fark ettirme amacı vardı.</p>
+            <p>Tabii ki, gerçeği sadece Hashimoto biliyordu, ama benim de çıkarım yapabileceğim başka şeyler vardı.</p>
+            <p>Hashimoto’nun odamda ortaya döktüğü gerçekler ve yalanlar.</p>
+            <p>Tüm eylemleri kendi çıkarına bağlıydı.</p>
+            <p>Sadece kendisinin kazançlı çıkmasını istiyordu.</p>
+            <p>Sadece kendisinin hayatta kalmasını istiyordu.</p>
+            <p>Sadece kendisinin kazanmasını istiyordu.</p>
+            <p>Eğer ki barışçıl birinin bakış açısıyla değerlendirme yapılması gerekseydi, Hashimoto muhtemelen kötü bir varlık olarak görülürdü.</p>
+            <p>Hashimoto hakkında daha fazla şey öğrendikçe, ona sempati duymaya ve katılmaya başladım.</p>
+            <p>Çünkü o, doğası gereği yaşıyordu.</p>
+            <p>Normalde, bu tür bir kötülüğü gerçekleştirmek için inkar edilemez bir güce ihtiyaç vardır.</p>
+            <p>Ama Hashimoto’nun böyle bir gücü yoktu.</p>
+            <p>Bu yüzden, bir bukalemun gibi, çevresine uyum sağlamak için renk değiştirmeyi öğrenmişti.</p>
+            <p>Hayatta kalmak için ortama uyum sağlamaya çalışıyordu.</p>
+            <p>Tam da o anda yaptığı ve şimdiye kadar yapageldiği şey buydu.</p>
+            <p>Lobiden çıktık ve üçümüz birlikte markete doğru yürüdük.</p>
+            <p>Sonra içeri girip bir sepet aldık ve ben telefonumdan Kei’ye mesaj attım.</p>
+            <p>Onun ne istediğini dinlerken, kendi yemeğime de karar verdim.</p>
+            <p>Marketin mikrodalgada ısıtılabilen yemekleri oldukça lezzetliydi.</p>
+            <p>Alışveriş yaparken, içecek reyonunda bize yetişen biriyle karşılaştık.</p>
+            <p>“Ah… M-merhaba…”</p>
+            <p>Bizi selamlayan, Hashimoto’nun sınıf arkadaşı Yamamura Miki’ydi.</p>
+            <p>“Seni burada görmeyi beklemiyordum.”</p>
+            <p>“Evet, sanırım öyle.”</p>
+            <p>Yanıtıma biraz rahatsız görünerek katıldı.</p>
+            <p>Görünüşe göre, acil merdivenlerde Hashimoto’yu gözetleyen de Yamamura’ydı.</p>
+            <p>Yurttan ayrıldıktan sonra bile varlığını neredeyse hiç fark etmemiştim ve kim olduğunu bilmiyordum.</p>
+            <p>Bu yüzden Yamamura olabileceğini düşünmüştüm ve haklı olduğum ortaya çıktı.</p>
+            <p>Tek başına mı hareket ediyordu yoksa arkasında Sakayanagi mi vardı bilmiyordum, ama odama asansörle dönmeden önce bekliyor olması, Hashimoto’yu gözetlediğini düşündürüyordu.</p>
+            <p>Üstelik, Yamamura’nun beni gizlice izlemesi için özel bir sebep de göremiyordum.</p>
+            <p>“Oh, Yamamura. Ne tesadüf.”</p>
+            <p>Elinde köri aromalı hazır noodle’la konuşmamızı fark eden Hashimoto yanımıza geldi.</p>
+            <p>“İyi akşamlar… Hashimoto-kun.”</p>
+            <p>“Seni markette görmek bir ilk sanırım.”</p>
+            <p>Bu şekilde konuşması bir alışkanlık mıydı yoksa bir şeyler sezmiş miydi, emin değildim.</p>
+            <p>Güvenilirliğini bilmediği bir bilgiyi dile getirirken, Yamamura’nın tepkisini gözlemliyordu.</p>
+            <p>“Şey, ben… marketi sık kullanırım… haftada bir iki kez… ama fark edilmem… özür dilerim.”</p>
+            <p>“Hayır, özür dileyecek bir şey yok…”</p>
+            <p>Hashimoto, onu sorgulamaya çalışmış ama Yamamura’nın etrafta fark edilmeyen kişiliğine vurgu yaptığı için hemen özür dilemek zorunda kalmıştı.</p>
+            <p>“Yamamura Miki’nin bir erkekle konuştuğunu görmek nadirdir.”</p>
+            <p>“Bunu sen mi söylüyorsun, Morishita?”</p>
+            <p>“Ben sadece Hashimoto Masayoshi’yi merak ediyorum. Aşk mı bu?”</p>
+            <p>“Beni böyle hedef gösterme… Neyse, sanırım Yamamura da benden şüpheleniyor.”</p>
+            <p>Öyle miydi?</p>
+            <p>Böyle bir sorgulayıcı bakışa karşılık, Yamamura başını öne eğip gözlerini kaçırdı.</p>
+            <p>Marketin neşeli müziği ve atmosferine uymayan ağır bir sessizlik çöktü.</p>
+            <p>Sessizliği bozan, ne Hashimoto ne de Yamamura, ama Morishita oldu.</p>
+            <p>“Madem buradayız, birlikte alışveriş yapalım. Sakıncası yok, değil mi?”</p>
+            <p>“E-evet, tabii… yani, sizin için…”</p>
+            <p>En başından beri ortamı okumaması, burada işe yaramış gibiydi.</p>
+            <p>Cevabını beklemeden, Yamamura bizimle birlikte alışveriş yapmak zorunda kaldı.</p>
+            <p>Neyse ki, market alışveriş yapmak için oldukça normal bir yerdi.</p>
+            <p>Yamamura’yı diğer öğrencilerle konuşurken pek görmemiştim, ama kendi sınıf arkadaşlarıyla bile iletişim kurmakta zorlandığı belliydi.</p>
+            <p>Morishita’nın önerdiği ürünleri almak zorunda kalıyor, reddedemediği için sepetine üç dört ürün atıyordu.</p>
+            <p>“Onu fazla zorlama.”</p>
+            <p>“Neden? Yamamura Miki önerilerimi memnuniyetle kabul ediyor.”</p>
+            <p>“Bence hiç de memnun görünmüyor. Aksine sıkıntılı duruyor.”</p>
+            <p>“Öyle mi?”</p>
+            <p>“Şey, yani…”</p>
+            <p>İki tarafa da nasıl cevap vereceğini bilemeyen Yamamura, ne diyeceğini şaşırmıştı.</p>
+            <p>“Seni zorluyor muyum?”</p>
+            <p>“Hayır, öyle değil…”</p>
+            <p>Sadece sözlerin baskısıyla geri çekilen Yamamura, itiraz etmeye cesaret edemiyordu.</p>
+            <p>“Beğenmediysen, bir sonraki önerimi yapayım. Bu herkesten sır.”</p>
+            <p>Bir market çalışanı olmamasına rağmen, Morishita ona bir sonraki ürünü almaya ikna etmeye çalışıyordu.</p>
+            <p>Soğutuculardan bir meyve suyu kutusu çıkarmak üzereyken—</p>
+            <p>“Samimi sohbetinizi böldüğüm için özür dilerim, ama biraz yer açabilir misiniz?”</p>
+            <p>Onlar konuşurken, içecek reyonuna yeni bir müşteri geldi.</p>
+            <p>Beni fark etmiş gibiydi, ama yakındaki Yamamura onu görmemişti ve omuzları hafifçe çarpıştı.</p>
+            <p>“Ah, özür dilerim.”</p>
+            <p>Market çok geniş değildi, bu yüzden birkaç kişi bir araya geldiğinde, diğer müşterilerin ürün seçmesi engellenebiliyordu.</p>
+            <p>Büyük bir çarpışma olmasa da, Yamamura özür dileyerek kenara çekildi.</p>
+            <p>“Hayır, fark etmeyen bendim. Özür dilerim.”</p>
+            <p>Uzun gümüşi saçlarını hafifçe savurarak bir yeşil çay şişesi aldı.</p>
+            <p>“Bu markanın çayını seviyorum. Demlikte demlenmiş gibi yoğun bir aroma ve lezzet hissediyorsun, değil mi Ayanokōji?”</p>
+            <p>Bana dönerek, bir içecek markasının tanıtıcısı gibi konuşan, 3-B sınıfından Kiryūin Fūka’ydı.</p>
+            <p>“O markayı hiç denemedim, bilemiyorum.”</p>
+            <p>“Yazık. Bir fırsatını bulup denemelisin.”</p>
+            <p>“Eve mi dönüyorsunuz, Kiryūin-senpai?”</p>
+            <p>“Evet. Biraz geç oldu. Bugün sadece markete uğrayayım dedim. Bu kız öğrenci… yeni kız arkadaşın mı?”</p>
+            <p>“Hayır, değil.”</p>
+            <p>“Ah, şey… Ben Yamamura…”</p>
+            <p>“Ben Morishita Ai.”</p>
+            <p>“Yamamura ve Morishita, öyle mi? Ayanokōji ile aynı sınıfta mısınız?”</p>
+            <p>“Hayır, onlar A Sınıfı’ndan.”</p>
+            <p>“Öyle mi? Geniş bir çevreye sahip olmak güzel. Arkadaşlarınıza değer verin.”</p>
+            <p>Üçüncü sınıflar arasında mesafeli duruşuyla bilinen Kiryūin’den beklenmedik bir tavsiyeydi.</p>
+            <p>“Tanıştığımıza memnun oldum, Kiryūin-senpai. Ben de A Sınıfı’ndan Hashimoto.”</p>
+            <p>Hashimoto, Yamamura’ya bakan Kiryūin’in sözünü keserek elini uzattı.</p>
+            <p>Kiryūin hafifçe başını sallayarak elini salladı.</p>
+            <p>“Üçünüzü de hatırlayacağım.”</p>
+            <p>Kısa bir sohbetin ardından, Kiryūin önce ödemesini yapıp marketten ayrıldı.</p>
+            <p>Normalde insanlarla pek ilgilenmeyen Kiryūin’in, üçünü de hatırlayacağını söylemesi şaşırtıcıydı.</p>
+            <p>Tabii ki, bu sadece nezaketten ibaret de olabilirdi.</p>
+            <p>“Kiryūin-senpai ile yakın mısınız? Kendisi kimseyle takılmayan biri olarak bilinir.”</p>
+            <p>“Yakın sayılmayız.”</p>
+            <p>Hashimoto, Kiryūin’in yurda doğru ilerleyen arkasını bir süre daha izledi.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum3.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="bolum5.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Font Ayarlama JS -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt 22 - Bölüm 7 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #bb86fc;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Navigasyon ve Kontrol Barı */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-btn, .font-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .font-btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        .font-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Çevirmen Notu Kutusu */
+        .tl-note {
+            background-color: #1a1a1a;
+            border-left: 4px solid var(--accent-color);
+            padding: 12px 15px;
+            margin: 20px 0;
+            font-size: 0.9em;
+            color: #aaa;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <a href="bolum6.html" class="nav-btn">← Önceki Bölüm</a>
+            <div class="font-controls">
+                <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+            </div>
+            <a href="bolum8.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Cilt 21 - Bölüm 7</h1>
+            <div class="subtitle">Plotka Novel</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Kısa süre içinde değişim toplantısının ilk turuna dair detaylar açıklandı ve oyun başladı.</p>
+            <p>Ondan önce, aynı odada telefonuyla oynayan Hashimoto’ya bu meseleyi anlatmaya karar verdim.</p>
+            <p>Bütün oyunlara katıldığımı gizlesem bile, Hashimoto bu garip durumu fark ederdi zaten.</p>
+            <p>Grup içindeki insanların birbirini sorgulaması da sorgulanması da gereksizdi; bunu en baştan engellemek en iyisiydi.</p>
+            <p>“Nagumo’yla birkaç maçım olacak” dedim.</p>
+            <p>Maçın içeriğinden biraz bahsettim ama sonuçta bu, eski öğrenci konseyi başkanıyla olan bir karşılaşmaydı ve Hashimoto, duydukları karşısında şaşkınlığını gizleyemedi.</p>
+            <p>Hikâyeyi sonuna kadar dinledikten sonra ise birkaç kez iç çekti ve durumu anladığını belli etti.</p>
+            <p>“Sen gerçekten benim hayal gücümün ötesinde şeyler yapıyorsun, biliyorsun değil mi?”</p>
+            <p>“Olaylar benim istediğim gibi gelişmedi.”</p>
+            <p>“Öyle olsa bile, Nagumo-senpai ile yarışıyor olman inanılmaz bir şey. Üstelik bu sadece grup savaşıyla ilgili değil, senin bireysel performansına odaklanılmış. 19 oyundan 17’sini kazanman bekleniyor, bu başlı başına müthiş bir şey.”</p>
+            <p>Bu durumun zorlu olacağını bekliyordu, ama Hashimoto nedense bu işten tuhaf bir mutluluk duyuyor gibiydi.</p>
+            <p>“Bu sadece onun sana olan ilgisini gösteriyor.”</p>
+            <p>“Gayriresmî bir değişim toplantısı bile olsa bu tamamen keyfi bir hareket. Grup içi dengeleri bozan bir şey bu. Bu yüzden seninle konuşmak istedim grubun uyumunu koruyabilmek için.”</p>
+            <p>“Ne demek istediğini anlıyorum ama bence endişelenmene gerek yok.”</p>
+            <p>“Nasıl yani?”</p>
+            <p>“Şöyle düşün. Bu eğlenceli bir oyun olsaydı herkes katılmak için yarışabilirdi, ama sence liseli çocukların hepsi çiçek baskısı yapıp nakış işlemek ister mi? Sanmam.”</p>
+            <div class="tl-note">
+                <strong>Çevirmen Notu:</strong> Oshibana [押し花], Japonya’ya özgü, çiçeklerin ezilip kurutularak desen oluşturacak şekilde düzenlenmesiyle yapılan geleneksel bir sanat türüdür.
+            </div>
+            <p>Ben oldukça ilgilenmiştim ama anlaşılan diğer öğrenciler öyle değildi.</p>
+            <p>“Yani senin her oyuna katılman, herkes için memnuniyet verici bir şey aslında.”</p>
+            <p>“Değişim toplantısını tamamen kazanmayı mı düşünüyorsun? Kiryūin-senpai bu konuda ne düşünüyor acaba? Duruma bakılırsa, senin de bir fikrin vardır diye tahmin ediyorum?”</p>
+            <p>“Ah, açıkçası emin değilim. Tamamen ilgisiz değil bence ama Nagumo kadar heyecanlı olduğunu sanmıyorum. Hatta işi tamamen kōhai’lerine bırakabilir.”</p>
+            <p>Kiryūin’in Nagumo’yla olan maça ilgisi sadece benim performansım yüzündendi.</p>
+            <p>Bu duruma mezuniyet öncesi biraz ekstra eğlence olarak bakıyordu.</p>
+            <p>“Bu sefer kazandığım özel puanlar sadece harçlık olarak kullanılsa bile, elimdeki puanları daha etkili şekilde kullanabilirim. Gerçekten daha üst sıraları hedefleyip ödül parasını almak istiyorum.”</p>
+            <p>Hem içeride hem dışarıda düşmanları olan Hashimoto için bu savaş fonu çok önemliydi.</p>
+            <p>“Her neyse, Ayanokōji, sen birinci sınıflarla iyi geçinmeye bak.”</p>
+            <p>“İyi geçinmek mi…?”</p>
+            <p>“Birinci sınıflarla iyi geçinmek sence zor mu?”</p>
+            <p>Biraz düşündüm, sonra başımı salladım. Hashimoto dizine vurup ayağa kalktı.</p>
+            <p>“O zaman bundan en iyi şekilde yararlanacağız. Önce birinci sınıfların gerginliğini azaltacağım, bu geceye kadar onlarla iyi geçinmeye çalışırım.”</p>
+            <p>Hashimoto, birinci sınıflarla yakınlaşmakta hiç zorlanmayacağını hemen belli etti.</p>
+            <p>“O sırada elimden geldiğince bilgi toplamaya da çalışırım ama Kiryūin-senpai bir şey yapmazsa senin gücün şart. Yani hava karardığında, birinci sınıflarla iyi geçinmek için senin de iş birliği yapman gerekecek, tamam mı?”</p>
+            <p>Karşılık vermeden sadece talepte bulunmak doğru olmazdı; yardım etmek doğruydu.</p>
+            <p>Hashimoto’yu, grubun zaferi için çabalayan birini desteklemek daha iyiydi.</p>
+            <p>“Tabii… Eğer yapabilirsem yaparım.”</p>
+            <p>Ama kendime güvenmediğimi ne kadar erken belli edersem o kadar iyiydi. Fakat Hashimoto zaten bunu çoktan anlamıştı.</p>
+            <p>“Bana bırak bunu. Böyle işlerde epey iyiyimdir. Ayrıca bu, prensesi kontrol altında tutmak için de işe yarar ve Ryūen’in görmezden gelebileceği bir şey değil.”</p>
+            <p>Benimle iş birliği yapıyordu ama aynı zamanda kendi çıkarlarını da düşünüyordu. Hesapçı olmak kötü bir şey değildi. Hatta, çıkar çatışması varsa durumu iyi niyetle çözmekten çok daha iyiydi bu yaklaşım.</p>
+            <p>“Bu arada, Nagumo-senpai’yi yenersen ne kadar para alacaksın?”</p>
+            <p>“Bilmiyorum, tam olarak ne kadar olduğunu sormadım.”</p>
+            <p>“Üçüncü sınıf temsilcisi olduğunu düşünürsek, birkaç bin ya da on binle sınırlı kalmaz herhalde, değil mi?”</p>
+            <p>Onun asıl merakı benim alacağım para miktarı değil, kendi alacağı parasının ne olacağıydı.</p>
+            <p>“Anladım. Kazanırsak parayı gruba eşit olarak dağıtırım, rahat ol.”</p>
+            <p>“Bunu duyduğuma sevindim. Ama performansa göre farklı miktarlar verirsen daha iyi olur, herkese aynı miktar verilmesin.”</p>
+            <p>“Peki, ben gidiyorum. Boş vakitlerimde birkaç görüşme yapabilirim sanırım.”</p>
+            <p>Her saniyeyi değerlendirmek istermiş gibi, Hashimoto hızla ortak odadan çıktı.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum6.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="bolum8.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Font Ayarlama JS -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+    </script>
+</body>
+</html>

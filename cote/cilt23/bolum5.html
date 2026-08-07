@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt 23 - Bölüm 5 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #bb86fc;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Navigasyon ve Kontrol Barı */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-btn, .font-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .font-btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        .font-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        .novel-text ul {
+            margin-bottom: 1.4em;
+            padding-left: 2em;
+        }
+
+        .novel-text li {
+            margin-bottom: 0.5em;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <a href="bolum4.html" class="nav-btn">← Önceki Bölüm</a>
+            <div class="font-controls">
+                <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+            </div>
+            <a href="bolum6.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Cilt 23 - Bölüm 5</h1>
+            <div class="subtitle">Plotka Novel</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Keyaki Alışveriş merkezi, hafta içindeki genel atmosferine kıyasla cuma günleri ders çıkışında büyük bir değişime uğrardı.</p>
+            <p>Beş gün boyunca derslerine yoğun bir şekilde çalışan öğrenciler, kendilerini bekleyen tatil günlerine sevinçle adım attılar. Ancak özellikle bu hafta, durum normalden farklı görünüyordu. Belki de bunun nedeni, alışveriş merkezindeki öğrenci sayısının gözle görülür biçimde azalmış olmasıydı.</p>
+            <p>Kafeye vardığımda, benden önce sınıftan çıkmış olan Horikita’nın orada beni beklediğini gördüm.</p>
+            <p>Horikita beni fark edince bir şeyler içmek istediğini işaret etti ve kasaya doğru ilerledik. Bir sıcak kahve alıp onun yanına gittim.</p>
+            <p>Karşımdaki koltukta yerinde duramayan Horikita, biraz huzursuz görünüyordu.</p>
+            <p>“Sorun nedir?”</p>
+            <p>“…Sorun mu?”</p>
+            <p>“Demek istediğim, canını sıkan bir şeyler varmış gibi görünüyor. Eğer yanılıyorsam, sorun yok tabi.”</p>
+            <p>“Belki de vücut dilimden kaynaklanıyordur?”</p>
+            <p>“Evet, öyle.”</p>
+            <p>“Anlıyorum. Ciddi bir şey değil. Sadece bir hafta sonraki sınavı düşünüyordum. Seni endişelendirdiysem özür dilerim.”</p>
+            <p>“Yani diyorsun ki şu anda gerginsin, hem de bu aşamada mı?”</p>
+            <p>“Neden olmayayım ki? Sınıf puanlarındaki değişim kayda değer olacak. Sınıfımız puanı ister artsın ister azalsın, bu büyük bir dönüm noktası.”</p>
+            <p>Liderlik rolünün giderek daha fazla bilincine vardıkça, bu tür şeyleri daha çok düşünür olmuştu.</p>
+            <p>Sanırım bu anlaşılabilir bir durumdu, ayrıca makul seviyede gerginlik hissi hiç de fena sayılmazdı.</p>
+            <p>“Bu arada… etrafta ne kadar az birinci sınıf öğrencisi olduğunu fark ettin mi?”</p>
+            <p>Belki de konuyu değiştirmek istemişti, çünkü bu soruyu sorarken gözlerini bakışlarımdan kaçırıyordu.</p>
+            <p>“Evet, sanırım birinci sınıfların da Yıl Sonu Özel Sınavının zorlukları ve sıkıntılarıyla yüzleşme vakti geldi.”</p>
+            <p>Sadece kafenin içine bakarak bile, içeride çok az sayıda birinci sınıf öğrencisi olduğunu görebiliyordunuz.</p>
+            <p>Hafta sonunda yaşanan bu tabloya bakılırsa, onlara epey zorlu bir özel sınav verilmiş olabilirdi.</p>
+            <p>“Günler ve aylar yavaş ama bir o kadar da hızlı geçiyormuş gibi hissettiriyor. Bu okula geleli şimdiden bir yıl olduğuna inanamıyorum.”</p>
+            <p>İçeceğinden bir yudum alırken, birinci sınıflardan yalnızca bir yıl büyük olan bir ikinci sınıf öğrencisi olarak, sanki olaylara geniş bir perspektiften bakıyormuşçasına biraz da felsefi bir edayla konuşuyordu.</p>
+            <p>“Yaşlı insanlar gibi konuşuyorsun.”</p>
+            <p>“Ne, ‘Yaşlı insanlar’ mı? Ne kadar da kaba bir tabir. Acaba bunu biraz daha iyi ifade edebilir miydin diye merak ediyorum.”</p>
+            <p>Sitem dolu sözlerini söylerken, siyah çayının tatlı kokusu da masanın üzerine yayılıyordu.</p>
+            <p>“Sütlü çay içmen alışılmadık bir durum.”</p>
+            <p>“Canım biraz tatlı bir şeyler çekti. Üzerine epey kafa yoruyordum.”</p>
+            <p>Bunun nedeni, bir sınıf lideri olarak olaylar üzerinde herkesten daha fazla düşünmek zorunda olmasıydı.</p>
+            <p>“Okulun birinci sınıflara ne tür bir sınav hazırladığını merak ediyorum.”</p>
+            <p>“Kim bilir? Eğer bu kadar merak ediyorsan, neden bir birinci sınıf öğrencisini yakalayıp sormuyorsun?”</p>
+            <p>“Birinden bu konuda bir şey duyana kadar dikkatimi başka bir sınıfa yönlendiremem. Ayrıca, üst sınıftaki birinin sırf merakından dolayı alt sınıfların özel sınavına karışması doğru olmaz, değil mi?”</p>
+            <p>Sizden tavsiye istendiğinde durum tam olarak böyle olmazdı ama evet, Horikita haklıydı. Bu, aynı sınıf dönemindeki kişiler tarafından ele alınması gereken bir sorundu.</p>
+            <p>Elbette hayatta kalmak adına mecbur kaldıklarında bir üst veya bir alt sınıf öğrencisinden yardım aldıkları durumlar olsa da genellikle bu tür örnekler nadir görülürdü.</p>
+            <p>“Sınavlarında nelerin yer aldığı konusunu bir kenara bırakırsak, birinci sınıfların sınıf durumunun ne olduğunu biliyor musun?”</p>
+            <p>“Okula başladıklarından bu yana A’dan D’ye kadar, sınıf sıralamalarında bir değişiklik olmadığına eminim,”</p>
+            <p>Onların işlerine fazla karışmayacağımız konusunda sessiz bir anlaşma içinde olduğumuzdan, Horikita ile benim yapabileceğimiz tek şey, okul tarafından açıklanan bilgileri incelemek ve bunları paylaşmaktı.</p>
+            <p>“Evet, haklısın. Görünüşe göre B Sınıfı’ndan Yagami-kun özel sınavlarla ilgisi olmayan bir sebepten ötürü okuldan atılmış. Ağır bir ceza söz konusuydu ancak onun sınıfı ile C ve D sınıfları arasındaki puan farkı, bu cezanın sıralamayı değiştirmesine yetmeyecek kadar büyüktü. Ne var ki artık 1-A ve 1-B sınıfları arasındaki fark açılmış durumda ve 1-A Sınıfı’nın yavaş ama tartışmasız bir şekilde öne geçmeye başladığı görülüyor.”</p>
+            <p>Sözlerinin ardından, Horikita telefonunun ekranını üzerine dokunmasına bile gerek kalmadan bana doğru çevirdi.</p>
+            <p>1 Mart itibariyle Sınıf Puanları<br>
+            1-A Sınıfı: 991 Puan<br>
+            1-B Sınıfı: 697 Puan<br>
+            1-C Sınıfı: 532 Puan<br>
+            1-D Sınıfı: 510 Puan</p>
+            <p>Görünüşe göre Horikita, beni beklerken ki boş vaktinde konuyu araştırmıştı.</p>
+            <p>“Geçen sene bu zamanlarda biz de çok farklı konumlarda değildik. Ancak onların durumunda, alt sıralardaki üç sınıf birbirine oldukça yakın görünüyor bu yüzden, uzun zamandır beklenen Yıl Sonu Özel Sınavına bağlı olarak büyük bir sıralama değişikliği yaşanması mümkün.”</p>
+            <p>Ödüllere ve yarışma formatına bağlı olarak 1-A ve 1-D sınıflarının yer değiştirme ihtimali sıfır değildi.</p>
+            <p>Geçen yılki rakamların ayrıntılarını tam hatırlamıyordum ama hem Horikita’nın hem de Ryūen’in sınıflarının puanlarının 350 civarında olduğunu biliyordum.</p>
+            <p>800 Puanla başlayan 1-D sınıfının, şu anda 500 puanın üzerinde olduğunu düşünürsek, bu yılki birinci sınıfların hiç de fena ilerlemediğini söyleyebilirdik.</p>
+            <p>“Sahip oldukları Sınıf Puanlarına bakınca bile, geçen yılki halimizden daha iyi oldukları anlaşılıyor. Birinci sınıfların, sınıflarını nasıl bir arada tuttuklarını merak ediyorum.” diye cevap verdim.</p>
+            <p>Bu, sıralamalara ve puanlara baktıktan sonraki dürüst değerlendirmemdi.</p>
+            <p>A Sınıfına Takahashi ya da Ishigami liderlik ediyor gibi görünürken, D sınıfında Housen açık ara lider konumundaydı. Öte yandan B ve C Sınıflarında o aşamada belirgin bir lider göze çarpmıyordu.</p>
+            <p>C Sınıfından Tsubaki ve Utomiya akılda kalıcı öğrenciler olsalar da şu an için sınıflarına liderlik etme yönünde adımlar attıklarına dair bir kanıt yoktu.</p>
+            <p>Ayrıca, B Sınıfı’nda Yagami lider rolü üstlenmiş olsa da okuldan uzaklaştırılmasının ardından sınıfındaki durumun nasıl değiştiği henüz belirsizdi.</p>
+            <p>“Evet, kesinlikle yüksek sayıda Sınıf Puanına sahip olabilirler ancak sırf bu yüzden, genel anlamda olağanüstü olduklarını varsayamayız, değil mi? Onlar için hazırlanan özel sınav, geçen sene bize verilen sınavdan farklı. İçinde bulundukları ortam da farklı dolayısıyla onları yalnızca puan değerlerine bakarak kolayca değerlendiremeyiz.” dedi Horikita.</p>
+            <p>Belki de alt sınıfları övmemden rahatsız olmuştu.</p>
+            <p>“Evet, sanırım yetenek meselesi başka bir konu olabilir. Belki de mesele sadece, geçen sene diğer sınıflara kıyasla tıpkı yılın başındaki Sudo gibi, bizim sınıfımızda bizi aşağıya çeken daha fazla yükün olmasıdır.”</p>
+            <p>“… O kadar ileri gitmezdim. Bu, söylenmesi hiç hoş olmayan bir söz.”</p>
+            <p>Sözleriyle beni tersledi.</p>
+            <p>Birinci sınıf öğrencileri ile ilgili konuyu açan kendisi olsa da tartışmayı daha fazla sürdürmeye niyeti yok gibiydi.</p>
+            <p>Telefonunun ekranını kapattı ve fincanından bir yudum daha aldı.</p>
+            <p>“Asıl konuya geçmek istiyorum. Önce senden mi dinlemeliyim? Yoksa doğrudan Yıl Sonu Özel Sınavından mı bahsedeyim?”</p>
+            <p>Sanırım birinci sınıfların ve onların nelerle uğraşacakları hakkında konuşmak, bizim sınıfın karşı karşıya olduğu zorlu sınav konusunda onun biraz daha rahatlamasını sağlamıştı.</p>
+            <p>“Sınavdan başlayalım. Ben de onun hakkında konuşmak istiyordum zaten.”</p>
+            <p>“Konunun bu olduğunu tahmin etmiştim. Eğer durum buysa, buna memnun oldum.”</p>
+            <p>Gözlerinin kenarı mutlulukla kırışmıştı.</p>
+            <p>Özel sınavla ilgili olarak onunla bizzat iletişime geçmiş olmamdan memnun görünüyordu.</p>
+            <p>“Peki, o zaman… Her şeyden önce, şu anda bu sınavda avantaj elde etmek için atabileceğimiz adımlar olduğunu düşünüyor musun?”</p>
+            <p>Soruyu sorduğu anda, sanki kendini düzeltiyormuşçasına başını hafifçe iki yana salladı.</p>
+            <p>“Daha açık bir şekilde ifade etmeme izin ver. Sence başarı şansımız nedir?”</p>
+            <p>Sorusunu farklı bir şekilde yeniden dile getirdi.</p>
+            <p>Açıkçası bu durumda, sorunun kafa karıştırıcı ve dolambaçlı bir yolla sorulmasındansa böyle sorulmasını kesinlikle tercih ederdim.</p>
+            <p>“Dürüst olmak gerekirse, söylemesi zor. Okulun bize açıkladığı bilgilerden yola çıkarak tahmin edebildiğimiz kadarıyla, sınavın içeriği ve kapsamı epey geniş, dolayısıyla sınırlarını belirlemek de bir hayli güç görünüyor. Ortada somut ayrıntılar olmadan, bizi zafere taşıyacak bir strateji geliştirmemiz mümkün değil.”</p>
+            <p>Açıkça söylemek gerekirse, yüzlerce hatta binlerce olası senaryo varken sınavın neye benzeyeceğine dair kafa yorup tahminler yürütmek, yalnızca zaman israfı olurdu.</p>
+            <p>“… Evet, sanırım haklısın. Chabashira-sensei bile sınavın ayrıntılarını bilmiyor. Karşı önlem geliştirmemizin bir yolu yok.” dedi Horikita.</p>
+            <p>Normal şartlarda Horikita benden bir tavsiye bekliyor olsaydı, hayal kırıklığına uğrardı. Ancak her nedense, memnun görünüyordu.</p>
+            <p>“Mutlu görünüyorsun. Bunun tam tersi bir tepki bekliyordum.”</p>
+            <p>“Gerçekten mi? Yine de bu beni mutlu ediyor. Bu özel sınavda ne olacağına dair hiçbir fikrimin olmadığı bir noktadayım ama sanırım senin ‘Nasıl kazanacağımıza dair bir fikrim var’ demeni bekliyordum. Öyle bir şey söyleseydin, hissedeceğim hayal kırıklığı beslediğim umutlardan daha büyük olurdu, o yüzden sanırım biraz rahatladım.”</p>
+            <p>Bu cümlelerin hemen ardından konuşmaya devam etti.</p>
+            <p>“Bu yüzden bunu söylemen beni mutlu ediyor. Ne de olsa, o türden sıra dışı şeyler söylemeye meyilli bir havan var.”</p>
+            <p>Üzerimde herhangi bir hava varmış gibi hissetmiyordum ama bu konuda bir yorum yapmayacaktım.</p>
+            <p>“Sınavın ne hakkında olduğunu bilmediğimiz sürece, herkes aynı durumda demektir. Sakayanagi ve Ryūen’in de bu konuda ayrıcalığı yok.”</p>
+            <p>“Sanırım haklısın. Diğer bir deyişle… Detaylar açıklanana kadar yapabileceğimiz hiçbir şey yok, öyle mi?”</p>
+            <p>“İçeriği ne olursa olsun, sağlam sonuçlar ortaya koyması muhtemel üç temsilciyi dikkatle seçmekten başka yapabileceğimiz pek bir şey yok.”</p>
+            <p>Muhtemelen sınıftaki öğrenciler arasından en az eksiği olanları seçmek daha iyi bir tercihti.</p>
+            <p>“Ya da risk alıp, belirgin güçlü ve zayıf yönleri olan bir öğrenciyi dahil ederek ‘ya hep ya hiç’ durumuna oynayabilirsin.”</p>
+            <p>“Bu… birazcık korkutucu.”</p>
+            <p>“Evet eminim öyledir. İşte tam da bu yüzden, her sınıfın bunun yerine sağlam bir kadro oluşturmaya odaklanacağından eminim.”</p>
+            <p>“Doğrudan sorulsa sınavın adil olduğunu kabul etmem gerekirdi ama yine de bu durum sinir bozucu.”</p>
+            <p>Sanki, içinde bulunduğumuz anda yapabileceğimiz bir şey olup olmadığına dair o cevapsız sorunun yanıtını aramakla epey zaman harcayacakmışız gibi görünüyordu.</p>
+            <p>“Sınavlar karşısında mantık yürüterek ve bir çıkış yolu bulmaya çalışarak ilerlemeye devam ettikçe, kendini daha da sıkışmış hissedersin. Bu yüzden böyle zamanlarda bakış açını hafifçe değiştirmeyi denemek ilginç olabilir.”</p>
+            <p>“Ne demek istiyorsun?”</p>
+            <p>“Sınavın içeriğini bilmesen bile, en azından rakiplerinin kimler olacağını tahmin edebilirsin, değil mi? Eğer karşındaki sınıftan bir öğrenci olsaydım Horikita, doğal olarak senin general olacağını, Yousuke ve Kushida gibi öğrencilerin ise öncü ve merkez için ilk tercihler olacağını kolayca hayal edebilirdim.”</p>
+            <p>“…Evet. Sanırım haklısın.”</p>
+            <p>Aslında az önce bahsettiğim isimler, Horikita’nın şu anda aklındaki adaylar olmalıydı.</p>
+            <p>“Bu durumda, Ichinose’nin sınıfından seçilecek adaylar kim olurdu? Ichinose’nin general olacağına şüphe yok, peki ya diğerleri?”</p>
+            <p>“Şey, elbette Kanzaki-kun sağlam bir seçim olurdu diye düşünüyorum. Öne çıkan başka kimse aklıma gelmiyor ama Hatsukawa-san, Hamaguchi-kun ve Niiura-kun gibi isimler gayet uygun adaylar gibi görünüyor. Ama…”</p>
+            <p>Horikita’nın yüz ifadesi, “Peki, bu bize ne anlatıyor?” der gibiydi.</p>
+            <p>“Eğer rakiplerinin kim olacağını önceden kestirebilirsen, en azından zayıf noktalarını bulmaya çalışabilirsin. Şimdi, bu sadece varsayımsal bir senaryo ama az önce adını andığın Hatsukawa’nın, Miyake Akito’ya büyük bir ilgi duyduğunu varsayalım. Şayet durum buysa ve biz de bunu göz önünde bulundurarak bilerek Miyake’yi seçersek, Hatsukawa’nın normal bir şekilde karar vermesini engelleyebiliriz.”</p>
+            <p>“Yani uyumdan mı bahsediyorsun?” diye sordu Horikita.</p>
+            <p>“Evet tam olarak bundan bahsediyorum.”</p>
+            <p>“Ama uyumun kazananı kolayca belirleyecek kadar sınavın sonucunu etkileyebileceğini pek sanmıyorum ve—”</p>
+            <p>“Bunun özellikle kolay olacağını söylemedim. Bir ilerleme kaydetmek zorlaştığında, önce bakış açını değiştirmeyi dene. Sonrasında bu fikrin iyi mi yoksa kötü mü olduğuna karar verebilirsin.”</p>
+            <p>Horikita’nın sadece durduğun yeri biraz değiştirerek bile bazı şeylerin hızla görünür hale gelebileceğini anlamasını sağlamam gerekiyordu.</p>
+            <p>“Bunu aklımda tutacağım.”</p>
+            <p>Sözleri net ve kabulleniciydi ancak bir şey hoşuna gitmemiş olsa gerek, bakışlarında hafif bir hoşnutsuzluk ifadesi vardı.</p>
+            <p>“Bu konuda epey fikrin var gibi görünüyor, o yüzden sana bir soru soracağım. Benden, Hirata-kun’dan ve Kushida-san’dan bahsettin. Biz üçümüzün gerçekten iyi temsilciler olabileceğimizi düşünüyor musun?”</p>
+            <p>“Sınıfın kilit ismi ve liderlik etmeye layık olan kişi olarak, bunu bizzat senin düşünmen gerek, Horikita.”</p>
+            <p>“Önce çevremdekilerin neler söyleyeceğini dinlemeyi düşünüyordum. İşte bu yüzden şu an burada konuşuyoruz.”</p>
+            <p>Bunu söyleyiş tarzı biraz dolambaçlı ve havalıydı, sanki zekasını sergilemeye çalışıyormuş gibi bir hali vardı.</p>
+            <p>Madem öyle, sanırım ona bir cevap vereceğim.</p>
+            <p>“Sınıf temsilcileri, kesin bir birebir mücadele yapısına sahip olacaklar. Yani, yeteneklerini ancak kalabalık bir grup içindeyken sergileyebilen öğrenciler yerine, bireysel olarak mücadele edebilecek öğrencileri seçmek daha doğru olacaktır. Ayrıca, Sudo ve Onodera gibi fiziksel yetenekleri ön planda olan öğrencileri de bu seçimin dışında tutmalıyız.”</p>
+            <p>“Hiç de ilgi çekici olmayan bir cevap. Sanki bir ders kitabında yazan türden bir şey. Biraz daha kişisel bir yaklaşım görmek isterdim.”</p>
+            <p>“Benim fikrime bile ihtiyaç duymadan aklında halihazırda bir plan var, değil mi?”</p>
+            <p>Temsilcileri belirlemek için Pazar gününün sonuna kadar vaktimiz vardı.</p>
+            <p>Eğer şu ana kadar adayları eleyip seçenekleri daraltmamış olsaydı, şu an bu konuşmayı yapıyor olmazdık.</p>
+            <p>“Eh, kısmen öyle. Yine de bu sorumluluğu emanet edebileceğimiz çok fazla kişi yok. Benim de fikrim seninkiyle hemen hemen aynı. İlk tercih edilecek adayların Hirata-kun ve Kushida-san olması kaçınılmaz. Ancak dürüst olmak gerekirse, en iyi seçimlerin onlar olduğunu söyleyemeyiz.”</p>
+            <p>“Pekâlâ. O zaman sence en iyi kadro hangisi olurdu?”</p>
+            <p>Sorum üzerine, bana hüzünlü bir bakış attı.</p>
+            <p>“Ayanokōji-kun, eğer sen ve Kōenji-kun bu görevi üstlenseydiniz, işi tamamen size bırakırdım.”</p>
+            <p>Horikita’nın aklındaki üç kişilik temsilci kadrosu şuydu: Horikita, Ayanokōji ve Kōenji.</p>
+            <p>Hmm.</p>
+            <p>Seçilen kişilerin istekleri bir kenara bırakıldığında, bu kadronun gerçekten de ideal olabileceği doğruydu.</p>
+            <p>“Senin durumunu bir anlığına kenara koyabilsem bile, böyle zamanlarda ‘Keşke Kōenji-kun işi ciddiyetle kabul etse’ diye düşünmeden edemiyorum.”</p>
+            <p>“Evet eğer işi ciddiye alsaydı, o sıra dışı sezgileriyle rakiplerini silip süpürürdü.”</p>
+            <p>“Evet, kesinlikle.”</p>
+            <p>Hatta yarışmaya öncü olarak katılıp diğerlerini saf dışı bırakarak generalle kapışmaya kadar yükselmesi bile mümkündü.</p>
+            <p>Elbette eğer isteği dışında aday gösterilseydi, hiç direnmeden yenilgiyi kabullenme ihtimali de hayli yüksekti. Hatta, olayların aynen böyle gerçekleşeceğini düşünüyordum.</p>
+            <p>“Ama böyle bir şeyi ummanın anlamsız olduğunu biliyorum. Kōenji-kun’un meselesine gelince, mezuniyete kadar onu sadece sessizce izlemekle yetineceğimi zaten kabul etmiş durumdayım. Kendisi bizzat çıkıp gönüllü olmadığı sürece, ondan temsilci olmasını talep etmem bile gerçekçi olmaz.”</p>
+            <p>İhtimaller o kadar düşüktü ki, Horikita onunla konuşmayı denemeyecekti bile.</p>
+            <p>Yine de bu onun adına doğru bir hamleydi, sonuçta ekibe katma girişimlerinde dikkatsizce umutlanmamalıydı.</p>
+            <p>Ne de olsa karşısındaki kişi Kōenji’ydi. Böyle bir durumun sözleşme ihlali olduğunu öne sürüp ardından mantıksız taleplerde bulunması hiç de şaşırtıcı olmazdı.</p>
+            <p>“Onunla iş birliği yapmak imkânsız olsa bile, eğer kabul edersen işi sana bırakmak içimi rahatlatırdı ama…”</p>
+            <p>Sanki bir kâhine danışıyormuşçasına, bana şöyle bir göz attı.</p>
+            <p>“Kabul edeceğimi düşünüyor musun?”</p>
+            <p>“Hayır, sanmıyorum.”</p>
+            <p>“Demek sanmıyorsun? Aslında, benden istersen kabul etmekte sakınca görmem.”</p>
+            <p>“Evet ben de öyle düşünmüştüm. En nihayetinde, senin kolayca evet demeyeceğin bir şey olduğunu biliyor— ne?” Horikita gözlerini kırpıştırdı.</p>
+            <p>Lafını bitirmek üzereyken ağzı açık bir şekilde donup kaldı.</p>
+            <p>“Az önce ne dedin sen?”</p>
+            <p>“Dedim ki, eğer istediğin buysa Horikita, kabul etmeye istekliyim.”</p>
+            <p>Kendimi tekrar etmeme rağmen, sanki beyni bilgiyi henüz işlememiş gibi ağzı sessizce açılıp kapanmaya devam ediyordu.</p>
+            <p>“G-Gerçekten mi? Şaka yapmıyor musun?”</p>
+            <p>“Komik olmayan şakalar yapmam. Öyle bir yalanı ciddiye alırsan başın epey ağrır.”</p>
+            <p>“Sanırım ama… Şey, umm, eğer temsilcilik görevini üstlenebilirsen, bu sadece bana değil tüm sınıfa büyük bir yardım olur. Bunda sorun olmadığına gerçekten emin misin?”</p>
+            <p>Horikita benden defalarca teyit istedi ama gözlerinde şimdiden parlak bir ışıltı vardı.</p>
+            <p>Gözlerindeki ışıltıyı biraz gölgeleyecek olsa da önemli bir şey daha eklemeye karar verdim.</p>
+            <p>“Eminim. Ancak birkaç şartım var.”</p>
+            <p>Doğal olarak, ‘şartlar’ kelimesi Horikita’da bir uyarı sinyali etkisi yarattı.</p>
+            <p>“…Ve nedir bunlar. Zor şartlar mı?”</p>
+            <p>“Bundan pek emin değilim. İşin içine gururunun buna izin verip vermeyeceği meselesi de giriyor, Horikita.”</p>
+            <p>“Gururum mu? Bunu biraz açar mısın?”</p>
+            <p>Şartlarım olduğunu söylememe rağmen beni temsilci olarak atama fikrini değerlendirmeye fazlasıyla istekli görünüyordu, bu yüzden konuşmaya devam ettim.</p>
+            <p>“Sınıf liderlerinin sınavda kendi sınıflarının ‘generali’ olarak yer alacaklarına neredeyse yüzde yüz eminim.” diyerek açıklamalarıma başladım.</p>
+            <p>“Evet, bu doğru. En yüksek Can Puanına sahip kişi generaldir bu yüzden daha fazla hata yapma şansına sahiptir ki bu da öncü veya merkez konumunda yer almanın bu avantajdan vazgeçmek olduğu anlamına gelir. Bu gayet açık.”</p>
+            <p>Bu anlaşıldığına göre, sıra gurur meselesindeydi.</p>
+            <p>“Sınıfın şu anki lideri sensin Horikita. Tartışılmaz bir gerçek bu. Bunu göz önünde bulundurarak bu rolü kabul etmemdeki şartlardan biri, dizilimde merkezde senin yer alman, bense general rolünde olacağım.”</p>
+            <p>“Sen general rolünde mi olacaksın…?”</p>
+            <p>Bunun ne anlama geldiğini kavramak için uzun uzun düşünmesine gerek yoktu.</p>
+            <p>Bu durum, insanların sınıfın asıl liderinin Horikita değil, bizzat ben olduğumu düşünmelerine yol açardı.</p>
+            <p>“Daha önce de dediğim gibi, diğer sınıfların temsilci generalleri Sakayanagi, Ryūen ve Ichinose olacağı neredeyse yüzde yüz kesin. Mevcut olan tüm canlarıyla savaşmak isteyecekler.”</p>
+            <p>Horikita söylediklerimi dinledikten sonra başını salladı.</p>
+            <p>“Başka bir deyişle, eğer general ben olursam, sadece bizim sınıftan değil, diğer sınıflardan da bu konuda birtakım düşünceleri olacak öğrenciler çıkacaktır. Hatta bazıları seni güvenilmez bir lider olarak bile görebilir, Horikita.”</p>
+            <p>“Bu, durumu epey hafifleterek ifade etmek olur ama muhtemelen haklısın. Bu sınavda general koltuğuna oturan öğrencinin sınıftaki en yetenekli öğrenci olması kaçınılmaz bir durum.”</p>
+            <p>“Aynen öyle. İşte bu yüzden bunu kabul edip etmemen, benim temsilci olmamın bir şartı.”</p>
+            <p>Elbette Horikita’nın isteklerine saygı duyardım.</p>
+            <p>Hatta bu durumda kendisi general olmak isteseydi buna sevinirdim bile, ne de olsa bu kendisini bir lider olarak görme konusunda güçlü bir bilince sahip olmaya başladığı anlamına gelirdi.</p>
+            <p>“Peki ya general pozisyonunun vazgeçmeyeceğim tek şey olduğunu söyleseydim?”</p>
+            <p>“O zaman sanırım tüm işi reddederdim.”</p>
+            <p>Horikita teklifin şartlarını kabul etmeseydi, elbette ben de temsilci olmazdım.</p>
+            <p>“Gurur, ha… Ne demek istediğini anlıyorum. Dürüst olmak gerekirse, kazanabildiğim sürece general olup olmamam şahsen pek umurumda değil. Ama bu, hiçbir şeyi önemsemediğim anlamına gelmiyor, yanlış anlama.”</p>
+            <p>“Evet, eminim öyledir. Aslında durum böyle olmasaydı, şu an bu konuşmayı yapıyor olmazdık.”</p>
+            <p>Asıl konu, gururun kendisi olması ya da ona bir değer atfedilmesi değildi.</p>
+            <p>Ancak gurur sahibi bir lider, işte o bambaşka bir meseleydi.</p>
+            <p>“General olmadığın takdirde neden bu rolü kabul etmeyeceğini söyleyebilir misin? Sırf benden daha iyi olduğun için mi?”</p>
+            <p>“Hayır, durum bundan daha basit. Sadece sıranın bana gelmesini istemiyorum.”</p>
+            <p>“Yani temsilci olmayı kabul ediyorsun ama elinden geldiğince işin dövüş kısmına girmek istemiyorsun, öyle mi?”</p>
+            <p>“Doğru.”</p>
+            <p>Ona bu cevabı hiç tereddüt etmeden verdiğimde, Horikita kaşlarını çattı.</p>
+            <p>Eğer böyle düşünüyorsam temsilci olarak seçilmemin ne anlamı olduğunu sorguluyordu.</p>
+            <p>“Bu… bunun bana ne kadar faydası dokunur, orası şüpheli. Şu an seni general olarak yanıma alırsam, muhtemelen bu beni merkez yapar. Eğer senin hamle yapmana gerek kalmayacak bir şekilde mücadele edeceksem, bu da oldukça zorlu bir savaşa girişmem gerekeceği anlamına gelir.” dedi Horikita.</p>
+            <p>“Evet, bu seni kesinlikle dezavantajlı bir duruma düşürürdü. En baştan itibaren yapabileceğin hata sayısı azalacak, bu da önemli bir dezavantaj. Üstelik merkez konumunda kazanabilmek için tüm rakiplerin Can Puanlarını çok hızlı bir şekilde büyük ölçüde azaltman gerekecek.”</p>
+            <p>Bunları duyduktan sonra Horikita’nın şüphe duyması şaşırtıcı olmazdı.</p>
+            <p>Ona, yalnızca general rolü verilirse kabul edeceğimi ve sıra bana gelmeyecek şekilde ayarlama yapmasını istediğimi söyleyerek, hesaba katması gereken yeni hususlar da sunmuş oluyordum.</p>
+            <p>Elbette, Horikita her şeyi tek başına kazanabilseydi işler daha hızlı ilerlerdi ancak, durum o kadar da basit değildi.</p>
+            <p>“Bu arada, az önceki ifadelerinden yola çıkarsak tek koşul bu değildi, değil mi?”</p>
+            <p>Henüz bir sonuca varamayan Horikita, o ilk şartın ardından neyin geldiğini öğrenmek istedi.</p>
+            <p>Benim açımdan ise, onu aceleye getirmek gibi bir niyetim yoktu.</p>
+            <p>“Pekâlâ, general meselesini şimdilik bir kenara bırakıp diğer konuya geçelim mi? Ayrıca, temsilcilik görevini kabul etmemin karşılığında bir ödül de istiyorum.”</p>
+            <p>“Kişisel Puanlar mı?”</p>
+            <p>“Hayır, onların peşinde değilim. İstediğim şey Kōenji’ninki ile aynı. Yani, bundan böyle sınıfa hiçbir katkıda bulunmayacağım. İş birliği yapmayacağım. Bunun için izin istiyorum.”</p>
+            <p>“…Bu…”</p>
+            <p>Sanırım bu onun hiç beklemediği bir şeydi… Aslında hayır.</p>
+            <p>Daha çok, üzerinde düşünmek istemediği bir şeydi.</p>
+            <p>Horikita muhtemelen belli düzeyde bir karşılığı kabul etmeye hazırdı ancak öne sürdüğüm şarta yanıt vermeye çalışırken dili tutuldu.</p>
+            <p>“Gerçekten saçma sapan şeyler söylüyorsun. Ne yani, tıpkı Kōenji-kun gibi tamamen dilediğin gibi hareket etmene izin vermemi mi söylüyorsun?”</p>
+            <p>Horikita’dan yansıyan duygu öfke değil, şaşkınlık ve çaresizlikti.</p>
+            <p>“Son zamanlarda benimle tartışmalara katılıyordun, hatta sınıfa ufak tefek katkılarda bile bulunmaya başlamıştın, oysa şimdi çıkmış bundan böyle iş birliği bile yapmayacağını mı söylüyorsun…?”</p>
+            <p>“Bundan hoşlanmadığını anlıyorum. Ama benim de kendime has düşüncelerim var ve bu teklifi tam da bu yüzden yapıyorum.”</p>
+            <p>“Sana bir şey sorabilir miyim? Kendi düşüncelerine sahip olduğunu söylemiştin. Bunlar tam olarak neler?”</p>
+            <p>“Her şeyden önce, A Sınıfı’na yükselmek gibi bir takıntım yok. Mevcut sınıfımdan, C Sınıfı’ndan ya da D Sınıfı’ndan mezun olmam benim için pek de önemli değil. Böyle birinin, A Sınıfı’na çıkmak uğruna canını dişine takıp çalışmaya ve iş birliği yapmaya gerek duymayacağını anlayamıyor musun?”</p>
+            <p>“…Sanırım, haklısın.”</p>
+            <p>“Ayrıca Özel Puanlar konusunda Kōenji kadar titiz de değilim. Hatta mevcut Sınıf Puanı miktarımızdan elde ettiklerimin fazlasıyla yeterli olduğunu düşünüyorum. Puanlar yarı yarıya azalsa bile bundan hiç rahatsızlık duymazdım.”</p>
+            <p>Ona sırf ben yardım etmediğim için kaybetsek bile, bunun benim açımdan kabul edilebilir bir durum olacağını söyledim.</p>
+            <p>“Peki, o zaman neden şimdiye kadar ara sıra bana yardım ettin?”</p>
+            <p>“Çünkü sınıfın istikrarlı hale gelmesi, isteyebileceğim en iyi şey. Sen ve sınıf arkadaşların olgunlaştınız, Horikita. Artık işin ucunu bırakıp, süreci senin ve diğerlerinin yönetmesine izin vererek idare edebileceğimiz bir noktaya geldiğimize karar verdim.”</p>
+            <p>“Dürüst olmak gerekirse, söylediklerin karşısında nereden başlayacağımı bilemiyorum ama… ne demek istediğini anlıyorum. Yani, Yıl Sonu Özel Sınavında yardım ettikten sonra rahatlamak ve öğrencilik hayatının geri kalanının tadını çıkarmak istiyorsun, öyle değil mi?”</p>
+            <p>“Evet, aynen öyle. Ama sırf general rolünü üstlendim diye, şu an böyle bir talepte bulunmaya niyetim yok. Siz kazanmaya devam ettiğiniz ve onların merkezimizi geçmemelerini sağlayarak benim sıraya girmemi engellediğiniz sürece, az önce bahsettiğim beni rahat bırakmanız ödülünü talep etmeyeceğime söz veriyorum.”</p>
+            <p>“Yani bu durumda, ancak mecbur kalıp general rolünü üstlenerek sınıfımızı zafere taşıman gerekirse o şartı öne süreceksin, öyle mi?”</p>
+            <p>“Evet. Ah, şunu da unutma, muhtemelen Ichinose’nin seçileceği karşı sınıfın generalini tek bir Can Puanı kalana kadar zorlasan bile, işi bitirip zaferi kazanmak bana düşerse, verdiğin sözü yine de tutman gerekecek.”</p>
+            <p>Horikita’nın, başkaları çatışırken birinin bundan kazanç sağlaması ihtimali gibi bir durumu her zaman aklında tutması gerekiyordu.</p>
+            <p>Şaşırtıcı olmayan bir şekilde, bu normalde reddedilecek türden bir teklifti.</p>
+            <p>İşte tam da bu yüzden bunu önemli bir unsur olarak belirtmiştim.</p>
+            <p>“Diyelim ki tamamen varsayımsal olarak, general rolünde sınavda yer aldım ve kaybettik, bu durumda sınıf arkadaşın olarak kaldığım sürece bir dahaki sefere sana yardımcı olacağıma söz veriyorum… Aslında hayır, önümüzdeki altı ay boyunca seninle iş birliği yapacağıma söz veriyorum.”</p>
+            <p>Kaybetmem durumunda, karşılığında ona önümüzdeki altı ay boyunca yardım edeceğime dair söz verdim.</p>
+            <p>Horikita’nın bakış açısından bu hiç de fena bir teklif sayılmazdı.</p>
+            <p>“Kaybetmen gibi düşük bir ihtimal gerçekleşse bile, bir süreliğine iş birliğini kazanmış olurum… Aslında bana, tıpkı Kōenji-kun’un yaptığına benzer şartlar içeren bir anlaşma teklifiyle geldin, değil mi?”</p>
+            <p>“Aslında, teklifimin Kōenji’ninkinden bile daha iyi olduğunu düşünüyorum. Yıl ortasında okuldan atılmadığım ya da sınıfından ayrılmama neden olacak başka bir durum yaşanmadığı sürece Horikita, seninle altı ay boyunca iş birliği yapacağım.”</p>
+            <p>“Neden mezuniyete kadar demek yerine altı ay diyorsun?”</p>
+            <p>“Bu çok fazla olur.”</p>
+            <p>“Hıh.. Sanırım burada teklifini reddetsem bile Ayanokōji-kun, gelecekte bana özveriyle yardım etmeye devam edeceğinin bir garantisi yok, değil mi?”</p>
+            <p>“Elbette yok. Çünkü A Sınıfı’ndan mezun olmasam bile benim için sorun olmaz.”</p>
+            <p>“Bu tam da sana göre bir durum sanırım. Ne zahmetli bir teklif. Biraz düşüneyim.”</p>
+            <p>Kollarını kavuşturup gözlerini kapattı.</p>
+            <p>Sanki hiç vakit kaybetme lüksü yokmuşçasına, konuyu hemen orada değerlendirip bir karara varacakmış gibi bir hali vardı.</p>
+            <p>Şahsen geceye kadar beklemekte bir sakınca görmüyordum ama o sırada düşüncelere dalmışken sözünü kesmek istemedim, bu yüzden cevabını bekledim.</p>
+            <p>Eğer merkezdeki isim olan Horikita rakip sınıfın generalini yenerse, aramızdaki ilişki değişmeden kalırdı.</p>
+            <p>Horikita kaybetse bile şayet ben kazanırsam, Yıl Sonu Özel Sınavı için yine de sınıf puanı elde edebilirdi. Ancak ortada, artık benim iş birliğimi alamama riski vardı.</p>
+            <p>Beklenmedik bir sorun çıkmadığı sürece hem Horikita hem de ben kaybedersek önümüzdeki altı ay boyunca benim iş birliğimi kazanmış olacaktı.</p>
+            <p>Az önce, Horikita’nın önüne işte bu üç olası gelecek senaryosu sunulmuştu.</p>
+            <p>“Diyelim ki, önümüzdeki altı ay boyunca benimle iş birliği yapmanı istiyorum, sırf bu yüzden öncü grupla birlikte hareket edip bilerek kaybettim ve seni dezavantajlı duruma düşürdüm. O zaman ne yapardın?”</p>
+            <p>“Pek de umurumda olmazdı. Herhangi bir durumda kaybetsem bile sözümü tutarım.”</p>
+            <p>“Anlıyorum. Dürüst olmak gerekirse, bilerek kaybetme fikri benim için kesinlikle söz konusu bile olamaz. Pekâlâ. Kararımı verdim.”</p>
+            <p>Birkaç dakikalık dikkatli değerlendirmenin ardından kollarını çözdü.</p>
+            <p>Sohbetimizde geldiğimiz bu noktada, Horikita hangi geleceği hedeflemek istediğine karar vermiş görünüyordu.</p>
+            <p>“Dürüst olmak gerekirse general rolünü bizzat üstlenmeye hazırdım. Zaten başka aday da yoktu ve lider olarak muhtemelen benim savaşmam gerektiğini düşünüyordum.”</p>
+            <p>“Mantıklı.”</p>
+            <p>“Ama eğer general görevini üstlenmeye istekliysen… Eh, geri kalan her şey önemsiz. Sınıfın kazanması benim bir numaralı önceliğim, kişisel isteklerimden bile daha önemli. Kazanma şansı en yüksek olan stratejiyi izleyeceğim.”</p>
+            <p>“Yani general rolünü devretmeye razı olduğunu mu söylüyorsun?”</p>
+            <p>“Evet. Sahip olduğum her şeyle savaşacağım. Bu durum aynı zamanda daha gergin hissettirse de içimin rahat etmesini sağlayacak. Çünkü bu, kaçınılmaz ve çetin bir savaşa girmek zorunda kalacağım ve üstelik general konumundan vazgeçmişken o savaşı kazanmanın bir yolunu bulmam gerekeceği anlamına geliyor.”</p>
+            <p>Horikita’nın bakış açısından bakıldığında, kaybetse bile durumu bir şekilde benim halledeceğime dair bir güvenceye ve iç huzuruna kavuşmuştu.</p>
+            <p>Ancak diğer yandan, eğer bu güvenceyi kullanırsa gelecekte benim desteğimden mahrum kalacaktı. Bu durumda onun için en ideal senaryo, merkeze geçip bizzat liderlik ederek zafere ulaşmaktı.</p>
+            <p>“Öyleyse, teklifini resmen kabul ediyorum. Yaklaşan bu özel sınavda seni general olarak görevlendireceğim. Bundan eminsin, değil mi? Bu süreçte seni önemli bir koz olarak göreceğim.”</p>
+            <p>“Elbette kimseyi aşağı çekmek gibi bir niyetim yok. Pekâlâ. Öyleye anlaştık.”</p>
+            <p>Elimi uzattığımda, Horikita da elimi tutup sıktı.</p>
+            <p>Kendi çabamla zafere ulaşmak için ne gerekiyorsa yapacağım.</p>
+            <p>Sanki altında bir ateş yanıyormuşçasına, Horikita’nın içinde de böyle duyguların giderek güçlendiğine emindim.</p>
+            <p>“Ah, evet. Bu bana bir şeyi hatırlattı. Eğer bu görevi kabul edeceksem, öncesinde senden yapmanı istediğim bir şey var. General koltuğuna oturmam konusunda diğerlerinin ne düşüneceğini bilmiyorum. Böylesine önemli bir savaşın sorumluluğunun bana verilmesi fikrine olumsuz tepki gösterecek sınıf arkadaşlarım olabilir. Bir de geçen yıl yaşananlar meselesi var.”</p>
+            <p>“Pek çok kişinin bu fikre karşı çıkacağını sanmıyorum. Ama yine de imkânsız sayılmaz.” dedi Horikita.</p>
+            <p>“Bu yüzden, tüm sınıfın onayını almanı istiyorum.”</p>
+            <p>“Tüm Sınıfın mı? Kōenji-kun dahil mi?”</p>
+            <p>Sözleri, ‘Gerçekten o kadar ileri gitmeye gerek var mı?’ şeklindeki o gizli soruyu barındırıyordu.</p>
+            <p>“Evet, Kōenji dahil.”</p>
+            <p>“Peki ya hayır derse. Huysuzluk etme ihtimali yüksek.”</p>
+            <p>“Gerçekten zararlı bir durum olmadıkça itiraz edecek türden biri olduğunu sanmıyorum ama yine de bunun garantisini veremem tabii. Eğer itiraz ederse, hemen bana haber ver. Öyle bir durumda direkt devreye girerim.”</p>
+            <p>“Sen mi devreye gireceksin? Şey, benim için sorun yok ama… Tamamdır. Hemen işe koyuluyorum.”</p>
+            <p>“Teşekkür ederim. Minnettarım. Ama mümkün olduğunca gizli ve dikkatli hareket et.”</p>
+            <p>“‘Mümkün olduğunca dikkat çekmeden’ derken neyi kastediyorsun? Ha, bir de buradaki katılımının, gelecekte sınıfa yardım etmeyeceğin şartına bağlı olduğu konusunu kimseye söylemeyeceğim. Bunda bir sakınca yok, değil mi?”</p>
+            <p>Gelecekte işi kolaylaştırmak adına bu sürece dahil olduğumu bilseler, öğrencilerin buna pek de hoş karşılamayacağı gayet doğaldı.</p>
+            <p>Sonuçta, işin şartları ve detayları ikimiz arasında kalmalıydı.</p>
+            <p>“Hiç sorun değil, gayet iyi. ‘Gizlice’ derken kastettiğim şey, Ichinose’nin sınıfının benim general rolünü üstleneceğimi öğrenmesini istememem. Az da olsa kazanma şansımızı artırabilmek için rakibimizi şaşırtmamız ve bocalatmamız şart. Bu yüzden lütfen sınıfımızdaki herkese, bu durumu dışarıdan kimseye sızdırmaması gerektiğini hatırlat.”</p>
+            <p>“Bunu yapmasam bile, sınıfımızda sırları başka bir sınıfla paylaşacak kimse olmadığından eminim.”</p>
+            <p>“Ne olur ne olmaz. Biri bunu kasıtlı olarak sızdırmayı düşünmese bile, gündelik konuşmalar sırasında birilerinin durumu fark etme riski var. Bu açıdan bakıldığında, uyarı aslında tabiri caizse onların dikkatini toplamalarını sağlamak için.”</p>
+            <p>“Evet, bu doğru.”</p>
+            <p>Söylediklerimi dürüstçe kabul etti.</p>
+            <p>“Pekâlâ. O zaman, sınıftakilerin hepsinden onay alabilirsem ya da herhangi bir itiraz gelirse sana haber veririm. Zamanımız daralıyor, bu yüzden bu işi bu akşama kadar halletmeyi planlıyordum.”</p>
+            <p>Başımı salladım ve Horikita’dan gelecek olan haberi beklemeye başladım.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum4.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="bolum6.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Font Ayarlama JS -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+    </script>
+</body>
+</html>

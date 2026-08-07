@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt 23 - Bölüm 6 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #bb86fc;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Navigasyon ve Kontrol Barı */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-btn, .font-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .font-btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        .font-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        .novel-text ul {
+            margin-bottom: 1.4em;
+            padding-left: 2em;
+        }
+
+        .novel-text li {
+            margin-bottom: 0.5em;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <a href="bolum5.html" class="nav-btn">← Önceki Bölüm</a>
+            <div class="font-controls">
+                <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+            </div>
+            <a href="bolum7.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Cilt 23 - Bölüm 6</h1>
+            <div class="subtitle">Plotka Novel</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Akşam 6 sularında Horikita’yla yollarımızı ayırdıktan sonra kitap dükkanına uğradım.</p>
+            <p>Kitapçıda yaklaşık bir saat kadar zaman öldürdükten sonra randevulaştığımız adamla buluşmak için karaoke salonuna doğru yürümeye başladım.</p>
+            <p>Yolda yürürken önümdeki, Hasebe Haruka’yı fark ettim.</p>
+            <p>Genelde dibinden ayrılmayan Miyake bu sefer ortalarda görünmüyordu.</p>
+            <p>Bu, sıradan bir karşılaşma olsaydı muhtemelen birbirini tanımayan iki insan misali geçer ve giderdik.</p>
+            <p>Ancak Hasebe’nin bana çakılı kalan kararsız bakışlarından bir şeyler söylemek istediğini açıkça anlayabiliyordum.</p>
+            <p>Bunu fark etmek için alim olmaya gerek yoktu.</p>
+            <p>“Bir şey mi isteyecektin?”</p>
+            <p>Mesafe kısaldığında, ilk adımı atıp konuştuğumda, şaşırmış duruyordu; gözleri fal taşı gibi açılmıştı.</p>
+            <p>Konuşmak istediği çok açıktı ama ona bu şekilde yaklaşmamı beklememiş olmalıydı.</p>
+            <p>“Şey… Ben… Senle Horikita-san’ı demin kafede konuşurken gördüm de…”</p>
+            <p>Fısıldayarak bunları söylerken kafeye bir bakış attı.</p>
+            <p>“Sadece biraz konuşmak istedim… Sorun olur mu?”</p>
+            <p>“Eğer senlik sorun yoksa benlik de yok Hasebe.”</p>
+            <p>“Teşekkürler.”</p>
+            <p>Ona soy ismiyle seslenmem zihnini kurcalamış olabilirdi ama resmiyet, şu an için en doğrusuydu.</p>
+            <p>Şu raddede ona Haruka diye seslenmek sorun yaratabilirdi.</p>
+            <p>“Başka bir yere mi geçsek? Burası biraz fazla göz önünde?”</p>
+            <p>“Evet, bence de…”</p>
+            <p>Alışveriş merkezinin köşesinde, göz önünde olmayan bir duvarın kenarına geçtik.</p>
+            <p>“Festivalden beri seninle böyle baş başa konuşmadık.”</p>
+            <p>“Evet… Ihhh… Son zamanlarda kendinde bir değişiklik hissediyor musun, Ayanokōji-kun? Şey boşver bu garip bir soru oldu. Neler diyorum ben böyle”</p>
+            <p>Konuşacak çok şeyi olduğuna emindim, yüksek ihtimalle konuşmanın böyle birden başlaması kafasında karışıklığa sebep olmuştu.</p>
+            <p>Doğru kelimeleri bulmakta zorlanıyor gibi görünüyordu.</p>
+            <p>“Pek bir şey değiştiğini söyleyemem. Bunu iyi mi kötü mü yorumlarsın bilemem ama her zamanki rutin hayatım devam ediyor.”</p>
+            <p>“Anladım… Bense son zamanlarda gülümsemek için daha fazla fırsat bulduğumu düşünüyorum. Belki de kültür festivalinde Airi’nin gidişini kabullendiğimdendir belki de köprünün altından çok sular geçtiğindendir, açıkçası bilemiyorum”</p>
+            <p>Darbeler ne kadar sert olursa olsun yaralar zamanla kabuk bağlardı.</p>
+            <p>Zaman geçtikçe o iç yakan hüzün de anılarla beraber silikleşir ve giderdi.</p>
+            <p>Tabii ki bu durum söylendiği kadar kolay bir şekilde gerçekleşmiyordu.</p>
+            <p>Geçmişteki acı, acı olarak kalır ve geride muhakkak derin yaralar bırakırdı.</p>
+            <p>“Şey, bundan sonra… Iıı…”</p>
+            <p>Hasebe lafı geveleyip duruyordu.</p>
+            <p>O sırada parmağımla, buraya gel, anlamında bir işaret yaptım.</p>
+            <p>“Şey… Iıı…”</p>
+            <p>Bölük pörçük kelimeleri bir araya getirmeye çalışıyordu.</p>
+            <p>“Şey… Bundan sonra… Hadi Miyacchi ve Yukimu’yla–”</p>
+            <p>Tam Hasebe sadede gelecekken, üzerimize bir gölge çöktü.</p>
+            <p>“Burada gizli bi buluşma mı var~? Senpai!”</p>
+            <p>Bu kusursuz zamanlamanın sahibi Amasawa’ydı.</p>
+            <p>“Karuizawa-senpai varken, şimdi de bu koca göğüslü kızı mı gözüne kestirdin yoksa?”</p>
+            <p>Muhtemelen okuldaki tüm öğrencilerin OAA verilerine tamamen hakim olmasına rağmen, hiçbir şeyden haberi yokmuş gibi rol kesiyordu.</p>
+            <p>“Sadece bir sınıf arkadaşım.”</p>
+            <p>Amasawa’nın gelmesi Hasebe için hayra alamet olmasa da bu açıklamayı gerekli bulmuştum.</p>
+            <p>“Seninle bir konu hakkında konuşmalıyım Senpai. Bir dakikan var mı?”</p>
+            <p>Israrcı tavrı kibar bir ricadan çok bir emre benzediği için Hasebe ürküp bir adım geri çekildi.</p>
+            <p>“Ben kaçayım en iyisi… İki kişiyi bekletmem doğru değil.”</p>
+            <p>Durumu hafifçe başıyla onaylayan Hasebe, arkasını dönüp alelacele yanımızdan uzaklaştı.</p>
+            <p>“Sanırım sohbetinizi birazcık baltaladım, değil mi?”</p>
+            <p>“Evet, hem de nasıl.”</p>
+            <p>“Çok kabasın! Hem beni buraya çağıran sensin Senpai!”</p>
+            <p>Doğru, birazcık kabaydım.</p>
+            <p>Hasebeyle konuşurken Amasawa’nın ortaya çıkması tesadüf değildi elbette.</p>
+            <p>Hasebe’nin yanına yanaştığım an, Amasawa da beni aynı saniyede gözüne kestirmişti.</p>
+            <p>İşte bu yüzden parmak uçlarımla ona çaktırmadan yanımıza gelmesi için işaret çakmıştım.</p>
+            <p>Niyetimi anında sezip ona göre rolünü oynaması gerçekten takdire şayandı.</p>
+            <p>“Hasebe-senpai ile olan konuşman tatsız mı geldi?”</p>
+            <p>“Ondan değil. Sadece zamanımı değersiz bir şey için israf etmek istemedim.”</p>
+            <p>“Ne kadar da acımasız.”</p>
+            <p>Amasawa’nın bunu nasıl yorumlayacağı tamamen kendisine kalmıştı, Hasebe’nin ne hissettiği ise zaten beni ilgilendirmiyordu.</p>
+            <p>“Birinci sınıflar Yıl Sonu Özel Sınavından kaynaklı bayağı yoğun görünüyor.”</p>
+            <p>“Baya endişeli duruyorlar. Bense sadece sessizce izliyorum.”</p>
+            <p>Bu lafından sonra hızlıca kendini düzeltti.</p>
+            <p>“Ah, bugün seni rahatsız etmek için gelmedim. Geçen kampta Nagumo-senpai’ye hamle yaptığımda, o da beklenmedik bir karşı atakla cevap vermişti, sana bunu rapor etmeye geldim.”</p>
+            <p>Bir şeyler dönüp dönmediğini ben de merak etmiyor değildim ama birinci sınıflardan kimsenin okuldan atıldığına dair bir haber çıkmadığı için üzerinde durmamıştım.</p>
+            <p>Nagumo ile hiç yüzleşmemiş olma ihtimali de cepteydi ama anlaşılan olaylar hiç de öyle gelişmemişti.</p>
+            <p>Demek ki o kamp esnasında okuldan atılmayı tamamen gözden çıkarmıştı.</p>
+            <p>Nihayetinde kararını tekrar gözden geçirmiş olmalıydı ki hala buradaydı.</p>
+            <p>“Henüz kesin bir karara varmış değilim. Ama hıncımı Nagumo-senpai’den çıkarmaya çalışmaktansa, beni daha iyi bir geleceğin beklediğine inanıyorum; bu yüzden bir süre daha okula devam etmeye karar verdim. Epey boş vaktim olacak gibi, eğlenceli bir şeyler çıkarsa beni de dahil et lütfen.”</p>
+            <p>“Madem öyle, elindeki o bol boş vakitte bana bir iyilik yapabilir misin?”</p>
+            <p>“Aa? Tabii ki yaparım ama… neymiş o?”</p>
+            <p>“Nanase Tsubasa hakkında daha fazla şey öğrenmek istiyorum.”</p>
+            <p>“Ha? O senin sadık şövalyen değil miydi zaten? Araştırmaya gerek kalmayacak kadar her şeyi açık değil mi? Yoksa bir tehdit olduğunu mu düşünüyorsun?”</p>
+            <p>“Bir tehdit olduğunu sanmıyorum. Sadece asıl niyetinin ne olduğunu öğrenmek istiyorum.”</p>
+            <p>Şu raddede onu doğrudan dost ya da düşman diye yaftalamak pek mümkün değildi.</p>
+            <p>“Tabii, sen öyle diyorsan hemen bu işle ilgilenirim. Okuldan atılmasını falan ister misin?”</p>
+            <p>“O kadar ileri gitmene gerek yok. Sadece çaktırmadan bilgi topla, kafi.”</p>
+            <p>“Pekala, anlaşıldı.”</p>
+            <p>Aslına bakarsan Nanase hakkında bilgi toplamak için illa Amasawa’ya bel bağlamak zorunda değildim.</p>
+            <p>Nanase meselesini çözmenin pek zor olmayacağını biliyordum; her şey çığırından çıksa bile duruma göre anında hamlemi yapabilirdim.</p>
+            <p>Yine de bu görevi, Amasawa’yı okula bağlayacak bir ip olarak kullanmak hiç de fena bir strateji sayılmazdı.</p>
+            <p>“Benim birazdan başka bir randevum var, görüşürüz. Sen de yıl sonu özel sınavında sınıfına elinden geldiğince yardım et bari.”</p>
+            <p>“Sen öyle diyorsan yaparım Senpai.”</p>
+            <p>Amasawa abartılı bir asker selamı çakıp yanımdan süzülerek geçti.</p>
+            <p>“… Teşekkür ederim, Senpai.”</p>
+            <p>Uzaklaşırken kendi kendine bunu mırıldanıp gözden kayboldu.</p>
+            <p>Beklendiği gibi, leb demeden leblebiyi anlıyordu.</p>
+            <p>Beyaz Oda’da o kadar dereceyi boşuna yapmamıştı elbet.</p>
+            <p>Asıl niyetimin ne olduğunu tereyağından kıl çeker gibi okuyabiliyordu sanki.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum5.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="bolum7.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Font Ayarlama JS -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+    </script>
+</body>
+</html>

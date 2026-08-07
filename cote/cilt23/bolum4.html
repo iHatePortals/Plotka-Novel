@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt 23 - Bölüm 4 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #bb86fc;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Navigasyon ve Kontrol Barı */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-btn, .font-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .font-btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        .font-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        .novel-text ul {
+            margin-bottom: 1.4em;
+            padding-left: 2em;
+        }
+
+        .novel-text li {
+            margin-bottom: 0.5em;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <a href="bolum3.html" class="nav-btn">← Önceki Bölüm</a>
+            <div class="font-controls">
+                <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+            </div>
+            <a href="bolum5.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Cilt 23 - Bölüm 4</h1>
+            <div class="subtitle">Plotka Novel</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Kei ve ben daha sonra yurda girdik ve asansörün önünde o gün için vedalaştık.</p>
+            <p>Cumadan Pazara kadar önümüzdeki üç gün içinde, halletmem gereken hedeflerim vardı.</p>
+            <p>Bu hedefler Horikita, Ichinose, Ryūen ve Sakayanagi’yle, yani dört sınıf lideriyle görüşmekti.</p>
+            <p>Her sınıfın lideriyle yüz yüze bir konuşma.</p>
+            <p>Yıl sonu özel sınavının içeriğine yakından bakınca; birilerinin zarar görmeden sınavın bitme ihtimali oldukça düşüktü.</p>
+            <p>Bu sorunu nasıl ele aldıkları ve bundan sonra ne yapmayı planladıkları…</p>
+            <p>Kendi durumumu göz önünde bulundurarak, son bir teyit almak istiyorum.</p>
+            <p>İlk kiminle görüştüğümün bir önemi yoktu—</p>
+            <p>Tam bunu düşünerek telefonuma bakarken bir mesaj geldi.</p>
+            <p>Görünüşe göre, benim onları aramama gerek kalmadan buluşmak isteyen birileri varmış.</p>
+            <p>Üstelik tarih ve yeri de belirlemişlerdi böylece gereksiz yazışmalarla uğraşma zahmetinden kurtarmışlardı.</p>
+            <p>Bir onay mesajı gönderdim ve liderlerle buluşma sıralamasını tekrar gözden geçirmeye karar verdim.</p>
+            <p>Sıraya pek önem vermemiş olsam da, belirli hedefleri aynı anda gerçekleştirmek istiyorsam biraz dikkatli olmak daha iyiydi.</p>
+            <p>Odama döndüğümde hemen, her sınıfın başkanına mesaj attım ve Horikita hariç diğer üçüne, cumartesi ya da pazar günü buluşup buluşamayacağımızı sordum.</p>
+            <p>Horikita için mesajı, Cumadan Pazara kadar olacak şekilde değiştirdim.</p>
+            <p>Elbette o anda hem herkesle buluşmayı planladığımdan hem de görüşmenin içeriğinden bahsetmedim.</p>
+            <p>Bazıları temkinli davranıp mesafelerini korumaya başlasa bu hiç de garip olmazdı.</p>
+            <p>Mesajı ilk okuyan Ryūen’di.</p>
+            <p>O, şu anda benimle buluşmamayı tercih etse bile buna hiç şaşırmayacağım kişiydi.</p>
+            <p>[Yarın okuldan sonra zaman ayırabilirim.]</p>
+            <p>Çantamı masaya koyarken böyle bir mesaj gelmişti.</p>
+            <p>Büyük ihtimalle hafta sonu dolu olduğundan Cuma gününü teklif etmişti ama yine de biraz bile zaman ayıramaması tuhaf geldi. Yine de büyük ihtimalle bunda daha derin bir anlam yoktu ama sanki sadece benim belirlediğim günleri reddediyormuş gibi geldi. Bu da Ryūen’e özgü bir davranış gibi görünüyordu.</p>
+            <p>İlk olarak Horikita’yla olan buluşmayı ayarlayabilirsem cuma günü problem olmamalıydı.</p>
+            <p>Onun mesajına yanıt olarak, nerede buluşacağımız ve diğer ayrıntılar hakkında kısa bir bilgi alışverişinde bulunduk.</p>
+            <p>En sonunda öğleden sonra 7’de karaoke odasında buluşmaya karar verdik.</p>
+            <p>Daha sonra Ichinose cevap yazarak, Pazar günü bir arkadaşıyla planları olduğu için erken buluşmamızı önerdi; ben de bunun sorun olmadığını söyledim.</p>
+            <p>Bir saat sonra Horikita’dan da mesaj geldi.</p>
+            <p>Beklediğim gibi, o da benimle yıl sonu özel sınavı hakkında konuşma niyetinde olduğunu ve bunun hakkında konuşabilirsek memnun olacağını söylemişti.</p>
+            <p>Zaman ve yer konusunda esnek davrandığı için, cuma günü okuldan sonra Keyaki Alışveriş Merkezi’ndeki kafede onunla buluşmaya karar verdim.</p>
+            <p>Son kişi olan Sakayanagi de daha sonra cevap verdi, ancak hafta sonu programı önceden dolmuş görünüyordu. Bu nedenle Pazar gecesi bir telefon görüşmesinin uygun olup olmayacağını sordu.</p>
+            <p>Olabildiğince yüz yüze görüşmeyi umuyordum ama telefonla görüşmek de büyük bir sorun yaratmazdı.</p>
+            <p>Sakayanagi’ye sorun olmadığını belirten bir cevap gönderdim.</p>
+            <p>Cuma akşamı Keyaki Alışveriş Merkezi’ndeki kafede Horikita ile buluşma.</p>
+            <p>Oradan sonra karaoke odasında Ryūen ile buluşma.</p>
+            <p>Pazar sabahı, spor salonuna gitmeden önce okul yolundaki bankta Ichinose ile buluşma.</p>
+            <p>Pazar gecesi Sakayanagi ile telefon görüşmesi.</p>
+            <p>Bu dördü mutlaka halledilmesi gerekenlerdi, ama halletmek istediğim başka birkaç şey daha vardı.</p>
+            <p>Planıma karar verdim.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum3.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="bolum5.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Font Ayarlama JS -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+    </script>
+</body>
+</html>

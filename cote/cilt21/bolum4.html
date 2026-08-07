@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt 21 - Bölüm 4 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #bb86fc;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Navigasyon ve Kontrol Barı */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-btn, .font-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .font-btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        .font-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Çevirmen Notu Kutusu */
+        .tl-note {
+            background-color: #1a1a1a;
+            border-left: 4px solid var(--accent-color);
+            padding: 12px 15px;
+            margin: 20px 0;
+            font-size: 0.9em;
+            color: #aaa;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <a href="bolum3.html" class="nav-btn">← Önceki Bölüm</a>
+            <div class="font-controls">
+                <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+            </div>
+            <a href="bolum5.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Cilt 21 - Bölüm 4</h1>
+            <div class="subtitle">Classroom of the Elite</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Kış tatilimizin bitip de derslerimizin başladığı zamandan bu yana ilk öğle yemeğimdi.</p>
+            <p>Kei, Satō’nun da içinde bulunduğu kız grubuyla kafeteryaya gidiyordu.</p>
+            <p>Sevgilinizle vakit geçirdiğiniz kadar arkadaşlarınızla da ilgilenmeniz son derece önemliydi.</p>
+            <p>Kei’nin koridordan uzaklaşmasını izledim. Kızlar yan yana yürüyorlardı.</p>
+            <p>“Neden bu kızlar 4-5 kişi olmalarına rağmen hep böyle yan yana yürüyorlar ki?”</p>
+            <p>“Ben nereden bilebilirim ki, niye bana soruyorsun? Yan yana yürümek aptallık.”</p>
+            <p>Arkamda duran Horikita’ya sormayı denedim ama anlaşılan onun da pek bir fikri yok gibiydi.</p>
+            <p>“Ayrıca senin kafanın arkasında gözün falan mı var? Arkandaki birini bu kadar rahat fark etmiş olman tam bir gizem.”</p>
+            <p>“Bu gizemi olduğu gibi bırakmak en iyisi, değil mi?”</p>
+            <p>“Yani, bana bir şey demeyeceksin değil mi?”</p>
+            <p>“Bana kızların niye yan yana yürüdüğünü söylersen düşünebilirim.”</p>
+            <p>“Bu sorun Horikita için biraz acımasız olmadı mı? Ne de olsa arkadaşlarla yan yana bir sıra şeklinde yürümek için önce arkadaş gerekir.”</p>
+            <p>Horikita’nın ardından da Kushida kendini gösterdi.</p>
+            <p>“Kız gruplarının arasında belli bir hiyerarşi vardır. Bundan dolayı koridoru tıkayıp bela olmak pahasına bile grubun oluşumunu sürdürmeniz gereken zamanlar vardır.”</p>
+            <p>“Anladım. Doğal olarak önden birini takip etmeleri gerekmeyecek bir yapı oluşturuyorlar değil mi?”</p>
+            <p>“Az çok. Genel olarak hepsi bunu reddetse de bu onların içgüdüsel olarak yaptığı bir şey.”</p>
+            <p>Kısaca kadınlar arasında yaygın olarak bulunan sürü psikolojisinin bir yansıması olmalıydı.</p>
+            <p>“Ne kadar da aptalca ve gereksizce bir sebep… Yürürken başkalarına saygısızlık etmiş oluyorsun.”</p>
+            <p>“He he, tabii ki de arkadaşı olmayan senin gibi biri için bunu demesi kolay…”</p>
+            <p>“Kafa mı buluyorsun benimle?”</p>
+            <p>“Öyle olmadığımı mı düşünüyordun? Açıkçası bu çok zevkli.”</p>
+            <p>İkisinin birbirlerine attıkları bakışlardan alevler sıçradı.</p>
+
+            <div class="tl-note">
+                <strong>Çevirmen Notu:</strong> Ortalama bir Türk dizisi bakışma sahnesi gibi düşünün.
+            </div>
+
+            <p>“Lütfen kavga etmeyin. Burada olduğunuza göre benden bir şey mi istiyorsunuz?”</p>
+            <p>“Konuşmak istediğim bir konu var, evet. Bugün öğle yemeğin benden olsun mu Ayanokōji?”</p>
+            <p>Horikita yemeğimin parasını ödemeyi mi teklif etmişti? Bununla ilgili neredeyse hiç güzel anım yoktu.</p>
+            <p>“Yemek ısmarlama gibi tekliflerin altında yatan bu tarz konularda hayır yok gibi. Eski deneyimlerime dayanarak bunu söyleyebilirim en azından.”</p>
+            <p>“Çok kabasın… Para ya da tuhaf bir şeyler istemeyecektim. Rahat ol yani.”</p>
+            <p>“Peki… Tamam o zaman.”</p>
+            <p>Hiç rahat etmemiştim ama bunu desem muhtemelen gerginliğini benim üstüme yıkacağından hiç o topa girmeyip sadece onayladım.</p>
+            <p>“Karar vermen biraz zamanını aldı.”</p>
+            <p>“Senin bu özelliğinden hoşlanmasam da sorun değil. Hazır mısın Kushida-san?”</p>
+            <p>“Evet, gidebiliriz.”</p>
+            <p>Kushida durduk yere bir anda savaş modundan melek moduna geri geçti.</p>
+            <p>“Görünen o ki Kushida da gelecek gibi. Alışılmadık bir durum açıkçası.”</p>
+            <p>Belki de Horikita öğle yemeğinde Kushida ile beraber olmamak için de beni çağırmış olabilir miydi? Bir an için mantıklı gelse de sevmediğiniz bir arkadaşla yemek yemekten kaçınmak için böyle bir durum yaratmazdınız. Bu ikisinin beni birlikte davet etmelerinin başka bir nedeni olmalıydı.</p>
+            <p>Açıkçası ne planladıklarını merak ediyorum. Zaten bugün Kei ortalıkta olmadığından onlarla takılmamda da sorun yoktu.</p>
+            <p>“Şimdi kafeteryaya mı gidiyoruz?”</p>
+            <p>“Hayır, bir yer… daha sakin ve ıssız bir yer daha doğru olur.”</p>
+            <p>Horikita cevaplarken Kushida da diyeceği bir şey olmadığından yanımda durmaya devam etti.</p>
+            <p>Peki şimdi bu, bento almak için yolumuzun üstünde bir market ya da satıcıda duracağımız anlamına mı geliyordu?</p>
+
+            <div class="tl-note">
+                <strong>Çevirmen Notu:</strong> Bento genellikle saklama kabı vb. çok bölmeli kaplarda paketlenen çeşitli yemeklerin bir araya gelmesiyle oluşan bir öğün çeşididir. Öğrenciler ve çalışanlar bu öğünleri pratikliği sayesinde çok sık tüketmektedir.
+            </div>
+
+            <p>Bilmesem de yakında öğrenecektim. Koridora doğru yürümeye başladık.</p>
+            <p>Tabii ki üçümüz de kızlar gibi yan yana yürümeyecektik. Önden Horikita giderken arkasından Kushida ve ben takip ettik.</p>
+            <p>“Hey, Horikita-san. Sadece emin olmak istiyorum. Sadece yemek yemeyi mi planlıyorsun?”</p>
+            <p>“Evet, öyle demedim mi zaten?”</p>
+            <p>“Ha… O zaman sorun olmayacaksa önce markete uğrasak olur mu? Mide ilacı alacağım.”</p>
+            <p>“Saçmalama, tamam endişeni anlıyorum ama bu gereksiz.”</p>
+            <p>Görünen o ki yol üzerindeki uygun bir marketten mide ilacı alacak gibiydi. Cidden önemli olsa gerekti.</p>
+            <p>“Bir dakika. Neden mide ilacı alacaksın ki? Ne halt yemeyi planlıyorsunuz?”</p>
+            <p>Öğle yemeğinden hemen önce böyle bir şey istemesinin altında açıkça yanlış bir şey olmalıydı.</p>
+            <p>Horikita’ya sert bir şekilde sorduktan sonra arkasını dönmeden cevap verdi:</p>
+            <p>“Ibuki bize el yapımı bir öğle yemeği hazırlayacaktı.”</p>
+            <p>“Ibuki’den ev yapımı öğle yemeği derken?”</p>
+            <p>Bir anlığıma beynim donduğundan duruma sakin yaklaşmam gerekti.</p>
+            <p>“Ibuki bugün için sen, ben ve Kushida için bir beslenme hazırlayacaktı. O yüzden üç eşit parçaya bölüp paylaştıracağım. Bunu sana daha önce dememiş miydim?”</p>
+            <p>“Bu konuyu hiç açmak istemedin değil mi?”</p>
+            <p>Böyle bir şey olduğunu bana ilk başta söyleseydi muhtemelen anında toz olurdum. Her şeyi bir kenara bırakırsak, bunu yapması için de bir neden yoktu. Fazla beklenmedik oldu bu.</p>
+            <p>“Hatırladığım kadarıyla Ibuki yemek yapmakta o kadar da iyi değildi, değil mi?”</p>
+            <p>“O kadar da iyi değil”den ziyade tam olarak kötüydü. O an kötü olduğunu söylemeye çekindim.</p>
+            <p>“Çok yemek yapan biri değil. Bundan dolayı dengesiz beslenen biri. Bu da muhtemelen karmaşık beyniniz için yeni bir bilgi, değil mi?”</p>
+            <p>Göz açıp kapayıncaya kadar önce kış tatilindeydim ve hemen şimdi Horikita ve Ibuki ile uğraşıyordum. Ve bu konuya daha önce tesadüfen kulak misafiri olduğumu da hatırlıyorum.</p>
+            <p>“Bu durumuna acıdığımdan son zamanlarda kendi odama yemek yemeye davet ediyordum. Her ne kadar pek istemese de yemek masraflarından tasarruf edeceğinden geliyordu.”</p>
+            <p>“Kızarken bile böyle davranması rahatsız edecek derecede şirin, değil mi?”</p>
+            <p>En iyi böyle tanımlanırdı bu durum.</p>
+            <p>“Söylediklerine bakılırsa nefret ediyor olmana rağmen Horikita’yı iyi tanıyor gibisin.”</p>
+            <p>“Belki bir kavga çıkar umuduyla sık sık ziyaret ediyorum onu. Bu esnada onu daha yakından tanımış olabilirim.”</p>
+            <p>Kushida’dan beklendiği üzere berbat bir yaklaşımdı bu.</p>
+            <p>“Fakat ben de dahil 3 kişiye yemek pişirecek olması biraz zor değil mi?”</p>
+            <p>Tüm bu şikâyetlerin aksine Horikita bunları dikkate almıyor gibiydi. Belki de çoktan bu duruma alışmıştı.</p>
+            <p>“Peki nasıl oldu da şu an biz Ibuki’nin öğle yemeğine muhtaç kaldık?”</p>
+            <p>“Keçi inadı diyebiliriz. Geçen Horikita onunla ‘En azından yemek yapmakta kendini geliştir’ diye dalga geçtiği zaman bayağı bir böbürlenmişti: ‘Ben kafama koyduğum her şeyi yapabilirim bir kere, yemek pişirmek basit iş.’ ‘O zaman göster marifetini.’ ‘Kendini mükemmel bir öğle yemeğine hazırla o zaman.’ ‘Eğer bunu bile yapamayacak kadar acizsen niye yaşıyorsun ki?’ ‘Eğer bunu başarırsam seni öldürürüm.’ Tam olarak böyle oldu.”</p>
+            <p>Olayları kavrama ve aklında canlandırabilme yeteneği gerçekten olağanüstüydü. Ancak son iki cümle muhtemelen yalandı. Umarım…</p>
+            <p>“Peki o zaman. Size Ibuki ile bol şans dilerim. Ben kafeteryaya gidiyorum.”</p>
+            <p>Kavşaktan yönümü değiştirmeye çalışırken Kushida beni kolumdan yakaladı.</p>
+            <p>“Şanslısın. Biyolojik olarak kız olan birinin elinden öğle yemeği yiyeceksin.”</p>
+            <p>“Beni kandırdın!”</p>
+            <p>Önümde sakince yürüyen Horikita’ya kırgınlığımı açıkladım.</p>
+            <p>“Bunu senden duymak hiç hoş değil. Sadece Ibuki-san’ın yemeklerini olabildiğince insanın tatmasını istemiştim. Ve objektif birkaç görüş de fena olmazdı değil mi? Hem tadı hakkında konuşmak için daha çok erken.”</p>
+            <p>Sözlerine bakılırsa buna pek meraklı olduğu da söylenemezdi. Anlaşılan kaderime boyun eğmekten başka çarem yoktu. Bu yüzden isteksizce Horikita’yı takip ettim.</p>
+            <p>“Sen neden bu işe karışıyorsun ki Kushida?”</p>
+            <p>Horikita’nın elinden ev yapımı yemek yemek için odasına dalması da mantıklıydı ama Horikita’yı ya da Ibuki’yi ne kadar görmek isterse istesin bu alınamayacak bir riskti. Nasıl bir trajediyle karşı karşıya olduğunu kendisi de bilmiyordu.</p>
+            <p>“Ne yalan söyleyebilirim ki. Bunda benim de bir işim var.”</p>
+            <p>“Sen de kaybetmekten nefret ediyorsun değil mi, Kushida-san? Buraya da kendi aleyhine olduğunu bilmene rağmen Ibuki’nin basit kışkırtmasından dolayı geldin. Yoksa bir korkak gibi kaçacaktın, öyle değil mi?”</p>
+            <p>“…Sadece Ibuki’nin her şeyi altüst edişini görmek ve bundan dolayı özür dilemek istedim.”</p>
+            <p>Görünüşe göre hedefi tam tutturmuşum. Saygısızca konuşmasından da belliydi. Ama sahiden Ibuki’den özür dileyecek miydi ki?</p>
+            <p>Tamam, olasılık düşük olabilir ama özrünü değerli olarak görmesinin nedeni de onun sorunlu kişiliğiydi.</p>
+            <p>“Henüz gelmemiş anlaşılan… Halbuki randevu saati geldi.”</p>
+            <p>Anlaşılan çıkışa doğru bakan bu durduğumuz koridor buluşma yerimizmiş. Gözden uzakta bir yer istediği de bir yalan olmalıydı; gerçi zaten en başından beri amacı beni de dâhil etmekti muhtemelen.</p>
+            <p>“Hey, sınıflarımız yakın değil mi, neden burada buluşmamız gerekiyor?”</p>
+            <p>“Gerçekten de gereksiz bir görüşme. Ibuki-san’ı da uygun bir şekilde davet ettim tamam mı? Birlikte yürümeyi reddetti.”</p>
+            <p>Horikita’yı (ve tabii ki de Kushida’yı) sevmiyorsa bu iddiayı geri çevirebilirdi. Kısaca aşırı rekabetçi olmanın açtığı sorunlara çok güzel bir örnek diyebiliriz.</p>
+            <p>“Berbat bir öğle yemeği yiyeceğimizi söyleyebilirim, değil mi?”</p>
+            <p>“Sonucu düşünmek istemiyorum ama muhtemelen öyle olacak.”</p>
+            <p>“Öyle görünüyor… Şimdi berbat bir yemek yemeliyim değil mi?”</p>
+            <p>“Gereksiz yere saçmalamayı bırakın!”</p>
+            <p>Hava ağırlaşmak üzereyken Ibuki bağırarak aramıza katıldı. Bir bomba gibi olduğunu söylemek daha doğru olabilir… Hayır, elinde bir beslenme kutusu vardı. Gerçekten de yapmış. Yapmasaymış…</p>
+            <p>Keşke şöyle bir şey söyleseydi: “Ne yazık ki unutmuşum, kısaca iddia iptal!” Böyle bir durumda onu desteklerdim.</p>
+            <p>“Ayanokōji’nin burada ne işi var? Onu çağırdığımı hatırlamıyorum.”</p>
+            <p>“Daha fazla görüşün olması daha iyi olmaz mıydı? Bu senin yeteneğini de doğrulayacak değil mi? Tamam, herkes burada olduğuna göre başka bir yere gidebiliriz. Bizimle çok yakın görünmek istemezdin değil mi?”</p>
+            <p>“Tabii ki HAYIR!”</p>
+            <p>Hemen ardından koridordan çıktık. Ocağın soğuğu her ne kadar sert olsa da bundan dolayı yemekhane boştu. Ibuki sade bir furoshiki’ye sarılmış bento kutusuna benzeyen şeyi salladı ve onu bankın üzerine koydu.</p>
+            <p>“Dediklerinden dolayı pişman olacaksın. Acele et ve hemen ye.”</p>
+            <p>“Kendinden emin gibisin ha. Gerçekten de bir mucize eseri güzel yemek yapmış olabilir misin?”</p>
+            <p>Gerçekten de özgüven doluydu. Bu tabii ki kendine hiç güvenmemesinden daha iyiydi ama özgüvenine güvenmek doğru muydu?</p>
+            <p>“Açıkçası kendine aşırı fazla güvenen biri… Bundan dolayı tavırlarını çok ciddiye almasak da olur.”</p>
+            <p>Bunu tamamen bilen Horikita, gözlerini Ibuki’nin üstünden alıp bento kutusuna dikti. Kushida’da olduğu gibi benim de çaresiz umutlarım yok oldu.</p>
+            <p>“Hmm. Kazanacağımdan emin olmasam buraya gelmezdim.”</p>
+            <p>“Kendine olan güvenin ortada. Fakat durum buysa, yemeğinizi daha hassas bir şekilde ele almalıyız. Yeteneğiniz doğrulansa bile yine de sınıfta kalabilirsiniz şef.”</p>
+            <p>“Kes sesini! Sadece olabildiğince hızlı YİYİN. Sonra benden özür dilersiniz, Horikita! Tabii sen de, Ayanokōji!”</p>
+            <p>“Sakın ola çuvallama, Kushida ve ben beraberiz. Neden isimlerimizi kısaltıyorsun ki ayrıca?”</p>
+            <p>Bundan çok rahatsız olduğumu söyleyemem. Ancak, sanki…</p>
+            <p>“Siz üçünüz oldukça yakınsınız galiba, değil mi?”</p>
+            <p>Olağanüstü derecede gerici olan atmosferle her ne kadar çelişse de, dışarıdan bakınca öyle görünüyordu.</p>
+            <p>“Yakın olduğumuzu da nereden çıkardın Ayanokōji-kun?”</p>
+            <p>“Evet, lütfen olanlardan tuhaf yorumlar çıkarmayın.”</p>
+            <p>“Eğer ağzından tekrar böyle bir laf çıkarsa seni fena benzetirim.”</p>
+            <p>Açıkçası içlerinden biri biraz iyimser yaklaşsa da yine de iyi anlaşıyorlar gibi görünüyordu. Hangi açıdan değerlendirirseniz değerlendirin, burada olmamam gerekiyordu.</p>
+            <p>“Yurda dönebilir miyim?”</p>
+            <p>Rahatsız etmek istemediğimden dürüstçe ayrılmak istediğimi söyledim, ama—</p>
+            <p>“Hayır!”</p>
+            <p>“Kaçamazsın.”</p>
+            <p>“Bu adil değil, Ayanokōji-kun.”</p>
+            <p>Üçünün tekrardan bana bağırmasıyla sonuçlandı.</p>
+            <p>Tam olarak anlamasam da yurda kaçma planım başarısız olmuş gibiydi, bundan dolayı çaresizce banka oturdum. Tamam, iyi o zaman. Bu sohbete tanık olmak biraz ilginçti.</p>
+            <p>Ibuki’nin aşçılık becerileri amatörceydi. Buna rağmen Horikita ve Kushida’ya kaybettiklerini kabul ettirmek için farklı yöntemler denemiş olabilir. Biraz önyargıyla olsa da, kritik bir konuma sahip öğle yemeğini değerlendirdim diyebilirim.</p>
+            <p>Furoshiki’den sade bir bento kutusu çıkardı.</p>
+            <p>“Tamam, hadi açalım kutuyu.”</p>
+            <p>Kollarını birbirine kenetleyip arkasına doğru yaslanan Ibuki’nin halinde hiç endişe ya da stres yoktu.</p>
+            <p>Ve bento kapağı yavaşça açıldığında…</p>
+            <p>Kapağı açtığımda karşıma çıkan ilk şey kızarmış pilavdı. Ve çeşitli sebze ve etlerle de pilava görüntü kazandırmıştı. Ancak, kızarmış pilava kattığı bu malzemeler gereğinden fazla büyüktü.</p>
+            <p>Pilavın yanı sıra minik domatesler, tamagoyaki, gratin, haşlanmış ve kızarmış yemekler ve minik bir burger vardı. Her porsiyonu küçük tutmasına rağmen gayet estetik bir şekilde duruyorlardı. Ama asıl mesele 4 dilim baranın olmasıydı. Bento şeklinde olduğu söylenebilirdi.</p>
+            <p>“Bunların hepsi senin elinden mi çıktı?”</p>
+            <p>“Elbette.”</p>
+            <p>Hiç beklemeden yanıt verdiğinden muhtemelen yalan söylemiyordu.</p>
+            <p>“Görünüşe göre sana 30 puan vereceğim, ama.”</p>
+            <p>“Bir yemekte lezzet görünüşten daha önemlidir.”</p>
+            <p>“Az önce sana iltifat ettim farkındasın değil mi? Açıkçası 0 puan alacağını düşünüyordum.”</p>
+            <p>Cömertçe gelen iltifattan sonra 30 puanını kazanmıştı. Horikita, muhtemelen önceden hazırlandığı birkaç çift tek kullanımlık yemek çubuğunu çıkardı. Bir çifti kendisi için ayırdıktan sonra kalan 2 çifti benle Kushida’ya verdi.</p>
+            <p>“O zaman tadım zamanı.”</p>
+            <p>“İlk defa bir şeyin tadına bakmaktan sabırsızlık duyuyorum~ Çok güzel bir hatıra olacak~”</p>
+            <p>Kushida monoton sözlerinden sonra yemek çubuklarını hazırladı. Kushida muhtemelen ilk lokmayı almak istemeyecek olacak ki Horikita’yı bekledi.</p>
+            <p>Ve Horikita bir parça pilavı çubuklarının arasına alıp ağzına götürdü. Hemen arkasından gratinlerden birini de alıp ağzına attı. Sessizce yemeğini bitirdikten sonra Kushida o malum soruyu sordu:</p>
+            <p>“Nasıl?”</p>
+            <p>“Henüz yorum yapmak istemiyorum. Ne de olsa benden etkilenmeni istemem. Sıra sende.”</p>
+            <p>“Tsk.”</p>
+
+            <div class="tl-note">
+                <strong>Çevirmen Notu:</strong> Hâlen Kushida konusunda yanılsamaları olan bir öğrenci bu ana tanıklık etseydi muhtemelen bayılırdı. Bu olaya kulak misafiri bile olsalar bunun tesadüfi olduğunu düşünüp pek umursamazlardı.
+            </div>
+
+            <p>“Sadece minik domatesleri denesem olmaz mı?”</p>
+            <p>“Biraz ciddiye al.”</p>
+            <p>“Tsk, çok katısın ama.”</p>
+            <p>Bu sefer daha da güçlü bir şekilde dilini tıklattı. İsteksizce yemek için mini hamburgeri ve haşlanmış yemeği seçti.</p>
+            <p>“Ahh… Öyle görünüyor ki daha başlamamışsın. Hadi bakalım, Ayanokōji-kun.”</p>
+            <p>Kushida’nın yüzünden berbat yiyeceklerin okları bana dönmüştü. Peki şimdi bununla ne yapmalıyım?</p>
+            <p>Öğle yemeği kutusunda domates de dahil 7 parça vardı. Dört tanesini Horikita ve Kushida yediğinden domates dışında kalan ikisini yemek bana kalmıştı. Bu da yuvarlanmış tamagoyaki ve kızarmış yemeğin beni beklediği anlamına geliyordu. Bu da hayat ve ölüm hatta ölüm ve ölüm arasında bir seçimdi.</p>
+            <p>“Peki madem, tamagoyaki ile başlayalım.”</p>
+            <p>Her öğle yemeğinin vazgeçilmezi ne de olsa tamagoyakidir. Kusursuzca yapmak profesyonellik istese de basit bir tane yapmak gayet kolaydı. İçgüdüsel olarak içinde yumurta kabuğu olmasından endişelendiğimden dikkatlice ağzıma koydum. Ama beklenenin aksine sorunsuz bir şekilde boğazımdan mideme inmişti. Ben de kızarmış yemeğime devam ettim.</p>
+            <p>Yemek çubuklarımı alana kadar fark etmemiştim ama bu, bir lokma kadar büyük yuvarlak bir kroketti. Dikkatlice dilimin üzerine yerleştirdim. Isırdığımda tüm dolgusu ağzımın içine yayıldı. Açıkça tadıyla görünüşüyle tam bir kroketti. Ama yumuşak dokusu daha belirgindi. Yeterince kızartılmamış olacak ki kullanılan malzemeler hâlâ nemliydi. Üstelik dilde ve ağızda kötü bir tat bırakıyordu.</p>
+            <p>Bitirince yemek çubuklarımı sessizce bırakıp gözlerimi kapattım.</p>
+            <p>…Evet, anlıyorum. Çiğneyip yutunca cevap doğal olarak akla geliyordu.</p>
+            <p>“Herkesin tadımı bittiğine göre dürüstçe fikrimi söyleyebilirim, lezzetli değildi.”</p>
+            <p>“Ne!?”</p>
+            <p>“Yenilmeyecek kadar beter değildi, görsel olarak da 0 puan alacak kadar berbat değildi. Senin gibi yeni başlayan biri buna çok uğraşmış olacak ama tuzu ve baharatı ayarsızdı.”</p>
+            <p>Evet, tatsız denemezdi.</p>
+            <p>“Evet, havuçları soymadan da kullanabilirsiniz ama dokusu zayıftır ve parçaların boyutları eşit olmayacaktır. Yemeği ciddiye aldığın belli ama kusurlara bu kadar takıldığını gizlemekte başarısız kalmışsın.”</p>
+            <p>Sadece bir öğle yemeği olmasına rağmen Horikita resmen Ibuki’nin içini okumuştu. Ve Ibuki’nin yüzündeki acı ifadeye bakılırsa oldukça haklı olduğu belliydi.</p>
+            <p>“Biraz daha bir şey yemek istemiyorum. Bir yemeği israf etmenin en iyi yolu bu olsa gerek.”</p>
+            <p>Ibuki’nin uğradığı hayal kırıklığı, Kushida’nın agresif yorumuna verdiği tepkiyle oldukça belli oluyordu.</p>
+            <p>“Aşçılık konusunda Horikita’ya karşı kaybetmene rağmen övünebilmen şaşırtıcı doğrusu. Bana kalsa bu yarışma için aşçı kiralamalıydın.”</p>
+            <p>Gerçekten sert bir eleştiriydi ama ortadaki yemeği de göz önünde bulundurursak gayet de hak edilmiş bir laftı.</p>
+            <p>“Sizin laflarınız adil değil!”</p>
+            <p>“Bunu diyorsan kendi yemeğini niye yemiyorsun? Adamakıllı tadına bile bakmadın, değil mi?”</p>
+            <p>“Tat testi? Tadına bakmadım ama gayet normal görünüyor. Yenilebilir olmalı, değil mi?”</p>
+            <p>“Yenilmez demedim sadece tadı güzel değil. Şimdi gidip kendi yemeğini ye.”</p>
+            <p>Ibuki sinirli bir şekilde isteksizce kendi beslenme çantasındaki yemeklerden tattı.</p>
+            <p>“…Ugh, bok gibi— bu gerçekten çoook lezzetli… Harika!?”</p>
+            <p>“Kendini kandırma.”</p>
+            <p>Horikita’dan kendi kafasına darbe alan Ibuki bağırdı.</p>
+            <p>“Neden lezzetli olmasın ki?”</p>
+            <p>“O kadar sade ve hayal kırıklığı yaratan bir tadı var ki… Bir de üstelik oldukça tuzlu!”</p>
+            <p>“Zaten her şeyi açıkladım değil mi? Böyle göz kararı bakamazsın.”</p>
+            <p>“Sen öyle desen bile bir çay kaşığı ve bir çorba kaşığı arasında ne kadar fark olabilir ki? Lanet şey!”</p>
+            <p>Ana sorun da buydu. Öğle yemeği kutusundaki yemekler arasındaki baharatlar orantısızdı. Bazılarında ya çok hafifti ya da çok şiddetliydi.</p>
+            <p>“Puan verecek olsam muhtemelen pişirmene 20 puan verirdim.”</p>
+            <p>“…20 üzerinden olsa gerek, değil mi?”</p>
+            <p>“100 üzerinden.”</p>
+            <p>“Ne!? Biri hakime rüşvet vermiş olmalı!”</p>
+            <p>“Biraz cömert davrandığım bile söylenebilir. Bu kutuya elimi değdirmek bile istemem.”</p>
+            <p>“Haklısın, ben olsam 2 puan verirdim.”</p>
+            <p>Ibuki bu sert eleştirilere tepki olarak yerdeki kara sertçe tekme attı.</p>
+            <p>“Sen ne düşünüyorsun Ayanokōji-kun? Eminim fikirlerimiz benzerdir.”</p>
+            <p>“Hayır, berbat olduğunu sanmam. Ben olsam daha yüksek bir puan verirdim.”</p>
+            <p>“Gördün mü!? Değil mi!?”</p>
+            <p>Ibuki yavaşça ayağa kalktı. Görünen o ki benim ifadem hoşuna gitmişti.</p>
+            <p>“Bugün iyisin değil mi? Bu sadece vasat, berbat, rezalet bir öğle yemeği kutusu.”</p>
+            <p>“Hiçbir önyargı olmadan ifademi belirttim.”</p>
+            <p>Horikita da tereddütsüzce duruma ayak uydurdu. Ancak bu bentoyu tartışıyorsak çeşitli perspektifler de dikkate alınmalıydı.</p>
+            <p>“Ama berbat değil. Bunu dedin değil mi?”</p>
+            <p>“Peki… Evet, öyle, ama bunu yemek istemezdim.”</p>
+            <p>“Başka birçok alternatif varken bunun yüzüne bakmazdım. Ama ıssız adaya düşersek o zaman belki yemeyi düşünürdüm. Yani puanım…”</p>
+            <p>“Puanınız adil. Belirsiz de olsa tanımınız için teşekkürler. En azından o vasat şeyi övmediğini anladım.”</p>
+            <p>“…Böylece?”</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum3.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="../index.html" class="nav-btn">🏠 Cilt Sayfası</a>
+            <a href="bolum5.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Font Ayarlama JS -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+    </script>
+</body>
+</html>

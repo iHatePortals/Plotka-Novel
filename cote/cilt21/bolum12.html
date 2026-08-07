@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt 21 - Bölüm 12 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #bb86fc;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Navigasyon ve Kontrol Barı */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-btn, .font-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .font-btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        .font-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Görsel Alanı */
+        .novel-illustration {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .novel-illustration img {
+            max-width: 70%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        @media (max-width: 600px) {
+            .novel-illustration img {
+                max-width: 85%;
+            }
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <a href="bolum11.html" class="nav-btn">← Önceki Bölüm</a>
+            <div class="font-controls">
+                <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+            </div>
+            <a href="bolum13.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Cilt 21 - Bölüm 12</h1>
+            <div class="subtitle">Classroom of the Elite</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Mii-chan ve ben neredeyse çabucak marketin önüne gelmiştik.</p>
+            <p>İçeri girecekken, Mii-chan beni kolumdan çekti.</p>
+            <p>“Biraz bekleyebilir misin…? Etrafta çok fazla insan var.”</p>
+            <p>“Ortalık sakinleşene kadar beklemek mi istiyorsun?”</p>
+            <p>“Öyle değil… Bana yardım eden kişi de burda olabilir.”</p>
+            <p>“Anlıyorum.”</p>
+            <p>Bunlar her zamanki gibi nazik olan Mii-chan’dan beklenecek türden sözlerdi.</p>
+            <p>Bu sözlere uymak en doğrusu olurdu.</p>
+            <p>Her ne kadar haftasonları marketi çok fazla öğrenci ziyaret etse de, genelde kısa bir sürede işlerini halledip çıkarlardı.</p>
+            <p>Bir süre bekledikten sonra market kısa bir zaman aralığı için boşaldı.</p>
+            <p>“Gidelim mi?”</p>
+            <p>“E-evet!”</p>
+            <p>Eğer oyalanırsak bir sonraki müşteri gelebilirdi.</p>
+            <p>Hızlıca içeriye girdik.</p>
+            <p>“Hoş geldiniz—Ah.”</p>
+            <p>Bizi karşılayan çalışan muhtemelen 20’lerinde arada bir gördüğüm bir kadındı.</p>
+            <p>Mii-chan’ı görünce cümlesini yarıda kesti ama ardından bir gülümseme takınıp devam etti.</p>
+            <p>“Hoş geldiniz.”</p>
+            <p>“Merhaba. Umm şey geçen gün kaçıp gittiğim için özür dilerim!”</p>
+            <p>Mii-chan eğildikten hemen sonra kadın nazik bir gülümseme takındı.</p>
+            <p>“Sorun değil sorun değil, hiç rahatsız olmadım. Gerici olmalı değil mi?”</p>
+            <p>Görünüşe göre Mii-chan’ın duygularını anlayabilmişti, Mii-chan başıyla birkaç kez onayladı.</p>
+            <p>“Seni buraya gelmek için cesaretlendiren erkek arkadaşın mıydı?”</p>
+            <p>“Eh?”</p>
+            <p>Mii-chan, yukarıya doğru başı karışmış bir bakış attı.</p>
+            <p>“Ne kadar havalı bir erkek arkadaşın var, kıskandım doğrusu.”</p>
+            <p>“Eh, eh, ehh? E-erkek arkadaşım mı?”</p>
+            <p>“Ayanokōji-kun… değil mi?”</p>
+            <p>“İsmimi nereden bildiğinizi sorabilir miyim?”</p>
+            <p>“Şöyle ki mağazada ödeme olarak öğrenci kartlarını kullanıyoruz, e haliyle birkaç öğrencinin ismi aklımda kalıyor.”</p>
+            <p>Düşününce haklıydı, sonuçta öğrenci kartları bir fotoğrafımızı, ismimizi ve birkaç bilgimizi daha içeriyordu.</p>
+            <p>Buradan birden fazla kez alışveriş yaptığım için beni hatırlamaları şaşırtıcı değildi.</p>
+            <p>“Ayrıca birkaç gün önce başka bir öğrenci ile kol kola alışveriş yapıyordun değil mi? … Ah!?”</p>
+            <p>“Tepkiniz kafanızda bir fikir oluştuğunu gösteriyor, ama fikriniz yanlış. O sadece bir arkadaşım.”</p>
+            <p>Mii-chan’a işaret edip yanıt verdiğimde, Mii-chan da onaylayarak başını salladı.</p>
+            <p>“Ah, anladım. Ama belki ileride bir ihtimal—”</p>
+            <p>“Kesinlikle yok!!” dedi Mii-chan, ilk kez bu kadar güçlü bir şekilde reddederek.</p>
+            <p>Ona karşı romantik hislerim olmasa da neden kötü hissetmiştim ki?</p>
+            <p>Mii-chan’ın Yōsuke’yi sevdiğini bildiğim için, böyle yanlış anlaşılmalara tahammül edememesi doğaldı.</p>
+            <p>“Yani aradığın kişi…”</p>
+            <p>“Evet, o kişiyi bana söyleyebilir misiniz? Bunu öğrenmek için geldim.”</p>
+            <p>Çalışan nazik bir şekilde onayladı ve Mii-chan’ın merakla beklediği kişinin adını açıkladı.</p>
+            <p>“Adını tam hatırlamıyorum, ama oldukça marjinal biriydi. Sınıfınızdan Kōenji… Rokusuke-kun, sanırım. Getirdiği hediyeleri o satın almış.”</p>
+            <p>“Huh…?”</p>
+            <p>Bu kadar zamandır aradığı kişinin adı—Kōenji miydi? Mii-chan yanımda şaşkınlıkla kalakaldı.</p>
+            <p>O kadar insan arasından Kōenji mi?</p>
+            <p>Neden Kōenji? Kōenji ve Mii-chan’ın fazla iletişimi yoktu, ancak Kōenji’nin ona nispeten sıcak bir tavır takındığı birkaç anı hatırlıyordum.</p>
+            <p>“Gerçekten Kōenji-kun muydu?” diye sordu Mii-chan solgun bir şekilde.</p>
+            <p>Çalışan başını salladı. “Uzun saçlı, sarışın bir çocuktu. Markette aynada kendini seyrediyordu, ya da el aynasıyla saçını düzeltiyordu. Bu, Kōenji-kun değil mi?” dedi, onun tipik davranışlarını betimleyerek.</p>
+            <p>Bu, kesinlikle Kōenji idi, okulumuzda şu anda bu tanıma uyan başka bir öğrenci yoktu ve muhtemelen hiç olmayacaktı da.</p>
+            <p>Mii-chan hâlâ durumu tam olarak kavrayamasa da kabul etmek zorundaydı. Teşekkür ettikten sonra marketten çıktık. Mii-chan hâlâ şaşkın bir şekilde düşüncelerine dalmış görünüyordu.</p>
+            <p>“Kōenji-kun…? Neden?” diye sordu.</p>
+            <p>“Hiçbir fikrim yok. Nedenlerinin anlaşılması en zor kişi.”</p>
+            <p>“Ne yapmalıyım…?”</p>
+            <p>Teşekkür etmek için mi, yoksa Kōenji olduğu için mi bunu soruyordu acaba.</p>
+            <p>“Belki de Kōenji’yi görmezden gelip teşekkür etmeyebilirsin?” dedim.</p>
+            <p>“Ne!? Hayır, yapamam!”</p>
+            <p>“Neden ki?”</p>
+            <p>“Şey… Sonuçta sınıf arkadaşımız ve hediyeler için önemli bir miktar para harcadı.”</p>
+            <p>Mii-chan, dürüstlüğü gereği bunu göz ardı edemezdi.</p>
+            <p>“Teşekkür hediyesi almayı düşünüyorum. Harcanan paraya denk bir hediye mi olmalı?” diye sordu.</p>
+            <p>“Bence yarısı yeterli olur,” dedim.</p>
+            <p>“T-tamam, anladım. Öyle yapacağım,” dedi kararlılıkla.</p>
+            <p>“Gerçekten teşekkür etmeye kararlıysan, elinden gelenin en iyisini yapman yeterli,” dedim.</p>
+            <p>Tam vedalaşmaya hazırlanırken—</p>
+            <p>“Benimle gelir misin?”</p>
+            <p>“Ne?”</p>
+            <p>“Kōenji-kun’un yanına.”</p>
+            <p>“Nedenini sormak biraz fazla olabilir ama benim orada olmam garip olmaz mı?”</p>
+            <p>Kōenji’nin bunu neden yaptığı konusunda benim de bir fikrim yoktu. Ancak Mii-chan’ın kararsızlığını anlıyordum.</p>
+            <p>“Ya varsayımın doğruysa? Kei’yle çıktığını ne kadar söylersen söyle, hoşlandığı kızla birlikte birini görürse bir şeyler düşünebilir.”</p>
+            <p>“Fakat bahsettiğimiz kişi Kōenji, değil mi?”</p>
+            <p>“Kōenji bile normal bir lise öğrencisi… Aslında, o tam olarak normal sayılmaz, değil mi…”</p>
+            <p>Varlığım onu rahatsız edecekse, bu görmek isteyeceğim bir şey olurdu.</p>
+            <p>“O zaman, şimdilik birlikte gidelim. Duruma göre, Kōenji’yi gördükten sonra ayrılabilirim. Umarım bunu anlayışla karşılarsın.”</p>
+            <p>Varlığımın onu rahatsız etme ihtimali oldukça yüksekti.</p>
+            <p>“Anlıyorum. Teşekkür ederim.”</p>
+            <p>Daha fazla bir şey isteyemeyecekmiş gibi görünen Mii-chan kolayca kabul etti.</p>
+            <p>“Ne zaman gidelim?”</p>
+            <p>Ne zaman gitmemiz gerektiğini sordum ve Mii-chan cep telefonunu çıkarıp takvimine baktı.</p>
+            <p>“Çok ani oldu ama yarın erken gitsek olur mu? Çok beklersek uyuyamayabilirim…”</p>
+            <p>Yarın sabaha Kei ile bir randevum vardı ama eğer programladığımız gibi yaparsak herhangi bir sorun olmazdı.</p>
+            <p>Zihninde Kōenji ile ilgili düşüncelerle bir gece boyunca uykusuz kalmasına izin vermek acımasızca olurdu.</p>
+            <p>“Bugün için teşekkür ederim. Yarın tekrar görüşeceğiz ama şimdiden içten teşekkürlerimi sunarım,” dedi derin bir saygıyla eğilerek.</p>
+            <p>Bununla birlikte başını derin bir şekilde eğdi. Her şey çözüldüğünde minnettarlığını tekrar ifade edeceğini söyledi ama reddettim.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum11.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="../index.html" class="nav-btn">🏠 Cilt Sayfası</a>
+            <a href="bolum13.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Font Ayarlama JS -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+    </script>
+</body>
+</html>

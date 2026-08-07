@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt 21 - Bölüm 21 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #bb86fc;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Navigasyon ve Kontrol Barı */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-btn, .font-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .font-btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        .font-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Görsel Alanı */
+        .novel-illustration {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .novel-illustration img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <a href="bolum20.html" class="nav-btn">← Önceki Bölüm</a>
+            <div class="font-controls">
+                <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+            </div>
+            <a href="bolum22.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Cilt 21 - Bölüm 21</h1>
+            <div class="subtitle">Classroom of the Elite</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Yemek molasında, Horikita’nın biraz zamanını istedim ve onu koridora çağırdım.</p>
+            <p>“Cevap kırmızı pandaydı, tamam mı?”</p>
+            <p>“Demek istediğim bu değil. Testle ilgili kafama takılan bir şey var.”</p>
+            <p>Beni bu kadar çabuk az önceki hatamla yüzleştireceğini beklemiyordum.</p>
+            <p>“Şaka yapıyorum. Ama beni dışarı çağıracağını düşünmemiştim. Bana vereceğin bir tavsiye mi var?”</p>
+            <p>“Tam olarak tavsiye değil, ama bu sefer saldıranların beş ismi belirlediği sıradaki isimlerin düzeninde bir desen fark ettin mi?”</p>
+            <p>“Böyle bir desen olup olmadığını merak ediyorum… Açıkçası sıraya dikkat etmedim. Alfabetik sırada değildi ya da önce erkekler sonra kızlar şeklinde de değildi, değil mi?”</p>
+            <p>“Diğer sınıflardaki saldıranlara sormadan kesin bir şey söyleyemem, ama senin belirttiğin beş kişi arasında tutarlı bir desen yoktu. Başka bir deyişle, isimler liderin onları seslendirdiği sırayla görünüyor.”</p>
+            <p>“Anlıyorum. Bu doğru olabilir. Peki ya sonra?”</p>
+            <p>“Dikkatimi çeken şey, Sakayanagi’nin ikinci ila dördüncü turdaki isimlendirme sırasıydı. O sırada, Kōenji art arda üç kez hedef alındı ve her seferinde birinci sıradaydı.”</p>
+            <p>“Yani, ikinci turdan itibaren Kōenji-kun’u hedef almayı kararlaştırmış ve doğru cevabı bulana kadar onu hedef almaya devam etmiş, öyle mi? Peki ikinci turda Yukimura-kun da hata yapmamış mıydı?”</p>
+            <p>“Evet, Kōenji saf yeteneğiyle bakıldığında bir tehdit olabilir, ama Keisei kesinlikle genel yetenek açısından daha büyük bir sorun teşkil ediyor. Yine de Sakayanagi, hata yapan Keisei’yi üçüncü turda hiç aday göstermedi.”</p>
+            <p>“Sanırım beni yanlış okuduğunu düşündüm. Belki de Yukimura-kun’u önemli gördüğüm için onu koruyacağımı varsayarak Keisei’yi saldırı hedeflerinden çıkarmıştır, değil mi?”</p>
+            <p>“Elbette, Keisei’yi bu yüzden bir hedef olarak dışlamış olabilir. Ama Kōenji’nin açıklaması mantıklı gelmiyor. İkinci ve üçüncü turlarda arka arkaya hata yaptı, ama dördüncü turda doğru cevabı bulduktan sonra, savaşın ilk yarısında onun adı hiç geçmedi. Korunduğu varsayılırsa bu mantıklı, ama dördüncü turda doğru cevabı kendi başına buldu. Bu yüzden karşı taraf, onu bir kez bile korumadığımızı anlamış olmalı.”</p>
+            <p>“Sakayanagi-san, daha en başından Kōenji-kun’u radarına almıştı. İki hata yapıp zor durumda olmasına rağmen, doğru cevabı bulur bulmaz ona saldırmayı bıraktı. Bu garip görünüyor.”</p>
+            <p>Mümkün olduğunca öğrenciyi elemek mantıklı bir strateji olurdu. Eğer korunmama şansı yüksek olan birine saldırmadıysa, bu da dikkat çekici bir durumdu.</p>
+            <p>“Ona karşı temkinli miydi?”</p>
+            <p>“Eğer öyle olsaydı, en başından Kōenji’yi hedef almak için bu kadar çaba harcamasına gerek kalmazdı. Bu, neden onu üç tur üst üste aday gösterdiğini açıklamıyor.”</p>
+            <p>“…Sakayanagi-san, Kōenji-kun ile yaptığım anlaşmayı biliyor olabilir mi?”</p>
+            <p>“Bu oldukça makul bir varsayım. Eğer bir anlaşma olduğunu biliyorsa, Kōenji’nin bunu ciddiye almayacağını ve senin de onu iki kez hata yapana kadar korumayacağını dikkate almış olmalı.”</p>
+            <p>Elbette, Kōenji’nin soruyu ciddiyetle cevaplaması ya da Horikita’nın en başından beri onu koruma ihtimali de vardı. Ancak böyle bir durumda, üçüncü turdan itibaren Kōenji’yi saldırı hedefi olmaktan çıkarması gerekirdi.</p>
+            <p>“Peki, o halde neden beşinci turdan sonra onu hedef almadı? Koruma hakkını kullanmayarak onu korumamayı seçmiştim, değil mi?”</p>
+            <p>“Tam da bu yüzden. Senin koruma hakkını Kōenji üzerinde kullanmanı istedi, ancak bu başarısız olunca onu elemeye çalışmak bir fayda sağlamadı. Aksine, bu onun için bir kayıp olacaktı.”</p>
+            <p>“Bir eleme ile bize puan kaybettirebilecekken mi?”</p>
+            <p>“Evet. Testten önce, eğer sınıf en sona düşerse hasarı en aza indirmek için bir yolun olduğunu söylemiştin. O yol Kōenji’yi elemekti, değil mi?”</p>
+            <p>“…Biliyordun, öyle mi?”</p>
+            <p>“Kōenji ile yaptığın anlaşma, onu ‘istediği gibi davranmasına izin vererek’ okuldan atılmaktan korumaktı. Bu özel sınavda Kōenji’ye herhangi bir kısıtlama getirmediğine göre, ona verdiğin sözü tuttuğun ortada. Ayrıca, Kōenji’nin Koruma Puanı sayesinde, elenmiş olsa bile atılmasını önleyebilirdin.”</p>
+            <p>Kōenji, ıssız ada sınavındaki zaferiyle bir Koruma Puanı kazanmıştı; bu da atılmasını engelliyordu.</p>
+            <p>“Doğru. Kōenji-kun’un Koruma Puanını koruyacağıma dair bir söz vermemiştim. Atılmadığı sürece, verdiğim söz geçerli sayılırdı.”</p>
+            <p>Bir eleme nedeniyle bir puan kaybetmiş olsak bile, diğer kişiler elendiğinde Kōenji’nin Koruma Puanını kullanmamız yeterliydi. Bu da sınıfın en sona düşmesi nedeniyle birinin atılma riskini ortadan kaldırıyordu.</p>
+            <p>“Yine de, onu korumayarak sınıftaki herkesin tedirgin olmasına neden olduğumu kabul etmeliyim.”</p>
+            <p>“Açıklarsan, Kōenji niyetini anlayacaktır.”</p>
+            <p>“Kesinlikle. Yine de, onu korumadığımı fark etmesi beklediğimden daha hızlı oldu. Eğer erken elenseydi, savaşın ikinci yarısını yönetmek çok daha kolay olurdu.”</p>
+            <p>Sonunda, Kōenji doğru cevabı kendi çabasıyla buldu. Koruma Puanının elinden alınmasını gereksiz bir yük olarak değerlendirmişti.</p>
+            <p>“Sakayanagi’nin kişiliği göz önüne alındığında, sınıfımıza karşı ‘muhtemel bir atılma’ baskısını sürdürmek istemesi oldukça mantıklı bir hamle.”</p>
+            <p>“Evet, kişiliği yaptığı her harekete yansıyor. Ama neden Kōenji-kun ilk sorudan itibaren doğru cevap vermeye çalışmadı ki?” diye sordu.</p>
+            <p>“Buna bir cevap veremem. Belki üçüncü sorudan itibaren başlamanın çok geç olmadığını düşünmüştür. Her neyse, demek istediğim şu: Sınıfta diğer sınıflara bilgi sızdıran öğrenciler olabilir.”</p>
+            <p>Bu durumun yalnızca bu sınav için değil, gelecekteki sınavlar için de önemli olduğunu düşünerek ona söylemeye karar verdim.</p>
+            <p>“Teşekkür ederim. Bundan sonra bu konuda daha dikkatli olacağım.”</p>
+            <p>“Bu tartışmayı burada bitirelim. Öğle yemeğinde ne yapmayı düşünüyorsun?”</p>
+            <p>“Bugün yemek getirmedim, bu yüzden belki kafeteryaya giderim. Ya sen?”</p>
+            <p>“Ben de aynı şekilde yapabilirim. Kei şu anda çalışmakla meşguldür.”</p>
+            <p>Sınıfa doğru dönerken cevap verdim, Horikita ise anlamış gibi başını salladı.</p>
+            <p>Sınavın ilk yarısında, Kei Sakayanagi tarafından hedef alınmamış ve herhangi bir zarar görmeden atlatmıştı. Ancak bu, tamamen güvende olduğu anlamına gelmiyordu. Minimum üç soru ile elenme riski hâlâ vardı.</p>
+            <p>Bu nedenle ezberleyebileceği her bilgiyi, ne kadar önemsiz olursa olsun öğrenmeye çalışıyordu.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum20.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="../index.html" class="nav-btn">🏠 Cilt Sayfası</a>
+            <a href="bolum22.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Font Ayarlama JS -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+    </script>
+</body>
+</html>
