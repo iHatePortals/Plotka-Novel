@@ -1,0 +1,607 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VI, Bölüm 74 Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff; /* Görseldeki Açık Mavi / Cyan */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc6bolum72.html" class="nav-btn">← Önceki</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc6bolum75.html" class="nav-btn">Sonraki →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VI, Bölüm 74</h1>
+            <div class="subtitle">Natsuki Subaru</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <!-- Metin buraya eklenecek -->
+             <p class="wp-block-paragraph">Kısa, siyah saçlar, üst bedenle aynı uzunlukta bacaklar, insanı öldürebilecek yeterlilikte sanpaku gözler.</p>
+<p class="wp-block-paragraph">Hangisi seçilirse seçilsin nahoş denilebilecek bu tanıdık hatlar, beyaz, çıplak zeminde oturarak Natsuki Subaru’yu izliyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Subaru’ysa şaşkın bir şekilde bakışlarını dikerek karşısındaki kişinin yüzünü derinlemesine inceliyordu.</p>
+<p class="wp-block-paragraph">Hangi açıdan bakarsa baksın aşina olduğu bir yüzdü—— yo, birazcık farklı görünüyordu. Belki de bunun sebebi gerçek anlamda görmeye alışkın olduğu formda olmayışıydı.</p>
+<p class="wp-block-paragraph">Normal şartlarda bunaltıcı sıklıkta baktığı şey, sudaki ve aynadaki yansıması olurdu. Kesin konuşmak gerekirse insanların yüzlerinin iki yarısı mükemmel bir simetriye sahip olmaz, bu da başlı başına hassas bir farklılık yaratırdı. İşte bu yüzden——</p>
+<p class="wp-block-paragraph"><strong>???:&nbsp;</strong>“Ah, demek öyle. Aynadaki yansımanın aynısı olmayınca birazcık tuhaf hissettirdi, ha. Bu açıdan bir fotoğrafa veya video kaydına bakar gibi gözünde canlandırmaya daha yakın, değil mi?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Hık.”</p>
+<p class="wp-block-paragraph"><strong>???:&nbsp;</strong>“——? Ah, yoksa, sen de mi aynı şeyi düşünüyordun?”</p>
+<p class="wp-block-paragraph">O sesin zihnini okurmuş gibi hissettirişi karşısında hafiften yanakları katılaşırken karşısındaki kişi bu hisleri de doğru tahmin etmişti.</p>
+<p class="wp-block-paragraph">Bu bile ■’inin telaşa kapılmasına yol açsa da verebileceği herhangi bir yanıt ne zehir de ilaç görevi görebilirdi. Her şeyden önce Subaru için mühim olan, hızlıca bir fikir alışverişinde bulunmak değildi.</p>
+<p class="wp-block-paragraph">Bundan çok daha mühim bir şey vardı, o da kesinlikle her şeyi sarsarmış gibi görünen problemdi——</p>
+<p class="wp-block-paragraph"><strong>???:</strong>&nbsp;“Öyleyse bir kez daha… selam, kardeşim.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph"><strong>???:</strong>&nbsp;“Yo, ‘kardeş’ birazcık hatalı bir ifade oldu, ha. Daha doğru bir tercih yapmak gerekirse… selam, öteki ben.”</p>
+<p class="wp-block-paragraph">Şahıs, tek elini kaldırarak rahat bir ses tonuyla selam verdi—— yo, o gereğinden fazla mesafeli biri değildi. Öyle bir varlıktı ki ona cana yakın demek bile yarım yamalak bir ifade olurdu.</p>
+<p class="wp-block-paragraph">Neticede hiç kuşku yoktu ki Natsuki Subaru ile aynı yüze sahip o şahıs, “Natsuki Subaru”dan başkası değildi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——‘Natsuki Subaru’.”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“…Bilirsin ya, sana da tuhaf gelmiyor mu? Bir de kendine adın soyadınla sesleniyorsun… gerçi başka ne desen doğru olurdu bilemiyorum. Mangalarda falan sık sık karşılaşılan bir durum olsa da gerçek hayatta bayağı sıkıntılıymış.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“ ‘Natsuki Subaru’!..”</p>
+<p class="wp-block-paragraph">Subaru, o noktada havanın güzelliğinden bahsedermişçesine konuştukça konuşan “Subaru’ya” olan öfkesini fark ederek ayaklandı. Ve rakibini yakasından yakalamaya çalıştığı anda bacakları birbirine dolandı.</p>
+<p class="wp-block-paragraph">Dizinde derman bulamayınca duruşu bozulup yığılırkense——</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“Uuups, dikkat et.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Hık, dokunma bana!”</p>
+<p class="wp-block-paragraph">Önündeki “Subaru”, öne doğru savrulup düşmekte olan bedenini yakaladı. Subaru’ysa o kollar kendisine temas ettiği anda dayanılmaz bir tiksinti duyarak o kolları silkinip attı.</p>
+<p class="wp-block-paragraph">Aynı hızla bir iki adım atıp kendisini “Subaru’dan” uzaklaştırdıktan sonra da gözlerini rakibine dikmeyi sürdürdü.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Sen neden, buradasın… her şeyden önce, burası da neresi!?”</p>
+<p class="wp-block-paragraph">Subaru, “Subaru”yu görüş alanında tutarak elleriyle onları çevreleyen beyaz dünyayı işaret etti.</p>
+<p class="wp-block-paragraph">Hiçbir şeyin olmadığı beyaz bir mekân oluşuyla tıpkı o Oburluk Günah Başpiskoposu Rui Arneb ile yüzleştiği Od Lagna’nın beşiği gibi görünüyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Siktir!..”</p>
+<p class="wp-block-paragraph">Kafasının içi tam bir yangın yeriydi.</p>
+<p class="wp-block-paragraph">Kuledeki gerçek zaman akışı neticesinde Rui’yle karşılaşmasının üzerinden birkaç saat bile geçmemişti.</p>
+<p class="wp-block-paragraph">Fakat beş engelle ilgili bir sürü deneme biriktiren Subaru’ya çook uzak geçmişte yaşanmış bir olay gibi geliyordu.</p>
+<p class="wp-block-paragraph">Bunun yanı sıra Subaru, Ölü Kitapları aracılığıyla “Natsuki Subaru”nun yaşam ve ölümüne yirmiden fazla kez bizzat tanıklık etmişti. Ölü Kitaplarının içeriği yaşam ve ölümü beş dakikadan kısa bir süreye sıkıştırışıyla biraz eksik kalsa da hiçbir şeyin yaşanmadığı bir yılı aşkın bir süre de olmuştu.</p>
+<p class="wp-block-paragraph">Subaru ardı ardına, anlayışla o anların tadına bakmıştı. Tüm bunlara yönelik teşhislerinin bozulmayacağının da garantisi yoktu.</p>
+<p class="wp-block-paragraph">Zaman akışı belirsizdi, üstelik bu beklenmedik rakiple buluşmayı da fazlasıyla beklemişti.</p>
+<p class="wp-block-paragraph">Subaru, gözleri irileşip kolları şiddetle sallanarak,</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Senin, burada ne işin var?!?!”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“——Bu, benimle arayı kapatmış olduğunun kanıtı.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“Ölü Kitabını okudun ve benimle arayı kapattın. Farkında olmadığın her şeyi bizzat tecrübe ederek görmüş olmalısın. Benim, başka bir dünyadaki hayatımı, yani.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Haah.”</p>
+<p class="wp-block-paragraph">“Subaru”, nefesini tüketen ve yaygara kopartan Subaru’ya kayıtsız bir ses tonuyla karşılık verdi. Subaru’ysa onun bu sakin tavırları karşısında azıdişlerini sıktı.</p>
+<p class="wp-block-paragraph">Bu inandırıcı ifadeyi, her ama her şeyi bilirmiş tavırlarını sindiremiyordu.</p>
+<p class="wp-block-paragraph"><em>——</em><em>Her şeyden önce, o mide bulandırıcı surata bürünerek, söylediği şey de neyin nesiydi?</em></p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ben, seninle arayı mı kapatmışım?”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“Evet öyle. Artık benim hakkımda bilmediğin tek bir şey dahi yok. İşte bu yüzden…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Benimle, kafa bulma Hık!!”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Seninle arayı kapatmışım, öyle mi? Şaka yapmayı kes! Yalan söyleme! Henüz değil! Henüz en önemli şeyi, en hayati şeyi bilmiyorum!”</p>
+<p class="wp-block-paragraph">Gözleri olabildiğince irileşerek kükreyen Subaru, bu defa “Subaru”yu yakasından tutmayı başardı.</p>
+<p class="wp-block-paragraph">“Subaru” bu kaba kuvvet kullanımı karşısında herhangi bir savuşturma teşebbüsünde bulunmadı. Onu aynı hızla kendine doğru çeken Subaru’ysa nefeslerinin birbirine karışacağı bir yakınlıkta gözlerini o kara gözlere dikti.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Kendisiyle aynı o yüzdeki kara gözlerde gördüğü yansımadaki aynı yüzü algıladığı anda benliğinde kendisine yönelik mide bulandırıcı bir nefret yükseldi.</p>
+<p class="wp-block-paragraph">Bu nefreti kendisine mi yoksa gözlerinin önündeki “Kendisine” mi beslediğini bilmiyor, düşünmek de istemiyordu.</p>
+<p class="wp-block-paragraph">Yalnızca fazlasıyla yakın bir mesafede durmayı sürdürerek rakibine bakıyor ve dişlerini gösteriyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Söyle bana! Burada olman amma da elverişli! Hemen söyle bana! Senin sen olma sebebin bir yerlerde olmalı! O sebebi göremedim. O sebebi bulamadım. Onu…”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“Benim, ben olma sebebim mi?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Aynen öyle! Senin sen olmanı, bu hâle gelmeni sağlayan bir işaret olmalı! Sen, sen…”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“——Bunu, görmüş olman gerekiyordu, haksız mıyım?”</p>
+<p class="wp-block-paragraph">Yakasından tutulan “Subaru”, hiçbir direnç sergilemeksizin Subaru’ya bakıyordu.</p>
+<p class="wp-block-paragraph">Kendisini sarsan kolları itmeye dahi çalışmıyordu. Subaru’ysa bunu en ufak bir şey yapmadığı şeklinde bir halüsinasyon olarak algılıyordu.</p>
+<p class="wp-block-paragraph">Tamı tamına kendisine daha yüksek bir seviyeden bakılıyormuşçasına bir algıyla——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bana şöyle bakmayı kes!”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“——Gahk!”</p>
+<p class="wp-block-paragraph">O inandırıcı profili hedefleyen Subaru, yumruğunu savurdu.</p>
+<p class="wp-block-paragraph">Yumruk güçlü bir darbe indirirken “Subaru”, acemice savruldu. Subaru’ysa herhangi bir geri tepme veya benzeri acı çekmedi.</p>
+<p class="wp-block-paragraph">Çekilen acı yalnızca yaralanan “Subaru”nun çektiği acıyla sınırlı kaldı.</p>
+<p class="wp-block-paragraph">O acı, Natsuki Subaru’nun çektiğiyle birebir aynı olmadı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bir şey bilirmiş gibi, kelimeleri art arda sıralamak… demek öyle ha, anlıyorum.”</p>
+<p class="wp-block-paragraph">Subaru tarafından pataklanan “Subaru”, sağ dizinin üzerine çöktü. Onun dövülen yanağını elinin tersiyle ovuşturduğunu gören Subaru’ysa buna izin verdi.</p>
+<p class="wp-block-paragraph">Gözlerinin önündeki rakibin her şeyi bilirmiş gibi konuşuyor olduğu konusunda, yanılmıyordu.</p>
+<p class="wp-block-paragraph">Her şeyden önce burası Od Lagna’nın beşiği—— yani Anılar Koridoruysa, bu onu her şeyin ötesinde en temkinli yaklaşması gereken rakip kılmaz mıydı?</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Sen, Rui misin? Oburluk Günah Başpiskoposu! Yine sensin, öyle değil mi!?”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“…Ben mi?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Aptalı oynama!”</p>
+<p class="wp-block-paragraph">Geçen sefer Anılar Koridorunda karşılaşmış olduğu Rui, Subaru ve “Natsuki Subaru” arasında bir ayrım yapmaya ve bir şekilde o varlığı kafasından çıkartıp yemeye çalışmıştı.</p>
+<p class="wp-block-paragraph">Subaru o sırada kıl payı farkla o dişlerden kaçmayı başarmıştı, lakin tek bir denemeyle vazgeçmeye razı gelen bir mizaçları olsaydı Günah Başpiskoposu olarak adlandırılmazlardı.</p>
+<p class="wp-block-paragraph">Günah Başpiskoposu olarak bilinen varlıkların ne denli çirkin ve iflah olmaz olduğuna bütünüyle şahit olmuştu.</p>
+<p class="wp-block-paragraph">Petelgeuse, Regulus, Sirius, Capella, hepsi de karakter anlamında dibi görmüş mutlak başarısızlık örnekleriydi. Ray, Roy ve Rui de birer istisna değildi, bilhassa buna onay verebilirdi.</p>
+<p class="wp-block-paragraph">Peki ya Reid’in Ölü Kitabının içerisinde pusuya yatmış olan Rui bir yöntem aracılığıyla “Natsuki Subaru”nun Ölü Kitabında da gizlenmiş bekliyor olamaz mıydı?</p>
+<p class="wp-block-paragraph">Bu durumda cesurca oyalanıp Subaru’yu bekliyor olması gayet akla yatkındı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bu doğru değil mi, Oburluk! Rui Arneb! Şekil ve form değiştirebilen senin tarafından bu şekilde kafamın karıştırılması mümkün değil!”</p>
+<p class="wp-block-paragraph">Başkalarından çalınan Anılar ve İsimlere bel bağlayarak yalnızca rakiplerinin kabiliyetlerini değil, formlarını bile gasp etmek, onları kendilerine ait birer malmışçasına çiğneyip sindirmek Rui Arneb’in olduğu kadar erkek kardeşleri Ray Batenkaitos ve Roy Alphard’ın da Otoritesiydi.</p>
+<p class="wp-block-paragraph">Rui, kulenin içerisinde bu hileyi hiç pişmanlık duymaksızın sergilemişti. Dolayısıyla yalnızca gösteri mekânının Anılar Koridoru olarak değişmesi hiçbir yersizlik hissi uyandırmıyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Muhakkak ki bu seferki planın beni tüketip gasp etmektir, öyle değil mi? Bir defa reddedildikten sonra bile inat ediyorsun… gerçekten Ölümden Dönüşü bu kadar çok mu istiyorsun?!”</p>
+<p class="wp-block-paragraph">Subaru, bu şekilde hiç bocalamadan Ölümden Dönüş kelimelerini kullandı.</p>
+<p class="wp-block-paragraph">Bir iki sefer aynı kelimeleri kullanarak cehennem ıstırabı çektiği anıları bizzat deneyimlemişti. Cezası, muazzam bir acı eşliğinde kalbinin kavranıp sıkılması olmuştu. Fakat bu ıstırabı çeken tek kişi kendisi olduğu sürece sıkıntı yoktu—— Tabii Emilia veya etrafındaki diğer kişileri etkilediği seferlere kıyasla.</p>
+<p class="wp-block-paragraph">Gelin görün ki aynı ceza, belli belirsiz bir korkuyu ezip geçerek bağıran Subaru’yu bulmuyordu.</p>
+<p class="wp-block-paragraph">Gözlerinin önündeki “Subaru” da kalbi sıkılıyormuş gibi durmuyordu. Subaru, “Subaru”nun da bir anlığına aynı şeyi beklercesine bir görünüme bürünüp o şeytani etkinin gelmeyişiyle rahatladığını fark etmişti. Ve bu, çıldırtıcıydı.</p>
+<p class="wp-block-paragraph">Kendisiyle aynı yüze sahip olduğu gibi aklından da aynı düşünceler geçiyordu—— Bunu da kendisiyle rakibinin olsa olsa aynı olabileceği savıyla değerlendiriyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Hık! Hadi, anla şunu artık! Bu gerçekten öyle harika bir güç mü? Hayran olunası bir güç mü?! Yalnızca ölüyorsun ve tekrar ediyorsun. Ölüyorsun ve tekrar ediyorsun… hepsi bundan ibaret. O gücü kullanan kişi, boktan ben olunca, sonuçlar da boktan oluyor! İşte bu yüzden…”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“İşte bu yüzden, hiç kimseyi kurtarmayı beceremiyorum… Hepsinin ölmesine izin veriyorum. Ben güçsüz olduğum için, herkesi, acınası kılıyorum. Tıpkı, şu anda bile, hiç kimsenin kurtarılamayacak olması gibi!..”</p>
+<p class="wp-block-paragraph">——Ölümden Dönüş, öyle ahım şahım bir şey değildi.</p>
+<p class="wp-block-paragraph">Böyle bir şeye ihtiyaç duymamak her daim daha iyi olurdu. Bu gücün dünyanın en eşsiz, en önde gelen ve en harikulade şeyi olduğunu iddia eden bir Cadı bulunsa da Subaru asla onunla aynı fikirde olamazdı.</p>
+<p class="wp-block-paragraph">Bir karıncaya kuşanması için ağır bir top verseniz bile onu asla kullanamazdı. Nihayetinde bu işe uygun olmazdı.</p>
+<p class="wp-block-paragraph">Subaru da ağlayıp duran ve kıyamet kopartan güçsüz, acınası, yalnız bir çocuktan ibaretti.</p>
+<p class="wp-block-paragraph">Cadıların o çay partisi düşünde söylediği şey doğruydu. O umutsuzdu. O güçsüzdü. O, onu asla bulamazdı. Asla kullanamazdı. Bunu algılayamayan Oburluk da Açgözlülük Cadısı da lanetlenmişti.</p>
+<p class="wp-block-paragraph">Dersini alana dek daha kaç defa oyuna getirilmesi, umutlarının daha kaç defa ayaklar altına alınması, ■’inin daha kaç defa kırılması gerekecekti?</p>
+<p class="wp-block-paragraph">Neden, defalarca oyuna getirildikten, umutları defalarca ayaklar altına alındıktan, ■’i defalarca kırıldıktan sonra bile aynı şeyi yapmayı düşünüyordu?</p>
+<p class="wp-block-paragraph">Ölümden Dönüş, dünyanın tüm nahoş parçalarını sergiliyordu.</p>
+<p class="wp-block-paragraph">Absürtlükleri, saçmalıkları, insanın gözlerini kaçırmasına yol açacak kaderleri gözler önüne seriyordu.</p>
+<p class="wp-block-paragraph">Peki nasıl oluyordu da——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Ben, herkesi seviyorum.”</p>
+<p class="wp-block-paragraph"><em>Ç.N: (Çünkü sen de böyle birisin Subaru. Ve seni</em><em> “</em><em>Subaru</em><em>” </em><em>yapan da bu. Sevgin, azmin, direncin, </em><em>■</em><em>’in.)</em></p>
+<p class="wp-block-paragraph">Farkına bile varmadan başını önüne eğip olduğu yerde diz çöken Subaru, lanet okurcasına bağırmıştı.</p>
+<p class="wp-block-paragraph">&nbsp;“Subaru” ise onun ağlamaya benzer bu utanç verici yakınmaları karşısında kafasını sağa sola salladı. Ve bu sallayışı sürdürerek bir kereliğine, tam da o anda, sözleriyle yakınlık kurarak şöyle dedi:</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“——Ben, herkesi seviyorum. İşte bu yüzden, duramam.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Darbe aldığı yanağındaki kırmızılığı parmaklarıyla silen “Subaru”, Subaru’nun yerine ayağa kalktı.</p>
+<p class="wp-block-paragraph">Ve aynı kılık kıyafete, aynı ifadeye, aynı surata ve aynı isme sahipken ondan katiyetle farklı görünen “Natsuki Subaru”—— Natsuki Subaru’ya bakarak,</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“Dürüst olmak gerekirse, içine düştüğün pozisyonu hayal etmek dahi zor. Her şey yepyeni, başa dönme seçeneği olmadan, başlangıç aşaması statüsüyle 6. levelden başlamak gibi. Dile getirdiğin şikâyetlere gelince, hepsini anlıyorum. Çünkü onlar, benim tekrar tekrar tadına baktığım yaralar.”</p>
+<p class="wp-block-paragraph">Muazzam bir güçsüzlükle, muazzam bir cahillikle, sayısız kez tatlarına bakmasına tanık olmuştu—— Yo, sayısız kez tatlarına bakmıştı.</p>
+<p class="wp-block-paragraph">Subaru, “Subaru”nun tadına bakmak zorunda kaldığı mağlubiyetlerin, ıstırapların Ölüm acısının, hepsinin bilincindeydi. Hepsine bu gözlerle tanık olmuştu. Bu beden ve ■’le hepsinin tadına bakmıştı.</p>
+<p class="wp-block-paragraph">İşte tam da bu yüzden, onların tadına baktığı, bunun bir yalan olmadığını bildiği için “Subaru’nun” sözlerini kabullenemiyordu. Onları, kabullenmek istemiyordu.</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“Güçlü olsaydım, zeki olsaydım, daha fazlası, daha iyisi olsaydım… çok can sıkıcı olmalı.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Sanki anlıyormuş gibi, konuşuyorsun!.. Sen benim hakkımda ne halt bili…”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“Biliyorum. Senin de bildiğimin farkında olman gerekiyor. Aslına bakarsan bu çok yersiz bir tartışma. Hem benim hem de senin için.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Hık.”</p>
+<p class="wp-block-paragraph">Bu itiraz sözcüklerinde güç yoktu. Bariz bir gerçek dile getiriliyordu.</p>
+<p class="wp-block-paragraph">İtiraz denen şeyle karşı tarafın sözcükleri defedilir, anlaşmazlık öne sürülerek püskürtülür, ezip geçerek mağlup edilir, hatalısın denilerek açıklama yapılırdı. Böyle bir niyet olmazsa olmazdı.</p>
+<p class="wp-block-paragraph">Şu anki Subaru’ysa “Subaru”yla bu şekilde yüzleşecek kabiliyete sahip değildi.</p>
+<p class="wp-block-paragraph">Sonuçta farkındaydı.</p>
+<p class="wp-block-paragraph">Bunun ne yalan ne de aldatmaca, yalnızca bütünüyle “Natsuki Subaru” olduğunun farkındaydı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ben senin, anılarına falan bakmadım…”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“Hey, keyfine göre bir başkasının günlüğünü kurcaladıktan sonra böyle yapamazsın.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ben senin, anılarına falan bakmadım!”</p>
+<p class="wp-block-paragraph">“Subaru”nun kulağa kasvetli gelen sesini işiten Subaru, güçlü bir şekilde yumruklarını sıktı.</p>
+<p class="wp-block-paragraph">Tokatlanmış, yuhalanmış ama diyalog yaklaşımını bozmamış olan “Subaru”, Subaru’dan çok daha olgun olduğu izlenimini veriyordu. Belki de bu kadarı barizdi.</p>
+<p class="wp-block-paragraph">Sonuçta şöyle bir gerçek vardı ki “Subaru”nun Subaru’dan bir yaş büyük olması gerekiyordu.</p>
+<p class="wp-block-paragraph">Aynı zamanda farklı bir dünyada zengin tecrübeler edinmiş ve Ölümü defalarca bizzat tecrübe etmiş, bunun yanı sıra pek çok bağ kurarak şu anki benliğinin pozisyonuna erişmişti. Ama buna rağmen——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ben senin, anılarına falan bakmadım… Hık.”</p>
+<p class="wp-block-paragraph">Subaru’nun ağzından yeniden, yeniden bu kelimeler döküldü.</p>
+<p class="wp-block-paragraph">Ve “Subaru” bu seferlik, kendisiyle aynı pişmanlıkları biriktirmiş olan Subaru’ya hiçbir şey söylemedi. Subaru da herhangi bir karşılık vermeksizin, tutarsız mırıltıları andırır şekilde sözlerinin devamını getirdi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ben, senden umutlu olmak istedim. Senin harika bir adam olduğunu görseydim ve harika mizacını destekleyen “o şeyi” bilseydim ben de aynı şeyi yapabilirdim. Ama sonunda…”</p>
+<p class="wp-block-paragraph">Ama sonunda, başka bir şeyi öğrenmişti.</p>
+<p class="wp-block-paragraph">Her şeye, tanık olmuştu.</p>
+<p class="wp-block-paragraph">“Natsuki Subaru”nun buradaki Natsuki Subaru’dan zerre kadar farkı olmayan güçsüz ve acınası bir adam olduğunu öğrendiğiyle kalmıştı.</p>
+<p class="wp-block-paragraph">O yalnızca Subaru’nun bilmediği bir zaman diliminde Subaru’nun tanımadığı insanlarla tanışan, Subaru’nun bilmediği bir tarihi yaşayan, Subaru’nun tanımadığı bir manzaraya tanık olan, tüm bunları gerçekleştiren sıradan bir insandı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Seni reddederek, akla yatkın bir şey ilan etmek ve o şeyi yerine getirmek istemiştim.”</p>
+<p class="wp-block-paragraph">Ancak bunu başaramamıştı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Sonuç olarak, hislerini anlıyorum—— Çünkü sen, bensin.”</p>
+<p class="wp-block-paragraph">“Natsuki Subaru”nun tanık olduğu, tadına baktığı dünyayı izlemişti.</p>
+<p class="wp-block-paragraph">“Natsuki Subaru”nun bu dünyaya, bu dünyanın insanlarına, Emilia’ya, geri kalan herkese ve de onların hayatta kalabilmesi için kabullendiği yaralara âşık oluşunu izlemişti.</p>
+<p class="wp-block-paragraph">Yanlış anlamıştı. Yanılmıştı.</p>
+<p class="wp-block-paragraph">Söz konusu kendisi olunca kendini beğenmişlik ettiğini söylemek uygun olabilirdi.</p>
+<p class="wp-block-paragraph">“Natsuki Subaru”nun bir süper insan olduğu yanılsaması paramparça olup bir kenara atılmıştı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Evet, anlıyorum! Anladım! Senin… senin defalarca düşüp tekrar ayağa kalkmanın, defalarca ölüp asla pes etmemenin sebebi, yapabileceğin tek şeyin bu olmasıymış!!”</p>
+<p class="wp-block-paragraph">“Subaru” da tıpkı Subaru gibi hiçbir şey yapamadığı pek çok duvara toslamıştı.</p>
+<p class="wp-block-paragraph">Ve “Subaru”, bunu yaşadığı her seferde ardı ardına, tekrar tekrar Ölümleri biriktirip onlarla karşılaşma şekillerini, bağlantı yollarını değiştirerek engellerin üstesinden gelmişti.</p>
+<p class="wp-block-paragraph">Hepsi bu kadardı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Rem’in söylediği onca şeyden sonra ayağa kalkmayacak biri olabilir mi!? Otto tarafından nakavt edilmemden sonraki gururlu tavırlarımla fark ettim bunu! Zaten annemle babamın böylesine düşünceli olduğunu oldum olası biliyordum! Yani, onlar benim annemle babam sonuçta!”</p>
+<p class="wp-block-paragraph">“Natsuki Subaru”nun geride bıraktığı manzaraları atlatmak için hayati olan ipucu, Subaru’nun aradığı “şey” olmasa da birikmiş arzular olarak kesinlikle oradaydı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ben Emilia’yı seviyorum. Onu koruyacağım konusunda bana güvenmesini istiyorum. Onunla olmak istiyorum. Bir Şövalye olmak isteme sebebim, onun beni öyle görmesiydi. Mutluydum. Nefret edilmekten korkan o kızla herhangi bir sorun çıkmaksızın dışarıda dolaşmak ve onun herkes tarafından sevilebilir biri oluşuyla böbürlenmek istiyorum! Nihayet Beatrice’in de bana katılmasını sağladım. Onu da acı çektiği vakitler kadar mutlu edebilmek istiyorum! Onun, mutlu olmaya hakkı var!”</p>
+<p class="wp-block-paragraph">İşte bu yüzden——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Senin vazgeçmeme sebebin, yalnızca herkesi seviyor olmandı! Lanet olasıca piç! Ne diye bir süper kahraman değilsin ki! Neden, hâlâ aptalca bir veletten ibaretsin ki!!”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Reinhard gibi güçlü olsana! Julius gibi her şeyi yapabilen biri olsana! Bunu yapamıyorsan Ferris kadar işe yarasana! Peki ya Wilhelm-san gibi tek bir konuda olağanüstü olmaya ne dersin?! Bir tanesini bile seçseydin, senin için…”</p>
+<p class="wp-block-paragraph">Subaru’nun zaman harcayarak ve hatta acı çekerek farkına vardığı şey bundan ibaretti.</p>
+<p class="wp-block-paragraph">“Natsuki Subaru” sıradan bir insandı, elindeki kozlar Subaru’nunkilerle aynıydı, o kozları kullanmak konusunda fazlasıyla beceriksizdi, ayrıca söz konusu galibiyet veya mağlubiyet olduğunda şansı yaver gitmiyordu.</p>
+<p class="wp-block-paragraph">Yine de bunlardan yalnızca biri——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Yalnızca tek bir tanesi…”</p>
+<p class="wp-block-paragraph">Güçsüz bir sesle, tüm şevkini yitirmiş şekilde fısıldadı.</p>
+<p class="wp-block-paragraph">Herhangi birini, tek bir tanesini bile gerçekleştirememiş birinin elini sımsıkı tutuyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“…Sen, Rui’sin, değil mi?”</p>
+<p class="wp-block-paragraph">Boğuk bir sesle, az önce söyledikleriyle ilişkisiz bir soru yöneltti.</p>
+<p class="wp-block-paragraph">Onu dinleyen ve uzun bir süre boyunca sessizliğini koruyan “Subaru” ise “Ah” diyerek,</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“Hayır. Ben Rui değilim. Maalesef bunu bile söyleyemem. Onun huzursuzluk çıkarmamasını yeğlerim. Ondan beterinin olmadığı konusunda bir açıklamaya ihtiyacın yok herhâlde, değil mi?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Hı hı… Sanırım, yok.”</p>
+<p class="wp-block-paragraph">Zayıf, cılız bir sesle yanıt veren Subaru, kollarıyla yüzünü gizledi.</p>
+<p class="wp-block-paragraph">Az önceye kadarki bağrışları yüzünden boğazının kuruduğu gerçeğini saklarken “Subaru’yu” yumrukladığı avcundan da bir acı yükselmeye başladı.</p>
+<p class="wp-block-paragraph">Burası Anılar Koridoru olsaydı Subaru’nun bedeni burada gerçek bir varlık teşkil edemezdi, öyle olması gerekirdi, buna rağmen acı duyabiliyor olması absürttü.</p>
+<p class="wp-block-paragraph">——Evet, acı ve Ölüm, her daim absürt ve her daim katlanılması zor şeylerdi.</p>
+<p class="wp-block-paragraph">İşte tam da bu yüzden Oburluk Günah Başpiskoposu, Rui Arneb, yanılıyordu.</p>
+<p class="wp-block-paragraph">Bir insanın bunu bile isteye arzulayabileceği düşüncesi kesinlikle yanlıştı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“…Neden, ortadan kayboldun?”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“Hm?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Neden, silinip gittin? Senin gidişin, bir sürü, zorluğa sebep oldu…”</p>
+<p class="wp-block-paragraph">Her daim var olan idrak eksikliğinin itici gücü ve her şeyin kökeni.</p>
+<p class="wp-block-paragraph">“Natsuki Subaru”nun ortadan kaybolma ve Natsuki Subaru’nun doğma sebebi.</p>
+<p class="wp-block-paragraph">Anılarıyla birlikte yitip giden “Natsuki Subaru”nun bedenine tam olarak ne olduğu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ortadan kaybolma sebebin…”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“…Benim açımdan tam bir ıskaydı. Reid’i yakalamanın bir yolunu bulma niyetiyle Taygeta’ya girdim. Gerçekleşen olaylar silsilesi, Reid’in kitabını bulana dek çok iyiydi, ama…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“…Sonra Reid’in kitabının boş olduğu ortaya çıktı.”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“Ben de Oburlukla aynı kâseye koyuldum. Muhtemelen devamını ben anlatmasam da anlarsın.”</p>
+<p class="wp-block-paragraph">Kafasını kaşıyan “Subaru”, utancını anımsadı.</p>
+<p class="wp-block-paragraph">Anılar Koridorunda Rui Arneb’le karşılaşan “Natsuki Subaru”, Anılarını çaldırmıştı. Ve bu farklı dünyada o ana kadarki tüm yaşantısını unutuşu da etrafındaki insanların hislerini algılayamayan Natsuki Subaru’yu yaratmıştı.</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“Kendini bu şekilde küçümseme… Gerçi sana böyle söylesem de bunu yapman zor, ha. Sonuçta sen bensin.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“…’Natsuki Subaru’ güçsüz, acınası, iflah olmaz koca bir aptal.”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“Yanılmıyorsun.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ama…”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“——?”</p>
+<p class="wp-block-paragraph">Buruk bir gülümsemeyle hemfikir olduğunu belirten “Subaru”, Subaru’nun güçsüzce fısıldayışı karşısında kaşlarını çattı.</p>
+<p class="wp-block-paragraph">O hâldeki “Subaru”ya bakan Subaru ise içinde tutmakta olduğu kelimelerin devamını getirdi. Yani——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Sen, harika birisin, ‘Natsuki Subaru’.”</p>
+<p class="wp-block-paragraph">——Bu, yirmiden fazla kez Ölümden Dönüşüne tanık olduktan sonra edindiği abartısız, dürüst izlenimiydi.</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img decoding="async" width="945" height="635" src="https://web.archive.org/web/20260619052357im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-73.png" alt="" class="wp-image-8155" srcset="https://web.archive.org/web/20260619052357im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-73.png 945w, https://web.archive.org/web/20260619052357im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-73-768x516.png 768w" sizes="(max-width: 945px) 100vw, 945px"><figcaption class="wp-element-caption"><a href="https://web.archive.org/web/20260619052357/https://x.com/fndlwm_re/status/1274765050872381440">Görsel Sahibi</a></figcaption></figure>
+</div>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img decoding="async" width="1024" height="855" src="https://web.archive.org/web/20260619052357im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-108.png" alt="" class="wp-image-8254" srcset="https://web.archive.org/web/20260619052357im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-108.png 1024w, https://web.archive.org/web/20260619052357im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-108-1000x835.png 1000w, https://web.archive.org/web/20260619052357im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-108-768x641.png 768w" sizes="(max-width: 1024px) 100vw, 1024px"><figcaption class="wp-element-caption"><a href="https://web.archive.org/web/20260619052357/https://x.com/HaruSabin">Görsel Sahibi</a></figcaption></figure>
+</div>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Karşısındaki adama bakarak ağır ağır gözlerini kıstı.</p>
+<p class="wp-block-paragraph">Bakmaya alışkın olduğu o yüz, bakmaktan usandığı o yüz, bakmanın bile stres yarattığını düşündüğü o yüz, kendisinin yüzüydü. Kendisinindi, kendisinin değildi, kendisinin olsa da kendisinin olduğuna inanmak istemiyordu.</p>
+<p class="wp-block-paragraph">O yüzün ilk defa beklenmedik bir şeyle karşılaşmışçasına tepki vermesi sevindiriciydi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“…En yakınım, ha.”</p>
+<p class="wp-block-paragraph">Kendi benliğini kalbinin en derinlerinden seven pek fazla kişi bulunmazdı.</p>
+<p class="wp-block-paragraph">Subaru da bu kategoriye aitti ve kendinden nefret ediyordu. Belki de “Natsuki Subaru” da bu bağlamda ondan farksızdı. ——Subaru, “Subaru”, kendinden nefret ediyordu.</p>
+<p class="wp-block-paragraph">Fakat Natsuki Subaru, en yakını olarak “Natsuki Subaru”yu gördüğünde -bunu söylemek aşırı utanç verici olsa da- aklından geçen düşünce ‘çok havalı’ olmuştu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Güçsüz, umutsuz, elinden hiçbir iş gelmeyen ama buna rağmen mücadele eden ve onları seven sana saygı duyuyorum. İşte bu yüzden——”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Senin Ölü Kitaplarını okumanın, ardındaki amaç, yerine geldi.”</p>
+<p class="wp-block-paragraph">O Ölü Kitaplarını yalnızca güçsüzlüğü karşısında dişlerini sıkmak, yollarının tükenişine üzülmek, kendisiyle aynı yüze sahip benliğine kin gütmek için açmamıştı.</p>
+<p class="wp-block-paragraph">Elbette insanüstü Subaru’nun köklerini takip etmek ve benzersiz bir güç elde etmek gibi bir kendini beğenmişliğe de sahip olmamıştı.</p>
+<p class="wp-block-paragraph">Onun aradığı şey, “Natsuki Subaru”nun yaptığı şeyler ve girdiği yollarla sıradan bir insan olduğunu öğrenmekti.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“…Ansızın utanç verici şeyler söyleyen biri olduğun kesin.”</p>
+<p class="wp-block-paragraph">O noktada Subaru’nun sözleri karşısında donakalmış olan “Subaru”, ansızın canlandı.</p>
+<p class="wp-block-paragraph">Bu kötü mizah karşısında gözlerini kısarak—— yo, kendini biraz garip hisseder hâlde gözlerini Subaru’ya dikerek ve parmaklarını yavaşça ileriye doğru uzatarak,</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“Bunu bizzat kendime söylüyor olmam epey sorgulanası ama şu ana kadarki varoluşuma bütünüyle baktıktan sonra böyle söyleyebilirsin tabii. Şimdi sen bahsini açınca düşündüm de ‘Natsuki Subaru Sıfırdan Başka Bir Dünyada Hayata Başlıyor’ gösterimiymiş, anlarsın ya.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ah, başrolün seninle aynı ismi taşıyor olması da bayağı tuhaf hissettiriyormuş.”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“Kadın kahramanın annenle aynı ismi taşımasından iyidir, değil mi… Yo, o değil de…”</p>
+<p class="wp-block-paragraph">Hiç sakınmadan karşılıklı alay eden Subaru ile “Subaru” ikilisi bakışıyordu.</p>
+<p class="wp-block-paragraph">Bu noktada omzundan aşağısının sallandığı hissini tadan “Subaru”, eliyle kendisini işaret ederek…</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“Tüm bunları daha önce de söylemiştim, ama bir sıkıntı yok mu gerçekten? Benim sahtekâr Rui çıkmam şeklindeki ihtimal tamamen ortadan kalkmamış olmalı, anlarsın ya.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ortadan kalktı. Sana ciddi ciddi vurduğumda bile değişmedin.”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“Yani böyle bir şeyle değişmek ancak Yanagisawa’nın kopyalama yeteneğiyle gerçekleşirdi herhâlde…”</p>
+<p class="wp-block-paragraph">“Subaru’nun” itirazına göre bu, gerçek anlamda bir gerekçe olarak kullanılamazdı.</p>
+<p class="wp-block-paragraph">Fakat Subaru, an itibarıyla “Subaru” konusundaki şüpheciliğini geride bırakmıştı.</p>
+<p class="wp-block-paragraph">Belki de bunun nedeni, “Subaru”nun daha önce yorumladığı bir şeydi.</p>
+<p class="wp-block-paragraph">Rui Arneb’in en ufak bir kısmını dahi atlamadan bir insanın hayatını tepeden tırnağa yediği varsayılsa bile o suratı, o sesi yeniden inşa edemezdi.</p>
+<p class="wp-block-paragraph">Çünkü bahtiyarlığı, saadeti, mutluluğu idrak etme kabiliyetine sahip değildi. İşte bu yüzden——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Hiç kimseyi sevmeyen o, sevdiği biri uğruna Ölümden Dönme duygusunu anlayamaz.”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Gözlerinin önündeki “Subaru” sessizliğini korurken Subaru, uzun, acılı bir nefes aldı.</p>
+<p class="wp-block-paragraph">Dile getirdiği şey, kulağa hoş gelen tatlı ve fena hâlde bayat sözlerden ibaretti. Yine de verebilecek başka bir yanıtı yoktu.</p>
+<p class="wp-block-paragraph">İşte bu yüzden gözlerinin önündeki “Subaru”, hiç tartışmasız “Natsuki Subaru” idi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:&nbsp;</strong>“Sen neden, buradasın? Beni mi, bekliyordun?”</p>
+<p class="wp-block-paragraph">Gözlerinin önündeki “Subaru’nun” kendisiyle aynı köklere sahip olduğunu kabullenmişti.</p>
+<p class="wp-block-paragraph">Bunun üzerine zihninde beliren şüphe, iki Subaru’nun burada baş başa olmasıyla ilişkiliydi.</p>
+<p class="wp-block-paragraph">Subaru’nun bu sorusu üzerine “Subaru”, bembeyaz zemine sertçe basarak…</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“Sen ve benim burada buluşmamızın sebebi, buranın aramızdaki tek bağlantı noktası olması.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Seninle benim aramdaki, bağlantı noktası…”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“Anıları olan benimle Anıları olmayan senin yollarının bu kulenin içerisinde kesişmesinin tek sebebi bu bölgedeki Ölü Kitabı. Bunun ne öncesinde ne de sonrasında seninle buluşmamız mümkün olabilirdi.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Tekrar düşündüm de ilk soruya dönelim hadi. Neden, buradasın?”</p>
+<p class="wp-block-paragraph">Subaru, “Subaru’nun” yaptığı açıklamayı sindirmeden bir kez daha aynı soruyu yöneltti.</p>
+<p class="wp-block-paragraph">Açık konuşmak gerekirse Subaru, iki Subaru’nun bu mekânda kesişip karşılaşmasının ardındaki mantığı algılayamamıştı. Anılarını koruyan “Subaru” ve o Anılara sahip olmayan Subaru, birbirlerini yan yana var olur hâlde bulmuştu.</p>
+<p class="wp-block-paragraph">——Ölü Kitaplarının oluşum kurallarının karmaşık detayları bilinmiyordu.</p>
+<p class="wp-block-paragraph">Bahsi açılmışken ölümlerin yığınla biriktiği “Natsuki Subaru” kitapları da başlı başına bir tuhaftı. Çünkü “Natsuki Subaru”nun Ölümleri dış dünyada gözlemlenemediği takdirde var olamayacak bir fenomen söz konusuydu.</p>
+<p class="wp-block-paragraph">Bunun anlamı, Od Lagna’nın gözlemci rolünü üstlendiği miydi?</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ama durum böyleyse ve Anılar Koridorundaki Rui Ölümden Dönüşü gözlemliyorduysa morali neden bu kadar yüksek olabilir anlamıyorum. Eğer bunu dışarıdan da onaylayabiliyorduysa…”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“Anılar Koridorunda kalıyor olabilir ama oranın hâkimi olamaz. Oranın hâkimi… daha da pis bir herif olmalı, diye düşünüyorum. Durum değerlendirilince öyle görünüyor.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Pis herif deyince anlaşıldı. En akla yatkın kişi…”</p>
+<p class="wp-block-paragraph">Bu noktada sözlerini duraksatan Subaru ve “Subaru’nun” ağzından aynı kelimeler döküldü:</p>
+<p class="wp-block-paragraph"><strong>Subaru ve ‘Subaru’: </strong>“——Bilge Flugel.”</p>
+<p class="wp-block-paragraph">En akla yatkın kötü mizaçlı kişinin o olduğunu söylemişlerdi.</p>
+<p class="wp-block-paragraph">Yani Pleiades Gözcü Kulesi’nin inşasıyla bağlantısı olan, içine Reid’in yerleştirildiği bir Sınav oluşturan ve Shaula’yı dört yüz yıl boyunca ne zaman sonlanacağı bilinmeyen bir çileye maruz bırakan o şahsın.</p>
+<p class="wp-block-paragraph">Dürüst olmak gerekirse Shaula acınacak hâldeydi. Eğer mümkünse Subaru, onu ustasının ellerinden kurtarmak isterdi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Öyleyse hem Anılarına sahip olan hem de olmayan benliğimin bir arada bulunma sebebi…”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“——Bu yanıt verilmesi zor bir soru. Sonuçta sen de ben de buradayız.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Yani, olan bu deyip geçeceğiz, ha?..”</p>
+<p class="wp-block-paragraph">“Subaru’nun” sözlerini karşılayıp tedirginliğe kapılan Subaru, çenesini kaldırdı.</p>
+<p class="wp-block-paragraph">Gerçek şu ki cevap anahtarından yoksun bir soru söz konusuydu. Çeşitli teorilere ulaşılsa da yanıtı asla temin edemezlerdi.</p>
+<p class="wp-block-paragraph">Bu soruyu detaylıca irdelemek ve bir yanıt vermek gerekirse o yanıt şu olurdu——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Gerçekten Rui Arneb olmadığın sürece sorun olmamalı.”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“Epey can sıkıcı bir tasdik etme yöntemi. Peki bana, gerçekten güveniyor musun?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Sana güveniyorum, sana güveniyorum. Bir kere de öbür tarafına vurmama izin verirsen daha da çok güvenirim.”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“Demek öyle. Mükemmel bir pazarlık yöntemi olduğunu söyleyemeyeceğim, anlarsın ya.”</p>
+<p class="wp-block-paragraph">Rahat bir tavırla anlamsız diyaloglar gerçekleştiren Subaru, “Subaru”nun sözleri karşısında omuz silkti.</p>
+<p class="wp-block-paragraph">İnsan başkalarıyla değil de kendisiyle karşı karşıya olunca, bu şekilde ana konuya ulaşmayı geciktirmek şeklinde korkakça bir yol izlendiğinin farkına varması çok kolay oluyordu.</p>
+<p class="wp-block-paragraph">İşte bu yüzden Subaru, bu işi üstlenerek üçüncü defa aynı soruyu yöneltti.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Heeey, öteki ben—— Ne amaçla, buradasın?”</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ayrıca biliyor olmalısın ki bu tarz bir şeyi dinlemeyeceğim.”</p>
+<p class="wp-block-paragraph">Subaru, “Subaru”nun sessiz kalmayı tercih edişi karşısında kara gözlerini kısarak fısıldadı. “Subaru” ise bunu duyduktan sonra bile az önceki alaylı hâllerine geri dönmedi.</p>
+<p class="wp-block-paragraph">Bunun yerine kara gözlerinde şahlanan şey, başından beri varlığını koruyan ışıltı oldu.</p>
+<p class="wp-block-paragraph">Belki de o ışıltı, sıklıkla suçluluk duygusu olarak bilinip adlandırılan şeydi——</p>
+<p class="wp-block-paragraph"><strong>‘Subaru’:</strong>&nbsp;“——Hey, anıların birleşmesi durumunda, neler olur sence?”</p>
+<p class="wp-block-paragraph">İşte Subaru’nun o soruyu bile isteye neşeyle dile getirmesinin sebebi buydu.</p>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph">“——<span style="text-decoration: underline;">Paterne</span> göre gidersek böyle konuşma modelinde normal yanıt ne olurdu acaba, ha?”</p>
+<p class="wp-block-paragraph">“Hiçbir fikrim yok. Açıkçası bu bana cevabı olmayan bir şeymiş gibi geliyor.”</p>
+<p class="wp-block-paragraph">“Dürüst olmak gerekirse daha bilgili taraf senmişsin gibi görünüyor, peki bilmemin faydalı olacağı ve haberimin olmadığı bir kural biliyor musun?”</p>
+<p class="wp-block-paragraph">“E beni parça parça inceleyen kitabı okudun. Büyük ihtimalle hayır.”</p>
+<p class="wp-block-paragraph">“Büyük ihtimalle hayır, ha.”</p>
+<p class="wp-block-paragraph">“Büyük ihtimalle.”</p>
+<p class="wp-block-paragraph">“…Eğer sen ve ben dikkatsizce çarpışacak olursak ve birimiz diğerini elerse, öyle bir şey olursa, ne yaparsın?”</p>
+<p class="wp-block-paragraph">“Böyle şeyler söylemesene. Çünkü sen gergin olunca ne düşünüyorsan ben de gergin olunca genelde aynı şeyleri düşünüyorum.”</p>
+<p class="wp-block-paragraph">“Demek öyle. Öyleyse kim kazanırsa kazansın darılmaca gücenmece yok, hm?”</p>
+<p class="wp-block-paragraph">“Yo, ben kesinlikle kafayı yerim. Ve ben kafayı yiyeceksem sen de kafayı yiyeceksin demektir.”</p>
+<p class="wp-block-paragraph">“Eh, sanırım öyle. Muhtemelen, haklısın. Hm, bayağı ■’siziz, ha.”</p>
+<p class="wp-block-paragraph">“Ne dedin?”</p>
+<p class="wp-block-paragraph">“Bayağı ■’siziz dedim… ha, sorun mu var?”</p>
+<p class="wp-block-paragraph">“…Yo, muhtemelen yanlış duydum, herhâlde.”</p>
+<p class="wp-block-paragraph">“————”</p>
+<p class="wp-block-paragraph">“————”</p>
+<p class="wp-block-paragraph">“Ah, doğru ya. Olasılıklar hakkında merak edebileceğin bazı şeyler var, peki sana söylememi istediğin, yapabileceğim bir şey var mı?”</p>
+<p class="wp-block-paragraph">“Ehh, madem şu ana dek söylediğim her şeyi duydun, öyleyse devam et de bir şeyler söyle hadi.”</p>
+<p class="wp-block-paragraph">“Aslına bakarsan sen bu dünya konusunda benden daha bilgilisin… gerçi benim Ölü Kitabını okumamla o avantaj az çok ortadan kayboldu ama birazcık değişen bir şeyler oldu, anlıyor musun?”</p>
+<p class="wp-block-paragraph">“Değişen bir şeyler mi?”</p>
+<p class="wp-block-paragraph">“Anılarımı kaybedişimin ardından herkesle konuştum, hepsini tanıdım… Yani <em>‘Natsuki Subaru Sıfırdan Başka Bir Dünyada Hayata Başlıyor’</em> gösterimiyle ilgili bilmediğin kısımlar var.”</p>
+<p class="wp-block-paragraph">“————”</p>
+<p class="wp-block-paragraph">“Öncelikle, Meili, evet. O birazcık şey, çeşitli yollarla kendi üzerine bombalar atıyor, yani zorlu bir iş olacak ama onunla konuştuğun takdirde anlayış gösteriyor, o yüzden onunla doğru düzgün konuş lütfen. Meili-senpai’nin şu anda epey öfkeli olduğunu hayal edebiliyorum.”</p>
+<p class="wp-block-paragraph">“Hı hı, anladım.”</p>
+<p class="wp-block-paragraph">“Ve bir de kulenin içerisinde dolaşan devasa bir akrep var ama o aslında Shaula. Bu da işleri bayağı tehlikeli hâle getiriyor ama… bunu, canı istediği için yapmıyor. Lütfen, ona da yardım et.”</p>
+<p class="wp-block-paragraph">“Hı hı, anladım.”</p>
+<p class="wp-block-paragraph">“Oh, bu arada, söylemeyi unutmuşum ama Rui’yle karşılaştığımda Rem’den fena bir tekme yedim. O sıralar Rem’i hatırlamıyordum, yani Rem’in nasıl bir kız olduğunu ancak kitabı okuduktan sonra anlayabildim ama… hmm, beklenildiği üzere, o benim Rem’immiş.”</p>
+<p class="wp-block-paragraph">“Hayır, o benim Rem’im.”</p>
+<p class="wp-block-paragraph">“Hayır, benim.”</p>
+<p class="wp-block-paragraph">“Benim.”</p>
+<p class="wp-block-paragraph">“————”</p>
+<p class="wp-block-paragraph">“————”</p>
+<p class="wp-block-paragraph">“Ram da şey dedi. Karların eridiği mevsim geldiğinde görünmez şeyler görünür hâle gelecek ve mutlaka yüzleri görünecekmiş… Tam da ondan beklenildiği gibi.”</p>
+<p class="wp-block-paragraph">“Hı hı, sanırım öyle.”</p>
+<p class="wp-block-paragraph">“Julius denen herife gelince… şey, hiçbir şey demesem de sıkıntı olmaz herhâlde. Sana onun hakkında bir şey söylememi gerektirecek kadar güvenilmez biri değil.”</p>
+<p class="wp-block-paragraph">“Hı hı, katılıyorum.”</p>
+<p class="wp-block-paragraph">“Bu arada, babamdan ve annemden, özür dilediğin için teşekkürler.”</p>
+<p class="wp-block-paragraph">“Hı hı.”</p>
+<p class="wp-block-paragraph">“Otto ve Garfiel’i kurtardığın için teşekkürler.”</p>
+<p class="wp-block-paragraph">“Hı hı.”</p>
+<p class="wp-block-paragraph">“Petra’yı, Frederica’yı ve Arlam Köyündeki herkesi kurtardığın için teşekkürler.”</p>
+<p class="wp-block-paragraph">“Hı hı.”</p>
+<p class="wp-block-paragraph">“Beatrice’i dışarı çıkarttığın ve elini tuttuğun için teşekkürler.”</p>
+<p class="wp-block-paragraph">“————”</p>
+<p class="wp-block-paragraph">“Emilia…”</p>
+<p class="wp-block-paragraph">“————”</p>
+<p class="wp-block-paragraph">“Emilia’ya, âşık olduğun için, teşekkürler. Onu, ben de seviyorum. Onu gerçekten seviyorum.”</p>
+<p class="wp-block-paragraph">“…Hı hı, biliyorum.”</p>
+<p class="wp-block-paragraph">“——Natsuki Subaru. Sen harika birisin, bunu içtenlikle biliyorum, eğer söz konusu sensen her şey kesinlikle yolunda gidecektir.”</p>
+<p class="wp-block-paragraph">“Hı hı.”</p>
+<p class="wp-block-paragraph">“————”</p>
+<p class="wp-block-paragraph">“Hım… Sanırım öyle.”</p>
+<p class="wp-block-paragraph">“————”</p>
+<p class="wp-block-paragraph">“Evet—— Söz konusu bizsek, her şey kesinlikle yoluna girecektir.”</p>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph">“Her şey güzel olacak, ha.”</p>
+<p class="wp-block-paragraph">“Hı hı, aynen öyle. Evet, her şey güzel olacak.”</p>
+<p class="wp-block-paragraph">“Sen, harika birisin, bunu içtenlikle biliyorum.”</p>
+<p class="wp-block-paragraph">“…Hı hı, ama, hımm. Bir şey söylemeliyim.”</p>
+<p class="wp-block-paragraph">“————”</p>
+<p class="wp-block-paragraph">“——Sanırım yaz tatilim, sona ermek üzere.”</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" decoding="async" width="945" height="422" src="https://web.archive.org/web/20260619052357im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-75.png" alt="" class="wp-image-8157" srcset="https://web.archive.org/web/20260619052357im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-75.png 945w, https://web.archive.org/web/20260619052357im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-75-768x343.png 768w" sizes="auto, (max-width: 945px) 100vw, 945px"></figure>
+</div>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph">El sıkışma eşliğinde klişe bir etkileşimle sohbetleri sonlandı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Subaru nefes aldı ve verdi.</p>
+<p class="wp-block-paragraph">Muhtemelen bu birliktelik düzensiz bir biçimde yönetilmemişti—— Yo, bu mekânda bir birliktelik sürecinin yürütüldüğüne dair bir varsayım kesinlikle mevcut değildi.</p>
+<p class="wp-block-paragraph">Subaru’nun varlığı da tüm bu olup bitenler de bütünüyle düzensiz, kuralsızdı. İşte bu yüzden——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Hareketsizce duran Subaru nihayet yanaklarında dere misali akan yaşların çenesinden aşağı damlacıklar hâlinde döküldüğünü fark etti.</p>
+<p class="wp-block-paragraph">Şu veya bu nedenle o yaşları silmek istemedi, çünkü görünen o ki o yaşlar kesinlikle Subaru tarafından dökülmemişti.</p>
+<p class="wp-block-paragraph">O yaşlar, an itibarıyla Subaru’nun içerisinde adım adım Subaru’yla kaynaşmakta olan biri tarafından dökülmüştü.</p>
+<p class="wp-block-paragraph">Subaru, tekrar tekrar derin nefesler alarak zihnindeki bilincin etrafında dolaştı. Anıları arasında alazlanan şeyler——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Hık.”</p>
+<p class="wp-block-paragraph">Ansızın geri dönen o şeyler, Natsuki Subaru’nun aldırış etmediği 20 Ölümdü.</p>
+<p class="wp-block-paragraph">Her biri kulenin içerisindeki mücadeleleri ve kıvranışları anlatan ve tadına bakılan olayların bir parçası hâlini alan sayısız Ölüm—— her birine ait tüm o endişe verici görseller ele geçiriliyormuşçasına bir bağlantı kurdu.</p>
+<p class="wp-block-paragraph">Evet, bir bağlantı kurdular ama…</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Sen bile köprüden gereğinden fazla geçiyorsun, anlarsın ya!..”</p>
+<p class="wp-block-paragraph">Subaru’ya adamakıllı övgü sözcükleri sıralayan öteki benliği. Onun yalnızlık içerisindeki savaşını ve yoldaşlarına güvenmek için verdiği ağır mücadeleyi sindiren Subaru, bir kanıya varmıştı.</p>
+<p class="wp-block-paragraph">Kesinlikle, tam da Subaru’nun söylediği gibiydi—— <em>Sana, saygı duyabilirim.</em></p>
+<p class="wp-block-paragraph">Zihninde bu düşüncelerle, fazlasıyla hızlı atan nabzını yatıştırmaya çalışırcasına derin nefesler alarak başını eğdi.</p>
+<p class="wp-block-paragraph">Sonra da suratını kaldırdı ve bakışlarını önüne dikti.</p>
+<p class="wp-block-paragraph">Bulunduğu yer, değişmemiş beyaz boşluktu.</p>
+<p class="wp-block-paragraph">Anılar Koridorundan kaynaklanan ve Subaru’nun düzensiz hâlini üreten boşluk.</p>
+<p class="wp-block-paragraph">Subaru’yla el sıkışmış bir başka Subaru’nun saniyeler öncesine dek bulunduğu nokta—— İşte o noktayı dolduran kişinin minyon gölgesine bakan Subaru, kara gözlerini kıstı. Ve——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ee. Görmek istediğin şeyi gördün mü—— Rui Arneb?”</p>
+<p class="wp-block-paragraph">Dedi Subaru usulca, Ölü Kitaplarını okumaya devam ederek buraya ulaşan ve akabinde ortadan kaybolan kişiye, yani Natsuki Subaru’ya—— yo, Rui Arneb’e.</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" decoding="async" width="745" height="1024" src="https://web.archive.org/web/20260619052357im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-79.png" alt="" class="wp-image-8161" srcset="https://web.archive.org/web/20260619052357im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-79.png 745w, https://web.archive.org/web/20260619052357im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-79-728x1000.png 728w" sizes="auto, (max-width: 745px) 100vw, 745px"><figcaption class="wp-element-caption"><a href="https://web.archive.org/web/20260619052357/https://x.com/ringo1748607337">Görsel Sahibi</a></figcaption></figure>
+</div>
+</article>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+            <a href="arc6bolum55.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="arc6bolum57.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

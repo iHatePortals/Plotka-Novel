@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VII, Bölüm 2 Parça 1 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc7bolum1parca4.html" class="nav-btn">← Önceki Parça</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc7bolum2parca2.html" class="nav-btn">Sonraki Parça →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VII, Bölüm 2 Parça 1</h1>
+            <div class="subtitle">"Kurtlar Ülkesi"</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p style="font-style: italic; color: #888; text-indent: 0;">*Bölüm anılarla başlıyor*</p>
+
+            <p>Beatrice: [――Dinle, Subaru, sanırım. Bundan böyle her daim ölüm döşeğinde olduğunu anlaman gerekiyor, doğrusu.]</p>
+
+            <p>Subaru: [Hey hey, bu ufaklık-sama hiç hoş olmayan şakalar yapıyor.]</p>
+
+            <p>Beatrice: [Betty bir ufaklık değil ve bu da bir şaka değil, sanırım! Betty’i ciddiye alman gerekiyor, doğrusu!]</p>
+
+            <p>Beatrice kızarmış bir suratla böyle söylerken Subaru, “Tamam, tamam” diyerek başıyla onay verdi.</p>
+
+            <p>Benekli bir halının üzerinde bağdaş kurarak oturmuş şekilde, kısa kollarını önünde kavuşturmuş Beatrice-sama’dan aldığı bir dersin ortasındaydı ama bu dersin hiçbir yere vardığı yoktu.</p>
+
+            <p>Bunun ana sebebi ise Subaru’nun Beatrice’in verdiği her minik araya çomak sokmasıydı, fakat――</p>
+
+            <p>Subaru: [Hep Beako’nun tatlılığı yüzünden. Hiç hoş değil……]</p>
+
+            <p>Beatrice: [Betty nihayet ciddileştiğini düşünürken neden bahsediyorsun, doğrusu!? ……Ehh, Betty’nin tatlı olduğu herkesçe bilinen bir şey, yani şimdilik yapabileceğimiz bir şey yok, sanırım……]</p>
+
+            <p>Subaru: [Atlattığımız olaydan hemen sonraki ibren muazzam gerçekten……]</p>
+
+            <p>Beatrice: [Halıyı Betty’nin altından çekerek çok ileri gittin, doğrusu!]</p>
+
+            <p>Diyerek ayağını yere geçiren Beatrice, Subaru’nun öfkesini anlamasını sağladı. Onun şu anki tavrı eskisinden farksız görünüyordu, diğer taraftan Subaru’nun hisleri büyük ölçüde farklıydı.</p>
+
+            <p>O güne dek fikirleri ve görüşleri üzerine sıklıkla atışmışlardı ve Beatrice, kendisine kolay kolay ısınmayan bir mahalle kedisi izlenimi vermişti. Fakat Subaru’nun gözünde o anki Beatrice――</p>
+
+            <p>Subaru: [Vaktimi yüzümü karnına gömerek geçirmek istediğim dünya tatlısı bir evcil hayvan gibisin.]</p>
+
+            <p>Beatrice: [Betty’i! Ciddiye! Al! Sanırım!]</p>
+
+            <p>Subaru: [Bharğğh!]</p>
+
+            <p>Derin duygularla mırıldanan Subaru, elini kendisine doğru uzatan Beatrice tarafından uçuruldu. Duvara toslayıp yere yığılıp kaldığı esnadaysa Beatrice, bitkin bir şekilde omuz silkti.</p>
+
+            <p>Beatrice: [Betty’e kendini tekrarlattırma, doğrusu. Burada önemli bir meseleden bahsediyoruz, sanırım. Duymamanın gerçekten tehlikeli olacağı bir şey, doğrusu. ――Geçidindeki problemle ilgili, sanırım.]</p>
+
+            <p>Subaru: [……Geçidimle ilgili, ha.]</p>
+
+            <p>Diyerek ansızın kendisini kaldıran Subaru, düştüğü yere bağdaş kurdu.</p>
+
+            <p>Ve bir elini usulca göğsüne götüren Subaru, içerisindeki organı düşündü ― yani gözle görülemeyen ya da dokunulamayan o şeyi.</p>
+
+            <p>Geçitler, canlıların içerisinde var olan önemli organlardı ve Subaru’nun doğal gördüğü fikirlere aykırı bu dünyada büyü yapmak için kullanılırlardı. O organın iyi kalite olup olmaması kişinin büyü kullanmaya olan yatkınlığıyla ilişkiliydi ve Subaru’nun geçidinin kalitesi pek iyi olmamıştı.</p>
+
+            <p>“Olmamıştı”, çünkü o geçidi çoktan yitirmişti.</p>
+
+            <p>Beatrice: [Açık konuşmak gerekirse onu kaybetmedin. Parçaladın, doğrusu.]</p>
+
+            <p>Subaru: [Bana kullanmamam söylenmesine rağmen pervasızca kullandığım için olmuştu. Oh şey, Ferris’i bir dahaki görüşümde sağlam bir azardan fazlasıyla karşılaşacağım. Kalkıp benim için gerçekleştirdiği tüm tedaviyi mahvettim.]</p>
+
+            <p>Beatrice: [Yeni keşfettiğin bu endişeler için seni tebrik ediyorum, sanırım…… Ama “bir dahaki” seferin olacağının garantisi yok, doğrusu.]</p>
+
+            <p>Bu, Subaru’nun aşırı kullanımı nedeniyle zorlanan geçidini onarmaktan sorumlu olan Ferris’in tavsiyesini tamamen hiçe saymasının sonucuydu. Subaru, Ferris’in bir Oni’nin gaddarlığıyla öfke kusacağından emin halde korkudan büzüşüp kalmıştı fakat Beatrice’in gözlerinde, durumun göründüğünden de vahim olduğunu ima eden bir bakış vardı.</p>
+
+            <p>Beatrice: [Geçidinin parçalanması sonucunda mananı doğru düzgün salamaz hale geldin, sanırım. Buna rağmen mana sen yaşadığın müddetçe üreyip özümsenmeye, bedeninde birikmeye devam edecek, doğrusu. Ama o manayı dışarı çıkartacak bir yola sahip değilsin, sanırım……]</p>
+
+            <p>Subaru: [Manayla dolup patlayacağımı söylemeyeceksin herhalde?]</p>
+
+            <p>Beatrice: [――――]</p>
+
+            <p>Subaru: [NE, Beatrice-san!? Sessizliğin beni korkutuyor!]</p>
+
+            <p>Beatrice yüzünde nahoş bir ifadeyle gözlerini kaçırıp sessizleşince Subaru, sesini yükseltti. Onun nihayet söylediklerine ciddiyetle dikkat kesilmiş gibi göründüğünü gören Beatrice ise bir parmağını kaldırıp “Dinle” diyerek,</p>
+
+            <p>Beatrice: [Tüm ciddiyetimle söylüyorum ki doğru anladın, doğrusu. Böyle devam ederse vücudunda biriken mana yüzünden fiziksel durumun giderek kötüleşecek ve en nihayetinde o bulanık mana yüzünden “buum” olacaksın, sanırım.]</p>
+
+            <p>Subaru: [Çok korkunç! Bu konuda bir şeyler yapmamızın bir yolu var mı!?]</p>
+
+            <p>Beatrice: [Bu noktada devreye Betty giriyor, doğrusu. Neyse ki Betty seninle bir kontrat oluşturdu…… Subaru ve ben, ruhlarımız aracılığıyla bağlandık, sanırım. Betty’nin de söylediği gibi Betty diğer Ruhlardan biraz farklı ve diğer insanlardan mana çekmeye ihtiyaç duyuyor, doğrusu. Bu da demek oluyor ki……]</p>
+
+            <p>Subaru: [――Benim için, bedenimde biriken manayla ilgili bir şeyler yapacaksın!]</p>
+
+            <p>Beatrice’in bir beysbol maçının seyrini değiştiren bir vuruş misali fikrini işiten Subaru, bir hışımla ayağa kalktı ve onun küçük bedenini kolları arasına alıp kaldırdı.</p>
+
+            <p>Sonra da onu havada tutmaya devam etti ve onun “Nh, kyah!?” sesleri eşliğinde olduğu yerde dönmeye başlayarak,</p>
+
+            <p>Subaru: [Sen bir harikasın, Beako! Gerçekten, varlığına öyle çok şey borçluyum ki seninle aynı seviyeye çıkamayacakmışım gibime geliyor! Böylece seninle hem ismen hem de cismen aynı gemide olduk!]</p>
+
+            <p>Beatrice: [B-bu öylece hallolacak bir şey değil, sanırım! Bundan böyle Betty’nin moralini her bozuşunda canının bir avuç sabun köpüğü kadar dayanıksız olduğunu aklında tutmak zorundasın, doğrusu. Ölmek istemiyorsan tüm kalbini ve ruhunu Betty’nin huyuna gitmeye adamaya devam et, sanırım.]</p>
+
+            <p>Subaru: [Heh, yani sana şefkat göstermeye devam etmek için her şeyimi vermemi söylüyorsun. Bu tamamen göz kamaştırıcı ve harikulade olmaya daha ne kadar devam edebileceğine bağlı. Bu da omuzlarında büyük bir yük taşıyorsun demek, Beako.]</p>
+
+            <p>Beako: [Neden Betty’e böyle bir şey söylenme gereği duyuluyor ki, doğrusu! Betty bunu kabul edemez, sanırım!]</p>
+
+            <p>Subaru, hala kollarında tuttuğu Beatrice’in kıpkırmızı suratıyla bağrışlarını dinlerken dönmeye devam ediyordu.</p>
+
+            <p>Dönüyor, döndükçe dönüyordu.</p>
+
+            <p>Döndükçe dönüyor, döndükçe dönüyor, döndükçe dönüyordu――</p>
+
+            <p style="text-align: center; margin: 2em 0; color: var(--accent-color);">△▼△▼△▼△</p>
+
+            <p>Görüş alanının kendi etrafında dönmesi hissiyatı ansızın sona ermiş ve Subaru’nun bilinci uyanmıştı.</p>
+
+            <p>Az önce çektiği boğulma hissine benzer ıstırap hiçbir uyarı olmaksızın kaybolunca da dengesiz nefes alıp verme ritminin acısıyla birlikte sırtının altındaki zemini hissetmeye başladı.</p>
+
+            <p>Subaru: [――k, ah, ghagh]</p>
+
+            <p>Boğazını ovuşturur halde oturarak başına gelenlere dair hatıralarını gözden geçirdi.</p>
+
+            <p>Aynı zamanda göğsünün merkezine baktığında oradan fırlıyor olması gereken oku göremedi. Bunun yanı sıra bedenini ağaçlara sürterken edindiği sıyrıklar da ortadan kaybolmuştu.</p>
+
+            <p>Sonucun böyle olması çok doğaldı. Göğsü tek ve ürpertici bir darbeyle delinip geçilmişti.</p>
+
+            <p>Subaru: [Ben… ölmüşüm……]</p>
+
+            <p>Zeminin ayaklarının altında ufalanıp gidişi benzeri belli belirsiz bir his deneyimleyen Subaru, kanı donmuş şekilde titriyordu.</p>
+
+            <p>Tüm bunlara sebebiyet veren olaylar silsilesinde Pleiades Gözcü Kulesindeki kara gölge tarafından yutulmuş ve buraya sürüklenişinin üzerinden yalnızca yirmi otuz dakika geçmişti――Subaru’nun hayatını kaybetmesine bu kadarcık şey yetmişti.</p>
+
+            <p>İçerisinde bulunduğu durumun vahametini bir kez daha idrak ederek ayağa kalktı. Dengesiz bedenini bir şekilde desteklemeyi başardıktan sonraysa etrafını inceledi.</p>
+
+            <p>Ve sonra da――</p>
+
+            <p>Subaru: [Kahretsin, bu çok kötü oldu……]</p>
+
+            <p>Alabildiğince uzanan yeşil, çimenlik bir arazinin ortasında olduğunu teyit eden ve yanında görmeyi arzuladığı kişinin ortalıkta olmadığını gören Subaru, talihsizliğine lanet okudu.</p>
+
+            <p>Burasının o ikiliyle birlikte kuleden fırlatıldığı nokta olduğuna hiç şüphe yoktu.</p>
+
+            <p>Ortadaki problemse kendisiyle birlikte gönderilen Rem’i bulamaması, Louis’in de ortada olmamasıydı. Özetlemek gerekirse, “Ölümden Dönüş” yaptığı nokta――</p>
+
+            <p>Subaru: [Rem’in beni boğazlayıp bayıltmasından sonra……!]</p>
+
+            <p>Başlangıç noktası, sırtında taşıdığı Rem tarafından boğazlanıp bilincini yitirişinin sonrasıydı.</p>
+
+            <p>Bu nokta Subaru’yu ne Rem’in uyanışının gerçekleşmeyeceği kadar geri taşımıştı ne de Pleiades Gözcü Kulesindeki son döngünün hiç gerçekleşmeyeceği kadar. Hiç değilse bu, Subaru’nun iyi haber demek isteyeceği bir şeydi.</p>
+
+            <p>Gerçi kuledeki son döngüsüne dönebilecek olup kayıp Rem’le üç beş kelime etme olasılığını da ummamış değildi, bir an için böyle bir umudu olmuştu ama――</p>
+
+            <p>Subaru: [Aptal mıyım ben? Yo, tabii ki aptalım.]</p>
+
+            <p>Bu denli büyük bir pişmanlık taşıyorsa onunla iletişime geçme imkanı varken, onunla konuşacak zamanı bulmuşken ve kendisine onun nasıl hissettiğini dinleme fırsatı bahşedilmişken buna daha çok zaman ayırmalıydı.</p>
+
+            <p>Bunu yapmamış olan Natsuki Subaru’nun bu şekilde yas tutmaya hakkı yoktu.</p>
+
+            <p>Her halükarda şu an için――</p>
+
+            <p>Subaru: [――Rem’i bulacağım.]</p>
+
+            <p>Kaçan kızın peşine düşmek ve yanlış anlaşılmalarını düzeltmek zorundaydı.</p>
+
+            <p>Rem’in kaçmasının nedeni kendisini çevreleyen Cadı miasmasıysa, daha az önce “Ölümden Döndüğü” için kokunun yoğunluğu muhtemelen daha da güçlenmiş olacaktı.</p>
+
+            <p>Yani Rem’in Subaru’nun sözlerine eskisinden de az kulak asma ihtimali çok yüksekti. Fakat Natsuki Subaru’nun geçirdiği bir yıl, böyle bir şey yüzünden Rem’den vazgeçeceği kadar anlamsız değildi.</p>
+
+            <p>Subaru: [Ayrıca, beni öldürmek isteyen biri var…… Gerçi o ok saldırısı Rem’den gelmiş olmamalı.]</p>
+
+            <p>En kötü senaryo, kendisine saldıran kişinin Rem olmasıydı ki böyle bir olasılık da mevcuttu ama Subaru, Rem’in bu kadar kısa sürede bu iş için ihtiyaç duyacağı ekipmanları toplamış olabileceğini sanmıyordu.</p>
+
+            <p>Üstelik yay ve ok, öyle kolayca ve çabucak hazırlanılabilecek şeyler değildi.</p>
+
+            <p>Subaru: [Beni delip geçen okun bir ok başı vardı, üzerine tüyler de takılıydı…… Kalbime saplandığı için olabilir ama çok fazla acı duymamıştım. Öyle olsa bile……]</p>
+
+            <p>Bir yaydan çıkan güçlü, sağlam bir oku yediği takdirde Rem’in bile tüm gücüne rağmen direnme şansı olmazdı.</p>
+
+            <p>Bacaklarını özgürce hareket ettiremediği için kaçmakta başarılı olması da zor olurdu. Yani Subaru’nun ne olursa olsun Rem’i bir ok kurbanı olmadan önce buradan kurtarması gerekiyordu.</p>
+
+            <p>Hafızasını yitiren Rem onu müttefiki olarak görmese de durum buydu.</p>
+
+            <p>Subaru: [Gitme zamanı, Natsuki Subaru. ――Ne kadar harika olabileceğini göster onlara.]</p>
+
+            <p>Diyerek yanaklarını tokatlayan Subaru, az önceki “ölümünün” şokunu ve kendisi için çok önem taşıyan kız tarafından sevilmemenin kederini geçici olarak zihninden attı. Onu bulsa bile kendisine katılabileceğinden emin değildi ama onu bulmak her şeyden önce geliyordu.</p>
+
+            <p>Kederli olmak da öfkeli olmak da yalnızca hayattayken yapılabilecek şeylerdi.</p>
+
+            <p>Subaru: [――――]</p>
+
+            <p>Önceden olduğu gibi derin bir nefes alıp veren Subaru, uçları aşağı eğilmiş çimenlere bakıp Rem’in bırakmış olduğu ayak izlerini takip ederek ormana daldı.</p>
+
+            <p>Fakat bu defa onu ararken bağırıp bağırmaması gerektiği konusunda kararsızdı.</p>
+
+            <p>Ok sayesinde bir başlangıç süreci atlatmış, muhtemelen savunmasız olduğu sırada düşmana rastlamıştı.</p>
+
+            <p>O düşman her kim idiyse kimliği ve amacının belirsizliğine rağmen tek bir hamleyle Subaru’yu öldürme amacına bakıp da dostane olduğunu düşünmek zordu. Ona rastlarsa kendisini bekleyen şey “ölüm” olacaktı. Karşısındakini o tarz bir düşman olarak görmeliydi.</p>
+
+            <p>Subaru: [Ama araç gereç…… yani bir yay ve ok kullandığına göre, karşımda bir Cadı Yaratığı değil, bir insan var.]</p>
+
+            <p>Rakibi bir insansa, yapacakları görüşmenin gidişatına bağlı olarak bu durumu birbirlerini öldürmeye çalışmadan geride bırakma ihtimalleri olabilir demekti. Gerçi en başta görüşmeye gönüllü olup olmayacaklarını bile bilmiyordu.</p>
+
+            <p>Subaru’nun şu ana kadarki “Ölümden Dönüş” sayılarını toparlayınca, ölüm sebebi insan olanlar Cadı Yaratığı olanlara kıyasla terazide biraz daha ağır geliyordu.</p>
+
+            <p>Yani rakibinin söylediği şeyi anlayabilecek bir insan olması, körü körüne dostane bir ilişki kuracaklarını düşünebileceği anlamına gelmiyordu.</p>
+
+            <p>Onu arayan daha fazla insan olduğu takdirde Rem’i bulma ihtimalinin artacağını düşünüyordu ama――</p>
+
+            <p>Subaru: [――Cor Leonis.]</p>
+
+            <p>Gözlerini kapatan Subaru, içerisinde yatan Otoriteyi aktive ederek başıboş düşüncelerini uzaklaştırdı.</p>
+
+            <p>Pleiades Gözcü Kulesinde şiddetini sergileyen bu yepyeni güç “Cor Leonis”, “Küçük Kralı” destekleyen yoldaşlarının konumlarını tespit etmesine imkan tanıyan bir irdeleme becerisiydi.</p>
+
+            <p>Bu gücü kullanan Subaru, Rem’in yerini belirleyebileceği umuduna tutunuyordu.</p>
+
+            <p>Fakat――</p>
+
+            <p>Subaru: [……Durum vahim, hiç tepki yok. Benden çok uzaklaşmış olabilir, yoksa… beni müttefiki olarak görmediği için mi onu göremiyorum?]</p>
+
+            <p>“Cor Leonis’in” menzili tam olarak bilinmese de Subaru, yeteneğin devreye girdiği alanda müttefiklerini gösteren o soluk ışığı göremiyordu.</p>
+
+            <p>Konumlarını tespit edemeyen Subaru’nun aklınaysa aralarındaki mesafe ve ilişki geliyordu.</p>
+
+            <p>Emilia ve diğerleri zamanında o etkilerin hedefi olmuştu ama şu anda hiçbirini algılayamıyordu. Ayrıca Reid ve Oburluğu şahsen tanıyor olmasına rağmen o sıralar onların konumlarını da algılayamamıştı.</p>
+
+            <p>“Cor Leonis’in” aktif olduğundansa kesinlikle emindi.</p>
+
+            <p>Yani tepkisiz durumda olsa da müttefik radarı açıktı. Bunun sebebi de Emilia ve diğerlerinin etki alanının dışında olması, o alanın içerisinde olması gereken Rem’inse Subaru’yu müttefiki kategorisine koymamasıydı.</p>
+
+            <p>―― Rem ile uyum içerisinde hareket eden Louis'in yerini de bilmiyor olması da teorisini destekliyordu.</p>
+
+            <p>Subaru: [Onu müttefikim olarak görmeme imkan yok. Bu yüzden tıpkı Rem’e olan tek taraflı sevgim gibi o da radarımda belirmeyecek.]</p>
+
+            <p>Düşüncelerinde bu noktaya gelen Subaru, Rem’le irtibata geçtiğinde kurduğu zayıf iletişimden ötürü pişmandı.</p>
+
+            <p>Cadının miasmasıyla sarmalanmış haldeyken Rem’in güvenini kazanmak için hangi kelimeleri seçeceğinden emin değildi. Buna rağmen, ne kadar hain görünecek olursa olsun Louis’i korumak veya yanlarında getirmekle ilgili herhangi bir şey söylemesi mümkün değildi.</p>
+
+            <p>Subaru: [Kahretsin, lanet olsun…… neden……!? Rem nihayet… nihayet uyandı, öyleyse neden……]</p>
+
+            <p>Onunla bu şekilde kovalamaca oynamak zorundaydı?</p>
+
+            <p>Rem’in ayağa kalkıp kendi bacaklarıyla özgürce yürüyebileceği günü hevesle beklemişti ve onun harekete geçişinin bu şekilde olmasına içerlemeden edemiyordu.</p>
+
+            <p>Sonuç olarak kimden nefret etmesi gerektiğini düşünmenin tek faydasıysa öfkesini Louis’in de bir parçası olduğu Oburluk Günahı Başpiskoposlarına yöneltmek oluyordu.</p>
+
+            <p>Subaru: [――――]</p>
+
+            <p>Zihninde dönüp duran bu düşüncelerle birlikte ihtiyatlı bir şekilde ormanda ilerliyordu.</p>
+
+            <p>Yürürken bedenini yere yakın tutuyordu, çünkü biri――ki bu noktadan sonra daha elverişli olduğu için ona “avcı” diyecekti――tarafından bir kez öldürülmüştü fakat bu, onunla temasa geçmekten kaçınmak için aldığı çaresizce bir önlemden ibaretti.</p>
+
+            <p>Yüzüne çamur sürmek, kıyafetlerini yapraklarla kamufle etmek ve üzerinde aldatıcı renkler kullanmak gibi şeyler yapmayı da düşünmüştü ama maalesef vaktini bu tarz şeylere harcayamazdı.</p>
+
+            <p>Hiç değilse Rem’le ayrı kaldıkları zamanın tam olarak ne kadar olduğunu bilebilseydi arayışı bir yerlere bağlanabilirdi.</p>
+
+            <p>Subaru: [Düşün, düşün…… Kurnaz kafam yalnızca bu gibi durumlarda işe yarıyor. Rem her şeyi unuttu, hiçbir şey hatırlamıyor. Ama yine de beni bastıracak kabiliyete sahip ve Cadının miasmasını algılayabiliyor. Yani benlik belleği kayıp.]</p>
+
+            <p>“Hafıza Kaybı” manga ve oyunlarda sıklıkla görülür ama çoğu durumda söz konusu kayıp, benlik belleği denilen şeyin eksikliğine karşılık gelirdi.</p>
+
+            <p>Kuledeyken Oburlukla karşılaşmasının sonucunda hatıralarını yitiren Subaru için de aynı durum geçerliydi ― yo, Subaru sadece farklı bir dünyaya varışı sonrasındaki hatıralarını yitirmişti, yani Rem tam olarak Subaru’yla aynı durumda sayılmazdı ama ona benzer bir şeydi.</p>
+
+            <p>Başka bir deyişle, nesnelerin isimlerini biliyor ve vücuduna yerleşik dönüşümsel eylemleri anımsıyordu ama kendisinin ve diğer insanların isimlerinin yanı sıra onlarla geçirdiği vakte ilişkin detayları hatırlamıyordu.</p>
+
+            <p>Rem’in kendisinden “Ben” şeklinde bahsetmesi ve kokusu nedeniyle içgüdüsel olarak Subaru’ya karşı gardını alması da bunu kanıtlıyordu.</p>
+
+            <p>Subaru: [Kafası karışık olmalı. Sonsuza dek kaçamaz. Benden biraz uzaklaşırsa sakinleşip düşünecek zaman bulur. Ayrıca Louis’i yanına aldıysa…]</p>
+
+            <p>Böyle bir şey için dua etmesi aptallıktı ama Louis’in büyük bir engel teşkil edip Rem’in kaçışına mani olmasını diliyordu.</p>
+
+            <p>Kıyamet kopartsın, arada bir yürümeyi reddetsin, Rem’in başına bir sürü dert açsın, Subaru’ya en nihayetinde Rem’i yakalama fırsatı tanısın istiyordu.</p>
+
+            <p>Rem onu terk etse de olurdu.</p>
+
+            <p>Rem, onunla başa çıkamadığı için onu kendi haline bırakma kararı alsa da――</p>
+
+            <p>Subaru: [……Aslına bakarsan, buna pek ihtimal vermiyorum.]</p>
+
+            <p>Rem’in, çaresiz bir çocuk gibi görünürken Louis’i terk edip edemeyeceğinden emin değildi..</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="arc7bolum1parca4.html" class="nav-btn">← Önceki Parça</a>
+            <a href="arc7bolum2parca2.html" class="nav-btn">Sonraki Parça →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

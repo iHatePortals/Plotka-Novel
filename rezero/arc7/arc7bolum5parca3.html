@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VII, Bölüm 5 Parça 3 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 2em 0;
+            letter-spacing: 4px;
+            color: var(--accent-color);
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc7bolum5parca2.html" class="nav-btn">← Önceki Parça</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc7bolum6parca1.html" class="nav-btn">Sonraki Bölüm (Bölüm 6 Parça 1) →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VII, Bölüm 5 Parça 3</h1>
+            <div class="subtitle">"Erkek Olmak Zor"</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Subaru’nun ağzından çıkanları işiten Rem, irileşmiş gözleriyle bakakaldı.</p>
+
+            <p>Sebep anılarının istemsizce zonklaması gibi bir şey değildi, Subaru’nun uyanışından hemen sonra yaptığı güvenilmez beyanı, yol açtığı felaketten hiçbir ders almadan utanmazca tekrar etmesiydi.</p>
+
+            <p>Ama sorun yoktu.</p>
+
+            <p>Subaru, Rem’e illa da bu sözleri dinletmek gibi bir istek duymuyordu. ――Onun tek isteği, Rem’in mavi gözlerine yansıyan ve acınasılığını bir blöfün ardına gizleyen adamın, bir etki bırakmasıydı.</p>
+
+            <p>Subaru: [Sıkı tutun.]</p>
+
+            <p>Bu kelimelerle birlikte derin bir nefes veren Subaru, yaklaşan tehlikenin farkındaydı.</p>
+
+            <p>Rem hala direnmeye çalışıyor olsa da Subaru, onu durdurmak için kullanacağı kelimeleri dikkatlice seçerken ayaklarıyla yerden güç almaya başlamıştı bile. Böylelikle kendisini düşmeye hazırlayan Rem de eliyle Subaru’nun kıyafetlerine sımsıkı tutundu.</p>
+
+            <p>Ve sonra da――</p>
+
+            <p>Rem: [――Ölürsen seni affetmeyeceğim!]</p>
+
+            <p>“Ahh, böyle söylersen ölemem ki” diyerek buruk bir kahkaha atan Subaru, bacaklarını uçuruma doğru şiddetle savurdu.</p>
+
+            <div class="divider">△▼△▼△▼△</div>
+
+            <p>Çarpmanın etkisiyle havaya bir su sütunu yükseldi ve Subaru’nun bedeni yoğun bir kuvvet tarafından yutularak kendi etrafında döndükçe döndü, döndükçe döndü.</p>
+
+            <p>Suya ayaklarıyla başlayarak daldığı için düşüşten aldığı hasarı minimumda tutmayı başarmıştı.</p>
+
+            <p>Bununla birlikte suyun gücü onun minimum da olsa hasar almasına yetmişti ve sağlık barı halihazırda kırmızı bölgeye ulaşmış olan Subaru, dişlerini sıktığı ve yetersiz irade gücüyle kurtulmayı başardığı izlenimini ortadan kaldıramıyordu.</p>
+
+            <p>Gerçi böyle bir şey yapmasına gerek de yoktu.</p>
+
+            <p>Subaru: [Gah, bh]</p>
+
+            <p>Bu izlenimi silmesi gerekmeyen Subaru’nun tüm bedeni sırılsıklamdı. Çamaşır makinesinde yıkanan bir havluymuşçasına hızla akan suların hızıyla oradan oraya savruluyordu.</p>
+
+            <p>Bir şekilde nehrin yüzeyine çıkmak ve nefes almak istiyordu. Ama bunu yapacak özgürlüğe sahip değildi. Suyun üzerinde durmak için kolları ve bacaklarını çırpmak istese de kollarının arasında kıymetlisini taşıdığı için bunu yapamazdı.</p>
+
+            <p>Subaru: [――――]</p>
+
+            <p>Sular tarafından sıkıştırılıp buruşturulurken sevgi ve nefretinin hedeflerini kolları ve sırtında hissediyordu. Ne sırtına bağladığı kırbaç ne de kıymetlisini sımsıkı kucakladığı kolları birbirinden ayrılıyordu.</p>
+
+            <p>Subaru: [Gabh… gabh…]</p>
+
+            <p>Suya dalmanın etkisiyle, atlamadan önce soluduğu havanın çoğu ciğerlerinden kaçmıştı.</p>
+
+            <p>Yüzmeyecekti ama akıl sağlığını geri kazanmak için dayanıklılığa ve oksijene ihtiyacı vardı. İkisi de tükenmenin eşiğine geldiği için de rahat duramıyor ve işleri kolaylaştıramıyordu.</p>
+
+            <p>Subaru: [Gabh, gabh……]</p>
+
+            <p>Burnundan ağzına doğru sular akıyor ve aynı suların gözleriyle kulaklarına da dolduğunu hissediyordu.</p>
+
+            <p>Çırpınan ayakları suda anlamsızca kürek çekiyor ve kendisini, kocaman bir yaratığın midesine sürüklenirken hiçbir şey yapamayacak kadar güçsüz hissediyordu ― ki o yaratığın devasa nehir olduğu söylenebilirdi. Ve “oraya” ulaştığı anda, bu yaşananları geri alması mümkün olmayacaktı.</p>
+
+            <p>Oraya ulaşmadan önce, bir şeyler yapmak zorundaydı.</p>
+
+            <p>Subaru: [Gabh… gabh…]</p>
+
+            <p>Suların içerisinde çaresizce sürüklenirken zihninde gereksiz bir sürü düşünce dolanıyordu.</p>
+
+            <p>Mesela Petra ve Lewes’in kana bulandığı andaki hallerini, ormanda Ram’ı taşıyarak koşturuşunu ve daha pek çok şeyi hatırlıyordu.</p>
+
+            <p>Emilia, Beatrice, Ram ve Meili güvende miydi? Julius, Anastasia ve Echidna ne yapıyordu? Patrasche oradaysa herkesin içi rahat edebilirdi. Patrasche burada olsaydı Subaru’yu da kurtarabilirdi. Kurtarmak ve kurtarılmak. Subaru bu döngüyü defalarca tekrar etmişti ve Rem’in de kendisiyle birlikte bunu en çok tekrarlayan kişi olması gerekiyordu ama parmaklarını kırmıştı. Şu ana dek düşünmemişti ama canı gerçekten acısa da ağlamayarak iyi iş çıkarmıştı. Aferin. Rem’in önünde aptalca bir şey yapmak istemezdi. Emilia’nın önünde, Beatrice’in önünde, Petra’nın önünde ve Garfiel’in önünde de. Otto, Clind ve Frederica’ysa onun ne kadar acınası olduğunu biliyordu, o yüzden onlardan yana sorun yoktu. Roswaal öğrenirse işler sarpa sarabilirdi, o yüzden ondan bir şekilde gizlemeye devam etmeliydi. Çabucak Pristella’ya dönmeli, buna ihtiyaç duyan insanlara yardım etmeliydi, Kraliyet Seçimi, yarın, herkes――</p>
+
+            <p>Subaru: [Gabuh… gabh……]</p>
+
+            <p>Her, kes――</p>
+
+            <div class="divider">△▼△▼△▼△</div>
+
+            <p>Subaru: [――Gahgk]</p>
+
+            <p>Tüm gücüyle elini uzatan Subaru, kendisini tutunmayı başardığı bir dala doğru çekti. Bunu sol eliyle yaptığı için kırık üç parmağına dayanılmaz bir acı saplansa da rahatsızlık duymadı.</p>
+
+            <p>Bütün vücudu iliklerine dek donmuş vaziyetteydi ve duyuları ırak, donuktu. Üç parmağı yerine sol elinin tüm parmakları kırılmış da olabilirdi ama bu meseleyle hiç ilgilenmediği söylenebilirdi.</p>
+
+            <p>Subaru: [Oergh, bhleh]</p>
+
+            <p>Midesini dolduran suların büyük bir kısmını kusarak öksürük krizine girdi.</p>
+
+            <p>Bunu yaparken de sağ kolundaki ağırlığı kendisine yaklaştırarak suratının suyun yüzeyinde belirmesini sağladı. Ve onun baygın yüzüne yandan bakıp tutunduğu dala güvenerek kıyıya doğru sürünmeye başladı.</p>
+
+            <p>Subaru: [Gaghk, urgh]</p>
+
+            <p>Nihayet kıyıya ulaştığında mide bulantısının muazzam miktarda su kusmasını sağlamasına müsaade etti. Ve sonra da vücudunda hala su olduğu hissiyatıyla savaşarak sulardan sürükleyip çıkarttığı kızı yere yatırdı.</p>
+
+            <p>Subaru: [――――]</p>
+
+            <p>Kulağını ağzına yaklaştırarak nefes alıp almadığını kontrol etti. Tepki yoktu. Dudaklarını ısırdı, göğsüne kuvvetle bastırarak kalp masajı yaptı.</p>
+
+            <p>Fakat kız, hayata dönmedi. Tam da eğilip suni teneffüs yapabilir miyim diye düşünürken ufak bir öksürükle birlikte kızın ağzından bir miktar su çıktı. Ve yüzünü yana çeviren Subaru, bedenindeki suları boşaltmasını sağladı.</p>
+
+            <p>Subaru: [Hah, ha……]</p>
+
+            <p>Tüm vücuduna yayılan bitkinliğe göğüs gererek sırtına bağladığı kırbacı çözdü ve sırtındaki ağırlığı azalttı. Belki de en başından beri bilinçsiz olduğu için şanslıydı, çünkü azalttığı o ağırlık, güçsüz de olsa nefes alıyordu.</p>
+
+            <p>Bu da demek oluyordu ki… herkes… güvendeydi――</p>
+
+            <p>Subaru: [Gü… ven… de……]</p>
+
+            <p>Baş dönmesiyle birlikte kafası yana savruldu ve olduğu yere yığılıp kaldı.</p>
+
+            <p>Bir şekilde kıyıdan ayrılması ve çalılıkların arasına saklanması gerektiğini düşünüyor ama bedeni ona itaat etmiyordu. Gücü tamamen tükenmişti.</p>
+
+            <p>Tek bir parmağını bile kımıldatamıyor, bilinci giderek karanlığın derinliklerine kayıyordu.</p>
+
+            <p>Bir karınca aslanı çukurunda kapana kısılmışçasına ilelebet, sonsuza dek, karanlık ve kuytu bir dünyaya doğru alçalıyordu.</p>
+
+            <p>Bayılmadan önce avcıdan veya yılandan değil, bir başkasından dilediği tek şeyse――</p>
+
+            <p>Subaru: [Rem’i… kurtarın……]</p>
+
+            <p>Tek bir dileği vardı, o da birilerinin hiç değilse Rem’i kurtarmasıydı, yalnızca onun kurtarılması yeterliydi.</p>
+
+            <div class="divider">△▼△▼△▼△</div>
+
+            <p>――.</p>
+
+            <p>――――.</p>
+
+            <p>――――――――.</p>
+
+            <p>Subaru: [――ah]</p>
+
+            <p>Bilinci soğuk, acı karanlığın içerisinden ağır ağır çekildi.</p>
+
+            <p>Sessizce, nasıl nefes alınacağını unutmuş olduğunu anımsadı ve yutkunarak boş bedenine hava çekti. Biraz daha, biraz daha. Sanki boğuluyormuşçasına daha da çok oksijen isteyerek ağzını alabildiğince açtı ve――</p>
+
+            <p>???: [――Şu sızlanmalarını ve soluklanmalarını kes artık.]</p>
+
+            <p>Subaru: [Mrgh]</p>
+
+            <p>Açık çenesine zorla bir şeyler tıkıştırıldı ve sözlü tacize maruz kaldı.</p>
+
+            <p>Gözleri irileşti, durumu kavrayamıyor ama herhangi bir şey de göremiyordu. Yüzünün üzerine, gözlerini örtecek bir şey sarılmış gibi görünüyordu. Ayrıca vahşi bir tipin ağzının içerisine bir şeyler soktuğunu da biliyordu.</p>
+
+            <p>Kir ve toprak tadı, iri, sağlam bir doku ― o şeyin bir ayakkabı olduğunu anında tahmin edebilmişti.</p>
+
+            <p>Birileri Subaru’nun ağzına ayakkabısının ucunu sokmuştu.</p>
+
+            <p>Subaru: [Oergh! Bveh! N, ne…… gueh!]</p>
+
+            <p>???: [Ne bok yemeye bana karşı çıkıyorsun? İçerisinde bulunduğun pozisyonu anlamıyor musun?]</p>
+
+            <p>Subaru: [Ghurgh, gargh]</p>
+
+            <p>Subaru, hiç düşünmeden gevelediği sözler sonrasında adamın ayakkabısının ucundan karın boşluğuna sağlam bir tekme yedi. Tekmenin etkisiyle nefesi kesilir ve bunu bir öksürük nöbeti takip ederken ise vahşi tip, suratına tükürdü.</p>
+
+            <p>Adam bunları yapadururken Subaru’nun zihni, büyük bir kafa karışıklığıyla karman çormandı.</p>
+
+            <p>Göremiyordu ve fena halde şaşkındı ama şiddet görüyordu.</p>
+
+            <p>Bunun yanı sıra ağrıyan göğsünü ovuşturmak istese de yapamıyordu, çünkü elleri arkasından bağlanmıştı. Bacakları da bağlıydı, dolayısıyla ayağa kalkıp kaçması imkansızdı.</p>
+
+            <p>Subaru: [N-ne… ne ol……]</p>
+
+            <p>???: [Aah? Daha ne kadar aptallık edec……]</p>
+
+            <p>????: [――Hey, hey, sakin ol! Adam hiçbir şey bilmiyor! Yapacak bir şey yok! Onu bunu bırak da şuraya bak! Gözündeki bağı çıkartalım hadi!]</p>
+
+            <p>???: [Tch.]</p>
+
+            <p>Ağzından salyalar akarak kıvrılmış yatan Subaru’nun önünde iki adam tartışıyormuş gibi görünüyordu. Sonradan gelen adam vahşi adamı ikna ederken Subaru, kaba, hoyrat varlığın alandan uzaklaştığı hissine kapıldı.</p>
+
+            <p>Bunun sonrasındaysa bir “Ehh” ile birlikte sakin adamın sesi kulaklarına ulaştı.</p>
+
+            <p>????: [Uyanır uyanmaz bunları yaşadığın için üzgünüm. Muhtemelen kafan karman çormandır ama gözündeki bağı çıkaracağım, tamam mı? Yine de ellerin ve ayaklarını saran bağları çıkartamam, yani onlara katlanmak zorundasın.]</p>
+
+            <p>Subaru: [――――]</p>
+
+            <p>Subaru sessizliğini korurken adam, ellerini usulca kafasına götürerek oraya sımsıkı sarılmış olan bağı çözdü. Teninde hava akışını hissetti ve minicik bir acıyla birlikte görüşünün geri dönmesini beklerken göğsündeki acıya direnerek derin bir nefes aldı.</p>
+
+            <p>Ve sonra da――</p>
+
+            <p>Subaru: [――Hangi… cehennemdeyim ben?]</p>
+
+            <p>Yeni kavuştuğu görüş alanında açık alana yayılmış çok sayıda çadır ve kamp ateşi mevcuttu. Bunun yanı sıra kılıç ve zırh kuşanmış, azılı bir his veren ve kıpır kıpır yürüyen adamlar görünüyordu.</p>
+
+            <p>Nutku tamamen tutulan Subaru, karşısındaki manzarayı zihninde temsil edebilecek en uygun resmi düşünüyordu――</p>
+
+            <p>Subaru: [……Uzun süreli dizilerde böyle bir sahne görmüştüm.]</p>
+
+            <p>Bunu düşünme nedeni tüm bunlardan önce devasa bir nehirle karşılaşması değildi, aklından geçirdiği şey, o TV dizilerinden birinde gördüğü bir sahneydi ― yani resmi muharebe başlamadan önceki hazırlıkları tamamlamakla meşgul bir askeri birlik kampı.</p>
+
+            <p>Gözlerinin önündeki manzaraysa bunun bir taklidi gibiydi ― yo, değildi.</p>
+
+            <p>????: [Seni tam da su almaya gittiğimiz sırada bulduk. Üzgünüm ama yakalandın. Artık bizim esirimizsin.]</p>
+
+            <p>Önüne doğru yürüyen kişi, gözündeki bağı çıkaran adam mıydı?</p>
+
+            <p>Elini kalçasına koymuş şekilde, içten bir görünüm ve sıkkın bir ifadeyle Subaru’ya böyle söylemişti.</p>
+
+            <p>――Natsuki Subaru, esir alınmıştı.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="arc7bolum5parca2.html" class="nav-btn">← Önceki Parça</a>
+            <a href="arc7bolum6parca1.html" class="nav-btn">Sonraki Bölüm (Bölüm 6 Parça 1) →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

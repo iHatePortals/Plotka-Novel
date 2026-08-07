@@ -1,0 +1,594 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VI, Bölüm 82 Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff; /* Görseldeki Açık Mavi / Cyan */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc6bolum81.html" class="nav-btn">← Önceki</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc6bolum83.html" class="nav-btn">Sonraki →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VI, Bölüm 82</h1>
+            <div class="subtitle">"Zinxirlerin Eşlik Ettiği Çarpışma"</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <!-- Metin buraya eklenecek -->
+             <p class="wp-block-paragraph">——Yavaşça, adım adım zincirlerini gevşeterek vücut ısısının yükselmesine izin verdi.</p>
+<p class="wp-block-paragraph">Kanının kaynadığını ve minyon bedenindeki tüm kasların baskılanıp gerildiğini hissedebiliyordu.</p>
+<p class="wp-block-paragraph">Yumuşacık, hatta fani ve aciz görünen bir genç kız bedeniydi fakat içerisinde akan kan ile onu oluşturan et ve kemikler, dünyadaki en mükemmel ırklara aitti.</p>
+<p class="wp-block-paragraph">Ve o bedenin içerisinde bile “Oni Tanrısının” reenkarnasyonu şeklinde vaftiz edilmişti——</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“İşte sen busun, nee-sama ~tsu! A~h, ne kadar da harikasın ~tsu! Işıl ışılsın ~tsu! Rem ne kadar çabalarsa çabalasın asla sana rakip olacak seviyeye ulaşamaz, işte nee-sama böyle biri ~tsu!”</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Tükürük saçmayı bırak. Nahoş bir şey. Ayrıca, Ram’ı bir şeylerle kıyaslamaya da son ver lütfen.”</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“E~h, nedenmiş o?”</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Bariz değil mi—— Çünkü Ram’ın ‘Rem’in nee-sama’sı’ dışında bir ünvana ihtiyacı yok.”</p>
+<p class="wp-block-paragraph">Belirgin bir tiksintiyle böyle söyleyen Ram, dirseğiyle havayı delip geçerek bedenini büktü.</p>
+<p class="wp-block-paragraph">Ve dokunduğunda kesen, çarptığında kemik kıran, içine dahi işleyip delip geçen korkutucu bir teknikle, tutumluluktan tamamen yoksun bir performansla, tüm uzuvlarını kullanarak zincirleme bir saldırı gerçekleştirdi.</p>
+<p class="wp-block-paragraph">Bu yalnızca fiziksel yetenek veya teknik tarafından yönetilen bir hamle değildi.</p>
+<p class="wp-block-paragraph">Saf bir incelikle uygulanmış olsaydı yediği rakiplerin Anılarına dayanarak geçmişten günümüze, doğudan batıya var olmuş her türlü tekniği yeniden inşa eden Batenkaitos, onunla kesinlikle başa çıkabilirdi.</p>
+<p class="wp-block-paragraph">Fakat Ram’ın savaş teknikleri kısa ve öz bir fark taşıyordu.</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong> “————”</p>
+<p class="wp-block-paragraph">Adımını atan Ram’ın savurduğu dirsek veya diz darbeleri yarı yolda hız değiştiriyordu. Bunun nedeni uzmanlaşmış olduğu rüzgâr büyüsüne bürünmesi ve savaşın ortasında gerçek ile efsaneyi bir araya getirmesiydi.</p>
+<p class="wp-block-paragraph">Rüzgârla birlikte hızlanarak veya yavaşlayarak karşı saldırıya geçeceği esnada Batenkaitos’un kafasını karıştırıyordu. Neticede rüzgârı kullanarak varlığını her noktaya dağıtıyor, vücudunu atik bir şekilde taşıyıp rakibinin kör noktasına doğru kayarak sayısız ölümcül darbe indiriyordu.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Haaah! Ne kadar da dayanılmaz~!”</p>
+<p class="wp-block-paragraph">Batenkaitos, Ram’ın bu saldırılarından çeviklikle kaçınarak neşeli bir ifadeyle böyle söyledi.</p>
+<p class="wp-block-paragraph">Kesilen sağ yanağından kanlar akan, toplamadığı uzun, koyu kahve saçları iyice dağılan Oburluk, kendisinin ve rakibinin yeteneğini kıyaslamaktan keyif alıyordu.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Sıcak, karşı konulamaz bir <em><u>baharat</u></em>! Keskin bir incelik, cesurca bir <em><u>numara</u></em>! Neşe patlaması yaratılıyor, gerçekten <em><u>dinamik</u></em>! Nee-sama, bizim gurmeliğimizle mükemmel uyumda bir ziyafet!”</p>
+<p class="wp-block-paragraph">Spiral merdivenin etrafında uçan Batenkaitos, birbirleriyle pozisyon değiştirdikleri esnada gülerek böyle söyledi.</p>
+<p class="wp-block-paragraph">Her iki kolundaki hançerler Ram’ın değneğiyle çarpışırken de açık ağzından salyalar damlayarak aradaki mesafeyi açtı.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Ne iyi, çok iyi, amma iyi, epey iyi, iyi olduğu için, iyi değil mi, muhtemelen iyi olduğu için, kesinlikle iyi, kesinlikle iyi olduğu için ~tsu! Oburca içmek ~tsu! Oburluk ~tsu!”</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“————”</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Her şeyden öte, esas güzel olan bu öfkenin kokusu. Bize, bireysel olarak bize bunca nefret besleyen bir rakiple… karnımızı doyurabilirsek, dilimizin üzerinde onun tadını alabilirsek nasıl bir gurme lezzetin tadına varırız merak ediyoruz, e~h!?”</p>
+<p class="wp-block-paragraph">Diyerek ellerini kavuşturan Batenkaitos, akıl almaz bir zevk önsezisiyle ürperdi.</p>
+<p class="wp-block-paragraph">Buna tanık olan Ram ise derin bir nefes alarak bedeninin durumunu kontrol etti.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Orijinal hâlinden uzak olsa da…”</p>
+<p class="wp-block-paragraph">Yüzüne yansıtmıyor olsa da kalbinin en derinlerinde bir hayranlık taşıyordu.</p>
+<p class="wp-block-paragraph">Temelsizce kendimi en iyi ben tanırım şeklinde klişe iddialarda bulunan aptalların aksine Ram, gerçekten de kendisini tam olarak anlayıp tanıyordu.</p>
+<p class="wp-block-paragraph">Oni kabilesi boynuzunu yitiren Ram’ın “Boynuzsuz” hâle gelen bedeni, her gün muazzam bir yükün altında ezilme tehdidi altındaydı. Bu nedenle kendi bilincine zincir vurmuştu.</p>
+<p class="wp-block-paragraph">Normal şartlarda, hizmetçi olarak çalıştığı sıralarda her şeyi o zincirlerle yapıyordu.</p>
+<p class="wp-block-paragraph">Bazense acil durumlar yaşanıyor ve büyü kullanıp durumu ortadan kaldırmaktan başka çaresi olmuyordu. İşte bu gibi durumlarda üzerindeki bir zinciri gevşetiyor ve kendisinin minimum düzeyde sihir yapmasına olanak tanıyordu.</p>
+<p class="wp-block-paragraph">Buna rağmen çözülemeyen durumlarda iki zinciri gevşetiyor, kısa süreli belirleyici mücadelelerdeyse orijinal gücünün yüzde yirmi kadarını kullanıyordu.</p>
+<p class="wp-block-paragraph">Yaklaşık bir buçuk yıl önce Mabet’te Garfiel’le çarpıştığı seferde yaptığı şey de buydu.</p>
+<p class="wp-block-paragraph">Ram, “Boynuzsuz” Hâliyle kullanabileceği maksimum gücün bu olduğuna ve bedeninin daha fazlasını kaldıramayıp sakat kalacağına inanıyordu.</p>
+<p class="wp-block-paragraph">İşte iki ucu keskin birer kılıç olan o zincirler, şimdiden Ram tarafından bu denli gevşetilmişti.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“————”</p>
+<p class="wp-block-paragraph">Ve an itibarıyla kalbinin en derinlerinde alışılmadık bir bocalama yaşıyordu.</p>
+<p class="wp-block-paragraph">Az önce de bahsedildiği üzere Ram, kendisini mükemmel bir şekilde anlayıp tanıyordu.</p>
+<p class="wp-block-paragraph">Ve bunca çarpışmadan sonra gelmesi gereken geri tepme hissinin yokluğu, gerçek bir çocuk olduğu günlerden, yani onlu yaşlarından beri başına gelmemiş bir şeydi.</p>
+<p class="wp-block-paragraph">Böylesine kuvvetli geri tepmeler doğuran çarpışmaların sonucunda başı çatlayacakmışçasına ağrır, burnu veya gözlerinden ardı arkası kesilmeyen kanlar akardı, dolayısıyla kendisini bir süreliğine bedenini kullanamayacağı gerçeğine hazırlaması gerekirdi.</p>
+<p class="wp-block-paragraph">Ama o geri tepme şu anda yoktu—— Çünkü bütünüyle ortaklaşa bir kaderi paylaştıkları Subaru’ya akıyordu.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“…İşler fazla uzarsa Barusu ölecektir, öyle değil mi…”</p>
+<p class="wp-block-paragraph">Her şey konuştukları gibi ilerliyorsa Subaru şu anda delirmiş hâldeki Shaula’yla veya Cadı Canavarları sürüsünün ilerleyişiyle baş etmek adına çabalıyor olmalıydı.</p>
+<p class="wp-block-paragraph">Yanında da Beatrice ve belki de Meili vardı—— Anılarını zonklatan Emilia’ysa kulenin üst katlarına ilerliyor ve belki de tek başına çetin bir mücadele veriyordu.</p>
+<p class="wp-block-paragraph">Anlaşılmaz biçimde o gümüş saçlı, pozitif kızda merakını cezbeden bir şeyler vardı. Ram’ın İsmi çalınmadan önce defalarca elini tuttuğu ve yönlendirdiği biri olduğu kesindi.</p>
+<p class="wp-block-paragraph">Ram olmadıkça hepsi de çaresiz ve güvenilmez insanlardı.</p>
+<p class="wp-block-paragraph">İşte bu yüzden——</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Ölme gayene karşı diren lütfen, Barusu—— Aksi takdirde Rem ağlayacaktır.”</p>
+<p class="wp-block-paragraph">Evet, işte bu duyulmaz sözcükleri sıralayan Ram, on yıllık bir aranın ardından üçüncü zincirini de gevşetti.</p>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph">——Aynı saniyede Natsuki Subaru, Cor Leonis’in geri tepişiyle dişlerini sıktı.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“——Auuağh.”</p>
+<p class="wp-block-paragraph">Kan kusar gibiydi—— yo, sahiden de kan kusmanın yükünü taşıyordu.</p>
+<p class="wp-block-paragraph">Bir an için kuledeki yanıp sönen ışıklardan birinin irileştiğini hissetmiş ve bir an sonra da o etki üzerine çullanmıştı.</p>
+<p class="wp-block-paragraph"><strong>Beatrice: </strong>“Subaru!”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“——Hık!”</p>
+<p class="wp-block-paragraph">Kanla karışık bir öksürükle birlikte dengesi bozulurken yanı başındaki Beatrice, Subaru’yu destekledi.</p>
+<p class="wp-block-paragraph">Maalesef Subaru ve Beatrice’in bindiği canlı, alışkın oldukları Patrasche değil, üzerine binen hiçbir canlıyı umursamayan bir Cadı Canavarı olan Aç At Kraldı.</p>
+<p class="wp-block-paragraph">Subaru’nun Rüzgârdan Sakınma İlahi Koruması olmadan yaşadığı binicilik deneyimi çok sınırlıydı ve insanın kalçasını koyacağı bir eyer ya da ayaklarını destekleyeceği bir üzengi olmadıkça bir anlık dikkatsizlik, fırlatılmakla sonuçlanabiliyordu.</p>
+<p class="wp-block-paragraph">Bunun şu ana dek başına gelmemiş olmasıysa kırbacını Cadı Canavarının üst bedeninden geçirip dizgin olarak kullanması ve Beatrice’in de kapsamlı bir büyüyle vücut ağırlığını kısıtlıyor olmasıydı.</p>
+<p class="wp-block-paragraph">Subaru, bu ısrarlı çabaların boşa gitmesine izin veremezdi.</p>
+<p class="wp-block-paragraph"><strong>Beatrice: </strong>“Ram’ın geri tepmesi mi ulaştı, sanırım?”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Aynen öyle, tam da tahmin ettiğin gibi… üzgünüm, buna bir şekilde katlanacağım… Hık.”</p>
+<p class="wp-block-paragraph">Kırbacını yeniden sıkıca kavrayan Subaru, iyi bir muhakeme yeteneğine sahip olan Beatrice’e bu cevabı verdi.</p>
+<p class="wp-block-paragraph">Yükselen kusmuğu pas tadı ve kokusu taşıyor ve bunun vücudunun hangi kısmından kaynaklı bir yük olduğunu hiç bilemiyordu.</p>
+<p class="wp-block-paragraph">İç organları gıcırdıyor ya da vücudunun içindeki bir şeyler parçalanıyordu, belki de hasar bu türdendi.</p>
+<p class="wp-block-paragraph">Her hâlükârda bu, Ram’ın ciddileştiğinin kanıtıydı.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Eğer Ram, Oburluk cephesini halledebilirse…”</p>
+<p class="wp-block-paragraph">Bu durumun işleri anında yatıştıracağını söyleyemezdi.</p>
+<p class="wp-block-paragraph">Her şeyden önce Oburluğun ezilmesinin sonucunda çalınmış İsim ve Anıların geri döneceğinden emin değildi. Yalnızca kendisinin yükünün azalacağı gerçeğine güveniyordu.</p>
+<p class="wp-block-paragraph">——Bu yaşandığı takdirde yalnızca Meili’nin düşük fiziksel formunu üstlenmeye konsantre olabilecekti.</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“Hah, hah… Hık.”</p>
+<p class="wp-block-paragraph">Aç At Kralın üst bedenine tutunan Meili, canını riske atarak Cadı Canavarlarına komut veriyordu.</p>
+<p class="wp-block-paragraph">Meili’nin riskli mücadelesi, Subaru’yu hedef alan, kıskaçları ve kuyruk iğnesi şiddetle savrulan o devasa akreple yüzleşebilmeleri adına olmazsa olmazdı.</p>
+<p class="wp-block-paragraph">Yetersiz savaş potansiyelleri maddi kaynaklarla desteklenemiyor, Subaru ve diğerleri kendilerini zorlayarak var olmayan bir çıkmaz yaratıyordu.</p>
+<p class="wp-block-paragraph">Subaru bu amaçla Meili’yi prenses gibi şımartmanın hayati önem taşıdığını söylediğinde ne şakalaşıyor ne de oyun oynuyordu, bu yorumu yaparken tamamen ciddiydi.</p>
+<p class="wp-block-paragraph">An itibarıyla Emilia, Ram, Julius ve diğerlerinin güçleri de Pleiades Gözcü Kulesini hedefleyen beş engel karşısında kesinlikle gerekli olsa da o savaş alanlarının her birini korumak için esas gerekli olan kişi Meili Portroute’den başkası değildi.</p>
+<p class="wp-block-paragraph">İşte bu yüzden Subaru bir süredir Meili’nin İlahi Korumasının yağdırdığı geri tepmeleri üstleniyordu.</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“Kanatlı Köstebek-chan! Çiçek Postlu Ayı-chan! Birlik olun!”</p>
+<p class="wp-block-paragraph">Tiz bir sesle bağıran Meili, savaş alanını gözleyerek Cadı Canavarlarını ölümlerine gönderiyordu.</p>
+<p class="wp-block-paragraph">Ellerini çırpışı, parmaklarını tıklatışı veya bazen de sesini kullanarak emirler verişiyle hareket tarzı Cadı Canavarlarına bağlı olsa da İlahi Korumasını hepsinin uyum sağlaması adına tam gaz kullanıyordu.</p>
+<p class="wp-block-paragraph">Subaru da beynindeki ağrı ve şişlik aracılığıyla bunun beraberinde uygun bir yük getirdiğini fark ediyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong> “————”</p>
+<p class="wp-block-paragraph">Otto’nun “Ruh Dili İlahi Koruması” veya Meili’nin Canavar Manipülasyonu İlahi Koruması’nın bahşettiği lütuf, büyülü bir şeyden ziyade bir kabiliyet artışıymış gibi geliyordu.</p>
+<p class="wp-block-paragraph">Bu ifadeyle birlikte de büyüdense insanüstü kabiliyetler alanında bir güce benziyorlardı.</p>
+<p class="wp-block-paragraph">Durum buysa geri tepişlerinin diğer İlahi Korumalara kıyasla çok daha fazla olması da anlaşılabilirdi.</p>
+<p class="wp-block-paragraph">Çünkü İlahi Korumaların objesi etraf veya diğer kişiler olmuyor, bizzat kişinin üzerinde işliyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Sonuçta İlahi Korumalar ve Otoriteler anlaşılmaz bir sistemin parçaları…”</p>
+<p class="wp-block-paragraph">Günah Başpiskoposları veya Cadılar ve kaderin bir cilvesiyle Subaru tarafından kullanılan Otoriteler.</p>
+<p class="wp-block-paragraph">Ya da bu dünyada doğanlara bahşedilme olasılığı olan İlahi Korumalar.</p>
+<p class="wp-block-paragraph">Subaru bile bunu belirgin bir gerçek olarak kabullense de tüm bu güçleri kullanmanın bir şekilde bir yolu bulunuyordu——</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Böyle bir şey olduğu için…”</p>
+<p class="wp-block-paragraph">Bunun trajedilere yol açabileceğini düşünmeden edemiyordu.</p>
+<p class="wp-block-paragraph">Hiç şüphesiz ki Günah Başpiskoposları ve Cadılar ile onların gözü pek güçlerinden korkulmasının sebebi büyük ölçüde hiç kimsenin yakınlaşmasına müsaade etmedikleri Otorite güçleriyle ilişkiliydi.</p>
+<p class="wp-block-paragraph">İlahi Koruma gibi bir şeyin yokluğu durumunda kaderleri sapıp bozulmadan yaşayabilecek sayısız kişi var olabilirdi.</p>
+<p class="wp-block-paragraph">Buna bir örnek vermek gerekirse Meili bile İlahi Korumaların negatif etkilerinin bir kurbanıydı.</p>
+<p class="wp-block-paragraph">Doğar doğmaz Cadı Canavarlarıyla iletişim kurma kabiliyetine sahip olduğu için gerçek ebeveynleri tarafından terk edilmişti—— Subaru bunun gerçekliğinden emin değildi. Ama ikna edici bir açıklamaydı. Bariz bir mantıktı.</p>
+<p class="wp-block-paragraph">Hiç değilse Meili’nin kalbinde yatan gerçek bu şekildeydi.</p>
+<p class="wp-block-paragraph">İşte tam da bu yüzden——</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Ben, gerçekten <em><u>çifte standartlıyım</u></em>…”</p>
+<p class="wp-block-paragraph">Bir yandan Otorite ve İlahi Korumalara bel bağlamak istemiyorum diyordu ama gerek duyduğunda onları kullanmadan önce ikinci bir kez düşünmüyordu bile. Güçsüz bir insan olarak sınırlı seçeneklere sahip olduğu doğru olsa da kalbinin bununla kabalaşmasını istemiyordu.</p>
+<p class="wp-block-paragraph">Yol bile olmaması gereken bir yolda yürüyor, bu gerçeği asla unutmamak istiyordu.</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“Onii-san! Dikkatini veriyor musu~n!? Onii-san veya Beatrice-chan’ın işi bitecek olursa her şeyin sonu gelir, biliyorsun değil mi~!?”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Biliyorum—— Ee, ne dersin Meili, her şey sona erince benim kızım olmak istemez misin?”</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“——Hık! Sana dikkatini ver demişti~m!!”</p>
+<p class="wp-block-paragraph">Meili, kafasındaki ağırlığa direnmeye çalışırken bu soruyu soran Subaru’ya bağırarak karşılık verdi.</p>
+<p class="wp-block-paragraph">Hiçbirinin boşa harcayacak vakti yoktu. Dikkatleri dağılacak olursa bir anda her şeyin sonu gelebilirdi. Ama buna rağmen——</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Bunca çileden sonra bizleri mutlu yarınların beklediğini düşünmezseniz hiçbir anlamı olmaz.”</p>
+<p class="wp-block-paragraph">Evet, Natsuki Subaru’nun aklına kan kusarken gelen düşünce tam da buydu.</p>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph">Kumdaki savaş devam ettiği sırada Meili, kendi kendine “Bende bir terslik var” diye fısıldadı.</p>
+<p class="wp-block-paragraph">Elbette ki onda terslik olarak adlandırılabilecek pek çok şey vardı.</p>
+<p class="wp-block-paragraph">Aynı şey gözlerinin önünde devasa bir akrebe dönüşmüş olan Shaula için de geçerliydi, Ram için de Julius için de gözcü kulesinin içerisinde çeşitli rakiplerle savaşan diğerleri için de ve bilhassa Meili’yle birlikte çarpışan Subaru ve Beatrice için geçerliydi.</p>
+<p class="wp-block-paragraph">Fakat kendinde en çok terslik hisseden kişi kesinlikle——</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“Benim, değil mi~?”</p>
+<p class="wp-block-paragraph">Meili’nin neden bu hâle geldiği hakkında hiçbir fikri yoktu.</p>
+<p class="wp-block-paragraph">Açıkçası Meili, Subaru ve diğerlerine Augria Kum Tepelerindeki yolculuklarında eşlik ettiği andan itibaren kendisine yakışmayan eylemlere girişmeye başladığına inanıyordu.</p>
+<p class="wp-block-paragraph">Akışa göre, ihtiyaca göre, doğru ya da yanlış fark etmeksizin, kendisine emredilen her şeye uysallıkla boyun eğmeye devam etmişti.</p>
+<p class="wp-block-paragraph">Meili’nin hayattaki başarısının sırrı bu olduğu için burada da aynı şeyi yapmayı planlamıştı.</p>
+<p class="wp-block-paragraph">Ama gelin görün ki——</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“—— Ölü Kitabı gibi bir şey, öyle bir şey var olduğu için…”</p>
+<p class="wp-block-paragraph">Ölülerin hislerini bizzat deneyimlemek gibi bir şeyin mümkün olduğunu duyan Meili, içinde yükselen meraka yenik düşmüştü.</p>
+<p class="wp-block-paragraph">Elsa Granhiert’e karşı oldum olası lehimlediği hislerini açığa çıkartmaktan başka şansı olmayan Meili, bunun sonucunda kendine hiç yakışmayan gafları biriktirmeye başlamıştı.</p>
+<p class="wp-block-paragraph">En sonunda da bu iş için görevlendirilmiş ve hatta kendisini Subaru’dan büyük bir ders alır hâlde bulmuştu.</p>
+<p class="wp-block-paragraph">Yine de onun söylediklerine öylece gülüp geçmek istememişti.</p>
+<p class="wp-block-paragraph">Her nedense bundan böyle iş birliğine yanaşacağı sözünü bile vermişti.</p>
+<p class="wp-block-paragraph">Subaru her daim önünde olup ona yol göstereceğini dahi söylemişti ve Meili, Subaru’nun bu sözlerin sorumluluğunu ne derece üstleneceğini veya aklına gelen şeyleri hiç düşünmeden söyleyip sonradan pişman olanlar grubuna dahil olup olmadığını merak ediyordu.</p>
+<p class="wp-block-paragraph">Akışa kolayca kapılmak konusunda Meili’nin aklına da pek çok şey geliyordu.</p>
+<p class="wp-block-paragraph">Fakat Meili ve Subaru arasındaki fark, Subaru’nun söylediklerinin laftan ibaret olmamasıydı.</p>
+<p class="wp-block-paragraph">Subaru bir şeyi yapacağını söylerse onun için mutlaka çabalardı ve bu söze tanık olan kişi de—— Beatrice miydi? Beatrice de kesinlikle Subaru’nun sözünü tutması için gayret ederdi.</p>
+<p class="wp-block-paragraph">Hâl böyle olunca Meili, keyfî olarak şımartıldığını ve birilerine yardım etmesi gerektiğini hissetmiş ama şu ana dek ona böyle bir şey söylenmemişti.</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong> “————”</p>
+<p class="wp-block-paragraph">Meili’nin el hareketlerine karşılık vererek etrafta uçuşan Kanatlı Köstebek sürüsü hâlâ devasa akrebin kuyruk iğnesi tarafından paramparça ediliyordu.</p>
+<p class="wp-block-paragraph">Ürkek Kanatlı Köstebekler normal şartlarda kendilerinden büyük bir düşmana asla saldırmaz ve onların bu içgüdülerinin üstesinden gelmesini sağlayan Meili bile onları daha güçlü kılamazdı.</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“A~h! İşleri bitti~!”</p>
+<p class="wp-block-paragraph">Muazzam kıskaçlarını savuran öfkeli devasa akrebin sergilediği şiddetle Cadı Canavarları birer birer ölüyordu.</p>
+<p class="wp-block-paragraph">Kesilen, ezilen, parçalanan Cadı Canavarlarının kanları susamış kumlara nüfuz ediyor ve sarı kumlar koyu kırmızı bir tona bürünüyordu.</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“——Hık.”</p>
+<p class="wp-block-paragraph">Bu gerçeklik karşısında dişlerini sıkan Meili, çevik bir şekilde etrafı gözleyip gökyüzündeki, kumlardaki ve hatta yeraltındaki Cadı Canavarlarının varlıklarını tespit ederek ehlileştirebileceklerini ehlileştiriyordu.</p>
+<p class="wp-block-paragraph">Ancak onların kalitesine müdahale edemiyordu. Şu anda gerekli olan şey, tükenmeyecek çoklukta ve kontrol edilebilir kaynaktı.</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“Tanrı~m, tanrı~mtanrı~mtanrı~m! Bu yüzden bu işler bitince onii-san’a kesinlikle istediğimi yaptıracağım, tamam mı~!”</p>
+<p class="wp-block-paragraph">Alnında biriken terleri silme fırsatı dahi olmayan Meili, devasa akrebi ne çok uzak ne de çok yakın bir mesafede tutan Subaru’ya bu sert sözleri iletti.</p>
+<p class="wp-block-paragraph">Aç At Kralın sırtı Meili için bile hoş bir binicilik tecrübesi değildi. Fakat bedenini örten pelerini bir bıçakla Cadı Canavarının sırtına saplayarak sabit kalacağını garantilemişti.</p>
+<p class="wp-block-paragraph">Kontrol alanına ait bir Cadı Canavarıydı. Bu seviye bir yaralanmayı sorunsuzca kabullenebilirdi.</p>
+<p class="wp-block-paragraph">Esas sorun Cadı Canavarında değil, bu duruma sokulmuş olan Meili’nin gücünde yatıyordu.</p>
+<p class="wp-block-paragraph">Her şeyden önce bu son dakika savaşı, Meili’nin normalde izlediği bir tarz değildi.</p>
+<p class="wp-block-paragraph">Meili’nin savaş tarzı, ‘ön hazırlık hayattır’ şeklindeydi—— Cadı Canavarlarını kontrol alanına yerleştirir, onları savaş alanına dağıtır ve sonra da uzaktan saldırıya geçmelerini izlerdi.</p>
+<p class="wp-block-paragraph">Cadı Canavarı Kullanıcısı Meili Portroute’in uzmanlığı tam da buydu.</p>
+<p class="wp-block-paragraph">Elbette savaş alanında doğrudan emir vermek Cadı Canavarlarının saldırı ve savunmasını geliştiriyordu ama bu bile Meili’nin kendisini tehlikeye atmasını gerektirecek bir şey değildi. Bu seçimde yaptığı yanlışla savaşta Subaru ve diğerlerinden uzaklaşmış ve bedenini tuzağa düşürmüştü.</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“Elsa da…”</p>
+<p class="wp-block-paragraph">Onun ölme nedeni de bu tarz gafları tekrarlamasıydı.</p>
+<p class="wp-block-paragraph">Tabii ki Elsa Meili’nin kendisini suçlamasını istemezdi, hatta öleceğini hiç aklından geçirmemiş olması da mümkündü. İşte bu yüzden Meili, gerilmeden edemiyordu.</p>
+<p class="wp-block-paragraph">Tıpkı Elsa’nın hislerini anlamadığı gibi kendisinin hislerini de pek anlamıyordu.</p>
+<p class="wp-block-paragraph">Her şeyden önce şu anda devasa akrebi oyalama görevinin bir parçası olduğu ve Cadı Canavarlarının hayatı karşılığında zaman kazanmaya zorlandığı hâlde daha önce böyle bir şeyi bir kez olsun yapmamıştı. &nbsp;</p>
+<p class="wp-block-paragraph">Meili Portroute, genç yaşına rağmen bir katildi.</p>
+<p class="wp-block-paragraph">Onun mesleği, talep ve emir üzerine birinin canını almaktı.</p>
+<p class="wp-block-paragraph">İşte bu yüzden, bu onun için bir ilkti.</p>
+<p class="wp-block-paragraph">——Birilerinin hayatının kurtulmasına yardımcı olmak.</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“Bu, benim izlediğim yol değil, tamam mı~!”</p>
+<p class="wp-block-paragraph">Subaru’nun az önceki mırıltıya yakın sesleri fazlasıyla can sıkıcıydı.</p>
+<p class="wp-block-paragraph"><em>Benim kızım olsana</em>, amma da abartılı bir laftı.</p>
+<p class="wp-block-paragraph">Başkaları tarafından nefret edildiğini bilmezmiş gibi bir tavırla nasıl da kışkırtıcıydı.</p>
+<p class="wp-block-paragraph">Esas düşmanı Garfiel olsa bile bu koşulları oluşturan kişi Subaru’ydu. Tıpkı kendi özgürlüğü uğruna Pleiades Gözcü Kulesi’ndeki bu koşulları oluşturan kişi olduğu gibi.</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“————”</p>
+<p class="wp-block-paragraph">Evet, Meili Subaru’nun söz ve eylemlerinin negatif olduğunu düşünse de kendisini onun komutlarına uyar hâlde bulmuştu ve tıpkı diğer üyeler gibi o da bir tahtanın üzerindeki bir piyon misali hareket ediyordu.</p>
+<p class="wp-block-paragraph">Bu Subaru’nun ileri görüşlülüğünün oluşturduğu bir koşulsa, gerçekten ikna ediciydi.</p>
+<p class="wp-block-paragraph">Ancak ne olursa olsun Subaru o kalibrede biri gibi görünmüyordu. Subaru’nun sahip olduğu şeyler çaresizlik, kendinden emin beklentiler ve kendi hayatını adıyormuşçasına çılgınca bir inançtan ibaretti——</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“Anlaşılan, ben de ahmağın tekine dönüştü~m.”</p>
+<p class="wp-block-paragraph">Diyen Meili, yeraltından kavramış olduğu Cadı Canavarlarını yukarı çekerek devasa akrebe yönlendirdi.</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“————”</p>
+<p class="wp-block-paragraph">Ve kırmızıya boyanmış kum denizinden çıkan şey, iri cüssesi titreyen bir Kum Solucanı oldu. On metreden büyük koca yapısını bükerek içtenlikle devasa akrebin üzerine çullandı.</p>
+<p class="wp-block-paragraph">Akrep de onun altında ezildi, kumlara gömüldü, görkemli bir galibiyet kazanıldı—— gibi sorunsuz bir işleyişin gerçekleşmesi elbette ki mümkün değildi.</p>
+<p class="wp-block-paragraph">Bir hâle sağanağıyla savrulan kum solucanının kalın gövdesi anında etrafa saçıldı.</p>
+<p class="wp-block-paragraph">Kum solucanı bedeni ikiye ayrılıp tuhaf sesler eşliğinde vücut sıvıları saçılarak yere düşerken kuyruk iğnesinin ardışık saldırılarıyla daha da küçük parçalara ayrıldı.</p>
+<p class="wp-block-paragraph">Ancak bu yalnızca kum solucanının hayatı kullanılarak kan ve etten oluşturulan bir sis perdesinden ibaretti.</p>
+<p class="wp-block-paragraph">——Meselenin iç yüzü, Kum Solucanının açmış olduğu yeraltı deliğinden çıkan üç Aç At Kraldı.</p>
+<p class="wp-block-paragraph"><strong>Aç At Kralları:</strong> “————KSHEEEEEEGHHH!”</p>
+<p class="wp-block-paragraph">Çocuk ağlayışını andıran ulumalarla birlikte alevli yarı insan yarı atlar devasa akrebe bir intihar saldırısı gerçekleştirdi.</p>
+<p class="wp-block-paragraph">Çok sayıda Cadı Canavarı cinsi Augria Kum Tepelerine yuvası gözüyle baksa da bağımsız güç anlamında en üstün olanları Aç At Krallardı.</p>
+<p class="wp-block-paragraph">Sayıca çok olan ama kesin bir darbe indiremeyen Kanatlı Köstebekleri veya inanılmaz düşük dirençli Çiçek Postlu Ayıları ve muazzam cüsseleriyle rakibi ezmeye çalışan Kum Solucanlarını kullanan Meili, esas kozunu gizlemişti.</p>
+<p class="wp-block-paragraph">Savaşın izlerini taşıyan üç Aç At Kral, burada toplanmıştı.</p>
+<p class="wp-block-paragraph">Dövüş gücü açısından devasa akrebin gerisinde kalsalar da rakibin en temkinli olduğu Cadı Canavarları onlardı. Bu da o Cadı Canavarlarının gücünü bir tehdit olarak algıladığının tartışılmaz kanıtıydı.</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“Sonuç olarak iyiymişim gibi görünüyor.”</p>
+<p class="wp-block-paragraph">Biri Meili’nin üzerinde olduğu, biri Subaru ve Beatrice’in oturduğu ve üçü de bu saldırı için hazırladıkları derken beşini aynı anda harekete geçirmenin yükü buna uygun şekilde bir hayli ağır olmalıydı.</p>
+<p class="wp-block-paragraph">Ancak tuhaftır ki Meili şu anda bunun geri tepmesini yaşamıyordu.</p>
+<p class="wp-block-paragraph">Buna savaşta yaşanan gelişmelerin sebep olması mümkündü ve durum buysa bu varsayıma güvenmek isterdi.</p>
+<p class="wp-block-paragraph">Düşmanı alt edeceğini düşünmüyordu.</p>
+<p class="wp-block-paragraph">Ama azıcık hayati bir darbe indirebilirse Subaru’nun amacına ulaşmasını kolaylaştırırdı.</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“————”</p>
+<p class="wp-block-paragraph">——Bir anlamda bu, hayatı akışına bırakan Meili isimli genç kızın kendi isteğiyle bir şeyler yapmak istediği üçüncü sefer olabilirdi.</p>
+<p class="wp-block-paragraph">İlki gece vakti Gözcü Kulesinde dolanıp Ölü Kitabı aracılığıyla kurtuluş arayışıydı.</p>
+<p class="wp-block-paragraph">İkincisi zihinsel olarak köşeye sıkışıp spiral merdivenlerin başında Subaru’nun arkasına yaklaşışıydı.</p>
+<p class="wp-block-paragraph">Ve üçüncüsü de zaman kazanma gayesiyle kendisinden beklenenden daha büyük bir sonuca ulaşmak isteyişiydi.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Meili!!”</p>
+<p class="wp-block-paragraph">Üç Aç At Kral devasa akrebe yaklaşırken kanla karışık bir çığlık Meili’ye ulaştı.</p>
+<p class="wp-block-paragraph">Bu, Subaru’nun kelimenin tam anlamıyla dudaklarından kanlar saçarak çıkardığı sesiydi.</p>
+<p class="wp-block-paragraph">Meili’nin kafası karışmıştı, çünkü o ses ne yüceltici ne sevindirici ne de hayranlık uyandırıcıydı.</p>
+<p class="wp-block-paragraph">İşini bu denli iyi yaparken bu kadar öfkelenecek ne vardı anlamıyordu. Ancak——</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“——Ha?”</p>
+<p class="wp-block-paragraph">Mızraklarını kuşanan üç Aç At Kral, şiddetle devasa akrebin üzerine sıçramıştı.</p>
+<p class="wp-block-paragraph">Akrep, kıskaçlarını veya kuyruk iğnesini ne kadar etkin kullanırsa kullansın bu darbeleri beklediği gibi engelleyemezdi—— ancak Meili, akrebin vücudunda meydana gelen değişimi gözlediği anda bir şey fark etmişti.</p>
+<p class="wp-block-paragraph">Akrep, alevlerle kavrulmuşa benziyor ya da tıpkı kumlar gibi kan emiyordu.</p>
+<p class="wp-block-paragraph">Kararmış çelik misali donuk bir şekilde parlayan dış kabuk, gözleri açılırcasına renk değiştiriyordu. Bir an, bir saniye sonraysa simsiyah olan kabuğu kan kırmızısına dönüştü.</p>
+<p class="wp-block-paragraph">——Bazı Cadı Canavarları türleri, Hücum Rengi denilen bir dönüşüm geçirirdi.</p>
+<p class="wp-block-paragraph">Bu dönüşüm, davranışlarının normalden belirgin şekilde farklılaşmasına neden olur ve daha büyük bir hiddetle saldırganlaşırlardı.</p>
+<p class="wp-block-paragraph">Kavraması kolay bir dönüşüm olarak çoğunlukla dış görünüş değişirdi. Aç At Kralların alevlerinin genişlemesi veya Beyaz Balinanın bedenine sayısız gözün yayılması bu dönüşümün örnekleriydi.</p>
+<p class="wp-block-paragraph">Ve devasa akrebin—— yo, Kan Kırmızı Akrebin yaptığı şey de buna karşılık geliyordu.</p>
+<p class="wp-block-paragraph">Daha agresif, daha yıkıcı, daha zararlı bir hâl alıyordu——</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“——Ah.”</p>
+<p class="wp-block-paragraph">Her yöne yayılan beyaz parlaklık, sıçramakta olan Aç At Kralların havaya karışıp gitmesine sebep olmaktaydı.</p>
+<p class="wp-block-paragraph">Aynı saniyede vahşi halelerin artçı etkisi, kum denizini biçiyormuşçasına hiddetlendi. Ve——</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“————”</p>
+<p class="wp-block-paragraph">Patlayan ışık seliyle yutulan Meili’nin minyon bedeni, sıçrayan kanlar eşliğinde havada çırpındı.</p>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph">——Kanının kaynadığı hissiyle dolup taşarak gelişmekten çocukluğundan beri nefret ederdi.</p>
+<p class="wp-block-paragraph">Bu dünyadaki her şeyi kontrol edebilirmiş, her şeye kadirmiş gibi gelirdi.</p>
+<p class="wp-block-paragraph">Bu hayalle sarhoş olduğu vakitler süregelseydi, ne kadar sağlam bir maneviyatla kutsanmış olursa olsun zamanın onu bir gaflete yönlendireceği kesindi.</p>
+<p class="wp-block-paragraph">Başkalarından üstün olduğunun farkındaydı. Fakat buna çok fazla güvenmezdi.</p>
+<p class="wp-block-paragraph">Hatalar da yapardı. Ama hata yapmama iradesine ve hatalarını düzeltecek duruşa sahip olarak.</p>
+<p class="wp-block-paragraph">Bu iradeyi benimseyebilme sebebi de her şeye kadirlik büyüsüne kapılmamış olması ve bir aptal gibi hareket etmemesiydi.</p>
+<p class="wp-block-paragraph">Çevresinden gelen abartılı övgülere kapılıp kendisinin harika olduğuna inanmaması ve eski geleneklerle eski moda gizemlere saygı duyanların şakşakçısı olmamasıydı.</p>
+<p class="wp-block-paragraph">Bu tür yüzeysel nedenlerle ezilmeden devam edebilmesini kime borçlu olduğunu merak ederdi.</p>
+<p class="wp-block-paragraph">Ve şimdi, bunun kesinlikle hatırlanamayan, kaybolmuş biri sayesinde olduğunu biliyordu.</p>
+<p class="wp-block-paragraph">Sebepse——</p>
+<p class="wp-block-paragraph"><strong>???: </strong>“——Sonuçta Ram yalnızca tatlı değil, aynı zamanda akıllı da.”</p>
+<p class="wp-block-paragraph">Kendini övmeyi tamamlayan Ram’ın hareket hâlindeki ayağı, spiral merdivenlerin basamak seviyeleri arasındaki farkı parçaladı.</p>
+<p class="wp-block-paragraph">Ve rüzgâra bürünmüş pembe saçlı Oni, o saniyede kolunu savurarak darbesini karşılamaya çalışan rakibinin kolunu sıktı. Sonra da o kolu bileğe, dirseğe ve son olarak da omza dek bükerek kırdı.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“——Gh ~tsu.”</p>
+<p class="wp-block-paragraph">Istırap homurtularının ulaşmasına izin vermeyecekti.</p>
+<p class="wp-block-paragraph">Bir haykırışa sebebiyet vermek üzere yumruğunu yüzünün yan tarafına geçiren Ram’ın güzelim parmakları birer mermiye dönüşmüştü.</p>
+<p class="wp-block-paragraph">Tüm bedenine sayısız darbe inen Batenkaitos, kan kusa kusa zıpladı. Onu takip eden Ram da ayaklarının altında yarattığı rüzgâra binerek bir hayli yükseklere sıçradı.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Hihi ~tsu.”</p>
+<p class="wp-block-paragraph">Batenkaitos, Ram’a saldırıyormuşçasına havada iki ayağını da salladı.</p>
+<p class="wp-block-paragraph">Hemen ardından yaratılan uzay çarpıklığı Ram’ın omzuyla temasa geçti, kıyafetlerini, derisini ve etini kesti. Görünmez bir bıçağın ardında bıraktığı yadigâr, rüzgâr büyüsünün yol açtığı küstahça bir tuzaktı.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Bu seviyede bir şey——”</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Rüzgârla havaya uçuracağım mı diyorsun? Olmaz olmaz, işe yaramaz işe yaramaz! Çünkü uzayda sabitlenmiş bir şey, anlarsın ya~! Nee-sama bile onu tekmeleyip savuramaz, ne üzücü, ne kötü~!”</p>
+<p class="wp-block-paragraph">Ram’ın planını öngörmüş olan Batenkaitos, kana bulanmış bir gülümsemeyle havayı tekmeledi.</p>
+<p class="wp-block-paragraph">Elbette gerçekten havayı tekmelemiyordu, Ram’ı kesen bıçakları dayanak olarak kullanıp havada yürüyordu—— pozisyonları yalnızca kendisi tarafından bilinen o şeyleri kullanarak spiral merdivenlerin üzerinde özgürce uçuyor, kuleden fena hâlde faydalanıyordu. Lakin——</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“——Durugörü.”</p>
+<p class="wp-block-paragraph">Tuzakları kendi algısıyla yakalayamasa da belirli insanların görüş alanlarıyla örtüştüğü takdirde en ufak bir bilinç değişikliğinde bile gizlendikleri noktaları algılayabilirdi.</p>
+<p class="wp-block-paragraph">&nbsp;Oburluk tuzaklarını basamak olarak kullanıp yukarı sıçraya sıçraya kaçarken Ram da rakibinin görüş alanıyla örtüşüp aynı basamakları kullanarak inançla ona doğru atılıyordu.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Huh ~tsu! Ahahahahahaha! Cidden mi, nee-sama? Şaka mısın!?”</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Ne kadar da Barusu-vari bir söz—— Bu halat çekme yarışına bir son vermen iyi olur.”</p>
+<p class="wp-block-paragraph">Batenkaitos şaşırırken onun yükseldiğinden daha da yukarılara sıçrayan Ram, bakışlarını onun ürkütücü suratına doğru indirdi.</p>
+<p class="wp-block-paragraph">Ve merhametsizce ayakkabısının tabanını keskin dişlerle dolu açık bir ağza sahip o surata indirdi.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Bh.”</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“İyi, aşağı düşene dek Ram’ın ayakkabısının tadına kaç kez bakacakmışsın bir görelim.”</p>
+<p class="wp-block-paragraph">Burnu ezilen Batenkaitos’un minyon bedeni havada yuvarlandı.</p>
+<p class="wp-block-paragraph">Ve yükselişinin gücünün kesilişiyle bu defa da Oburluk, Ram’ın tekmesinin gücü nedeniyle dosdoğru alçalmaya başladı.</p>
+<p class="wp-block-paragraph">Onu takip eden Ram da elleri göğe doğru kalkık ve avuçlarıyla değneğini kavramış hâlde hızla alçalarak düşmekte olan Batenkaitos’un suratına ikinci—— yo, üçüncü, dördüncü ve daha nice tekmeler indirdi.</p>
+<p class="wp-block-paragraph">Ram’ın topuğu acımasızca Batenkaitos’un burnuna, dişlerine, çenesine ve alnına iniyordu.</p>
+<p class="wp-block-paragraph">Onun o alaycı suratını ve defalarca kendisine “Nee-sama” diye seslenen ağzını nahoş buluyordu.</p>
+<p class="wp-block-paragraph">Ve inişleri devam ederken o suratı da o ağzı da dağıtmaya niyetliydi. Bu sırada——</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Kendi yerleştirdiğin tuzaklara düşsen de bu Ram’ın hatası değil. Ne ekersen onu biçersin.”</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Gih! Gya! Higiiih ~tsu!”</p>
+<p class="wp-block-paragraph">Tekmelerle düşmekte olan Batenkaitos’un bedeni, boş havaya yerleştirmiş olduğu görünmez bıçaklar tarafından yarılıyordu.</p>
+<p class="wp-block-paragraph">Kanlar akıtıyor ve etinde birkaç yara açılmış gibi görünüyordu fakat Ram, onları görmezden gelmeyecekti.</p>
+<p class="wp-block-paragraph">Ram, normal şartlarda yolundan çıkıp rakibine acı çektirecek, ıstırap verecek kadar ileri gitmezdi.</p>
+<p class="wp-block-paragraph">Ancak bu, rakibinin sempatik niteliklere sahip olduğu durumlar için geçerliydi, rakibi midesini bulandıran bir düşmanken onu domuz gibi ciyaklatmaktan yana tereddüt etmezdi.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Ee? Pişman mısın?”</p>
+<p class="wp-block-paragraph">Vücudunu havada ustalıkla döndüren Ram, bacakları rakibinin yüzü ve göğsünde kalmayı sürdürürken bu soruyu yöneltti.</p>
+<p class="wp-block-paragraph">Yüzü koyu kanlarla lekelenmiş olan Batenkaitos ise sorusuna karşılık vermedi, bunun yerine ellerindeki hançerleri kafasının üzerine doğru kaldırdı.</p>
+<p class="wp-block-paragraph">Bu noktada Ram’n kılıç olarak kullandığı elleri rakibinin omuzlarına ulaştı, o omuz eklemlerini zorla yerlerinden çıkarttı.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“——Aoh.”</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Ee? Pişman mısın?”</p>
+<p class="wp-block-paragraph">Tekniği ne kadar harika olursa olsun yerinden çıkmış omuzlarla kollarını savuramazdı.</p>
+<p class="wp-block-paragraph">Onun gözleri irileşmiş o şaşkın suratına bakan Ram, bir kez daha sorusunu yineledi.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“————”</p>
+<p class="wp-block-paragraph">Batenkaitos’un kendisine bakan gözlerinde bir korku doğduğunu görmeye çalıştı.</p>
+<p class="wp-block-paragraph">Ram’ın amacı, o gözlere bir şeyler kazımaktı. Yani korku, acı, tanımlanamaz bir yenilgi duygusu. İntikam amacıyla—— yo, öyle önemsiz bir amaçla değil.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Rem——”</p>
+<p class="wp-block-paragraph">Onu geri kazanma amacıyla. O ana dek Oburluk trajedisiyle karşılaşan çok sayıda düşmanı. İsimleri ve Anıları yağmalanan kitleleri ve ellerinden alınan mazilerini geri kazanma amacıyla.</p>
+<p class="wp-block-paragraph">Eğer bu amaçla onu öldürmesi gerekiyorsa, Ram bunu şu anda bile yapabilirdi.</p>
+<p class="wp-block-paragraph">Tek yapması gereken, ayaklarına bir rüzgâr bıçağı geçirip suratını tekmelerken yaptığı gibi kafasını kesivermekti. İğrençlikleriyle ünlü bir Cadı Tarikatı üyesi olsa bile boynuyla bedeni birbirinden ayrıldığı takdirde er ya da geç ölürdü.</p>
+<p class="wp-block-paragraph">Yakıp yıkılan Oni klanı köyünün bir ferdi olarak köyüne yıkım getirenlerden intikam alma süreci gibiydi.</p>
+<p class="wp-block-paragraph">Neticede Cadı Tarikatı tiplemelerinin yalnızca mide bulandırıcı, çelimsiz bir soytarı sürüsü olduğunu biliyordu.</p>
+<p class="wp-block-paragraph">Bu yüzden canından önce kalbi yitsin diye sorusunu soruyordu.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Ee? Pişman mısın?”</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“——~tsu, Güneş Tutulması ~tsu!”</p>
+<p class="wp-block-paragraph">Aynı soruyu üçüncü kez işiten Batenkaitos’un kanına dahi belli belirsiz bir korku karışmıştı.</p>
+<p class="wp-block-paragraph">Ama buna rağmen kelimenin tam anlamıyla göz açıp kapayıncaya dek Ram’ın gözünün önünden kayboldu.</p>
+<p class="wp-block-paragraph">Bu kayboluş yalnızca yüksek hızla hareket etme seviyesinde değildi.</p>
+<p class="wp-block-paragraph">Ram’ın ayaklarının altındaki rakibinin bedeninin ve yüzünün hissiyatı da yitmişti. Fakat Ram’ın Batenkaitos’un nereye kaybolduğu hakkında bir fikir edinmesi hiç vakit almadı.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“——Durugörü.”</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img decoding="async" width="1024" height="678" src="https://web.archive.org/web/20260619064617im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-134.png" alt="" class="wp-image-8323" srcset="https://web.archive.org/web/20260619064617im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-134.png 1024w, https://web.archive.org/web/20260619064617im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-134-1000x662.png 1000w, https://web.archive.org/web/20260619064617im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-134-768x509.png 768w" sizes="(max-width: 1024px) 100vw, 1024px"><figcaption class="wp-element-caption"><a href="https://web.archive.org/web/20260619064617/https://x.com/RingoTashi">Görsel Sahibi</a></figcaption></figure>
+</div>
+<p class="wp-block-paragraph">Rakibinin görüş alanını sabitlediği müddetçe hiç kimse Ram’dan kaçamazdı.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“————”</p>
+<p class="wp-block-paragraph">Görebildiği o görüş alanını takip eden Ram, rakibinin spiral merdivenin hangi noktasında olduğunu saptadı. Kendini rüzgâra kaptırıp o noktaya yetiştiğindeyse karşısında rahip kıyafetine benzer bir şeyler giyinmiş kel bir adam buldu.</p>
+<p class="wp-block-paragraph">Dış görünüşündeki bu değişiklikle Ram hariç herkesi şaşırtabilir ve yanlış yönlendirebilirdi.</p>
+<p class="wp-block-paragraph">Fakat aynı görüş alanını paylaşmaları gereği Ram, hangi forma sahip olursa olsun rakibinin Batenkaitos olduğundan emindi.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Farklı bir forma bürünüp şekil değiştirmenin “Şehvetin” tekniği olduğu söyleniyordu, başka ne numaraların var acaba?”</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Ah, aaaah, kahretsin ~tsu! Kullanmak gibi bir niyetimiz olmasa da… yo, olmaması gerektiği hâlde… ~tsu!”</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“——? Ne diyorsun sen?”</p>
+<p class="wp-block-paragraph">Spiral merdivende yakalanmış olan diz çökmüş hâldeki yaşlı adam—— Batenkaitos, acı içerisinde sızlanıyordu.</p>
+<p class="wp-block-paragraph">Ram, onun bütünüyle içten görünen bu tavrı karşısında kaşlarını çatsa da şüphelerini anında bir kenara attı.</p>
+<p class="wp-block-paragraph">Mühim olan rakibinin hâlâ hayatta ve nefes alıyor olması, kalbinde bir çatlak taşımamasıydı. Ayrıca——</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“——Fazla uzatamam.”</p>
+<p class="wp-block-paragraph">Kendi kendine bu şekilde mırıldansa da büyük zincirini gevşetmesinin üzerinden bir dakikadan fazla süre geçmişti—— Ram’ın üzerine de belli belirsiz bir yük binse de o yükün büyük bir çoğunluğu Subaru’ya yöneliyordu, durum buydu.</p>
+<p class="wp-block-paragraph">Subaru’ya ufak ayarlamalar yapmasını söylemiş olsa da tam da tahmin ettiği üzere Subaru, kafasına göre hareket ederek Ram’ın yükünü neredeyse tamamen üstleniyordu. Havalı görünmek için her yolu deneyebilirdi.</p>
+<p class="wp-block-paragraph">Ama böyle bir şeyi yalnızca sevdiği kişiler veya Rem için yapmalıydı.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“——Durum Ram tarafından bilinmiyor ama nihayet bu tarafın taleplerini kabullenmeye razı mısın? Oburluk tarafından bugüne dek yenmiş olan her şeyi geri getir lütfen. Bunu yaparsan-”</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“…Bunu yaparsam ne, eyy? Paçayı kurtarmamıza izin mi vereceksin?”</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Hayır. Bunu yaparsan Ram seni anında öldürecek. İyi bir anlaşma değil mi? Ölmeyi hak etmene yol açan tüm özelliklerinden tek seferde kurtulup bağışlanmış olacaksın.”</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Bahah.”</p>
+<p class="wp-block-paragraph">Yaşlılara ait bir konuşma dili kullanan Batenkaitos, yine yaşlılara mahsus bir kahkaha attı.</p>
+<p class="wp-block-paragraph">Onun bu davranışlarını gözlemleyen Ram ise bu form değişikliğinin—— söz konusu kişinin kabiliyetlerini bütünüyle kullanabilmek için gerekli bir prosedür olup olmadığını merak etti.</p>
+<p class="wp-block-paragraph">Daha önce, Ram’ın önünden tamamıyla kaybolduğu esnada sergilediği şey, kısa mesafeli uzaysal sıçrama olarak nitelendirilmesi gereken bir teknikti.</p>
+<p class="wp-block-paragraph">Bunu kullanan kişi de Batenkaitos’un şeklini aldığı kel yaşlı adam olmalıydı.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Ama bu epey tuhaf. Bu koza başından beri sahiptiysen daha öncesinde kullanmaman garip olurdu. Buna rağmen neden saklamaya devam ettiğini merak ettim doğrusu.”</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“————”</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“…Bunu kullanmak istememen için bir sebebin mi var? Mesela o beden tarafından sürüklenmek gibi.”</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Hay Allah… gerçekten bu denli tüyler ürpertici bir kadına hiç denk gelmemiştik… Ha~yır. Nee-sama, sen gerçekten korkutucusun.”</p>
+<p class="wp-block-paragraph">Bu olasılık doğrultusunda yapılan tahmin karşısında yaşlı adam formu ağır ağır küçük bir bedene dönüştü.</p>
+<p class="wp-block-paragraph">Bu da hem Ram’ın tahmininin hem de dönüşümle alınan yaraların anında yok edilmediğinin kanıtı oldu. Batenkaitos kana bulanmıştı, yüzü de berbat hâldeydi.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Peki ya omuzların?”</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Duvara çarparak yerlerine oturttum. Yalnızca bir defa yapılınca hoş olmayan bir şey, anlarsın ya~… acıyor, a~h, acıyor.”</p>
+<p class="wp-block-paragraph">Batenkaitos, bu hissi onaylarcasına, yerini değiştirip iyileştirdiği iki omzunu da büyük ölçüde döndürdü. Buna tanık olan Ram ise omuzlarını çıkartmak yerine kökünden kesmiş olmalıydım diye düşündü.</p>
+<p class="wp-block-paragraph">Ya da uzuvlarının uçlarını ezerek tüm bu absürt numaralara bir son verebilirdi.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Hem bu hem de bu tarafın yapması gerekeni, başarması gerekeni engellemen, her şey her şey her şe~y… ne harika, nee-sama. Acaba, nee-sama, sen de onii-san gibi bir Otorite kullanmıyor musun?”</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Gerçekten akla gelmeyecek iş. Bu yalnızca Ram’ın harikulade kavrama gücü. Bunu Barusu’nun anlaşılmaz içgüdüleriyle aynı kefeye koyma. Nahoş bir şey. Geber lütfen.”</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“A~hahaha~, acı~. Ama ama, öyle mi öyle mi, öyle gibi.”</p>
+<p class="wp-block-paragraph">Batenkaitos, yırtılmış dilini dişlerle dolu ağzından çıkartıp kanlarla lekelenmiş bir gülümseme sergiledi. Bu uğursuz hareket karşısında gözleri irileşen Ram ise gücün omuzlarına akmasına izin verdi.</p>
+<p class="wp-block-paragraph">Alışılmadık bir hareket sergilediği takdirde—— yo,</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Herhangi bir şey yapmadan önce bunun tadına bak lütfen.”</p>
+<p class="wp-block-paragraph">Ram, ona alışılmadık bir hareket sergileme fırsatı tanımadan önce rakibinin uzuvlarını rüzgâr bıçaklarıyla havaya uçurmayı seçti.</p>
+<p class="wp-block-paragraph">Kanamayı durdurmanın yolları vardı. Acıyı durdurmanınsa hiçbir yolu yoktu, bu sorgulama o ölene dek devam edecekti. Bu hükme varan Ram, hiç tereddütsüz rüzgâr bıçaklarını savurdu. Fakat——</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“——Bahisler, <em>bizlerin</em> galibiyetimize!!”</p>
+<p class="wp-block-paragraph">Rüzgâr bıçaklarının tadını çıkaran tombul, iriyarı, tıraşsız suratlı adam geriye doğru sıçradı. Ve derisi ne kadar kalın olursa olsun yalnızca uzuvlarını değil, şişman gövdesini bile parçalayabilecek olması gereken rüzgâr bıçakları, o deride hafif bir kırmızılıktan başka bir iz bırakmayarak püskürtüldü.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Nee-sama, küçük bir yanlış anlaşılma olabilir mi diye merak ediyoruz—— Bilesin diye söylüyorum, rakibini gözleyen tek kişi sen değilsin, anlıyor musun?”</p>
+<p class="wp-block-paragraph">O devin kaçmasına izin vermemesi gerektiğine inanan Ram ilerlerken bu ses bedenine ulaştı.</p>
+<p class="wp-block-paragraph">Ve hemen ardından boğazı, geriye kalan hediye misali bıçaklardan biriyle kesildi, ilerleyişi yarım adım kadar ertelendi. Batenkaitos da o yarım adımcık arayı fırsat bilerek,</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Bu da bizim <em><u>yaklaşımımızın</u></em>, başa~rısı!!”</p>
+<p class="wp-block-paragraph">Yaşlı adam formu kaşla göz arasında yok olurken Ram’ın hemen arkasında beliren varlığın ürkütücü havası yoğunlaştı. Ve ona arkasına dönecek vakti bile bahşetmeden beline indirdiği kudretli bir yumrukla narin bedeni uçuruldu.</p>
+<p class="wp-block-paragraph">Ağzından çıkan “Ga~h” sesiyle uzaklara fırlatılan Ram, göz ucuyla bakarak kendisini yumruklayıp havalandıran iriyarı fizikli ve vahşi auralı adamın—— ansızın üç erkek formu arasında gidip gelişini, özel becerilerini en iyi şekliyle kullanmalarını sağlayan bağlantılarını gördü——</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Yine de bir kez gösterdiğin tekniğin tekrar işe yarayacağını düşünmü——”</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Düşünmüyoruz. Düşünmüyoruz. Düşünmüyoruz, anlarsın ya. Düşünmüyoruz, aynen öyle. Düşünmüyoruz, bu yüzden. Tam da düşünmediğimiz için. Söylendiği üzere düşünmüyoruz!”</p>
+<p class="wp-block-paragraph">Bağırmakta olan Batenkaitos’un formu bir kez daha yaşlı adama dönüştü ve eliyle gözlerinden birini kapattı.</p>
+<p class="wp-block-paragraph">Onun bu hareketiyle korku ve dehşet hisseden Ram, uzun bacaklarını esnetip anında duvarı tekmeleyerek rakibe çevik bir şekilde atılabilmek adına pozisyon almayı denedi.</p>
+<p class="wp-block-paragraph">Ancak bunu yapması mümkün olmadı.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“<em>Biz</em> farkındayız—— Rem’in nee-sama’sının, hile yapmadan bu şekilde hareket etmeye devam edemeyeceğinin farkındayız.”</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“————”</p>
+<p class="wp-block-paragraph">Bu cevabı Ram’ın hareketlerinden değil, Rem’in bilgilerinden almıştı.</p>
+<p class="wp-block-paragraph">Batenkaitos, Ram’ın “Boynuzsuz” olma sınırlarını aşan hareketlerine tanık olarak bu varsayımı doğrulamış ve Ram merdivenlerde farklı seviyeler sergileyince bu kötülüğü fark etmişti. Yani——</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Nee-sama, gerçekten nee-sama’yla güçlerimizi yarıştırmak istemeyiz, anlarsın yaa~.”</p>
+<p class="wp-block-paragraph">Evet, o kurnaz gülümsemesi uzay çözülüyormuşçasına yitip gitti.</p>
+<p class="wp-block-paragraph">Uzayın kısa mesafeli çözülüşüyle ortaya çıkan geçici anlık hareketlilik—— bunun ardı ardına gerçekleştirilmesiyle savaş alanından çekilmek basit, kolay bir meseleydi. Gerçi Ram, onun çekilmeden ölene dek saygıdeğer bir şekilde çarpışmasını hiç beklememişti.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Kaçmaya karar vermesi kısa sürdü. Yo, daha ziyade——”</p>
+<p class="wp-block-paragraph">Ram’ın Durugörüsünün farkındayken öyle basitçe kaçıp gidebileceğini düşünmemiş olmalıydı.</p>
+<p class="wp-block-paragraph">Bunu bile bile uzaklaşma sebebi, Ram’ın sahip olduğu zaman limitini fark etmiş olmasıydı. Ve can sıkıcı olsa da Ram, hatırı sayılır bir zaman kaybetmek durumunda kalmıştı.</p>
+<p class="wp-block-paragraph">Subaru’nun üzerine bindirdiği yük, bir dakikayı aşmıştı.</p>
+<p class="wp-block-paragraph">Bir an önce kulenin içerisine kaçmış olan Batenkaitos’un yerini keşfetmeliydi.</p>
+<p class="wp-block-paragraph">Bu düşünceler aklına doluştuğundaysa bir şeyi fark etti.</p>
+<p class="wp-block-paragraph">Yani onun, o Günah Başpiskoposunun, o hain budalanın yalnızca kaçma amacıyla kuleye girmeyeceğini.</p>
+<p class="wp-block-paragraph">O, yüzleştiği Ram’a en büyük acıyı verecek şeyin ne olduğunu iyi biliyordu. O şey de——</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“——Rem.”</p>
+<p class="wp-block-paragraph">Nihayet o kötülüğün görüş alanı bir kez daha Ram’ınkiyle örtüştü ve onun tarafından kavranabilir hâle geldi.</p>
+<p class="wp-block-paragraph">O görüş alanına yansıyan şeyse üzerinde Uyuyan Güzelle koşturan kara yer ejderinin kuyruğu oldu.</p>
+</article>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+            <a href="arc6bolum81.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="arc6bolum83.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

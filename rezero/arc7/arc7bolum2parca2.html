@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VII, Bölüm 2 Parça 2 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc7bolum2parca1.html" class="nav-btn">← Önceki Parça</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc7bolum2parca3.html" class="nav-btn">Sonraki Parça →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VII, Bölüm 2 Parça 2</h1>
+            <div class="subtitle">"Kurtlar Ülkesi"</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Benlik belleğini yitiren ve bir bağlamda hiç kimseye dönüşen Rem’in, Ram'la etkileşiminden kaynaklanan aşağılık kompleksine ya da bir kimlik oluşumuna sahip olmadığı söylenebilirdi.</p>
+
+            <p>Ram’ın, Rem’in varlığını yitirmesine rağmen bir değişiklik olmaksızın sağlam kalabilmesi anormaldi. Ve Subaru, Rem’e de aynı şeyin olup olmayacağını merak ediyordu.</p>
+
+            <p>Ram’la kardeş değildi, bir Oni Klanı ferdi olarak taşıdığı gururdan ve aşağılık kompleksinden yoksundu ve Natsuki Subaru hakkında hiçbir şey düşünmüyordu. İşte o Rem――</p>
+
+            <p>Subaru: [――hk!]</p>
+
+            <p>Bunu hayal eden Subaru, göğsünde yakıcı bir his duyarak ileri doğru büyük, kuvvetli bir adım attı.</p>
+
+            <p>Duygularının acısını üzerlerine basarak çıkardığı dallar kırılmadan önce gıcırdarken Subaru, önünde uzanan uzun çimler üzerinde yürür halde eğildi ve çamurlu zeminde düşmesine ramak kalmışken,</p>
+
+            <p>Subaru: [――Ah?]</p>
+
+            <p>Beklenmedik bir şekilde orman farklı bir alana açıldı ve Subaru, yeni bir çayırlık alana çıkmış olduğunu fark etti.</p>
+
+            <p>Ormanda daireler çizip aynı noktaya döndüğüyle kalmış olabileceğini düşünen Subaru’nun yüzündeki renk çekildi. Fakat bölgeyi dikkatle inceleyince durumun bu olmadığını idrak etti.</p>
+
+            <p>İlk çayırlığa benzer bir alanda olsa da ayaklarının altındaki çimlerin yüksekliği farklıydı.</p>
+
+            <p>Buranın çimleri başlangıçtaki alana kıyasla biraz daha uzundu. Bunun yanı sıra orası 360 derecelik bir açıyla ağaçlarla çevrelenmişken bu alanda yalnızca Subaru’nun çıktığı noktada ağaçlar mevcuttu.</p>
+
+            <p>Arkasına ormanı aldığında önünde uzanan çayırlığın çukurları arasından geniş bir ufuk çizgisi görebiliyordu. Gökyüzü korkunç derecede uzakta ve yüksekte görünürken gizemli bir şekilde içine çekildiği şeklindeki yanılsama, altındaki zeminin dengesizleşmesine sebep oluyordu.</p>
+
+            <p>Bununla birlikte gözüne takılan tek şey uzaklardaki gökyüzü değildi.</p>
+
+            <p>Daha yakınlarda çayırların kesilmesiyle yaratılmış ufak bir açık alan ve o alana yerleştirilmiş kamp araçları bulunuyordu ― özetle bu, daha önce burada bulunmuş birilerine işaret ediyordu.</p>
+
+            <p>Subaru: [――――]</p>
+
+            <p>O saniyede Subaru’nun tüm bedeninde adeta ikaz ışıkları yanıp söndü ve görüş alanı büyük ölçüde daraldı.</p>
+
+            <p>Neyse ki basit bir kamp alanı olarak nitelendirebileceği mekanda herhangi bir siluet yoktu. Yalnızca burada kamp yapan birinin olası izleri kalmıştı ve bunun bir tuzak olduğunu düşünmek zordu.</p>
+
+            <p>Buradaki problem, bu kamp alanını yaratan kişinin tam olarak kim olduğuydu.</p>
+
+            <p>Subaru: [En büyük olasılık, beni öldüren kişi olması…… haksız mıyım?]</p>
+
+            <p>Kendisini indirmiş olan avcıyı düşünüyordu. Ormanda avlanabilmek için bu mekanı ana kampı olarak kullanma ihtimali yüksekti.</p>
+
+            <p>İş bu noktaya geldiyse Subaru’nun anında oradan uzaklaşması ve güvenliğini garantilemesi gerekirdi.</p>
+
+            <p>İster ormanda karşılaşsın ister ovada, avcının her türlü tehlikeli biri olduğu kesindi.</p>
+
+            <p>Yaşamak için avlanan Matagilerin geyik zannederek kazara insan vurdukları sıklıkla duyulsa da becerileri hesaba katılınca o avcının, arkadaşını arayarak bağıra bağıra dolaşan bir adamı geyik zannederek vurması imkansızdı.</p>
+
+            <p>Avcı, tehditkar bir düşmandı. Ve o harekete geçmeden önce bu işi sonlandırması gerekiyordu.</p>
+
+            <p>Ancak――</p>
+
+            <p>Subaru: [……Hiç değilse bir bıçak aşırabilirsem.]</p>
+
+            <p>Subaru, gür bir orman diyebileceği, birbirine yakın ağaçlardan oluşan ormanda ilerleyebilmek için bir aracın yardımını alabilmek istiyordu. Ama maalesef şu anda sahip olduğu tek nesne, düzenli olarak kullandığı kırbaçtı ― yani güçlü bir düşmanın malzemelerinden yapılmış Suçlu Kırbaç.</p>
+
+            <p>Kum denizini aşmaya yönelik kıyafetiyse gür ormanda iş görecek cinstendi. Yine de harekete geçebilmek için ağaçları kesebileceği tek bir kesici aletinin bile olması işleri büyük ölçüde değiştirirdi.</p>
+
+            <p>Dolayısıyla bu tarz tek bir alet elde edebilmesi gidişatı bir hayli farklı kılardı.</p>
+
+            <p>Durumu böyle gören Subaru, kısa düşünme sürecini sonlandırarak kamp alanına doğru ilerlemeye başladı.</p>
+
+            <p>Hızlıca bir dönüş yapıp ormana yönelmeyi de seçebilirdi ama sonrasında olacakları düşününce oraya eli boş dönmekten kaçınmak istemişti.</p>
+
+            <p>Böylece adım seslerine ve etrafına dikkat kesilerek alana giriş yaptı.</p>
+
+            <p>Subaru: [Ateş yakılan bir zamana dair izler ve artıklar var ama…… bu bir yatak mı ki?]</p>
+
+            <p>Kampın ortasında yanan bir ateşin izlerinin kaldığını ve yanında bir yatağa benzeyen, biçilmiş otlarla sıralanmış bir şey olduğunu tespit etmişti. Burada birinin yaşadığına hiç şüphe yoktu.</p>
+
+            <p>Yatak da boştu ve etrafta başka hiçbir şey yokmuş gibi görünüyordu ancak――</p>
+
+            <p>Subaru: [Sadece bir bıçak veya ona benzer bir şey bulabilseydim――]</p>
+
+            <p>???: [――Hah, demek bir bıçak istiyorsun. Eh, demek ki tam vaktinde gelmişsin.]</p>
+
+            <p>Subaru, kullanabileceği bir alet bulma amacıyla kampı kısaca aramaya yeltendiği anda arkasından yükselen bir ses işiterek durdu ve boynunda soğuk bir şeyin varlığını hissetti.</p>
+
+            <p>Bakışlarını yavaşça indirdiğindeyse nefesi boğazında düğümlendi ve boynunun sağ tarafına doğru kaldırılan nesnenin güzelce cilalanıp işlenmiş bir bıçağın ucu olduğunu gördü.</p>
+
+            <p>Subaru: [――――]</p>
+
+            <p>Nefesini tutan Subaru, rakibine kendisini öldürme veya hayatta bırakma kararı alma şansı tanıdığını anladı.</p>
+
+            <p>Fakat konuşan kişinin arkasında olması gereği kafası karışmıştı. ――Temkinliydi. Temkinli davranmış ama yaptığı hesaplar kapı dışarı edilince işin ucunda hayatının olduğu bir duruma düşmüştü.</p>
+
+            <p>Elbette ki bu dünyada gözle takip edilemeyecek kadar hızlı süper insanların veya ışınlanma gibi şeylerin altından kalkabilen kişilerin yaşadığını biliyordu.</p>
+
+            <p>Buna rağmen,</p>
+
+            <p>Subaru: [Gerçekten şu anda, şurada o birkaç istisnadan birine denk gelmeyi mi başardım yani?……Ne kadar bahtsız olabilirim ki?]</p>
+
+            <p>???: [Ahmak. Kim sana konuşabileceğini söyledi? Söyleyeceğin her kelimeyi mutlak bir özenle seçmek zorundasın. Hayatının bizim…… benim ellerimde olduğunu unutma.]</p>
+
+            <p>Subaru talihsizliğine lanetler okurken arkasındaki kişinin sesinde merhametten eser bulunmuyordu.</p>
+
+            <p>Tam da söylendiği üzere, saçma bir işe kalkıştığı takdirde Subaru’nun kafası anında bedeninden ayrılırdı. İşlerin kesinlikle bu şekilde işleyeceğini öne süren şüphe edilemez ve güçlü bir baskı hisseden Subaru, bir ilerleme kaydetmenin herhangi bir yolunu bulmak için çaresizce uğraşıyordu.</p>
+
+            <p>Sesine bakılırsa arkasındaki kişi bir erkekti.</p>
+
+            <p>Epey genç bir ses olduğuna göre de Subaru’yla aynı yaşlarda ya da ondan birazcık büyük olsa gerekti. Yaptığı kelime seçimleri özgün olsa da tuhaf bir şekilde Subaru’ya garip gelmiyordu.</p>
+
+            <p>Ve hepsinden öte――</p>
+
+            <p>Adam: [Çenen kapalıyken beyninin derin düşüncelere daldığını görüyorum. Ama canını bir kenara atıp karşılık vermeye kalkışmayı düşünmüyorsun…… Hm.]</p>
+
+            <p>Adam, sessizliğini koruyan Subaru’nun içinden geçenleri sezmesine imkan tanıyan bir kavrayış kabiliyetine sahipti.</p>
+
+            <p>Subaru’nun sırtına bakarken bir şeyleri değerlendirmiş gibi görünüyordu ve kulağa bir şeyler üzerine kafa yoruyormuş gibi gelen bir nefes sonrasında da,</p>
+
+            <p>Adam: [Buralarda görmediğim bir tarzda giyinmişsin. Bu kılığın Buddheim iklimine uygun olduğunu da sanmıyorum. Solgun eller ve ayaklarına bakılırsa…… bu bölgeden değilsin.]</p>
+
+            <p>Subaru: [Ben…… voah!]</p>
+
+            <p>Adam: [Sessiz ol. Sana ağzını açabileceğini söyleyen oldu mu? Bir kez daha canımı sıkacak olursan kafan bedeninden ayrıldıktan sonra da konuşmaya çalışıp çalışmayacağını görmek isterim.]</p>
+
+            <p>Adamın bir sohbet gerçekleştirmeye hiç niyeti yoktu. Boynuna sığ bir kesik atılan Subaru, bunun farkına varmaya mecbur bırakılmıştı.</p>
+
+            <p>Karıncalanma hissiyle doğan acıyla birlikte yarasından ağır ağır kanlar sızıyor ve boynundan aşağı dökülüyordu ancak adam, Subaru’ya dair incelemesini henüz tamamlamamıştı.</p>
+
+            <p>Adam: [Belindeki kırbaç da ormanda kullanmak için fazlasıyla, korkunç derecede elverişsiz. Kolların ve bacakların eğitimli görünüyor ama kurtların arasına karışmanı sağlayacak kadar değil…… Yani buraya beni takip ederek gelmiş gibi görünmüyorsun.]</p>
+
+            <p>Subaru: [――――]</p>
+
+            <p>Adam: [Bir anda neden sessizleştin? Kendini açıklamak yerine burada ölüp gitmeyi mi yeğliyorsun?]</p>
+
+            <p>Subaru: [Eeh!? Bu sefer konuşmaya iznim var mı!? Mantıksız olmadı mı!?]</p>
+
+            <p>Adamın adaletsizliğini protesto ettiği saniyede kafasının arkasından atılan sert bakışlar daha da keskinleşti.</p>
+
+            <p>Ve gereksiz bir şey söylemiş olduğunu anlayan Subaru kaskatı kesildi, ancak boynuna dayanan bıçağın nihayet geri çekilişiyle bedenindeki o katılık gevşedi.</p>
+
+            <p>Bununla birlikte,</p>
+
+            <p>Adam: [――Yavaş yavaş dön. Saçma bir şey yapmaya kalkarsan-]</p>
+
+            <p>Subaru: [Kafamı bedenimden mi ayırırsın?]</p>
+
+            <p>Adam: [Hayır. Uzuvlarını keser, kalbini oyar ve gözlerinin önünde yakıp kül ederim.]</p>
+
+            <p>Subaru: [Fazla şeytani bir tehdit oldu!]</p>
+
+            <p>Subaru, yoğunluğuna dayanarak tehditteki mesajı almış şekilde iki elini kaldırıp karşılık verme niyeti olmadığını kanıtlayarak adım adım dönmeye başladı.</p>
+
+            <p>Ve sonra da gözlerini arkasına geçmeyi başarmış olan adama dikmesiyle――</p>
+
+            <p>Subaru: [……Ciddi misin sen?]</p>
+
+            <p>――Suratı bir kumaş parçasının ardına gizlenmiş bir adamla yüz yüze geldi.</p>
+
+            <p style="text-align: center; margin: 2em 0; color: var(--accent-color);">△▼△▼△▼△</p>
+
+            <p>Gerçekten tuhaf görünümlü bir adamdı.</p>
+
+            <p>Boyu Subaru’nunkinden birazcık uzundu ve zayıf denilebilecek bir fiziğe sahipti. Ayakta dikilirken ince uzuvlarında eskrim kılıcıyla meç arası bir şey, yani Subaru’nun boynuna hafif bir kesik atmış olan ince uçlu bir kılıç taşıyordu.</p>
+
+            <p>Giydiği kıyafetler mükemmel kalitede, asillere layık cinstendi ve Subaru’dan daha yersiz görünümlü bir stile sahip olduğu söylenebilirdi. Yakından bakıldığındaysa yüzünü saran kumaşın bir pelerin olabileceğini görmek mümkündü.</p>
+
+            <p>Yüzünde bir yara mı vardı yoksa kendisini göstermek mi istemiyordu, o paçavrayı giyinmesinin sebebinin hangisi olduğu meçhuldü, ama――</p>
+
+            <p>Maskeli adam: [Ne oldu? O aptal surat da ne?]</p>
+
+            <p>Subaru: [Bu soruyla “aptal göründüğümü” kastediyorsan ben bu suratla doğdum, yani bu yaptığın bana hakaret etmek sayılmaz mı……? Ayrıca senin nasıl göründüğünü gördükten sonra bu tepkiyi vermem kaçınılmazdı.]</p>
+
+            <p>Maskeli adam: [Varsayımlarda bulunuyorsun. Ben de senin suratına bakıyorum ve bir suikastçı olup olmadığından bir kez daha şüphe duyuyorum.]</p>
+
+            <p>Subaru: [İnsanlar gözlerinin görünümüne bağlı olarak bir işe atanmazlar, tamam mı! Hem benim rolüm bir suikastçının tam tersi. Saldırıya geçmektense savunmayı seçen bir tipim.]</p>
+
+            <p>Adam ― yo, maskeli adam, gardını indirmeden kılıcını Subaru’ya doğrultmaya devam ediyordu.</p>
+
+            <p>Onun şüphe işli sesiyle söylediklerine karşılık veren Subaru’ysa önce ekipmanlarına, sonra da arkasına yerleştirmiş olduğu çantaya bakarak kaşlarını çattı.</p>
+
+            <p>Adamın ormandaki herhangi bir aktiviteye veya kampa uygun olmayan kıyafeti dikkatini çekse de odaklandığı esas şey, arkasında yatan çantaydı ― Subaru, tıpkı hiçbir uyarı olmaksızın arkasında beliren adam gibi onu da ansızın beliren bir şey olarak ancak görebilmişti.</p>
+
+            <p>Bunun yanı sıra, maskeli adamın ekipmanı meselesi vardı. ――Adamın ne yayı ne de okları vardı.</p>
+
+            <p>Subaru: [……Sen avcı değilmişsin gibi görünüyor.]</p>
+
+            <p>Maskeli adam: [Avcı mı?]</p>
+
+            <p>Subaru: [Şahsi bir mesele. Bu arada…… ansızın bir mesafeyi aşabilmek veya görünmez olmak… gibi bir şey mi yapabiliyorsun?]</p>
+
+            <p>Maskeli adam: [――――]</p>
+
+            <p>Bu soruyu sorduğu saniyede, adamın maskenin arasındaki boşluktan görünen kara gözleri kısıldı.</p>
+
+            <p>Fakat öfkelenmiş veya Subaru’yu bırakmak istermiş gibi bir tepki vermedi, aksine, ilgisini çektiğini belli etti.</p>
+
+            <p>Ve ufak bir iç çekişle birlikte “Hah” diyerek,</p>
+
+            <p>Maskeli adam: [Böyle bir fikre nerden vardın? Dayanağını belirt.]</p>
+
+            <p>Subaru: [……Buraya yaklaşırken ne olur ne olmaz diye etrafıma dikkat ediyordum. Elbette ki benim dikkatli oluşum gibi zavallıca bir şeyi aşabilecek bir sürü kişi olduğunu biliyorum ama sen onlardan biri değilsin.]</p>
+
+            <p>Maskeli adam: [Nedenmiş o?]</p>
+
+            <p>Subaru: [Öfkelenmeden beni dinlemeni isterim ama bugüne dek yetenekli kişilerle veya sizin deyiminizle süper insanlarla pek çok tesadüfi karşılaşmam oldu. Ve o deli tiplere kıyasla senin… ah, sıradan olduğun hissine kapılıyorum.]</p>
+
+            <p>Eğer saygın bir savaşçıyla konuşuyorsa bu sözlerle onu gücendireceği kesindi.</p>
+
+            <p>Yine de maskeli adamla yüzleştikten sonra hissettiği şey buydu. Gözlemlediği kadarıyla önündeki adamın kılıç kullanabildiği tartışmasız olsa da yeteneği ortalamaydı ve o noktaya da belli bir eğitim sonucunda ulaşmıştı.</p>
+
+            <p>Reinhard, Garfiel, Wilhelm ve Julius gibilerini tanıyan Subaru’nun gözünden bakılınca bu adam olsa olsa onların astı olurdu.</p>
+
+            <p>Subaru: [Eğer öyleyse benim tarafımdan algılanmadan buraya atlaman şeklindeki teori geçersiz ve hükümsüz olacaktır. Geriye bir anda aradaki mesafeyi kapatıp arkamda belirmen kalıyor, eğer o da değilse……]</p>
+
+            <p>Maskeli adam: [Ya öyle oldu ya da “Gizlenmeyi” kullanarak gözden kayboldum.]</p>
+
+            <p>Subaru: [――hk!?]</p>
+
+            <p>Maskeli adam, böyle söyleyişinin ardından hemen önünde durmasına rağmen Subaru’nun görüş alanından kayboldu.</p>
+
+            <p>Fakat Subaru’nun şaşkınlığı bununla da sona ermedi.</p>
+
+            <p>Subaru: [Gözden kayboldun…… ama hala hemen önümdesin?]</p>
+
+            <p>Maskeli adam: [――Haklısın. “Gizlenme” benim varlığımı ortadan kaldırmıyor.]</p>
+
+            <p>Subaru’nun sorusunu işiten maskeli adam bu yanıtla birlikte az önce durduğu noktaya geri döndü.</p>
+
+            <p>Yani düşününce adam, yok olma bağlamında kaybolmamış, yalnızca görünmez olmuştu. Ve Subaru’nun sorusuna yanıt verdiği anda geri dönmüş olmasının anlamı da――</p>
+
+            <p>Subaru: [Biri sana dokunur veya varlığının farkına varırsa gücün iptal mi oluyor?]</p>
+
+            <p>Maskeli adam: [Yine de nefesini tutup yatarak gizli kalmak için ideal bir araç.]</p>
+
+            <p>Diyen maskeli adam, Subaru’ya doğrulttuğu kılıcı indirip ucuyla kamp alanına yöneltti. Çantasının yerleştirildiği yeri işaret ediyordu.</p>
+
+            <p>Maskeli adam: [Yatak bir aldatmaca. Orada, ondan yalnızca birazcık uzakta nefesimi tutuyordum. Buraya sinsice girişini daha en başta fark etmiştim. Amma da komiktin.]</p>
+
+            <p>Subaru: [Tetikte olan insanları kenardan izleyince acayip aptal görünüyorlar cidden…… bir saniye, şu anda önemli olan bu değil! Kılıcını indirdin, yani bunun anlamı……]</p>
+
+            <p>Maskeli adam: [Sen benim takipçim değilsin. Kim olduğuna veya ne amaçladığına dair hiçbir fikrim yok ama yolunu kaybetmiş biri olmalısın. Eğer öyleyse, seni şiddete mahkum etmem için hiçbir sebep yok demektir. Sana bu kılıçla bir ders vermem için de.]</p>
+
+            <p>Maskeli adam, savaşmaya niyeti olmadığını ifade edercesine indirdiği kılıcı, belindeki kınına yerleştirdi. Ve bunu gören Subaru’nun bedenindeki gerginlik nihayet yatıştı.</p>
+
+            <p>İşte o rahatlamayla birlikte de esas planını hatırladı.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="arc7bolum2parca1.html" class="nav-btn">← Önceki Parça</a>
+            <a href="arc7bolum2parca3.html" class="nav-btn">Sonraki Parça →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

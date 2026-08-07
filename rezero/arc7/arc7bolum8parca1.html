@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VII, Bölüm 8 Parça 1 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 2em 0;
+            letter-spacing: 4px;
+            color: var(--accent-color);
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc7bolum7parca3.html" class="nav-btn">← Önceki Parça</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc7bolum8parca2.html" class="nav-btn">Bölüm 8 Parça 2 →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VII, Bölüm 8 Parça 1</h1>
+            <div class="subtitle">"Life Line"</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>???: [Subaru, geeeerçekten arı gibi çalışkansın, değil mi?]</p>
+
+            <p>Subaru: [Ha, gerçekten mi?]</p>
+
+            <p>Gümüşi bir çan sesiyle övülen Subaru’nun burun delikleri kabarmıştı.</p>
+
+            <p>Bir kova suya batırıp çıkarttığı bezi sıkmayı yeni bitirmiş bir şekilde hevesle yerleri siler, konukların kullandığı odayı temizlemekle meşgul olurken sesin sahibi olan Emilia, orada belirivermişti.</p>
+
+            <p>Ve parmaklarını uzun, gümüş saçlarının arasından geçirip gelişigüzel bir kafa sallayışıyla,</p>
+
+            <p>Emilia: [Hı hı. Daha yeni iyileştin ve çoktan çalışmaya başlamışsın bile. Halbuki Cadı Yaratıklarıyla yaşanan o kargaşanın üzerinden hiç vakit geçmedi. Bu beni gerçekten hazırlıksız yakaladı.]</p>
+
+            <p>Subaru: [Hehe, önemli bir şey değil canım… Yo, bir saniye!? Yoksa bana ders veriyor, iyileşme sürecindekilerin böyle bir şey yapmaması gerektiğini mi söylüyorsun!?]</p>
+
+            <p>Emilia: [Hah, niyetim bu değildi… Ama şimdi sen söyleyince düşündüm de haklısın galiba. Böyle bir şey yaşayamayız, Subaru. Senin daha çok dinlenmen gerekiyor.]</p>
+
+            <p>Subaru: [Ghaa, kendi topuğuma sıktım.]</p>
+
+            <p>Subaru, iltifatı doğal karşılayıp mesele yapmasaydım çok daha iyi olacaktı diye düşünerek bu kadar anlam yüklemiş olmasından pişmanlık duydu.</p>
+
+            <p>Ama o sırada, daha bu konu üzerine pek kafa yorma fırsatı bulamadan, Emilia’nın omzundan sohbete üçüncü bir ses katıldı. Ve Emilia’nın gümüş saçlarının arasından gri bir kedi fırladı.</p>
+
+            <p>Puck: [Fufufu, amma uzun sürdü, Subaru. Ben de burada durmuş, Lia’nın birkaç içten iltifat etmesine izin verirsem sen satır aralarını okuyup fazlasıyla derinlere dalarsın diye düşünüyordum. Ve tam da niyetlendiğim gibi oldu.]</p>
+
+            <p>Subaru: [Puck, seni küçük… Bu dolambaçlı hileler de neyin nesi! Ne halt istiyorsun!?]</p>
+
+            <p>Puck: [Heh, bariz değil mi? Ben kaypak bir kedi ruhuyum, sebep bu. Mizacım gereği yaramazım, tatlılığımla ve tüylülüğüme insanların kalplerini kazanıp onları yanlış yola saptırıyorum… Miyavmiyavmiyav!]</p>
+
+            <p>Emilia: [Tanrım, hadi ama Puck, yine tuhaf şeyler söylüyorsun. Subaru’yu sıkboğaz etmeyi bırak.]</p>
+
+            <p>Küçük kedi ruhunun yüzüne epey adi bir ifade yerleşmişti, fakat kötülüklerine dair itirafının ortasına ulaştığında kulağı Emilia tarafından çimdiklenince mağlup oldu. Ve Emilia, Puck hala kulağından asılı halde elinden sarkarken Subaru’dan özür diledi.</p>
+
+            <p>Emilia: [Affedersin, yalnızca çalışmaya bir mola vermiştim ve köşkte dolaşıyordum, o sırada Puck seni bulduğunu söyleyince ben de…]</p>
+
+            <p>Subaru: [Oh, yo, hiç sorun değil. Bana kalırsa günümün ne kadar çok saniyesi seninle geçerse o kadar iyi, Emilia-tan. O yüzden bunu tasarladığı için Puck’a teşekkür ediyor olmalıyım.]</p>
+
+            <p>Emilia: [Öyle mi? Gerçekten anlayamadım ama öfkelenmediğine sevindim, içim rahatladı.]</p>
+
+            <p>Subaru: [Yani beni anlamadı! Hem de utanç verici bir açıklıkla söylemiş olmama rağmen!?]</p>
+
+            <p>Subaru’nun şikayetlerini dinleyen Emilia’nın yüzündeki gülümseme silinip kaşları çatıldı, sonra da aklı karışarak kafasını kaldırdı.</p>
+
+            <p>Subaru’nun söyledikleri ona olan düşkünlüğünden doğsa da maalesef, Emilia’ya adamakıllı ulaşabilmiş gibi görünmüyordu. Yani daha ileri gitmek istiyorsa daha da açık olmaktan başka çaresi yoktu.</p>
+
+            <p>Subaru: [Ona söylemek için uygun durumu, ruh halini ve doğru günü seçmek istemek, tüm bunlar genç bir adamın eğiliminin bir parçası işte…]</p>
+
+            <p>Puck: [Gece vaktini tavsiye ederim, aksi takdirde, yani uyanık olursam kesinlikle yoluna çıkarım.]</p>
+
+            <p>Subaru: [Bakıyorum da dimdik duran ebeveyn tarafını giderek daha da çok gösteriyorsun.]</p>
+
+            <p>Bu nesildeki babaların kızlarının ilişki yaşamasına karşı çıkması sıklıkla rastlanan bir şeydi, bununla birlikte Subaru, farklı bir dünyadan gelmiş bir tüy yumağı olmasına rağmen Puck’ın da aynı durumda olduğunu tek bakışta anlayabiliyordu.</p>
+
+            <p>O sitem edici bakışlar atarken ise Puck, hala Emilia’nın omzuna tünemiş şekilde göğsünü kabartmakla meşguldü.</p>
+
+            <p>Puck: [Elbette ki Lia’nın tatlılığı hesaba katılınca ona yaklaşan sineklerin sayısı çizgiyi aşıyor. Ben onları uzaklaştırmak için gayret etmezsem sonları gelmez, haksız mıyım?]</p>
+
+            <p>Subaru: [Oh yo, ben yalnızca o sineklerden birini önceden seçmenin faydalı olabileceğini düşünmüştüm.]</p>
+
+            <p>Puck: [Böylesine çirkin gözlü olanları pas geçeceğim. Ayrıca herhangi bir sineğin Lia’ya yaklaşmasına izin vermem tuhaf olur. Aşağı yukarı bin yılımı alsa bile Lia’ya uygun bir talip arayacağım.]</p>
+
+            <p>Subaru: [Bu ölçek efsanevi düzeyde oldu!]</p>
+
+            <p>Sevgi dolu bir baba konseptini fazla ileri taşımış olsa da bir yarı elf ve ruh ikilisi olmaları gereği gerçekten de bin yıla yakın bekleyebilecek olma ihtimalleri vardı.</p>
+
+            <p>Ama maalesef Subaru bir insandı, böyle bir büyüklükle aşık atamazdı.</p>
+
+            <p>Subaru: [Sanırım gerçekten gayret edersem 120yi görebilirim…]</p>
+
+            <p>Emilia: […? Neden bahsediyorsun?]</p>
+
+            <p>Subaru: [Oh, yaşam süremden bahsediyordum.]</p>
+
+            <p>Emilia: [Yaşam süren mi… Yapma şunu Subaru, bu çok tuhaf. Sen hala genceciksin, bu tarz şeylerden endişe duymak için henüz çok erken.]</p>
+
+            <p>Subaru: [Ehh, hangi açıdan baktığına göre değişir…]</p>
+
+            <p>Emilia bir elini ağzına götürüp kıkırtısını bastırdı, sonra da olabilecek en komik şakayı işitmişçesine bir kahkaha patlattı.</p>
+
+            <p>Subaru’ysa zoraki bir gülümsemeyle karşılık verdi, yine de içindeki adam, daima aklında olan kızın gülümsediğini gördüğüne sevindi. İşler karmaşıktı ama her şeyin bir zamanı vardı ve Emilia’nın bunu fark etmesine ihtiyaç duyuyordu.</p>
+
+            <p>Subaru: [En azından bana çocuk muamelesi yaptıkları sürece ringe çıkmama gerek olmayacak.]</p>
+
+            <p>Puck: [Epey iyi bir tavır, ha, Subaru. Doğru, şu anda yapman gereken ilk şey, bir yetişkin gibi iki ayağının üzerinde durmak. Bunu yapamazsan evime ayak basmana izin vermem.]</p>
+
+            <p>Emilia: [Burası Roswaal’ın köşkü değil mi? Ayak basmasına izin vermemek de ne demek oluyor?]</p>
+
+            <p>Emilia, kısa kollarını sessiz bir kararlılıkla bağlamış olan Subaru’yu dinleyen Puck’a bu soruları yöneltti.</p>
+
+            <p>Her şeye rağmen, Puck’ın söylediklerini işittikten sonra bile Subaru’nun cesareti kırılmamıştı. Yapılması gereken kararlaştırıldıysa artık geriye kalan tek şey, hedefine ulaşmak konusunda kendisine bir kestirme yol çizmekti.</p>
+
+            <p>Subaru: [Heh, bana baksana, Puck. Gördüğün gibi ben her gün aynı şeyi defalarca tekrar etmekten çekinmeyen biriyim. Bir oyunda seviye atlarmış gibi yani!]</p>
+
+            <p>Puck: [Puahaha, aptal insan. Öyleyse bana yalnızca çenesi çalışan bir çaylak olmadığını kanıtla. Prensesle birlikte kalenin en iç kısmında bekliyor olacağım. Hadi gidelim, Prenses!]</p>
+
+            <p>Emilia: [Beni mi kastettin? Hmph, ama ben Kral olmayı hedefliyorum, Prenses değil.]</p>
+
+            <p>Subaru ve Puck ikilisi etraflarındaki hiç kimseyi umursamadan gaza gelirken Emilia, elindeki bezi sıkıp kurutmakla meşgul olan Subaru’ya gülümsedi. İkilinin çelişen tavırlarıyla uğraşmasına rağmen olan buydu.</p>
+
+            <p>Emilia: [Her halükarda sen elinden gelenin en iyisini yap. Her şeyini ortaya koyarsan bunu fark eden biri mutlaka olacaktır.]</p>
+
+            <p>Subaru: [Ama ben rastgele birindense Emilia-tan’ın fark etmesini isterim…]</p>
+
+            <p>Emilia: [Evet, evet, anlıyorum. Sürekli seni izleyemeyecek olsam da sık sık uğrayacağım. Ayrıca…]</p>
+
+            <p>Diyen Emilia, kaşlarını hafiften indirdi ve cümlesinin ortasında duraksadı. Sonra da devam etmesini bekleyen Subaru’ya dönüp yüzüne yerleşen çekici gülümsemeyle,</p>
+
+            <p>Emilia: [Çabalarını en çok gören kişi sensin, öyle değil mi? İşte bu yüzden, kendini hayal kırıklığına uğratmamak için her şeyini ortaya koymak zorundasın.]</p>
+
+            <p>İşte böylece, çaba harcamanın ne demek olduğu konusunda taşı gediğine oturtarak Subaru’nun ona bir kez daha aşık olmasını sağladı.</p>
+
+            <div class="divider">△▼△▼△▼△</div>
+
+            <p>Subaru: [Ah dostum, Emilia’ya yeniden aşık olduğum o anı hatırladım şimdi… Yine de işler zorlaşıyor.]</p>
+
+            <p>Subaru, karman çorman çadıra bakınarak kafasını kaşıdı.</p>
+
+            <p>Kendisini Vollachian İmparatorluğu askerleri kampının bir esiri olarak bulmuştu; orada da köye gidecek bir tedarik kamyonunun gelişini beklerken tuhaf işlere atanmıştı.</p>
+
+            <p>Subaru, kımıldayamayan Rem’in ve otlakçı Louis’in yerine kendini “emeksiz yemek yok” mantrasına adamıştı. Bu yüzden Todd ve diğer İmparatorluk fertlerine yardım etmekten yana hiç tereddüdü yoktu, sonuçta kendisine yiyecek ve barınak sağlıyor, ayrıca yaralarını iyileştiriyorlardı.</p>
+
+            <p>Yine de…</p>
+
+            <p>Subaru: [Ne olursa olsun kendimi hazırlayıp geliştirmeliyim.]</p>
+
+            <p>Subaru, artık tamamen yere dağılmış olan malzemeleri paketlerine yerleştirirken bu şekilde mırıldandı.</p>
+
+            <p>Tabii ki ne kadar düzensiz ve vahşi olsalar da bu askerlerin, kendilerine ön saflarda yardımı dokunacak şeyleri “kafalarına göre”, düzensiz bir şekilde depolamalarının imkanı yoktu.</p>
+
+            <p>Sonuçta Subaru geçen gün bu çadırdaki malzemeleri büyük bir çabayla düzene koymuştu. Yeniden bu kargaşayla karşı karşıya olmasınınsa tek bir sebebi vardı.</p>
+
+            <p>Subaru: [Kötü ruhlu biri tarafından rahatsız ediliyorum…]</p>
+
+            <p>Louis: [Ahh.]</p>
+
+            <p>Subaru: [Oh, sanırım senin gece vakti sıvışıp bu kargaşayı yaratmış olman da mümkün. Gerçek, aşağılık yönünü göstermeyi düşünüyor musun artık, Günah Başpiskoposu?]</p>
+
+            <p>Louis: [Aah?]</p>
+
+            <p>Etrafa saçılan eşyaları toplamakla uğraşan Subaru, bu esnada kendisini izleyen Louis’e gözlerini dikti.</p>
+
+            <p>Ancak Louis, kendi parmağını ısırarak belli belirsiz bir cevap vermekle yetindi. Hala gerçek yüzünü göstermeye niyetli değilmiş gibi görünüyordu.</p>
+
+            <p>O yüzü sonsuza dek gizlediği takdirde Subaru’nun işine yarayacağı kesindi.</p>
+
+            <p>Subaru: […Rem’in dünkü sözleri konusunda ne düşüneceğim hakkında hiçbir fikrim yok.]</p>
+
+            <p>Louis bu sabah da uyandığı andan itibaren Subaru’nun dibinden ayrılmamıştı.</p>
+
+            <p>Bacaklarının rehabilitasyonu için ayrıldıkları esnade Rem’in attığı sert bakış hala Subaru’nun aklında tazeydi. Ama Subaru’nun bu şekilde takip edilmeyi can sıkıcı bulduğu düşünülünce mantıksız bir durumdu.</p>
+
+            <p>Her halükarda Subaru’nun ona zar zor da olsa katlanabilmesi için önceki güne kıyasla yeni bir sebebi daha olmuştu. Ve o sebep de Rem’in verdiği bilgiydi ― yani Louis’in üzerinden Cadı kokusu alamadığı şeklindeki ifadesi.</p>
+
+            <p>Subaru: […]</p>
+
+            <p>Subaru bugüne dek çok fazla düşünmemiş olsa da Cadı kokusunun sadece kendisinin sahip olduğu bir şey olma ihtimali epey düşüktü.</p>
+
+            <p>Hatta Rem’in Cadı Tarikatı üyeleriyle karşılaştığı sıralarda bu kelimeleri kullandığını anımsıyordu. Önderliğindeki Cadı Tarikatı üyeleriyle birlikte gelen Petelgeuse karşısında da aynı tepkiyi vermiş olmalıydı.</p>
+
+            <p>Bu bağlamda Subaru’nun miasmasının her Ölümden Döndüğünde daha da kuvvetlenmesi, aralarının iyi olduğu dönemde bile Rem’e tuhaf gelen bir şeydi.</p>
+
+            <p>Subaru: [Miasmamın gücü zaman zaman işe yarıyor… Mesela Ulgarm ve Beyaz Balina karşısında olduğu gibi. Ama neticede çok fazla talihsizliğe yol açan bir şey.]</p>
+
+            <p>Miasmanın iş gördüğü zamanlar olmuş olsa da an itibarıyla tek etkisi Rem’in sinirini bozacak bir sebep teşkil etmekti. Bu nedenle Subaru’nun miasmaya biçtiği değer, yerin dibindeydi.</p>
+
+            <p>Ve ne kadar bu konu üzerine düşünmeye çalışsa da…</p>
+
+            <p>Subaru: [O Cadı Tarikatı şahıslarının… ve Günah Başpiskoposlarının miasmayla bir ilişkisi olmaması hayatta mümkün olamaz.]</p>
+
+            <p>Subaru’nun vardığı sonuç buydu.</p>
+
+            <p>Miasmanın sebepleri ve ince detaylarıyla ilgili hiçbir bilgisi olmasa da bunu yalnızca masaya yatırılan bir teori şeklinde tarif edebilirdi. Buna rağmen konuşmakta zorlandığı bir şeydi.</p>
+
+            <p>Günah Başpiskoposları ve Cadı arasındaki bağlantı açık ve net ortadaydı. Tarikat üyeleri özlerinde kötülüğün dışavurumuydu.</p>
+
+            <p>Yine de…</p>
+
+            <p>Subaru: [Ne kadar çelişkili olsa da miasma yaymayan kişilerin Cadı Tarikatıyla ilişkili olmadığını varsayabilir miyiz gerçekten? Yani, bu kız burnumun dibindeyken, bu gerçek olabilir mi?]</p>
+
+            <p>Louis: [Avooh?]</p>
+
+            <p>Bu konu hakkında kara kara düşünen Subaru’nun yanındaki Louis, yüzünde boş bir ifadeyle inlemekle yetindi.</p>
+
+            <p>Ve iç çeken Subaru, doğrularak çadırı toparlamaya koyuldu.</p>
+
+            <p>Dik konuma getirdiği aletler devrilmiş, üst üste dizdiği koliler açılmış ve içindekiler etrafa saçılmıştı.</p>
+
+            <p>Bu tam da bir çocuğun yapacağı işe benziyordu.</p>
+
+            <p>Subaru: [Neyse, bu rahatsızlığın sıra dışı bir şey olmaması gerektiğini tahmin ediyorum…]</p>
+
+            <p>Aslına bakarsanız düzenlediği çadırların bu halde olmasının sebebi Louis’in sıvışması değildi. Büyük ihtimalle Subaru’yu rahatsız edip işine çomak sokan kişi, kamptaki başka bir bireydi.</p>
+
+            <p>Elbette ki İmparatorluk kampının bir üyesi olarak Todd dışında kişilerle de irtibata geçmişti. Ve çoğunun takındığı tavrı dostane şeklinde tanımlamakta zorlanıyordu.</p>
+
+            <p>Bu bağlamda durum tam da Todd’un söylediği gibiydi; burada tuhaf olan oydu.</p>
+
+            <p>Subaru: [Yine de ansızın pataklanmaktan veya ayakkabı yemeye zorlanmaktan çok daha iyidir tabii.]</p>
+
+            <p>Yüksek sesle dile getirecek olsaydı, mutluluk ve normallik konusundaki standartlarının darbe aldığını gerçekten de inkar edemezdi. Ama bu denli acı bir karşılanma yaşamadığı için işlerin daha kolay olduğunu söyleyebilirdi.</p>
+
+            <p>Kabullenmekten nefret etse de Subaru, dışlanmaya ve sevilmemeye alışkındı.</p>
+
+            <p>Lisedeki ilk sahneye çıkma mücadelesinde büyük bir gaf yapıp iki yıl boyunca herkesten koparılmış değildi. Asla kendiliğinden zorbalığa uğramamıştı ama etrafındaki havanın burukluğuyla baş etme konusunda bir profesyoneldi.</p>
+
+            <p>Şimdi düşününce, lisesindeki sınıf arkadaşları epey iyi insanlar olmalıydı.</p>
+
+            <p>Subaru’ya orada değilmiş gibi davransalar da onu taciz etmiş veya onun acı çekmesinden keyif almışlar gibi gelmemişti.</p>
+
+            <p>Subaru: [Umarım öteki taraftaki siz iyi kalpli insanların hayatları yolunda gidiyordur. Bana o broşürleri vermek için elinden geleni yapan Inahata-kun gibi insanların büyük işler başarması hoşuma giderdi.]</p>
+
+            <p>Subaru, sınıf arkadaşlarıyla ilgili belli belirsiz anıları üzerine düşünürken çadırı düzenleme işini önceki güne kıyasla daha hızlı şekilde ama aynı kalitede hallediyordu.</p>
+
+            <p>Doldurulmuş bir çukuru tekrar kazmaya çalışıyor gibiydi. Yani bugün yaptığı işle, etki negatife dönüyordu.</p>
+
+            <p>Emilia’nın zamanında söylediği şeyi, yani en kötü ihtimalle kendisi olsa bile birinin mutlaka emeklerini göreceği düşüncesini kullanmak istiyordu. Onlardan destek almak istiyordu. Ama gelin görün ki…</p>
+
+            <p>Subaru: [Şu anda beni izleyen tek kişi sen olunca kendimi gaza getirmem mümkün olmuyor. İzleyen kişi Rem olsaydı ruh halim bambaşka olurdu, ama…]</p>
+
+            <p>Louis: [Ooh, uvaa!]</p>
+
+            <p>Louis, onun öfkesinden dersini çıkarmışçasına bugün Subaru’nun işine çomak sokmuyordu. Subaru’nun bu sayede dışarı, sıradaki çadıra yöneldiği sıradaysa…</p>
+
+            <p>Subaru: […Voaa!?]</p>
+
+            <p>Çadırdan çıkmasıyla ayağının bir şeylere takılması bir oldu ve yere yığıldı.</p>
+
+            <p>Refleks olarak elleriyle zemine bastırdığındaysa sağ eli fena olmasa da sol eli birazcık acıdı. İyileşme sürecinde olsa da Rem’in eserinin artçı etkileri henüz tamamen ortadan kalkmamıştı.</p>
+
+            <p>İşte bu nedenle acı içerisinde homurdanırken arkasına bakan Subaru,</p>
+
+            <p>???: [Heya, kedicik! Yerde sürünerek neler çeviriyorsun öyle?]</p>
+
+            <p>Subaru: [Sen…]</p>
+
+            <p>Subaru’nun gözleri şaşkınlıkla irileşti. Hemen önünde, çadırın girişinde, kaba görünümlü bir adam duruyordu.</p>
+
+            <p>Sağ gözünün üzerine bant takılmış, sakalları uzamaya başlamıştı ve görünümüyle hoyratlığın somut örneğiydi. Ve bu kampta Subaru’ya ayakkabısını yedirmiş olan herifin ta kendisiydi.</p>
+
+            <p>Doğru hatırlıyorsa Todd, onun adının…</p>
+
+            <p>Subaru: [Jamal olduğunu söylemişti, değ… Ghaaa!?]</p>
+
+            <p>Jamal: [Jamal-san diyeceksin. Sen de sana eşlik eden o kadınlar da saygıdan yoksunsunuz, ha. HEY.]</p>
+
+            <p>Adam, yani Jamal, Subaru'nun kendisine "san" ekiyle hitap etmediğini anladığı anda harekete geçti.</p>
+
+            <p>Ve Subaru’nun hala bandajla sarılı ve askıları takılı sol elinin parmaklarına basıp yerde yatar haldeyken topuklarıyla iyice bastırdı.</p>
+
+            <p>Parmaklarının ileri geri ittirilmesiyle birlikte de Subaru’nun eski acısı geri döndü. Ama buna direndi ve boğazından yükselen çığlığı bastırdı.</p>
+
+            <p>Louis: [Avuuu!]</p>
+
+            <p>Jamal: [Ha?]</p>
+
+            <p>Louis tam da o anda çığlığı basarak Jamal’ın Subaru’nun eline bastıran ayağına yapıştı. Fazla kilolu değildi ve iri yapısı gereği Jamal’ın kılını kımıldatamıyordu.</p>
+
+            <p>İşte bu pozisyonda Jamal, Louis’i uzun saçlarından yakaladığı gibi zorla bacağından ayırdı.</p>
+
+            <p>Subaru: [Hey, o yalnızca bir çocuk!]</p>
+
+            <p>Olanları gören Subaru’ysa öfkeye kapılarak hiç düşünmeden bu şekilde bağırdı.</p>
+
+            <p>Onun şikayetini işiten Jamal, nahoş bir şekilde kaşlarını çattı. Ve Louis’i saçlarından tutup kaldırarak çığlık atmasına yol açtı.</p>
+
+            <p>Jamal: [Kim takar yalnızca bir çocuk olmasını? Duyduğum kadarıyla sen de bu çocuğa fena halde soğuk davranmıyor muydun? Bir anda fikrini değiştirmen de ne anlama geliyor?]</p>
+
+            <p>Subaru: [Öyle değ… Onu fazla tahrik edersen sonunda pişman olan sen olursun.]</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="arc7bolum7parca3.html" class="nav-btn">← Önceki Parça</a>
+            <a href="arc7bolum8parca2.html" class="nav-btn">Bölüm 8 Parça 2 →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

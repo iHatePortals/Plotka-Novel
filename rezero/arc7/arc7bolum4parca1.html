@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VII, Bölüm 4 Parça 1 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        .scene-note {
+            font-style: italic;
+            color: var(--accent-color);
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc7bolum3parca3.html" class="nav-btn">← Önceki Parça</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc7bolum4parca2.html" class="nav-btn">Sonraki Parça →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VII, Bölüm 4 Parça 1</h1>
+            <div class="subtitle">"Cesurca Bir Seçim"</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p class="scene-note">*Bu bölüm tamamen geçmişi anlatıyor*</p>
+
+            <p>Subaru: [Voaa!]</p>
+
+            <p>Sağ elinde keskin bir darbe hissederken kırbacını tutuşu gevşedi.</p>
+
+            <p>Gücünü eline aktararak hemen karşılık vermeyi denedi ama kırbacını yakalayan kuvvetle boy ölçüşmesi mümkün değildi. Üstüne bir de öne doğru çekilip yere düştü ve “Abeshi!” şeklinde bir bağırışla tepetaklak oldu.</p>
+
+            <p>Subaru: [Offf……]</p>
+
+            <p>???: [Gelişmenin tek yolu, kendini her gün elinden gelenin en iyisini yapmaya adamaktır. Görünüşe bakılırsa idman düzeyin hala yetersiz. Hem de çok.]</p>
+
+            <p>Subaru: [Buna verebilecek bir cevabım yok……]</p>
+
+            <p>Yeteneksizliği yüzüne vurulan Subaru, surat ekşiterek çıplak zemine yığıldı. Sonra da ağır ağır oturdu ve zeki, yakışıklı bir adamla göz göze geldi.</p>
+
+            <p>Adamın gözlerinde Subaru’ya sürüngenleri andıran keskin bir bakış mevcuttu ve düzgün bir şekilde kesilip şekil verilmiş koyu mavi saçlara sahipti. Tam da uşak üniforması ve tek çerçeveli gözlüğünün verdiği izlenim gibi resmi, terbiyeli ve zeki biriydi.</p>
+
+            <p>İşte o adamın ismi――</p>
+
+            <p>???: [――Clind! Subaru-sama’ya böyle bir saygısızlığı nasıl yaparsın!]</p>
+
+            <p>Clind: [――――]</p>
+
+            <p>Clind şeklinde seslenilen genç adam, tek kelime etmeden bakışlarını yana çevirdi. Bunu yaptığı anda da uzun boylu bir kadın figürü onlara doğru hantal hantal yürüyerek görüş alanlarına girdi.</p>
+
+            <p>Enfes yeşil gözlere ve yürürken sağa sola sallanan uzun, sarı saçlara sahip şık ve güzel bir kadındı. Ana rengi siyah olan hizmetçi üniformasının içerisinde Clind’i geçen kız, hala yerde olan Subaru’ya doğru yürüyerek ona kibarca beyaz bir havlu uzattı.</p>
+
+            <p>Kadın: [İyi misin, Subaru-sama? Görebildiğim kadarıyla yere yüz üstü düşmüştün……]</p>
+
+            <p>Subaru: [Hı hı, ben iyiyim, Frederica. Kıyafetlerim birazcık çamurlandı ama genelde öyle oluyor zaten.]</p>
+
+            <p>Güzel kadın ― Frederica endişeli bir bakış atıp “Ama…..” diyerek diretirken Subaru, onun uzattığı havluyu minnetle kabul ederek yüzünü silmek için kullandı.</p>
+
+            <p>Bununla birlikte Clind, Frederica’nın sözlerine öfkeli bir omuz silkişle karşılık verdi.</p>
+
+            <p>Clind: [Tam da Subaru-sama’nın bizzat söylediği gibi, böyle şeyler idman sırasında normaldir. Asıl sen bu meseleyi büyüterek onu utandırmıyor musun? İşgüzar.]</p>
+
+            <p>Frederica: [Ne!]</p>
+
+            <p>Clind’in kelime seçimi nedeniyle yüzü kızaran Frederica, keskin dişlerini sergileyerek öfkeli bir bakış attı.</p>
+
+            <p>Gözlerini birbirine dikmiş ikilinin arasında kalakalan Subaru’ysa “İşte yine başlıyorlar………” diye mırıldanıp elleriyle kafasını kucaklayacak hale geldi.</p>
+
+            <p>――Clind ve Frederica.</p>
+
+            <p>Biri uşak, biri hizmetçi üniformasındaki bu ikili, Mathers Hanesi himayesinde çalışan hizmetlilerdi. Subaru onların uzun bir süre önce tanışmış olduğunu duysa da ilişkileri pek iyi değildi.</p>
+
+            <p>Normal şartlarda ikisi de kibar ve özenli, becerikli hizmetliler olsalar da bu şekilde iletişime geçtikleri anda bir tartışma çıkması hiç vakit almıyordu.</p>
+
+            <p>Tartışmaları Roswaal’ın politik meseleleri hakkındaki fikirleri üzerineyken -ki bu hizmetçiler için fazlasıyla ileri düzeyde bir eylemdi- koridorda karşılaştıklarında birbirlerine yol vermek gibi önemsiz meselelerde bile anlaşmazlık yaşıyorlardı.</p>
+
+            <p>Özetle birbirleriyle geçinemiyor gibi görünüyorlardı, fakat――</p>
+
+            <p>Subaru: [Frederica, benim için endişelenmene sevindim ama ben iyiyim, gerçekten.]</p>
+
+            <p>Frederica: [Yo, bilhassa senin için endişelenmiş değilim. Sadece bu adamın yapmacık ifadesi ve kendi halinde tavırlarıyla düşüncesiz sözleri öyle sinir bozucu ki……!]</p>
+
+            <p>Subaru: [Oh, demek benim için endişelenmiyorsun! Utandım şimdi!]</p>
+
+            <p>Frederica: [Ah, öyle demek istememiştim…! Endişelenmiyor değilim! Tabii ki senin iyiliğinden yana endişe duyuyorum, Subaru-sama. Yalnızca ben değil, Petra da aynı şekilde.]</p>
+
+            <p>Frederica kazara içten düşüncelerini ağzından kaçırmış gibi görünürken Subaru’nun tek yapabildiği bir parmağıyla yanağını kaşıyıp Petra’nın bahsinin geçişiyle buruk bir şekilde gülümsemek oldu.</p>
+
+            <p>Ram hariç köşkteki tüm kadınların ― bilhassa da Petra’nın kendisi için endişelenmesine neden oluyordu.</p>
+
+            <p>Büyük ihtimalle şu anda gerçekleşen şeyin sebebi de meşgul olan Petra’nın Frederica’dan kendisi adına Subaru’yu kontrol etmesini istemesiydi.</p>
+
+            <p>Subaru: [Ama Clind’den bunu isteyen bendim. Bu kadar sert olmasına kendimi hazırlamıştım…… Ne pahasına olursa olsun, Clind Annerose’un yanına dönmeden önce kabuğumdan çıkmam gerekiyor.]</p>
+
+            <p>Clind: [――Kararlılığın harikulade. Bu da beni seni eğitmek konusunda daha hevesli kılıyor. İlham verici.]</p>
+
+            <p>Subaru’nun yanıtını dinleyen Clind kolunu savurdu ve elindeki fildişi rengi kırbacın bükülüşüyle hava kaçışını andıran bir ses yükseldi.</p>
+
+            <p>Onunla aynı silahı kullanıyor olan Clind, Subaru’ya kırbaç kullanmayı öğrenmesinde yardımcı oluyordu. Subaru da onun teknik ve pozisyonuna duyduğu saygıdan ötürü ona “akıl hocam” şeklinde hitap ediyordu.</p>
+
+            <p>Subaru: [Gerçekten, kendi başıma öğrenmeye çalışmak beni ancak bir yere kadar götürürdü, birileri akıl hocalığımı yapmasaydı sınırıma ulaşmış olurdum. Yakınlarında kırbaç kullanabilen birinin olması çok hoş. Yardımların için teşekkürler.]</p>
+
+            <p>Clind: [Yardım etmekten onur duyarım. Keyifli. Bununla birlikte, konu kırbaç kullanabilen kişilere geldiyse, benim dışımda bir kişi daha var. Aday.]</p>
+
+            <p>Subaru: [Eh, kırbaç kullanabilen biri daha mı? Kelimeleri kırbaç gibi kullanması yüzünden Ram’dan bahsetmiyorsun, değil mi?]</p>
+
+            <p>Frederica: [Subaru-sama, bu düşüncen…… yo, söz konusu Ram olunca söylediklerini inkar edemeyeceğim.]</p>
+
+            <p>Subaru’nun kırbacını düşürdüğü yerden kaldırıp eline alırken yaptığı şaka karşısında Frederica’nın yüzüne hoşnutsuz bir ifade yerleşti. Clind ise tek çerçeveli gözlüğünün olduğu gözünü kapatmadan önce ikiliye bakıp tavırlarını karşılaştırarak,</p>
+
+            <p>Clind: [Gayet basit. Efendiden bahsediyorum. Çok yönlü.]</p>
+
+            <p>Subaru: [Eh, öyleyse ondan eğitim almayı kesinlikle istemem!]</p>
+
+            <p>Diyan Subaru, hiç yoktan farksız bu seçeneği ayaklar altına alarak kırbacını savurdu.</p>
+
+            <p>Ve Subaru ciddileştiği takdirde sürati ses hızını aşabilme potansiyeli taşıyan kırbacı, büyük bir hızla uçtu. Clind’i ― yo, daha doğrusu, onunla Subaru arasındaki ağaç kütüğünün üzerine yerleştirilmiş tahta parçasını hedefleyen ucundan tok ve boş bir ses çıktı.</p>
+
+            <p>Yuvarlak kütüğün üzerine yerleştirilmiş olan tahtayı kırbaçla sararak yakalamak.</p>
+
+            <p>Clind’in Subaru’ya verdiği görev buydu ve bugüne dek bir kez bile başaramadığı, yeterince zorlu bir güçlüktü.</p>
+
+            <p>Tahtayı kırbacıyla yakalayamama sebebiyle yalnızca deneyim veya yetenek eksikliği değildi.</p>
+
+            <p>Clind: [Amacın fazla şeffaf şekilde ortada. Engel.]</p>
+
+            <p>Subaru: [Guh……!]</p>
+
+            <p>Bu sırada Clind’in kırbacı, Subaru’nun serbest bıraktığı kırbacın ucunu korkunç bir hassasiyetle geri püskürttü.</p>
+
+            <p>Görevi tamamlama koşulu, bu engeli aşmak ve tahta parçasını kendi kırbacıyla eline almaktı. Subaru’nun bu engelin üstesinden bir kez olsun gelememe sebebi de tam olarak buydu.</p>
+
+            <p>Clind: [Hedeflediğin bölgeye vurmak, yakalamayı hedeflediğin varlığa dolanmak ve hedeflediğin sonuçları sergilemek. Kılıç veya mızrak kullanmaktansa kırbacı seçmendeki bu amaçları yerine getiremiyorsan… Değersiz.]</p>
+
+            <p>Subaru: [Dah! Deh! Doh! Kahretsin! Beni çok basit bir işmiş gibi defediyorsun! Biliyorum, söylemene gerek yok! Kurnaz zihnimi kullanmam için tek yol b……ndah!?]</p>
+
+            <p>Derken zorla çekiştirilen kırbacını geri almaya çalışan Subaru, ucunu bir kez daha Clind’e kaptırdı.</p>
+
+            <p>Farkına vardığında iş işten geçmişti. Bir an sonrasında da denge hissi bozuldu ve silahına pek fazla güç bile vermiyor olan Clind tarafından rahatlıkla çekilerek yere indirildi.</p>
+
+            <p>Subaru: [Vuaahh! Ses Sütunu!]</p>
+
+            <p>Clind: [Oldukça gösterişli bir düşüştü. Düşüşün şiddetini kırmak da önemlidir. Dikkat.]</p>
+
+            <p>Frederica: [Su, Subaru-sama!]</p>
+
+            <p>Subaru öne doğru düşüp bir kez daha yere yığılırken Frederica, aceleyle yanına koşturdu. Bu defa yüzüstü yere çakılmıştı ve burnundan kanlar damlıyordu.</p>
+
+            <p>Frederica o noktaya çabucak havlu bastırırken,</p>
+
+            <p>Frederica: [Clind! Nasıl bakarsan bak, bu kadarı da çok fazla!]</p>
+
+            <p>Clind: [Subaru-sama’nın pozisyonunu düşününce kaçınılmaz bir şey. Gerekli. Bir erkeğin harekete geçişine mani olmamalısın gerçekten. Anlayış.]</p>
+
+            <p>Frederica: [Bir erkeğin harekete geçişi mi……?]</p>
+
+            <p>Frederica, buna inanamıyorum dercesine yüzünü buruştururken Clind, kafasını salladı. Ve sonra da keskin gözlerini kanayan burnunu silmekte olan Subaru’ya çevirerek,</p>
+
+            <p>Clind: [Subaru-sama, yardım isteme düşünceni takdir edilesi buluyorum. Şövalyesi olarak Emilia-sama’nın yanında bulunduğun sürece güce ihtiyacın olacak. Emilia-sama’yı ve kendini sonuna dek korumanı sağlayacak güç. Zaruri.]</p>
+
+            <p>Subaru: [……Aynen, biliyorum. Bu yüzden de bana bu kadar katı davrandığın için minnettarım.]</p>
+
+            <p>Homurdansa ve sesi boğuk çıksa da cesaretinin kırılmasına müsaade etmiyordu.</p>
+
+            <p>Ona bakan Frederica, dudaklarını dişlerine sıkıca bastırdı.</p>
+
+            <p>Frederica: [Siz iki centilmen de tıpkı Garf gibi sersemsiniz……]</p>
+
+            <p>Subaru: [Sersemliğimdense kuvvetim Garf gibi olsaydı acayip işe yarardı ama bunun olacağı varmış gibi görünmüyor, yani……]</p>
+
+            <p>Deyip iki deliğinden de kanlar akan burnuna bastıran Subaru, kanamayı zorla durdurdu.</p>
+
+            <p>O, bu eylemin ardından kalkıp çenesini içe çekip duruşunu düzeltirken Clind de onu izledi.</p>
+
+            <p>Clind: [Önüne bakmak ve durmayı reddetmek…… Tavrın gerçekten hoş. Özlem duyulan.]</p>
+
+            <p>Subaru: [Çok teşekkürler…… Kırbaç kullanımım iyiye giderse elimde daha çok seçenek olacak. Ve elimde daha çok seçenek olursa yalnızca benim değil, çevremdeki insanların yapabileceği hamle sayısı da artacak.]</p>
+
+            <p>Clind: [Evet. Bununla birlikte, buna fazla güvenme lütfen. Tek başına mücadele etmek zorunda kalacağın pek fazla durum olacağını sanmıyorum. Destek.]</p>
+
+            <p>Diyen Clind, çenesini kaldırarak Frederica’yı işaret etti.</p>
+
+            <p>Subaru’nun etrafı, başta Frederica olmak üzere Garfiel ve Otto gibi pek çok kişiyle çevriliydi, hepsinden öte Beatrice her daim yanı başındaydı. Koruma amaçlı bir mücadele gerçekleşecekse elbette ki Emilia da yanlarında yer alırdı.</p>
+
+            <p>Bu nedenle Clind’in söyledikleri doğruydu.</p>
+
+            <p>Subaru, kendisini bekleyen mücadelelerde bizzat, zor kazanılmış bir galibiyet elde edecek değildi. Onun mücadeleleri, geri kalan herkesin kabiliyetlerinden faydalanmasıyla meyve verirdi.</p>
+
+            <p>Subaru: [Bu arada, ya kazara kendimi başka kimsenin olmadığı bir durumda tek başıma bulacak olursam?]</p>
+
+            <p>Clind: [Kaçmak zorundasın. Tam gaz.]</p>
+
+            <p>Subaru: [――――]</p>
+
+            <p>Subaru şaka yollu böyle söylese de Clind, şakasına gülmemişti.</p>
+
+            <p>Gerçekleşme ihtimali fazlasıyla düşük bir senaryo olsa da bu, imkansız olduğu anlamına gelmiyordu. Subaru’nun kovalanıp sırtını duvara vermiş şekilde köşeye sıkışacağı bir olaylar silsilesi, işte Clind’in tavsiyesi doğrudan bu konuyu ilgilendiriyordu.</p>
+
+            <p>Clind: [Kaçmak zorundasın, Subaru-sama. Gücünün her zerresini kaçmaya ayırmalı, bacakların seni taşıdığı sürece, utanç verici olsa da nasıl görüneceğine aldırış etmeden kaçmalısın. En akıllıca hareket bu olur. Yalnızca bu.]</p>
+
+            <p>Subaru: [Cümleni bu şekilde sonlandırınca kulağa daha iyi bir seçenek olmasından ziyade başka bir seçeneğim yokmuş gibi geliyor.]</p>
+
+            <p>Clind bu cümleye cevap vermedi, Subaru’nun sözleri ifadesini de değiştirmedi.</p>
+
+            <p>Cevap vermesine gerek de yoktu. Bu sessizliği Subaru’nun yaptığı çıkarımın doğru olduğunu kanıtlamıyor muydu zaten?</p>
+
+            <p>Subaru: [Tanrım, akıl hocamın hiç merhameti yok cidden!]</p>
+
+            <p>Frederica: [Bu adam uzun zamandır böyle. Umut vadeden kişilere karşı katı olur ve onları eğitir…… ama ilgisini yitirdiği anda bu işi bırakıp basar gider. Buz gibi ve acımasızca.]</p>
+
+            <p>Subaru: [Derica-san? Ah, sesin birazcık soğudu mu senin?]</p>
+
+            <p>Frederica’nın sesinde dokunsa kendisini parçalayacakmış gibi öldürücü bir şeylerin varlığını hisseden Subaru çekine çekine bu soruyu sorarken Frederica, asık yüzünü çevirip “Bana bir şey sorma!” diye mırıldandı.</p>
+
+            <p>Frederica: [Kararımı verdim. Ben de eğitiminin başarılı olması için destek vereceğim. Clind’i utandır, o kayıtsız suratının asılmasını sağla ve onu ağlat lütfen.]</p>
+
+            <p>Subaru: [Bayağı zor bir görev oldu……!]</p>
+
+            <p>Frederica: [Oh, bunu Emilia-sama’nın Kral olmasını talep eden ve arzulayan kişi mi söylüyor?]</p>
+
+            <p>Becerikli bir hizmetçiden beklenileceği üzere, Subaru tarafından kışkırtılmış olsa bile alay etmekte dahi son derece başarılıydı.</p>
+
+            <p>Onun bu sözleri karşısında gözleri irileşen Subaru’ysa şeytani bir gülümsemeyle başını sallayarak, “Haklısın” yanıtını verdi. Ve sonra da kırbacıyla azılı bir poz vererek,</p>
+
+            <p>Subaru: [Bana söylenen onca şeye rağmen bunu başaramazsam erkeklik gururum incinecek! İzle de gör, başaracağım!]</p>
+
+            <p>Deyip cesurca bir bağırış eşliğinde tüm gücünü verdi, kırbacını savurdu.</p>
+
+            <p>Kırbaç da keskin bir yörünge izledi, ucu dosdoğru ağaç kütüğünü hedef almış şekilde havada vızıldadı ve――</p>
+
+            <p>Clind: [Coşkun takdire şayan ama yeteneğin çok az. Yetersiz.]</p>
+
+            <p>Subaru: [Guh, gvaaaaaaaahh――!!]</p>
+
+            <p>Frederica: [Su, Subaru-sama――!!]</p>
+
+            <p>Subaru, işte bu sözler eşliğinde bir kez daha çekilerek yüzüstü yere yapıştırıldı.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="arc7bolum3parca3.html" class="nav-btn">← Önceki Parça</a>
+            <a href="arc7bolum4parca2.html" class="nav-btn">Sonraki Parça →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

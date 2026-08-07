@@ -1,0 +1,606 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VI, Bölüm 89 Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff; /* Görseldeki Açık Mavi / Cyan */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc6bolum88.html" class="nav-btn">← Önceki</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc6bolum90.html" class="nav-btn">Sonraki →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VI, Bölüm 89</h1>
+            <div class="subtitle">"Shaula"</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <!-- Metin buraya eklenecek -->
+    
+<p class="wp-block-paragraph"><em>Dağılıyor, dağılıyor, etrafa saçılıyor.</em></p>
+<p class="wp-block-paragraph"><em>Ufalanıyor, ufalanıyor, pul pul ayrılıyor.</em></p>
+<p class="wp-block-paragraph"><em>Yoruluyor, yoruluyor, solup gidiyor.</em></p>
+<p class="wp-block-paragraph"><em>Dağılıyor, ufalanıyor, yoruluyor, uzaklarda ne var ne yoksa ışıldıyordu.</em></p>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph">——Kulenin dışında, sayısız Cadı Canavarının yol açtığı izdiham, Cadı Canavarlarının Efendisinin tüm gücüyle verdiği mücadele sonucunda atlatılmıştı.</p>
+<p class="wp-block-paragraph">——İkinci katta, Roy Alphard’ın bedenini ele geçirmiş olan Reid Astrea mağlup edilmişti.</p>
+<p class="wp-block-paragraph">——Dördüncü Katta, kadere küfreden aşağılık Oburluk Günah Başpiskoposu yenilmişti.</p>
+<p class="wp-block-paragraph">——Birinci Katta, Emilia’nın cesurca ve kahramanca mücadelesiyle meçhul bir Sınav geçilmişti.</p>
+<p class="wp-block-paragraph">Pleiades Gözcü Kulesi’ni ele geçirme çabaları esnasında karşılaşılan pek çok engelin üstesinden gelinmişti. Bu, birbirlerine güvenmelerinin, birlik olmalarının ve iş birliği yapmalarının sonucuydu.</p>
+<p class="wp-block-paragraph">Emilia gibi ifade etmek gerekirse “herkesin iyi anlaşmasının” sonucuydu.</p>
+<p class="wp-block-paragraph">Bu sayede nihayet bu noktaya ulaşmayı başarmışlardı.</p>
+<p class="wp-block-paragraph">Dolayısıyla sıradaki adım——</p>
+<p class="wp-block-paragraph"><strong><em>Emilia: </em></strong><em>“</em><em>——Birlikte galip gelemezsek hiçbir anlamı olmaz!”</em></p>
+<p class="wp-block-paragraph">Pleiades Gözcü Kulesine geldikleri sırada Emilia, böyle söylemişti.</p>
+<p class="wp-block-paragraph">Buraya daha fazla şey kaybetmeye değil, çoktan kaybettikleri şeyleri geri kazanmaya gelmişlerdi.</p>
+<p class="wp-block-paragraph">O sıralarda herkes Emilia’yla hemfikir olmuştu ve herkesin kum denizinden sağ salim geri dönmesi mutlak bir zorunluluktu. Onlara daha fazla kişinin katılmasının bile bir sakıncası olmazdı.</p>
+<p class="wp-block-paragraph">Yani Subaru, Emilia, Beatrice, Ram, Rem, Meili, Anastasia=Echidna ve Patrasche dışında fazladan bir Shaula, hiç sorun yaratmazdı. Onun yüzünden geri dönüş yolculuğu ne kadar gürültülü ve tantanalı olursa olsun mühim değildi.</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“——Hadi!”</p>
+<p class="wp-block-paragraph">Yan yana dikilen iki Ruh Şövalyesi arasında ilk hamleyi yapan kişi elbette ki Julius olmuştu.</p>
+<p class="wp-block-paragraph">——Julius, birini iyileştirme sürecinde olan Kua’yı geri çekip tedaviyi geçici olarak duraksatmış ve bir kez daha altı ruhun yardımıyla auroraya bürünmüştü.</p>
+<p class="wp-block-paragraph">Subaru, Cor Leonis’in etkisiyle, Od’unun ışığının bu denli genişleyebilmesi için hem Julius’un hem de ruhlarının hatırı sayılır bir yük altında olması gerektiğini anlıyordu.</p>
+<p class="wp-block-paragraph">Bayağı havalı bir teknikti. Ama şu durumda hiç kimse uzun süreli bir mücadeleyi arzulamıyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“——Kısa ve belirleyici bir mücadele.”</p>
+<p class="wp-block-paragraph">Julius, arkasında gökkuşağı renginde ışıklardan oluşan bir iz bırakarak kumların üzerinde uçtu.</p>
+<p class="wp-block-paragraph">Ve aradaki mesafeyi bir anda kapatarak kılıcını Kan Kırmızı Akrebe yaklaştırdı. Bileşik gözleriyle Julius’un hareketlerini gören akrepse bir fırtına hiddetiyle kıskaçlarını ve iğnesini savurdu. Ancak Julius’un kılıcı akrebin kabuğuna temas ettiği anda beyaz dumanlar yükselmeye başladı.</p>
+<p class="wp-block-paragraph">Kılıç, kabuğun erimesine sebep olmuştu.</p>
+<p class="wp-block-paragraph">Akrep o darbeyi yedikten sonra kendisini bile savunamamıştı, çünkü Julius’un saldırısı bir gökkuşağına dönüşmüş, Al Clarista’nın daimî kullanımı nedeniyle büyülü kılıcının etrafı altı ışıkla sarmalanmıştı.</p>
+<p class="wp-block-paragraph">Ayrıca Julius’un tüm bedenini kuşatan gökkuşağı renkli ışıklar da yalnızca gösteriş amaçlı değildi.</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong> “————”</p>
+<p class="wp-block-paragraph">Subaru’yu düzinelerce kez öldürmüş, ayrıca Emilia ve Julius’un ölümlerine de sebep olmuş bir Ölüm silahı olarak da kullanılan, kuyruk iğnesinden yakın mesafede ateşlenen ışık huzmesi—— diğer adıyla <em><u>Gazap Yağmuru</u></em>.</p>
+<p class="wp-block-paragraph">Julius onu kılıcıyla saptırmamış, bunun yerine ışık aurorasının defansif kabiliyetini kullanmıştı. Tüm bedenini kuşatan Aurora, bir gökkuşağı bariyeri yaratan Al Clauselia konseptini uyguluyordu.</p>
+<p class="wp-block-paragraph">Böylece saldırı ve savunmayı birleştirebilen yüksek seviyeli bir kılıç ustası doğmuş ve Gökkuşağı Ruh Şövalyesi adını alabilecek hâle gelmişti.</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“——Bişaaan!!”</p>
+<p class="wp-block-paragraph">Defansı aşılıyor, tek bir hayati darbe indiremiyor, dolayısıyla Kan Kırmızı Akrep çok kötü bir vakit geçiriyordu.</p>
+<p class="wp-block-paragraph">Bununla birlikte son 400 yıldır kulenin gardiyanlığını yapan Cadı Canavarının bir saygınlık duygusu vardı. Kan kırmızı kabuğu ışıldadıkça ışıldayarak ve kuvvetli kıskaçlarından büyük bir ısı yayarak Julius’a toslayışıyla Gökkuşağı Şövalyesini epeyce uzağa fırlattı.</p>
+<p class="wp-block-paragraph">Kıskaçları fazlasıyla sıcaktı ve sıcaklığın yoğunluğu nedeniyle etrafındaki havayı bozuyordu. Subaru o cayır cayır yanan kıskaçlara bir isim verecek olsaydı “İsa’nın Kesici Cehennem Ateşi Formu” seçimini yapardı.</p>
+<p class="wp-block-paragraph">Son savaşı canlandırmak adına yeni teknikler sergilemesi epey hayran olunasıydı ama gerçek şu ki Subaru, onun herhangi bir gelişme göstermesini istemiyordu. Kabuğundan çıkan bir düşman şu anda hiç ama hiç istenmeyen bir durumdu.</p>
+<p class="wp-block-paragraph"><strong>Beatrice: </strong>“MİNYA!!”</p>
+<p class="wp-block-paragraph">Akrep kan kırmızı kıskaçlarını havada savurdu ancak yandan beliren mor kazıklar tarafından saptırılmaları, Julius’a temas etmelerini engelledi.</p>
+<p class="wp-block-paragraph">Subaru Julius ve Kan Kırmızı Akrep arasındaki yüksek seviye mücadeleye tek başına müdahale edecek yeterlilikte değildi. Bunun sonucunda Subaru bir şeyler yapma fırsatı beklerken Beatrice, Julius’u koruyup kolluyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Bu esnada Subaru, savaşın artçı etkileriyle canından olmamak adına hasar menzilinden uzakta durduğundan emin oldu. Ardından bakışlarını, Cadı Canavarı sürüsünü oradan uzaklaştıran kasırga tarafından harap edilen kum denizine çevirdi.</p>
+<p class="wp-block-paragraph">Augria Kum Tepelerinde yaşayan Cadı Canavarlarının verdikleri hasar ve temkinli oluşları nedeniyle yolculukları esnasında Subaru ve diğerleri üzerindeki etkisi büyük olmuştu.</p>
+<p class="wp-block-paragraph">Bununla birlikte şu anda Gözcü Kulesinden uzak duruyor ve onu belli bir mesafeden izliyor olmaları gerçekten şaşırtıcıydı.</p>
+<p class="wp-block-paragraph">Emilia büyük ihtimalle Birinci Katta kulenin kurallarını baştan yazmış, bulutların dağılmasına sebep olmuştu.</p>
+<p class="wp-block-paragraph">Belki de bu, Cadı Canavarlarını kuleden uzaklaştıracak bir önlem görevi görmüştü? Aslına bakarsanız Gözcü Kulesine hiç yaklaşmıyor gibi görünüyorlardı, yani en başta bir Cadı Canavarı izdihamının olması da epey anormaldi.</p>
+<p class="wp-block-paragraph">Durum her ne olursa olsun Cadı Canavarlarının sağda solda belirmiyor oluşu Kan Kırmızı Akrebin—— Shaula’nın aklını başına getirmeye çalışan Subaru ve diğerleri için büyük bir rahatlamaydı.</p>
+<p class="wp-block-paragraph"><strong>Beatrice: </strong>“——SUBARU!!”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Ah.”</p>
+<p class="wp-block-paragraph">İdeal bir pozisyon bulabilmek adına kum denizini çaprazlama kesen Subaru, bunu yaparken birinin bağırışını işitti.</p>
+<p class="wp-block-paragraph">Ve tam da neler olduğunu anlamak için kafasını kaldırırken Julius’un savurduğu pek çok kılıç darbesinden kaçınan Kan Kırmızı Akrep bir şekilde yanı başına iniş yaptı.</p>
+<p class="wp-block-paragraph">Hemen yanında durarak elini tutan Beatrice’in çağrısını işiten Subaru, hareketi kesti. Fakat Cadı Canavarının kuyruğu, bir böceği kovalarcasına üzerlerine doğru savruldu ve Subaru, Ölümün varlığını sezdi.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Azim!!——”</p>
+<p class="wp-block-paragraph"><strong>Beatrice: </strong>“——Murak!”</p>
+<p class="wp-block-paragraph">Subaru ve Beatrice aynı anda bir hükme vardı.</p>
+<p class="wp-block-paragraph">Yer çekimi etkilerinin azalışı sonucunda ikisi de pamuk şeker kadar hafifledi. Ve o saniyede Subaru’nun kırbacı Kan Kırmızı Akrebin kuyruğunun köküne dolandı.</p>
+<p class="wp-block-paragraph">Bir saniye sonraysa Subaru ve Beatrice kuyruğun savruluşuna bağlı olarak havaya fırladı.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Vah——”</p>
+<p class="wp-block-paragraph"><strong>Beatrice: </strong>“Pyyah!?”</p>
+<p class="wp-block-paragraph">Yo, havaya savrulmadılar, silkelendiler. Havada süzülüyormuş gibi bir histen sonraysa anında yere düşerek kumlarla kaplandılar.</p>
+<p class="wp-block-paragraph">Altlarında sert bir zemin olsaydı bedenlerinin pamuk şeker ağırlığında olmasına rağmen saf güç ve kuvvet nedeniyle paramparça olurlardı. Neyse ki kuma düştükleri için yalnızca nefesleri kesilmişti.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Peşinden koşmaktan vazgeçmeliyiz!——”</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“——Bişaaan!!”</p>
+<p class="wp-block-paragraph">Kan Kırmızı Akrep, hâlâ kumlara gömülü olan Subaru ve Beatrice’i hedef almaya devam ediyordu. Ancak gökkuşağı ışıkları araya girerek hamle yapmasını engelliyor ve onun ısısıyla altı renkli ışıklar çarpışıyordu.</p>
+<p class="wp-block-paragraph">Işığın saçıldığı her seferde ardında bir yıkım denizi kalıyor ve neden olduğu şok dalgası berrak gökyüzünde bir kum fırtınası başlatıyordu. İkisinin yıkıcı gücü eşitti; Julius hız üstünlüğüne sahipti, Kan Kırmızı Akrepse bir hayli dirençliydi.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“——Pü, püh! Kahretsin, bir şeyler yapmamız gerekiyor!”</p>
+<p class="wp-block-paragraph"><strong>Beatrice: </strong>“——Pü, Pü! Kazanmanın bir yolunu bul öyleyse, doğrusu!”</p>
+<p class="wp-block-paragraph">——Subaru ve Beatrice ikilisi kendilerini kumlardan çıkartarak ağızlarına doluşan parçacıkları tükürdü.</p>
+<p class="wp-block-paragraph">Gözleri yaşlı ikili, Subaru’nun sesinin ve Julius’un gökkuşağı ışıklarının Shaula’ya nasıl ulaşacağını çözmeye çalışıyordu.</p>
+<p class="wp-block-paragraph">Güvenebilecekleri üç olasılık vardı——</p>
+<p class="wp-block-paragraph">İlki, Julius’un ansızın daha da büyük bir gücü uyandırıp Kan Kırmızı Akrebi tek hamlede mağlup etmesiydi. Bu olasılık biraz nahoştu ama hiç değilse galibiyetle sonlanıyordu.</p>
+<p class="wp-block-paragraph">İkincisi, Subaru ve Beatrice’in yeni büyülerini başarıyla tamamlayıp Kan Kırmızı Akrebin işini bitirmesi, takım çalışmasıyla galip gelmeleriydi.</p>
+<p class="wp-block-paragraph">Üçüncüsüyse Emilia’nın birdenbire sevgi ve huzurla birlikte gökyüzünden inip sevimliliğiyle dünyaya barış getirmesiydi.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Birincisi değil de Üçüncüsünün olmasını gerçekten isterim ama…”</p>
+<p class="wp-block-paragraph">Daha önce de belirtildiği üzere Subaru, kendisinin başarılı bir uyanış yaşayabileceğine inanmıyordu ve Emilia’nın mükemmel zamanlamayla ortaya çıkacağını beklemek de gerçekçi olmazdı.</p>
+<p class="wp-block-paragraph">Hâl böyle olunca en büyük umutları Julius’un bir anda güçlenmesiydi.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Daha önce bir kez yapmıştı, o yüzden ondan çok fazla şey bekleyemem…”</p>
+<p class="wp-block-paragraph">Julius ve Kan Kırmızı Akrep, Subaru’nun gözleriyle takip edemediği bir hızla çarpışmayı sürdürüyordu.</p>
+<p class="wp-block-paragraph">Şimdi ne olacağını merak eden Subaru’ysa hemen önünde meydana gelen ve fazla yaklaşırsa kendisini küle çevirebilecek olan yıkımı izliyordu.</p>
+<p class="wp-block-paragraph">Neticede yapabileceği tek şey, tüm kozlarıyla savaşmaktı.</p>
+<p class="wp-block-paragraph">Mevzu buysa tamamlanmış Natsuki Subaru olarak hiç değilse cephaneliğindeki her kozu tüketmeliydi.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Düşündüşündüşün…”</p>
+<p class="wp-block-paragraph">Ve beyni tam gaz çalışır, yalnızca umutsuz bir düş veya bir gözlem olmayan şeyleri gözden geçirirken anlamlı bir şey buldu. Kullanabileceği bir şeyler ararken, bir şeyin farkına vardı.</p>
+<p class="wp-block-paragraph">Elinde henüz kullanmadığı bir koz vardı.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“——Beako!”</p>
+<p class="wp-block-paragraph"><strong>Beatrice: </strong>“Aklına bir şey mi geldi, sanırım?!”</p>
+<p class="wp-block-paragraph">Beatrice, bunu bekliyormuşçasına Subaru’nun seslenişine hevesle karşılık verdi. Böylesine anlayışlı bir partnere sahip olduğu için şükreden Subaru’ysa bir kez daha elini sıkarak dinç bir şekilde “Evet!” yanıtını verip başını salladı. Ve——</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“——Şimdi, bu yolculuğun bana verdiği tüm gücü kullanacağım!”</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img decoding="async" width="860" height="1200" src="https://web.archive.org/web/20260619065508im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-193.png" alt="" class="wp-image-8413" srcset="https://web.archive.org/web/20260619065508im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-193.png 860w, https://web.archive.org/web/20260619065508im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-193-717x1000.png 717w, https://web.archive.org/web/20260619065508im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-193-768x1072.png 768w" sizes="(max-width: 860px) 100vw, 860px"><figcaption class="wp-element-caption"><a href="https://web.archive.org/web/20260619065508/https://www.pixiv.net/en/artworks/86658834">Görsel Sahibi</a></figcaption></figure>
+</div>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph"><em>Dağılıyor, dağılıyor, etrafa saçılıyor.</em></p>
+<p class="wp-block-paragraph"><em>Ufalanıyor, ufalanıyor, pul pul ayrılıyor.</em></p>
+<p class="wp-block-paragraph"><em>Yoruluyor, yoruluyor, solup gidiyor.</em></p>
+<p class="wp-block-paragraph"><em>Dağılıyor, ufalanıyor, yoruluyor, uzaklarda ne var ne yoksa ışıldıyordu.</em></p>
+<p class="wp-block-paragraph">Bir gökkuşağının şiddetli ışıkları gözünün önünde parlayan akrep, içgüdülerini dinleyerek ondan kurtulmak için kollarını savuruyordu.</p>
+<p class="wp-block-paragraph">İster kaya olsun ister çelik, var olan her şeyi yakabilecek ve tereyağını kesercesine rahatlıkla kesebilecek güce sahip iki kan kırmızı kıskaç ışıldıyordu.</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“Amaaaa, <em>tereyağının </em>ne olduğundan bile emin değilim gerçekten.”</p>
+<p class="wp-block-paragraph">Kulaktan dolma bilgilerine dayanır hâlde konuşarak o parıltılı hedefi kovalamayı sürdürüyordu. Bununla birlikte burası hiçbir engelin olmadığı uçsuz bucaksız bir kum deniziydi, dolayısıyla onu köşeye sıkıştırması mümkün değildi.</p>
+<p class="wp-block-paragraph">Ama burası kaçacak hiçbir yerin olmadığı veya belli bir mesafeden savaşmasını gerektiren bir konum olsa da bu konularda tam bir uzmandı——</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“Sonuçta <em><u>keskin nişancılar</u></em> daima yalnız olurlar, öyle değil mi?”</p>
+<p class="wp-block-paragraph">Bu da daha önce duyduğu bir şeydi. Bir keskin nişancının avının işini tamamen bitirmeden önce sabırla beklemesi gerekirdi.</p>
+<p class="wp-block-paragraph">Ve o da beklemeyi seçmişti. Kalbinde taşıdığı keskin nişancı gururuyla, beklemeye devam etmişti.</p>
+<p class="wp-block-paragraph">Günler geceleri, geceler günleri kovalarken ufku izlemiş, kuleye gelmeye teşebbüs edenleri izleyerek ilelebet beklemişti.</p>
+<p class="wp-block-paragraph">Burada kurallar vardı; onu kuleye bağlayan kurallar.</p>
+<p class="wp-block-paragraph">Bu konuda canı sıkkındı ama aynı zamanda hiçbir kural olmadığı takdirde unutkan benliğinin zamanla pek çok şeyi unutacağını da düşünüyordu.</p>
+<p class="wp-block-paragraph">Birlikte gittikleri yerler olsun, birbirlerine kurdukları cümleler olsun, birlikte geçirdikleri vakit veya paylaştıkları hisler ve düşünceler olsun, hepsi unutulacaktı.</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“Aaah… İşte bu hiç hoş olmazdı.”</p>
+<p class="wp-block-paragraph">Her şey ilerlemiş, o geride kalmıştı.</p>
+<p class="wp-block-paragraph">Çünkü ondan beklemesi istenmişti ve onlar ne kadar isterse o kadar bekleyebilirdi. Ama bekliyor olduğu için beklediği kişinin geri dönmesini ummadan da edemiyordu. O geri geleceği sürece, sonsuza dek bekleyebilirdi. İşte bu yüzden——</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“Ustam geri döndüğünde çok sevinmiştim.”</p>
+<p class="wp-block-paragraph">Çünkü, herkes tek tek kaybolmuştu.</p>
+<p class="wp-block-paragraph">O geri döndüğünde söylediği sözlere inanabileceğinden ise emin değildi.</p>
+<p class="wp-block-paragraph">Ona inandığı için mi beklemişti, yoksa yalnızca alışkanlığa dönüştüğü için mi? Bu soruyu bile yanıtlayamamıştı. Daha önce bu konuyu hiç düşünmemişti.</p>
+<p class="wp-block-paragraph">Zaten düşünmesi için bir sebep de olmamıştı, çünkü o kaybolmadan önce sözlerini yerine getirmişlerdi.</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“Ben çok mutlu bir kızım, Ustam.”</p>
+<p class="wp-block-paragraph"><em>O yüzden lütfen hiç gitme. Sonsuza dek burada kalsan harika olur.</em></p>
+<p class="wp-block-paragraph">Artık tek başına olmadığı ve keskin nişancılıktan mezun olabileceği için mezuniyetine uygun bir ödül alabileceğini sanmıştı.</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“Ustam, bir daha geride bırakılmak istemiyorum… Ben de, sevilmek istiyorum.”</p>
+<p class="wp-block-paragraph">Her şey ilerlemiş, o geride kalmıştı.</p>
+<p class="wp-block-paragraph">İşte bu yüzden, bu defa, nereye ve ne zaman olursa olsun onu takip etmek istiyordu.</p>
+<p class="wp-block-paragraph">İşte bu yüzden——</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“Umarım… beni sevebilirsin—— Ustam.”</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img decoding="async" width="1024" height="682" src="https://web.archive.org/web/20260619065508im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-195.png" alt="" class="wp-image-8415" srcset="https://web.archive.org/web/20260619065508im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-195.png 1024w, https://web.archive.org/web/20260619065508im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-195-1000x666.png 1000w, https://web.archive.org/web/20260619065508im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-195-768x512.png 768w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+</div>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph">Kan Kırmızı Akrep seğiriyordu, kan kırmızı kabuğunun parıltısıysa daha da kuvvetlenmişti.</p>
+<p class="wp-block-paragraph">Uyarı Renginin tepkisinin artmış olması mümkündü ama Subaru’ya durum buymuş gibi gelmiyordu. Ona kalırsa o kıpkırmızı renk, Shaula’nın ağlamasından kaynaklanıyordu.</p>
+<p class="wp-block-paragraph">O kırmızılık, 400 yıldır duygularını hapseden ve kulede kalma sözünü tutan Shaula isimli varlığın gerçek düşüncelerinin ifadesiydi.</p>
+<p class="wp-block-paragraph">Kırmızı, coşkunun, tutkunun, dizginlenemez bir sevginin rengiydi.</p>
+<p class="wp-block-paragraph">Kan Kırmızı Akrebin kırmızı parıltısıysa onun sevme ve sevdiği kişi tarafından sevilmeye duyduğu yoğun arzudan kaynaklanıyor olmalıydı.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“——NETİCEDE, HERKES AKREP KADINLARININ FAZLASIYLA SEVGİ DOLU OLDUĞUNU SÖYLER!!”</p>
+<p class="wp-block-paragraph">İki ayağıyla bolca kumu tekmeleyip havalandıran Subaru, bir coşku patlamasıyla bu şekilde haykırarak geniş omuzlarıyla kırbacını savurmak adına elini kaldırdı.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“————”</p>
+<p class="wp-block-paragraph">Ve sırtı kendisine dönük olan ve Julius’la çarpışıp oynayan kişiyi, yani Kan Kırmızı Akrebi hedef aldı.</p>
+<p class="wp-block-paragraph">Onun çok meşgul olduğunu görerek varlığını duyurmak, ona özlemini çektiği Ustasının hemen oracıkta olduğunu göstermek için kırbacını kullandı. Madem başka bir adama yürüyordu, öyleyse ona kötü şeyler söylemekten başka çaresi yoktu——</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“BAŞKA BİR ADAMA YÜRÜDÜĞÜNÜ GÖRMEK BENİ GERÇEKTEN ÜZÜYOR VE ERKEKSİ KALBİMİ YARALIYOR, ANLARSIN YA!!——”</p>
+<p class="wp-block-paragraph"><strong>Beatrice: </strong>“Subaru’nun konuşma şekli her zamanki gibi rahatsız edici, doğrusu!”</p>
+<p class="wp-block-paragraph">Subaru kırbacını savurdu ve Beatrice’in kafasının arkasından gelen sert sözleriyle itilerek mükemmel bir darbe indirdi—— kırbacı Kan Kırmızı Akrebin kuyruğunun köküne güzelce sarıldı.</p>
+<p class="wp-block-paragraph">Ancak tek başına bu hamle, daha yakın zaman önce kuma gömüldükleri sırada yaşananları tekrarlamaktan öteye gitmezdi.</p>
+<p class="wp-block-paragraph">Kan Kırmızı Akrep -belki de halat çekme oyununu pek düşünmeyerek- Julius’la savaşına odaklanıyor, Subaru ve diğerlerini tamamıyla görmezden geliyordu.</p>
+<p class="wp-block-paragraph">Subaru ve diğerleri güçsüzdü—— Bu fikirden faydalanacaktı.</p>
+<p class="wp-block-paragraph"><strong>Beatrice: </strong>“EL VİTA!!——”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“GAAAAAH!!”</p>
+<p class="wp-block-paragraph">Beatrice büyülü sözleri söyledi ve etkilerinin Subaru’nun tüm bedenine yayılmasına, bacaklarının saf ağırlığı nedeniyle kuma batmasına yol açtı.</p>
+<p class="wp-block-paragraph">Yerçekimi etkilerini azaltan Murak’ın aksine Vita, o etkileri arttırıyordu—— Subaru’nun ağırlık sınıfı sumo güreşindeki Makuuchi bölümünün Yokozuna seviyesine yükseltilmiş, Kan Kırmızı Akrebin kuyruğuyla yarışabilir hâle gelmişti.</p>
+<p class="wp-block-paragraph">Doğal olarak tek başına bu da yeterli olmayacaktı. Yerçekimi etkilerini arttırabilse de bu artış yalnızca 100 kiloyla sınırlıydı. Yani Subaru, bir ejder arabasını rahatlıkla kaldırıp taşıyabilen Shaula’nın hayvani gücünün yakınından bile geçemezdi.</p>
+<p class="wp-block-paragraph">İşte bu yüzden——</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“——Zirveye çıkma zamanı! YAP HADİ!!”</p>
+<p class="wp-block-paragraph">İki eliyle kırbacını sımsıkı çeken ve ayaklarını yere iyice bastıran Subaru kuvvetle bağırdı. Bir an sonraysa Kan Kırmızı Akrebin kuyruğunun uyguladığı kaba kuvvetle çekilen bedeni yere geri döndü. &nbsp;</p>
+<p class="wp-block-paragraph">Bunun bariz nedeni, Kan Kırmızı Akrep ve Subaru’nun—— yo, Subaru ve diğerlerinin kuvvetinin denk olmasıydı.</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“——KSHEEEEEEGHHH!!”</p>
+<p class="wp-block-paragraph">An itibarıyla hâlâ sımsıkı yerinde duran Subaru’nun önünde, halat çekme oyunlarına devasa, tuhaf görünümlü bedeniyle dahil olmuş Aç At Kral yer alıyordu.</p>
+<p class="wp-block-paragraph">Üstelik bu eşi benzeri görülmemiş oyuna dahil olan tek canlı Aç At Kral da değildi.</p>
+<p class="wp-block-paragraph">Çiçek Postlu Ayılar, kanatlı köstebekler ve şüpheli yılanlar da mücadeleye katılmıştı.</p>
+<p class="wp-block-paragraph">Subaru’nun düşmanı olması gereken tüm bu Cadı Canavarları, ona mücadelesinde yardım ediyordu.</p>
+<p class="wp-block-paragraph">Bu manzaranın sebebiyse tabii ki——</p>
+<p class="wp-block-paragraph"><strong>???: </strong>“…Gerçekten, köle gibi çalıştırıyorsun yaaa!”</p>
+<p class="wp-block-paragraph">Bitkin ve mutsuz bir havayla çevrelenmiş bir kızın sesiydi. Bu sesin sahibiyse yanaklarındaki kan çekilmiş olan ve nefes almakta zorlanan genç kız—— yani Meili’ydi.</p>
+<p class="wp-block-paragraph">Güzel yüzü gerilmiş hâlde uzun, zorlu bir nefes verdi. Ve sonra da “Huurra!” diye bağırıp yüksek sesle el çırparak——</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“Tamamdır! Buraya gelin, millet. Kenardan izlemeniz israf oluuuuuuur.”</p>
+<p class="wp-block-paragraph">Tek bir el çırpışının hemen sonrasında kum denizi çalkalanmaya başladı.</p>
+<p class="wp-block-paragraph">Mütemadiyen o noktaya akın eden Cadı Canavarlarının adım sesleri ve kükremeleri işitiliyordu. Bu ortam Cadı Canavarlarına çok uygundu ve bunun kontrolünü ele geçiren kişi de Cadı Canavarı Efendisiydi—— yo, ona artık böyle söylenemezdi.</p>
+<p class="wp-block-paragraph">Meydana gelen bu devasa fenomene yalnızca bir Cadı Canavarı Efendisi neden olmuyordu.</p>
+<p class="wp-block-paragraph">Meili Canavar Manipülasyonu İlahi Korumasını kullanarak Augria Kum Tepelerindeki Cadı Canavarlarına rehberlik ediyor ve kontrollerini ele geçiriyordu, yani artık Cadı Canavarı Efendisi ünvanı ona yakışmıyordu.</p>
+<p class="wp-block-paragraph">Güney imparatorluğunda bir yıkım izi bırakan Cadı Canavarlarının Anası geri dönmüş gibiydi.</p>
+<p class="wp-block-paragraph">Meili izdiham yaratmak adına bir kez daha becerilerinden faydalanıyor, olayı topyekün bir savaşa dönüştürüyordu.</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong> “————”</p>
+<p class="wp-block-paragraph">Yüzündeki acılı ifadeye rağmen bilincini korumayı başarıyordu ve son savaşta yerini alacak kadar toparlanmıştı. Elbette ki bunun ardında ufak bir numara vardı.</p>
+<p class="wp-block-paragraph">Subaru doğal olarak Meili’nin aldığı hasarı bir başkasıyla paylaşmak için Cor Leonis’i kullanıyordu. ——Bu paylaşım, elindeki son kozdu.</p>
+<p class="wp-block-paragraph">Paylaştığı kişiyse ne Emilia ne Beatrice ne de Ram’dı. Julius, Echidna, Patrasche, Meili veya uykudaki Rem de değildi. Augria Kum Tepelerini fethetmek için onlarla gelmiş olan son müttefikleriydi——</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“——Seni de bu işe dahil ettiğim için üzgünüm, Gian! Yardım eli uzat lütfen!!”</p>
+<p class="wp-block-paragraph">Uzaklardaki Gözcü Kulesinin Altıncı Katında bırakılmış olan yer ejderi Gian da Cor Leonis’in etki alanı içerisindeydi, dolayısıyla Subaru, Meili’nin yükünü o yer ejderiyle paylaşma kararı almıştı.</p>
+<p class="wp-block-paragraph">Bu kararı almak Subaru için yürek parçalayıcı olsa da Gian’ın Cor Leonis’in yük paylaşmayı kabullenme koşulunu karşılaması daha da yürek parçalayıcıydı.</p>
+<p class="wp-block-paragraph">Yani tıpkı Beatrice ve diğer arkadaşları gibi Gian da Subaru’nun eylemlerini desteklemek istiyordu.</p>
+<p class="wp-block-paragraph">Gian’ın teatral versiyonunun cesaretine minnettar olan Subaru, Meili’nin yükünün büyük bir çoğunluğunu kendisi aracılığıyla yer ejderine aktarıyordu. İşte Meili’nin oyuna geri dönmesini sağlayan numara buydu.</p>
+<p class="wp-block-paragraph">Kan Kırmızı Akrebin güç mücadelesinde yenik düşmesinin ana sebebi de buydu. Ve ayrıca——</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“——Mağlubiyet sebebin de bu olacak, Shaula.”</p>
+<p class="wp-block-paragraph">Subaru savaşın komutasını almıştı ve hatta Cadı Canavarlarıyla yer ejderinin gücünü kullanıyordu, o bu sözleri söylerken ise Kan Kırmızı Akrep bacaklarını yukarı kaldırdı.</p>
+<p class="wp-block-paragraph">Şövalyelerin En İyisi de bu fırsatın boşa gitmesine müsaade etmedi.</p>
+<p class="wp-block-paragraph">Bir gökkuşağı kesiği kullanarak onlara karşı bir güç mücadelesi veren Kan Kırmızı Akrebin kuyruğunu kesip attı.</p>
+<p class="wp-block-paragraph"><strong>???:</strong> “————”</p>
+<p class="wp-block-paragraph">Kesilen kuyruk tıpkı önceden olduğu gibi patlayarak bölgeye bir yıkım yaydı ancak gökkuşağı ışıklarını aşamadı. Kozunun engellenmesi sonrasıysa akrep, iri kıskaçlarını tüm şiddetiyle Julius’un sırtına doğru savurdu.</p>
+<p class="wp-block-paragraph">Ancak bu saldırının güç mücadelesini kaybetmesi ve kuyruğunun kesilmesinden kaynaklanan sabırsızlığı ve acısından doğduğu anlaşıldı. Bunun sonucunda da ilk Kılıç Azizini mağlup edip sınırlarını aşmış olan Şövalyeye üstün gelemedi.</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Şıııh!——”</p>
+<p class="wp-block-paragraph">Bir kesik havada yay çizerek sol kıskacın hassas eklemini bir güzel dilimledi. Sol kıskacının dilimlenmesi sonrası dengesini kazanmaya çalışan akrep ise geride kalan sağ kıskacıyla Julius’u ikiye bölmeye çalıştı.</p>
+<p class="wp-block-paragraph">Julius’un ince bedenini belinden bölmekle tehdit eden kıskaç kapanmak üzereydi——</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“——Al Clanveir.”</p>
+<p class="wp-block-paragraph">Buna ramak kala, Julius’un tüm bedeni ansızın ışık aurorasıyla kuşandı.</p>
+<p class="wp-block-paragraph">Ve gökkuşağı zırhını devre dışı bırakır bırakmaz o aurora, kapanmak üzere olan kıskacın içinde bir patlama meydana getirdi ve onu parçalara ayırdı.</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“——Bişaaan.”</p>
+<p class="wp-block-paragraph">Patlamanın şok dalgası tarafından itilen Kan Kırmızı Akrebin devasa bedeni havaya uçtu. Evet, Cadı Canavarı uçtu, döndü, nihayet kumlara devrilmeden önce kuyruğuyla kollarını yitirmiş, yaralarla kaplanmış hâldeydi.</p>
+<p class="wp-block-paragraph">Diğer Cadı Canavarları hızla etrafını sararak sekiz bacaklı Kan Kırmızı Akrebi olduğu yere sabitledi.</p>
+<p class="wp-block-paragraph">Akrepse kaderine direnmeye devam ederek koca kafasını çevirdi, keskin dişlerini gösterdi.</p>
+<p class="wp-block-paragraph">Kan Kırmızı Akrebin direnci hesaba katılınca tam da o anda ansızın yeni bir hamleyle gelmesi, mevcut şartlar nedeniyle yeni bir büyüme gerçekleştirmeye teşvik edilmesi şaşırtıcı olmazdı ama——</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“——Sona geldik, Shaula.”</p>
+<p class="wp-block-paragraph">Subaru, kıvranıp mücadele eden Kan Kırmızı Akrebin bileşik gözleri kendisini tamamen görebilsin diye hemen önüne geçti. Hiçbir silahı kalmamış ve bacakları bastırılmıştı, epey üzücü bir durumdaydı. Şu anda işini bitirecek darbeyi indirmek kolay olurdu ama Subaru’nun istediği şey bu değildi.</p>
+<p class="wp-block-paragraph">Subaru, işler bu noktaya gelse bile doğru yanıtın bu olduğundan emin olamıyordu——</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Meili.”</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“…Ben olmasaydım sen ve geri kalan herkes ne yapacaktı acabaaaa, onii-san.”</p>
+<p class="wp-block-paragraph">İsmiyle seslenilen Meili, iç çekerek Kan Kırmızı Akrebe doğru yürüdü. Ve Subaru’nun yanına geçip bir iç çekiş eşliğinde parmaklarını şaklattı. Sonra da akrebin bileşik gözlerinin kendisine odaklanmasını sağladı.</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“Kimsin sen? Kan kırmızı, korkutucu Akrep-san mısın? Yoksa…”</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“————”</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“Yoksa başka biri misin, acabaaa?”</p>
+<p class="wp-block-paragraph">Böyle bir soru yöneltilen Kan Kırmızı Akrebin bileşik gözleri yavaşça ağırlaştı.</p>
+<p class="wp-block-paragraph">Meili’ye bakan gözleri, Subaru’ya dönmeden önce yaşarma belirtileri gösterdi.</p>
+<p class="wp-block-paragraph">Ve o agresif, bileşik kırmızı gözler ağır ağır renk değiştirmeye başladı.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Shaula.”</p>
+<p class="wp-block-paragraph">Kabuğunun kırmızı tonu adım adım silindi.</p>
+<p class="wp-block-paragraph">Gözleri yeniden yeşile döndü, kabuğu siyah hâline çevrildi, yavaş yavaş sakinleşti ve sonunda——</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“——Shaula!”</p>
+<p class="wp-block-paragraph">En sonunda——</p>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph"><em>Dağılıyor, dağılıyor, etrafa saçılıyor.</em></p>
+<p class="wp-block-paragraph"><em>Ufalanıyor, ufalanıyor, pul pul ayrılıyor.</em></p>
+<p class="wp-block-paragraph"><em>Yoruluyor, yoruluyor, solup gidiyor.</em></p>
+<p class="wp-block-paragraph"><em>Dağılıyor, ufalanıyor, yoruluyor, uzaklarda ne var ne yoksa ışıldıyordu.</em></p>
+<p class="wp-block-paragraph"><em>Dağılıyor, ufalanıyor, yoruluyor, ne var ne yoksa uzaklarda ışıldıyordu.</em></p>
+<p class="wp-block-paragraph">O geride bırakılmış olsa ve anıları bir şekilde silinse de onlar hâlâ kuvvetle ışıldıyordu.</p>
+<p class="wp-block-paragraph">Kendisi için çok kıymetli olmaları nedeniyle onları çaresizce korumaya çalışıyordu.</p>
+<p class="wp-block-paragraph"><strong>???:&nbsp;</strong>”————”</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“Ustam, hâlâ hatırlıyor musun? Bana, ‘Kesinlikle geri döneceğim, o yüzden beni burada bekle’ demiş ve sonra da ortadan kaybolmuştun.”</p>
+<p class="wp-block-paragraph">Shaula oturur pozisyonda dizlerine sarıldı, başını eğdi ve bu soruyu sordu.</p>
+<p class="wp-block-paragraph">Subaru’ysa geçmişine dair nostaljik anıları düşünüyormuş gibi görünen Shaula’yı kafasını sallayarak yanıtladı.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Hatırlamıyorum. Ve sana bilmediğimi daha önce de söylemiştim, haksız mıyım? Bana kendimi tekrarlatma.”</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“Eeeeh, yapacak bir şey yok öyleyse. Sonuçta Ustam bir şeyleri unutmakta benden çok daha iyi. Ustam ve ben gerçekten birbirimize benziyoruz.”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Bu tüylerimi ürpertiyor! Yo, konuşma <em><u>tarzımızın</u></em> benzediğini kabul ediyorum gerçi.”</p>
+<p class="wp-block-paragraph">Lafı açılmışken Subaru’nun Shaula’ya bilinçsizce bir yakınlık duymasının tek nedeni Subaru’nun dünyasına ait kelimeler kullanmasıydı.</p>
+<p class="wp-block-paragraph">Subaru Shaula kadar çekici, tatlı veya heyecanlı değildi.</p>
+<p class="wp-block-paragraph">Kendisini terk eden birini 400 yıl beklemeye de razı gelmezdi.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Neticede ben hemen sonuç almak isteyen sabırsız bir herifim. Şey, gerçi yanımda biri daha olsaydı dayanabilirdim belki…”</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“Aaaaah, Ustam, böyle olmaz ki! Hazır mısın? Bu duruma uygun bir söz var, ‘Sevginin anahtarı sabırdır!’ ”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“ ‘Modanın anahtarı sabırdır’ sözüyle karıştırıyor olmayasın!? Sadık bir kadından ziyade haraç olarak verilen bir kadının sloganı gibi!?”</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“Her şey kalbimin derinliklerinde fıldır fıldır dönen sevgiyi fark etmenle ilişkili. Bu üzgün, acınası kadına gülebilirsin bile. O gülümseyen surat da çok çekici oluyor… Hımm.”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Hayır, hiç gülmüyorum. Baksana, gözlerim yaşarmaya başlıyor.”</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“Bakayım, bakayımm.”</p>
+<p class="wp-block-paragraph">Subaru yüzünü işaret edip böyle söylerken Shaula ayağa kalkarak ona doğru yürüdü.</p>
+<p class="wp-block-paragraph">Subaru’ysa o coşkuyla ilerleyip nefesini hissedebileceği bir yakınlığa ulaştığında o yakınlıktan kızın güzel yüz hatlarını bir kez daha inceledi.</p>
+<p class="wp-block-paragraph">Işıldayan gözleri iri iriydi ve aralarında şekilli, güzel bir burun yer alıyordu.</p>
+<p class="wp-block-paragraph">Uzun, kıvrık kirpiklere sahipti ve teni öylesine yumuşacık ve pürüzsüzdü ki bunca zamandır kum denizinde yaşadığını hayal etmek zor geliyordu. Coşkulu ve çeşitli ifadelerinin ardına gizlese de bedeni bir bütün olarak tatlıdan ziyade güzeldi.</p>
+<p class="wp-block-paragraph">Adını bir yıldızdan almış, kaderine sevdiği kişi geri dönene dek burada beklemek yazılmıştı.</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“Ha? Ustam, senin gözlerin mi parlıyor yoksa azıcık ağlıyor musun?”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“…Senin Ustan… bir bok parçası. Fırsatını bulursam suratının ortasına yumruğumu geçireceğim.”</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“Öyleyse buna acaayip karmaşık hislerle tanık olmak zorundayım! Ustamın Ustamı nakavt etmesi ne korkunç bir durum olurdu acaba!.. Tanrııım.”</p>
+<p class="wp-block-paragraph">Dudakları titreyen Subaru, gözlerini sımsıkı kapattı.</p>
+<p class="wp-block-paragraph">Kavurucu duyguları yükseldi, gözkapaklarını aşan yaşlar yanaklarından aşağı süzüldü.</p>
+<p class="wp-block-paragraph">Ve o yaşların düşüşünü gören Shaula, usulca “Tanrım” diye fısıldadı ve sonra da——</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“————”</p>
+<p class="wp-block-paragraph">Gözleri kapanan Subaru’nun yanakları ansızın ıslak bir hissiyatla buluştu.</p>
+<p class="wp-block-paragraph">Ve gözlerini açtığında Shaula’nın suratının kendininkinden uzaklaştığını gördü. Parmak uçları dudaklarındaydı ve kırmızı dilini dudaklarının arasından hafifçe çıkarmış şekilde muzipçe gülümsüyordu.</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“…Ustamın vücut sıvıları… tatlı ve tuzlu.”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Bu şekilde dile getirince…”</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“Dile getirme şeklim… hiçbir şeyi değiştirmez. Ben hislerimi daima tüm ruhum ve bedenimle ifade ederim, bunu biliyorsun—— Ustam, seni seviyorum.”</p>
+<p class="wp-block-paragraph"><em>Seni seviyorum.</em> Bunu Subaru’ya sık sık söylüyordu.</p>
+<p class="wp-block-paragraph">Bir kez içeriğini anlayınca bunun anlamsız bir ifade olduğunu söylemek Subaru için imkânsız hâle gelmişti.</p>
+<p class="wp-block-paragraph">Shaula fırsat buldukça “seni seviyorum” diyordu, çünkü kalbi sevgiyle dolup taşıyordu.</p>
+<p class="wp-block-paragraph">Çünkü iletmek istediği sözcükler daima ama daima içinden taşıyordu.</p>
+<p class="wp-block-paragraph">400 yıldır bekliyordu, onu sevmeyi, onun tarafından sevilmeyi bekliyordu.</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“Seni seviyorum, Ustam.”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“…Ben sana seni seviyorum demeyeceğim.”</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“Biliyorum, biliyorumm. Çünkü Ustam kötü biri, hassas ve utangaç biri, ama ben de sende bunu seviyorum zaten. Sana deli oluyorum. <em><u>Yalnızca sana</u></em>.”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“————”</p>
+<p class="wp-block-paragraph">Zaman onu terk etmiş ve ona atanan rol, onu zincir misali bağlamıştı. Sevdiği birini aldatmasına ramak kaldığında ağlamış ve ölmek için yalvarmıştı. Ona kendi elleriyle zarar vermektense her şeyi kaybetmeyi yeğlemişti.</p>
+<p class="wp-block-paragraph">Peki Subaru, gözyaşları içerisindeyken ona ne demişti? Böyle ağlamaya devam etmene asla müsaade etmeyeceğim demişti.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Ben sana… seni seviyorum… gibi şeyler söylemeyeceğim.”</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“…Sorun değil. Ben Ustamın söylemeyeceği şeyleri söylemeye devam edeceğim. Ustam da bir gün mutlaka bana aynı şeyleri söylemek isteyecek.”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Bir gün mutlaka ha… Bu baaaayağı uzun bir zaman dilimi. 400 yıllık bekleyiş…bunu gerçekten yapabilir misin?”</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“Öyle mi diyorsun? 400 yıl çok hızlı geçti.”</p>
+<p class="wp-block-paragraph">Öyle uzun süre beklemişti ki bir keresinde bu gerçeğin verdiği acıyla feryat etmişti.</p>
+<p class="wp-block-paragraph">Zaman akıp giderken geride bırakılmış aşkı onu rehin almış ve ne kadar yalnız olduğunu haykırmıştı.</p>
+<p class="wp-block-paragraph">Şimdiyse bir zamanlar kalbini döktüğü bir dünyanın var olduğuna dair hiçbir fikri yoktu. Öyleyse, kalbinin içerisinde canlı tavırlarının ardına gizlediği ne kadar duygu yer alıyordu?</p>
+<p class="wp-block-paragraph">Subaru, onu asla ağlatmamaya yemin etmişti. Ve şu anda bile o yemininden dönmeyecekti. Bu yüzden—— onun ağlayabilmesini umuyordu. Onun ağlamasını diliyordu. Ama artık, bu yeterli olmayacaktı.</p>
+<p class="wp-block-paragraph">Bağırdığı, gözlerini yumduğu, ağladığı, haykırdığı sürece, onun Ustası veya herhangi bir şeyi olmayan Natsuki Subaru, tüm kalbi ve ruhuyla onun yanına koşacak ve gözyaşlarına bir son verecekti. Ama gelin görün ki——</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“Sadece 400 yılcık… yarından sonraki gün gibi bir şey.”</p>
+<p class="wp-block-paragraph">Kan Kırmızı Akrep ortalıkta görünmüyor, onun yerine güzel bir kız gülümsüyordu.</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" decoding="async" width="945" height="1343" src="https://web.archive.org/web/20260619065508im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-191.png" alt="" class="wp-image-8411" srcset="https://web.archive.org/web/20260619065508im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-191.png 945w, https://web.archive.org/web/20260619065508im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-191-704x1000.png 704w, https://web.archive.org/web/20260619065508im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-191-768x1091.png 768w" sizes="auto, (max-width: 945px) 100vw, 945px"><figcaption class="wp-element-caption"><a href="https://web.archive.org/web/20260619065508/https://www.deviantart.com/norvakkk/art/Re-Zero-Kara-Hajimeru-Isekai-Seikatsu-865707680">Görsel Sahibi</a></figcaption></figure>
+</div>
+<p class="wp-block-paragraph">Öylesine güzeldi ki Subaru, nutkunun tutulmasının önüne geçemiyordu. Öylesine faniydi ki dokunsa yere yığılacakmış gibi geliyordu. Aşık bir genç kızın bakışlarıyla “çünkü” derken yumuşacık yanakları kızarıyordu.</p>
+<p class="wp-block-paragraph">Ve o âşık genç kız, “çünkü” kelimesinin devamını getirerek——”</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“——Çünkü, ben seni beklemeyi de sevdim.”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“————”</p>
+<p class="wp-block-paragraph"><strong>Shaula: </strong>“Hey, Ustam. İşte bu yüzden… bir gün…yeniden——”</p>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph"><em>Dağılıyor, dağılıyor, etrafa saçılıyor.</em></p>
+<p class="wp-block-paragraph"><em>Ufalanıyor, ufalanıyor, pul pul ayrılıyor.</em></p>
+<p class="wp-block-paragraph"><em>Yoruluyor, yoruluyor, solup gidiyor.</em></p>
+<p class="wp-block-paragraph"><em>Dağılıyor, ufalanıyor, yoruluyor, uzaklarda ne var ne yoksa ışıldıyordu.</em></p>
+<p class="wp-block-paragraph"><em>Dağılıyor, ufalanıyor, yoruluyor, ne var ne yoksa uzaklarda ışıldıyordu.</em></p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“——Shaula.”</p>
+<p class="wp-block-paragraph">Kabuğunun bir kısmı düşmüş, ufalanıp pul pul ayrılmış ve küle dönmüştü.</p>
+<p class="wp-block-paragraph">Bununla da kalmamış, her yere yayılmış, tüm bedeni soyulup un ufak olmuştu.</p>
+<p class="wp-block-paragraph">Kesilmiş olan kuyruğu ve kıskaçları, Cadı Canavarları tarafından bastırılan sekiz bacağı ve Natsuki Subaru’nun kollarında tutmakta olduğu kafası, her şeyi——</p>
+<p class="wp-block-paragraph"><strong>Beatrice: </strong>“…O, amacını yerine mi getirdi, sanırım?”</p>
+<p class="wp-block-paragraph">Subaru, Shaula’nın varlığının yiten tüm parçalarını kolunda birleştirmeye çalışırken Beatrice, kısık bir sesle böyle söyledi.</p>
+<p class="wp-block-paragraph">Sevimli ruh, hüzünle Cadı Canavarının güçsüzce ufalanıp gidişini izliyordu—— yo, o canavar, kaderin bahşettiği role hayatını adayışıyla tıpkı kendisine benziyordu.</p>
+<p class="wp-block-paragraph">Subaru’nun beyniyse Beatrice’in söylediklerini algılamayı reddediyordu.</p>
+<p class="wp-block-paragraph">Ama içgüdüsel olarak anlıyordu—— Bu Ölüm değildi.</p>
+<p class="wp-block-paragraph">Bu, Pleiades Gözcü Kulesi’nin Yıldız Muhafızı olarak görevlendirildikten sonra bugün karşılaştığı kaçınılmaz sondu.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Öyleyse… biz…”</p>
+<p class="wp-block-paragraph">Onlar buraya gelmiş olmasaydı, Shaula ebediyen burada var olabilirdi.</p>
+<p class="wp-block-paragraph">Sonsuza dek, bu kum kulesinde, asla dönmeyecek birini bekleyebilirdi——</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“——Subaru, bu varsayımın… onun için hakaret niteliğinde olduğunu anlamalısın.”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“————”</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Ve bu yüzden, yapman gereken şey… pişmanlık içinde yaşamamak.”</p>
+<p class="wp-block-paragraph">Şövalye kılıcını kınına yerleştiren Şövalye, kum ve kanla lekelenen üstünü başını silkeleyerek böyle söyledi.</p>
+<p class="wp-block-paragraph">Böyle söylemek kabalık olabilirdi ama söylediklerinde haklıydı.</p>
+<p class="wp-block-paragraph">Bunu bilen Subaru dişlerini sıktı ve o sözlerin doğru olmasından nefret ettiği gerçeğini gizlemek adına derin bir nefes aldı.</p>
+<p class="wp-block-paragraph">Sonra da onca zamandır yalnız olan o kişiyi daha da sıkı kucakladı.</p>
+<p class="wp-block-paragraph">Geride bırakılmış ve onca zamanı burada geçiren o kişi.</p>
+<p class="wp-block-paragraph">Ağır ağır, yalnız kalmayarak, sevdiği tek kişi tarafından uğurlanıyordu.</p>
+<p class="wp-block-paragraph">Subaru, Beatrice, Julius, Meili, hepsi oradaydı.</p>
+<p class="wp-block-paragraph">Belli bir mesafeden, kuleden oraya doğru koşturan kişiler görünüyordu. Onlar da diğer yoldaşları olsa gerekti. Herkes, onca zamandır yalnız olan o kişi için toplanıyordu.</p>
+<p class="wp-block-paragraph"><strong><em>Shaula: </em></strong><em>“</em><em>Ama, sadece Ustam olsa bile, bana yeterdi.”</em></p>
+<p class="wp-block-paragraph">Onun hiç de talepkâr olmayarak bu sözleri sarf eden görüntüsü, Subaru’nun yavaş yavaş yaşlar biriken gözlerinin önünde belirdi.</p>
+<p class="wp-block-paragraph">Cadı Canavarının dişleri, Subaru’nun yanaklarından süzülen yaşları kibarca okşadı.</p>
+<p class="wp-block-paragraph">Her şeyi yok edebilirmiş gibi görünen o keskin dişler, en kırılgan şey olan Subaru’yu samimiyetle, şefkatle, hassasiyetle okşadı. Ve sonra da——</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“——Ah.”</p>
+<p class="wp-block-paragraph">Onu saran kollar, artık Shaula’yı hissetmemeye başladı.</p>
+<p class="wp-block-paragraph">Ağırlığını yitirmiş olan Kan Kırmızı Akrebin kabuğu, un ufak olarak küle döndü. Siyah zerrelerin kum denizine saçılışını izleyen Subaru’ysa ağzını olabildiğince açtı.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Shaula…”</p>
+<p class="wp-block-paragraph"><strong><em>Shaula: </em></strong><em>“</em><em>Evet, Ustam.”</em></p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Shaula… Shaula… Shaula.”</p>
+<p class="wp-block-paragraph"><strong><em>Shaula: </em></strong><em>“</em><em>Bana mı seslendin? Ustam.”</em></p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Shaula, Shaula…”</p>
+<p class="wp-block-paragraph"><strong><em>Shaula: </em></strong><em>“</em><em>Eeeeeh, Ustam tarafından bu kadar çok sevilmek beni çok utandırıyoor~!”</em></p>
+<p class="wp-block-paragraph">Gözlerini kapatan Subaru’nun kulaklarında, Shaula’nın seslenişine verdiği karşılık çınladı.</p>
+<p class="wp-block-paragraph">Ama gelin görün ki Shaula, artık ortalıkta yoktu.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“——Ah.”</p>
+<p class="wp-block-paragraph">Subaru, olduğu yere çökerek önündeki kum denizini tırnaklarıyla eşeledi.</p>
+<p class="wp-block-paragraph">Birinin sesi kulaklarına ulaşıyordu. Onun kimin sesi olduğunu bilmiyordu. Kimliğini teyit etmeye ayıracak vakti yoktu ama yalnızca geldiği yöne bakışıyla gözleri irileşti.</p>
+<p class="wp-block-paragraph">Hâlâ siyah zerrelerle kaplı olan bir kum yığını hafifçe sarsıldı ve içerisinden bir şey çıktı.</p>
+<p class="wp-block-paragraph">Oldukça küçüktü, avuç içi kadardı. Kan kırmızı kabuklu küçük canavar, kumları aşmak için iki kıskacını savuruyordu ve sonra da kuyruğunu kullanıp bedenini ustalıkla kumların arasından çıkartarak——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong> “————”</p>
+<p class="wp-block-paragraph">Dizlerinin üzerine çökmüş olan Subaru’ya doğru sıçradı ve kumlu ellerine sürtündü.</p>
+<p class="wp-block-paragraph">İşte o basit sürtünme eylemiyle, ardında cazibesinden bir iz bırakmış gibi görünüyordu——</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" decoding="async" width="800" height="1142" src="https://web.archive.org/web/20260619065508im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/6-89-1-2.png" alt="" class="wp-image-8418" srcset="https://web.archive.org/web/20260619065508im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/6-89-1-2.png 800w, https://web.archive.org/web/20260619065508im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/6-89-1-2-701x1000.png 701w, https://web.archive.org/web/20260619065508im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/6-89-1-2-768x1096.png 768w" sizes="auto, (max-width: 800px) 100vw, 800px"><figcaption class="wp-element-caption"><a href="https://web.archive.org/web/20260619065508/https://www.pixiv.net/en/artworks/86658834">Görsel Sahibi</a></figcaption></figure>
+</div>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph"><em>Dağılıyor, dağılıyor, etrafa saçılıyor.</em></p>
+<p class="wp-block-paragraph"><em>Ufalanıyor, ufalanıyor, pul pul ayrılıyor.</em></p>
+<p class="wp-block-paragraph"><em>Yoruluyor, yoruluyor, solup gidiyor.</em></p>
+<p class="wp-block-paragraph"><em>Dağılıyor, ufalanıyor, yoruluyor, uzaklarda ne var ne yoksa ışıldıyordu.</em></p>
+<p class="wp-block-paragraph"><em>Dağılıyor, ufalanıyor, yoruluyor, ne var ne yoksa uzaklarda ışıldıyordu.</em></p>
+<p class="wp-block-paragraph"><em>——Sen orada olduğun için, her şey ışıldıyordu.</em></p>
+<p class="wp-block-paragraph"><strong><em>Shaula:</em></strong> <em>“Sadece 400 yılcık… yarından sonraki gün gibi bir şeyy.”</em></p>
+<p class="wp-block-paragraph"><strong><em>Shaula:</em></strong><em> “Çünkü ben seni beklemeyi de sevdimm.”</em></p>
+<p class="wp-block-paragraph"><strong><em>Shaula:</em></strong><em> “Hey, Ustam. İşte bu yüzden… bir gün… yeniden…”</em></p>
+<p class="wp-block-paragraph"><strong><em>Shaula:</em></strong><em> “Bir gün benimle yeniden buluşmanı umuyorumm.”</em></p>
+<p class="wp-block-paragraph"><strong><em>Shaula:</em></strong><em> “Ama bu sefer bekleme sırası sende Ustam, tamam mıı? Peşinden koşan değil, peşinden koşulan kadın olacağımm.”</em></p>
+<p class="wp-block-paragraph"><strong><em>Shaula:</em></strong> <em>“Ustam, bu söz… çok ama çok önemlii.”</em></p>
+<p class="wp-block-paragraph"><strong><em>Shaula:</em></strong> <em>“Bu defa… unutma lütfen.”</em><br></p>
+<p class="wp-block-paragraph"><strong><em>Shaula:</em></strong> <em>“——Ustam, seni seviyorummm.”</em></p>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Sen bir… aptalsın.”</p>
+<p class="wp-block-paragraph">Sesi titreyen Subaru, bunu asla unutamayacağını anlatırcasına bu şekilde mırıldandı.</p>
+<p class="wp-block-paragraph">Sonra da elinin tersini gıdıklayan varlığı kaldırarak iki eliyle kavradı.</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" decoding="async" width="800" height="1142" src="https://web.archive.org/web/20260619065508im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/6-89-2.png" alt="" class="wp-image-8419" srcset="https://web.archive.org/web/20260619065508im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/6-89-2.png 800w, https://web.archive.org/web/20260619065508im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/6-89-2-701x1000.png 701w, https://web.archive.org/web/20260619065508im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/6-89-2-768x1096.png 768w" sizes="auto, (max-width: 800px) 100vw, 800px"><figcaption class="wp-element-caption"><a href="https://web.archive.org/web/20260619065508/https://www.pixiv.net/en/artworks/86658834">Görsel Sahibi</a></figcaption></figure>
+</div>
+<p class="wp-block-paragraph">Minik akrep ise birazcık utanmışçasına titreyerek onun bu hareketini kabullendi.</p>
+<p class="wp-block-paragraph">Kabuğu kırmızının parlak bir tonuydu, öylesine canlıydı ki insanın gözünü yakabilecekmiş gibi geliyordu, ah, öyle bir kırmızıydı ki!</p>
+<p class="wp-block-paragraph">——Dört yüz yıl geçse bile asla solmayacak o “Aşk”ın rengiydi bu.</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" decoding="async" width="680" height="547" src="https://web.archive.org/web/20260619065508im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-196.png" alt="" class="wp-image-8420"></figure>
+</div>
+<p class="wp-block-paragraph"><em>Yazar Tappeinin Notu:</em> <em>Bugünün bölüm başlığı konusunda ‘Yarınların Yarınları’ ile kararsız kalmıştım.</em> <em>Ama ‘Aşkın rengiydi’ yazdığım için, doğal olarak bu oldu.</em></p>
+
+</article>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+            <a href="arc6bolum88.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="arc6bolum90.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VII, Bölüm 7 Parça 1 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 2em 0;
+            letter-spacing: 4px;
+            color: var(--accent-color);
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc7bolum6parca3.html" class="nav-btn">← Önceki Parça</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc7bolum7parca2.html" class="nav-btn">Bölüm 7 Parça 2 →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VII, Bölüm 7 Parça 1</h1>
+            <div class="subtitle">"Güneyde Ücra Bir Bölge"</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p><i>Yine anılarla başlıyoruz</i></p>
+
+            <p>Subaru: [Off.]</p>
+
+            <p>Subaru, parmağına giren keskin acıyla birlikte refleks olarak yüzünü ekşitti.</p>
+
+            <p>Aşağı baktı ve işaret parmağının ucundaki sığ bir kesikten aşağıya doğru akan bir damla kanı gördü. Masanın üzerine dağılmış belgeleri toplamakla meşguldü ama buna rağmen parmağını kesmeyi başarmış gibi görünüyordu.</p>
+
+            <p>Subaru: [Kahretsin, gerçekten her şeyi berbat ettim. Sanırım isekai kağıt yapım teknolojisini hafife aldığım için bu daha yalnızca başlangıç…]</p>
+
+            <p>???: [Amanın, Subaru-kun, mesele nediiiiir? Kağıt kesiği mi?]</p>
+
+            <p>Subaru: [Aklından neler geçtiğini tahmin edebiliyorum, Roz-chi: “Oh, ne kadar da acınasısııııııın, kağıttan bile güçsüzsün.” Yalnızca birazcık hata ettim… Hiçbir şey olmamış gibi onaramaz mısın?]</p>
+
+            <p>Diyen Subaru, köşkün sahibine, yani kendisini sorgulayan Roswaal’a acıyan parmağını gösterdi.</p>
+
+            <p>Roswaal, ofisinde, yüzü masaya dönük şekilde evrak işleriyle uğraşıyordu. Tüy kalemini yerine bırakarak Subaru’nun parmağındaki kesiğe baktı.</p>
+
+            <p>Roswaal: [Bir bakayım. Oh amanın, acı verici görünüyoooor. Yine de yalnızca bir çizik. Yalayıverirsen çabucak iyileşecektir. Yooooksa, senin için ben mi yalamalıyım?]</p>
+
+            <p>Subaru: [Kalsın, teşekkür ederim. Senin tarafından yalanacağıma gider parmağımı Beako’nun ağzına falan sokarım, Roz-chi.]</p>
+
+            <p>Roswaal: [Haha, ne komiiiiiiiiiikk… Görünüşe bakılırsa Beatrice’le işler tıkırında, haksız mıyım?]</p>
+
+            <p>Derken gözleri parlayan Roswaal, Subaru’nun parmağını bıraktı ve dirseklerini masaya yerleştirdi. Subaru’ysa onun söylediklerini dinledikten sonra “Öyle mi dersin?” diyerek kafasını eğdi.</p>
+
+            <p>Subaru ile Beatrice arasında ifade edilmesi imkansız denilebilecek, karmaşık bir ilişki vardı. Bunu söylemek abartı kaçabilecek olsa da Subaru, gerçekten Beatrice’ten yeterince karşılık alıyor değildi.</p>
+
+            <p>Subaru: [Onunla alay etmek eğlenceli ve kışkırtma işini aktif olarak yapan taraf da benim ama onun bu konuda nasıl hissettiğinden pek emin değilim.]</p>
+
+            <p>Roswaal: [Oh yo, bu konuda endişelenmene gerek yoooooook. Ne de olsa Beatrice bu tarz konularda epey dobra bir kız. Seni gerçekten geri çevirmek isteseydi Yasaklı Kütüphaneye de girip çıkamazdın.]</p>
+
+            <p>Subaru: [Anlıyorum…]</p>
+
+            <p>Roswaal: [Sonuçtaaaaaaaaaa, şu anda benim Yasaklı Kütüphaneye girmeme izin vermiyor.]</p>
+
+            <p>Subaru: [Demek öyle?]</p>
+
+            <p>Roswaal yapmacık bir kayıtsızlıkla böyle söyleyip ellerinden birini göğsüne yerleştirerek zoraki bir şekilde gülümsedi.</p>
+
+            <p>Beatrice’i dalga geçmesi eğlenceli bir kız olarak görme konusunda Roswaal’ın da Subaru’dan bir farkı yoktu. Ayrıca tanışıklıkları Subaru’ya kıyasla çok daha uzun bir süre öncesine dayanıyordu.</p>
+
+            <p>Subaru: [Yani aranızdaki mesafe duygusunu yanlış analiz edip durumun kötüye gitmesine izin falan mı veriyorsun? Özür dilemen daha iyi olmaz mıydı?]</p>
+
+            <p>Roswaal: [Ehh, bu konuda çok da yanılmıyorsun. Özür dilemeye gelince… Hem ben hem de Beatrice için üzerinden biiiiiirazcık fazla zaman geçti.]</p>
+
+            <p>Subaru: [Ondan özür dilememenin ve bunun için geçen zamanı suçlamanın pek hoş olmadığını düşünüyorum, ama…]</p>
+
+            <p>Roswaal: [Hmmm, söylediklerin giderek daha acı verici hale geliyor.]</p>
+
+            <p>Roswaal dudaklarını gevşeterek tüy kalemini tekrar eline aldı. Bunun işe geri döneceği şeklinde bir işaret olduğunu algılayan Subaru da omuz silkerek yeniden rafları organize etme işine döndü.</p>
+
+            <p>Neyse ki kesilen parmağının kanaması durmuş gibi görünüyordu.</p>
+
+            <p>Roswaal: [Parmağın gerçekten acıyorsa Rem veya Beatrice’ten iyileştirmelerini isteyebilirsin; aksi takdirde saygıdeğer Ulu Ruh da yapabilir.]</p>
+
+            <p>Subaru: [Roz-chi, sen iyileştiremez misin? Sıradan görünmeye mi çalışıyorsun?]</p>
+
+            <p>Roswaal: [Yoooooooo, hiç de bile. ――Görüyorsun ya, ben şifa büyüsü kullanamıyorum.]</p>
+
+            <p>Subaru: [Öyle mi? Ben de seni elinden her iş gelen çok yönlü bir büyücü sanıyordum.]</p>
+
+            <p>Diyen Subaru, Roswaal’ın beklenmedik itirafı karşısında hafifçe kaşlarını çattı.</p>
+
+            <p>Cehennem ateşi kullanarak içlerindeki Cadı Yaratıkları sürüleriyle birlikte ormanları yakıp yok edebiliyordu. Rüzgar gibi göğe yükselip süzülebiliyordu. Dolayısıyla Subaru, onun büyücü olarak büyük bir üne sahip olduğunu öğrenir öğrenmez her türden temel büyüde uzmanlaşmış olacağından çok emin olmuştu.</p>
+
+            <p>Ancak Roswaal, Subaru’nun söyledikleri karşısında kafasını salladı.</p>
+
+            <p>Roswaal: [Beklentilerini karşılayamadığım için üzgünüm, ama bilirsin ya, büyü büyük ölçüde kişinin doğuştan sahip olduğu yetenekle ilişkilidir. Ben büyüyle bağlantılı pek çok yetenek bahşedilecek kadar şanslıydım fakat bu bile dünyada var olan tüm büyüleri tamamıyla ele almam için yeterli değil.]</p>
+
+            <p>Subaru: [Yani, şifa büyüsü dışında kullanamadığın büyüler de mi var?]</p>
+
+            <p>Roswaal: [Hayır, onun dışındaki her şeyi kullanabiliyor sayılırım.]</p>
+
+            <p>Subaru: [Gerçekten tek bir kusurun mu var yani!?]</p>
+
+            <p>Yaptığı ağır girişin aksine Roswaal’ın tek bir zayıflığı vardı.</p>
+
+            <p>Bununla birlikte meselenin özü şuydu: Roswaal’ın kusuru, şifa büyüsü kullanamamasıydı. Ve bu da Subaru’nun gözünde telafi edilmesi zor ve şaşırtıcı büyüklükte bir kusurdu.</p>
+
+            <p>Subaru: [Mesela bir savaşın ortasında falanken yaralarını iyileştirememen epey büyük bir mesele bence.]</p>
+
+            <p>Roswaal: [Oh? Demek sen de öyle düşünüyorsun, Subaru-kun?]</p>
+
+            <p>Subaru: [E yani, ben yalnızca “Dövüş” komutunu seçip pozitif ve negatif etkileri hiçe sayarak kazanabileceğin güç oyunlarından ilkokulda mezun oldum. Yeteneksiz olsam da yetenekli insanlardan tamamıyla faydalanarak rekabet etmeyi seven biriyim, tıpkı mangalarda olduğu gibi.]</p>
+
+            <p>Roswaal: [Anlaşılması zor şeyler söylüyormuşsun gibi görünüyyor, ama ben duruma böyle bakmıyorum.]</p>
+
+            <p>Birbirlerini yalnızca birkaç haftadır tanıyor olsalar da Roswaal, Subaru’nun gevezeliğinin ardındaki gerçeği görmüş gibi duruyordu ve bu durum, Subaru’nun kafasını kaşıyarak dilini çıkartmasına neden oldu.</p>
+
+            <p>Roswaal ise bir gözünü kapatıp açık kalan mavi tarafla göz kırptı.</p>
+
+            <p>Roswaal: [Aslında tam da söylediğin gibi, Subaru-kun. Şifa büyüsünün varlığı veya yokluğu savaş alanını bir şekilde değiştirecektir. Bu yüzden de çok değerli bir yetenek.]</p>
+
+            <p>Subaru: [Öyle mi? Ama Puck, Beako ve Rem şifa büyüsü yapabiliyor, haksız mıyım?]</p>
+
+            <p>Roswaal: [İlk ikisinin durumu özeeeeeel. Ve Rem’e gelince… Onun da buna yatkınlığı var sanırım. E sonuçta kendimi o şifa yeteneğini geliştirmesine yardımcı olmaya adadım.]</p>
+
+            <p>Roswaal’ın daha sonra söylediklerine göre şifa büyüsünün işe yararlığı öyle önemli görülüyordu ki büyü dünyasında bile uzman hastanelerde bir usta-öğrenci çırak sistemi yürürlükteydi.</p>
+
+            <p>Rem’in orada eğitim alması da mümkündü ama Ram’dan ayrılmak istemediği için Roswaal’ın öğretileriyle ona doğrudan rehberlik ettiğini söylemişti.</p>
+
+            <p>Roswaal: [Şöyle ki, şifa büyüsüne fazla kapıldığın takdirde gün gelip yaralanınca dişini sıkıp acıya katlanmayı unutmuş olacağın korkusu da var, sanırııııımmm.]</p>
+
+            <p>Subaru: [Şey… Yani acıya karşı toleransını yitirebileceğini mi kastediyorsun? Sanırım doğru olabilir.]</p>
+
+            <p>Nasıl ki steril odalarda büyüyen insanlar virüs ve benzeri şeylere karşı direnç kazanamazsa, şifa büyüsü yaparak anında acılarından kurtulan kişi de buna başvuramayacağı konuma düşerse acısı ölümcül bir hal alabilirdi.</p>
+
+            <p>Aklından bunu geçiren Subaru, göz ucuyla yaralı parmağına baktı.</p>
+
+            <p>Subaru: [Anlıyorum. Bu kesik telaşlanmaya değmez, o yüzden ders olsun diye dişimi sıkıp bu acıya katlanacağım.]</p>
+
+            <p>Roswaal: [Parmağındaki uuuuuufacık bir kesikten bahsediyoruz; pireyi deve yaaaaaapmıyor musun? Böyle bir kesiği iyileştirsen bile önemi olmaz, neden bu işi Rem’e yaptırmıyorsun?]</p>
+
+            <p>Subaru: [Bu yaptığın insanları tembellik batağına çekmek için tatlı bir tuzağa benziyor! …Kalsın teşekkürler, bu haliyle gayet de iyiyim. Bir sıkıntım yok.]</p>
+
+            <p>Roswaal’ın söyledikleri şaka yollu olsa da Subaru, haklı bir noktaya parmak bastığını düşünüyordu.</p>
+
+            <p>Kraliyet Başkenti ve Köşkte gerçekleşen iki vaka sayesinde bu farklı dünyadaki hayatının kolay olmayacağını anlamıştı. Dayanılmaz bir acı gibi bir şey deneyimlemeseydi daha iyi ederdi.</p>
+
+            <p>Bununla birlikte…</p>
+
+            <p>Subaru: [Kaçınılmaz son geldiğinde, hazır olacağım.]</p>
+
+            <p>Roswaal: [Alt tarafı parmağını kestin ama neeeeeeeyse.]</p>
+
+            <p>Subaru, kararlılıkla işaret parmağını kaldırıp söylediklerini vurgularken Roswaal buruk bir gülümsemeyle karşılık verdi.</p>
+
+            <p>Öyle ya da böyle Subaru’nun hevesi nafile çıktı. Çünkü ofisi temizlemeyi bitirip Rem ve diğerleriyle buluşmasının hemen ardından Rem, parmağındaki kesiği fark ederek saniyesinde iyileştirdi.</p>
+
+            <div class="divider">△▼△▼△▼△</div>
+
+            <p>Subaru: [Ahağhağhağğğh…!]</p>
+
+            <p>???: [Hadi ama, şu desteği falan ısır bari. Gerçekten acıyacak.]</p>
+
+            <p>Diyen Todd, Subaru’nun sol elinin lekeli parmaklarına keskin kokulu bir ilaç uyguladıktan sonra kırık olanları düzeltti. Ve çevik bir şekilde etraflarına bir atel yerleştirerek bandajla sardı. Böylece Subaru’yu toparlama işini sonlandırdı.</p>
+
+            <p>Todd: [Şimdi işleri sonlandırmak için geriye kalan tek şey, bu ilacı içmen. Acını birazcık hafifletecektir.]</p>
+
+            <p>Todd, soğuk terler döken Subaru’ya ilaçla dolu bir şişe uzattı. Yoğun, yapışkan ve yeşil bir sıvıydı. Fakat onun bir ilaç olduğu söylenmişken bu konuda yapabileceği hiçbir şey yoktu.</p>
+
+            <p>Böylece kendisini gaza getirerek şişeyi kafasına dikti.</p>
+
+            <p>Subaru: [Bööğğh! İğrenç! B-bu ağır sıvı boğazımda sıkışıp kalacak…!]</p>
+
+            <p>Todd: [E yutulmasının zorluğuyla tanınan bir ilaç sonuçta. Ama sana garanti ediyorum ki işini görecek. Birliktekiler olarak sıklıkla kullandığımız bir nimet. Yaralarının iyileşme sürecini hızlandıracak.]</p>
+
+            <p>Subaru, parmaklarının arasında boş şişeyi tutarak yutkunurken Todd, ona bir gülümsemeyle karşılık verdi. Ve Subaru, onun söyledikleri karşısında başını eşip “Üzgünüm” diyerek ağzını sildi.</p>
+
+            <p>Subaru: [Benim gibi tuhaf bir tiple çok değerli bir şeyini paylaştın yani.]</p>
+
+            <p>Todd: [Hiç endişe etme. Zaten seni bu şekilde bırakacak olsaydık parmakların çürüyüp dökülürdü. Yani bunu, Kılıç Kurdu Hançeri bahşedilmiş birine bir iyilik yapmışım gibi düşünebilirsin.]</p>
+
+            <p>Todd’un bu babacan, cömert yanıtı karşısında kaşları düşen Subaru, dudaklarını ısırdı.</p>
+
+            <p>Bir Vollachian İmparatorluğu askeri çıkan Todd, ormanda edindiği bıçak yüzünden Subaru’nun bir asil olduğu izlenimini edinmişti. Ve Subaru, bu sayede bir savaş esiri olmasına rağmen çok daha iyi muamele görüyordu.</p>
+
+            <p>Tam da bu yüzden, onu kandırdığı için kendisini kötü hissediyordu.</p>
+
+            <p>Ve bunun yanı sıra belli bir soru, kafasını meşgul ediyordu.</p>
+
+            <p>O da…</p>
+
+            <p>Subaru: [Ama, ehh. Böyle zamanlarda elimizde Şifa Büyüsü olsaydı yaralarımı göz açıp kapayıncaya dek iyileştirebilirdik.]</p>
+
+            <p>Subaru, sol elinin durumunu kontrol ederken üstünkörü bir şeyden bahsedercesine bu şekilde mırıldandı. Onu duyan Todd’unsa kaşları kalktı.</p>
+
+            <p>Todd: [Oh? Yine abartılı şeyler dökülüyor ağzından. Sanki böyle bir şeye tanıklık etmem mümkünmüş gibi.]</p>
+
+            <p>Subaru: [―― Demek tam da düşündüğüm gibiymiş.]</p>
+
+            <p>Todd: [Herhalde öyle. Bir rüzgar veya ateş falan yaratmakla yaralar ve hastalıklar iyileştirilebilseydi kesinlikle işe yarardı. Sol elin bile çabucak iyileşirdi.]</p>
+
+            <p>Todd ciddi bir ses tonuyla konuşup omuz silkerken Subaru, bakışlarını yere indirdi.</p>
+
+            <p>Tahminleriyle nokta atışı yaptığı için hem tedirginlik hem de rahatlama duymuştu.</p>
+
+            <p>Henüz entrikaları açığa çıkmamışken yalnızca eğlenceli, budala bir asil olduğuna hükmettiği Roswaal ile Şifa Büyüsünün ne kadar nadir olduğundan bahsetmişlerdi.</p>
+
+            <p>Roswaal ona büyünün kişinin yeteneğine bağlı olduğunu ve Şifa Büyüsü kullanıcılarının önem taşıdığını söylemişti.</p>
+
+            <p>Bu bilginin yanı sıra kampın tedaviye ayrılmış çadırının içerisine tıbbi bitkiler ve ilaç şişeleri dizilmişti. Büyüdense tıbbi araç gereçler hazırlanmıştı.</p>
+
+            <p>Subaru’ya onarıldığını söyleyen Todd, bu iş için büyülü bir şeye bel bağlamaktansa tıbbi bitkilerden ve atellerden faydalanmıştı. Bu yüzden artık hiçbir şüphesi kalmamıştı.</p>
+
+            <p>Subaru: [Şifa Büyüsü nadir bir şey.]</p>
+
+            <p>Todd: [Hiç değilse benim hiç görmediğim bir şey. Duyduğum kadarıyla İmparatorluk Başkenti o büyüyü kullanabilen büyücüleri sınırları dahilinde ve yakınlarda tutuyormuş. Durum ne olursa olsun ortalama bir insan için uzak bir dünyaya dair masallardan ibaret.]</p>
+
+            <p>Subaru: […]</p>
+
+            <p>Todd: [Ben asıl senin ağzından “Şifa Büyüsü” gibi bir şey çıkmasına şaşırdım. Benim için böyle bir seçenek yok, anlıyor musun?]</p>
+
+            <p>Her şeyden önce, insan kendisine yabancı olan bir şeyi dile bile getiremezdi; çünkü aklının köşesinden dahi geçmezdi.</p>
+
+            <p>İşte Şifa Büyüsü, İmparatorluk için ― hiç değilse Todd ve ekibi için bu kadar yabancı bir şeydi.</p>
+
+            <p>Subaru’ysa böyle bir yanıtı bekliyordu, o yüzden kafasını sallayarak şöyle dedi:</p>
+
+            <p>Subaru: [Şey, görebildiğin üzere ben gerçekten de bir gezginim. Dünyanın dört bir yanını gezdiğim için Şifa Büyüsü kullanabilenlere de denk gelmiştim.]</p>
+
+            <p>Todd: [Demek bir gezgin, ha. Cüppen buranın havasına hiç uymadığı için kıyafetini bir tuhaf bulmuştum zaten.]</p>
+
+            <p>Todd, bu cümleleri kurarken Subaru’yu baştan ayağa süzdü. Subaru’nun üzerinde hala Pleiades Gözcü Kulesini ele geçirme amaçlı kum denizi seyahatlerinde giydiği, kumları engellemek için tasarlanmış kıyafetler vardı.</p>
+
+            <p>Aklındaki çöl izleniminin aksine Augria Kum Tepeleri sıcak çıkmamıştı; yine de kum fırtınalarından kaçınmak için teninin neredeyse her zerresini örtmüştü. Bu nedenle burada, sıcaklık ve nemin yüksek olduğu Vollachia’daki mevsime uygun giyinmediği söylenebilirdi.</p>
+
+            <p>Todd: [Yani diyorsun ki seyahat ettiğin süreçte bir çeşit Şifa Sanatçısına denk geldin ve elverişliliği karşısında kirlendin.]</p>
+
+            <p>Subaru: [Ne korkunç bir ifade şekli! Gerçekten elverişli olsa bile öyle.]</p>
+
+            <p>Açıkçası Subaru, şifa büyüsüne birkaç kez ― daha doğrusu epey bir borçlanmıştı.</p>
+
+            <p>Beatrice’in Şifa Büyüsü olmasaydı bu farklı dünyaya çağrıldığı andaki ilk engelini sağ salim atlatabilmesi bile imkansız olurdu.</p>
+
+            <p>O zamanlar Beatrice’in desteğini alamasaydı şimdiye hala karnı yarık ve bağırsakları dışarı sarkık halde yaşıyor olabilirdi.</p>
+
+            <p>Subaru: [Sanki kendi bağırsaklarıma takılıp düşme deneyimini tekrar etmek istermişim gibi.]</p>
+
+            <p>Todd: [Şifa Büyüsü, ha.]</p>
+
+            <p>Subaru: […? Todd-san?]</p>
+
+            <p>Subaru, karşısına çıkan bu alışılmadık deneyimi düşünürken Todd, sessizce iç çekti. Atmosferdeki değişim nedeniyle Subaru’nun kaşları çatılırkense gözlerinden birini kapatarak şöyle dedi:</p>
+
+            <p>Todd: [Ehh, şahsen ben Şifa Büyüsünü son derece gaddar buluyorum, bu yüzden bulunduğum yerde yapılmamasından memnunum.]</p>
+
+            <p>Subaru: [Gaddar mı… Neden? Tam tersi olması gerekmez miydi?]</p>
+
+            <p>Subaru, Todd’un bakış açısı karşısında ne kadar afalladığını sergilerken Todd, gözlerinden biri hala kapalı halde sözlerinin devamını getirdi.</p>
+
+            <p>Todd: [Yani, neticede, yaralarının iyileşmesi ölmeyeceğin anlamına gelir. Onlar da seni toparlanman için geri çekmezler. Seni iyileştirip yeniden savaşmaya zorlarlar ve bu böyle sürer gider. Yaralarının iyileşmesinin anlamı budur.]</p>
+
+            <p>Subaru: […]</p>
+
+            <p>Todd: [Bu düşünce karşısında dehşete düşmeden edemiyorum. Şifa Büyüsü fikrini geliştiren kişi savaşmayı tam olarak ne kadar seviyordu acaba? Bu bize gayet açık ve net gösteriliyormuş gibime geliyor.]</p>
+
+            <p>Subaru, Todd’un ağzından sakince dökülen bu kelimelere verecek bir karşılık bulamadı.</p>
+
+            <p>Bunun son derece taraflı bir düşünce şekli olduğu kanaatindeydi. Esasında Şifa Büyüsü yalnızca savaş alanında değil, gündelik yaşamda kaza ve hastalık kurbanı olan kişileri kurtarmakta da rol oynuyordu.</p>
+
+            <p>Gerçi diğer taraftan Todd’un düşünce şeklinde de gerçeklik payı vardı.</p>
+
+            <p>Savaş alanında aldıkları yaraları sarıyor ve onları yeniden savaşmaya gönderiyorlardı. ――Subaru, bu konudaki hislerini inkar edemezdi; neticede böyle bir yönün de var olduğunu inkar edemememe korkusunu taşıyordu.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="arc7bolum6parca3.html" class="nav-btn">← Önceki Parça</a>
+            <a href="arc7bolum7parca2.html" class="nav-btn">Bölüm 7 Parça 2 →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

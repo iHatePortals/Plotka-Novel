@@ -1,0 +1,420 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VI, Bölüm 56 Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff; /* Görseldeki Açık Mavi / Cyan */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc6bolum55.html" class="nav-btn">← Önceki</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc6bolum57.html" class="nav-btn">Sonraki →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VI, Bölüm 56</h1>
+            <div class="subtitle">Beklenenlerden Bahsetmek</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <!-- Metin buraya eklenecek -->
+             <p class="wp-block-paragraph"><strong>Meili:</strong> “————”</p>
+<p class="wp-block-paragraph">Subaru’nun dengesini kaybederek spiral merdivenlerden aşağı düşmesini sağlamaya çalışan kız—— Meili, şaşkınlık içerisinde bakakalmıştı.</p>
+<p class="wp-block-paragraph">Kara gözlerini kapatan Subaru’ysa olayların yarısında tahmin ettiği fakat şüphelendiği bu durum karşısında homurdanmadan edemiyordu.</p>
+<p class="wp-block-paragraph">Er ya da geç Ölümden Dönüşü kullanarak bu trajediyi önlemeyi başardığı için mutluydu. Bu, farklı döngülerde kendisini iki defa iten kişinin bu genç kız olduğunun da kanıtıydı.</p>
+<p class="wp-block-paragraph">Subaru’yu yükseklerden felaketine iten suçlunun—— daha önce bizzat “Natsuki Subaru”nun ellerinde ölmüş Meili Potroute olacağı kimin aklına gelirdi ki.</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“…Beni öldürme sorumluluğu ha, işte yine tuu~haf şeyler söylüyorsun, onii-san.”</p>
+<p class="wp-block-paragraph">Meili’nin gözlerinin irileştiği, dudaklarının gevşediği sırada Subaru’nun kolu hızla döndü ve parmağı gövdesinin üzerinde gezinir hâlde gülümsemeyi sürdürdü.</p>
+<p class="wp-block-paragraph">Spiral merdivenlerle arasına belli bir mesafe koymuş olan Subaru’yla yüzleşen Meili’yse bir adım geri çekildi.</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Belki de hafızanla birlikte aklından ba~şka şeyler de kaybetmişsindir. Bu yanlış anlaşılma ancak bu şekilde mümkün olabilir.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Yanlış anlaşılma mı?”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Evet, sen de öyle düşünmüyor musun~? ——Benim onii-san’ı öldürmeye kalkışmam ko~rkunç bir yanlış anlaşılma olurdu.”</p>
+<p class="wp-block-paragraph">Adım adım gerileyen Meili, gülümseyerek böyle söyledi. Onun sahiden ağırbaşlı bu yaklaşımına tanık olmak, Subaru’nun beklentilerinin bile ötesinde bir şeydi.</p>
+<p class="wp-block-paragraph">Bu aksilikten asla kaçınamayacağına inanıyordu. Fakat mücadele ettiği kişi “<em>Bendeniz</em>”—— yo, Meili olunca onu ikna etme ihtimali olabilirdi.</p>
+<p class="wp-block-paragraph">Yavaşça ve inatla, fazlasıyla elverişiz şekilde hareket ediyordu.</p>
+<p class="wp-block-paragraph">O an için en uygun görünen çözüme yönelmek, onun yaşam tarzıydı.</p>
+<p class="wp-block-paragraph">Açıkçası bu, tam da “Canavarlara” layık bir yaşam tarzıydı.</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Şüphelenmeye lüzum yok. Gerçekten onii-san’ı öldürmek isteseydim kum tepeleri bu kuleden çok daha iyi bir seçim olmaz mıydı? Ah, onii-san hiçbir şey hatırlamıyordu, yani bilmi~yor olabilirsin.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Sanırım öyle. Tuhaf bir durum. Başından beri beni öldürmeye niyetli olsaydın eline sayısız fırsat geçmiş olmalıydı. Ama bunu yapmadın.”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Öyle değil mi~? Demek ki…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ama beni öldürme motivasyonunun bu sabahtan itibaren filizlenip gelişmiş olması bambaşka bir mevzu. Bunun dün gece yaşananlardan kaynaklı zincirleme bir reaksiyon olduğunu söylemekte haklı mıyım?”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Subaru’nun açtığı konuyla birlikte Meili’nin yüz ifadesi değişti. Dudaklarını mühürledi, gülümsemesini sildi, derince bir iç çekti.</p>
+<p class="wp-block-paragraph">Ve sonra da nahoş bir tavırla, görünüşüne uymayacak şekilde omuz silkti.</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Acaba, oyuna getirilip bu tuhaf duruma sürüklenmiş olabi~lir miyim?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“ ‘Tuhaf durumdan’ kastın nedir?”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Denediği~n şey bu değil miydi? Onii-san’ı itecek miyim diye görmek için… yoluna çıkabilecek tüm engelleri elemek için, bu kulede ne denli işe yarayacağımı görmek için, hafıza kaybı numarası yapmadın mı? Bunu yapmak için mükemmel bir zaman ve fırsat olurdu doğrusu.”</p>
+<p class="wp-block-paragraph">Durumun gerçekliğini yeniden teyit etmek isteyen kız, düştüğü dezavantajlı konumdan memnun değildi.</p>
+<p class="wp-block-paragraph">Bu noktaya dek kendi adına herhangi bir kötülük sergilemediği kesindi ama Subaru’nun Meili’nin nasıl hareket edeceğini önceden bildiği de doğruydu. Yani inkâr etse bile aleyhindeki kanıtlar değişmeyecekti.</p>
+<p class="wp-block-paragraph">Bununla birlikte net olarak söylenebilecek bir şeyler vardı. O şeyler de——</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Ee, tam olarak ne yapmalıyım~? İşler bu noktaya geldiğine göre karşı koyup buradan kaçmayı mı denemeliyim? Özellikle de o kötü hayvan-chanlar burada değilken ben bile kendi başı~ma onii-san’dan kaçabilirim.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Beni yanlış anlama, Meili. Hafıza kaybım seni aldatma amaçlı bir yalan değil. Gerçek bu, bu yüzden de olmam gerektiği gibi ciddi davranıyorum.”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Demek öyle, açıkçası yalan söyleyip söylemediğinden şüpheliydim a~ma… Neticede onii-san’ın yapmak istediği şey ne? Sırf misilleme~ yapmıyorum diye buna inandığımı mı sanıyorsun?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Hık.”</p>
+<p class="wp-block-paragraph">Genç kız, ellerini ince boynuna götürüp dil çıkartarak böyle söyledi.</p>
+<p class="wp-block-paragraph">Ve o saniyede Subaru’nun kalp atışları hızlandı. Tabii -ironik bir şekilde- bu yalnızca öldürmeye yönelik bir mecazdı, kendi ölümünü hatırlaması gibi saçma sapan bir şey yaşanmıyordu.</p>
+<p class="wp-block-paragraph">Suikastçı genç kız, bu kanaatle Subaru’nun kalbine ciddi bir hasar verebilecek olduğunu ifade etmişti.</p>
+<p class="wp-block-paragraph">İşte bu yüzden Subaru, onun bu kanaatle hareket etmesine izin vermemeye niyetliydi ancak——</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Aslına bakarsan u~zun zaman alan öldürme şekillerini kullanmaktan hiç hoşlanmıyorum. Fazla acı çektirmeyen yöntemlerim var ama onii-san bir şeyler gizlemekte bayağı kötü…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Benim, seni öldürmek veya yaralamak gibi bir niyetim yok. Bu olaydan sonra bile, yarın bizi ne beklerse beklesin, sana şu ana kadarki gibi davranmaya niyetliyim.”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“…Ha?”</p>
+<p class="wp-block-paragraph">Subaru’nun yanıtını işiten Meili’nin ifadesi bir kez daha değişti.</p>
+<p class="wp-block-paragraph">Ancak bu, o an için en uygun çözüme yöneldiğinde yaşadığı değişiklikten farklıydı. Subaru’ya ne söylediğini algılayamayan gözlerle bakarken büründüğü ifade bariz bir dehşetle doluydu.</p>
+<p class="wp-block-paragraph">Subaru, o bakışlar karşısında başını sallayarak onay verdi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Neyse ki suçun gerçekleşmeden önlendi ve bunu bir sır olarak saklayacak olursak her şey yolunda gider. Beni farklı bir yöntemle öldürmeyi düşünsen de tek yapmam gereken o teşebbüsü de önlemek olur. Tabii bunun ağzımda kötü bir tat bırakacağı kesin. Gerçekten kötü.”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Ah… S-Sen neden…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ama hiç değilse bu sefer anladın mı? Bana bir şey yapmak senin için inanılmaz büyük bir risk. ‘Ama yine de’ deyip devam edeceksen, öyleyse, bilirsin ya, en azından oturup adamakıllı konuşalım. Hâlâ tatmin olmadıysan elimden geldiğince dinleye…”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Tatmin olmadıysam mı? Tatmin olmamak mı dedin sen…”</p>
+<p class="wp-block-paragraph">Meili ansızın titrek ve kısık bir sesle bu cümleleri mırıldandı.</p>
+<p class="wp-block-paragraph">Sonra da dudakları keskinleşerek…</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Esas tatmin edici olmayan şey bu duru~m! Buna inanamıyorum!”</p>
+<p class="wp-block-paragraph">Subaru, tüm bu cümleleri Meili’yi makul bir karar vermeye ikna etmek amacıyla kuruyordu. Ancak Meili, bunu takiben inanılmaz bir şeyle karşı karşıyaymışçasına Subaru’ya bakarak bağırmaya başladı.</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“İnanamıyorum, inanamıyorum, buna inanamıyoruuum…”</p>
+<p class="wp-block-paragraph">Bunu ilan ederken elleri, örgüsüyle oynamakla meşguldü.</p>
+<p class="wp-block-paragraph">Bu da Subaru’nun gözünde kendi zihinsel savunması bağlamında kafasının karıştığının ve de—— aynı saç şekline sahip birine olan bağlılığının bariz bir kanıtıydı.</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Onii-san’ın az önce ne yapmaya çalıştığımla ilgili hiçbir fikri yo~k! Eğer bu yanlışsa, bir tuha~flık var demektir. Eğer bu yanlışsa…”</p>
+<p class="wp-block-paragraph">Sözleri hüsranla dolup taşan Meili’nin tavrı doğal denilemeyecek bir çaresizlik çerçevesindeydi.</p>
+<p class="wp-block-paragraph">Bu, Subaru’nun Meili’yi bu denli rahatsız gördüğü ilk seferdi—— yo, aslında ilk sefer Ölü Kitabının içerisindeydi.</p>
+<p class="wp-block-paragraph">Dün gece yaptığı şeyden sonra Taygeta’da Subaru’ya denk gelmiş ve “Natsuki Subaru”yla yaptığı konuşma sonrasında hafızasını yitirmiş Natsuki Subaru’yu öldürmekte karar kılmıştı.</p>
+<p class="wp-block-paragraph">Fakat bu cinayet planı, böylesine apar topar gerçekleştirmesiyle iki ucu keskin bir kılıca dönmüştü.</p>
+<p class="wp-block-paragraph">Her şeyden bihaber Subaru’yu iterek öldürse bile onun ölümünden sonra üzerine yüklenebilecek cinayet ithamından nasıl kurtulmayı planlıyordu ki?</p>
+<p class="wp-block-paragraph">Muhtemelen bu ölümü yalnızca bir kazaydı şeklinde örtbas etmek mümkün olurdu—— ya da belki de olmazdı.</p>
+<p class="wp-block-paragraph">Emilia, Beatrice, Ram veya diğerlerinden tek bir tanesi bile -artık Subaru’nun bildiği üzere- onun “Ölümünün” ardındaki gerçeği açığa çıkarmayı bile denemeden geride kalmasına izin vermezlerdi.</p>
+<p class="wp-block-paragraph">Durum bu olunca Meili’nin suçunun er ya da geç açığa çıkması kaçınılmazdı.</p>
+<p class="wp-block-paragraph">Ram, Julius veya Echidna Subaru’dan çok daha zekiydi ve ölümünün ardındaki gerçeği tek seferde çözebilirlerdi. Meili’nin bunu hesaba katmamış olduğu düşünülemezdi.</p>
+<p class="wp-block-paragraph">İşte bu yüzden bu——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bu yalnızca senin vahim bir dürtün. Sen yalnızca öldürmeyi alışkanlık edinmişsin. Problemleri çözmek için diğer faktörleri hesaba katmıyorsun bile. Bu, senin hatan değil.”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“——Hık! Anlarmış gibi konuşma! Onii-san beni… sen beni!—— Sen beni ne kadar tanıyorsun ki!?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Seni tanıyorum.”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Dişlerini sıkan Meili, soğuk suya batırılmışçasına kaskatı kesilmişti.</p>
+<p class="wp-block-paragraph">Gözlerini dosdoğru ona diken Subaru’ysa iddialı bir şekilde konuşmayı sürdürüyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Meili. Seni tanıyorum. Bunun kulağa epey ürkütücü gelebileceğini biliyorum ama seni bu dünyada senin hakkında bir şeyler bilen iki kişiden daha çok tanıyor bile olabilirim, anlıyor musun?”</p>
+<p class="wp-block-paragraph">Subaru’nun omuz silkişi, Meili’nin endişelerini yoğunlaştırmıştı.</p>
+<p class="wp-block-paragraph">Bunun tamamen aşikâr olduğuna inanan Subaru’ysa bununla birlikte bu inkâr edilemez gerçeği aktarmanın bir yolunu arıyordu—— göğsünün ardındaki çarpık “Öz Sevgiyle” mücadele ediyordu.</p>
+<p class="wp-block-paragraph">&nbsp;“<em>Benim</em>” sonu gelmez ayartmalarımı hatırlayacaktır.</p>
+<p class="wp-block-paragraph">Bir ses, harekete geçeceği anların hemen öncesinde Natsuki Subaru’nun dibinden sesleniyor, onu sorunlarını cinayet yoluyla çözmesi, ağzına kadar korkaklık dolu o en kötü rotayı izlemesi için teşvik ediyordu.</p>
+<p class="wp-block-paragraph">Ölü Meili Portroute’in Ölü Kitabını okuması yoluyla açığa çıkan hayaleti ve ayartmaları, Natsuki Subaru’ya musallat olmak için geri dönüyordu——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Yo, öyle değil.”</p>
+<p class="wp-block-paragraph">Kafasını sallayan Subaru, öldürmüş olduğu kızın yaptığı şeyi düşündü.</p>
+<p class="wp-block-paragraph">Tüm bu süre içerisinde bir şeyler yaşanmıştı. Bu, önünde duran kızın kafa karışıklığı ve hayal kırıklığından belli oluyordu. Hepsinden öte Subaru, Meili hakkında Ölü Kitabında gördüğü şeyleri anımsıyordu.</p>
+<p class="wp-block-paragraph">Çektiği onca çileden sonra Meili’nin öylece katil olmayı seçtiği söylenemezdi.</p>
+<p class="wp-block-paragraph">Karşısındaki Meili’yle, Ölü Kitabındaki Meili birebir aynı değildi.</p>
+<p class="wp-block-paragraph">Bu, Subaru’nun yumuşak kalbinin emin olduğu bir şeydi.</p>
+<p class="wp-block-paragraph">Sonuçta o sesin sahibi olan kız, o kanıt üzerine Subaru’ya kendisini göstermemişti.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong> “————”</p>
+<p class="wp-block-paragraph">Fena hâlde dümdüz ifade etmek gerekirse Subaru, Ölü Kitabı yoluyla Meili’nin hayatını yaşamıştı. Bu, Meili’nin normal, günlük hayatındaki düşünce yapısıydı—— bir izlenim yaratır, bir hareket şekli belirlerdi. Bununla birlikte bir kez olsun adaletsiz ve sebepsiz şekilde bir insanın canına son vermeyi düşünmemişti.</p>
+<p class="wp-block-paragraph">O günlerde Meili’nin kalbinde sorgusuz sualsiz bir boşluk vardı ve tecrübeleri içerisindeki “Korkuyu” arttırıyordu ancak içinde parıldayarak varlığını koruyan bir şey mevcuttu. O şeyin adı da——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Elsa Granhiert.”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“——Hık.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Beni öldürmeye çalışmanın sebebi o, değil mi?”</p>
+<p class="wp-block-paragraph">Subaru’nun sorusunu işiten Meili’nin yüz ifadesi acıyla çarpıldı.</p>
+<p class="wp-block-paragraph">Bu, asla dokunulmaması gereken hassas bir konunun dürtülmesinin—— yo, ayaklar altına alınmasının sonucuydu.</p>
+<p class="wp-block-paragraph">Fakat Subaru, bunu yapma cüreti göstermişti. Çünkü…</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Başkasının evlerine girerken ayakkabılarını çıkarıp kalplerine girerken öylece, kabaca dalmak, Natsuki Hanesinin bir kuralıdır.”</p>
+<p class="wp-block-paragraph">O hanenin fertlerinden biri olan Subaru da genç suikastçının kalbine dalmıştı.</p>
+<p class="wp-block-paragraph">Yani bir nevi kendini zorla Meili’nin kalbine sokmuştu——</p>
+<p class="wp-block-paragraph">Subaru’nun tanımadığı ama aşina olduğu, siyahlar içerisinde bir katil.</p>
+<p class="wp-block-paragraph">Yalnızca onu düşünmek bile kalpte rahatlama, özlem, mutsuzluk, öfke ve de boşluk gibi hisler uyandırıyordu—— Meili’nin ona beslediği hisler son derece karmaşık ama bir o kadar da basitti.</p>
+<p class="wp-block-paragraph">——Meili, Elsa’yı özlüyor, seviyor ve ona hayranlık duyuyordu.</p>
+<p class="wp-block-paragraph">İşte bu yüzden onun kendisinden çalınmış olması çaresizlik, ıstırap, nefret, öfke, öldürme arzusu ve umutsuzluk doğuruyordu.</p>
+<p class="wp-block-paragraph">Subaru ve diğerlerine yolculuklarında eşlik ettiği tüm bu süreç intikam uğrunaydı—— Yo, Meili’nin vasıfsız benliği için bu cümle kurulamazdı.</p>
+<p class="wp-block-paragraph">Hatta Meili’nin son derece beceriksiz, acemi biri olduğu söylenebilirdi.</p>
+<p class="wp-block-paragraph">Kendi duygularından bihaber, kalbindeki yaranın derinliğini bile bilemeyecek kadar çaresiz bir genç kızdı.</p>
+<p class="wp-block-paragraph">——Kendi ortamını oluşturan profesyonel bir suikastçı, işte Meili Potroute buydu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“İstediğin şey, intikam almak mıydı?”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“…Bilmiyorum.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Öyle olsa bile, Elsa çoktan…”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Böyle bir arzum yok. Bunun son derece bilincindeyim…”</p>
+<p class="wp-block-paragraph">Diyen Meili, Subaru’nun soruları karşısında iki defa kafasını salladı.</p>
+<p class="wp-block-paragraph">Subaru, Meili’nin hislerini anlıyordu. Ve Meili de Subaru’nun sözlerinin neye dayandığının farkındaydı.</p>
+<p class="wp-block-paragraph">Bu durumda Subaru ve Meili birbirine denkti.</p>
+<p class="wp-block-paragraph">Bu yüzden de doğru cevaptan bihaber hâlde, üzüntüyle dolarak karanlık bir odada kalakalan Meili’nin duygularını ifade etmek için yapabileceği tek şey olduğu gibi, yani bir suikastçı gibi hareket ederek “Öldürmek” olmuştu.</p>
+<p class="wp-block-paragraph">Aynı zamanda o dünyada mahsur kalmayı sürdüren Meili’nin beslediği nefretin sunduğu tek seçenek de buydu.</p>
+<p class="wp-block-paragraph">Tüm bunlara rağmen Meili’nin Elsa uğruna her şeyi göze alışı nihayete ermemişti.</p>
+<p class="wp-block-paragraph">Elsa, Meili için parlayan bir ışık olsa da o ışık sıradan insanların takip edemeyeceği kadar göz kamaştırıcıydı. &nbsp;</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Hislerini gizlediğini, biliyorum. Ama muhtemelen aradığın yanıtı bu şekilde bulamayacaksın. İşte bu yüzden…”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Orasını bana bırak. İşleri kötüleştirmeyeceğim. Hiç değilse işlerin daha da kötüye gitmeyeceğinden emin olmak için çok uğraşacağım. Eğer buna inanabilirsen…”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“…Güvenmem, mümkün değil. Onii-san’ın ağzından çıkabilecek, hiçbir şeye güvenemem.”</p>
+<p class="wp-block-paragraph">Subaru ne kadar ısrarcı olursa olsun yüzünü gizleyen Meili’nin başı azıcık olsun kımıldamıyordu.</p>
+<p class="wp-block-paragraph">Bu kadarı barizdi. Çünkü bu, onun yaşam tarzında var olmayan bir eylem biçimi bulmak anlamına geliyordu.</p>
+<p class="wp-block-paragraph">Öte yandan karşısında, zerre kadar çekinmeden canı ne isterse teklif edebilecek ve vaaz verebilecek Natsuki Subaru vardı.</p>
+<p class="wp-block-paragraph">Üstelik ondan kıdemli biri tamamen hazırlanmış şekilde onu bir yere davet edip haddini bildirecek olsaydı Subaru bile bunun canını ne kadar acıtacağına şaşardı.</p>
+<p class="wp-block-paragraph">Ve Meili’nin bundan böyle söyleyebileceklerine dair bir fikri olduğu için de güzelce farklı önlemler almıştı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Yani benim ağzımdan çıkanlara güven olmuyor, bunun üzerine düşüneceğim. Teşekkürler, düne kadar sözlerimi tutmakta epey kötüymüşüm. İşte bu yüzden…”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“İşte bu yüzden?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bu söz seninle benim aramda değil, seninle bizim aramızda olsun.”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Subaru’nun bu sözlerini işiten Meili, ne kastettiğini bilemeyerek kaşlarını çattı. ​</p>
+<p class="wp-block-paragraph">Ancak şüphelerinin ışık tutulup yanıtlanması çok sürmedi.</p>
+<p class="wp-block-paragraph">O yanıt——</p>
+<p class="wp-block-paragraph"><strong>???:&nbsp;</strong>“——Mhm, sorun değil. Sözünüzün tanığı olarak, ben de dikkatlice dinliyordum.”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“——Hık.”</p>
+<p class="wp-block-paragraph">Bu sesi işiten Meili’nin omuzları titrese de kendisine hâkim olmayı başardı. Karşısında beliren şey, ihtişamından şüphe duyulamayacak olağanüstü bir güzellikti——</p>
+<p class="wp-block-paragraph">O güzelliğin belirişiyle birlikte Meili’nin gözleri irileşmiş ve dudakları titreşmişti.</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Onee-san… sen, her şeyi duydun mu?”</p>
+<p class="wp-block-paragraph"><strong>???:</strong>&nbsp;“Subaru bana burada kalmamı ve… tehlikeli bir şey yapacak olursa Meili’yi durdurmam için göz kulak olmamı söyledi.”</p>
+<p class="wp-block-paragraph">Diyerek ve ay ışığının parıltısını anımsatan saçları savrularak, efsanevi bir güzellik taşıyarak ikilinin durduğu yere doğru ilerleyen kişi Emilia’ydı.</p>
+<p class="wp-block-paragraph">Emilia’nın sözlerini işiten Meili, şaşkınlık içerisinde boynunu çevirdi.</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Ben, tehlikeli bir şey yapacak olursam mı?.. Onii-san için, değil mi?..”</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Hı hı, Meili tehlikeli bir şey yaparsa. Ee, artık sıkıntı geçti mi, Subaru?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Hı hı, öyle. Yalnızca beni birazcık endişelendirdi.”</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“——? Neden benden gözlerini kaçırıyorsun? Bir şey mi oldu, Subaru?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Yo, şey, sadece, doğrudan bakılamayacak kadar tatlısın…”</p>
+<p class="wp-block-paragraph">Subaru, boynunu eğmiş olan Emilia’nın sorusuna bu fısıltıyla karşılık verdi. Emilia boynunu daha çok eğerken de boğazındaki titremeyi ve utancını bir kenara atmayı başararak ilgisini bir kez daha afallamış hâldeki Meili’ye kaydırdı.</p>
+<p class="wp-block-paragraph">Subaru, saldırıyı öngördüğü için Meili’nin suçunu engelleme konusunda kendisine güvenmişti. Sıradaki problem, “Natsuki Subaru”nun belirmesiydi.</p>
+<p class="wp-block-paragraph">Amaç bahsi açılmışken, “Natsuki Subaru”nun Meili’yi öldürdüğü döngüde yalnızca nefsi müdafaa gerçekleştirmiş olması mümkündü ve “Natsuki Subaru” onu durdurmasının ardından illa da Subaru’nun iradesine karşı çıkacak diye bir şey yoktu.</p>
+<p class="wp-block-paragraph">Dolayısıyla Subaru, bu problemi kendinden güçlü birine emanet etmeye karar vermişti.</p>
+<p class="wp-block-paragraph">Bilincini yitirse ve “Natsuki Subaru” belirse bile Emilia’nın mutlaka—— yo, yoldaşlarının mutlaka bu konuda bir şeyler yapacağına olan inancı tamdı.</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Dinle, Meili. Ben Subaru’nun söylediklerine inanıyorum. Meili inanamıyor olsa bile onu dikkatlice gözlemlediğimiz sürece sıkıntı çıkmaz. Ve sözünden dönecek olursa, benim öfkemi kazanır.”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Onii-san’ı, gözlemlemek mi?.. Bu, tuhaf. Öyle değil mi? Onii-san ve onee-san’ı gözlemlemek, benim yaptığım…”</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Meili kötü bir şey yapmak isterse bunu yalnızca Subaru gerçekten sözünden döndüğü takdirde yapabilir. O zamana dek sözünü tutup tutmayacağını gözlemleyeceksin. Böylesi adil olmaz mı?”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Aynı seviyede göz göze gelebilecek derecede eğilen Emilia’nın sözleri, Meili’nin kafasını karıştırıyordu.</p>
+<p class="wp-block-paragraph">Zihnindeki gerçekleri açığa çıkarma ve koşulların üstesinden gelme yolları çarpıtılıyor, parçalanıyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Büyük bir hata yapmak üzereymiş gibi görünüyordun ama benim ve Emilia-chan’ın <em><u>iyiliği</u></em> bir şekilde bunun önüne geçti. İşte bu yüzden, bu senin aslında nasıl bir yol izlemen gerektiğini öğrenme fırsatın. Senin, beni öldürmekten başka bir çözüm bulma fırsatın… Ve bu bir bahis.”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Bahis mi?..”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Sen içindeki kötü hisleri yatıştıracak ve beni hâlâ isteyip istemediğini veya fikrini değiştirip değiştirmediğini göreceksin… Ben de sana ahlaki değerleri öğretmek için elimden geleni yapacağım.”</p>
+<p class="wp-block-paragraph">Diyerek kafasını kaşıyan Subaru, Meili’nin kafa karışıklığını gidermek için bu yolu çizdi.</p>
+<p class="wp-block-paragraph">Açıkçası lüzumsuz bir ilgiydi. Evet, lüzumsuz ve davetsiz bir müdahaleydi. Meili’nin o ana dek izlediği belli bir yaşam tarzı vardı ve Subaru, keyfi olarak ona yeni seçenekler sağlamaya çalışıyordu.</p>
+<p class="wp-block-paragraph">Fakat Meili bu müdahaleyi reddedecek olursa kum kulesi nedeniyle yolun sonu çıkmaz sokak olacaktı. Onun yaşam tarzını izledikleri takdirde bu kum kulesini birlikte fethetmeyi asla başaramayacaklardı. Ve——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Senin bu trenden inmene izin vermeyeceğim. Kaç yaşında olduğunu falan bilmiyorum ama… Ben senin yaşlarındayken etrafımda her daim bana yardım eden yetişkinler olurdu.”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“İşte bu yüzden ben de istemiyor olsan bile sana yardım edeceğim. Henüz ne yapmalıyım diye düşünmek veya yetişkinlerin yardımını reddetmek için haddinden fazla küçüksün.”</p>
+<p class="wp-block-paragraph">Diyen Subaru, kendisiyle Meili arasındaki mesafeyi kapatmak adına ilerledi.</p>
+<p class="wp-block-paragraph">Mesafenin kapandığını görmekse Meili’nin omuzlarını ürpertti. Ve sonrasında Subaru, kendisine gözlerinde bir tedirginlikle bakan gergin Meili’nin kafasını okşadı.</p>
+<p class="wp-block-paragraph">Bu defa o ince boynu sıkmayacaktı. “Natsuki Subaru”ya kesinlikle farklı bu alternatifi sunuyordu.</p>
+<p class="wp-block-paragraph">Meili, ölmesi gerekmeyen bir çocuktu. Ve——</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Senden içtenlikle, Subaru’ya güvenmeni… bize güvenmeni rica ediyorum, Meili.”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“——Ah.”</p>
+<p class="wp-block-paragraph">Subaru kafasını okşarken Emilia’nın da sırtından sarıldığı Meili, tamamen hareketsiz bırakılmıştı. Bedenini kucaklayan Emilia yanaklarını ovuştururken Meili, hafifçe dudaklarını ısırıyordu.</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Bu Kum Kulesi senin böyle büyük bir karar alamayacağın kadar küçük.”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Buradan ayrıl, daha büyük bir yere git ve yanıtını orda bul. Biz de bunun için gerçeeeekten sıkı çalışacağız.”</p>
+<p class="wp-block-paragraph">Böylesine bir kafeste mahsur kalmış ve bazı hislere sahip olmuşken ona tüm bunları öğretmek, izlenecek en iyi yol sayılmazdı.</p>
+<p class="wp-block-paragraph">Buna rağmen Subaru’nun aklındakileri dile getirebilmesinin tek yoluydu. Eksiksiz, azami özenlerini ve nazik sözlerini Meili’ye iletmişlerdi.</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Buna karşılık Meili, tekrar tekrar ve düşünceli bir şekilde gözlerinin içine baktı.</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Ben, Elsa’yı unutmak… istemiyorum.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ah, sorun değil. Sevdiğin birini unutmana lüzum yok. Yalnızca, şeyyy…”</p>
+<p class="wp-block-paragraph">Sözlerini bu noktada duraksatan Subaru, Ölü Kitabında tanık olduğu siyahlar içerisindeki güzel kadını düşündü.</p>
+<p class="wp-block-paragraph">Amma tuhaf bir ifadesi vardı. Subaru, onunla hiç iletişime geçmemiş olmasına rağmen ona bir aşinalık duyuyordu. Böylesi bir rakibi anımsayan Subaru’nun eli istemsizce bağırsaklarını okşadı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Söz konusu sevdiğin biri olsa bile, onun hareket şeklini taklit etmemeni diliyorum.”</p>
+<p class="wp-block-paragraph">Evet, bunun olacağına inanıyordu.</p>
+<p class="wp-block-paragraph">——Meili güçsüzdü, yolunu kaybetmişti. Ama buna rağmen, sessiz geçen birkaç saniyenin sonunda başını yukarı aşağı sallayıp onay verdi.</p>
+<p class="wp-block-paragraph">#Ben de insanları kolay bağışlayan biriyimdir ama beni defalarca öldürmeye çalışan bir kızı da pat diye kucaklayabilir miydim bilmiyorum doğrusu. Enteresan bir topluluklar gerçekten. Acaba Meili’ye güven besleyip onu doğru yola sokma çabaları nasıl sonuç verecek, doğru bir karar olacak mı… Hiç değilse bu şekilde ‘Subaru’nun itilmesi’ şeklindeki ilk problem çözüme kavuştu. Sırada sebebi bilinmeyen daha pek çok problem var. Bakalım onlar hakkında neler yapacağız, bir sonraki bölümde görüşmek üzere!</p>
+<p class="wp-block-paragraph"></p>
+</article>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+            <a href="arc6bolum55.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="arc6bolum57.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

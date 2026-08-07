@@ -1,0 +1,489 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VI, Bölüm 63 Plotka Novel</title>
+   <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff; /* Görseldeki Açık Mavi / Cyan */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc6bolum62.html" class="nav-btn">← Önceki</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc6bolum64.html" class="nav-btn">Sonraki →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VI, Bölüm 63</h1>
+            <div class="subtitle">Beş Engel</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <!-- Metin buraya eklenecek -->
+             <p class="wp-block-paragraph">——Cadı Canavarlarının Gözcü Kulesine varışı.</p>
+<p class="wp-block-paragraph">Julius’un Augria Kum Tepelerinin Cadı Canavarlarının toplu hâlde içeri hücum ettiği raporuyla birlikte Subaru ve geri kalanların yanakları kaskatı kesildi, gözlerini bir ciddiyet ışıltısı bürüdü.</p>
+<p class="wp-block-paragraph">Ayaklarının tabanlarında hissettikleri şeylerin, kulenin zeminini belli belirsiz sarsan ve gümbürdeyen titreşimlerin—— kelimenin tam anlamıyla kulede yankılanan Cadı Canavarlarının ayak sesleri ve kişneyişleri olduğunu işitip de huzursuz olmamak imkânsızdı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bu çölün devasalığıyla ilgili belli belirsiz bir bilgiden fazlasına sahip olmasam da…”</p>
+<p class="wp-block-paragraph">Her şeyden şüphe duyup kuleden kaçmaya teşebbüs ettiği seferde çölün şiddetinin daha ilk adımında planlarını bozuşu, Subaru’nun bizzat deneyimlediği bir şeydi.</p>
+<p class="wp-block-paragraph">Yalnızca göz alabildiğince uzanan kumların görüntüsü bile unutulması zor bir şey olunca Subaru, gözünde duruma uygun şeyler canlandırabiliyordu.</p>
+<p class="wp-block-paragraph">Ama yine de çölün canlı organizmalarla dolup taştığını hayal etmek zordu——</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Augria Kum Tepeleri Cadı Canavarlarının kitleler hâlinde yaşadığı bir yer, anlarsın ya. Öyle ki Cadı Canavarlarının kumlara adımını atan her insanı hedef alabilecek olması, çevre şartlarının zorluğundan daha büyük bir mesele.”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Eskiden Cadı Canavarlarını imha etmek adına askeri bir birlik görevlendirilmişti. Gerçi bu görevin sonucu, duyduğun adım seslerinden belli olmalı.”</p>
+<p class="wp-block-paragraph">Julius ve Echidna, Subaru’nun sorusuna kendilerince iki ayrı yanıt verdi.</p>
+<p class="wp-block-paragraph">Başka bir deyişle Subaru’nun zemindeki gümbürtülerin yalnızca kâğıt kaplanlardan kaynaklandığı, düşman sayısınınsa en fazla bir hayvanat bahçesi seviyesinde olduğu şeklindeki umudunun muazzam bir yanlış anlaşılma olduğu açığa çıktı. Kesin konuşmak gerekirse daha ziyade bütün bir Cadı Canavarı savanası seviyesi söz konusuydu.</p>
+<p class="wp-block-paragraph">Bunun insanı çaresizliğe sürüklemek için yeterli olması da gayet anlaşılabilirdi.</p>
+<p class="wp-block-paragraph">Bununla birlikte——</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“——Ee, sen de beni çağırman gerektiğini mi fark ettiiin?”</p>
+<p class="wp-block-paragraph">Sesini yükselten Meili, örgüsüyle oynayarak böyle söyledi.</p>
+<p class="wp-block-paragraph">Cadı Canavarlarının varışı şeklindeki rapor karşısında herhangi bir “Gerginlik” belirtisi vermeyen tek kişi Meili’ydi. Tabii ki bu tepkisi, bunun anormal bir durum olmadığı anlamına gelmiyordu.</p>
+<p class="wp-block-paragraph">Tepkisi, Cadı Canavarlarını tehdit olarak algılamadığı anlamına geliyordu.</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Son derece acınası olsa da tamı tamına söylediğiniz gibi. Sizin gücünüzden faydalanmak istemiştim.”</p>
+<p class="wp-block-paragraph">Yanakları kaskatı kesilen Julius, Meili’nin sorusu karşısında başını sallayarak onay verdi.</p>
+<p class="wp-block-paragraph">Çok sayıda Cadı Canavarının gerçekleştirdiği hücum sorununu Cadı Canavarlarına komuta etme kabiliyetine sahip Meili’ye emanet etmek—— Julius’un bu fikri anlaşılabilirdi. Subaru’nun aklına gelen ilk şey de bu olmuştu. Ancak tuhaf bir his, göğsünün derinliklerinde alarm çanları çaldırıyordu.</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Subaru? Ne oldu, sanırım? Suratın bir tuhaf oldu, doğrusu.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“…Suratımın tuhaflığı doğdum doğalı benim kaderim.”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“O yalnızca gözlerin için geçerli, sanırım.”</p>
+<p class="wp-block-paragraph">Subaru’nun yanı başındaki Beatrice, onun acı ifadesini fark edip endişe içerisinde bakmaya başladı. Subaru’ysa tedirginlik misali şekilsiz bir şeyle birlikte çokça karbondioksiti dışarı bıraktı. Sahiden de hiçbir somutluk belirtisi taşımayan belirsiz, anlaşılmaz bir şeydi.</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Subaru, seni endişelendiren bir şey mi var?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Beni soru yağmuruna tutmasanıza. Bu arada, sanırım o izlenimi verecek bir surat ifadesine büründüğüm için hata bende. Bu özrün üzerine söylemem gereken bir şey daha var. Ölü Kitabından edindiğim özel bir bilgi.”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong> “————”</p>
+<p class="wp-block-paragraph">Bu kelimeleri daha önce de işitmiş biri olarak Beatrice’in nefesi kesildi ve gözleri irileşti. Dürüst olmak gerekirse tahmin edilebilir bir tepkiydi fakat Subaru’nun bunu belirtmeden açıklama yapması mümkün değildi.</p>
+<p class="wp-block-paragraph">Durumdaki ani değişimin, Cadı Canavarlarının böylesine büyük kitleler hâlinde kuleye hücum etmesinin nedeni——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Oburluk. Cadı Canavarlarını kuleye Oburluk Günah Başpiskoposu gönderiyor.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“——Hık, neden?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bunun için özür dilemem gerekecek. Reid’in Ölü Kitabında Oburlukla tanıştım. Daha doğrusu Oburluklardan biriyle karşılaştım. Görünen o ki onunla dün gece de karşılaşmışım. Yani…”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Demek oluyor ki anılarını yitirişinin ardındaki sebep oydu, ha.”</p>
+<p class="wp-block-paragraph">Subaru, Julius’un bu ani çıkarımı karşısında başını sallayarak onay verdi.</p>
+<p class="wp-block-paragraph">Beklenildiği üzere demek zor olsa da Julius’un anlayış kabiliyeti muazzamdı. Oburluğun ismi ve gücüne aşina olup bu bilgileri kullanarak arzulanan sonuca anında ulaşmıştı.</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Huzursuz olmadığımı söyleyemem. Bu yüzden tekrar soracağım, gerçekten bu defa senden çalınan hiçbir şey olmadı mı?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Neyse ki tüm hayatımın taklit edilip paylaşılıyor olması dışında hâlâ eksiksizim. Bunları Beatrice ve diğerlerine çoktan anlatmıştım gerçi.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Anlıyorum… Beatrice-sama?”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Betty de senin korktuğun konuda endişeli, doğrusu. Ama şimdilik herhangi bir anormallik mevcut değil, sanırım.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bana gerçekten güvenemiyorsunuz, değil mi…”</p>
+<p class="wp-block-paragraph">Julius ikna olmuş bir ifadeyle, teyit almak adına Beatrice’e döndü. Subaru’ysa bunun değiştiremeyeceği bir şey olmasına rağmen karmaşık bir ruh hâline bürünmeden edemedi.</p>
+<p class="wp-block-paragraph">Her hâlükârda——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Görünen o ki dün geceki vukuat nedeniyle düşman, burada olduğumuzu keşfetmiş. Yaklaşık yarım günün sonunda da… evcil hayvanlarıyla birlikte buraya gelmişler, kastedilen şey bu mu, ha?”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Normal seyahat hızı hesaba katılınca bu kuleye yarım gün içerisinde ulaşılabileceğine inanmak zor. Bilhassa da yolculuk süresince Cadı Canavarlarının teşkil edeceği engelleri düşününce. Ama…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ama?”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Bizim yaptığımız zorlu yolculuğun aksine Oburluk, Cadı Canavarlarına emir vermesini sağlayacak bir güce sahipse… mesele yalnızca seyahat hızı olabilir.”</p>
+<p class="wp-block-paragraph">Subaru, omuz silken Echidna’nın yorumu üzerine gergin bir ifadeyle kollarını önünde kavuşturdu.</p>
+<p class="wp-block-paragraph">Oburluk Cadı Canavarlarına emir verme gücüne sahipti, en azından bunu varsaymak uygun olurdu. Hiç değilse kuleye yönelen Cadı Canavarlarının düşmanın yönlendirmesiyle hareket ettiği şüphesizdi.</p>
+<p class="wp-block-paragraph">Yani böyle bir şeyi başarabildikleri de akılda tutulmalıydı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Peki ya seyahat hızı meselesi?”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“…Uçsuz bucaksız kumlu bir bölgeden bahsediyoruz. Cadı Canavarları tehdit teşkil etmese bile kumların üzerinde ilerlendiği sürece hızın düşmesi kaçınılmazdır. Dosdoğru kuleye ilerleseler ve asla kaybolmasalar bile gelmelerinin birkaç gün süreceğine inanmak isterim.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ama başka bir olasılık yok mu?”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“——Karayolunun fazla zamana mal olması durumunda havayolu kullanılırsa işler değişir tabii.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Havayolu!..”</p>
+<p class="wp-block-paragraph">Öngörülemeyen bu olasılığın sunuluşuyla hayretini ifade eden Subaru’nun kara gözleri irileşti.</p>
+<p class="wp-block-paragraph">Havayoluyla ulaşım, eğer böyle bir şey mümkünse seyahat süresinin büyük ölçüde kısalacağı kesindi. Uçan bir kuş yürüyen bir adamdan hızlı olurdu, bu işler genellikle böyleydi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Keyfi peşin hükümlerimle uçma yolunun istisna olacağını düşünmüştüm. E büyü diye bir şey varsa gökyüzünde uçmak da gayet normaldir, ha.”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Durum böyle değil, sanırım. Uçmak karmaşık bir büyü çeşidi, prosedürü de çok komplike, doğrusu. Çarpma tehlikesi hesaba katılınca normal şartlarda hiç kimse bu riski göze alıp harekete geçmez, sanırım. Bunu yapacak kişi bir aptal veya dâhidir veyahut aptalca bir dahi, doğrusu.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Gerçi Uçbeyi Mathers’ın Kraliyet Sarayına gökler aracılığıyla katılım gösterdiği söylentisi çok yaygın…”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“İşte o aptalca bir dahi olabilir, sanırım.”</p>
+<p class="wp-block-paragraph">Görünen o ki Beatrice, Subaru’nun tanışmadığı bu Uçbeyi denen kişiden pek de haz etmiyordu.</p>
+<p class="wp-block-paragraph">Tatlı tatlı surat asan kıza bakan Subaru, uçma büyüsünün pek kullanılmadığının söylenmesi üzerine kafasını eğdi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Büyü değilse, kocaman bir kuş… Ah, bir ejderha! Uçan bir ejderhanın sırtına falan binmiş olmalılar!”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Açıkçası uçan ejderlere binme tekniği güneydeki Vollachia İmparatorluğu’na mahsus bir sırdır. Tabii imparatorluk o tekniği tamamıyla tekelleştirmiş olsa da Oburluğun şeytani yöntemleriyle gasp etmesi kolay olsa gerek.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Tekniği bilen birini ele geçirmeleri yeterli. Bir yalayışla anılarını alırlar olur biter, ha.”</p>
+<p class="wp-block-paragraph">Böyle düşününce düşman, istihbarat konusunda haddinden fazla güçlü yöntemlere sahipti.</p>
+<p class="wp-block-paragraph">“Anıları” yiyerek kişilere ait birer sır olmasına niyet edilmiş her şeyi ve “İsimleri” yiyerek de o kişilerin kendilerini, hatta rakiplerinin tüm varlıklarını baştan yazabilirlerdi.</p>
+<p class="wp-block-paragraph">——Sıklıkla söylenildiği üzere insanı şekillendiren şey anılarıydı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong> “————”</p>
+<p class="wp-block-paragraph">Subaru, bir insanın değerinin ve yolunun anılarına ve tarihe kazınmış olduğunu düşünüyordu.</p>
+<p class="wp-block-paragraph">Bilhassa şu anda aklından geçen değerler gereği faul yaparak oynayan Oburluğun gücüne kalbinin en derinlerinden gelen bir nefret besliyordu.</p>
+<p class="wp-block-paragraph">Yıkıcıydı.</p>
+<p class="wp-block-paragraph">Oburluğun insanların anılarını yağmalama gücü, her şeyi ayaklar altına alan ve her şeye yıkım getiren bir şeytanilikti.</p>
+<p class="wp-block-paragraph">Bunu kendi keyfi için, kendi mutluluk arayışı için kullanması absürttü. Yanlış yöntemlerle, mantıksız yollarla, kaderi çarpıtıp rayından çıkararak yapması…</p>
+<p class="wp-block-paragraph"><em>——</em><em>Eee, peki</em><em> Ölümden Dönüşü </em><em>kullanan onii-san buna ne diyecekti?</em></p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Hık.”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Subaru!”</p>
+<p class="wp-block-paragraph">Beatrice, istemsizce büyük bir kuvvetle dudaklarını ısıran Subaru’ya seslendi.</p>
+<p class="wp-block-paragraph">Kolunun çekiştirildiğini hisseden Subaru’nun gözleri mavi gözlerle buluştu. Ağzının köşesinde keskin bir acı duyuyordu ve bu acıyı verenin kendi ısırığıyla açtığı yara olması içler acısıydı.</p>
+<p class="wp-block-paragraph">Yaradan sızan kanları diliyle yalayan Subaru, “Pardon” diyerek kafasını eğdi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bir an için alaycı suratı aklımda belirdi, anlarsınız ya. O şeyin tamamen ağlamaklı ve kederli bir surata bürünmesi en büyük hedeflerimden biri hâlini aldı ama… esas problem o şeyin abileri.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Birden fazla Oburluk Günah Başpiskoposu olduğunu zaten biliyorduk ama yeni bir şey mi öğrendin?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Kendilerine hitap şekilleri yüzünden gerçekten kafa karıştırıcı ama evet, olabilir. Bir tanesi Ölü Kitabının içerisinde ve iki de abisi var, galiba.”</p>
+<p class="wp-block-paragraph">Anılar Koridorundaki Rui, sıklıkla “Onii-chan” ve “Nii-sama” isimlerini dile getirmişti. &nbsp;Bu hesaba katılırsa Rui’nin kendinden büyük iki erkek kardeşi olmalıydı.</p>
+<p class="wp-block-paragraph">Bunun Oburluğun üç kardeşten oluşmasının kanıtı olarak görülüp görülemeyeceği ayrı bir mesele olsa da——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Hiç değilse o, böyle bir taktik kullanabilecek bir tip değildi. Şe~y, bu, onun kişiliğine birazcık yenik düşen benim söyleyebileceğim bir şey değil tabii.”</p>
+<p class="wp-block-paragraph">Düşmanın planına kapılıp da o ince boynunu sıksaydı neler olurdu acaba! O mavi saçlı genç kızın sesi yükselmiş olmasaydı bunu yapmış olacağı kesindi.</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“——Ee~, onii-san ne deme~ye çalışıyor? Orada burada mola verip lafı dolandırmak onii-san’ın kötü bir alışkanlığı, gerçe~kten.”</p>
+<p class="wp-block-paragraph">Uyuşukluğundan sıyrılmış görünen Meili, vücudunu sarstı ve memnuniyetsiz bir ifadeye büründü.</p>
+<p class="wp-block-paragraph">Başından beri kendisine verilmiş olan rolü üstlenmesi gereken genç kız, bekletildiği için acayip rahatsız görünüyordu.</p>
+<p class="wp-block-paragraph">Onun bu rahatsızlığını anlayan Subaru’ysa “Biliyorum” diyerek eliyle buyurdu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ne hissettiğini anlıyorum ama bu pek gereği olmayan bir konuşma. Evet, lafı dolandırmamın kötü bir alışkanlık olduğu kesin fakat bunu da cazibemin bir parçası olarak görüp cazibeme kapıl…”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Çiğne~nmek mi istiyorsun?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Pardon! Yalnızca şey, bir ton Cadı Canavarı geliyor! Öyleyse Cadı Canavarları konusunda uzman olan Meili-sensei’den yardım rica edelim! Bu tür bir akış normal, değil mi? Bunu söylemiş olmalıyım. Düşmanlar, benim anılarımı çalan kişiler.”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Bunun anlamıııı…”</p>
+<p class="wp-block-paragraph">Meili, Subaru’nun temkinli bir şekilde konuşuşu karşısında bir kez daha ses tonunu alçalttı. Subaru’nun sözlerinin ardındaki gerçek anlamı çözmüştü.</p>
+<p class="wp-block-paragraph">Ve aynı şey, yüz ifadeleri değişen yoldaşları için de geçerliydi.</p>
+<p class="wp-block-paragraph">Grup üyelerinin yüzlerine uzun uzun bakan Subaru, kafasını kaşıyarak konuşmasının devamını getirdi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bunun benim hatam olduğunu söyleyerek giriş yapacağım, tamam mı? Ama sonuç olarak benim Anılarıma sahipler—— Yani onlar ekibimizin güçlü yanlarını bilerek tuzaklar kuracak. Ve bizim de onları kendi oyunlarında yenmemiz gerekecek.”</p>
+<p class="has-text-align-center wp-block-paragraph">※　※　※　※　※　※　※　※　※　※　※　※　※</p>
+<p class="wp-block-paragraph">——İstihbaratı kontrolü altına alan, savaşı da kontrolü altına alırdı.</p>
+<p class="wp-block-paragraph">Modern çağ Japonya’sında büyüyen ve çeşitli oyun kültürleriyle zehirlenen Natsuki Subaru, bu deyişin günümüz savaşları için bir galibiyet formülü olduğunu biliyordu.</p>
+<p class="wp-block-paragraph">Durum böyle olmasa bile taraflardan birinin elinin görüldüğü bir poker oyununda kazanmanın imkânsız olduğu, bir çocuğun gözünde bile bariz olurdu. Bu nedenle——</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Rakip bizim savaş potansiyelimizi gördüyse ben de endişelerine katılmak durumundayım.”</p>
+<p class="wp-block-paragraph">Julius yola düşerken gözlerini kısarak ardında yalnızca bu temkinli kelimeleri bırakmıştı.</p>
+<p class="wp-block-paragraph">Rakibin hamlesini bilmemenin tehlikeli olduğu anlayışını paylaşmış ve durumu kısaca açıklamakla yetinmişti. Ama ne olursa olsun, rakibin yapacağı hamleyi bilmemenin dengeleri bozduğu düşüncesi bile başını dik tutmasına mâni olmamıştı——</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Önemli bilgileri sır olarak saklayıp sonradan keşfetmek çok daha korkutucu olurdu, doğrusu. Subaru’nun mevcut fikri doğru, sanırım.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Gerçekten mi? Sorun yok mu? Hepiniz benden nefret etmiyor musunuz?”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Neden bu kadar tedirginsin, doğrusu? Sorun yok, sanırım. Hiç kimse Subaru’dan nefret etmiyor, doğrusu. Aksine herkes seni se-se-se-…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Anladım anladım. Tamam, rahatladım. Seni seviyorum.”</p>
+<p class="wp-block-paragraph">Subaru, el ele tutuştuğu ve yan yana yürürken kendisini cesaretlendirmeye çalışan Beatrice’i başıyla onayladı. Açıkçası konuşan taraf, dinleyenden çok daha fazla utanmıştı.</p>
+<p class="wp-block-paragraph">Sevgi sözcükleri onları kullananlar için onları işitenlere kıyasla çok daha hafif olurdu. İnsanın kendi duygularından şüphe duymasına gerek olmazdı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ee, Shaula nerede!?”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Ah, yalnızca birazcık daha… şu tarafta.”</p>
+<p class="wp-block-paragraph">Herkesten önde koşturan Julius, bir taş geçidi işaret ediyordu. Çıkmaz yol gibi görünse de sağ tarafında gizli bir yan yol bulunuyordu.</p>
+<p class="wp-block-paragraph">Kalçalarını eğen Julius duvarın altından geçerken kulenin dışına ulaşan bedeni, kumla dolu şiddetli rüzgârlar ve alışılması imkânsız bir sesle karşılandı.</p>
+<p class="wp-block-paragraph">——O ses, Subaru’nun kulağına hepsi bir anda kırılan sayısız camdan yükseliyormuş gibi geliyordu.</p>
+<p class="wp-block-paragraph"><strong>???:&nbsp;</strong>“Ah, hiyah hiyah hiyah yahyahyahyahyahyahyahyahyahyahyah~!!”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong> “————”</p>
+<p class="wp-block-paragraph">Burası, kulenin duvarına inşa edilmiş balkon gibi bir alandı.</p>
+<p class="wp-block-paragraph">Bu Subaru’nun alt katlara bağlanan muazzam merdivenler sayesinde öğrendiği bir şey olsa da Dördüncü Kat, birkaç yüz metrenin ötesinde bir yükseklikte bulunuyordu.</p>
+<p class="wp-block-paragraph">Kavruk rüzgârların ortasında, o yüksek balkondaysa uzun, ihtişamlı örgüsüyle hoş bir güzellik dans ediyordu——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Shaula!”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Ah! Ustam, buraya mı geldin?! Çok mutluyum! Benim dünya sahnem, işyerim teftiş ediliyormuş gibi hissediyorum! E madem değerli ustam teftişe gelmiş, öyleyse bir güzel bakıp gözlerine ziyafet çeksin!”</p>
+<p class="wp-block-paragraph">Shaula, kumlardan korumak adına koluyla gözlerini örterek bağıran Subaru’ya göz kamaştırıcı bir sesle karşılık verdi. Aynı enerjiyle gerçekleştirdiği şey, kendince inanılması güç bir fanteziydi. &nbsp;</p>
+<p class="wp-block-paragraph">Havada, hemen hemen balkon genişliğince sayısız yatay silah yuvası açılmıştı.</p>
+<p class="wp-block-paragraph">Silah yuvası demek biraz abartı olabilirdi ama Subaru’nun aklına buna daha uygun bir kelime dizisi gelmiyordu. Silah yuvası, ağızlık, atış portalı—— her ne denirse densin, bir şeyleri ateşlemek için kullanılan yuvalar/delikler oldukları kesindi.</p>
+<p class="wp-block-paragraph">Büyülü dörtgenlere benzer şeyler yoluyla havada açılan bu beyaz, büyük yuvaların uçlarıysa yere çaprazlama eğilmişti.</p>
+<p class="wp-block-paragraph">Ve——</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“——Dinmeyen Gazap Yağmuru!!”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Oha, çok havalıymış!!”</p>
+<p class="wp-block-paragraph">Shaula’nın bağırışıyla birlikte beyaz silah yuvaları kuvvetle ışıldadı.</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img decoding="async" width="945" height="1342" src="https://web.archive.org/web/20260619052137im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-36.png" alt="" class="wp-image-8095" srcset="https://web.archive.org/web/20260619052137im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-36.png 945w, https://web.archive.org/web/20260619052137im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-36-704x1000.png 704w, https://web.archive.org/web/20260619052137im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-36-768x1091.png 768w" sizes="(max-width: 945px) 100vw, 945px"><figcaption class="wp-element-caption"><a href="https://web.archive.org/web/20260619052137/https://x.com/Set0wi/status/1326204963140345859">Görsel Sahibi</a></figcaption></figure>
+</div>
+<p class="wp-block-paragraph">Ve ardından, cam kırılması sesi Subaru’nun bağırışını ezip geçerek kumlar boyunca defalarca yankılandı. Aynı zamanda silah yuvaları şekillerini yitirerek atmosfere karıştı.</p>
+<p class="wp-block-paragraph">İşte Subaru ve diğerlerini balkona vardıkları saniyede karşılayan tiz sesin gerçek kimliği buydu. Shaula’nın onları kullanmasının da tek bir sebebi vardı.</p>
+<p class="wp-block-paragraph">——Olabildiğince sık bombardıman yaparak halelerin ışık hızıyla yere yaklaşmasını sağlıyordu.</p>
+<p class="wp-block-paragraph">Kuma temas eden haleler de şiddetli bir parlaklık saçarak zemini patlatıyordu. Aynı etki kumun üzerinde vahşice koşturan Cadı Canavarlarının sırtlarında da gerçekleşiyordu.</p>
+<p class="wp-block-paragraph">Kuleyi hedef alıp kum öbekleri kaldıran Cadı Canavarları sırtlarına haleleri yiyor ve ardından kanlarıyla etleri kumlara saçılıyordu. Susayan kumlar etlerini yudumluyor, dağılan cesetleri diğer Cadı Canavarları tarafından ayaklar altına alınıyor, haleler canı gönülden patlayarak yaklaşmakta olan Cadı Canavarlarının toplam sayısını hiç kuşkusuz azaltıyordu.</p>
+<p class="wp-block-paragraph">Hâle sayısı yüze yakındı ve her biri iki üç Cadı Canavarını hedefleyip hırpalıyordu.</p>
+<p class="wp-block-paragraph">İşte Shaula’nın kısa bir süre içerisinde yaptığı seri ateşleme bu şekildeydi. Julius’un Subaru ve diğerlerini aramaya gittiği süreç de hesaba katılırsa Shaula’nın yaptığı ateşleme sayısı toplamı epey yüksek olmalıydı.</p>
+<p class="wp-block-paragraph">Bununla birlikte Shaula’nın seri bombardımanları bile karınca ordusu misali kuleyi çevreleyen Cadı Canavarı sürüsü karşısında er ya da geç yetersiz kalacak bir dirençten ibaretti.</p>
+<p class="wp-block-paragraph">İşte kumlarda toplanmış Cadı Canavarlarının sayısının teşkil ettiği engel bu denli büyüktü.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Hey, hey, hey… Bunu gerçekten duymak istemem ama, acaba?”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Bu noktadan yalnızca tek bir yön görülebiliyor. Bununla birlikte aynı manzara kulenin diğer tarafına da yayılıyor. Yani bu düşünce zinciri yanlış değil.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ama kulenin yalnızca bu tarafının canavarları çekecek şekerli su gibi bir şeyle boyanması da mümkün olabilir, anlarsın ya.”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Gerçekten böyle aptalca bir şey yapan olduysa Betty onu tüm gücüyle tokatlayacaktır, sanırım.”</p>
+<p class="wp-block-paragraph">Sonu gelmez titreşimler ve altlarında kıvranan siyah topaklar.</p>
+<p class="wp-block-paragraph">Dört bir yandan kuleye yaklaştıklarını işiten Subaru, bu ezici gerçek nedeniyle yığılıp kalmanın eşiğine gelmişti. Konudan sapılırsa, uzaklardan yaklaşan Cadı Canavarlarının görünümüne de itiraz etmek istiyordu.</p>
+<p class="wp-block-paragraph">Haddinden fazla grotesk, uğursuz, anlaşılmaz, C sınıfı bir Tanrı tasarımıydı.</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Ne düşünüyorsun, Ustam! Büyük hizmetlerimi gördün mü?! Ayrıca, arkadan sergilediğim açı da Ustam içindi. Peki ya o konuda ne düşünüyorsun!?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Senin, bu durumda bile böyle sarsılmaz bir mizaca sahip olman harika, buna çoğunlukla hayranım! Sonuç yerine sürece iltifat edilmesini seven birine benzediğin için de eh ne diyebilirim ki, tamamıyla naystı! Güzel hamle! Ayrıca hangi açıda karar kılarsan kıl etrafa bakınacak fırsatım olmadığı için sen konsantre olmaya devam et ve işimize bakalım hadi!”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“O.K. Google! Savun! Saldır!”</p>
+<p class="wp-block-paragraph">Gerçek şu ki Subaru, Shaula’nın sarsılmaz ruhu karşısında saygıyla eğiliyordu. Cesaretlendiriciliği bir hayli şüpheli bu sözleri sarf ederken Shaula’nın yiğitçe yanıt verdiğini görmekse kendisini suçlu hissetmesine yol açıyordu.</p>
+<p class="wp-block-paragraph">Bu savaş sağ salim bittiğinde onu bir kez olsun ödüllendirmek istiyordu ancak——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“İlk iş burada olup bitenlerin üstesinden gelmek, önceliğimiz bu!.. Meili!”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Biliyorum, bu şekilde bağırmana ge~rek yok. Ama…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ama mı?! Ama ne!? ‘Ama tüm Cadı Yaratıklarını imha etmem uygun olur muuu’ mu diyeceksin? Ah, çok uygun olur, hatta senden istediğim şey tam da bu!”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Böyle burnu havada beklentilerin olmasın, tama~m mı? Ben bile bu kada~r çok kötü hayvan-chan’la baş edemem.”</p>
+<p class="wp-block-paragraph">Meili iki eliyle kulaklarını tıkamış şekilde, asık bir suratla balkondan aşağı bakıyordu.</p>
+<p class="wp-block-paragraph">Bunun yanı sıra Subaru’nun mantıksız umutlarını hiçe saymıştı ve tatlı, genç yan profiline dokunuyordu. Ve de parlak denilebilecek dudaklarını yalayarak,</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“——İşte bu yüzden, hazırladığım çocukları harekete geçirip se~rt bir şekilde darbe indireceğim.”</p>
+<p class="wp-block-paragraph"><strong>???: </strong>“——KRUAAAAAAAAAAAGH!!”</p>
+<p class="wp-block-paragraph">Meili bu beyanla birlikte elini yere doğru uzattı ve eşzamanlı olarak kum tepeleri patlıyor gibi görünürken koca bir kütle havalandı.</p>
+<p class="wp-block-paragraph">Devasa Cadı Canavarlarının bile minik birer nokta gibi görüneceği kadar büyük bir mesafeye rağmen zemini delip geçen varlık net bir şekilde görünüyordu.</p>
+<p class="wp-block-paragraph">Bu da demek oluyordu ki gerçekten devasa bir varlıktı—— Toplam yirmi ila otuz metre boyuyla koskoca bir kum solucanı açığa çıkmış ve cüssesiyle etrafındaki Cadı Canavarlarını ezmeye başlamıştı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“O şey…”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Gerekli olabileceğini düşündüğüm için uysallaştırıp hazırlamıştım. Dürüst olmak gerekirse sessizce kaçıp gitmek niyetindeydim ama böyle bir yerden kaçmak başa~rısızlık olurdu.”</p>
+<p class="wp-block-paragraph">Devasa kum solucanı gözlerinin önünde harekete geçerken Meili, derin bir nefes alan Subaru’ya dil çıkarttı.</p>
+<p class="wp-block-paragraph">Maalesef Subaru’nun hayreti doğrudan o kum solucanına değil, o solucanla ilgili anıları olmasına yönelikti. Çünkü o, kuleden kaçmaya çalıştığı seferde karşılaştığı Cadı Canavarıydı.</p>
+<p class="wp-block-paragraph">Şimdi düşününce Subaru da bir anda yeraltından sıçrayıp gelen o kum solucanının kurbanı olmuştu.</p>
+<p class="wp-block-paragraph">O solucanın beyaz bir ışıltıyla patlatılması da yine anılarının bir köşesindeydi.</p>
+<p class="wp-block-paragraph">Demek ki kum solucanının sorumlusu Meili’ydi, ışıltınınki de Shaula.</p>
+<p class="wp-block-paragraph">Bu gecikmeli ikna oluş karşısında şaşkınlık ve afallama yaşayan Subaru, acı bir ifadeyle Meili’nin kafasını okşadı ve çok ani olduğu için kaçınamayan kızı kuvvetle sevdi.</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Vah, ah, he~y!”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bu senin mizacın mı yoksa alışkanlığın mı bilmiyorum ama alçakça hareket etmek zorunda değilsin. Hepimizi geride bırakıp kaçmaya kalkışacağına hayatta inanmazdım zaten.”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Mmh, böyle bir şeyi nasıl söyleye~bilirsin ki?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Çünkü, ben senim sen de bensin, herkes farklıdır ve herkes iyidir, muhtemelen.”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Hah?”</p>
+<p class="wp-block-paragraph">Meili anlamakta zorlandığını belli eden bir ifadeye bürünmüştü ve Subaru’nun da ona bunu anlatmaya niyeti yoktu.</p>
+<p class="wp-block-paragraph">Nihayetinde Subaru, mevcut durumda Meili’nin sözlerinin ardındaki aldatmacayı çözebiliyordu. Çünkü bir defasında ölü benliğine ait anıları kendininmişçesine inceleyip okumuştu.</p>
+<p class="wp-block-paragraph">Hiç değilse değer anlayışında bir değişiklik gerçekleşmemiş hâliyle kulede bulunan benliğini düşününce onunla onu anlarmış gibi konuşabileceği kesindi.</p>
+<p class="wp-block-paragraph">Elini mutsuzca “ahh” diye sızlanan Meili’nin kafasında tutmayı sürdüren Subaru, böylelikle bilincini zamanın şu noktasında gerçekleşen vukuata—— ve eski döngülerinde yaşananların yaygınlığına yöneltti.</p>
+<p class="wp-block-paragraph">Cadı Canavarlarının büyük bir kalabalık hâliyle hücum etmesi, geçen sefer kulenin alevli Sentorlar tarafından istila edilmesi durumuyla örtüşüyor olabilirdi. Başka bir deyişle Cadı Canavarlarının kuleyi istila etmesine izin verilmesi, geçen sefer de gerçekleşmiş bir şeydi. Onları püskürtmek için şiddetli bir mücadele verense Julius olmuştu.</p>
+<p class="wp-block-paragraph">Öyleyse Shaula da tıpkı şu anda olduğu gibi dış cephede Cadı Canavarlarıyla çarpışıyor olabilirdi.</p>
+<p class="wp-block-paragraph">Ve bu çabası yeterli gelmediği için de neticede canavar istilasının önüne geçilememiş olmalıydı.</p>
+<p class="wp-block-paragraph">Ancak bu defa aynı şey tekrarlanmamalıydı.</p>
+<p class="wp-block-paragraph">Şu anda bu kalabalık Cadı Canavarı sürüsü karşısında büyük bir fark yaratabilecek bir avantaja sahiplerdi.</p>
+<p class="wp-block-paragraph">O da Meili’nin—— geçen sefer Subaru’nun ellerinde istemsizce canından olan kızın, bu çıkmazda kilit rol oynayan kişinin varlığıydı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Meili de Shaula’nın yanında Cadı Canavarlarıyla savaşırsa durum değişecektir. Peki bu, Julius’un boş kalacağı anlamına mı gelir? Eğer öyleyse…”</p>
+<p class="wp-block-paragraph">——Ayrı bir problemi çözmek için Julius isimli savaş potansiyelinden faydalanmak mümkün olacak demekti.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong> “————”</p>
+<p class="wp-block-paragraph">Subaru, bu düşünce aklına çöker çökmez kulede tekrar eden çeşitli problemleri çözmek adına çeşitli kişileri ihtiyaç duyulan görevlere yönlendirmenin önemini anladı.</p>
+<p class="wp-block-paragraph">——Kum tepelerini kaplamış olan kalabalık Cadı Canavarı sürüsü.</p>
+<p class="wp-block-paragraph">——Kuleye saldıracak olan Oburluk Günah Başpiskoposu.</p>
+<p class="wp-block-paragraph">——Kendi mekânıymışçasına bir ifadeyle kulede dolanacak olan devasa akrep.</p>
+<p class="wp-block-paragraph">——Yalnızca kuleyi değil, kum tepelerini de yutacak olan muazzam kara gölgeler.</p>
+<p class="wp-block-paragraph">——Ve er ya da geç kulede özgürce gezmeye başlayacak olan Reid Astrea.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Savaş potansiyellerimiz ben, Beatrice, Emilia-chan ve Ram olacak. Meili ile Shaula ve Echidna ile Julius da var…”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Ayrıca iki yer ejderimiz ve Yeşil Oda’nın şifacı ruhu var, onları da dahil etmeye ne dersin? Bana kalırsa onları da birer seçenek olarak görmek avantaj olacaktır.”</p>
+<p class="wp-block-paragraph">Echidna, düşmanları ve kendi cephelerini saymakta olan Subaru’nun karşısında omuz silkti. Onun yanıtını başıyla onaylayan Subaru’ysa Patrasche ve alt kattaki şifacı ruhu da ellerindeki birer koz olarak listeye dahil etmeye karar verdi.</p>
+<p class="wp-block-paragraph">Tıpkı Echidna’nın söylediği gibi bu, herhangi bir kozu ellerinde tutmayı göze alabilecekleri bir durum değildi.</p>
+<p class="wp-block-paragraph">Subaru, mevcut tüm kozların kullanılması ve galibiyet için tüm koşulların yerine getirilmesi gerekliliği karşısında kafasını eğdi.</p>
+<p class="wp-block-paragraph">Bu bağlamda bile tüm yoldaşlarının pozisyonlarına hâkim olmak ve onlara erişebilmek istiyordu——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Hey, dur bir saniye. Ne olursa olsun çok geç kaldık, öyle değil mi?”</p>
+<p class="wp-block-paragraph"><strong>Herkes:</strong> “————”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Emilia-chan ve Ram, Rem ve diğerlerini görmek için Yeşil Oda’ya gitmişti, haksız mıyım?”</p>
+<p class="wp-block-paragraph">Subaru, burada olmayan iki kadın yoldaşıyla buluşmalarının gecikeceği düşüncesiyle boğazının kuruduğunu hissetti.</p>
+<p class="wp-block-paragraph">Yeşil Oda, Subaru ve diğerlerinin de bulunduğu Dördüncü Kattaydı. Kızların kulenin bu noktasını bilmiyor olmaları ve kulenin geri kalanındaki yanlış yollara sapmaları mümkündü, ama…</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Evet, durum bu. Yerimizi bilmiyor olsalar bile Ram Hanım mutlaka bir yolunu bulup bize katılırdı. Hatta Emilia-sama da duvarı kırıp kendini gösterirdi.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ram neyse de Emilia-chan hakkındaki bu değerlendirmen de neyin nesi! Onun o tatlı mı tatlı, incecik kollarıyla bir duvarı kırmasına imkân yok. Hem bunu yapabilecek olsa bile öyle bir karaktere sahip değil, haksız mıyım?”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Özgüven eksikliği sağlam bir kanıt, doğrusu. Ama Betty de bu konuda kötü bir hisse kapılmış durumda, sanırım.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Hık! Shaula! Meili! Buradaki işleri size emanet edebilir miyim!?”</p>
+<p class="wp-block-paragraph">Julius ve Beatrice’in de onayını alan Subaru, Shaula ve Meili’ye seslendi. Bu sözler karşısında yeni silah yuvaları açıp ateşlemekle meşgul olan Shaula gevşerken Meili, örgüsünü arkaya atarak göğsünü kabarttı.</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Burayı bana bırakın ve devam edin!”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Böyle devam ederse elimden gelen her şeyi yapaca~ğım. Siz onee-san ve diğerleriyle sağ salim geri dönmedikçe geçmelerine izin vermeyece~ğim.”</p>
+<p class="wp-block-paragraph">Shaula Subaru’nun oldum olası mümkün olan en iyi anda söylemeyi umduğu sözleri söylerken ve Meili’nin ona güvenmelerine olanak tanıyan yeni bir yönü keşfedilirken Subaru, Beatrice ve geri kalanlara başıyla onay verdi ve hemen ardından hızla koşmaya başladı.</p>
+<p class="wp-block-paragraph">Duvardan atlayıp koridora doğru kayarken de,</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Meili ve Shaula direniyor olsa da Cadı Canavarlarının kuleye nüfuz etme olasılığı nedir?”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Kesinlikle mümkün veya mümkün değil diyemem ama düştüğümüz yeraltı alanı… doğru ya, Natsuki-kun hatırlamıyordu. Neyse, oradan kuleye girme olasılıkları vardı. Ama Meili-kun sayesinde orası…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Kum solucanı fırladığında yeraltı bölgesi çökmüş müdür yani?”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Yeraltı tünelinde çok fazla yol ayrımı vardı. Güç açısından buna direnebilmiş olmasından şüpheliyim.”</p>
+<p class="wp-block-paragraph">Subaru, Echidna’nın teyidi sonrası yumruklarını sıktı.</p>
+<p class="wp-block-paragraph">Bu da demek oluyordu ki Meili’nin varlığının çifte faydasıyla Cadı Canavarlarının izdihamı engellenmişti. Yani hem zeminden hem de yeraltından girememelerini sağlayacak çokça defans sergileyebilmeleri mümkündü.</p>
+<p class="wp-block-paragraph">Kalabalık Cadı Canavarı sürüsü problemiyle baş edilebilirse de geriye dört problem kalırdı.</p>
+<p class="wp-block-paragraph">Bunların her biri yeterli birer endişe kaynağı olsa da geriye kesinlikle üstesinden gelinmesi gereken bir problem daha kalıyordu.</p>
+<p class="wp-block-paragraph">Yani bu beş tehlikeli yolun aşılışından sonra——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bu kule bizim tarafımızdan…”</p>
+<p class="wp-block-paragraph">Fethedilmeliydi, o kelime Subaru’nun dilinin ucundaydı.</p>
+<p class="wp-block-paragraph"><strong>???:&nbsp;</strong>“——Barusu!!”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Hık! Ram!?”</p>
+<p class="wp-block-paragraph">Ancak Yeşil Odaya doğru koşturan Subaru, koridorun diğer tarafından kendisine ulaşan bu sese doğru kafasını kaldırdı. Ve gözlemleri sonucunda Subaru ve diğerlerinden oluşan dörtlüye doğru koşturan siyah gölgeyi fark etti—— yani Patrasche’yi.</p>
+<p class="wp-block-paragraph">Keskin bakışlı yer ejderinin sırtına oturup tutunan kişi Ram’dı ve onun narin kolları da uyumakta olan Rem’in bedenine sımsıkı sarılıydı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ram! Patrasche ve Rem de seninle, hepiniz iyi misiniz!?”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Evet, bir şekilde, gördüğün gibi işte. Barusu uyuklarken Ram’ın dağlar kadar sorunu vardı. Böyle bir durumda nasıl uyuyabildin ki! Hemen ayağa kalk lütfen.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Üzgünüm! Siz kız kardeşler beni suçlamasanıza artık! Baksana, gayet de ayaktayım! Hatta koşuyorum!”</p>
+<p class="wp-block-paragraph">Rem hâlâ eyerin üzerindeyken Ram, çevik bir şekilde yer ejderinin üzerinden inerek Subaru’yu sertçe azarladı.</p>
+<p class="wp-block-paragraph">Kullandığı kelimeler Rem’in düşünde kullandığı kelimelere benzeyince de Subaru’nun zihninde ‘bunlar yalnızca görünüşte kardeş değillermiş’ gibi garip bir düşünce belirdi.</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“——? Barusu’nun tuhaf tavırları endişe verici olsa da şu anda buna ayıracak vaktimiz yok.”</p>
+<p class="wp-block-paragraph">Subaru’nun sözlerini işiten Ram, bir anlığına kaşlarını çatsa da hızla arkasını dönerek dikkatini arkaya verdi.</p>
+<p class="wp-block-paragraph">Orası, geldikleri koridor—— Yeşil Oda’nın bulunduğu istikametti.</p>
+<p class="wp-block-paragraph">Ram’ın yalnızca Patrasche ve Rem’le gelmesi, yanlarında olması gereken Emilia’nın ona eşlik etmiyor oluşu Subaru’yu tedirgin etmişti.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ah, benim de sana sormak ve anlatmak istediğim şeyler var. Senin, şeyle birlikte…”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“——Ram koridorun diğer tarafında kendisini Oburluk Günah Başpiskoposu olarak adlandıran bir rakiple karşı karşıya buldu.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Ram, Subaru’nun sorusunu yarıda keserek mutlak bir netlikle böyle söyledi.</p>
+<p class="wp-block-paragraph">Bu kelimelerin gücü karşısında yılgın düşen Subaru, Beatrice ve diğerleriyse çenelerini kapattı. Böylece en farklı tepki veren kişi, bu durumdan en az rahatsız olan Echidna oldu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Az önce Oburluk Günah Başpiskoposu dedin, değil mi? Onun, koridorun diğer tarafında olduğunu söyledin?”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Evet, öyle—— Ve biri, o Oburluk Günah Başpiskoposuyla çarpışıyor.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“…Biri?”</p>
+<p class="wp-block-paragraph">Son derece sıra dışı bir izlenime sahip bir açıklama olmuştu.</p>
+<p class="wp-block-paragraph">Ram’ın sözleri değişmemiş, hırs ve özgüven dolu bu kelimelerdeki anlaşılmaz kısımların varlığı oldukça geniş kapsamlı bir huzursuzluk yaratmıştı.</p>
+<p class="wp-block-paragraph">Subaru o anlaşılmaz kısımların üzerine giderken ise Ram, “Evet” diyerek başını salladı.</p>
+<p class="wp-block-paragraph">Başını salladı ve şöyle dedi:</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“——Gümüş saçlı bir yabancı, Oburluk Günah Başpiskoposuyla çarpışıyor. Hem de Ram ve diğerlerine kaçmalarını söyledikten sonra bile.”</p>
+</article>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+            <a href="arc6bolum62.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="arc6bolum64.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

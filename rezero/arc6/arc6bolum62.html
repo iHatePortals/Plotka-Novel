@@ -1,0 +1,451 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VI, Bölüm 62 Plotka Novel</title>
+   <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff; /* Görseldeki Açık Mavi / Cyan */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc6bolum61.html" class="nav-btn">← Önceki</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc6bolum63.html" class="nav-btn">Sonraki →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VI, Bölüm 62</h1>
+            <div class="subtitle">"Çöküş Titremeleri"</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <!-- Metin buraya eklenecek -->
+             <p class="wp-block-paragraph">——Beyaz dünya soyulup uzaklaşırken öteki tarafta uzanan rengarenk dünya yavaşça şekil alıyordu.</p>
+<p class="wp-block-paragraph">Tanrının devasa, pürüzlü ve fazlasıyla kuvvetli fırçası, dünyayı renklere bürüyordu.</p>
+<p class="wp-block-paragraph">Dünyanın ıssız, renksiz bir mekânken rengarenk boyanışına tanık olmak gibi egzotik bir hissiyattı.</p>
+<p class="wp-block-paragraph">Subaru, Tanrının dünyayı yedi günde yarattığı efsanesini işitmişti ama illa da yedi günde tüm yapı taşlarını bir araya getirmiş olması gerekmiyormuş, daha ziyade dünyayı renksiz bir tuvalin üzerine resmetmiş gibi hissediyordu.</p>
+<p class="wp-block-paragraph">——Od Lagna’nın beşiği. Veyahut Anılar Koridoru.</p>
+<p class="wp-block-paragraph">Natsuki Subaru’nun varlığı farklı bir boyutmuş gibi görünen o bölgeden çıkartılıyordu.</p>
+<p class="wp-block-paragraph">O yabancı mekândan ayrılıp eski dünyasına dönüyor, bilincinin parçacıkları yavaş yavaş birbirine bağlanıyor ve benliği adım adım yeniden inşa ediliyordu——</p>
+<p class="wp-block-paragraph"><strong>???:&nbsp;</strong>“——Subaru.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Mm…”</p>
+<p class="wp-block-paragraph">Bu sesi işiten Subaru gözlerini açtı ve anında susuzluğa kapıldı.</p>
+<p class="wp-block-paragraph">Bu dünya içerisinde bulanık olmayan görüşüyle ardı ardına göz kırparken sırtının ve kalçalarının sert ve soğuk bir şeye temas ettiğini idrak etti. Belki de bir duvara yaslanmış hâlde yatıyordu.</p>
+<p class="wp-block-paragraph">Hemen sonrasındaysa gözlerinin önündeki bir varlığa dair belirtileri fark etti.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Gözlerinin önündeki o varlık, gözlerinde belirgin bir desen olan tedirgin bir kızdı—— yani abartılı elbisesi ve tatlı görünümüyle Beatrice.</p>
+<p class="wp-block-paragraph">Subaru, “Anılar Koridorundan” bulunduğu eski dünyaya, gözcü kulesine, çaresizliğe ve kaygıya geri dönmüş olduğunu fark ediyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Ah.”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Zihnin ne durumda, doğrusu? İyi misin, sanırım? Kazara anılarını kaybetmediğinden emin olmalıyız, doğrusu. Öncelikle, Betty’i tanıyor musun?”</p>
+<p class="wp-block-paragraph">Diyerek gözlerini kırpıştıran Beatrice, bu ağır atmosfer içerisinde Subaru’nun yüzüne ve göğsüne dokundu.</p>
+<p class="wp-block-paragraph">Bunun dokunarak teyit edebileceği bir şey olmadığını bilse de endişeli biri için iç rahatlatıcı bir eylemdi. Yanaklarına dokunulan Subaru, ortama uygun şekilde “Ben iyiyim, iyi olacağım” cevabını verdi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Hiç sorun yok. Hatırlıyorum. Anılarım güvende, seni… Beatrice, seni unutmadım. Elbette aynı şey diğerleri için de geçerli.”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“…Ee~hh, ilk önce Betty’nin ismini söylediğin için övgüyü hak ettin, doğrusu.”</p>
+<p class="wp-block-paragraph">Subaru’nun yanaklarına dokunan Beatrice, Subaru’nun ismini söyleyişine tanık oluşuyla rahat bir nefes aldı ve gözlerindeki tedirginlik silindi. Onun bu tepkisi karşısında Subaru da dudaklarının kenarları yumuşayarak hiç tereddüt etmeksizin Beatrice’in kafasını okşadı. &nbsp;</p>
+<p class="wp-block-paragraph">Beatrice kısık gözlerle bu okşayışı kabullenirken de derin bir nefes alarak anılarının güvende olduğunu tekrar teyit etti.</p>
+<p class="wp-block-paragraph">Tabii Beatrice’e “Hatırlıyorum” dese de bu, teyit edilmesi zor bir şeydi.</p>
+<p class="wp-block-paragraph">Daha az önce Oburluk Günah Başpiskoposu Rui Arneb ile karşılaşmıştı.</p>
+<p class="wp-block-paragraph">Onun sayısız İsmi ve Anıyı yiyen bir canavar olduğu kuşkusuzdu fakat o kızın anıları yeme kabiliyeti Subaru’nun gözünde belirsizliğini koruyordu.</p>
+<p class="wp-block-paragraph">Bunun için bir ısırma eylemi gerçekleştirmesi gerekiyor muydu yoksa “yediğini” beyan etmesi yeterli miydi veya daha karmaşık bir prosedür mü vardı sorularının cevabını bilmiyordu. ——Kısıtlamalar ve taahhütler ne denli büyükse, gereklilikler ne denli karmaşıksa kişiye bahşedilen güç de o denli fazla olurdu. Subaru da bu çıkarımı yapmak istiyordu.</p>
+<p class="wp-block-paragraph">Öyle ya da böyle ilk etapta Anılar Koridorunda bu koşulların karşılanıp karşılanmadığını bilmiyordu. Gerçek şu ki gerçekten fiziksel temas gerçekleştirmesi gerekiyorsa kolundan ısırılmış ve yalanmıştı. Yani koşul buysa ortama tamamen kapılmış ve mağlup olmuş demekti. &nbsp;</p>
+<p class="wp-block-paragraph">Bu nedenle herhangi bir bilinçli semptom göstermemesine rağmen anılarını yitirmiş olma olasılığı yeterli düzeydeydi, ancak——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Muhtemelen sorun yoktur. Sözlerim ve sevgi dolu hislerim, hepsi de hâlâ kalbimin içerisinde.”</p>
+<p class="wp-block-paragraph">Emilia’yı düşündüğünde kalp atışları hızlanıyor, endişelendiğinde Beatrice’in kafasını okşama arzusu duyuyordu. Bu da yoldaşlarının iyiliğini dilediğini kanıtlıyor ve zihnindeki şüphe ortadan kalkıyordu.</p>
+<p class="wp-block-paragraph">Bir başına devam etmek gibi bir ihtiyacı yoktu, hiç değilse bu defa aynı dehşet tekrar etmeyecekti.</p>
+<p class="wp-block-paragraph"><strong>???:&nbsp;</strong>“——Natsuki-kun, geri döndün mü?”</p>
+<p class="wp-block-paragraph">Tam da zihnindeki anıların varlığını teyit ederken kulaklarında bir ses çınladı.</p>
+<p class="wp-block-paragraph">Ve kafasını kaldıran Subaru, açık mor saçları dalgalanan Echidna’nın da Beatrice’in yanında olduğunu gördü. Kızın adım atışını gördükten sonraysa gecikmeli bir farkındalık yaşadı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“…Peki ya Emilia-chan ve diğerleri?”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“İyi, etrafına bakınma kabiliyetini de yitirmemişsin anlaşılan. Az önce ne yapmaya teşebbüs ettiğini hatırlıyor musun peki?”</p>
+<p class="wp-block-paragraph">Echidna’nın şatafatlı sorgulamalarını işiten Subaru, önce kızın soluk mavi gözlerine baktı, sonra da diğer tarafta olması gereken gölgeleri aradı—— ve birkaç yoldaşının eksik olduğunu anladı.</p>
+<p class="wp-block-paragraph">Kütüphanedeki kitaplıkların arkasına saklanmaları gibi tatlı bir oyun söz konusu olamazdı. Dizindeki kalın, siyah kapaklı kitaba dokunan Subaru, bir nefes verdi.</p>
+<p class="wp-block-paragraph">An itibarıyla ortamda bulunanlar——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Beatrice, Echidna ve Meili?..”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Onii-san, demek sonunda uya~ndın? Bizi gerçekten endişelendirdin, anlaşılan birazcık uyu~yakalmışsın.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Uyuya mı kalmışım…”</p>
+<p class="wp-block-paragraph">Meili ellerini kalçalarına yerleştirip kendisini paylarken Subaru, kafasını kaşıdı.</p>
+<p class="wp-block-paragraph">Ve kalbini yatıştırarak durumu saptadı.</p>
+<p class="wp-block-paragraph">Emilia, Ram, Julius ve Shaula’yı odada göremiyordu.</p>
+<p class="wp-block-paragraph">Yalnızca az önce bahsedilen üçlü geride kalmıştı ve kendisiyle birlikte dördü de savaşçı olmayanlar grubundaydı. Epey tuhaf bir durumdu ama daha da tuhafı——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Kitabı açar açmaz uyanmış olamam, değil mi? Ne kadar süre bilinçsizdim?”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“——Yaklaşık bir saat, sanırım. Şu ana kadarki kitaplar birkaç saniyede tamamlanmıştı, o yüzden Subaru’ya bir şey mi oldu diye endişelendik, doğrusu.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bir saat…”</p>
+<p class="wp-block-paragraph">Subaru, Beatrice’in bu yanıtı sayesinde Anılar Koridoruyla gerçeklik arasındaki zaman farkının fazla olmadığını keşfetti.</p>
+<p class="wp-block-paragraph">Şu anda karşılaştığı zorluk, normal şartlarda Ölü Kitaplarını okuduğunda başına gelenlerden gerçek anlamda farklıydı. O zorluk da Anılar Koridorunun gerçekten bir yerlerde var olması ve orada geçirdiği vaktin meşru görünmesiydi.</p>
+<p class="wp-block-paragraph">Rui’yle karşılaşmış, kalbi işkence görmüş, onun tarafından yalanmış, onu boğazlamaya çalışmış ve “Natsuki Subaru”yu reddetmiş—— sonra da tatlı sert sözlerle bunu inkâr etmeye zorlanmıştı.</p>
+<p class="wp-block-paragraph">Tüm bunların gördüğü elverişli bir rüya olmasını hiç sorun etmezdi. Ancak sınırlı bir süreyi geride bırakmış olduğu gerçeği inkâr edilemezdi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Emilia-chan ve diğerleri, neden sizinle değil?”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Sen, kelimenin tam anlamıyla o kitaba dalıp gitmişken, burada da bazı anormallikler patlak verdi, anlarsın ya. Burada olmayan dörtlü de onları hallediyor.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Anormallikler derken?..”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Anormallikleri fark eden ilk kişi Shaula oldu. Gözcü Kulesinin savunuculuğunu üstlendiği düşünülünce beklenenin de bu olduğu söylenebilir tabii.”</p>
+<p class="wp-block-paragraph">Kurduğu cümleler telaşsız görünse de ses tonu öyle değildi. Echidna, Subaru’nun sözlerine bastırılmış aciliyet duygusunun sızdığı bir ses tonuyla karşılık vermişti.</p>
+<p class="wp-block-paragraph">Sonra da odanın girişini, alt kata uzanan merdivenleri işaret ederek,</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Shaula dışarıdan kuleye yaklaşan bir şeyler olduğunu söyledi. O sırada epey sertti. Anormalliklerin ardındaki sebebi teyit etmek adına kimseye kendisini durduracak vakit dahi tanımadan koşup gitti…”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Havalı onii-san da arkasından ko~şturdu. Bu esnada gümüş saçlı onee-san ve hizmetçi onee-san da uyuyan kız kardeşi görmeye gitti.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Yani böylece burada dördümüz kaldık—— Dürüst olmak gerekirse kendimi birazcık yalnız hissetsem de doğru bir hareket olmuş. Özelikle de böyle bir durumda aramızdan herhangi birinin ortadan kaybolmasını istemezdim.”</p>
+<p class="wp-block-paragraph">Echidna ve Meili’nin raporlarına karşılık veren Subaru, bu mutlak kargaşa karşısında iç çekti.</p>
+<p class="wp-block-paragraph">Söz konusu meseleyi bildirdiği için Shaula’ya, onu takip ettiği için Julius’a ve yaptıkları şey için Emilia ile Ram’a minnettardı.</p>
+<p class="wp-block-paragraph">Mavi saçlı kızın, Rem’in bedeni korunabilirse, tüm endişelerini birer birer ezip geçebilirdi.</p>
+<p class="wp-block-paragraph">——Bundan böyle karşılarına çıkacak acil durumlar karşısında… &nbsp;</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“——Bu tepkin, Natsuki-kun, bir şeylerin farkında olduğunu mu anlatıyor acaba?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Echidna, Subaru’nun çözülmesi zor ifadelerini fark ederek ani bir soru yöneltti. Onun dikkatli bakışlarının hedefi olan Subaru’ysa saniyesinde karşılık vermeye çalışarak kafasını salladı.</p>
+<p class="wp-block-paragraph">İşleri daha fazla karıştırıp karmaşıklaştırmasına lüzum yoktu. Tek yapması gereken bu can sıkıcı kelimeleri olduğu gibi dile getirmek ve yoldaşlarının endişelenmesine müsaade etmekti.</p>
+<p class="wp-block-paragraph"><strong>Subaru</strong>: “Size sonuçtan başlayarak neler olduğunu anlatacağım—— Reid’in kitabını okuyarak geçmişini görme planı başarısız oldu. Geçmişini göremedim ve artık buna ayıracak vaktimiz yok.”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Geçmişini göremedin mi, sanırım? Bu da ne anlama geliyor, doğrusu?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Araya bir şey girdi—— Oburluk Günah Başpiskoposu.”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“——Hık!”</p>
+<p class="wp-block-paragraph">Nihayet bu kelimeleri dile getirebilmişti.</p>
+<p class="wp-block-paragraph">Subaru’nun ağzından dökülen bu kelimeleri işiten Beatrice, hayretler içerisinde gözlerini kırpıştırdı. Subaru Günah Başpiskoposu kelimelerini ilk defa Rui’den işitmiş olsa da durum geri kalanlar için aynı olmayabilirdi.</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Kavramak oldukça zor olsa da Oburluk Günah Başpiskoposu bu kitabın içerisinde yani… kitabın içerisinde olduğu düşüncesi şüpheye yol açsa da sen öyle olduğunu söylüyorsun ve?”</p>
+<p class="wp-block-paragraph">Echidna kaşlarını çatıp gergin bir yüzle kollarını önünde bağladı. Gözleri şüphe belirtileri veriyor ama ondan da büyük bir huzursuzluk taşıyordu. Hem de Subaru’yu konu alan bir huzursuzluk.</p>
+<p class="wp-block-paragraph">Bu huzursuzluğun doğrudan Subaru’nun anılarına yöneldiği ve kelimelere gerek olmaksızın ayırt edilebildiği barizdi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Az önce Beatrice’e de aynı şeyi söylemiş olsam da anılarımı yitirmedim… kastettiğim şey bu. Arkadaşlarımın yüzlerini unutmadım ve Patrasche’ye olan sevgim de hâlâ hakiki.”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Ejder-chan’ın ismi neden geçti anlayamadım ama ne~yse…”</p>
+<p class="wp-block-paragraph">Yanaklarını şişiren Meili, Subaru’nun ejderinin bahsinin açılışından duyduğu rahatsızlığı dile getirdi.</p>
+<p class="wp-block-paragraph">Öfkelenmesi anlaşılırdı. İşin doğrusu Subaru’nun hâlihazırda anılarını yitirmek gibi bir sabıka kaydı vardı. Anılarının varlığı veya yokluğu net değildi ve hiç kimse bilinçsiz, semptom göstermeyen bir hafıza kaybını kanıtlayamazdı.</p>
+<p class="wp-block-paragraph">——Bununla birlikte ortamdakiler arasında yalnızca Subaru, mevzunun bu olmadığını anında beyan etme cesareti göstermişti.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Hepinizin böylesine endişelenmesi beni mutlu ediyor ama ben hiçbir şeyi unutmadım. Onay damgasını basıyorum.”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Şu anda o onay damgasının varlığı konusunda büyük şüphelerim var… ama özgüvenin bu kadar yüksekse eminim bir dayanağı vardır, öyle değil mi?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Evet, çünkü Oburluk tarafından tamamen köşeye sıkıştırıldığımda Rem tarafından kurtarıldım, anlarsınız ya.”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Bahsi geçen ismin gücü yalnızca Beatrice’in içerisinde yankılanmıştı.</p>
+<p class="wp-block-paragraph">İşte bu yüzden Echidna ve Meili şaşkın ifadelerini korurken Beatrice, tamamıyla afallamış hâlde gözlerini kırpıştırıyordu.</p>
+<p class="wp-block-paragraph">Subaru’ysa onun bu tavrını başıyla onay vererek karşıladı—— Ne kadar önemsiz anılar söz konusu olursa olsun Rui tarafından çalınmamaları nedeniyle böbürlenebilmesinin tek sebebi, Rem’in varlığıydı.</p>
+<p class="wp-block-paragraph">Subaru’nun kalbi o mekânda paramparça olmanın eşiğine gelmişken genç kız onu cesaretlendirmiş ve ayağa kaldırmıştı.</p>
+<p class="wp-block-paragraph">Onun varlığı, Oburluk için doğabilecek bir fırsata müsaade etmemişti, Subaru’nun inancı bu yöndeydi.</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Subaru, detaylı bir açıklama yap, sanırım. O açıklama da…”</p>
+<p class="wp-block-paragraph">Dosdoğru Subaru’nun kara gözlerinin içine bakan Beatrice, detaylı bir açıklama talep etti. Ancak genç kızın sözleri sona erdiğinde ölümcül bir sarsıntı—— kuleyi salladı ve o sarsıntı hissi tekrar etti.</p>
+<p class="wp-block-paragraph">Kitaplıkların sallanacağı bariz olsa da bizzat kulenin sallanmasının anormal olduğu barizdi. Muhtemelen bunun sebebi, Shaula’nın icabına bakmaya gittiği acil durumdu.</p>
+<p class="wp-block-paragraph">İşte bu yüzden Beatrice, yalnızca bir defa gözlerini kırpıştırdı.</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Olabildiğince kısa olsun, doğrusu.”</p>
+<p class="has-text-align-center wp-block-paragraph">※　※　※　※　※　※　※　※　※　※　※　※　※</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Ölü Kitabına daldığımda Reid’in geçmişi yerine beyaz, boş bir alana götürüldüm. Orada Oburluk Günah Başpiskoposu olan… kendine Rui diyen bir kız vardı. Onun söylediği ve göründüğü kadarıyla gittiğim o alan Od Lagna’nın beşiği, Anılar Koridoru gibi bir şeymiş.”</p>
+<p class="wp-block-paragraph">Subaru, ayak tabanlarını izleyip yayılan titremelerin süregeldiği kulede, Ölü Kitabının içerisinde gördüklerini açıklıyordu.</p>
+<p class="wp-block-paragraph">O beyaz boşluğun içerisindeki kızla karşılaşmasının ve Anılar Koridoru denen o yerin gerçekliği. Ezici bir güce sahip doğaüstü bir varlığın devreye girişi, Od Lagna.</p>
+<p class="wp-block-paragraph">Tüm bunlar Subaru için bilinmeyen bir kelimeler yumağı ve birer fenomen olsalar da bu dünyanın genel kültürüne ve saçmalıklarına aşina kişiler için değerli bilgiler olmaları gerekiyordu.</p>
+<p class="wp-block-paragraph">Subaru’nun açıklamaları karşısında Beatrice, düşünceli bir şekilde “Od Lagna…” diye mırıldandı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Rui, onun dünyayı parçalanmaktan koruyan bir mekanizma gibi bir şey olduğunu söyledi. Bu konuda herhangi bir fikrin var mı?”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Betty de o konuda çok bilgili değil, sanırım. Ama bu dünyanın çekirdek noktası olduğu için… tüm mananın geri döndüğü yer olduğu söyleniyor, doğrusu.”</p>
+<p class="wp-block-paragraph">Şüphelerine karşılık kafasını sallayan Beatrice’in yanıtı bu şekildeydi. Ardından parmağını burgulu saçlarına yerleştirip o yumuşacık telleri okşayarak devam etti.</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Tüm mana Od Lagna’ya dönüyor ve dolaşıma giriyor… Başka bir deyişle Od Lagna ruhların ölümü ve dirilişiyle yakından ilişkili bir varlık. Bu nedenle Betty ve diğerleriyle ilişkisiz bir şey olduğu söylenemez.”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Bununla birlikte bizler kökenlerimiz gereği özeliz. Bizim varlığımız Od Lagna yoluyla örtüşmüyor. Bu bağlamda diğer normal ruhların aksine biz, Od Lagna’ya tarafsız bir gözle bakabiliyoruz.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Normal ruhların aksine diyorsunuz… Demek öyle. Yani görünüşünüze rağmen böylesine uzun yaşama sebebiniz bu herhâlde.”</p>
+<p class="wp-block-paragraph">Echidna Beatrice’in sözlerini devam ettirirken Subaru, söylenenlere ikna olmuştu.</p>
+<p class="wp-block-paragraph">Konu başlığından sapılmış olsa da Beatrice ve Echidna’nın yüzlerce yıl yaşadığı doğruymuş gibi görünüyordu.</p>
+<p class="wp-block-paragraph">Uzun ömürlerinin ardındaki sebepse birer ruh olarak kökenleri olabilirdi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bana soracak olursanız Beatrice’in tatlılığı onu ruhtan ziyade peri kılıyor.”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“…Bu, Subaru’nun daha önce de söylediği bir şeydi, sanırım. Anlaşılan aptal Subaru bilmiyor ama <em>peri</em> burada bir iltifat değil, doğrusu. İşte bu yüzden, ee~hh, Betty bu aşağılanma karşısında sevinse mi üzülse mi bilemiyor, yani tuhaf oldu, sanırım.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Hmm, demek öyle. Öyleyse kabalığım için özür dilerim.”</p>
+<p class="wp-block-paragraph">Fantezilere ev sahipliği yapan yabancı diyarlarda perilerin insanları aldatıp onlara hasar vermesinin epey yaygın olduğu doğruydu.</p>
+<p class="wp-block-paragraph">Aynı düşünce bu dünyada da mevcutsa birine peri demenin iltifat kabul edilmemesi doğaldı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Üzgünüm. Öyle tatlısın ki seni yiyip bitirmek istiyorum demek istemiştim.”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Tatlılığın tamamlayıcısı olarak yemek isteme hissi de bir tuhafmış, doğrusu!”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ha, öyle mi? Senin de tatlı şeyleri ağzına sokasın gelmez mi?”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Bu bana kötü hayvan-chan’ların bebekleri dikkatlice ağızlarına atıp ölene dek çiğneyişini anımsa~ttı.”</p>
+<p class="wp-block-paragraph">Beatrice, Meili’nin bu gereksiz beyanı karşısında ürperdi.</p>
+<p class="wp-block-paragraph">Her şeye rağmen konudan bir kez daha sapılmıştı. Burada kritik olan mesele şuydu ki——</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“——Od Lagna’nın beşiği. Anılar Koridoru nasıl bir yerdi?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ruhların arıtıldığı bir yermiş, öyle bir rütbe verilmiş, bunu biliyor muydunuz?”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Ruhların arıtılması… arıtıp temizlenilmesi anlamında mı? Od Lagna’nın oynadığı rolün mana dolaşımı sağlamak olduğu düşünülünce bu, gülünecek bir mesele olmaktan çıkıyor.”</p>
+<p class="wp-block-paragraph">Subaru bir kez daha Echidna’yla aynı görüşteydi.</p>
+<p class="wp-block-paragraph">Bizzat o mekâna tanık olmuşken buna ne gülebilir ne de abartı olduğunu söyleyebilirdi.</p>
+<p class="wp-block-paragraph">Tüm ölülerin ruhları Anılar Koridoruna varıyor ve dolaşımları sağlanıyordu.</p>
+<p class="wp-block-paragraph">Sonrasında da ruh, ömrü boyunca biriktirdiği anılar ve tarih gibi silinmez lekelerinden arındırılıyor, saf bir varlık hâlini alarak bir kez daha yepyeni bir yaşam kazanıyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Aslına bakarsanız bunun epey iyi bir açıklama olduğunu düşünüyorum. Sistem ölülerin ruhlarını yeniden kullanıyor… ve orada yıkanıp arındırılan “Anılar” bu kütüphanedeki Ölü Kitapları oluyor.”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Yani diyorsun ki bir yerlerde kaybolmuyorlar, dünya ölüleri hafızasında tutuyor. Bu kitaplıklara bakınca seninle tomurcuklanıp gelişen bir şair şeklinde alay etmek de mümkün olmuyor.”</p>
+<p class="wp-block-paragraph">Bu dünya tarafından sürgün edilmiş bu kitaplıklar, Anılar Koridoruna ulaşan her şeyi kaydediyordu.</p>
+<p class="wp-block-paragraph">Başka bir deyişle Anılar Koridoru, Ölü Kitaplarının derlenip oluşturulduğu yerdi. Yani kitap şeklinde hazırlanan anıların bu kitaplık raflarına Ölü Kitapları olarak yerleştirildiği bir sistem söz konusuydu.</p>
+<p class="wp-block-paragraph">Ve Oburluk da bireylerin anıları ve tarihinin aslında nasıl olması gerektiği hususunda bencilce hareket ederek kötülüğünü devreye sokmuştu.</p>
+<p class="wp-block-paragraph">——Oburluğa bahşedilen gücün kimliği tamı tamına buydu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bu doğruysa Od Lagna’nın esasında yapması gereken ruhları filtreleme fonksiyonu onlar tarafından keyfi olarak kendi başlarına yerine getiriliyor. Bu sayede parçalanmış Anıları midelerine indiriyor ve kelimenin tam anlamıyla başkalarının hayatlarını yiyorlar.”</p>
+<p class="wp-block-paragraph">Kelimelere dökülünce ne denli kötü bir eylem olduğu anlaşılabiliyordu.</p>
+<p class="wp-block-paragraph">Rui, bunun aşağı yukarı “Mutlu Olma Amaçlı Deneme Yanılmalar” olduğunu söylemişti. Mümkün olan her hayatı ele geçirip yiyecek ve kendisine uygun keyifli bir hayat seçecekti.</p>
+<p class="wp-block-paragraph">Bu da nihayetinde zafere ulaşmak için mütemadiyen piyango bileti almak gibi bir şeydi.</p>
+<p class="wp-block-paragraph">Sınırsız bilet alma hakkı elde etmelerinin sonucunda Rui ve abileri, insanları yemeğe dönüştürüp mutluluğu yakalama yolunu seçmişti—— Bu da Subaru’nun gözünde ürkütücü ve tüyler ürperticiydi.</p>
+<p class="wp-block-paragraph">Lakin o ürkütücü şey, Rui ve diğerlerinin hükmü değildi. Düşüncelerinin özel veya anormal olmayışıydı.</p>
+<p class="wp-block-paragraph">Sınırsız piyango bileti alma hakkı karşısında kim olsa talihli kişi olana dek bilet almaya devam ederdi.</p>
+<p class="wp-block-paragraph">İşte bu yüzden Rui Arneb’in eylemleri, fazlasıyla, epeyce, tamamıyla insaniydi——</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Öyle olsa bile başkalarının kurban edileceğini bile bile bunu yapmaya devam etmemek gerekir, sanırım.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Beatrice…”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Birilerinin feda edileceğini bile bile şansını denemeye devam etmek aklı başında birinin düşünce şekli değildir, doğrusu. İşte bu yüzden, bir Günah Başpiskoposuna sempati duyulamaz, sanırım.”</p>
+<p class="wp-block-paragraph">Subaru’nun aklındakini çözen Beatrice, açıkça böyle söyledi.</p>
+<p class="wp-block-paragraph">Oldukça net bir ayrım söz konusuydu, düşüncelerin içerisinde kapana kısılmakla merhamete layık olunmazdı. Beatrice, Subaru’nun gerçek düşüncelerini gayet iyi bilerek onun dile getiremediği sözcükleri dile getirmişti.</p>
+<p class="wp-block-paragraph">Evet, burada sempatiye yer yoktu.</p>
+<p class="wp-block-paragraph">Kişiler bulundukları durumdan veya ait oldukları bir yerin olmayışından sorumlu tutulamayabilirlerdi. Ancak ilk adımı yanlış atıp sonra da o yanlış yolda ilerlemek, kişilerin kendi tercihiydi.</p>
+<p class="wp-block-paragraph">Her kim olursa olsun, ne ekerse onu biçmeliydi.</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Ama bu epey tu~haf. Kitap neden hayatta olduğu zamana dair tüm detayları biliyor olmasına rağmen o bilinmeyen yerle bağlantılı ki, ha~h?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bu… bunun sebebi ölü bir insanın ruhunun Anılar Koridorunda geri dönüştürülmesi, yani toptan satılan bir kitabın doğrudan üreticisine bağlı olması… Yo, bu açıklama eksik oldu.”</p>
+<p class="wp-block-paragraph">Subaru, Meili’nin şüphelerini net bir şekilde dindirememişti.</p>
+<p class="wp-block-paragraph">Evet, Reid’in Ölü Kitabı neden Anılar Koridoruyla bağlantılıydı?</p>
+<p class="wp-block-paragraph">Subaru’nun anılarını yitirmeden önce hiç değilse bir defa bir Ölü Kitabı okumuş olması gerekiyordu. Julius’un da aynı sıralarda bir kitap okuduğunu işitmiş ve önceki bir döngüde Meili’nin kitabını okumayı da deneyimlemişti.</p>
+<p class="wp-block-paragraph">Ancak bu deneyimler içerisinde okuyucuların o boşluğa gönderilmesi şeklinde bir kayıt yoktu.</p>
+<p class="wp-block-paragraph">O zaman belki de bunu Rui’nin bir müdahalesi olarak görmeleri gerekiyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ancak Oburluk beni çağırmaya niyetlenmiş gibi görünmüyordu. Benim varışım onun bile hesaplarının ötesindeymiş gibi gelmişti… yani Rui, Reid’in Ölü Kitabı üzerinde bir taktiğe başvurmamış olmalı.”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“——Bir teori var, doğrusu.”</p>
+<p class="wp-block-paragraph">Düşüncelere dalmış Subaru’nun önündeki Beatrice, bir parmağını kaldırarak böyle söyledi.</p>
+<p class="wp-block-paragraph">Subaru’ysa o parmağa bakıp “Teori mi?” diyerek sözlerinin devamını getirmesini istedi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Hadi anlat bize. Aklına nasıl olasılıklar geliyor?”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Kütüphanedeki Ölü Kitapları, Anılar Koridorunda ruhlardan sıyrılan anıları kaydediyor, sanırım. Normal mekanizma onların bir kitap şeklinde okunması… Peki bu kayıtlar başka amaçlar uğruna kullanılırsa ne olur sizce, doğrusu?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ölülerin anılarını Ölü Kitapları dışında bir yolla kullanmak mı? Ama Ölü Kitapları dışında nasıl kullanılabilirler ki…”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“——Ah, anlıyorum, demek öyle. Gerçekten akıllıca, Beatrice.”</p>
+<p class="wp-block-paragraph">Subaru, Beatrice’in sözleri karşısında kaşlarını çattı. Fakat Echidna, idrak ettiğini anlatır şekilde araya girdi. Bununla da kalmadı, Echidna’nın ardından Meili bile parmaklarını ağzına koyarak şöyle dedi:</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Acaba, bununla kastettiğin şey?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bir saniye bir saniye, anlamış gibi bir surat ifadesine bürünmesene. Kaybetmekten gerçekten nefret ediyorsun ha. Kendinle ilgili yeni bir yön keşfetmiş olman güzel ama bir çocuk gibi anlamadığın şeye anlamadığını söylemen gayet de affedilebilir bir şeydir, içerisinde bulunduğun konum bu.”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Burada kaybetmekten nefret eden esas kişi onii-san değil mi, ha~h? Ben bile kafamı yorunca adamakıllı anlayabiliyorum ve sonra da bunu dile getiriyorum~… Yukarıdaki kırmızı kafalı onii-san, demek öyle, ha~.”</p>
+<p class="wp-block-paragraph">Subaru’yu elleriyle kenara iten Meili, Beatrice’i doğruladı. Akabinde Beatrice de iç çekerek…</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Meili’nin fikri doğru, sanırım… Reid, öyle, doğrusu.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Umm, kastettiğiniz şey nedir acaba?”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Reid’in geçmişine Ölü Kitabı aracılığıyla atıfta bulunulamıyor. Çünkü içerisinde Reid Astrea’yla ilgili bir kayıt yok. An itibarıyla Reid’in kaydı farklı bir sebeple kullanılıyor—— O da Reid Astrea’yı bu kulenin sınav görevlisi olarak yeniden inşa etmek.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ahh!”</p>
+<p class="wp-block-paragraph">Echidna’nın açıklamasını işiten Subaru da nihayet anlamıştı.</p>
+<p class="wp-block-paragraph">Durum sahiden de buysa gayet ikna ediciydi. Subaru’nun Ölü Kitabını okumasının sonucunda gerçekleşenlerle çelişmiyordu.</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Reid’in anıları, okunmak için değil, onu yeniden inşa etmek için kullanılıyor, sanırım. Yani Subaru’nun daha önce o anıları neden okuyamadığı anlaşılabilir, doğrusu.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bunun yanı sıra dünkü benim Anılar Koridorunda anılarını Rui’ye kaptırmasını da açıklar.”</p>
+<p class="wp-block-paragraph">Düne kadar orada olan Subaru’nun da tıpkı şu anki Subaru gibi Reid’i yenme yolunu çözdüğü şüphesizdi. Bu yolu denemesi sonucunda da kütüphanede Reid’in kitabını okumuş ve aynı şekilde o beyaz dünyaya gönderilmişti.</p>
+<p class="wp-block-paragraph">İşin doğrusu Rui, bunun dün geceden beri Subaru’yla ikinci karşılaşması olduğunu bizzat dile getirmişti. İlk karşılaşmalarında Subaru’nun anılarını yemiş ve ikinci karşılaşmalarında da geri kalanları tüketmeye kalkışmıştı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ama bunu hesaba katacak olursak bu kitap asla Reid’i ele geçirmek için kullanılamayacak demektir, ha… Yo, onu boş verin, insanı doğruca Oburlukla istenmedik bir yüzleştirmeye gönderecek tehlikeli bir kitap demektir.”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Sanırım öyle. Her hâlükârda, beklenmedik bir şey olsa da Natsuki-kun’un hafıza kaybının ardındaki sebebi çözmemiz iyi oldu. Anıları ortadan kaldırmak kulenin bir işlevi değilmiş… Çünkü kule şu an için Oburlukla irtibata geçmeye yol açan bir tuzak yaratmayı hedeflemiyor olmalı.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bu, şeeey, sanırım öyle.”</p>
+<p class="wp-block-paragraph">Kulenin yaratıcısının ani bir ölüm öncesindeki varlığa geçişi hesaba katıp katmadığı muammaydı. Belki de işlerin bu şekilde sonlanması yalnızca bir tesadüftü ki Subaru’nun inanmak istediği de buydu.</p>
+<p class="wp-block-paragraph">Aksi takdirde bu kulenin inşasının ardındaki şahsiyetin ya fazlasıyla yıkıcı bir düşünce şekli var ya da şeytan gibi kötü bir kişiliğe sahip demekti.</p>
+<p class="wp-block-paragraph">Subaru’nun böyle bir anısı olmasa da Shaula, o kişiden Ustam şeklinde bahsediyor ve onun Subaru’yla aynı kişi olduğunu iddia ediyordu, dolayısıyla Subaru da bu dedikodudan doğabilecek daha büyük hasarlardan korkuyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Reid yeniden inşa edildi, onun kitabı boşaldı. İşte bu nedenle de Ölü Kitabı doğruca Od Lagna’ya bağlandı… demek doğru olur mu?”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Şimdilik tek hipotezim bu, sanırım. Oburluklardan birinin neden orada gizlenip pusuya yattığıysa hâlâ gizemini koruyor, doğrusu. Ama söylenebilecek tek bir şey varsa o da…”</p>
+<p class="wp-block-paragraph">Reid’in Ölü Kitabının etrafında meydana gelen açıklanamaz bir olaylar silsilesi olduğuydu.</p>
+<p class="wp-block-paragraph">Bununla ilgili bir teori mevcuttu. Doğal olarak cevapları henüz bulunmamış sorular cevaplanmamış olmayı sürdürüyordu. Bununla birlikte maalesef ki Subaru ve diğerlerinin sorular üzerine düşünecek daha fazla vakti olmayacaktı.</p>
+<p class="wp-block-paragraph">Bunun kanıtı da——</p>
+<p class="wp-block-paragraph"><strong>???:&nbsp;</strong>“——Echidna! Herkes iyi mi!?”</p>
+<p class="wp-block-paragraph">Merdivenlerden koşturarak çıkıp Taygeta Kütüphanesine ulaşan yalnız bir Şövalyeydi. Bu soru karşısında Echidna hızlıca kafasını arkaya çevirdi ve gözleri irileşti.</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Julius, epey acelen varmış gibi görünüyor, haksız mıyım?”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Beklenmedik olaylar patlak verdi. Bir an önce herkesin fikrini duymak isterim… Hım.”</p>
+<p class="wp-block-paragraph">Yakışıklı genç adam, Julius, Echidna’nın sorusunu yanıtlayarak gruba yaklaştı.</p>
+<p class="wp-block-paragraph">Belli belirsiz bir gerginlik ve temkinlilikle yanakları kaskatı kesilmişti ancak yerde oturan Subaru’yla göz göze geldiği saniyede sarı gözleri hafifçe irileşti.</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Demek uyanmışsın, Subaru. Bu sahiden de çok hayırlı olmuş. Peki benim kim olduğumu biliyor musun?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Sanırım ilk önce bu endişe geliyor. Umm, öyleyse sen?..”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“——Biliyordum.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Yalan söylüyordum! Şaka yapıyordum! Sen Julius Juukulius’sun! O ciddi surat da neyin nesi, böyle olacağını biliyordum! Sağ salim geri geldim işte!”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Hımh. Ben de şaka yapıyordum. Bunu iyileştirilemez çocuksuluğunun karşılığı olarak gör—— Ama şimdi sizlere pek de gülünesi olmayan bir şey söyleyeceğim.”</p>
+<p class="wp-block-paragraph">Tartışmada köşeye sıkışmış olan Subaru, gergin bir ifadeye büründü. Subaru’nun tepkisi karşısında homurdanan Julius’sa hemen ardından hiç gecikmeksizin ifadesini güçlendirdi.</p>
+<p class="wp-block-paragraph">Sahiden tıpkı söylediği gibi gülünesi olmayan bir şeyler söylemeye niyetli olabilirdi.</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Subaru’nun Ölü Kitabıyla ilgili raporunu dinlemek istesem de acil bir durum söz konusu—— Shaula Hanımın kulenin dışında hissettiği anormallikler doğrulandı.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ama Shaula’yı ortalıkta göremiyorum…”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“O, şu anda kulenin dış duvarındaki tehditle ilgileniyor. Bununla birlikte, müdahalesinin yeterli olmayacağı kesin.”</p>
+<p class="wp-block-paragraph">Subaru, sözlerinin dolambaçlı mizacını konu alarak Julius’a sert bir bakış attı. O bakışları karşılayan Julius ise kısa bir iç çekişin ardından “Özür dilerim” diyerek konuya girdi.</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Hepiniz hafif titreşimleri hissetmiş olmalısınız. Onlar, ayak sesleri.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ayak sesleri mi?”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Evet.”</p>
+<p class="wp-block-paragraph">Subaru ve diğerleri bu beklenmedik kelimeler karşısında kafalarını eğerken onları gören Julius ikinci bir derin nefes sonrası devam etti.</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“——Augria Kum Tepelerinin belirli kısımlarında var olan Cadı Canavarları, hep birlikte bu kuleye hücum ediyor. Shaula Hanım onlarla çarpışsa da içeriye girmeyi başarmaları an meselesi.”</p>
+</article>
+
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+            <a href="arc6bolum61.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="arc6bolum63.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VII, Bölüm 6 Parça 1 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 2em 0;
+            letter-spacing: 4px;
+            color: var(--accent-color);
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc7bolum5parca3.html" class="nav-btn">← Önceki Parça</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc7bolum6parca2.html" class="nav-btn">Sonraki Parça →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VII, Bölüm 6 Parça 1</h1>
+            <div class="subtitle">"Güneyde Ücra Bir Bölge"</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p><em>Anılarla başlıyoruz</em></p>
+            
+            <p>???: [Hey, gezgin bir tüccar olarak başına gelen en kötü şey neydi?]</p>
+
+            <p>???: [Buyur işte. Nahoş bir soru daha…]</p>
+
+            <p>Subaru’nun sorduğu bu soruyla birlikte, odasında dokümanlara bakmakta olan Otto’nun kaşları çatıldı.</p>
+
+            <p>Kaşlarının arasında belli olan kırışıklıklar bu soruyla iyice seviye atladı.</p>
+
+            <p>Subaru: [Gördüğün üzere Garfiel ve ben, tek kişilik yolculuklarla ilgili birazcık sohbet ediyorduk. Sanırım senin durumunda işler biraz farklıdır ama sen de gezgin bir tüccardın, yani bu tarz bir şeye alışkınsındır, haksız mıyım?]</p>
+
+            <p>Otto: [Haksızsın diyemem ama yanımda hiç değilse Frufoo oluyordu. İlahi Korumam sayesinde daima konuşabileceğim biri olduğu için de tek başıma seyahat ediyormuş gibi hissetmiyordum.]</p>
+
+            <p>Derken gözlerini ovuşturan Otto, elindeki dokümanları masaya yerleştirdi. Sonra da üzerine kağıtların yığıldığı masasının arkasından, aralarına bir satranç tahtası yerleştirmiş şekilde koltukta oturan iki misafirine baktı ―― yani Subaru ve Garfiel’e.</p>
+
+            <p>Oyunda üstünlük Subaru’da olsa da yapılan her hamleyle pozisyonunu koruyor ya da tehlikeye atıyordu.</p>
+
+            <p>Otto: […Garfiel, tüccarı iki kare öne taşı.]</p>
+
+            <p>Subaru: [Hey! Otto, seni piç!]</p>
+
+            <p>Garfiel: [Hm? Ooooh! Demek öyle! Hey, cidden paçamı kurtardın, Otto-bro!]</p>
+
+            <p>Otto, attığı kısacık bir bakışın ardından en avantajlı hamleyi çözerek Subaru ve Garfiel’den iki ayrı tepki aldı. Ve Subaru’yu bir anda soktuğu zorlu durumu görmezden gelip “Yine de” diye mırıldanarak,</p>
+
+            <p>Otto: [Garfiel, tek başına seyahat etmekle mi ilgileniyorsun?]</p>
+
+            <p>Garfiel: [İlgileniyo muyum? Tabii ki ilgileniyorum. Ama bilirsin ya, ‘Sığınakta’ tıkılıp kalarak bir sürü vakit harcadıım için seyahat etme fırsatım falan olmadı hiç.]</p>
+
+            <p>Otto: [Ah, anlıyorum. Demek gerçekten ilgini çekiyor? Ehh, kendi kendine yetme ve savunma becerilerinin yüksekliği düşünülünce hiç sorun yaşamazsın bence. Natsuki-san’ın aksine.]</p>
+
+            <p>Subaru: [Hey hey, beni bu şekilde hafife almasana. Bilesin diye söylüyorum, akıl hocam son zamanlarda kaydettiğim gelişmeleri çok övüyor.]</p>
+
+            <p>Otto: [Seni motive etmek için övgülerden faydalanmaya karar vermiş herhalde. Senin üzerinde övgünün mü azarın mı daha çok işe yaradığından emin olmak zor sonuçta.]</p>
+
+            <p>Otto’nun Garfiel’e yaptığı yorumlar gayet hoşken Subaru’ya yaptıkları çok sertti.</p>
+
+            <p>Bununla birlikte, Garfiel’in kendisine karşı ne kadar katı, Subaru’nunsa kendini kaptırmaya ne kadar meyilli olduğu hesaba katılınca muhtemelen doğru yaklaşım da buydu.</p>
+
+            <p>Bu mesele bir yana――</p>
+
+            <p>Subaru: [Neyse, gezgin bir tüccar olarak en kötü anın hangisiydi?]</p>
+
+            <p>Otto: [Bunu öğrenmekte neden bu kadar ısrarcısın?]</p>
+
+            <p>Garfiel: [Kaptan sadece merakından soruyo olabilir ama benim de cidden ilgimi çekiyo, Otto-bro. Senin ne kadar sert bi adam olduğunu bildiğim için karşına koca bi ejderha falan çıkmadıkça sorun yaşamamışsındır gibime geliyo.]</p>
+
+            <p>Otto: [Garfiel, sence de bana yönelik beklentilerin fazla yüksek değil mi?!]</p>
+
+            <p>Otto’nun başının sıkışması için bu büyüklükte bir acil durum gerekirdi.</p>
+
+            <p>Garfiel’in Otto’ya olan sağlam güveni böyle bir algı yaratsa birazcık abartılı olmasına rağmen bu algının, Subaru’nun Otto’nun krizlerle baş etme kapasitesine yönelik değerlendirmesinden pek farkı yoktu.</p>
+
+            <p>Grubun üyelerine aralarındaki en tehlikeli kişinin kim olduğu sorulacak olursa hepsinin oy birliğiyle Otto’nun adını vereceğine hiç şüphe yoktu.</p>
+
+            <p>Subaru: [Ehh, böyle bir şeyin olacağını gözümde pek canlandıramıyorum zaten…]</p>
+
+            <p>Otto: [Ne geveliyorsun sen? ……Neyse, gerçekten de hayatım boyunca riskli birkaç durumla karşılaştım ama en kötüsü, tehlikeli bir grup tarafından rehin alınmamdı diyebilirim.]</p>
+
+            <p>Garfiel: [Tehlikeli bi grup derken, ne kastediyosun? Haydutların saldırısına falan mı uğradın?]</p>
+
+            <p>Otto: [―― Ehh, ona benzer bir şey. Beni Frufoo’dan ve vagonumdan ayırdılar ve elimde hiçbir silahım veya araç gerecim olmadan bir hasıra sarılı halde bıraktılar; ve ben de kendimi ölmeye hazırladım.]</p>
+
+            <p>Otto, mesafeli bakışlarla bu şekilde mırıldandı. Onu dinleyen Subaru ve Garfiel’in bakışlarıysa birbirlerine çevrildi.</p>
+
+            <p>Tecrübe ettiği korkunun azımsanacak cinsten olmadığı kesindi. Otto’nun sözleri, ondan beklenmeyen bir ağırlık taşıyordu.</p>
+
+            <p>Garfiel: [Bir çıkmaz yol, ha. Bahse varım ‘Decou Platosunda terk edilmek’ gibi bi şeydir, di mi?]</p>
+
+            <p>Otto: [Gerçekten de öyleydi. Tesadüfen iyi kalpli birilerine denk gelmeseydim o gün hayatımı kaybetmiş olabilirdim. ――Ve bunu, asla unutmayacağım.]</p>
+
+            <p>Subaru: [Anlıyorum. Herkesin kendince bir hikayesi var, sonuçta.]</p>
+
+            <p>Deyip kollarını kavuşturan Subaru, Otto’nun yaşadığı sıkıntıyı düşünerek başını salladı.</p>
+
+            <p>Haydutlar tarafından bağlanmak, sahip olduğu şeylerden ayrı bırakılmak ve yaşamı ile ölümünün tamamıyla bir başkasının elinde olması: bunlar Subaru’nun pek sık karşılaşmadığı ama yabancı da olmadığı şartlardı.</p>
+
+            <p>Subaru: [Yine de o kişilerin yardımı sayesinde Otto şu anda burada, bizimle. Seni bulanlar düzgün bir teşekkürü hak ediyor, sence de öyle değil mi?]</p>
+
+            <p>Otto: [―― Evet, haklısın.]</p>
+
+            <p>Subaru: [――? Bu kayıtsız yanıt da neyin nesi? Beni tedirgin ediyorsun, adamım.]</p>
+
+            <p>Subaru, Otto’nun beklenmedik tepkisi karşısında kaşlarını çatttı. Otto’ysa Subaru’nun yanıtı karşısında ilahi bir varlık gibi tuhaf bir sakinlik ve soğukkanlılık sergilemeye devam etti.</p>
+
+            <p>Subaru içinin ürperdiğini hissederken de Garfiel, yumruğunu sıkıp “Ama hey” diyerek,</p>
+
+            <p>Garfiel: [Artık başından geçen her şeyi biliyorum, Otto-bro. Ama için rahat etsin. Başına böyle bi şey gelmesine bi daha asla müsaade etmiiiceğime inansan iyi edersin, tamam mı?]</p>
+
+            <p>Otto: [Oh, gerçekten mi? Ehh, sana güvenebileceğimi biliyorum, Garfiel. Diğer taraftan Natsuki-san…]</p>
+
+            <p>Subaru: [Savaş gücü konusunda beni Garfiel’le kıyaslayamazsın, tamam mı! Bana bugüne kadar verdiğim tüm emeklerin hiçbir halta yaramadığını hissettireceksin!]</p>
+
+            <p>Diyan Subaru, boştaki elini kırbacını savururmuş gibi salladı. Garfiel de kendine has bir hareketle o kırbacı dişleriyle parçalarmış gibi yaparak rakibinin güçsüzlüğünün farkına varmasını sağladı.</p>
+
+            <p>“Ahh……!” Garfiel’in galibiyeti onu alenen keyiflendirirken Subaru’nun ağzından bir homurtu kaçtı; o ikisinin yaptıklarına tanık olan Otto’ysa ağzından çıkan umutsuz bir “Ha” sesiyle birlikte,</p>
+
+            <p>Otto: [Garfiel, tüccarı çapraz olarak sağa çek. Ona biz tüccarların neyden yapıldığını gösterelim.]</p>
+
+            <p>Subaru: [Ağğh! La-lanet olsun, Otto, seni pislik!]</p>
+
+            <p>Garfiel: [Hm? Ooooh! Aaa, şah mat oldu! Kaptan, amma da güçsüzsün be!!]</p>
+
+            <p>Subaru: [Bunu tek başına başarmadın ama neyse!!]</p>
+
+            <p>Satranç tahtasının yanındaki Subaru, ordusunun köşeye sıkıştırılışıyla bir çığlık attı. Garfiel ve Otto’nun ittifak kurduğu andan itibaren ona tanınan tek bir şans vardı ―― o da acıklı bir ezik gibi haykıra haykıra geri çekilmekti.</p>
+
+            <div class="divider">△▼△▼△▼△</div>
+
+            <p>――Bir savaş esiri.</p>
+
+            <p>Bu sözleri işitmesiyle birlikte Subaru’nun aklından gevezelikle geçirdikleri bu tarz geceler geçmişti. Silah ve araç gereçleri, özgürlüğüyle birlikte elinden almış, tanımadığı birileri tarafından tutsak edilmişti. Tıpkı Otto’nun söylediği gibiydi, insanın kendisini doğal olarak “ölüme” hazırlayacağı bir durumdu.</p>
+
+            <p>Subaru: […]</p>
+
+            <p>Subaru'nun esir olarak tutulduğu yer, Taiga Draması gibi şeylerde gördüğü, savaş için kurulmuş kamplara benziyordu.</p>
+
+            <p>Sıra sıra zırhlar ve kuşanılmayı bekleyen silahlarla birlikte yan yana dizilmiş bir sürü çadır görüyordu. Ağır bir hava taşıyan adamlar geçip gidiyor ve güçleri hem insan hem de yarı insanları barındırıyormuş gibi görünüyordu.</p>
+
+            <p>Subaru sert bir zeminin üzerinde oturuyordu ve ortada rüzgarı kesmek için sabitlenmiş basit perdeden başka bir şey yoktu. Ellerinin arkadan bağlanışı, ayaklarının da aynı kaderi paylaşışıyla hareket edemez hale getirilmişti.</p>
+
+            <p>Gelin görün ki Subaru’yu asıl ilgilendiren mesele…</p>
+
+            <p>Subaru: [Rem… Yanımda bir kız olmalıydı. Ona ne oldu?]</p>
+
+            <p>???: [Oh, yani biz sana savaş esirimizsin diyoruz ve senin aklına gelen ilk şey kızlar mı oluyor? Bu kızların senin için önemli olduğunu düşünmekte haklı mıyım?]</p>
+
+            <p>Önünde eğilmiş olan kişi ― yani Subaru’nun ağzına ayakkabısını tıkıştıran vahşi adamı durduran genç adam ― bu sessiz soru sonrası tek gözünü kapattı.</p>
+
+            <p>Parlak turuncu saçlara sahipti ve Subaru’dan olsa olsa birkaç yaş büyükmüş gibi görünüyordu. Son derece cana yakın bir gülümsemesi olsa da içerisinde bulunduğu durum gereği Subaru’yu rahatlatmıyordu.</p>
+
+            <p>Her yerini örten tam bir zırh giyinmese de hafif zırhına bakılırsa büyük ihtimalle kamptaki savaşçılardan biriydi. ――Evet, bir savaşçı, şövalye değil.</p>
+
+            <p>Subaru: […]</p>
+
+            <p>Bir şekilde bu dünyada bir yılı aşkın süre geçirmeyi başaran Subaru, savaşçılarla şövalyeleri ayırt etme fırsatıyla birkaç kez karşılaşmıştı. Elbette ki pozisyon ve etki anlamında farklılıkları vardı ama bu nesnel aykırılıklar haricinde gözle görülür farklılıklar da taşıyorlardı.</p>
+
+            <p>Şövalyeler gösterişliydi, savaşçılarsa kaba saba ― Ama kötü anlamda değildi. Yalnızca ihtiyaç duydukları şey farklıydı.</p>
+
+            <p>Elbette ki şövalyeler bir hayli yetenekliydi ama bununla birlikte, insanların kalbini ve güvenini kazanmaları gerekiyordu. Bu bağlamda asil bir görünüm taşımaları icap ediyordu. Julius ve Reinhard gibiler bunun örnekleriydi.</p>
+
+            <p>Öte yandan bir savaşçının ihtiyaç duyduğu tek şey, savaşma gücüydü.</p>
+
+            <p>Bu nedenle bu kampta toplanan herkes birer savaşçıydı ve Subaru’nun önündeki genç adam da bir istisna değildi.</p>
+
+            <p>Subaru: […Sana tekrar soracağım. Yanımdaki kız nerede?]</p>
+
+            <p>Turuncu Saçlı Genç: [Amma da inatçısın. Hoşuma gitmedi değil gerçi… Neyse, kız hayatta ve güvende. İki kız da enerji ve güç dolu. Hatta bana sorarsan biraz fazla dolu.]</p>
+
+            <p>Subaru: […! Sahi mi!?]</p>
+
+            <p>Subaru genç adamın yanıtına tutunurken adam, gergin bir şekilde gülümsedi. Ve Subaru gelecek yanıtı duymak için öne eğilirken genç adam onu alnından itip “Orada dur bakalım” diyerek daha fazla eğilmesine mani oldu.</p>
+
+            <p>Turuncu Saçlı Genç: [Ellerin de ayakların da bağlı. Kendini bu kadar zorlarsan devrilip dilini ısırmaz mısın? Oh, bana öyle bakma. İkisi de sapasağlam, yalan söylemiyorum.]</p>
+
+            <p>Subaru: [Bana ne ikisinden; bana yarım yamalak cevap vermeyi bırak. Mavi saçlı kız iyi olduğu sürece bana yeter.]</p>
+
+            <p>Turuncu Saçlı Genç: [Bu fena halde acımasız bir cevaptı, haksız mıyım!?]</p>
+
+            <p>Bunlar abartısız sözlerdi, gerçek hisleriydi; ama bunları o gence söylemesinin bir anlamı olmayabilirdi.</p>
+
+            <p>Her halükarda şimdilik gencin söylediklerine inanacaktı. Sıradaki mesele, Subaru ve Rem’in durumuydu. Öncesinde Subaru’yu savaş esiri olarak tuttuklarını söylemişti…</p>
+
+            <p>Subaru: [Bir savaş esiri olduğumu kabullenmekte zorlanıyorum ama diyelim ki kabullendim… peki neden onlardan ayrı tutuluyorum?]</p>
+
+            <p>Turuncu Saçlı Genç: [Onları görmek istiyorsan daha sonra bunu yapmana müsaade ederim. Tabii sorularımıza dürüstlükle yanıt verirsen… O kızlar şu anda hapis halde.]</p>
+
+            <p>Subaru: [Hapis mi!? Ama bunu neden yapasınız ki!?]</p>
+
+            <p>Hapis kelimesini duymasıyla birlikte zihninde bin bir türlü zor şart belirdi. Fakat daha fazla detay almaya çalışırken sol elinin üç kırık parmağında duyduğu acıyla inledi.</p>
+
+            <p>Gghha…! Gözlerinde yıldızlar belirince dişlerini sıkmak zorunda kaldı. Arkasında duran ve bir gözü bantla örtülü bir adam, ayakkabısını ardında bağlı haldeki elinin yaralı parmaklarına bastırıyordu.</p>
+
+            <p>İşte acımasızca Subaru’nun kırık parmaklarına bastıran o adam,</p>
+
+            <p>Göz Bantlı Adam: [Olanlara dikkat ediyor olsaydın esir olmanın anlamını çözemeyen lanet olasıca herifin teki olduğunu anlardın. Senin yalnızca sana sorulan sorulara cevap vermen gerekiyor, yoksa yanılıyor muyum? Ha?]</p>
+
+            <p>Turuncu Saçlı Genç: [Jamal, kes şunu! Yine bayılmasına yol açacaksın!]</p>
+
+            <p>Jamal: [İçinde bulunduğu pozisyonu anlamaması cidden kanımı beynime çıkartıyo! Boynundan yukarısı sağlam olduğu sürece konuşabilir. Üç parmağı kırık zaten, diğer ikisinin de kırılmasının ne zararı olur ki…]</p>
+
+            <p>Turuncu Saçlı Genç: […Jamal.]</p>
+
+            <p>Subaru’nun eline ayağıyla bastıran kişi ― Jamal ― pis bir bakış eşliğinde böyle söyledi. Ama o anda genç adam, fısıltı şeklinde ismini kullandı.</p>
+
+            <p>Ve bunu duyuşuyla nefesi kesilen Jamal, istemeye istemeye “İyi madem” diyerek ayağını kaldırdı.</p>
+
+            <p>Subaru: [Ghh, ghkk…!]</p>
+
+            <p>Jamal: [Tsk. Todd’a teşekkür borçlusun. Bende bi şeyleri fırlatma isteği doğuruyo.]</p>
+
+            <p>Kırık parmaklarındaki yükün kalkışıyla birlikte Subaru, yeniden nefes alabilir hale gelirken Jamal üzerine doğru tükürdü. Ve sonra da arkasını dönüp bir hışımla çadırı terk etti.</p>
+
+            <p>Onun adım seslerinin uzaklaşışıyla birlikte de genç adam ― Todd ― kafasını kaşıdı.</p>
+
+            <p>Todd: [Aman yarabbi. Bunun için üzgünüm. O Jamal denen herif bayağı asabi. Sonuçta sizleri nehir kıyısında bulan onun birimiydi; ama…]</p>
+
+            <p>Subaru: [Ama…?]</p>
+
+            <p>Todd: [Şey, anlaşılan beraberindeki kız epey zorluk çıkarmış. Birimindekileri insanlar biraz harap olunca da komutanları olarak gururu kırılmış.]</p>
+
+            <p>Subaru: [Oh…]</p>
+
+            <p>Sonunda olup bitenler hakkında kabaca bir fikir edinmiş olan Subaru, çileden çıkmış şekilde kafasını tutmak istiyordu.</p>
+
+            <p>Muhtemelen her şey, Subaru’nun nehir kıyısına sürünüp bilincini yitirişinin ardından gerçekleşmişti. Önlerinde uyanan Rem, Jamal ve adamlarına sağlam bir dayak atmıştı. Jamal’ın huysuzluğunun sebebi de buydu.</p>
+
+            <p>Rem, bacaklarını kımıldatamayan tatlı bir kız gibi görünürken Jamal ve adamlarının onun tarafından hırpalanmalarına izin vermelerinin suçlanacak bir yanı yoktu. Ama suçlanacak bir yanı olmasa da…</p>
+
+            <p>Subaru: [O… heriften… nefret ediyorum…]</p>
+
+            <p>Todd: [Haha, ne tesadüf! Ben de ondan pek hoşlanmam. Neyse, konudan sapıyoruz. Ee, parmakların ne durumda?]</p>
+
+            <p>Subaru: [Kırıldılar… Acısı azaldı gerçi.]</p>
+
+            <p>Öyle bile olsa arkadan vuran acının sonu gelmiyordu. Yine de dişlerini iyice sıkarak acıyla homurdanma şeklindeki zayıflığını o an için sonlandırdı. Şartlar elverirse biriktirdiği tüm acılarla daha sonra faiziyle yüzleşecekti. Ama şu anda, halletmesi gereken meseleler vardı…</p>
+
+            <p>Subaru: [Todd’du, değil mi?]</p>
+
+            <p>Todd: [Oh? Demek dikkatini veriyordun. Evet, ismim Todd. Ve yerli Todd-san’dan sana bir soru geliyor. Bunu daha önce de söylemiştim ama…]</p>
+
+            <p>Subaru: [Dürüstçe yanıt vermem gerekiyordu sanırım… Duymak istediğin bu muydu?]</p>
+
+            <p>Neticede o, yalnızca Öteki Dünyalı Natsuki Subaru’dan ibaretti.</p>
+
+            <p>Dünyaları nasıl aştığıyla ilgili herhangi bir fikri de Isekai gibi şeylerde son derece geleneksel olan bilgi hilelerini kullanma gibi bir şansı da yoktu. Sıfıra sıfır, elde var sıfır. Bunu düşündükçe ağlayacak gibi oluyordu.</p>
+
+            <p>Subaru: [Hayatta böyle bir kart çekmiş olan ben, senin için neyi yanıtlayabilirim ki gerçekten?]</p>
+
+            <p>Todd: [Ne tür bir yağcılık bu? Her neyse, düşük bir ihtimal, ama sana sormak istediğim tek bir şey var. ――Sen Shudraq’lardan biri misin?]</p>
+
+            <p>Subaru: […Shudraq mı?]</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="arc7bolum5parca3.html" class="nav-btn">← Önceki Parça</a>
+            <a href="arc7bolum6parca2.html" class="nav-btn">Sonraki Parça →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

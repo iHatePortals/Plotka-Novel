@@ -1,0 +1,514 @@
+﻿    <!DOCTYPE html>
+    <html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Re:Zero Kısım VI, Bölüm 55 Plotka Novel</title>
+        <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff; /* Görseldeki Açık Mavi / Cyan */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+    </head>
+    <body>
+
+        <div class="reader-container">
+            <!-- Üst Kontrol Barı (Tam Simetrik) -->
+            <div class="controls">
+                <!-- Sol Taraf -->
+                <div class="nav-left">
+                    <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                    <a href="/rezero/arc6bolumler.html" class="nav-btn">← Cilt</a>
+                </div>
+
+                <!-- Orta Taraf (Ayarlar) -->
+                <div class="controls-center">
+                    <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                    <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                    <select class="theme-select" onchange="applyTheme(this.value)">
+                        <option value="dark">🌙 Karanlık</option>
+                        <option value="light">☀️ Beyaz</option>
+                        <option value="sepia">📖 Kitap (Sepya)</option>
+                    </select>
+                    <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+                </div>
+
+                <!-- Sağ Taraf -->
+                <div class="nav-right">
+                    <a href="arc6bolum56.html" class="nav-btn">Sonraki →</a>
+                </div>
+            </div>
+
+            <!-- Başlık -->
+            <header>
+                <h1>Re:Zero Kısım VI, Bölüm 55</h1>
+                <div class="subtitle">"Karların erimesini bekleyen sen"</div>
+            </header>
+
+            <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p class="wp-block-paragraph">——Koyu, bulanık, mesafeli, derin, ağır, acı bir karanlık çökmüştü.</p>
+<p class="wp-block-paragraph"><strong>???:</strong> “————”</p>
+<p class="wp-block-paragraph">Kabaca, bu dünyaya dair olumsuz ne var ne yoksa heterojen bir karışım şeklinde harmanlanıyormuş, öylesine hantal, boğucu bir karanlık tüm bedenini sımsıkı sarıyormuş gibi hissediyordu.</p>
+<p class="wp-block-paragraph">O karanlık, yüzünü, bedenini, uzuvlarını ve sözde tenini yıpratıyor, onu sersemleterek kanına karışıyor ve buna, susuzluğunu çağırırmışçasına bir rahatsızlık hissi eşlik ediyordu.</p>
+<p class="wp-block-paragraph">Hayal edilebilir veya değil, bedeninin geri kalan her noktası kabuklarla kaplanmış gibi geliyordu.</p>
+<p class="wp-block-paragraph">Teni gerginleşiyor, dokunulduğunda insan teni gibi hissettirmeme duygusu tersine dönüyor, o kabuklara dokunan parmaklar da kabuklarla kaplanıyor ve gerçek “Benliğinin” formuna dair anlayışını yitiriyordu.</p>
+<p class="wp-block-paragraph">——Yo, gerçekten anlayamaz hâle geldiği şey yalnızca dış görünüşü değildi.</p>
+<p class="wp-block-paragraph"><strong>???:</strong> “————”</p>
+<p class="wp-block-paragraph">İçinin daha ötesi, özü gibi bir şeydi.</p>
+<p class="wp-block-paragraph">Başka bir deyişle, “Ruhu” olarak adlandırılması mümkün kısmı.</p>
+<p class="wp-block-paragraph">Bu büsbütün umutsuz yoldan sapışın neticesinde formunu, “Ruhunun” hâl ve konumunu yitiriyor, o parçalardan parmaklar çıkıp uzanıyormuş gibi hissediyordu.</p>
+<p class="wp-block-paragraph">Bahsedildiği üzere kabuklarla kaplanarak, beyhude hâle gelerek beliren o parmaklara beslediği hissin yalnızca rahatsızlık veya ondan da öte bir şey, mesela tiksinti olduğu söylenebilirdi. Sanki birileri tarafından kavranması mümkün şeylermiş gibiydi.</p>
+<p class="wp-block-paragraph"><strong>???:</strong> “————”</p>
+<p class="wp-block-paragraph">Aradığı “Benlik”, gerçekten önünde mevcut muydu?</p>
+<p class="wp-block-paragraph">İçeri çekilmeden önce, buraya ulaştığı anda, tamamen yeni bir benlik şekillenmemiş miydi? Tuhaf bir hayal gücü örneği olsa da tamamıyla inanılmaz değildi. İşin doğrusu, bedeninde olup bitenler buna yatkın bir tutarsızlık hissiyatı doğurmuş ve elverişsizlik getirmişti.</p>
+<p class="wp-block-paragraph">Bunu kendi meselesi olarak kavrayıp önüne çıkan sınavı kabullenerek karşısındaki manzarayı geride bırakmanın bir yolunu arıyordu—— Yalnızca bunun için ne kadar da vakit harcamıştı.</p>
+<p class="wp-block-paragraph"><strong>???:</strong> “————”</p>
+<p class="wp-block-paragraph">Bu yüzden yoğun bir huzursuzluk hissediyordu.</p>
+<p class="wp-block-paragraph">Gerçekten bu noktanın ötesine geçmeli miydi? Karşılanacağı, kabullenileceği, aranacağı yer gerçekten orada mıydı?</p>
+<p class="wp-block-paragraph">Güven, af, inanç, arzu, tüm bunlarla haşır neşir olan “Benliği” gerçekten orada mıydı?</p>
+<p class="wp-block-paragraph"><strong><em>???:</em></strong><em> “——</em><em>Seni seviyorum.</em><em>” </em><em></em></p>
+<p class="wp-block-paragraph">——Bu emsalsiz huzursuzluk, yol gösteriyormuş hissi veren ses tarafından eritiliyor ve silinip gidiyordu.</p>
+<p class="wp-block-paragraph"><strong>???:</strong> “————”</p>
+<p class="wp-block-paragraph">——Aydınlık, parlak, yüksek, kıymetli, güzel, tatlı bir ışıkla yüzleşiyordu.</p>
+<p class="wp-block-paragraph">Ve o ruh, yani Natsuki Subaru——</p>
+<p class="has-text-align-center wp-block-paragraph">※　※　※　※　※　※　※　※　※　※　※　※</p>
+<p class="wp-block-paragraph">Natsuki Subaru o anda canlandı ve bilinci, uykuların en derininden uyandı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Ah.”</p>
+<p class="wp-block-paragraph">İlk önce ağzından güçsüz bir iç çekiş döküldü.</p>
+<p class="wp-block-paragraph">Boğuk ve cansız olsa da kendi sesiydi. Bununla birlikte anlamıştı ki zihinsel olarak, konuşamaz hâle gelecek kadar değişmiş vaziyette değildi.</p>
+<p class="wp-block-paragraph">Bu, ileri atılan bir adım demekti. Geri kalan adımlar içinse tamamen farklı değerlere sahip bir insan olarak sıfırlanmadığından emin olmak zorundaydı——</p>
+<p class="wp-block-paragraph"><strong>???:&nbsp;</strong>“——Uyandın mı, Subaru?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong> “――――”</p>
+<p class="wp-block-paragraph">Gümüşi bir çan misali bu sesin sahibi, Subaru’yu hemen yanı başından, kulağı ve alnının dibinden izliyordu.</p>
+<p class="wp-block-paragraph">Ferahlatıcı, kibar, huzur dolu ve sevilesi bir çan sesiydi.</p>
+<p class="wp-block-paragraph">Daha az önce korkunç bir durumda işittiği bir sesti.</p>
+<p class="wp-block-paragraph">Şu anda o sesi işitmek kalbini tekletiyordu. Göğsü canını yakan Subaru, yavaşça yan tarafına döndü.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong> “————”</p>
+<p class="wp-block-paragraph">——Orada onu bekleyen şey, endişeye bürünmüş gözlerdeki ametist ışıltıydı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“…Emi, lia?”</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Evet, benim. Subaru, sen iyi misin? Ayağa kalkabilir misin? Doğru düzgün konuşabilecek durumda mısın?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Umm…”</p>
+<p class="wp-block-paragraph">İsmini işitişiyle birlikte ametist gözlerin sahibi—— Emilia, dudaklarını ıslatarak kafasını eğdi. Ayın parıltısı zarafetle o ışıkların içerisinde yüzüyor gibi görünüyor, destansı güzelliği Subaru’nun kalbini kavuruyordu.</p>
+<p class="wp-block-paragraph">——Dürüst olmak gerekirse karşısında, bu dünyaya ait olamayacağı düşünülecek kadar güzel bir kız duruyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Vaah…”</p>
+<p class="wp-block-paragraph">Bunun bilincine varmasıyla birlikte Subaru’nun kanı, büyük bir şevkle canlandı.</p>
+<p class="wp-block-paragraph">İfadesi tatlılaştı, yüzü kırmızılaştı, gözleri dört bir yanı tararken ses çıkartmayı beceremedi. Neredeyse kulakları acıyacak yoğunlukta bir utanç kızarması sonrasıysa ağzından, “Ahaha, ahaha…” sesleri döküldü.</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Ahaha?..”</p>
+<p class="wp-block-paragraph">Onun tuhaflığına şaşıran Emilia, hoş şekilli kaşlarını çattı. En ufak bir mimiği bile bir ressamın fazlasıyla detaylı şekilde resmettiği bir sanat eserini andırıyordu.</p>
+<p class="wp-block-paragraph">Birbirlerinin nefeslerini hissedebilecekleri bir yakınlıktan buna tanık olan Subaru, giderek hızlanan kalp atışlarından mustaripti.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph"><em>Bu da neydi? Bu da neyin nesiydi?</em></p>
+<p class="wp-block-paragraph"><em>Bu gerçek miydi? Yalnızca bir serap veya yanılsama değil miydi? Çölün ortasındaki seraplardan bahsediliyorsa o bir vaha demekti</em><em>——</em><em> başka bir deyişle, o an gördüğünüz şey en çok arzuladığınız şey olurdu.</em></p>
+<p class="wp-block-paragraph"><em>Öyleyse bu kurala uygun olarak bu kesinlikle bir serap olmalıydı. Nasıl da abartılı bir yanılsamaydı</em><em>——</em><em></em></p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“S-Sen iyi misin, Subaru? Bir sıkıntı olmalı. Bayılmıştın sonuçta.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bah!”</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Bak, şimdi de ‘bah’ diyorsun!”</p>
+<p class="wp-block-paragraph">Alnına ters bir şekilde yerleştirilmiş avuç titrerken Subaru, bir kafa karışıklığı tufanına yakalanmıştı.</p>
+<p class="wp-block-paragraph">Buna tanık olan Emilia, Subaru’nun olası yaralarını teyit etmek adına parıldayan gözlerini kırpıştırıyor, Subaru’ysa Batlamyus teorisini çürüten bilim adamının ciddiyetini tadarak “Emilia teorisini” inkâr ediyordu.</p>
+<p class="wp-block-paragraph">Fakat temas hissiyatını kesinlikle hissediyordu. Yani gerçeklik, Emilia’nın varlığını onaylıyordu.</p>
+<p class="wp-block-paragraph">Yalnızca Emilia’nın gerçekten var olduğunu değil, kendisinin Natsuki Subaru olduğunu da doğruluyordu.</p>
+<p class="wp-block-paragraph">Ve hepsinden öte——</p>
+<p class="wp-block-paragraph"><strong>???:&nbsp;</strong>“——Betty’i hiçe sayarak konuşmak da ne demek oluyor, sanırım! Tanrım, endişelenen tek kişi Emilia değil, doğrusu.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Hık.”</p>
+<p class="wp-block-paragraph">Emilia’nın karşısından memnuniyetsiz görünümlü birinin gencecik sesi yankılanmış ve o kişi arkasını dönmüştü.</p>
+<p class="wp-block-paragraph">İşte Subaru, yanaklarını şişirmiş genç bir kıza ait o arkasını dönmüş bedene doğru sıçradı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Beatrice…”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Sesin amma da kısık çıktı, sanırım… Betty’nin burada olduğuna inanamıyor gibisin, ifaden de aynı şeyi söylüyor, doğrusu.”</p>
+<p class="wp-block-paragraph">Subaru’nun belli belirsiz seslenişini kabul eden Beatrice, kaşlarını çatmayı bıraktı. Sözleri sert olsa da sesinde endişe ve rahatlama izleri vardı.</p>
+<p class="wp-block-paragraph">Subaru’nun uyanmış olmasının doğurduğu rahatlama ve bayılmış olmasının doğurduğu endişe. Bu izlenimi veren Beatrice’in tavrı—— yo, tüm varlığı Subaru’nun kalbini sarsıyordu. Başka bir deyişle——</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“——Nyah!?”</p>
+<p class="wp-block-paragraph">Beatrice’in bedenini yakalayan Subaru, o hafif bedeni saniyesinde kendine çekerek göğsüne bastırdı. Gerçekten çok hafifti.</p>
+<p class="wp-block-paragraph">Bu ani eyleme karşı koyamayan Beatrice, gözleri sağa sola döner hâlde Subaru’nun kolları arasına sıkışıp kalmıştı. Asmalar ve sarmaşıklarla kaplı zümrüt yeşili yatağın üzerindeki Subaru, tüm gücüyle Beatrice’in varlığından emin olmaktaydı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Beatrice, Beatrice, Beatriceeeee!”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“N-N-N-Ne, sanırım?! Ne oldu, doğrusu?! Çok ani oldu!”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Senin, senin… senin gerçekten, çok rahatlatıcı bir yüzün var! Sende insanın ailesinin yanına geri döndüğünde karşılaşacağı cinsten bir tatlılık var. Kendimi sana kaptıracağım.”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Ne, bu bir iltifat olmasa iyi olur, doğrusu!?”</p>
+<p class="wp-block-paragraph">Beatrice’e sarılan ve yüzüne bakan Subaru, içtenlikle bu cümleleri kurdu. Onun eylemleri ve sözleri nedeniyle iyice kızaran Beatrice ise avcunu büyük bir güçle Subaru’nun yüzüne yerleştirdi.</p>
+<p class="wp-block-paragraph">Onun minik parmakları yanağı ve kulağına dokunan, tatlı bir acı duyan Subaru, Beatrice isimli o genç kızın varlığını katiyetle hissedebiliyordu.</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Tanrım! Subaru, uyanır uyanmaz şapşallık etmeye başlamasana! Henüz neden bayıldığını bile bilmiyoruz…”</p>
+<p class="wp-block-paragraph">Birazcık dışlanmış hisseden Emilia, Beatrice’e sarılmakla meşgul olan Subaru’ya keskin bir tonla böyle söyledi.</p>
+<p class="wp-block-paragraph">Ve onun bedeni için endişe duyarak omzunu yakalamaya çalışırken bir anda durdu.</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“——Subaru?”</p>
+<p class="wp-block-paragraph">Emilia, öfkeden ziyade endişe içerisindeydi. Sesine karışmış duygular, tek bir endişe tonuna dönüşmekteydi. Şaşkınlığa bürünmüş gözleri, kavramaya çalıştığı Subaru’ya çevriliydi.</p>
+<p class="wp-block-paragraph">Çünkü Subaru ağlıyor, omzu belli belirsiz şekilde titriyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“…Uhm, kıh.”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Subaru? Subaru, ne oldu, sanırım? Betty yanı başında, doğrusu. Sorun yok, her şey yolunda, sanırım. Ağlamana gerek yok, doğrusu.”</p>
+<p class="wp-block-paragraph">Boğazından belli belirsiz bir inilti çıkarak ağlayan Subaru’nun hâlini gören Beatrice, yüzündeki kaos belirtilerini tamamıyla silerek Subaru’nun yaşlarla lekelenmiş yüzünü okşadı.</p>
+<p class="wp-block-paragraph">Subaru’nun hafiften titreyen elleri Beatrice’in genç, minyon bedenini serbest bırakmaya çalışmış, Beatrice ise bunun stres ve korkudan kaynaklandığını anlamıştı.</p>
+<p class="wp-block-paragraph">O andan sonra da sakince Subaru’nun kalbine seslenmişti.</p>
+<p class="wp-block-paragraph">Ona ağlamasına gerek olmadığını söylemişti. Her şeyin yolunda olduğunu söylemişti. Ben yanı başındayım demişti.</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Ağlamayı bırak, Subaru. Aceleye getirmene gerek yok. Yavaşça, derin bir nefes al ve sakinleş. Beatrice de ben de seninleyiz, yanındayız.”</p>
+<p class="wp-block-paragraph">Tıpkı Beatrice gibi Emilia da yatağın üzerindeki Subaru’yu teselli ediyordu.</p>
+<p class="wp-block-paragraph">Az önce tereddüt içerisinde duraksamış olan eli şimdi Subaru’nun omzuna dokunuyor, gümüşi bir çanı andıran sesi Subaru’nun eylemlerine ve kararlılıklarına saygı duyuyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong> “————”</p>
+<p class="wp-block-paragraph">İki kızın varlıkları ve izledikleri yollar değişmemişti.</p>
+<p class="wp-block-paragraph">Olağanüstü ikili, her şeyin mahvolduğu, onarılamaz bir şekilde yittiği bir dünyada bile değişmemiş, ölümün eşiğine gelmişken bile kendilerindense başkalarına, Subaru’ya öncelik vermişlerdi.</p>
+<p class="wp-block-paragraph">Bunu teyit eden, bunun farkına varan Subaru, bu defa kesinlikle her şeyin üstesinden gelmek için çabalayacaktı.</p>
+<p class="wp-block-paragraph">Natsuki Subaru, “Natsuki Subaru” olarak her şeyi geri kazanmak için——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Geri, döndüm.”</p>
+<p class="wp-block-paragraph">Karmakarışık tavrına, başka şartlar altında daha acınası, daha utanç verici olamayacak ağlamaklı bir ses eşlik etmişti.</p>
+<p class="wp-block-paragraph">——Natsuki Subaru, her şeyi kurtarmak için yeni bir döngü başlatmıştı.</p>
+<p class="has-text-align-center wp-block-paragraph">※　※　※　※　※　※　※　※　※　※　※　※　※</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Yani Taygeta Kütüphanesinde hafızamı kaybetmişim gibi görünüyor. Bunun pek çok açıdan sizlere uymayacağını ve büyük bir problem anlamına geleceğini biliyorum ama anlamaya çalışın lütfen.”</p>
+<p class="wp-block-paragraph"><strong>???: </strong>“————”</p>
+<p class="wp-block-paragraph">Kahvaltı masasındaki Subaru, çember hâlinde oturmuş yoldaşlarının önünde nezaketen başını eğmişti.</p>
+<p class="wp-block-paragraph">Onun bu çarpıcı sözcükleriyse toplulukta her türden duyguyu tetiklemişti. Yine de bu duyguların en barizi kafa karışıklığıydı, kargaşa veya kederse sonraya bırakılmış gibi görünüyordu.</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Herkes Subaru için geeeerçekten endişeleniyor. Ama Subaru bizler için daha da çok endişeleniyor, bu yüzden…”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“…Emilia-sama öyle söyleyebilir ama…”</p>
+<p class="wp-block-paragraph">Subaru’nun yanındaki Emilia, endişeli ve anlayışlı bir ifadeyle sözlerinin devamını getirdi.</p>
+<p class="wp-block-paragraph">Ancak Ram, Emilia’nın sözlerine şüpheyle yaklaştı. Ve kollarını önünde bağlayıp açık kırmızı gözlerini Subaru’ya dikerek,</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Ram esas endişeli kişinin Barusu olduğunu göremiyor. Aksine diyorum ki, bu maskaralık da neyin nesi, Barusu?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Maskaralık falan değil. Endişelerim ve hakikatler hakkında ciddeeen dürüstçe içimi döküyorum. Doğabilecek trajediyi düşününce inatçılık edip size bundan bahsetmeme düşüncesiyle göğsüm patlayacak gibi oluyor.”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Subaru’nun sert bir ifadeyle verdiği bu yanıt karşısında Ram’ın bakışları daha da şüpheli bir hâl aldı.</p>
+<p class="wp-block-paragraph">Ardından Emilia, durumu diğerlerinden önce Yeşil Odada işitmiş biri olarak ikilinin arasındaki sert etkileşime aceleyle müdahale etti. Subaru’nun “Hafıza Kaybını” işiten Emilia ve Beatrice ikilisi şaşkınlıklarına rağmen Subaru’nun güvenliğini düşünerek tüm endişelerine karşın durumu kabullenmişti—— sonrasında yaşananlar önceki seferlerin izinden gitmiş ve Subaru, kalbini açarken kendisine destek çıkmalarını istemişti.</p>
+<p class="wp-block-paragraph">——Natsuki Subaru, öncesinde korkunç olan bir ortamdan ayrılıp yepyeni bir ortama giriş yapmıştı.</p>
+<p class="wp-block-paragraph">Şık bir üslupla dile getirmek gerekirse farklı bir dünyada, sıfırdan hayata başlama kararlılığına bir kez daha erişmişti. Ama elbette ki mevcut şartlar pek de harika değildi.</p>
+<p class="wp-block-paragraph">Kararlılığa erişmiş olması iyiydi fakat “Ölmeyi” dilediği o anın kendisinin sonu olması da mümkündü.</p>
+<p class="wp-block-paragraph">Neyse ki bu yaşanmamış ve Ölümden Dönüş sayesinde bir kez daha yeniden başlama fırsatı bulmuşken duyduğu rahatlama ve minnettarlık bastırılamaz cinstendi—— Bununla birlikte buna bel bağlamaya niyeti yoktu.</p>
+<p class="wp-block-paragraph">Subaru’nun bedeninde ikamet eden Ölümden Dönüş gücü, bizzat kaderi çarpıtan muazzam bir güçtü.</p>
+<p class="wp-block-paragraph">Tetikleyicisinin “Ölüm” olması Subaru için biraz ağır olsa da kaderi çarpıtmanın bedeli olarak düşünülünce oldukça makuldü.</p>
+<p class="wp-block-paragraph">Bir bedel—— evet, Subaru “Ölümü” ödenmesi gereken bir bedelden ibaret görüyordu.</p>
+<p class="wp-block-paragraph">Böylesine büyük bir gücün bir nevi bedele gereksinim duyması doğaldı. Tabii ki Subaru, doğal olarak Ölümden Dönüşü için de durumun bu şekilde olduğunu varsayıyordu.</p>
+<p class="wp-block-paragraph">Sıklıkta bir sınır veya belki de iyileşmek için bir şeyleri feda etme ihtiyacı olmalıydı.</p>
+<p class="wp-block-paragraph">Subaru, kader tanrıçasının kendisini sonsuz sayıda deneme hakkı bahşedecek kadar şımartacağına inanmıyordu. Sevilmekle ilgili tek tecrübesi ebeveynleriyle olan biriyken bu kadarını özgüvenle dile getirebiliyordu.</p>
+<p class="wp-block-paragraph">Ama bu durumda Ölümden Dönüşün sınırlarını öğrenmek adına deneme yanılmalar gerçekleştirmek—— yani bile isteye “Ölümler” biriktirmek, normal şartlarda tercih etmeyeceği bir şeydi. Bu son şansı olsaydı hiç de tuhaf olmazdı.</p>
+<p class="wp-block-paragraph">Ayrıca bir şeyleri feda etme yolunu izleyecek olursa değerli şeylerden veya kıymetli anılardan vazgeçmek olağanlaşırdı.</p>
+<p class="wp-block-paragraph">Ne yazık ki hafızasını yitirmiş Subaru’nun değerli varlıkları, eski dünyasındaki ailesi ve bu kulede yanında olan Emilia ile diğerlerinden ibaretti.</p>
+<p class="wp-block-paragraph">Ve bu denli düşününce——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Yok artık, hafızamı kaybedişim Ölümden Dönüşün bedeli olmasa iyi olur.”</p>
+<p class="wp-block-paragraph">Düşünmesi bile tüyler ürpertici olsa da gayet olasıydı. Ölümden Dönüşün bedeli olarak anıları feda etmek. Epey berbat bir düşünceydi fakat Ölümden Dönüşün kendisinin de izlenmesi hoş bir yol olduğu söylenemezdi.</p>
+<p class="wp-block-paragraph">Esas ürpertici olansa bu fikrin doğruluğunu teyit etmenin hiçbir yolunun olmayışıydı.</p>
+<p class="wp-block-paragraph">Gerçek şu ki Subaru’nun hafıza kaybıyla Ölümden Dönüşün ilişkisi tamamen muammaydı. “Hafıza Kaybının” farkında olan ve o ana dek dört kez ölen Subaru, şimdilik hafıza kaybını kavrayabildiği şeyler çerçevesine oturtamamıştı.</p>
+<p class="wp-block-paragraph">Marketten dönüşüyle başlayıp kulede uyanışıyla devam eden anıları hâlâ canlıydı.</p>
+<p class="wp-block-paragraph">――Bu zaman aralığında yaşanmış lakin unuttuğu sayısız döngünün olmamasını umuyordu.</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Hey, beni dinliyor musun, Barusu?”</p>
+<p class="wp-block-paragraph">Ram’ın bıçak keskinliğindeki sesi, düşüncelerine tamamen dalışının ardından Subaru’yu gerçekliğe geri döndürdü. Ve genç kızın bakışlarının hedefi olan Subaru’nun boğazından bir “Ne…” sesi kaçtı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Hı hı, dinliyorum. Sizi şaşırttığımı biliyorum. Fazla ani oldu ve buna inanamamanı anlıyorum ama…”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Ama?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ben…”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Subaru’nun böyle ikiyüzlüce bir yalan söylemesi için hiçbir sebep yok, doğrusu. Ram’ın da Subaru’nun planlarına hiç değilse bu kadar güveni olmalı, sanırım.”</p>
+<p class="wp-block-paragraph">Beatrice, kelimelerini seçmekle meşgul olan Subaru’nun yerine Ram’a bu karşılığı verdi. Yeşil Odada durumu dinledi dinleyeli tamamen Subaru’nun tarafını tutuyor ve şimdi de yanında oturuyordu.</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Beatrice-sama…”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Emilia’nın söyledikleri de tamamen yanlış değildi, doğrusu. Hafızasını yitirmişken en endişeli kişi Subaru’dur, sanırım. Bu yüzden bir çocuk gibi ağladı bile, doğrusu.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bu kısımdan bahsetmek olayı çok daha utanç verici hâle getirdi.”</p>
+<p class="wp-block-paragraph">Diyen Subaru, bu beklenmedik ifşa üzerine kendini sırıtmaya zorladı ve gözyaşlarının ardındaki nedeni “bu olay” olarak belirtti.</p>
+<p class="wp-block-paragraph">Esas nedense Ölümden Dönüş yaşaması, kızlarla yeniden bir araya gelebilmesi, eylemlerini tekrar etme şansı bulmasıydı. O gözyaşlarının ardında pek çok faktör olsa da nihayetinde gözyaşı gözyaşıydı.</p>
+<p class="wp-block-paragraph">Bir erkeğin gözyaşlarının ardındaki sebebi irdelemenin anlamı yoktu.</p>
+<p class="wp-block-paragraph">Öyle ya da böyle, yanında olduğu için Beatrice’e duyduğu minnettarlığı bastırmak mümkün değildi.</p>
+<p class="wp-block-paragraph">Tıpkı Emilia gibi Beatrice de Yeşil Oda’daki itirafını işittiği ilk anda afallamış fakat onun bu sözleri sindirmesi daha kısa süre almış ve görünüşüne uymayan bir bilgelik ve duyarlılıkla Subaru’yu destekleme sözü vermişti.</p>
+<p class="wp-block-paragraph">——Ona vermiş olduğu geçici rahatlığı ve son anında dudaklarından dökülmüş olan “dışarı çıkarma” kelimelerini anımsayan Subaru, kalbi zincirlerle boğuluyormuşçasına bir ıstırap duyuyordu.</p>
+<p class="wp-block-paragraph">&nbsp;“Natsuki Subaru”, Beatrice’e tam olarak ne yapmıştı?</p>
+<p class="wp-block-paragraph">Bu sorunun yanıtını bilmeksizin onun güvenini kazanmış olmaktan suçluluk duyuyordu. Fakat bunu doğal bir şekilde kabullenmesi gerekiyor, kendini bu şekilde tembihliyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Dürüst olmak gerekirse hafızamı kaybetmemle ilgili böylesine doğrudan bir yalan söylemek için hiçbir sebebim olmadığı teorisini reddetmek birazcık mantıksız olurdu ama her hâlükârda bunu sindirebilmenizi isterim.”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Sindirin, diyorsun…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ayrıca, hadi biraz da yapıcı şeylerden konuşalım. Neyse ki şu anki benliğim ileriye dönük. Ve ileriye dönük şeylerden konuşacak olmamız çok hoşuma gider… yine de söyleyecek bir şeyiniz varsa gereğini yapıp dinlerim.”</p>
+<p class="wp-block-paragraph">Subaru, Beatrice’in yorumlarının koruması altında bu cümleleri kurarak bir kez daha başını eğdi. Emilia da ona ayak uydurmak adına başını eğerek, “Ona güvenin lütfen” dedi.</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Emilia, Beatrice ve Subaru’nun mütevazı sözleri sonrasındaysa Ram’ın bile söylediklerini çürütecek kelimeler sarf etmesi mümkün olmadı. Gerçi öfkeli bir karşılık vermeleri bile gayet doğal ve anlaşılabilir olurdu.</p>
+<p class="wp-block-paragraph">Elbette Subaru’nun “Hafıza Kaybı” itirafından etkilenen tek kişi Ram değildi—— Echidna, Julius ve Shaula’nın tepkileri de Subaru’nun hâlihazırda iki kez tecrübe ettiği çizgideydi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Tüm içtenliğiyle söyleyebilirdi ki Emilia ve Beatrice’le buluşması epey heyecan verici olmuş fakat geri kalanları bu odada görüp onlarla bir araya geldiği saniyede fena hâlde sarsılmıştı.</p>
+<p class="wp-block-paragraph">Reid’le birlikte alt katta bıraktığı Julius. İki bacağı da kopmuş hâlde canından olurken Subaru’dan şüphelendiği için özür dileyen Echidna. Onca kargaşa ve kaos arasında yüzünü göstermemiş olan Shaula. Ve son olarak Subaru’dan en çok şüphelenen kişi olan ve sonrasında karşısına çıkmayan Ram.</p>
+<p class="wp-block-paragraph">Hepsi, hepsi oradaydı. Subaru’ya hepsiyle bir kez daha konuşma şansı bahşedilmişti.</p>
+<p class="wp-block-paragraph">Tabii hepsinden öte Subaru’nun bu ortamda en bilincinde olduğu kişi——</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Her şe~ye rağmen, Onii-san gerçekten tam bir baş bela~sı.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Hık.”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“O te~pki de neyin nesi? Hortlak görmüşsün gibi bir surat ifadesine bürünmen acayip bir kaba~lık değil mi?”</p>
+<p class="wp-block-paragraph">Bu sözleri sıralayan genç kız, Subaru’nun söyledikleri karşısında çok da şaşırmamıştı.</p>
+<p class="wp-block-paragraph">Örülmüş koyu mavi saçlarıyla havalı, siyah bir kıyafet giyinmiş genç katil—— Meili.</p>
+<p class="wp-block-paragraph">Meili Portroute, kesinlikle orada bulunuyor, hareket ediyor ve konuşuyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Meili…”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Oh? İsmimi hatırlıyorsun yani~… Doğrusu Onii-san’ın normal şartlarla kıyaslandığında eskisinden ne farkı var anlayamadım, ee, neleri unuttu~n?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Hı hı, orası birazcık karmaşık. Şu anda iletişim kurmakta zorlanmıyor gibi görünebilirim ama birazcık derine inmeye başlayınca ortalık karışıyor. Başka bir deyişle bu, epizodik hafıza kaybı denilen bir şey, yani isimleri gayet iyi hatırlıyorum ama kişilere dair anılarım son derece belirsiz.”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“…Kastettiğin şey, mesela, dün akşam olanlar mı~?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Aynen öyle.”</p>
+<p class="wp-block-paragraph">Meili, sesi hafifçe derinleşirken gözlerini kıstı. Subaru’ysa onun sorusu karşısında ettiği saniyelik bir tereddüt sonrası baskıya yenik düşmeden yanıt verdi.</p>
+<p class="wp-block-paragraph">Kabataslak bir bahane uydurabilirdi ama bunu yapmadı. Bunu yapmamaya karar verdi. ——Subaru, onlara olabildiğince dürüst davranacaktı.</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“——Dünü unuttun, ha. Bu, bu, iyi.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Subaru’nun yanıtını işiten Julius, bir bağlamda “Hafıza Kaybı” hakkındaki iddialarından daha büyük bir şokla karşılaşmışçasına, şüpheli denilebilecek bir şekilde yalnızca Echidna’yla fısıldaştı.</p>
+<p class="wp-block-paragraph">Ancak onların tepkileri bir yana,</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Ustam, yine mi hafızanı kaybettin? Tatmin olana dek beni daha kaç kez unutman gerekecek! Çıldırıyorum artıık~.”</p>
+<p class="wp-block-paragraph">Dolgun göğüslerini öne çıkartan Shaula, hüzünlü bir ifadeyle böyle söyledi.</p>
+<p class="wp-block-paragraph">Shaula’nın aptalca yorumları geçen seferkiyle aynı tarzdaydı ama bağışlanamaz biçimde tuhaf bir ambiyansa sahip oldukları yönünde güçlü bir izlenim veriyorlardı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Saçmalıklarının derinliklerine dalmak garip hissettiriyor ama senin bu Ustan gerçekten hafızasını kaybedip duruyor muydu?”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“——? Aynen, anılarını saçıp duruyordu. Sabahları uyanıp onu selamladığımda ‘Pardon sen de kimsin? Seni hatırlamıyorum. Seni tanımıyorum.’ diyor ve bana gerçekten eski moda bir kadınmışım gibi davranıyordu.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Hmm, o seviyedeyse yalnızca kötü bir şaka yapıp yapmadığına karar vermek zor.”</p>
+<p class="wp-block-paragraph">Bu yalnızca bir varsayım olsa da Subaru Shaula’yla yakınlaşıp sıradan bir hayat sürecek olsaydı aralarında bu tarz anlamsız sohbetlerin geçmesi gerçekten mümkün olabilirdi.</p>
+<p class="wp-block-paragraph">Fakat Subaru, hafızasını yitiren ve bunu Emilia ile diğerlerinden gizleyen, bundan bahsetmemeyi seçen bir benliğinin olduğunun farkındaydı. Kötü bir şaka adı altında hafızasını kaybetmiş numarası yapması da mümkün olabilirdi.</p>
+<p class="wp-block-paragraph">Yalnızca ona öyle geliyor olabilirdi ama bu, ölümcül zorlukta bir şey olurdu. Ve sahiden de dört kez ölmüşken bunun şakası olmazdı.</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Bahsi geçen hafıza kaybı anlaşılır bir şey. Tabii tam olarak kabullenmek hiç zaman almaz diyemem… ama böyle bir fenomeni tetikleyebilecek tuzaklar mevcutsa bunu dikkate alarak hareket etmemiz daha iyi olabilir gibi görünüyor.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Suç mahalli olma ihtimali en yüksek yer Emilia-chan’ın beni baygın hâlde bulduğu Taygeta Kütüphanesi. En çok tarihe sahip yer orası herhâlde.”</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Chan…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——?”</p>
+<p class="wp-block-paragraph">Echidna ciddi bir ifadeyle tartışmaya katıldı ve Subaru da başını sallayarak onay verdi. Ancak Emilia’nın bu konuşmanın tam ortasındaki yalnız mırıltısı büyük bir etki doğurdu.</p>
+<p class="wp-block-paragraph">Daha önce de Subaru’nun dahil olduğu birkaç konuşmada bu ifadeye bürünerek tepki vermişti. Ama neticede tepkilerinin sebebi belirsizliğini korumuştu.</p>
+<p class="wp-block-paragraph">Belki de Subaru, hayati bir şeyi gözden kaçırıyordu—— Bu düşünce tüyler ürperticiydi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Her neyse, millet, sizleri şaşırttığım için üzgünüm. Sanırım hepinize bunu hemen kabullenin ve aynı hızla yolumuza devam edelim demem anlamsız olur. O yüzden şimdilik bir ara verelim. Ben de o sırada Ram’la su çekmeye falan gideyim.”</p>
+<p class="wp-block-paragraph">Bu öneriyi öne süren Subaru ayağa kalktı. Bu sözler karşısında Ram’ın kaşları çatılırken Emilia ve Beatrice’in tedirgin bakışları Subaru’yu buldu.</p>
+<p class="wp-block-paragraph">Ancak Subaru, iki kızın bakışlarını kafa sallayışıyla onaylayıp yatıştırarak siyah gözlerini Ram’a çevirdi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Hadi gidelim, Ram—— Yüzünde tam da beni seninle su çekmeye çağıracakmışsın gibi bir ifade vardı.”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“——Edepsiz.”</p>
+<p class="wp-block-paragraph">Bakışlarını kaçıran Ram, Subaru’nun daveti karşısında bu şekilde mırıldandı.</p>
+<p class="has-text-align-center wp-block-paragraph">※　※　※　※　※　※　※　※　※　※　※　※　※</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Ee, az önceki o maskaralığın anlamı neydi? Ram’ı bu şekilde dışarı çıkardığına göre konuşmaya niyetlisin herhâlde?”</p>
+<p class="wp-block-paragraph">Eline bir kova alan Ram ve Subaru ikilisi, toplantı mekânından uzaktaki su kuyusuna yönelmişti. Ve Emilia ile diğerlerinden yeterince uzaklaştıklarına kanaat getiren Ram, beklenen soruyu sormuştu.</p>
+<p class="wp-block-paragraph">Ram’ın Subaru’nun “Hafıza Kaybıyla” ilişkili iddialarını kabullenmemesi her döngüde gerçekleşen bir vukuattı. Yalnızca inatçılık ediyor veya deliller konusunda şüpheci davranıyor değildi, ardında daha önemli bir sebep vardı.</p>
+<p class="wp-block-paragraph">——Rem’in varlığı. Ram’ın uyku hâlinde olmayı sürdüren biricik kız kardeşi.</p>
+<p class="wp-block-paragraph">Ram, onun için duyduğu kaygı nedeniyle Subaru’nun “Hafıza Kaybını” kabullenemiyordu.</p>
+<p class="wp-block-paragraph">Bu yüzden ısrarla Subaru’nun “Hafıza Kaybını” inkâr ediyordu. Subaru, işin içyüzünü bilmiyordu. Fakat uyanık olduğu sırada Rem’le aralarında bir bağlantı olduğu kesindi.</p>
+<p class="wp-block-paragraph">Ve bu bağlantı da bir abla olarak varlığında Ram’a muazzam bir destek sağlıyordu.</p>
+<p class="wp-block-paragraph">İşte bu nedenle——</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Rica ediyorum Emilia-sama veya Beatrice-sama’ya daha fazla önemli rol yüklemeye bir son ver. Beatrice-sama bir yana bu, Emilia-sama için çok ağır bir yük olur. Bu yüzden şu anda Ram’ı da planına dahil edersen çok makbule geçer. Detaylar…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Ram, hafızamı kaybettiğim doğru. Bu ne bir yalan ne de bir plan.”</p>
+<p class="wp-block-paragraph">Ram, o ince ipliğe tutunmaya, güvenilir biri olmaya çalışıyordu ancak Subaru, onu reddetmek zorundaydı.</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Sözleri Subaru’nun doğrudan beyanıyla bölünen Ram, gözlerini kısmıştı. O açık kırmızı gözlerde yatan duygularsa kafa karışıklığı, korku—— ve öfkeydi.</p>
+<p class="wp-block-paragraph">Subaru’nun ruhunu yakıp kavurabilecek bir öfke. Ve o öfkenin varlığının sebebiyse, Natsuki Subaru’ya beslediği şüpheydi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Hafızamı kaybettim. Kuledeki kişilerin isimlerini ve onlarla aramdaki ilişkiyi az çok biliyorum ama bunlar dışında hiçbir şey hatırlayamıyorum. Bu kısım da doğru.”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Lütfen dur artık.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Emilia ve Beatrice’le önceden konuştum ama onlara da aynı şeyi anlattım. Söyleyebileceğim başka hiçbir şey yok. Şu anda, ellerim bomboş.”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Lütfen dur artık, Barusu. Tek kelime daha edersen…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bu kuleye bizden çalınan pek çok şeyi geri almak için geldiğimizi biliyorum. Bir Sınavın ortasında olduğumuzu da biliyorum. Ama hepsi bu. Benim niyetim…”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Barusu, tek kelime daha edersen…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Rem konusunda da.”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Barusu!!——”</p>
+<p class="wp-block-paragraph">Subaru, Ram’a her şeyi unutmuş olduğu gerçeğini yürek parçalayıcı bir şekilde aktarmıştı.</p>
+<p class="wp-block-paragraph">Bunu reddettiğini, Subaru’nun sözlerini dinlemek istemediğini tavırlarıyla belli eden Ram ise Subaru’nun özrünü dinledikten sonra bir öfke ifadesiyle Subaru’yu kavradı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Gığh!”</p>
+<p class="wp-block-paragraph">Yakasından kavranan Subaru’nun sırtı duvara yapıştırıldı. Ram, yapısından kaynaklı inanılmaz bir fiziksel güçle Subaru’yu hareketsiz hâle getirdi ve yakın mesafeden gözlerini gözlerine dikti.</p>
+<p class="wp-block-paragraph">Subaru, o açık kırmızı gözlerdeki ateşin Subaru’yu da Ram’ı da kavurmaya çalıştığını anlıyordu.</p>
+<p class="wp-block-paragraph">Ve bu ateş Subaru’yu—— yo, Ram’ı kavurduğu anda trajedi tekrar edecekti.</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Niyetin ne? Böylesine, böylesine aptalca bir yalan neden!”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bu bir, yalan değil… Benim için, size yalan söylemek…”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Yani yalan söylemedim diyorsun? Öyleyse sana göre ne olması gerekiyor? Ram’ın sana güvenmesi mi? Barusu’nun, Rem’i unutmuş olması… böyle bir şey, o kadar saçma ki!”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ram…”</p>
+<p class="wp-block-paragraph">Gözleri iyice keskinleşen Ram, neredeyse dudaklarının birbirine dokunacağı bir yakınlıktan Subaru’ya öfkeyle bakıyordu. Subaru’ysa en sonunda o gözlerdeki ateşin öfkeden ziyade gözyaşlarından oluştuğunu fark ediyordu.</p>
+<p class="wp-block-paragraph">Ram’ın içindeki çatışma, Subaru’nun hayal edebileceğinden çok daha derinlere iniyordu.</p>
+<p class="wp-block-paragraph">Subaru, dört tekrarın sonunda nihayet bunu anlamayı başarmıştı. Başkalarının duygularını, göğüslerinde barındırdıkları yaraları anlamanın mümkün olduğunu düşünmek için ne kadar sağduyulu olmak gerekirdi kim bilir!</p>
+<p class="wp-block-paragraph">Subaru, kendisinin aynı çirkin oyunu dördüncü kez tekrar ettikten sonra fark ettiği şeyi Emilia ve diğerlerinin saniyesinde fark etmiş olmasını büyüleyici buluyordu.</p>
+<p class="wp-block-paragraph">Yalnızca o büyü tarafından yakıp kavrulması mümkün olmayan Subaru——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Ben, Rem’i kesinlikle geri getireceğim.”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“——Hık!”</p>
+<p class="wp-block-paragraph">Açık kırmızı gözlere gözlerini diken Subaru, boğazına aktardığı güçle, net bir şekilde böyle söyledi.</p>
+<p class="wp-block-paragraph">Onu işiten Ram’ın gözleriyse bir kez daha şaşkınlıkla irileşti ancak öfkesi, o şaşkınlığı gizledi.</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Onu geri geri getirmekten falan… nasıl bahsedebilirsin ki Barusu! Sen Rem’i unuttun, öyle değil mi?!”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ama yine de bunu yapacağım. Rem, benim anılarım, bu kuleye gelmemizin ardındaki sebepler, geride tek bir şey bırakmadan hepsini başarıp her şeyi geri kazanacak ve hep birlikte geri döneceğiz—— Bu kadarı kesin, hiç değilse bunu garanti edebilirim.”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“——Barusu?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bu kulede yaşanan her şeyi düşününce… bu kadarı, kesin.”</p>
+<p class="wp-block-paragraph">Nefes almakta zorlanıyordu. Fakat yanakları farklı bir sebepten ötürü biçimsizleşiyordu. Onun tepkisini gören Ram’ın kaşları kalkmış, Subaru’nun yakasını tutan elleri bir nebze gevşemişti.</p>
+<p class="wp-block-paragraph">İşte o saniyede Subaru, o elleri tutarak ayırdı. Ve aynı hızla ikilinin bedenleri pozisyon değiştirdi.</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“——Terbiyesiz. Bırak beni lütfen.”</p>
+<p class="wp-block-paragraph">Pozisyonlarının değişimi sonrası duvara yapıştırılmış olan Ram, gözlerini gözlerine diken Subaru’ya böyle söyledi.</p>
+<p class="wp-block-paragraph">Ancak Subaru, güçsüzlüğüne rağmen söylemeye niyetli olduğu sözcükleri kullanmaktan çekinmedi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ram. Kesinlikle kendi anılarımı da Rem’in anılarını da geri getireceğim. Bunun için, bana gücünü ödünç ver lütfen.”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Herkesin gücüne ihtiyacım var. Düne kadar burada olan, hepinizin tanıdığı ‘Natsuki Subaru’ böylesine acınası bir şey söylemeyebilirdi. Ama şu anki benliğim…”</p>
+<p class="wp-block-paragraph">Julius kıymetlisini ona emanet etmiş, Beatrice ona güvenmiş, Echidna onu affetmiş, Emilia onu yanında istemişti.</p>
+<p class="wp-block-paragraph">Ve belki de herkesin bir şeyler beklediği “Natsuki Subaru”, içlerinde bulundukları çıkmazı bir başına değiştirebilecek olabilirdi.</p>
+<p class="wp-block-paragraph">Lakin şu anki Natsuki Subaru, bu işi başarabilecek yeterlilikte değildi. Ve bu kulenin içerisindeki insanlar onu, hiçbir şey yapamazsın deyip kıyamet kopartıp vazgeçmeyecek kadar çok seviyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Rem’i unuttuğuma inanmayacağını veya bunun için beni affetmeyeceğini biliyorum. Ama lütfen bu öfkeni sonraya sakla. Bunun karşılığında, sana bir söz vereceğim.”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Söz mü?..”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ne olursa olsun, üstesinden geleceğim. Kaç defa denemem gerekirse gereksin her şeyi halledeceğim. Eğer, bu sözümden dönersem, senin önünde pes edersem, beni yakmakta, kavurmakta, bana canın ne isterse yapmakta özgürsün.”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Ram’ın gözleri irileşti, içlerindeki öfke alevleri yatıştı. Ve öfkenin yerine, o ana dek gizli tuttuğu bir duygu belirdi.</p>
+<p class="wp-block-paragraph">Buna tanık olan Subaru, kafasını geri çekip Ram’a bu dobra hâliyle yaklaşmaya ve onunla—— buz kafesine hapsolduğu anda bakışlarının birbirine dolandığı mesafeden konuşmaya devam etti.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bu konuda, kararlıyım.”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“…Neden bu kadar ileri gidesin ki? Barusu gerçekten her şeyi unuttuysa, Rem’i geri getirmeyi bu denli düşünmüyor olmalı.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“İnsan bir kez unutunca her şey bir boşluğa dönüyor. Ağzı açık bir boşluk oluyor ve zamanında var olan hislerin hepsi yitiyor. Hepsi yok oluyor. Sevgi, nefret, sıcaklık, yalnızlık, her şey.”</p>
+<p class="wp-block-paragraph">Ram’ın kısık sesi, soğuk tavrını taklit eder havadaydı.</p>
+<p class="wp-block-paragraph">Kulağa son derece deneyimli gelen bu kelimeler, bizzat tecrübe ettiği boşluğa dayanıyor olabilirdi. Bu nedenle Ram, Subaru’nun kararlılığını güvenilmesi zor buluyordu.</p>
+<p class="wp-block-paragraph">O boşluk tarafından kucaklanmışken böylesine güçlü bir arzuya sahip olmanın imkânsız olduğuna inanıyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Dürüst olmak gerekirse, doğru söylüyorsun. Hafızam boş ve benliğimin düne kadar Rem’e beslediği hislerin hepsi ellerimden kayıp gitti ama…”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Öyleyse, neden?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Senin Rem’e değer verdiğini ve onu geri getirmeyi çaresizce istediğini biliyorum.”</p>
+<p class="wp-block-paragraph">Ram’ın çırpınışına, kıymetli kardeşi Rem’i geri kazanmayı çaresizce arzulayışına tanık olmuştu.</p>
+<p class="wp-block-paragraph">Böylesine güçlü bir arzu ve sevgiye kendi gözleriyle tanık olan Subaru, kahrolmuştu. Ve çaresiz Ram da Subaru’nun kurtarılmasını arzuladığı insanlar arasındaydı——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Şu anda, Rem’i geri getirmek isteme sebeplerim ‘Natsuki Subaru’ ve sensin.”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“İşte bu yüzden, pes edersem sana güveniyor olacağım. Kafama istediğini yapmakta özgürsün. Bu, seni ağlatan benliğimin kefareti.”</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+            <a href="cilt_sayfasi.html" class="nav-btn">← Cilt Sayfası</a>
+            <a href="bolum2.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

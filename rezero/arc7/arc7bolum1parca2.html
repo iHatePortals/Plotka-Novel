@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VII, Bölüm 1 Parça 2 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc7bolum1parca1.html" class="nav-btn">← Önceki</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc7bolum1parca3.html" class="nav-btn">Sonraki →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VII, Bölüm 1 Parça 2</h1>
+            <div class="subtitle">"Kurtlar Ülkesi"</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Ram: [Ram da Rem’in aynı yönde olduğunu hissediyor. Tam pozisyonundan emin değilim ama epey uzakta olduğunu düşünüyorum.]</p>
+
+            <p>Emilia: [Güney mi? Buradan güneyde şey vardı...]</p>
+
+            <p>Beatrice ve Ram’ın güneyden bahsedişinin hemen ardından Emilia’nın şekilli kaşları çatıldı. Zihninde dünya haritasını canlandırmak için her şeyi yapıyor olsa da onun yerine elini kaldıran Anastasia oldu.</p>
+
+            <p>Şu anda dünya haritasının en doğusunda yer alan Augria Kum Tepelerindeydiler. Oradan güney istikametinde ilerleyerek beş büyük şehir arasında olan Picoutatte veya Flanders’e ulaşma ihtimalleri yüksekti fakat…</p>
+
+            <p>Julius: [Sadece buna dayanarak ikisinin vaziyetini çözemeyiz.]</p>
+
+            <p>Aynı fikre ulaşmış görünen Julius, Anastasia’nın yerine konuştu.</p>
+
+            <p>Düşüncelerinin hızına yetişişiyle ona daha da ideal bir şövalye şeklinde paha biçen Anastasia ise gözlerinden birini kapalı tutarak, “Aynen öyle” dedi.</p>
+
+            <p>Anastasia: [Buradan epey uzaktalar ama kendilerini oralarda bulsalar bile hasarın ihmal edilebilir olacağını söyleyebilirsiniz. Ama buna rağmen ikinizin de beti benzi atık… Yoksa Subaru’nun çok daha güneyde olduğunu mu ima ediyorsunuz?]</p>
+
+            <p>Emilia: [Çok daha güneyde derken, onu kastediyor olamazsınız değil mi…]</p>
+
+            <p>Meili: […Kendilerini ta güneydeki Vollachia İmparatorluğunda mı buldula~r?]</p>
+
+            <p>Emilia’nın şokunun yanında Meili’nin şaşkınlığı hafif kalmıştı. Yine de Meili’nin tepkisinin olayın ölçeğini idrak edememesinden kaynaklandığı söylenebilirdi. Bu göz önüne alınınca da Beatrice ve diğerlerinin tepkileri son derece anlaşılırdı.</p>
+
+            <p>Subaru ve Rem ikilisi tüm ülkeyi aştıysa… Ve Güney İmparatorluğu sınırlarına girdiyse, ortada gerçek bir problem var demekti.</p>
+
+            <p>Anastasia: [Eğer yanılmıyorsam… Lugnica Krallığıyla güneydeki Vollachia İmparatorluğu tüm Kraliyet Seçimi boyunca sürecek bir saldırmazlık paktı imzalamıştı. Öyle değil mi, Julius?]</p>
+
+            <p>Julius: [Evet, bu doğru. Bundan haberiniz olmadığını düşünüyorum fakat o anlaşmayı yürürlüğe koyabilmek için ben de oraya gitmiştim. Ben, Reinhard, Ferris ve diğerleri İmparatorla bizzat tanışmıştık.]</p>
+
+            <p>Emilia: [Duyduğum kadarıyla İmparatorlukla aramız geeeeeerçekten kötüydü; ama, bunu yaptıysanız, artık bir sorunumuz yok mu yani? Öyleyse gidip Subaru ve Rem’i arayacak olursak…]</p>
+
+            <p>Julius: […Yo, mümkün olmayacak.]</p>
+
+            <p>Julius, Emilia’nın çekine çekine sorduğu soru karşısında kaşlarını çatarak kafasını salladı. Ve yakışıklı yüz hatlarını yücelten, mücevher gibi ışıldayan sarı gözlerini usulca yere eğerek,</p>
+
+            <p>Julius: [İmparatorluk, birkaç ay önce kendileriyle Krallık arasında seyahat etmeyi şu an için yasakladı. Kraliyet Seçimi nedeniyle kuzeydeki Kutsal Gusteko Krallığıyla da aynı şey yaşanmıştı, fakat onlar yasaklarını çoktan kaldırdılar…]</p>
+
+            <p>Echidna: [Sanırım bu, İmparatorluk kararının ortadan kaldırılmadığı anlamına geliyor. Gerçi Gözcü Kulesine olan seyahatimiz nedeniyle en güncel bilgilere sahip değiliz… Yine de oradaki durum değişmediyse…]</p>
+
+            <p>Emilia: [Subaru ve Rem’e yardım etmek için oraya gitmemiz zor olacak?]</p>
+
+            <p>Julius: [Evet, maalesef.]</p>
+
+            <p>Bu konuda çeşitli düşünce alışverişleri olsa da Julius, sohbetlerini bu pişmanlık dolu sözlerle sonlandırdı.</p>
+
+            <p>Anastasia da Julius’la aynı sonuca varmadan edememişti. Söz konusu Vollachia İmparatorluğuna girmekse bunu doğrudan ön kapıdan yapmaları imkansız olacaktı.</p>
+
+            <p>Yani bunun için gizli bir yol aramaktan başka şansları olmayacak, üstüne üstlük bunun için zamana ve bağlantılara ihtiyaç duyacaklardı.</p>
+
+            <p>Hızlı ve kolay bir yol yoktu. Elbette ki durumu bilinmezliğini koruyan o ikiliyi düşünen Emilia’nın acele edeceği kesindi…</p>
+
+            <p>Emilia: […Hızlıca harekete geçmeliyiz. Volcanica’nın kanını alacak ve Pristella’ya götüreceğiz… Sonra da yakaladığımız Oburluğu Kraliyet Başkentine bırakacağız, değil mi?]</p>
+
+            <p>Beatrice: [Emilia…?]</p>
+
+            <p>Emilia: [Biliyorum Beatrice. Geeeerçekten ama geeeerçekten sabırsızlanmadan edemiyorum. Ama buradaki işleri aceleye getirsek bile Subaru’yla Rem’e yardımcı olamayacağız… Sakin kalmak zorundayız.]</p>
+
+            <p>Emilia’nın paniğe kapılacakmış gibi görünürken verdiği bu sakin karar, Anastasia’yı şaşırtmıştı. Emilia, benzer şekilde şaşıran Beatrice’e kararlı bir şekilde kafasını sallayarak onay verdi. Gözleri doluyor, sesi birazcık titriyor ama kendine hakim olmak için elinden gelen her şeyi yapıyordu.</p>
+
+            <p>Adeta Subaru ve Rem'i geri almak pahasına bir saniye dahi kollarımı kavuşturup arkama yaslanmayacağım diyordu.</p>
+
+            <p>Emilia: [Siz ikiniz, Subaru ve Rem birlikte olmalı, haksız mıyım?]</p>
+
+            <p>Ram: […Beatrice-sama’yla ikinci kez üstünden geçtik, büyük ihtimale birlikte olduklarını düşünüyoruz.]</p>
+
+            <p>Emilia: [Tamamdır… Öyleyse Subaru’nun Rem’i korumak için büyük yollar kat edeceğine eminim. Bu yüzden Rem için endişelenmemize gerek yok. Gerçi Subaru birazcık korkutucu ama olsun.]</p>
+
+            <p>Subaru’nun güçlü olduğuna inansa da aynı endişeleri taşıyor olan Anastasia, Emilia’yla hemfikirdi.</p>
+
+            <p>Natsuki Subaru kuledeyken kendi haline bırakılmasının sonucunda hafızasını kaybetmişti. Kendini cezalandırmaya meyilli olan o çocuğun kendisi için değerli olan insanları korumak adına kendini hafife almak gibi kötü bir alışkanlığı vardı.</p>
+
+            <p>Bazen başkalarını cesaretlendirdiği gibi endişe kaynağı olduğu da olurdu.</p>
+
+            <p>Anastasia: [Bununla birlikte hepimiz Natsuki-kun’un kıvrak zekasına gerçekten güvenebiliriz diye düşünüyorum. Emilia-san haklı, burada kalıp kulenin içerisinde homurdanıp sızlanmaya devam edemeyiz. Harekete geçmemiz gerekiyor.]</p>
+
+            <p>Julius: [Açık ve net anlaşılmıştır… Beatrice-sama, endişe ettiğiniz bir nokta varsa bizimle paylaşın lütfen.]</p>
+
+            <p>Beatrice: […Subaru’nun bedeni, sanırım. Subaru’nun geçidi kırıldığı için manayı dışarı atamıyor, doğrusu. Onu çok uzun süre yalnız bırakırsak mana tıkanıklığı nedeniyle patlayacaktır, sanırım.]</p>
+
+            <p>Anastasia: [Hmm. Ben de onunla aynı gemide sayılırım, yani bu noktada Natsuki-kun’u gerçekten anlayabilirim.]</p>
+
+            <p>Anastasia’nın geçidi doğuştan kusurluydu. Doğru düzgün mana çekemiyordu; bu da bir büyücü için kritik bir kusur olabilirdi. Bununla birlikte tüccarlık için gerekli şans ve beceri faktörleri üzerinde hiçbir etkisi olmadığı için Anastasia’ya çok sıkıntı vermiyordu.</p>
+
+            <p>Echidna: [Ana…]</p>
+
+            <p>Anastasia: [Biliyorum, biliyorum. Bizim problemlerimizi bir süre sonra ayrıca konuşacağız, değil mi… Bu mesele bir yana, şu anda tembellik edecek vaktimiz yokmuş gibi görünüyor.]</p>
+
+            <p>Diyen Anastasia ellerini çırparken geri kalanlar da onun bu sinyalini başlarıyla onay vererek yanıtladı.</p>
+
+            <p>Amaçları, kaybolan Subaru ve Rem’in yerini tespit etmekti. Bunun için de bir arama grubu oluşturabilmek adına bir an önce Pleiades Gözcü Kulesinden ayrılmaları gerekecekti.</p>
+
+            <p>Üstüne üstlük bu kuleye gelmelerinin başlıca amaçlarından biri de yerine getirilmeliydi.</p>
+
+            <p>Meili: [İşler öyle heyecanlı ki bayılıp kalacakmışım gibi geliyo~r…]</p>
+
+            <p>Emilia: [Aynen öyle. Yine de Subaru ve Rem için işler çok daha zor olmalı.]</p>
+
+            <p>Uzaklarda bir yerlere gönderilmiş olan Subaru’yu düşünen Emilia, yumruklarını iyice sıktı. Onun yüzünü yan profilden izleyen Meili’yse kafasına tünemiş kan kırmızı minik akreple birlikte gözlerini kısıp omuz silkerek, “Evet, elbette” dedi.</p>
+
+            <p>Ve böylece grup, hazırlıklara koyuldu ― Ya da hiç değilse bunu yapmak üzereydiler.</p>
+
+            <p>Meili: [Bir düşündüm de~ Ram Onee-san, onlara o şe~yden bahsettin mi?]</p>
+
+            <p>Ram: [… Henüz değil.]</p>
+
+            <p>Anastasia ve diğerleri: […? O şey mi?]</p>
+
+            <p>Meili’nin son derece ani yükselen bu sorusu karşısında Ram’ın suratı ekşidi. Ve bu konuda hiçbir şey işitmediği belli olan grubun bakışları Ram’a çevrildi.</p>
+
+            <p>Tüm bakışları üzerinde toplayan Ram ise anlık bir duraksamanın ardından şöyle dedi:</p>
+
+            <p>Ram: [Emilia-sama, bundan hala yüzde yüz emin olamasam da… O gölge tarafından yutulup İmparatorluğa gönderilenler yalnızca Barusu ve Rem olmayabilir.]</p>
+
+            <p>Emilia: [Yalnızca ikisi olmayabilir mi… Ama sen, Patrasche-chan ve Meili buradasınız, yani Yeşil Odadaki herkesin eksiksiz olması gerekmiyor mu?]</p>
+
+            <p>Meili: [Şey, o gölge bir nevi içe~ri dalmadan önce, ansızın bir kız belirmişti. Ve dahası, Onii-san’ın söylediğine göre o kız, üçüncü Oburluk muydular ne~ydi.]</p>
+
+            <p>Anastasia ve diğerleri: [Üçüncü Oburluk mu!?]</p>
+
+            <p>Anastasia ve diğerleri, gerçekten görmezden gelinemeyecek bu ilgi çekici haberin verilişiyle tam anlamıyla afalladı.</p>
+
+            <p>Ve böylece, ileriye dönük eylemlerini değiştirip değiştirmemelerine ve Ram'ın bu konuyla ilgili olarak gizlediği ayrıntıları öğrenmeleri gerekip gerekmediğine dair tartışmalar yoğunlaştı.</p>
+
+            <p>En sonundaysa Pleiades Gözcü Kulesinin kargaşaya dönüşen atmosferi içerisindeki Emilia, ellerini dua edercesine göğsünün üzerinde kavuşturdu ve bir zamanlar Yeşil Odanın bulunduğu koca delikten dışarıya bakarak,</p>
+
+            <p>Emilia: [Lütfen, Subaru… Gerçekten umuyorum ki Rem’le ikiniz için işler yolundadır.]</p>
+
+            <p style="text-align: center; text-indent: 0;">△▼△▼△▼△</p>
+
+            <p>―― Emilia’nın küçük duası kum denizinin üzerindeki kavruk gökyüzünde boğulup giderken aynı esnada çok ama çok uzaklarda,</p>
+
+            <p>Subaru: [―――― ]</p>
+
+            <p>Geniş bir çayırın üzerinde hareketli esintiler tarafından usulca okşanan bir oğlan ve kucağında da bir kız bulunuyordu.</p>
+
+            <p>Oğlanın siyah saçları ve beyazları oldukça belirgin, hançer gibi keskin gözleri vardı, bu göz şekli sanpakugan olarak bilinirdi; insanı mütemadiyen somurtuyormuş gibi gösteren, gerektiğinde bir can almak için tek bakışının yeteceği söylenen gözlerdi.</p>
+
+            <p>Ama şu anda oğlanın dudakları hiç olmadığı kadar kıvrılmış, gözlerinin köşeleri nemlenmişti. Haykırıp ağlamamak için her şeyini verdiği bir andı.</p>
+
+            <p>E elbette ki bu sonuç çok doğaldı.</p>
+
+            <p>Bu anı çok uzun bir süre beklemişti. Keder içerisinde, bekleyiş içerisinde geçirdiği günlerin hiçbiri, kısacık bir an için bile gözlerini hemen önündeki o kızın üzerinden ayırmasına müsaade etmemişti.</p>
+
+            <p>Ve şimdi sımsıkı kucakladığı o kız, ışıl ışıl, masmavi saçlarının arasından kendisine bakıyordu.</p>
+
+            <p>Gözleri irileşmişti, fakat tatlı suratındaki karşı koyma gücü pek azdı. Uykudan yeni uyanmış ve hala uyku sarhoşuymuş gibi bir hali vardı.</p>
+
+            <p>Açıkçası mesele tam da buydu. Nihayet uzun, upuzun bir uykudan uyanmıştı, dolayısıyla gerçeklikten kopmuş hissedeceği çok barizdi.</p>
+
+            <p>Rem: [……Ah… umm… ]</p>
+
+            <p>Subaru’nun az önce söyledikleri üzerine düşünürcesine dudakları kımıldıyordu.</p>
+
+            <p>Onu izleyen oğlan――Natsuki Subaru’ysa şevkle kafasını salladı.</p>
+
+            <p>Subaru:  [Evet, aynen öyle, aynen öyle işte, Rem. Ben senin Kahramanınım. Çok uzun zamandır bekliyordum… ]</p>
+
+            <p>Rem: [―――― ]</p>
+
+            <p>Subaru: [Rem? ]</p>
+
+            <p>Sesindeki titremeyi bastırmaya çalışan Subaru, çaresizce Rem’den bir şeyler duymaya çalışıyordu.</p>
+
+            <p>Belki de susuzluğu veya onun gibi bir sebepten ötürü dudakları kımıldasa ve dili damağına vursa da boğazından bir ses çıkmıyordu. Buna rağmen onun kurmaya çalıştığı iletişimden bir nebze olsun faydalanabilmek adına kulağını Rem’in ağzının dibine getirdi.</p>
+
+            <p>Rem’in herhangi bir şey aktarmaya yönelik yetersiz girişimleri, Subaru’yu muazzam bir neşeyle dolduruyordu.</p>
+
+            <p>Rem: […m. ]</p>
+
+            <p>Subaru: [Dinliyorum, acele etmene gerek yok, tamam mı? Rem, bana ne söylemeye… ]</p>
+
+            <p>Çalışıyorsun, diyecekken sözü kesildi.</p>
+
+            <p>Çünkü kulaklarını Rem’i dinleyecek kadar yaklaştırdığı anda kafası ve çenesine bastırılan bir el, düşüncelerini duraksattı.</p>
+
+            <p>Bu akışın ardından da tepetaklak edilerek yere devrildiğini hissetti.</p>
+
+            <p>Ve sonra da――</p>
+
+            <p>Subaru: [……Re…Rem? ]</p>
+
+            <p>Kendisini sırtüstü çimlere yatmış, Rem’i de üzerine oturmuş halde buldu.</p>
+
+            <p>Afalladı, kaskatı kesilerek kalakaldı. Rem’in üzerine diktiği gözleri onu baştan aşağı taradı.</p>
+
+            <p>Ve sonra da hafif bir iç çekişle birlikte,</p>
+
+            <p>Rem: [Hedeflediğin şey ne? Hemen bana ne yapmaya niyeşlendiğini söyle! ]</p>
+
+            <p>Subaru: [―――― ]</p>
+
+            <p>Rem: [Durduk yere kendine Kahraman falan diyorsun ve…… Rem de kim? Anlat çabuk! ]</p>
+
+            <p>Dizlerini Subaru’nun omuzlarına bastıran Rem’in elleri Subaru’nun boynuna uzandı. Ağırlığı üzerine binen Subaru kımıldamaya çabalıyor, bacakları huzursuzca seğiriyordu.</p>
+
+            <p>Fakat Rem’in onu dizginlemekteki başarısı hayranlık uyandırıcıydı. Subaru’nun özgürlüğünü kazanmasına müsaade etmiyordu.</p>
+
+            <p>Subaru: [Gu… ah… ghk…… ]</p>
+
+            <p>Rem: [Konuşmayı reddediyorsan sen bunu arzulayıncaya dek devam edeceğim. Kendi çileni uzatma lütfen. Konuş. Tam olarak neler dönüyor… ]</p>
+
+            <p>Subaru: [――Gha. ]</p>
+
+            <p>İstemsiz mi yoksa kasten mi bilemiyordu ama Rem’in boynuna uyguladığı güç, ona yanıt verme fırsatı tanımıyordu.</p>
+
+            <p>Oksijen eksikliği nedeninden zihni kararırken böyle devam etmesine izin vermenin ölümüyle sonuçlanacağının farkına varıyordu.</p>
+
+            <p>Çok uzun bir zaman olmuştu ve bu tek taraflı bir kavuşma olsa bile Subaru, Rem’in kendisini boğmasına izin verebilecek durumdaydı. Yo, böyle olmazdı.</p>
+
+            <p>Hatıralarında Subaru’ya dair hiçbir şey kalmasa bile…</p>
+
+            <p>Subaru: [A- Ah…… ]</p>
+
+            <p>Rem: [Artık konuşmak istiyor musun? Eğer öyleyse, iyi niyetle sana―― ]</p>
+
+            <p>Ancak tam da Rem, Subaru’nun yüzündeki gergin mücadele belirtileri karşısında kaşlarını çatarken,</p>
+
+            <p>Louis: [Ah-! Ooh-! ]</p>
+
+            <p>Rem: [――Kya-!? ]</p>
+
+            <p>Rem’in bedenine yan taraftan minyon bir gölge atıldı―― Yo, daha doğrusu Rem’in üzerine çullandı ve çimlerin üzerinde bedenine dolandı.</p>
+
+            <p>Üzerindeki ağırlığın gidişiyle birlikte Subaru, olduğu yerde yuvarlanıp öksürdü ve bulutlu, nemli gözleriyle Rem’e doğru baktı. Ve orada, Rem’le mücadele eden ufak bir kız gördü.</p>
+
+            <p>Louis: [Uuuー! Uuuuー! ]</p>
+
+            <p>Rem: [N-ne yapıyorsun sen… Kes şunu lütfen! Şu anda bunun vakti değil…]</p>
+
+            <p>Sarı saçları Rem’i bütünüyle örten küçük kız, kıpkırmızı suratındaki dişlerini göstererek uluyordu. Bu manzaraya tanık olup ne düşüneceğini bilemeyen Subaru’ysa kalakalmıştı.</p>
+
+            <p>Ardından derin bir nefes alarak ikiliye doğru koşturdu.</p>
+
+            <p>Ve sonra da――</p>
+
+            <p>Subaru: [Oi! Rem’den uzaklaş, hem de hemen! ]</p>
+
+            <p>Louis: [Ahー Uuuー!! ]</p>
+
+            <p>Subaru, Rem’in saçını çekmeye çalışan küçük kızı ――Başpiskopos Louis Arneb’i itekledi ve ellerini arkasında birleştirdi.</p>
+
+            <p>Hafif bedenli 『Oburluk』 mücadele etmeye çalışsa da nafileydi. Şu anda yapabileceği en iyi şey sağı solu tekmelemekti. Kıvrılıyor, inliyor ama elinden daha fazlası gelmiyordu.</p>
+
+            <p>Louis: [Auー! Uuuー Uuuuー!! ]</p>
+
+            <p>Subaru: [Lanet olsun, sana diyorum……! Mücadele etmeyi bırak……Sabit dur işte! Rem, sen iyi misin!? Sana bir şey yaptı mı!? ]</p>
+
+            <p>Rem: [Y-yo, ben iyiyim. Bundan öte, sana bunu defalarca söyledim…]</p>
+
+            <p>Subaru Louis’i yerde tutar halde bağırırken Rem, çatık kaşlarla karşılık verdi. Ve gözlerini üzerinden ayırmadan ayağa kalkmaya teşebbüs ederken――</p>
+
+            <p>Rem: [――Eh? ]</p>
+
+            <p>Dizlerinin bağı çözülmüşçesine yere yığıldı.</p>
+
+            <p>Onun bu tuhaf düşüşü, Subaru’nun zihninde bazı sorular doğururken gözlemlendiğinin bilincinde olmayan Rem, dizlerine bastırarak bir kez daha ayağa kalmaya çalıştı. Fakat――</p>
+
+            <p>Rem: [……Bacaklarım…]</p>
+
+            <p>Subaru: [Bekle, ayağa kalkamıyor musun?]</p>
+
+            <p>Rem: [Y..yo, bu… doğru değil… Bu hiç doğru değil…]</p>
+
+            <p>Subaru’nun güçlü beyanını çürütmeye çalışan Rem’in sesi titriyordu. Fakat o güçlü iradesi bile ayağa kalkmasına imkan tanımıyordu. Bırakın dengesini sağlamayı, ayaklarına en ufak bir güç bile veremiyordu.</p>
+
+            <p>Subaru: [Çok uzun süre uyuduğun için kendini güçsüz mü hissediyorsun? Yo, bu doğru olamaz. Az önce beni bastırmak için kullandığın güç hiç de uzun süredir yatalak olan birine aitmiş gibi değildi.]</p>
+
+            <p>Uzun süre hastanede kalan bireylerin muhtemelen egzersiz eksikliğinden ötürü er ya da geç güçsüz düşeceği, sıklıkla bahsi geçen bir şeydi.</p>
+
+            <p>Bu kişilerin yeniden ayağa kalkıp yürüyebilmek için rehabilitasyona ihtiyaç duyduğu da iyi bilinen bir gerçekti, ama bu yalnızca bacaklarla mı sınırlı olurdu?</p>
+
+            <p>Rem ‘hastanede yatma sürecinde’ üst bedenini de kımıldatmış değildi. Bir yılı aşkın süredir uyuyordu, yani yalnızca bacakları değil, tüm bedeni güçsüz düşmüş olsaydı bu durum anlamlı olabilirdi.</p>
+
+            <p>Yine de Rem’in içinde, bedeninde bir kopukluk mevcuttu. Ve muhtemelen bunun sebebi ――</p>
+
+            <p>Subaru: [――Bir saniye, sebep Nee-sama’nın mücadelesinin geri tepmesi olabilir mi?]</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="arc7bolum1parca1.html" class="nav-btn">← Önceki Parça</a>
+            <a href="arc7bolum1parca3.html" class="nav-btn">Sonraki Parça →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

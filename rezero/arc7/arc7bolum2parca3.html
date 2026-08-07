@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VII, Bölüm 2 Parça 3 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc7bolum2parca2.html" class="nav-btn">← Önceki Parça</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc7bolum3parca1.html" class="nav-btn">Sonraki Parça →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VII, Bölüm 2 Parça 3</h1>
+            <div class="subtitle">"Kurtlar Ülkesi"</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Subaru: [Ah, sakinleşecek vakit değil. Hey, tüm bu sorgulama için üzgünüm ama mavi saçlı bir kız gördün mü? Buralarda ayrı düştük de.]</p>
+
+            <p>Maskeli adam: [Mavi saçlı mı? Hayır, görmedim. Buraya gelirken gördüğüm ilk şey senin suratındı. Bu konuda ne yapacaksın?]</p>
+
+            <p>Subaru: [Bu konuda hiçbir şey yapmayacağım, o da ne demek oluyor!? Bu konuda hiçbir şey yapmayacağım ama…… kahretsin, burası da başarısızlıkla sonuçlandı, ha. Hey, küçük bir ihtimal ama onu aramama yardım etmen mümkün mü acaba……]</p>
+
+            <p>Maskeli adam: [――――]</p>
+
+            <p>Subaru: [Hı hı, ben de öyle düşünmüştüm……]</p>
+
+            <p>Bir tanık ifadesi alamamış ve son çare olarak tutunduğu insani ilişkiler ipi de gözlerinin önünde kesilmişti.</p>
+
+            <p>İsteğine aldığı yanıt, maskeli adamın dokunduğu her şeyi parçalayabilecek keskin bir bıçak misali dondurucu bakışları olmuştu. İşte bu şekilde yitirdiği zamanı telafi etmek için ormana dönmeye çalışırken,</p>
+
+            <p>Maskeli adam: [Dur. Bu ormanda ayrıldıysanız kolay kolay kavuşamazsınız. Gerçi ben senin izleyebileceğin en iyi yolun kendi kurtuluşuna öncelik vermek olduğuna inanıyorum.]</p>
+
+            <p>Subaru: [――Üzgünüm ama böyle bir ihtimal yok. Şöyle ki, o kız benim hayatımdan daha önemli. Ne pahasına olursa olsun onunla kavuşmam gerekiyor. Yo, onu evine götürmem gerekiyor.]</p>
+
+            <p>Maskeli adam: [Hayatından daha önemli, ha. Şarkıcıların ahenkli şiirleri bir yana gerçek hayatta böyle şeylere ancak boş sözler gözüyle bakabilirim. Evet, ancak öyle yapabilirim ama gözlerin ilgimi çekiyor.]</p>
+
+            <p>Pervasızlığıyla alay edilen Subaru’nun bakışlarının yoğunluğu artarken maskeli adam, bir parmağıyla Subaru’nun gözlerini işaret etti.</p>
+
+            <p>Subaru gözlerini oyacağı düşüncesiyle geri çekilirken ise kıs kıs gülerek,</p>
+
+            <p>Maskeli adam: [Bunlar yalan söylemeyen ya da iftira atmayan gözler. Hayatını bir teraziye koyduğumuzda da aynı sonuç çıkar mı bilmiyorum ama şu anda söylediklerin bir aldatmacaymış gibi görünmüyor.]</p>
+
+            <p>Subaru: [Ee…… yani? Söylediklerim doğruysa ne olacak?]</p>
+
+            <p>Maskeli adam: [――Az çok ilgimi çekecek. Ve ben de zekamdan faydalanmana izin vereceğim.]</p>
+
+            <p>Diyen maskeli adam, bir parmağıyla şakağının etrafındaki bölgeye vurdu.</p>
+
+            <p>Onun yanıtını işiten Subaru’ysa “Dalga geçmeyi kes!” diye bağırmayı düşünse de boğazından böyle sert bir beyan kaçmadı.</p>
+
+            <p>Gizemli ve tuhaf bir şekilde, bu adama yöneltebileceği bir şüphe besleyemiyordu. ――Yo, adam kesinlikle şaibeliydi. Ama buna baskın gelen bir ikna ediciliği vardı.</p>
+
+            <p>Büyük olasılıkla doğuştan sahip olduğu karizmanın etkisiydi.</p>
+
+            <p>Maskeli adam: [Tam olarak neler yaşandığını detaylarıyla tarif et. Onu araman için bir yol bulacağım.]</p>
+
+            <p>Subaru: [……O ve ben bir anda buraya fırlatıldık.]</p>
+
+            <p>Diyen Subaru, farkına bile varmadan yavaş ve düzenli bir şekilde adamın sorusunu yanıtlamaya başladı.</p>
+
+            <p>Bu herife gerçekten inanıyor veya güveniyor değildi. ――Yalnızca denize düşüp yılana sarılacak kadar çaresizdi. Böyle hissettiğinde de yılandan bile daha az güven veren insanlara dahi bel bağlamak istiyordu.</p>
+
+            <p>Belki de mesele yalnızca buydu.</p>
+
+            <p style="text-align: center; margin: 2em 0; color: var(--accent-color);">△▼△▼△▼△</p>
+
+            <p>Maskeli adam: [Dikkatsizlik etmişsin.]</p>
+
+            <p>Subaru koşullarıyla ilgili açıklamalarının sonuna ulaştığında maskeli adamın ilk sözleri bu şekilde iğneleyici oldu.</p>
+
+            <p>Subaru, tam da adamın kendisinden istediği gibi ona kendisiyle Rem arasında yaşananları açıkça anlatmıştı ― tabii başlarındaki karmaşık durumu atlayarak.</p>
+
+            <p>Ona Rem’in hatıralarının karman çorman olduğunu ve kendisini bayılttıktan sonra kaçtığını anlatmıştı. Ve tehlikeli bir kızla birlikte olduğu bilgisini de dahil etmişti.</p>
+
+            <p>Subaru: [Biliyorum. Biliyorum, koca bir aptal gibi davrandım. Ama bununla kalmayacaksın… değil mi? Yakın zamanda edindiğim karanlık geçmişimi öğrenip benimle dalga geçmekle yetinmeyeceksin yani……]</p>
+
+            <p>Maskeli adam: [Aptal. Değerli vaktimi senin gibi bir soytarıyla alay etmeye harcayacak kadar ileri nasıl gidebilirim ki? ――O kızın tepkileri, nispeten hızlı olabiliyor, değil mi?]</p>
+
+            <p>Subaru: [Ah, evet, sanırım, olabilir.]</p>
+
+            <p>Maskeli adamın yaydığı havayla gözü korkan Subaru, dürüstçe başını salladı.</p>
+
+            <p>Çok yönlü bir hizmetçi olan Rem, günlük hayatın çeşitli anlarında aktif bir rol oynardı ama bu değerlendirme yalnızca ev işlerinde becerikli olmakla elde edilemezdi.</p>
+
+            <p>Farklı kişilerin becerilerini belirleyip onları harekete geçirmeden önce uygun konumlara yerleştirirdi. ――Mücadeleler esnasında bile Subaru’nun hareketlerini öngörür ve onun bunu çağrıştıracak hiçbir şey söylememesine rağmen onunla senkronize hareket ederdi.</p>
+
+            <p>Rem zeki biriydi. Yani hatıralarını yitirmiş olsa bile――</p>
+
+            <p>Maskeli adam: [Öyleyse oyuna getirilmiş olma ihtimalin çok yüksek.]</p>
+
+            <p>Subaru: [O-oyuna getirilmek mi? Kandırıldığımı mı söylüyorsun? Bu… Yo……]</p>
+
+            <p>Maskeli adam: [Bu durumda mesele hafızasının yerinde olup olmaması değil. Asıl mesele, bu kızın takip edildiğinin farkında olması ve kendisini takip eden kişiye karşı önlem alma yeteneği taşıması. Örneğin――]</p>
+
+            <p>Sözlerini bu noktada sonlandıran maskeli adam, kara gözleriyle Subaru’yu baştan ayağa süzdü.</p>
+
+            <p>Düşüncesizliğinin eleştirildiğini hisseden Subaru’nunsa omuzları düştü.</p>
+
+            <p>Ve Subaru’ya bakan maskeli adam, gözlerini kısarak,</p>
+
+            <p>Maskeli adam: [Örneğin, kaçmış olduğu yönü gizlemek için çimenlerin üzerinde kasıtlı izler bırakmak gibi.]</p>
+
+            <p>Subaru: [――――]</p>
+
+            <p>Maskeli adam: [Bilinçsiz hale getirilip uyandıktan sonra epey gerilmiş olmalısın. Peki onu bir an önce bulman gerektiğini hissederken gözüne sokulmuşçasına oraya yerleştirilmiş ayak izlerini görünce ne yaptın?]</p>
+
+            <p>Coşkulu ve hevesli Subaru, kırma bir köpek gibi o izlerin peşinden koşturmuştu.</p>
+
+            <p>Gerçekte olan da maskeli adamın alaycı bakışlarının karşılığı da buydu. Elbette itiraz edebilir, öyle olmadığını söyleyebilirdi ama――</p>
+
+            <p>Subaru: [―― Evet, ormanın derinliklerine ilerledikçe girişten gelen yeni izler bulamadım. Ama bunun yolun sarp ve yürünmesi zor oluşundan kaynaklandığını düşünmüştüm……]</p>
+
+            <p>Maskeli adam: [İnsan kendisi için sakıncalı olan gerçekten gözlerini kaçırmamalı.]</p>
+
+            <p>Subaru: [Salağın ve aptalın teki olduğumun uzun zamandır farkındayım. Beni diğer benle aynı seviyeye ulaştıran şeyler yalnızca uyum kabiliyetim ve irade gücüm.]</p>
+
+            <p>Söylediği şeyler karşı tarafa geçemeyecek olsa da maskeli adamı bu şekilde yanıtladı.</p>
+
+            <p>İşin doğrusu adamın spekülasyonları çok mantıklıydı. Geriye dönüp bakınca çimenlerde bırakılan izler fazla “bariz” idi.</p>
+
+            <p>Tilki ve tavşan gibi bazı vahşi hayvanlar, avcıların kafasını karıştırmak adına kasıtlı olarak ayak izi bırakmak veya yolun ortasında ot yığınlarına atlamak gibi teknikler kullanırdı.</p>
+
+            <p>Rem’in çimlerde bıraktığı izler de aynıydı, öyleyse ya o izler Subaru’yu aldatmak için kullandığı kurnazca bir tuzaktıysa?</p>
+
+            <p>Subaru: [Beni farklı bir yöne yönlendirip kendisi öbür tarafa mı gitti yani……?]</p>
+
+            <p>Maskeli adam: [Bu durumda seçilen taraf genellikle tam tersi olur. Ruh hali düşünülünce olabildiğince uzaklaşmak için bu yönteme başvurmuş olması mantıklı. ――Anlıyor musun?]</p>
+
+            <p>Subaru: [……Sinir bozucu olsa da anlıyorum. Kahretsin! Ah be Rem!]</p>
+
+            <p>Tam da maskeli adamın söylediği üzere Rem’in bir aldatmaca olarak kasten belirgin izler bıraktığı takdirde tam tersi yöne kaçmış olma ihtimali yüksekti.</p>
+
+            <p>Bununla birlikte Subaru, onun eylemlerine yönelik iyi bir tahminde bulunup ormanın diğer tarafına ilerlerse onu yakalamanın bir yolunu bulabilirdi. Kendisini kötü bir adam gibi hissetse de――</p>
+
+            <p>Subaru: [Suratım ve kokum gibi şeyler yüzünden insanlarda kötü bir ilk izlenim bırakmaya alışkınım. Onu kesinlikle yakalayacağım!]</p>
+
+            <p>Maskeli adam: [Amma da enerjiksin. ――Buyur, bunu da yanına al.]</p>
+
+            <p>Subaru: [Ueeh!?]</p>
+
+            <p>Subaru ayağa kalkar ve daha fazla yerinde duramayarak hızla uzaklaşmaya yeltenirken maskeli adam, çantasını avuçlayarak içerisinden bir şey fırlattı.</p>
+
+            <p>Avcuyla yakaladığı nesneye bakan Subaru’ysa o şeyin deri bir kılıfın içerisine yerleştirilmiş küçük bir bıçak olduğunu gördü.</p>
+
+            <p>Bu durum karşısında gözleri irileşirken maskeli adam omuz silkerek,</p>
+
+            <p>Maskeli adam: [Burası tek bir kırbaçla yüzleşebileceğin bir orman değil. Elinden gelenin en iyisini yapmalısın.]</p>
+
+            <p>Subaru: [Bunun için gerçekten minnettarım ama…… emin misin? Şu anda iyiliğinin karşılığında hiçbir şey yapamam.]</p>
+
+            <p>Maskeli adam: [Umurumda değil. Bazen birilerine bir şeyler bahşeden taraf olma isteği duyuyorum. Yoksa o bıçakla beni her şeyimden mahrum etmeye mi kalkışacaksın?]</p>
+
+            <p>Kulağa şaka yapıyormuş gibi gelse de Subaru’ya bunu gerçekleştirecek gücü bahşetmiş olduğu doğruydu.</p>
+
+            <p>Evet, maskeli adam belli bir yeteneğe sahipti ama ne kadar ufak olsa da Subaru’nun ona karşı hiçbir şansının olmayacağı söylenemezdi. Bu bağlamda adamın yaptığı şey, bir nevi kumar oynamaktı.</p>
+
+            <p>Bununla birlikte――</p>
+
+            <p>Subaru: [――Benim adım Natsuki Subaru. Sana borçlandığım gün gibi ortada. Ve bana yaptığın iyiliğin karşılığını kesinlikle vereceğim. Nankörlük etmeyeceğim.]</p>
+
+            <p>Aldığı bıçağı beline sıkıca bağlayan Subaru, saygıyla eğildi. Ona bakan maskeli adamsa “Hmph” şeklinde ufak bir homurtuyla,</p>
+
+            <p>Maskeli adam: [Sana gidişatı çoktan gösterdim. Hadi, yola koyul artık. O kaçak kızın güvenini kazanmak için mümkün olan her yola başvurmalı, her şekilde çabalamalısın.]</p>
+
+            <p>Subaru: [Tamamen katılıyorum. Yardımların için teşekkürler! Oh bekle, her şey iyi hoş da……]</p>
+
+            <p>Maskeli adam: [Ne oldu?]</p>
+
+            <p>Minnettarlığını ifade etmek için el sallayan Subaru, ormana doğru koşturmak üzereyken ansızın duraksadı. Meşgul görünümünden ötürü maskeli adamın sesinde bir kızgınlık sezilse de Subaru, parmağıyla önündeki ormanı işaret ederek,</p>
+
+            <p>Subaru: [Ben bulunduğum çayırlığa dönmek için buradan geçeceğim ama sen gerçekten bu yolu kullanmamalısın. Orada korkutucu bir avcı var. Seni uzaktan yayla öldürmeye çalışacaklar, yani kaç canın olursa olsun onların karşısında yeterli olmaz. Bir yerlere gideceksen ormanın etrafından dolanmanı tavsiye ederim.]</p>
+
+            <p>Maskeli adam: [―― Demek öyle. Anlıyorum. Bunu aklımda tutacağım.]</p>
+
+            <p>Subaru: [Hı hı, öyle yap lütfen. ――Görüşürüz!]</p>
+
+            <p>Maskeli adamın yanıtını işiten Subaru, velinimetinin avcı tarafından anında öldürülmesine mani olmayı başarmış, ağzının tadını kaçıracak potansiyel bir durumdan kaçınmıştı.</p>
+
+            <p>Böylece olabildiğince hızlı şekilde ormana doğru koşturarak tüm gücüyle ilk çayırlığa doğru ilerlemeye başladı.</p>
+
+            <p>Subaru: [――Cidden iyi kesiyor!]</p>
+
+            <p>Neyse ki ilk çayırlığa dönmekten yana çok sorun çekmedi.</p>
+
+            <p>Çünkü maskeli adamın verdiği bıçağın ucu keskindi ve önüne çıkan dallarla yaprakları kesme konusunda büyük bir katkısı oluyordu.</p>
+
+            <p>Normal şartlarda fazla kullanılan bıçakların uçları fena halde körelirdi ama Subaru, böyle bir rahatsızlık duymuyordu. Belki de elindeki, en iyi kalitede harikulade bir bıçaktı.</p>
+
+            <p>Subaru: [Kıyafetleri de bayağı pahalı görünüyordu. O herif tam olarak kimin nesiydi ki……?]</p>
+
+            <p>Subaru, aklında bu düşüncelerle, büyük bir hızla başlangıçtaki çayırlığa döndü. Sonra da aksi istikamete yönlendirildiği alanı arayarak――</p>
+
+            <p>Subaru: [――Buldum. Bu olmalı.]</p>
+
+            <p>Kasten yerleştirilmiş izlerin öteki tarafında, çimenlerin şeklini bozan bir çift ayak izi keşfetti. Görünen o ki Rem, kendi izlerini gizlemek için elinden gelenin en iyisini yapmış ama büyük ihtimalle kendininkini silerken Louis’in izlerini tam anlamıyla silememişti.</p>
+
+            <p>O izleri yok etmek için harcanan çaba ortada olduğu için bu seferkinin de bir aldatmaca olduğunu düşünmek mantıksızdı.</p>
+
+            <p>Bu da demek oluyor ki――</p>
+
+            <p>Subaru: [Nihayet izini buldum, Rem……!]</p>
+
+            <p>Subaru, daha önce de farkına varmış olmasına rağmen Rem’in yeni keşfetmiş olduğu izlerinin peşine düşüp tüm hızıyla koşarken kendisini tam bir kötü adam gibi gösterecek bu kelimeleri kullandı.</p>
+
+            <p>Ormanın girişine dek devam eden izler, geçen seferkiyle aynıydı. Ama girişteki kırık dalları ve çamurlardaki ayak izlerini gizlemek mümkün değildi.</p>
+
+            <p>Subaru: [Buldum işte! Bunu kullanırsam――]</p>
+
+            <p>‘Rem’e yetişebilirim.’ Çamurların üzerindeki izleri takip etmeyi düşünen Subaru’nun aklından geçen şey buydu.</p>
+
+            <p>Ancak hemen sonrasında…</p>
+
+            <p>Subaru: [――hk!?]</p>
+
+            <p>Ayak izlerine dikkat kesildiği sırada, ayaklarının altına bağlı bir asma dalı kırıldı. Ve geri tepmenin etkisiyle onun desteklediği dal Subaru’ya doğru fırlayarak yan tarafından güçlü bir darbe indirdi.</p>
+
+            <p>Subaru: [Gh, ağh]</p>
+
+            <p>Hemen hemen kolu kalınlığında bir daldan yatay bir kesik yiyen Subaru, uzun bir mesafeye uçuruldu. Ve ağzından acılı bir çığlık kaçar halde çamurda yuvarlanarak darbenin etkisiyle ayağa kalkamaz hale geldi.</p>
+
+            <p>Görüşü aydınlıkla karanlık arasında gidip gelen ve beklemediği, sürpriz bir saldırıya uğrayan Subaru’nun bilinci, acı ve şok etkisiyle bir polis arabası ışığı misali dönmeye başladı.</p>
+
+            <p>Subaru: [Y-yoksa bu……]</p>
+
+            <p>Bir müddet sonra acısı yatıştığındaysa olduğu yerde doğrulmayı başardı. Bu darbenin dizlerini etkilediğini bilse de bedeninin yan tarafındaki iç hasarın muazzam olduğunun da farkındaydı.</p>
+
+            <p>Fakat şaşkınlığı, bunların da ötesindeydi.</p>
+
+            <p>Subaru: [――Bir tuzak mıydı?]</p>
+
+            <p>Rem, kaçıyor olmasına rağmen bunu basitçe gerçekleştirmiyordu.</p>
+
+            <p>Hatıralarını yitirmesine rağmen kendini tam anlamıyla verebilecek kapasitedeydi. İşte o kız ― Rem, bu denli korkutucu olabilirdi.</p>
+
+            <p>Ve Natsuki Subaru, o anda nihayet farkına varmıştı.</p>
+
+            <p>――Bu, bu dünyaya vardı varalı Rem’le gerçekleştireceği ikinci gerçek, sahici mücadelenin başlangıcıydı.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="arc7bolum2parca2.html" class="nav-btn">← Önceki Parça</a>
+            <a href="arc7bolum3parca1.html" class="nav-btn">Sonraki Parça →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

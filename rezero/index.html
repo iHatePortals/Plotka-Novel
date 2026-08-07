@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero - Arc Seçimi</title>
+    
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            /* Re:Zero Özel Mavi Tema Renkleri */
+            --accent-color: #00d2ff;
+            --border-color: #2a2a2a;
+            --btn-bg: #2d323e;
+            --btn-hover: #00d2ff;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .arc-container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .top-nav {
+            margin-bottom: 25px;
+        }
+
+        .top-nav a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            display: inline-block;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .top-nav a:hover {
+            opacity: 0.8;
+            transform: translateX(-3px);
+        }
+
+        /* Duyarlı Grid: Esnek Kolon Yapısı */
+        .grid-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+            align-items: stretch;
+        }
+
+        .arc-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .arc-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2);
+        }
+
+        /* Resim Alanı: Tam Görsel Boyutu (Kırpma Yok) */
+        .image-container {
+            position: relative;
+            width: 100%;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* Hover & Mobil Açılır Özet Katmanı */
+        .summary-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(18, 18, 18, 0.94);
+            color: #d1d5db;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 5;
+            overflow-y: auto;
+        }
+
+        /* Masaüstünde Üzerine Gelince Göster */
+        @media (hover: hover) {
+            .arc-card:hover .summary-overlay {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        /* Mobilde 'active' Class'ı Alınca Göster */
+        .summary-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .summary-text {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+            margin: 0;
+        }
+
+        /* Kart İçeriği (Başlık ve Butonlar) */
+        .card-content {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+            gap: 12px;
+            background-color: var(--card-bg);
+            z-index: 6;
+        }
+
+        .arc-title {
+            color: var(--accent-color);
+            font-size: 1rem;
+            margin: 0;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .read-btn {
+            display: block;
+            flex: 1;
+            padding: 12px 0;
+            background-color: var(--btn-bg);
+            color: #ffffff;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .read-btn:hover {
+            background-color: var(--btn-hover);
+            color: #000000;
+        }
+
+        /* Mobilde Özet Aç/Kapat Butonu */
+        .info-btn {
+            display: none;
+            padding: 12px 14px;
+            background-color: #2a2a2a;
+            color: var(--accent-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .info-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="arc-container">
+        <div class="top-nav">
+            <a href="../index.html">← Ana Sayfa</a>
+        </div>
+
+        <div class="grid-wrapper">
+
+            <!-- KISIM VI -->
+            <div class="arc-card">
+                <div class="image-container">
+                    <img src="arc6.jpg" alt="Kısım VI" class="card-image">
+                    <div class="summary-overlay" id="summary-arc6">
+                        <p class="summary-text">
+                            LARPLAR ile verilen mücadelenin ardından ekip Pleiades Gözcü Kulesi'ne doğru yola çıkar. Hafızaların, kayıpların ve kimlik arayışının ön plana çıktığı bu zorlu süreçte Subaru, en trajik döngülerinden biriyle yüzleşecektir.
+                        </p>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="arc-title">KISIM VI – ANILAR KORİDORU</h2>
+                    <div class="button-group">
+                        <button class="info-btn" onclick="toggleSummary('summary-arc6')">ℹ️</button>
+                        <a href="arc6bolumler.html" class="read-btn">OKUMAK İÇİN TIKLA!</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KISIM VII -->
+            <div class="arc-card">
+                <div class="image-container">
+                    <img src="arc7.jpg" alt="Kısım VII" class="card-image">
+                    <div class="summary-overlay" id="summary-arc7">
+                        <p class="summary-text">
+                            Kum denizinin kulesinin ardından kader Subaru'yu dostlarından uzağa, sırlarla dolu bir coğrafyaya sürükler. Yabancı topraklarda hayatta kalma mücadelesi veren Subaru, beklenmedik karşılaşmalar yaşar.
+                        </p>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="arc-title">KISIM VII – KURTLAR ÜLKESİ</h2>
+                    <div class="button-group">
+                        <button class="info-btn" onclick="toggleSummary('summary-arc7')">ℹ️</button>
+                        <a href="arc7bolumler.html" class="read-btn">OKUMAK İÇİN TIKLA!</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KISIM VIII -->
+            <div class="arc-card">
+                <div class="image-container">
+                    <img src="arc8.jpg" alt="Kısım VIII" class="card-image">
+                    <div class="summary-overlay" id="summary-arc8">
+                        <p class="summary-text">
+                            Vollachia İmparatorluğu iç savaş ve büyük bir felaketin eşiğindedir. Gökyüzü kızıl renge bürünürken, taht mücadelelerinin ve ağır kayıpların yaşandığı bu süreçte kaos tüm ülkeyi etkisi altına alır.
+                        </p>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="arc-title">KISIM VIII – VINCENT VOLLACHIA</h2>
+                    <div class="button-group">
+                        <button class="info-btn" onclick="toggleSummary('summary-arc8')">ℹ️</button>
+                        <a href="arc8bolumler.html" class="read-btn">OKUMAK İÇİN TIKLA!</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Mobil Özet Açma/Kapama Scripti -->
+    <script>
+        function toggleSummary(id) {
+            const target = document.getElementById(id);
+            document.querySelectorAll('.summary-overlay').forEach(el => {
+                if (el.id !== id) el.classList.remove('active');
+            });
+            target.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

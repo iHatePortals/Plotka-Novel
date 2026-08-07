@@ -1,0 +1,615 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VI, Bölüm 86 Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff; /* Görseldeki Açık Mavi / Cyan */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc6bolum85.html" class="nav-btn">← Önceki</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc6bolum87.html" class="nav-btn">Sonraki →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VI, Bölüm 86</h1>
+            <div class="subtitle">"Düne Dair Konuşmalar"</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <!-- Metin buraya eklenecek -->
+             <p class="wp-block-paragraph">Uzun zamandan beri kuşkuları vardı.</p>
+<p class="wp-block-paragraph">Sadakatle bağlı olduğu efendisinin, Roswaal L. Mathers’ın nihai amacına ulaşabilmesi uğruna Lugunica Krallığını koruyan Ejderha’nın öldürülmesi gerekiyordu.</p>
+<p class="wp-block-paragraph">Ram da Roswaal’ın bu planının hayati ve vazgeçilmez bir parçasıydı, bunu bizzat Roswaal’ın kendisinden duyuşunun üzerinden on yıla yakın süre geçmişti.</p>
+<p class="wp-block-paragraph">Ram ve ■■’i Oni klanının kızıl alevlerle sarılmış köyünden kurtaran Roswaal, tazminat arayışındaydı.</p>
+<p class="wp-block-paragraph">Ve Ram da Oni klanının intikamının alınması karşılığında o tazminatı ödemeye karar vermişti.</p>
+<p class="wp-block-paragraph">Yani ister Ejderha’yı öldürme planı olsun, ister başka bir şey, iş birliği yapacaktı.</p>
+<p class="wp-block-paragraph">Ancak kendi içinde yanıt bulamadığı tek bir şey vardı, o da Ejderha’yı öldürmenin yoluydu.</p>
+<p class="wp-block-paragraph">Kolay bir iş değildi. Planlar yapılsa, önlemler alınsa bile kolay olmayacaktı. O an gelecek olursa, Ram ne yapabilecekti ki?</p>
+<p class="wp-block-paragraph"><strong><em>Roswaal:</em></strong><em> “Zamanı geldiğinde bileceksin</em><em>—— </em><em>Rolünüzü, yalnızca sizin, abla ve </em><em>■■</em><em> ikilisinin yerine getirebileceği o rolü anlayacaksın.”</em></p>
+<p class="wp-block-paragraph">Bir zamanlar duyduğu bu şeyleri parça parça anımsıyordu.</p>
+<p class="wp-block-paragraph">Tuhaftır ki bugüne dek ne anlama geldikleri üzerine hiç derinlemesine düşünmemişti ama——</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong> “Roswaal-sama’nın hedeflediği şeyi, nihayet anladım.”</p>
+<p class="wp-block-paragraph">Roswaal’ın tüm eylemleri, uzun yaşamı boyunca kenetlendiği nihai hedefi içindi.</p>
+<p class="wp-block-paragraph">Kendisini Lugunica Krallığının derinliklerine bu amaçla gizlemiş, Ram ve ■■’i bu amaçla kurtarmış, Mabet’i bir mihenk taşı olarak bu amaçla kontrol altında tutmuş, Natsuki Subaru’yu bu amaçla test etmişti.</p>
+<p class="wp-block-paragraph">Orijinal planını kaçınılmaz olarak değiştirmek zorunda kalsa da o ana kadarki tüm hazırlıkları nafile değildi—— Yo, nafile olmalarına izin veremezdi, Roswaal da öyle biriydi.</p>
+<p class="wp-block-paragraph">Dolayısıyla Ram, cevabı kendi içerisinde bulmuştu.</p>
+<p class="wp-block-paragraph">Roswaal’ın Oni abla ■ ■ ikilisinin velayetini alma sebebini anlamıştı.</p>
+<p class="wp-block-paragraph">■, Ram’ın kayıp boynuzunun yedeği olarak alınmıştı.</p>
+<p class="wp-block-paragraph">Roswaal, abla ■ olan Ram ve ■■ ikilisini tek bir Oni gibi kullanarak Ejderha’yı öldürme amacıyla onları eline almıştı.</p>
+<p class="wp-block-paragraph">Elbette ki Roswaal bile Oburluk Otoritesinin etkilerinden kaçamamıştı.</p>
+<p class="wp-block-paragraph">Sonuç olarak onun da&nbsp;■■’i konağına alma sebebini unutmuş olması gerekiyordu. Ama unutmuş olsa bile benliğinin taşıdığı amacı anında çözmüş olmalıydı.</p>
+<p class="wp-block-paragraph">Ve Ram ile diğerlerinin ■■■’in Oburluk yüzünden gördüğü hasarı onarmak için çılgınca çabalayışını izlerken gerçeği açığa çıkartmamıştı. Dürüst olmak gerekirse onun——</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong> “Titiz mizacı değişmeyecek, öyle değil mi…”</p>
+<p class="wp-block-paragraph">Zamanında Subaru’nun eylemleri yüzünden planları aksamış olsa da sahne arkasından hedefine ulaşmak için çabalamaya ve bir hamle yapma şansı için tetikte kalmaya devam ediyordu.</p>
+<p class="wp-block-paragraph">Baş belası bir mizacı vardı. Kim bilir Ram onu izlemek için yanında yokken neler yapıyordu!</p>
+<p class="wp-block-paragraph">Gerçi başka bir şey daha düşünüyordu.</p>
+<p class="wp-block-paragraph">——Roswaal’ın Ram’ın; ■■’i kurtarmak için Subaru ve diğerleriyle bu yolculuğa katılmasına izin verme amacı, işlerin bu seyirde ilerleme ihtimalini öngörmesi olabilir miydi?</p>
+<p class="wp-block-paragraph">Belki de fazla kafa yoruyordu.</p>
+<p class="wp-block-paragraph">Daha en başta Oburluk Günah Başpiskoposunun Pleiades Gözcü Kulesinde belirmesi bile öngörülmedik bir gelişmeydi ve Roswaal’ın Ram ile ■■’in böylesine tehlikeli bir duruma düşeceğini tahmin etmesi imkânsızdı.</p>
+<p class="wp-block-paragraph">Tüm bunlar Ram’ın derinden sevdiği adamı gözünde büyüterek düştüğü abartılı bir yanılgı da olabilirdi. Lakin——</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong> “——Sevdiğin adamın sana güvendiğine inanmak çok daha iyi hissettiriyor.”</p>
+<p class="wp-block-paragraph">Ram orada olduğu takdirde ■■ ve diğer üyelerin güvende ve korunaklı olacağını düşündüğüne…</p>
+<p class="wp-block-paragraph">Ram’ın gerekirse kendisinin gizlediği varsayımı fark edip Ejderha’yı öldürme amaçlı kozunu hür iradesiyle devredeceğini düşünüp buna inandığına…</p>
+<p class="wp-block-paragraph">Roswaal L. Mathers isimli adamın Ram isimli kadının on yılını kabullenmiş olduğuna, tüm bunlara inanmak çok ama çok daha iyi hissettiriyordu. İşte bu yüzden——</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“——Ram şu anda gerçekten de kendisini hiç olmadığı kadar iyi hissediyor. Artık yere çakıl lütfen.”</p>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph">Yumruk Kralı Neiji Rockhardt tarafından elde edilen başarılar, Kutsal Vollachia İmparatorluğu Ginunhive’daki Gladyatör Adasına dair kayda değer öykülerdir—— Yani, bir zamanlar öyleydi.</p>
+<p class="wp-block-paragraph">Oburluk Otoritesinin trajedisiyle karşılaşıp hem İsmi hem de Anıları yağmalanınca bir gladyatör olarak başardığı şeyleri bilen hiç kimse kalmamıştı.</p>
+<p class="wp-block-paragraph">Neiji, güç sergilenmesi amacıyla kullanılan Gladyatör Adasında çıplak ellerini silah olarak kullanarak bir başına yüzlerce ölüm düellosundan sağ çıkmış, en nihayetinde de kölelikten kurtulma hakkını elde etmişti.</p>
+<p class="wp-block-paragraph">Avuçlarındaki rafine mücadele gücünü kullanıp kılıçları ve hançerleri karşılayışıyla, bir bakirenin yumuşacık teni misali karşısına çıkan her engeli, çeliği bile parçalayan yumruklarıyla, tarih boyunca en çok insanı ölümüne döven kişi olarak adlandırılması mümkündü.</p>
+<p class="wp-block-paragraph">Aşırıya kaçan gaddarca, alçakça tekniklere sahip Etobur Canavar Beli Heinelga ise Kutsal Gusteko Krallığı’nı sarsan, nadir rastlanır bir seri katildir—— Yani, bir zamanlar öyleydi.</p>
+<p class="wp-block-paragraph">Oburluk Otoritesinin trajedisiyle karşılaşıp hem İsmi hem de Anıları yağmalanınca bir katil olarak üstlendiği talimatları ve talihsizlikleri bilen hiç kimse kalmamıştı.</p>
+<p class="wp-block-paragraph">Beli, doğumundan itibaren anormal bir gelişim göstermiş, ortalama insanlar için imkânsız bir fiziksel beden gücü elde etmişti. Ve istediği erkekleri ölümüne kucaklayarak çok sayıda acımasız suç biriktirmişti.</p>
+<p class="wp-block-paragraph">Muazzam cüssesinin somutlaştırdığı insanüstü güce ve kılıç veya hançerlerden tek bir çizik dahi almayan sağlam bir deriye sahipti. Dokunmayı ve sıcaklık tatmayı arzulayan bu katil, Bağırsak Avcısıyla birlikte en çok korkulan suçlular arasındaydı.</p>
+<p class="wp-block-paragraph">Sıçrayıcı Dorkell’in kariyer tarihi de ilginçtir. Zamanında Kararagi Şehir Devletleri’nde yaşayan bir tüccar olan Dorkell, insanlık dışı bir şeyin sesini duyunca yolundan dönen bir sapkındır—— yani, bir zamanlar öyleydi.</p>
+<p class="wp-block-paragraph">Oburluk Otoritesinin trajedisiyle karşılaşıp hem İsmi hem de Anıları yağmalanınca bir sapkın olarak birçokları için alay konusu olduğu gerçeğini bilen hiç kimse kalmamıştı.</p>
+<p class="wp-block-paragraph">Dorkell bir gün karısı ve çocukları da dahil olmak üzere tüm hayatını bir kenara atmıştı. Ve var olmayanı benimseme yolunu seçerek Cadı Tarikatıyla bağlantı kurmayı tercih eden bir ucube olmuştu.</p>
+<p class="wp-block-paragraph">Ancak büyüden farklı, üstün bir güç kullanıp Cadı Tarikatı doktrininden ayrılmış, sapkınlıkların içerisindeki sapkınlığıyla Cadı Tarikatından bile sürülmüştü.</p>
+<p class="wp-block-paragraph">Başka bir deyişle bu kişiler, esrarengiz, eksantrik ve dengesiz şahıslardan oluşan üstün varlıklardı.</p>
+<p class="wp-block-paragraph">Sıradan insanların rakip olması imkânsız bireylerdi, ayrıca yalnızca kendileri olma meziyetiyle işleri yarım kalmış, Oburluğun içerisindeki türlü türlü Anıyla harmanlanmış ve en üstün niteliklere sahip nesnelere dönüşmüşlerdi.</p>
+<p class="wp-block-paragraph">Peki Neiji Rockhardt, Beli Heinelga’nın dayanıklılığını ve Dorkell’in siluet ışınlanması kabiliyetini elde etseydi ne mi olurdu?</p>
+<p class="wp-block-paragraph">Tarih boyunca çok nadir görülebilecek eşsiz, acımasız, şeytani ve gaddar bir varoluşun meyvesi olurdu.</p>
+<p class="wp-block-paragraph">Oburluk Günah Başpiskoposu Ray Batenkaitos, şu ana dek ve geçmişte yaşanan onca olay sırasında böyle bir şeye erişmemişti.</p>
+<p class="wp-block-paragraph">Kendisinin adını taşıyan koca güveç içerisinde olası tüm Anıları harmanlarsa kendi adını taşıyan varlık da o güveçte yer alabilir diye korkmuştu.</p>
+<p class="wp-block-paragraph">Ancak o karışık güveci tüketecek olsa bile içinde yer almayacaktı—— hiç değilse Batenkaitos’un düşüncelerinin aldığı şekil buydu.</p>
+<p class="wp-block-paragraph">Ve hâl böyle olunca bugüne dek yapmaya cesaret edemediği ne varsa denemiş, kendi benliğinin yerleşik sınırlarını aşma konusunda en ufak bir çekincesi veya tereddüdü kalmamıştı.</p>
+<p class="wp-block-paragraph">Bu dünyadaki her türlü mükemmelliği, üstün yeteneği, tarihi, potansiyeli—— “Gurme Lezzetlerinin” ufkuna dek her şeyi yemiş olan ve hepsini kendi içerisinde biriktirmekte ısrar eden Gurme, işte Ray Batenkaitos tam olarak buydu.</p>
+<p class="wp-block-paragraph">Böylece bugün, dünyanın en doğusunda yer alan kulede doğan şey, kalıtım ve tümevarımdan bağımsız olarak her teknik ve tuhaf yeteneğin bileşimini taşıyan bir Erkek Cadı* olmuştu.</p>
+<p class="wp-block-paragraph"><em>Ç.N: (2. Sezondaki Hector ile aynı ünvan yani. Belki bunu ileride değiştiririz.)</em></p>
+<p class="wp-block-paragraph">Her şeyi yok eden kollara, hiçbir saldırıyı kabullenmeyen bir fiziksel bedene, olası tüm teknikleri reddedip karşılayan büyü sanatlarına sahip olmuş ve hatta var olan her şeyi kavrayabilecek bir zekâ, deha ve bilgelikle donatılmıştı.</p>
+<p class="wp-block-paragraph">Mazide ne denli kapsamlı bir inceleme yapılırsa yapılsın her konuda bu denli yetenekli birinin hiç var olmadığı görülebilirdi ki böylesi, daha binlerce yıl boyunca var olmayacaktı da.</p>
+<p class="wp-block-paragraph">Bu, Cadı Faktörü olarak adlandırılan mide bulandırıcı musibetin ortaya çıkardığı, dünyanın olasılıklarına dair bir seçkiydi.</p>
+<p class="wp-block-paragraph">Yalnızca kusursuz nesnelerin katıldığı o güveçten doğma üstün “Gurme Lezzetin” ta kendisiydi——</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“——Sana, üç şans tanınacak.”</p>
+<p class="wp-block-paragraph">İşte o nadir rastlanır varlığın karşısındaki pembe saçlı genç kız, üç parmağını kaldırarak böyle söyledi.</p>
+<p class="wp-block-paragraph">Alnından kanlar akıyor, açık kırmızı gözleri buz gibi bir ışıltı taşıyordu. Tüm bedeni yaralarla kaplıydı ve ince bedeninin pek çok noktasında hareket etmesine mâni olan muazzam hasarlar barındırmayı sürdürüyordu.</p>
+<p class="wp-block-paragraph">Bunların dışında ayağa bile kalkamaması için daha dağlar kadar sebebi vardı. Batenkaitos, bunun farkındaydı.</p>
+<p class="wp-block-paragraph">Öncelikli sebepse yaraları veya kan kaybından ziyade minyon bedeninin adını taşıyan varoluşu kabullenen bir hazne olarak görevini yerine getiremeyişiydi—— Gerçekten yürek burkucuydu, böyle düşünüyordu.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Üç kez, ilk saldırıyı yapmana izin verilecek. Ram’ın test etmek istediği bir şey var. Fevkalade, değil mi?”</p>
+<p class="wp-block-paragraph">Gelin görün ki genç kız, bu duyguları zerre kadar umursamadan, rakibini kışkırtmak istercesine üç parmağını havada tutuyordu.</p>
+<p class="wp-block-paragraph">Üç kez, bu ölümcül bir karardı. Daha en başta, bir kez direnebilmesi bile inanılmaz olurdu.</p>
+<p class="wp-block-paragraph">Ve Batenkaitos’un bu doğrulamayı göz ardı etmesi için herhangi bir sebebi yoktu.</p>
+<p class="wp-block-paragraph">Bu bir tuzak olabilir mi diye bile düşünmüyordu.</p>
+<p class="wp-block-paragraph">Çünkü o genç kız, anlamsızca bu tarz bir teklifte bulunacak biri değildi. Yalnızca ona istediği şeyi içtenlikle vermesi gerektiğini düşünüyor, dizginlenmemiş özgüveninin kendi kendine kırılmasını bekliyordu.</p>
+<p class="wp-block-paragraph">Ayrıca o koca güvece dahil olduğu anda anlaşılacak başka şeyler de olabilirdi——</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“——Nee-sama, hazır ol.”</p>
+<p class="wp-block-paragraph">Böylece arka ayaklarında yoğunlaştırdığı güç patlamasıyla, gönlünce, şiddetli bir saldırı gerçekleştirdi.</p>
+<p class="wp-block-paragraph">Bu, Yumruk Kralının tekniği ve incelikli yıkıcı gücüyle dolu bir saldırıydı, tek bir genç kızı yok etmek için çok fazla kaçabilecek bir kudretteydi ve genç kızın hoş görünümlü bedeni tarafından karşılanmak üzereydi——</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Bu bir.”</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“——Hık!?”</p>
+<p class="wp-block-paragraph">Ancak tam da onu kesin olarak zapt edeceğini düşündüğü anda genç kızın yüzü, ince tüy tabakasını sıyırabilecek yakınlığına rağmen yumruktan kaçındı. Ve elini uzanmış olan kolun üzerine yerleştiren genç kız, indirdiği diz darbesiyle sağ kolu dirsekten itibaren ezdi.</p>
+<p class="wp-block-paragraph">Olanak dışı bir vukuattı. Göksel Kılıç kesiklerinin bile nüfuz edemeyeceği kuvvette bir fiziksel bedenin uzanmış olan koluyla dirsek eklemi—— genç kızın sadece orada var olan sabit bir noktaya dizini indirişiyle mahvedilmişti. Lakin——</p>
+<p class="wp-block-paragraph">Batenkaitos, sağ kolunun kırılışının etkisiyle genç kızın suratına doğru sol ayağını kaldırdı.</p>
+<p class="wp-block-paragraph">Kolu için misilleme yapmaya çalışmasa da rakibinin suratına tekme atmıştı. Uzun, ince bacağın beyaz dizi genç kızın hassas burnunu ezip kıracak, güzelim çehresini mahvedecekti——</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Bu iki.”</p>
+<p class="wp-block-paragraph">İnce dudaklarından bu kelimelerin döküldüğünü işittiğindeyse kulaklarından şüphe etti.</p>
+<p class="wp-block-paragraph">O ağzı işlemez hâle getirecek bir darbe indirmiş olmalıydı. Ama genç kız, yandan yaklaşan diz saldırısı karşısında onu takip edercesine çevikçe elini kımıldatmış, yörüngesini nazikçe yukarı yönlendirmişti.</p>
+<p class="wp-block-paragraph">Savurduğu dizi genç kızın kafasının üzerinden öyle sorunsuzca geçmişti ki daha en başta boş göğü izlemeyi hedeflemiş gibiydi. Ve——</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Bu da üç.”</p>
+<p class="wp-block-paragraph">Sağ kolu ve sol dizinin saldırılarından kaçınılınca Batenkaitos, topaç gibi dönen bedeninin itici gücünü kullanarak sol dirseğini sağlam ve keskin bir hareketle savurdu; doğrudan bir darbeyle genç kızın kafatasını meyve gibi ezecek, içeriğini zemine saçacaktı.</p>
+<p class="wp-block-paragraph">Yani—— en azından olması gereken buydu.</p>
+<p class="wp-block-paragraph">Ancak genç kızın şakağını hedefleyen darbe, yalnızca bedenini birkaç kez döndürmesiyle durduruldu.</p>
+<p class="wp-block-paragraph">Ve dirsek saldırısından gelişinden haberdarmışçasına kaçınan genç kız, bir kez daha uzattığı elleriyle rakibinin suratını kavradı.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Gerçekten aptalsın.”</p>
+<p class="wp-block-paragraph">Merhametsizliğin doruk noktasıyla sarf ettiği bu sözlerle birlikte de karşı tarafın kafatasını hızla yere geçirdi.&nbsp;</p>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph">Batenkaitos Ram’ın gözleri önünde kıvrılarak, bükülerek, dönerek, dolanarak formunu değiştirip ona doğru ilerlemiş ve onu yere yapıştıran Ram, suratına doğru üç parmağını uzatmıştı.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Üç şansı olduğunu düşünen kişi, o üç şansın üçünde de mağlup olur. Kazanmak için ciddi bir niyet bile taşımadan çarpışırsan talih tarafından bile terk edilirsin.”</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Bhu, gah… Hık.”</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Teşekkür ederim. Kanıtlanmış oldu—— Artık zamanın tevafuku bile Ram’ın düşmanı değil.”</p>
+<p class="wp-block-paragraph">Ram için en korkunç düşman, absürt talihin ta kendisiydi.</p>
+<p class="wp-block-paragraph">Fakat Ram, o talihi kendi elleriyle kovmuş ve hatta ayaklarına kapanmasını sağlamıştı.</p>
+<p class="wp-block-paragraph">Artık, korkacağı hiçbir şey kalmamıştı.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“——~tsu.”</p>
+<p class="wp-block-paragraph">Sere serpe yayılan Batenkaitos, iki bacağını da yukarı doğru sallayıp aşağı bırakarak ayaklandı. Ve Ram da kırık koluyla abanmaya çalışarak yaklaşan düşman karşısında hiç tereddütsüz öne çıktı.</p>
+<p class="wp-block-paragraph">Alnından kanlar dökülüyordu. Fakat o acı ve kayıp duygusu, kanını en derinlerinden kaynatıyordu.</p>
+<p class="wp-block-paragraph">Ah, gerçekten nasıl da sinir bozucuydu. Bu hissiyat, bu büyülenme, bunu oldu olası can sıkıcı bulurdu.</p>
+<p class="wp-block-paragraph">Savaşmayı hoş karşılayan, güç kullanmayı yücelten, öldürülmesi gereken düşmanları öldürme amacıyla kan kaynatan bir arzu doğuran tiksindirici Oni içgüdüleri, onlardan başından beri nefret ederdi.</p>
+<p class="wp-block-paragraph">İşte bu yüzden, o gece, boynuzu alnından kopup gittiğinde özgürlüğüne kavuştuğunu düşünmüştü ama gelin görün ki… &nbsp;</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Gerçekten amma ironik.”</p>
+<p class="wp-block-paragraph">Ram bu şekilde homurdanarak kendisine abanan kolu yakaladı ve aynı momentumla omzundan itip fırlattı. Rakibini yere yapıştırdı, kafasını tekmeledi, onu koridorun iç kısmına doğru itti.</p>
+<p class="wp-block-paragraph">Onun arkaya, yani sakatlanmış yer ejderiyle duvara yaslanan genç kızın bulunduğu yere yaklaşmasına izin veremezdi.</p>
+<p class="wp-block-paragraph"><strong>Rem: </strong>“————”</p>
+<p class="wp-block-paragraph">Hiçbir değişim göstermeden uyumaya devam eden genç kızın alnındaki boynuz, belirip kaybolan bir ışıltıyla varlığını belli ediyordu.</p>
+<p class="wp-block-paragraph">Aslında uyku hâlini sürdüren genç kızın, Oni klanının bir ferdi olmasına rağmen boynuzunu kullanamıyor olması gerekirdi.</p>
+<p class="wp-block-paragraph">Fakat geride kalan tarafın gerçek hisleri kaybolmuş olsa da Ram, o genç kızın ikiziydi—— ve aralarında “Sinestezi” olarak adlandırılan, kan bağı olan varlıklarda sıklıkla görülen konusuz bir bağlantı mevcuttu.</p>
+<p class="wp-block-paragraph">Geride kalan yıl boyunca mütemadiyen Rem’le ilgilenen Ram da o varlığı bizzat hissetmişti.</p>
+<p class="wp-block-paragraph">Ve Ram, yalnızca dış görünüş benzerlikleriyle değil, tam da bu hissiyat sayesinde o genç kızın kendisinin kardeşi olduğu gerçeğini hiç karşı çıkmadan kabullenmişti.</p>
+<p class="wp-block-paragraph">Bununla birlikte Rem’le arasındaki Sinestezi bile iş görmemişti.</p>
+<p class="wp-block-paragraph">Rem tek bir kâbus bile görecek olsa korkusu Ram’a aktarılmalıydı, ancak geride kalan yıl içerisinde Ram’a iletilen hiçbir şey olmamıştı.</p>
+<p class="wp-block-paragraph">Bu da demek oluyordu ki daimî bir uykuya dalmış olan Rem, hiç rüya görmüyordu—— Öylece gözkapaklarının ardındaki karanlığa bakıyor, ıssız, boş bir dünyada nefes almakla yetiniyordu.</p>
+<p class="wp-block-paragraph">Dolayısıyla Ram’ın bahsi geçen Sinesteziyi bu şekilde suistimal ettiğini fark etmesi bir tesadüften ibaretti.</p>
+<p class="wp-block-paragraph">Can sıkıcı olsa da bu, Subaru’nun fikrinden doğmuştu. O tuhaf bir güç aracılığıyla Ram’ın yükünü üstlendiği ve ona savaşma gücü bahşettiği için Ram, aynı şeyi başarabileceği bir fikir edinmişti.</p>
+<p class="wp-block-paragraph">Sinesteziyle bağlı olan kişiler zaman zaman güçlü duyguları, hatta yara ve acıları paylaşabilirlerdi.</p>
+<p class="wp-block-paragraph">Arkasındaki prensibi bilemese de bu hipotez, zamanında Beatrice’in yasaklı kütüphanesinde okuduğu bir kitabın içerisinde mevcuttu.</p>
+<p class="wp-block-paragraph">——Sinestezi olarak adlandırılan şey, iki farklı birey arasındaki Od bağlantısıyla çalışıyordu.</p>
+<p class="wp-block-paragraph">Od olarak adlandırılan şeyse insanın derinliklerinde var olan gücün kaynağıydı—— ruhla da eşanlamlı olabilirdi.</p>
+<p class="wp-block-paragraph">Bazı durumlarda büyü yapmak için mana yerine kullanılabilen bir şey olsa da Od, esasında insanı insan kılan saf özelliğin ta kendisiydi.</p>
+<p class="wp-block-paragraph">Aynı rahimden doğan, karşılıklı bir bağa sahip kişilerin hiç kimsenin izinsiz giremeyeceği bir bölgeye sahip olması Sinesteziyle sonuçlanabilirdi, ortaya atılan teori bu şekildeydi.</p>
+<p class="wp-block-paragraph">Neticede bu yaygın bir inanç olarak kanıksanmıştı, kanıtlanmış bir şey değildi.</p>
+<p class="wp-block-paragraph">Ancak yasaklı kütüphanede yer aldığına göre düzmece bir laf kalabalığından ibaret olmadığı da kesindi. Her şeyden öte Ram, şahsi olarak bu teoriden hoşlanmıştı.</p>
+<p class="wp-block-paragraph">Kişinin benliğinin bir başkasıyla doğuştan bağlantılı olması hoş bir şeydi.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Bu can sıkıcı boynuz yüzünden bir sürü sorun doğdu neticede.”</p>
+<p class="wp-block-paragraph">O beyaz boynuz tarafından aktarılan yıkım dürtüsü, Ram ondan tiksiniyordu.</p>
+<p class="wp-block-paragraph">Çevresindekilerin kendisini Oni Tanrısının reenkarnasyonu olarak yüceltmesi de Ram’ı çileden çıkartıyordu. O karanlık, mazide kalmış varlıkla en ufak bir bağ taşımıyordu.</p>
+<p class="wp-block-paragraph">Ram böylesi bir varlıkta değer göremezdi.</p>
+<p class="wp-block-paragraph">Dolayısıyla kendi benliğiyle bir başkasının o varlıktan bağımsız olarak doğuştan bağlanmış olmasını hoş bulmuştu.</p>
+<p class="wp-block-paragraph">Ve sahiden de biriyle böyle bir bağlantıya sahipse——</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“——Kesinlikle, Ram’ın doğuştan itibaren onu sevmesine mâni olunamazdı.”</p>
+<p class="wp-block-paragraph">Bebekken bile bu bağı korumak uğruna hiçbir şeyden kaçınmamış olmalıydı.</p>
+<p class="wp-block-paragraph">Onu koruma isteğinin, ona hayran olmasının, ona değer vermesinin, onu sevmesinin hatırına her şeyini adamış olmalıydı. Bu yüzden——</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Beni bağışla lütfen. Kötü nee-saman şu anda bile sırtına böyle bir yük bindiriyor.”</p>
+<p class="wp-block-paragraph">Ram, Sinestezi yoluyla fiziksel bedenine binen yükü uykudaki kız kardeşiyle paylaşıyordu.</p>
+<p class="wp-block-paragraph">Bu, Subaru’nun Otoritesini bir başına deneyimlemesinin sonucuydu. Bir kez buna tanık olunca tıpatıp aynısını büyük ölçüde gerçekleştirebilir hâle gelmişti.</p>
+<p class="wp-block-paragraph">Subaru’nun yaptığı şey de aynı mekanizmaydı—— muhtemelen başkalarının Od’larını kendi Od’uyla bağlayarak son derece keyfî bir Sinestezi meydana getiriyordu. Buna meyilli olduğu sürece Subaru’nun tarafı da kendi yükünü devredebilirdi fakat Subaru bir aptal olduğu için bunu yapmazdı.</p>
+<p class="wp-block-paragraph">Tam aksine her şeyi üstlenerek müttefiklerinin yükünü hafifletmeye çalışırdı.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“——Gerçekten aptalsın.”</p>
+<p class="wp-block-paragraph">Bunlar, kısa süre önce Batenkaitos karşısında kullandığı kelimelerdi.</p>
+<p class="wp-block-paragraph">Lakin tıpatıp aynı olmalarına rağmen yankıları farklıydı.</p>
+<p class="wp-block-paragraph">Ram, Subaru’nun Otoritesi aracılığıyla elde ettiği şeyi Sinestezi aracılığıyla bağlı olduğu Rem’le yeniden inşa edebiliyordu.</p>
+<p class="wp-block-paragraph">Subaru cephesinde neler olup bittiğini bilmiyordu. Ama bunun onu rahatlatacağı kesindi. Hem Ram da Subaru’yla uzun süre bağlantılı olmak gibi itici bir durumdan kaçınmış olurdu.</p>
+<p class="wp-block-paragraph">Ram’ın yükü Subaru yerine Rem’e akıyordu, lakin——</p>
+<p class="wp-block-paragraph"><strong>Rem: </strong>“————”</p>
+<p class="wp-block-paragraph">Daimî bir uykuda olan Rem’in ağzından tek kelime çıkmıyordu.</p>
+<p class="wp-block-paragraph">Yalnızca üst üste koyulmuş elleriyle kavraması gereken beyaz boynuzuyla cesurca, harikulade bir edayla, Ram’ın değneğine yerleştirilmiş kırık boynuzunun katalizör rolü oynayışıyla kendi boynuzundan akan manayı Ram’a aktarıyordu.</p>
+<p class="wp-block-paragraph">Ram’ın ihtiyaç duyduğu yoğun manaya aracılık etmenin Rem’in bedenine ne denli ağır bir yük bindirdiği muammaydı.</p>
+<p class="wp-block-paragraph">——Dolayısıyla bu, sonucu kısa sürede belirleyecek bir mücadele olacaktı.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>““Nee-saaamaaaaaa ~tsu!!”</p>
+<p class="wp-block-paragraph">Ram’ın tekmesiyle fırlatılması sonrası kükreyen Batenkaitos, gülümseyerek Ram’a doğru geri sekti.</p>
+<p class="wp-block-paragraph">&nbsp;Sıçrayıcı görünümünün kudretinden, mevcut mesafeyi göz açıp kapayıncaya dek yok eden büyü tekniğinden yararlanıyordu—— fakat rakip tarafından bütünüyle görülür ve çözülürken bu siluet ışınlanma tekniği bile fayda etmiyordu.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Kesinlikle yavaşsın, miskin şey. Bu gidişle Ram ihtiyar bir kadına dönüşecek.”</p>
+<p class="wp-block-paragraph">Ram, Durugörüyle rakibinin görüş alanını araklıyordu.</p>
+<p class="wp-block-paragraph">Rakibinin odak noktası, göz hareketleri, gücünü aktardığı konum, bunları sentezleyerek amacını zihnini okumaktan daha büyük bir rahatlıkla çözebiliyordu.</p>
+<p class="wp-block-paragraph">İşte bu sayede delici avuçtan kaçınıp kayarak rakibinin beş parmağını tersine doğru büktü.</p>
+<p class="wp-block-paragraph">Ve bir ciyaklama duyma amacıyla Batenkaitos’un boğazına vurarak onu keskin bir dönen tekmeyle duvara geçirdi.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Kah!..”</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Gerçi Ram ihtiyarlayınca da güzel olur.”</p>
+<p class="wp-block-paragraph">Bunu söylerken rakibini kıyafetleri aracılığıyla ensesinden tutup indirdi ve bir kez daha kafasını yere çarptırdı. Topuğunu suratına geçirişiyle de burnunu haşat etti.</p>
+<p class="wp-block-paragraph">Ardından geriye doğru bir adım atıp kendisini yakalamaya kalkan ellerden kaçındı, sayısız rüzgâr bıçağıyla rakibini hırpaladı.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“——GYAHHHHHHH!!”</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Böylesine tatlı bir suratla attığın şu çığlığın çirkinliğine bak.”</p>
+<p class="wp-block-paragraph">Tüm vücudu rüzgâr bıçaklarıyla kesilen Batenkaitos, kanlar saçarak gözden kayboldu.</p>
+<p class="wp-block-paragraph">Fiziksel bedeni her zamanki gibi ara vermeksizin başkalaşım geçirmeyi sürdürüyordu, bununla birlikte yalnızca boynunun üzerindeki kısmı, yani Ram’ın aşina olduğu şeyi dönüştürmeye çalışmıyordu.</p>
+<p class="wp-block-paragraph">Ram’ın kusmasına ramak kalmıştı. Tabii ki bunu yapmayacaktı, çünkü incelikten yoksun bir şey olurdu.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“————”</p>
+<p class="wp-block-paragraph">Bu sırada muazzam miktarda kan akıtan Batenkaitos, kabaca Ram’ın üzerine çullandı.</p>
+<p class="wp-block-paragraph">Hiç şaşmadan, mucizevi ve insanüstü teknikleri özgürce kullanıyordu, o kadarı kesindi. En başından beri çeşit çeşit üstün varlığın kudretini bir araya getiriyor, herhangi biri tarafından tekrarlanması imkânsız teknikleri formüle ediyordu.</p>
+<p class="wp-block-paragraph">Olası tüm yöntemlerde uzmanlaştığı bu olağanüstü saldırılarıysa Ram’ın daha da ileri giden şiddeti tarafından bastırılıyordu.</p>
+<p class="wp-block-paragraph">Ram, o yüzlerce, binlerce muazzam tekniği, değeri milyonlar eden bir kudretle idam ediyordu. Artık savaşın geldiği nokta buydu.</p>
+<p class="wp-block-paragraph">Batenkaitos’la temasa bile geçmemeye çalışıyordu. Kendisini iyi hissediyordu.</p>
+<p class="wp-block-paragraph">Sonuçta Subaru’nun yokluğundaki koşullara alışmıştı. Yaklaşık iki zinciri daha gevşetmişti.</p>
+<p class="wp-block-paragraph">Muhtemelen zirvedeki gücünün yüzde ellisini sergileyebiliyordu—— yo, o zamanlar çok genç olduğu için olgunlaşan yönleriyle o günlere nazaran çok daha güçlü hâle gelmişti.</p>
+<p class="wp-block-paragraph">Ve bu gücün batağına düşmemek, Ram’ın en büyük başarısıydı.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Sonuç olarak, boynuzumun kırılması doğru bir şeymiş.”</p>
+<p class="wp-block-paragraph">O gece yaşananlar olmasaydı er ya da geç boynuzun cazibesine kapılabilirdi.</p>
+<p class="wp-block-paragraph">Bunun olasılık dışı olduğunu söylemek istese de gerçekten öyle olup olmadığını kestiremiyordu. Bu yüzden yaşananların doğru olduğunu tasdikliyor, yürüdüğü yolun canlandırıcı doğasıyla böbürleniyordu.</p>
+<p class="wp-block-paragraph">Boynuzunu kaybetmesi sayesinde tiksindiği Oni olmak zorunda kalmadan yaşıyordu.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Her şeyden önce o gece yaşanmasaydı Roswaal-sama’yla tanışamazdım, yani kıyaslamaya bile değmez.”</p>
+<p class="wp-block-paragraph">Bundan daha büyük bir sonuca varılması mümkün değilken, avcunu öne doğru uzattı.</p>
+<p class="wp-block-paragraph">Batenkaitos ise uzayda sıçrayarak Ram’ın avcunun uzandığı noktada belirdi. Belireceği noktanın çözülmüş olmasının verdiği şaşkınlığın yerleştiği çehresi sımsıkı tutulurken de,</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Mütemadiyen uçamazsın, değil mi? Senin bu büyülü numaralarını izlemekten sıkıldım. Ve o surattan da.”</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Bekl——”</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Beklemek falan yok.”</p>
+<p class="wp-block-paragraph">Bu buz gibi açıklamayla birlikte rakibinin suratını yakalamış olduğu avcunda bir buz bıçağı şekillendirdi.</p>
+<p class="wp-block-paragraph">İşte o anda gözleri, burnu, dudakları, kulakları, yüzünün mümkün olan her zerresi kesilen Batenkaitos, çığlıklar eşliğinde kan kustu.</p>
+<p class="wp-block-paragraph">Ram ise o suratı aynı hızla, kıymaya çevrilinceye dek rüzgâr bıçağıyla oymayı sürdürdü.</p>
+<p class="wp-block-paragraph">Ve Batenkaitos’un formu, bu işi başaran Ram’ın avcundan ansızın silinip gitti.</p>
+<p class="wp-block-paragraph">Ama avcundan kaçsa da aldığı yaralardan, çektiği ıstıraptan ve gerçeklikten kaçamayacaktı.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Ah, aah, AAAAAAH—— ~tsu!!”</p>
+<p class="wp-block-paragraph">Batenkaitos feryat ediyor, gözyaşı yerine bol bol kan akıtıyordu.</p>
+<p class="wp-block-paragraph">Bunu gözlemleyen Ram ise ona doğru ağır ağır ilerliyordu.</p>
+<p class="wp-block-paragraph">Ram’ın yaklaşan adım seslerini işiten Batenkaitos’un formu değişti.</p>
+<p class="wp-block-paragraph">Artık devasa, iriyarı bir bedenin sahibiydi—— Ancak Ram, yaklaşan yumruğunu indirerek dizini paramparça etti.</p>
+<p class="wp-block-paragraph">Tekme yiyen Batenkaitos’un formu, Ram’dan kaçabilmek adına tekrar değişti.</p>
+<p class="wp-block-paragraph">Sakallı bir devin suratıyla savunmasını sağlamlaştırmak adına top oldu—— Ancak Ram, gövdesini yukarı doğru tekmeledi, onu bir yumruk yağmuruyla tavana çiviledi, övünülesi teninin altındakileri ağır ağır et yığınlarına dönüştürdü.</p>
+<p class="wp-block-paragraph">Kendisine sonsuz bir işkence bahşedilen Batenkaitos’un formu, Ram’ı öldürmek adına bir kez daha değişti.</p>
+<p class="wp-block-paragraph">Siluet ışınlanma tekniğine sahip kel, yaşlı adam geldi. ——Ancak Ram, kullanacağı, hâlihazırda açığa çıkmış olan yeteneğine acıyarak onu yakaladı, suratını duvara dayadı ve tüm vücudunu parçalamak istercesine koştu.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Ah, BABABABABABABABABABAAAA—— Hık!!”</p>
+<p class="wp-block-paragraph">Ram’ın olağanüstü gücü tarafından bastırılan Batenkaitos’un tüm vücudu parçalanıyor ve kaçacak yeri kalmıyordu.</p>
+<p class="wp-block-paragraph">Ram’ın kollarında kıvrılan ve dönen formu, en uygun çözümü ararcasına değişip duruyordu.</p>
+<p class="wp-block-paragraph">Bunu büsbütün bastıran Ram ise tüm kudretiyle yüzlerce, binlerce, on binlerce kurbanın yasını tutuyordu.</p>
+<p class="wp-block-paragraph">&nbsp;Oburluk tarafından tutsak edilen ve geliştirdikleri sanatları, yürüdükleri yolları, sevdikleri, ayaklar altına aldıkları, hiçe saydıkları, hor gördükleri hisleri olan o kadın ve erkekleri hararetli bir şekilde yâd ediyordu.</p>
+<p class="wp-block-paragraph">Artık ne sanatlarından ne yollarından ne de duygularından faydalanılacaktı.</p>
+<p class="wp-block-paragraph">Çünkü Ram’ın karşısında hiçbiri işe yaramazdı.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Kendi sorumluluğunu kendin üstlen, lütfen.”</p>
+<p class="wp-block-paragraph">Diyerek kolunu sallayan Ram, tüm vücudu fena hâlde soyulmuş olan kâfiri bir kenara attı.</p>
+<p class="wp-block-paragraph">Gözcü Kulesinin zeminine yığılan Batenkaitos ise ürperip titredi. Ve formu ağır ağır ama istikrarlı şekilde değişmeye başladı.</p>
+<p class="wp-block-paragraph">Çok sayıda Anıya dayanarak şekil değiştirirken——</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Ah, görüşmeyeli epey olmuştu. Ram da bu suratla, karşılaşmak istiyordu. Bunu üçüncü kez yapacak olsa da.”</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“——Ah, kah, ah.”</p>
+<p class="wp-block-paragraph">Alnındaki kanı silen ve dudakları gevşeyen Ram’ın gözleri Batenkaitos’un üzerindeydi.</p>
+<p class="wp-block-paragraph">Bu, mümkün olan en gerçek anlamda Batenkaitos’tu. Şimdiye kadar olduğu gibi başkalarının tekniklerini ve yüzlerini ödünç alan o kurnaz ve cin fikirli varoluş değil, kendi yüzü ve formuna dönmüş olan Batenkaitos’tu.</p>
+<p class="wp-block-paragraph">İnsan kime dönüşürse dönüşsün, kime bel bağlarsa bağlasın, kimde çare ararsa arasın, kendinden kaçamazdı.</p>
+<p class="wp-block-paragraph">Tıpkı boynuzunu kaybetse bile Ram’ın bir Oni olduğu gerçeğinin değişmeyişi gibi.</p>
+<p class="wp-block-paragraph">Tıpkı Anıları yağmalansa bile Ram’ın Rem’in ablası olduğu gerçeğinin değişmeyişi gibi.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“En azından son anında kendi gücünü kullanarak karşı koymayı mı deneyeceksin?”</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“————”</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Bu arada, spiral merdivenlerdeyken ilgi çekici bir şeyler söylemiştin—— Sanırım bir kız veya erkek kardeşin var, öyle değil mi? Onun hatırına biraz irade gücü sergilemeye ne dersin?”</p>
+<p class="wp-block-paragraph">Yığılıp kalmış olan Batenkaitos’un acı dolu nefes alıp verişi ansızın duraksadı.</p>
+<p class="wp-block-paragraph">Hayatını kaybetmiş değildi. Yalnızca Ram’ın beyanına tepki vermişti.</p>
+<p class="wp-block-paragraph"><em>Kız veya erkek kardeş</em>, bu kelimelerin yankısını işittiği anda nefesi bir nebze yatışmıştı. Ve bedenine durduğu yerde ağır ağır güç katarak——</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Bi…zim… <em>biz…im</em>… kız kardeşimize, sakın…”</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Sakın dokunma, mı diyeceksin? Üzgünüm ama böyle bir istekte bulunabilecek bir pozisyonda olduğunu mu sanıyorsun sahiden? Sen bir kez olsun başkalarının yalvarışlarına kulak verdin mi ki?”</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Ama, yine de…”</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“————”</p>
+<p class="wp-block-paragraph">Batenkaitos, kana bulanmış, buruşmuş yüzünü büzerek hüzünlü bir sesle yalvarmıştı.</p>
+<p class="wp-block-paragraph">Onun bu dokunaklı ama bir o kadar da sahici sözlerinin yankılanışıylaysa Ram’ın gözleri hafifçe kısıldı. Ve sonra da bir iç çekiş eşliğinde gözlerini kapattı.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Düşüneceğim——”</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“——Nee-sama, fazla kibar.”</p>
+<p class="wp-block-paragraph">İşte tam da Ram’ın bakışlarının çevrildiği o saniyede, ardında yalnızca bu sözleri bırakan Batenkaitos’un formu silindi.</p>
+<p class="wp-block-paragraph">O kâfir, Sıçrayıcı Dorkell’in uzay sıçrayışıyla—— ardında tek bir iz dahi bırakmadan Ram’ın görüş alanından kaybolmuştu.</p>
+<p class="wp-block-paragraph">——Evet, kaçmıştı.</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img decoding="async" width="694" height="1459" src="https://web.archive.org/web/20260619065527im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-172.png" alt="" class="wp-image-8384" srcset="https://web.archive.org/web/20260619065527im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-172.png 694w, https://web.archive.org/web/20260619065527im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-172-476x1000.png 476w" sizes="(max-width: 694px) 100vw, 694px"><figcaption class="wp-element-caption"><a href="https://web.archive.org/web/20260619065527/https://x.com/sakuraLCE/status/1338074302353010690">Görsel Sahibi</a></figcaption></figure>
+</div>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Haha ~tsu! Ahahaha ~tsu! Ahakhahahaha~!”</p>
+<p class="wp-block-paragraph">Sıçrayıcı Dorkell’in tuhaf yeteneğini özgürce kullanan Batenkaitos, Ram’dan uzaklaşmıştı.</p>
+<p class="wp-block-paragraph">Bir daha Ram’ı yemek gibi bir pervasızlığa kalkışmayacaktı. Nasıl görüneceğine aldırış etmeksizin kaçmayı seçmişti.</p>
+<p class="wp-block-paragraph"><em>Kazanamayız. Kazanamayız. Onun karşısında kazanamayız.</em></p>
+<p class="wp-block-paragraph">Tam da düşündüğü gibi, bir canavar çıkmıştı. Zaman kazanıp daha da güçlü bir şekilde geri dönmesi nasıl da alışıldık bir şeydi.</p>
+<p class="wp-block-paragraph">O, ne Gurmenin ne de Pisboğazın tabağına konulabilecek cinsten bir varlıktı.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Rui ve Roy, gerçekten üzgünüm, ama anlarsını~z ya! Gurmelikte malzeme hazırlığı hayatidir.”</p>
+<p class="wp-block-paragraph">Tüm vücudundaki yaralara bastırmakta olan Batenkaitos, aynı ava göz dikmiş olan kız ve erkek kardeşlerini düşünerek melankolik bir kahkaha attı.</p>
+<p class="wp-block-paragraph">Rui savaş cephesinden hızla çekilmişti ve Roy da şu sıralarda farklı bir bölgede saldırıya geçecek olmalıydı. O Oni yalnızca bu ikiliyi hedefleseydi kendisi de rahatça geri çekilebilirdi.</p>
+<p class="wp-block-paragraph">Pisboğaz Roy ne zaman geri çekileceğini bilmediği için en nihayetinde ölebilirdi ama yapacak bir şey yoktu.</p>
+<p class="wp-block-paragraph">Açıkçası Roy’un Pisboğazlığından bıkmıştı. O herif avlanma sahalarını gönlünce harap ettiği için kendisine gelmesi gereken gurme lezzetlerin çalındığı vakalar da yaşanıyor olmalıydı.</p>
+<p class="wp-block-paragraph">——Yo, kendisinin o ana dek ziyafet çektiği şeyler gerçekten de Gurme Lezzetlerdi.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Hepsi ama hepsi işe yaramaz çıktı… aaah, kahretsin! Kahretsin, kahretsin, kahretsin! Böyle bir şeyin, böyle bir şeyin var olduğu kimin aklına gelirdi ki, anlarsınız ya~! Bunu biliyor olsaydık her şey iyi olabilirdi, anlarsınız ya~!!”</p>
+<p class="wp-block-paragraph">Bu, ablasına tapan bir kız kardeşin hislerinden doğan bir duygu değildi.</p>
+<p class="wp-block-paragraph">Bu, paha biçilemez, akıl sır ermez, muazzam bir şeye duyulan arzuydu—— en gerçek anlamda Batenkaitos’un içinde doğan, kalbinin en derinlerinden gelen güçlü bir arzu duygusuydu.</p>
+<p class="wp-block-paragraph"><em>Onu, tamamen yemek istiyoruz. Onun, tüm bedeni ve ruhuyla tamamen tadına varmak istiyoruz.</em></p>
+<p class="wp-block-paragraph">Gurmelik uğruna mücadele eden biri olarak olası tüm duyguları ve üstün, aşkın yetenekleri yemeye niyetliydi. Bununla birlikte artık bu dünyadaki “hakikiliğin” varlığının farkına varışıyla her şey silinip gitmişti.</p>
+<p class="wp-block-paragraph">Ray Batenkaitos isimli varlığın Oburluk Günah Başpiskoposu olarak değer taşıdığına inandığı ne var ne yoksa harap edilmiş, çöpe dönmüştü.</p>
+<p class="wp-block-paragraph">Göze büyük bir ışıltı taşıyor gibi görünen o gösterişli sofralar, tepelerine çamurdan toplar yığılmış kum çukurlarına indirgenmişti.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Onu, istiyoruz.”</p>
+<p class="wp-block-paragraph"><em>İstiyoruz, istiyoruz, istiyoruz, istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz istiyoruz</em><em>——</em><em></em></p>
+<p class="wp-block-paragraph">Onu yemek hatırınaysa, her ama her şeyi bir kenara atmaktan yana hiç sorun olmazdı.</p>
+<p class="wp-block-paragraph">Onu yemek hatırınaysa, o ana dek biriktirdiği her şeyi kaybetmekten yana hiçbir pişmanlık duymazdı.</p>
+<p class="wp-block-paragraph">Onun dışında hiçbir şeyin tadına varmak istemiyordu. Kendisini ondan başka hiçbir şeyle doyurmak istemiyordu.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Obuğh, ghuee.”</p>
+<p class="wp-block-paragraph">Hızla koşarken ağzının köşesinden kusmuklar sızıyordu.</p>
+<p class="wp-block-paragraph">Sebep acı veya ıstırap değildi. Yalnızca dayanılmazdı. En iyisi olduğuna inandığı nesneler öyle çıkmamıştı ve esas iyi olanın farkına varması nedeniyle benliğini teşkil eden her şeyi iğrenç buluyordu.</p>
+<p class="wp-block-paragraph">Neden, onun dışında herhangi bir şeyi muhteşem görmüştü? Onun dışında her şeyle övünmüştü. Onun dışında her şeyi tıka basa yemişti.</p>
+<p class="wp-block-paragraph">Sahiden harikulade olan dışında bir şeyleri sevdiyse, onun neresi Gurmeydi ki——</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Aaah, bu doğru, bu doğru, doğru değil mi, elbette doğru, kesinlikle doğru, sahiden doğru, doğru olduğu için, doğru olmasını arzuladığımız için! Oburca içmek ~tsu! Oburluk ~tsu!”</p>
+<p class="wp-block-paragraph">İştahta artış, doyuma doğru ilerleyen bir açlık ve kalpten dilenen, istenen bir arzunun haykırılışı.</p>
+<p class="wp-block-paragraph">Bir olma arzusu, birbirine karışma arzusu. Eğer iştah dışsal varlıkları içeri almaksa Oburluğun benliğini harekete geçiren şey, sevginin en yüksek mertebesiydi.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Seni seviyoruz, seni seviyoruz… Evet! Seni seviyoruz ~tsu! Nee-sama… yo, Ram! Seni seviyoruz——”</p>
+<p class="wp-block-paragraph">İçinde filizlenen bu azami duyguyu yüksek sesle dışa vurmaya çalışırken ise sözleri ansızın yarıda kesildi.</p>
+<p class="wp-block-paragraph">Bunun nedeni, çektiği acı ve yeni bir ıstırabın belirişiydi.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“——Ah?”</p>
+<p class="wp-block-paragraph">Yanağını kontrol eden Batenkaitos, avcunun bolca kana bulandığını teyit etti.</p>
+<p class="wp-block-paragraph">Kaçmak için kulenin dışına doğru giden Batenkaitos’un yanağını kopartan taze bir kesik—— işte o kesiğin sebebi, boş havaydı.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“————”</p>
+<p class="wp-block-paragraph">Batenkaitos, parmağını o noktaya doğru uzatarak parmağının da kesilişini izledi.</p>
+<p class="wp-block-paragraph">O boş havanın içerisinde, görünmez bir bıçak vardı.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Ha.”</p>
+<p class="wp-block-paragraph">Bu, Batenkaitos’un spiral merdivenlerde Ram’a sergilediği tekniğin ta kendisiydi.</p>
+<p class="wp-block-paragraph">Havaya görünmez bıçaklar yerleştirme sanatı efsanevi bir shinobi tekniğiydi fakat çoktan fırlatılıp atıldıkları için kimin Anılarında yer aldıklarının bir önemi yoktu.</p>
+<p class="wp-block-paragraph">Buradaki mevzu, Batenkaitos’un yerleştirdiğini anımsamadığı bir bıçağın varlığıydı.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Olamaz…”</p>
+<p class="wp-block-paragraph">Parmağını hafifçe kesen bıçaktan kaçınan Batenkaitos, ayaklarını içeriye doğru ilerletmeye çalıştı—— fakat ayak parmaklarının uçları havaya uçunca “Ahii” şeklinde bir çığlıkla geriye doğru eğildi.</p>
+<p class="wp-block-paragraph">Ve başının eğilen kısmı da hafifçe yontulurken suratı kaskatı kesilerek hareketsiz kaldı.</p>
+<p class="wp-block-paragraph">——Etrafı, görünmez bıçaklarla sarılmıştı.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“…Haha, cidden mi?”</p>
+<p class="wp-block-paragraph">Bunu ona, yalnızca bir kez göstermişti.</p>
+<p class="wp-block-paragraph">Evet, savaşın ortasında tek bir kez göstermişti ve o da görünmez bir teknikti, dolayısıyla görmemiş olmalıydı.</p>
+<p class="wp-block-paragraph">Üstelik buraya adımını bile atmamıştı. Ama buna rağmen karşı tarafın kaçış rotasına el koymuş ve oraya önceden görünmez bıçaklar yerleştirmişti.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“————”</p>
+<p class="wp-block-paragraph">Batenkaitos, elini rüzgâr bıçağının kestiği ve işlevini yitirmiş sol gözüne değil, güç bela sağlam kalmış sağ gözüne yerleştirdi—— Ram, Durugörü aracılığıyla onunla bu gözü paylaşıyordu.</p>
+<p class="wp-block-paragraph">O, Batenkaitos’un kaçmasına izin vermemişti. Ve bu gözle örtüştüğü sürece de izin vermeyecekti.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Hihah.”</p>
+<p class="wp-block-paragraph">Batenkaitos bir kahkaha attı. Artık yapabileceği tek şey kahkaha atmaktı.</p>
+<p class="wp-block-paragraph">Sevmişti. İlk defa, bir şeyi büyük bir güçle, kuvvetle arzulamıştı. O olağandışı özden, etkilenmişti. Ve——</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Ah! Dur, lütfen dur! Bekle bekle, birazcık daha! Birazcık daha! Yalnızca birazcık daha ~tsu!”</p>
+<p class="wp-block-paragraph">Durugörüye ne kadar yakarırsa yakarsın sesi ulaşmazdı, bu kadarı biliniyordu.</p>
+<p class="wp-block-paragraph">Yani bu delice yakarışlar rakibinin işitmesi için değildi. Kendisini harekete geçirmek içindi.</p>
+<p class="wp-block-paragraph">Batenkaitos büyük bir telaş ve çabuklukla yanı başındaki duvara tutundu.</p>
+<p class="wp-block-paragraph">Yediklerini bir kenara atarak fevri hareket etmişti. Yalnızca Yumruk Kralı’nın fevkalade zekâsını tutmuş olsaydı bu durumun üstesinden zorlanmadan gelebilirdi.</p>
+<p class="wp-block-paragraph">Bu hislere kapılmayı da sonraya bırakan Batenkaitos, kollarını görünmez bıçaklara uzattı. İki kolu da bilek hizasından kesilirken o yaraların ağızlarından kanlar fışkırdı.</p>
+<p class="wp-block-paragraph"><em>Acıyor, acıyor, acıyor, acıyordu ama, acının, şu anda bir önemi yok.</em></p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Lütfen hislerimizi, kabul et ~tsu! Lütfen arzularımıza, özen göster ~tsu!”</p>
+<p class="wp-block-paragraph">Yalnızca kanlar fışkırtan kollarını duvara bastırıyor ve tüm gücüyle bir şeyler yazıyordu.</p>
+<p class="wp-block-paragraph">Küçük, minyon bedenini tüm kudretiyle kullanarak kara kanıyla kum kulesinin duvarlarına devasa kelimeler karalıyordu.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Buhaaaa.”</p>
+<p class="wp-block-paragraph">Ve işini bitirdiğinde de kendini geri çekerek sağ gözü irileşmiş şekilde o kelimelere baktı.</p>
+<p class="wp-block-paragraph">Baktı ki duvara kanla resmettiği o kelimeler kalbinin en derinlerinden ebediyen arzuladığı kişiye ulaşabilsin.</p>
+<p class="wp-block-paragraph">Çünkü söz konusu o olunca, kendi benliğiyle örtüşmüş şekilde bu manzarayı son ana dek, nezaketle izleyeceği kesindi.</p>
+<p class="wp-block-paragraph"><strong>Ray: </strong>“Ah, seni se——”</p>
+<p class="wp-block-paragraph">——Ancak Oburluk Günah Başpiskoposunun kafası, daha sözlerinin sonunu getirme fırsatı bulamadan rüzgâr bıçağı tarafından kesildi.</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img decoding="async" width="945" height="673" src="https://web.archive.org/web/20260619065527im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-174.png" alt="" class="wp-image-8386" srcset="https://web.archive.org/web/20260619065527im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-174.png 945w, https://web.archive.org/web/20260619065527im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-174-768x547.png 768w" sizes="(max-width: 945px) 100vw, 945px"><figcaption class="wp-element-caption"><a href="https://web.archive.org/web/20260619065527/https://x.com/RingoTashi">Görsel Sahibi</a></figcaption></figure>
+</div>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" decoding="async" width="945" height="1342" src="https://web.archive.org/web/20260619065527im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-176.png" alt="" class="wp-image-8388" srcset="https://web.archive.org/web/20260619065527im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-176.png 945w, https://web.archive.org/web/20260619065527im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-176-704x1000.png 704w, https://web.archive.org/web/20260619065527im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-176-768x1091.png 768w" sizes="auto, (max-width: 945px) 100vw, 945px"><figcaption class="wp-element-caption"><a href="https://web.archive.org/web/20260619065527/https://x.com/Set0wi/status/1422927921900052488">Görsel Sahibi</a></figcaption></figure>
+</div>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“——Fula.”</p>
+<p class="wp-block-paragraph">Parmaklarını sallayarak rüzgâr bıçağını savuran Ram, tek bir kelime fısıldadı.</p>
+<p class="wp-block-paragraph">Büyünün niceliği menzile göre etki etse de gücün kendisi ciddi bir değişim geçirmemişti. Zaten rüzgâr bıçağının kesme kabiliyetiyle yalnızca ince bir boyun kesilecek olduğu sürece minimum güç bile yeterliydi.</p>
+<p class="wp-block-paragraph">Kaçan Oburluğun peşine düşen Ram, tek bir rüzgâr bıçağı göndermişti.</p>
+<p class="wp-block-paragraph">Durugörü aracılığıyla, umutsuzca kaçan Oburluğun izini ustalıkla kavramıştı.</p>
+<p class="wp-block-paragraph">Amacına ulaşmasını garantilemek adına rakibinin yoluna engel olacak bazı numaralardan da faydalanmıştı ve aceleyle gerçekleştirilmelerine rağmen gayet iyi işe yaramış gibi görünüyorlardı.</p>
+<p class="wp-block-paragraph">Ve Oburluk, son bıçağın ulaşmasından önce anormal bir davranışta bulunmuştu.</p>
+<p class="wp-block-paragraph">Kendi ellerini kesmiş ve o kanı kullanarak duvara kanla bir şeyler yazmıştı.</p>
+<p class="wp-block-paragraph">Oldukça sefil ve korkunç derecede keyfî olmasıyla birlikte bu yaptığı, görülmeye dahi değmeyecek kötü niyetli bir tacizdi——</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong> “————”</p>
+<p class="wp-block-paragraph">Ram, son an geldiğinde, o kanlı kelimelerin dönüp dolanıp süzülüşünü izleyişinin ardından gözlerini kapatmıştı.</p>
+<p class="wp-block-paragraph">Bunu yapmıştı, çünkü başka türlü rahatlaması mümkün olamazdı. O manzarayı izlemek konusunda zerre kadar yükümlülüğü yoktu.</p>
+<p class="wp-block-paragraph">O kâfir, son seçiminde hata yapmıştı.</p>
+<p class="wp-block-paragraph">Kardeşleri hatırına canını ortaya koymuş olsaydı Ram da onun merhametini inkâr etmezdi. Fakat o, sözlerinin yadsınamaz gerçekliğini bir kenara atmış, bunu bir yem olarak kullanıp Ram’ı aldatmış, aynı zamanda kendi kurtuluşu uğruna bir araç hâline getirmişti.</p>
+<p class="wp-block-paragraph">Muhtemelen yenen şeyleri geri getirme yolunu da bilmiyordu. Bilseydi bunu bir pazarlık malzemesi olarak kullanıp hayatı için yalvarması icap ederdi—— Bunu yapmamıştı. Dolayısıyla, intikam acısı çekmek zorunda kalmıştı.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Kılıç kuşananlar kılıca yenik düşer, şeytana tutunanlar şeytana, ateşe teslim olanlarsa ateşe—— Ve Oni’yi arzulayanlar Oni’ye yenik düşer, güvendikleri şey tarafından yok edilirler.”</p>
+<p class="wp-block-paragraph">——İşte bu, Ram’ın inandığı intikamın ilahi takdiriydi.</p>
+<p class="wp-block-paragraph">Kolunu aşağı doğru savurarak uzunca bir nefes verdi.</p>
+<p class="wp-block-paragraph">Sonra da arkasını dönüp fena hâlde harap olmuş koridora geri döndü. Yakın mesafede savaşamazdı, dolayısıyla uzaklaşmayı kendisine görev edinmişti.</p>
+<p class="wp-block-paragraph">Uzaklık hissi can sıkıcıydı, bu nedenle de yürüyüşü huzursuz bir hâl almıştı.</p>
+<p class="wp-block-paragraph"><strong>???: </strong>“——Dodogyuuun.”</p>
+<p class="wp-block-paragraph">Çöken duvardan geçerek geri döndüğünde Ram’ı karşılayan şeyse uzun boylu yer ejderinin feryadı oldu.</p>
+<p class="wp-block-paragraph">O simsiyah yer ejderi, bedenini uygun bir şekilde döndürerek Rem’i arkasına almıştı. En kötü senaryoyla dönecek kişi Ram olmazsa Rem’e siper olmaya niyetlenmiş olmalıydı.</p>
+<p class="wp-block-paragraph">Bu denli yıpranmış olmasına rağmen Subaru’nun emrine itaat etmek için sergilediği yiğitlikle gerçekten Subaru için fazla iyi bir yer ejderiydi——</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“——Yo, öyle değil. Sen de mi, Rem’i korumak istiyorsun?”</p>
+<p class="wp-block-paragraph"><strong>Patrasche:</strong> “————”</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Evet… sen gerçekten iyi bir kızsın, Patrasche.”</p>
+<p class="wp-block-paragraph">Diyerek usulca yer ejderinin boynunu okşadı.</p>
+<p class="wp-block-paragraph">Onun yaralı, incinmiş benliğinin de bir an önce “Yeşil Odaya” taşınması gerekiyordu. Sadakat timsali olsa bile bu yaralarla kendisini zorlayamazdı.</p>
+<p class="wp-block-paragraph">Ayrıca Ram da hayırsever birine—— kız kardeşine hayrı dokunan o ejdere mantıksız bir şey yapmak istemezdi.</p>
+<p class="wp-block-paragraph">Böylece Ram, yer ejderine minnettarlığını ifade edişi sonrası arkasında korunan Rem’e doğru ilerledi.</p>
+<p class="wp-block-paragraph">Sinestezi kullanımıyla gerçekleştirilen boynuz paylaşımı çoktan sonlanmıştı, yani alnında bir boynuz görünmüyordu. Yine de Ram’ın Oni Tanrısıyla eşit bir gücü sırtlanmasının sebep olduğu geri tepiş, bedenini fena hâlde tüketmişti.</p>
+<p class="wp-block-paragraph">Öyle ki pek yakında kendisine dönecek olan o geri tepişi düşündükçe Ram’ın üzerine de bir ağırlık çöküyordu. Ama——</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Şu anda, böyle bir anda, kaba düşüncelere yer yok.”</p>
+<p class="wp-block-paragraph">Olduğu yerde nazikçe diz çöken Ram, elini daimî bir uykuda olan kız kardeşinin yanağına yerleştirdi.</p>
+<p class="wp-block-paragraph">İki kız kardeş olarak gerçek bir duygudan yoksun olan bağlarına artık eskisine kıyasla çok daha büyük bir duygu kesinliği eşlik ediyor ve Ram’ın içi sevgi ve kıymetle dolup taşıyordu.</p>
+<p class="wp-block-paragraph">Boynuzunun kırılışıyla Oni Tanrısının reenkarnasyonu kudretini yitirmiş, bugüne dek yaşayabilmişti.</p>
+<p class="wp-block-paragraph">O alevlerle dolu gecenin amacını merak eden Ram, o amacın kendisinin benliğini yaratmak olduğunu varsaymış ve bugüne dek hatalı olduğunu düşünmemişti.</p>
+<p class="wp-block-paragraph">Ancak bugünden, bu andan itibaren aynı düşüncede değildi.</p>
+<p class="wp-block-paragraph">O gün Ram’ın boynuzunun kırılmış olma sebebi——</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“——Ram’ın bugün, burada, Rem’in nee-sama’sı olduğunun farkına varması uğrunaydı.”</p>
+<p class="wp-block-paragraph">Çünkü Sinestezi aracılığıyla ruhlar arasındaki etkileşimi, onların aynı dünyayı paylaşan ikizler ve yeri oldurulamaz bir abla kardeş ikilisi olduğunu gerçek anlamda hissedebilmişti.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Artık Ram, seninle konuşmayı eskisinden de çok istiyor. Sen ve Ram’ın birlikte geçirdiği vakitler. Sen ve Ram’ın biriktirdiği dünler, hadi o eksik anıları birlikte tazeleyelim.”</p>
+<p class="wp-block-paragraph"><em>Zaman durmadan aktığı için yarınlara dair pek çok anı birikebilirdi.</em></p>
+<p class="wp-block-paragraph"><em>Bu yüzden, her şeyin bilinmez olarak yitip gitmemesi, unutulmuş olarak kalmaması için, günbegün yeni anılar çiçek açmalıydı.</em></p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“Hadi düne dair, pek çok şey konuşalım.”</p>
+<p class="wp-block-paragraph">Uyuyan Güzel yanıt vermeyecekti.</p>
+<p class="wp-block-paragraph">Ancak Ram, o sessizlik üzerine göğsünün katılaşmasına izin vermektense onu sıcacık hislerle doldurarak gülümsedi.</p>
+<p class="wp-block-paragraph">Ve gülümsemeye devam ederek, duygularına dair hiçbir çekincesi kalmaksızın, dudaklarını kımıldattı.</p>
+<p class="wp-block-paragraph"><strong>Ram: </strong>“——Ram seni seviyor, Rem.”</p>
+<p class="wp-block-paragraph">Elbette ki o ikisinin birlikte geçirdikleri vakitler nasıl olursa olsun bu duygular ona ihanet etmeyecekti.</p>
+<p class="wp-block-paragraph">Ve tuhaftır ki bu kelimeler o çarpık Günah Başpiskoposunun ağzından dökülenlerle birebir aynı olsa, ağızlarından aynı tınıyla dökülse de yankıları bir olmamıştı.</p>
+<p class="wp-block-paragraph">Sevgi nedir bilmeyenlerle sevgi dolu bir yaşam sürenlerin yankıları, asla bir olmazdı.</p>
+<p class="wp-block-paragraph">Yankıları, asla, bir olmazdı.</p>
+</article>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+            <a href="arc6bolum85.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="arc6bolum87.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

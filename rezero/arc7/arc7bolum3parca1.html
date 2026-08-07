@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VII, Bölüm 3 Parça 1 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc7bolum2parca3.html" class="nav-btn">← Önceki Parça</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc7bolum3parca2.html" class="nav-btn">Sonraki Parça →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VII, Bölüm 3 Parça 1</h1>
+            <div class="subtitle">"Kurtlar Ülkesi"</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p style="text-align: center; font-style: italic; margin-bottom: 2em; color: var(--accent-color);">*Bölüm anılarla başlıyor*</p>
+
+            <p>Subaru: [――Uaah, tam da bana söylendiği gibi. Bu da ne? Doğru düzgün temizlenmemiş ki.]</p>
+
+            <p>Eğmiş olduğu rafın arkasına bakan Subaru, kendi yaptığı işe surat ekşitti.</p>
+
+            <p>Uşak kıyafetinin ceketini çıkartmış ve gömleğinin kollarını kıvırmış olan Subaru, tam anlamıyla temizlikçi tarzına bürünmüştü ― fakat çalışmalarının içeriği, başına “Çırak” veya “Sefil” unvanları eklenmeyi hak ediyordu.</p>
+
+            <p>Doğuştan sahip olduğu azıcık el becerisini sergileyen Subaru, malikanedeki görevini eskisine kıyasla daha verimli bir şekilde yerine getirebiliyordu.</p>
+
+            <p>İşte tam da bu düşünceleri taşırken kibrine değinildiği hissine kapıldı.</p>
+
+            <p>Ve Subaru’nun kendisi üzerine düşünme sürecini arkadan izleyen bir gölge, bir “Hah!” sesiyle birlikte,</p>
+
+            <p>Ram: [Aah ah, sonuçta yalnızca Barusu. Tam da Ram geliştiğini zannedip işinin kapsamını genişletmeyi düşünürken böyle sefil bir duruma düşüyorsun…… Kendinden utanmalısın.]</p>
+
+            <p>Subaru: [Aynen, verebileceğim hiçbir karşılık yok……….. yo, aslında var! Böyle mağrur bir tavır takınma hakkını nereden buluyorsun ki!? Sen bana bu şekilde nutuk çekecek kadar iş yapmıyorsun bir kere!]</p>
+
+            <p>Ram: [Senin aksine Ram, etkin ve organize olmak konusunda son derece becerikli. Bu yüzden sabahları iş yüklerimizi tahsis ettiğimiz andan itibaren minimum işten yükümlü olmasını sağlamak için yönlendirme yapıyor.]</p>
+
+            <p>Subaru: [Yani seninki işini verimli bir şekilde sürdürme becerisi değil, işten kaçma becerisi!?]</p>
+
+            <p>Savaş sanatı, bir mücadelede gelip gelmek değil, mücadele etmeden galip gelmekti.</p>
+
+            <p>İyi bir şekilde ifade edildiğinde görünen buydu, kötü bir şekilde bakıldığındaysa işten kaytarmak için harikulade bir kabiliyetti fakat Subaru ne söylemek isterse istesin artık çok geçti, çünkü buna sabah değinmesi mümkün olmamıştı.</p>
+
+            <p>Bununla birlikte――</p>
+
+            <p>Subaru: [Kayan yüklerin Rem’e gitmesini…… ne sen ne de ben isteriz, haksız mıyım?]</p>
+
+            <p>Ram: [Mn…… Barusu olmana rağmen epey cüretkarsın. Ama iyi bir noktaya parmak bastın.]</p>
+
+            <p>Subaru hayal kırıklığı içerisinde kafasını kaşıyıp böyle söylerken Ram, ona bakarak gözlerini kıstı. Ve ikisinin suratları da bu şekilde odanın köşesine çevrilirken aceleyle ilerleyen, zeminden takır tukur adım sesleri yükselen biri göründü.</p>
+
+            <p>Mavi saçlı bir kız, hizmetçi eteğinin uçları sallanarak, odanın önemsiz noktalarının zeminindeki nemli noktaların yakınlarını silmekteydi――</p>
+
+            <p>Subaru: [――Rem.]</p>
+
+            <p>Rem: [Ah, evet, pardon. Birazcık çalışmaya dalmışım da. Rafın arkasında işler nasıl gitti, Subaru-kun?]</p>
+
+            <p>Genç kız, Rem, Subaru’nun seslenişine karşılık vermek için dönüp hafifçe gülümseyerek ona bu soruyu yöneltti.</p>
+
+            <p>Subaru’ysa o gülümsemenin hedefi olduğu anda acınası bir yanıt vereceği için kendisini mahcup hissetse de gizleyebileceği bir şey olmadığı için kaderine boyun eğdi.</p>
+
+            <p>Subaru: [Hııı, tam da söylendiği gibiydi. Kolay kolay görülemeyen yerleri detaylı temizleme konusunda…… Yalnızca yüzeyi temiz tutmayı OKAY gören tavrım gerçekten hiç hoş değilmiş.]</p>
+
+            <p>Rem: [Yo, bu doğru değil. Konu bir şeylerin üzerini örtüp dışarıya yansıtmamak olduğunda rakipsizsin. Krallığın en iyisisin!]</p>
+
+            <p>Subaru: [Bize iftira davası açtırabilecek bir şekilde dile getiriyorsun!]</p>
+
+            <p>Rem’in kötü niyetli olmadığını bilse de iğne gibi saplanan bir değerlendirme olmuştu.</p>
+
+            <p>İyiymiş rolü yapmakta ve sorunlarını gizlemekte iyi olmak, kendisinin de bilincinde olduğu bir özelliğiydi.</p>
+
+            <p>Ram: [Beklenildiği üzere bir şeylerin özünü görmekte iyisin, Rem.]</p>
+
+            <p>Subaru: [Sesin çok çıkıyor, nee-sama! Zaten farkındayım, yani moralimi halihazırda olduğundan daha da çok bozmana gerek yok!]</p>
+
+            <p>Subaru, yatağa oturmuş şekilde kollarını kavuşturan Ram’a sert bir bakış attı. Fakat onun kendininkinden de keskin bakışlarıyla karşılaşmak, keyifsizce pes etmesine yol açtı.</p>
+
+            <p>Bu mekanda en az güçle en düşük pozisyona sahip olan kişi, Natsuki Subaru’ydu.</p>
+
+            <p>Subaru: [Kahretsin, kıdemli bir hizmetçi tarafından zorbalığa uğramak zormuş…… Bu bağlamda, Rem kibar biri, öyle değil mi?]</p>
+
+            <p>Rem: [Evet, elbette. Rem sana sert bir şey söylemeyecek. Rem, ekstra bir şey söylemese bile senin onu anlayacağına inanıyor.]</p>
+
+            <p>Subaru: [Bu kibarlığın içimde bir delik açacak, olacağı bu.]</p>
+
+            <p>Subaru, Ram’ın sivri diliyle dışarıdan, Rem’in tatlı mı tatlı zehriyleyse içeriden paramparça ediliyordu.</p>
+
+            <p>Kendisi için hayırlı bir ortamda olup olmadığı konusunda kafası karışacakmış gibi geliyordu ama muhtemelen bu, nasıl algılayacağıyla da ilişkiliydi.</p>
+
+            <p>Subaru: [Hey, kendi hataların karşısında gözlerini kapatma, Natsuki Subaru. Nee-sama bir yana, her şey Rem’in beklentilerini karşılamak için değil mi? Bunu yapacağım! Öyle değil mi, Rem?]</p>
+
+            <p>Rem: [Senden de bu beklenirdi, işte ruh budur! Rem derinden etkilendi!]</p>
+
+            <p>Subaru: [Heh, bu pozitifliğim de temel özelliklerimden biridir. Ee, nereden başlayayım?]</p>
+
+            <p>Rem: [Hm, evet…… Öncelikle, pencerelerin kanatları hiç düzgün silinmemiş, o yüzden onları tekrar silmek gerekli. Rafın üzerindeki kısım için parmak uçlarında durmak yeterli değil, doğru düzgün silebilmek için bir basamağın üzerine çık lütfen. Gördüğün üzere rafların arkasını her gün silmeye gerek yok, ama zaman zaman temizlenmezse büyük bir karmaşaya yol açacaktır. Ve bu söyleyeceğim yatağın ayakları ve minderin diğer tarafıyla ilişkili ama……]</p>
+
+            <p>Subaru: [Ahh, ağır ateş altındayım! Öne doğru düşecek gibiyim!]</p>
+
+            <p>Rem Subaru’nun geliştirebileceği konuları sayıları giderek artarak, su gibi akıcı bir şekilde tek tek sıralarken Subaru, zihnine not alma konusunda Rem’in hızına yetişemiyordu.</p>
+
+            <p>Bununla birlikte, iyi görünüp sorunlarını gizleme konusunda krallığın bir numarası olarak değerlendirilen Subaru’nun gözünden bakıldığında temiz denilebilecek bir odada gelişmeye açık bu kadar nokta gösterilmesine şaşıyordu.</p>
+
+            <p>Subaru: [Cidden gözlem konusunda bayağı iyisin. Bu da mı bir hizmetçinin adanmışlığı?]</p>
+
+            <p>Rem: [Elbette. Ah, ama, başka birinin bakış açısından düşününce er ya da geç görmeye başlayacağın şeyler oluyor. Rem de daima seni düşünüyor, Subaru-kun.]</p>
+
+            <p>Subaru: [Buna sevindim ama temizliğimdeki kusurların… tozla kaplı alanların ardı ardına görülüyor olması……]</p>
+
+            <p>Yumruğunu sıkan Rem’in yanıtı çok tatlı olsa da Subaru için tuhaf bir olaydı.</p>
+
+            <p>Yine de özenli bakışlarını ufacık detaylara bile yönlendirebiliyor ve işini titizlikle yerine getiriyor olması, ne kadar mütevazı olmaya çalışırsa çalışsın hizmetçiliğin temellerine sahip olduğunun göstergesiydi.</p>
+
+            <p>Çok yönlü bir hizmetçi şeklindeki şöhretinin hakkını verdiği şüphesizdi.</p>
+
+            <p>Ram: [E çok doğal. Ne de olsa Rem, Ram’ın tapılası kız kardeşi.]</p>
+
+            <p>Subaru: [Bir saniye, bu konuda başarı senin mi oluyor yani!?]</p>
+
+            <p>Rem: [E nee-sama’nın cesur tavrı ona çok yakışıyor, bu da onun cazibesinin bir parçası.]</p>
+
+            <p>Ram yatağın üzerinde ulu ve kudretli bir havayla oturur ve utanmadan kafasını eğip göğsünü kabartmak için geriye doğru eğilirken Subaru ve Rem’in sesleri etrafında uçuşuyordu.</p>
+
+            <p>İşte bu da her biri Roswaal Köşkünde çalışan uşak ve hizmetçilerin gündelik yaşamlarından bir başka sahneydi ve――</p>
+
+            <p style="text-align: center; margin: 2em 0; color: var(--accent-color);">△▼△▼△▼△</p>
+
+            <p>Subaru: [――Gh, voaa! Hh, dah!]</p>
+
+            <p>Kısacık bir an için süren süzülme hissi sonrasında sert, sağlam bir zemine çakılmanın acısı geldi.</p>
+
+            <p>Subaru düşeceğini bilerek bedenini top yapmış ve inişini yumuşatmak için öne doğru yuvarlanmış olsa da epey etkili bir düşüştü.</p>
+
+            <p>Düştüğü noktada duran kalın daldan gelen ikinci saldırıysa bilhassa beklentilerinin ötesindeydi. Kürekkemiğine saplanmış, beklenmedik acı yüzünden gözleri yaşarmıştı.</p>
+
+            <p>Subaru: [Of of…… ahh, Doğa Anadan da artçı saldırılar gelmemesine sevindim. Bu bıçak sağ olsun……]</p>
+
+            <p>Yaşlı gözlerle ayağa kalkan Subaru, ellerindeki bıçağı kılıfına yerleştirdikten sonra iç çekti.</p>
+
+            <p>Sonra da şimdiye dek üzerinden sarkmakta olduğu iri ağacın gövdesine bakmak için döndü.</p>
+
+            <p>Gövdedeki kalın dalların birinden aşağıya uzun bir asma sarkıyordu. Bıçakla orta yerinden kesilmişti ama bu kesikliğin ötesinde――</p>
+
+            <p>Subaru: [Bir halka…… Bunları mangalarda falan görürdüm ama bu tarz tuzaklar gerçekten işe yarıyormuş demek, ha.]</p>
+
+            <p>Diyen Subaru, sağ ayak bileğine dolanıp sarılmış olan asmayı çıkarttı.</p>
+
+            <p>Bu tuzak yere yerleştirilmişti ve üzerinden geçmeye çalışan kişiyi ayağını sarıp sıkarak havada asılı tutacak bir işleve sahipti ― dürüst olmak gerekirse Subaru’nun, bu tuzağa bizzat düşmüş olmasına rağmen bunun nasıl mümkün kılındığı hakkında hiçbir fikri yoktu.</p>
+
+            <p>Ve bunu araştırıp bir yanıt bulmaya ayıracak zamanı da.</p>
+
+            <p>Subaru: [Hafızası yerinde olmasa da bilgisi ve yetenekleri her zamanki gibi, ha…… Bu şekilde Rem’i kovalarken gerçekten nee-sama’nın küçük kardeşi olduğunu görebiliyorum.]</p>
+
+            <p>En başından beri bariz olsa da bunu bir kez daha anımsamaya zorlanmıştı. Elbette bu şekilde gözüne sokulmasını istemezdi, dolayısıyla bu, canını fazlasıyla sıkıyordu.</p>
+
+            <p>――Subaru’nun ormanda Rem’i aramaya başlamasının üzerinden bir saati aşkın süre geçmişti.</p>
+
+            <p>Ormanın diğer tarafında karşılaştığı maskeli adamın tavsiyesini dinleyen Subaru, Rem’in Louis’le peş peşe izlediği kaçış rotasını gizleme teşebbüslerini tespit edebiliyordu.</p>
+
+            <p>Bu sayede aralarındaki mesafenin azaldığını rahatlıkla söyleyebilirdi. Fakat o mesafeyi sıfıra indirememesindeki en mühim faktör, Rem’in temkinliliğinin Subaru’nun en büyük engeli olmasıydı.</p>
+
+            <p>Rem, Cadının kokusu ― yani Subaru’yu çevreleyen miasma konusunda temkinliydi ve bu yüzden yalnızca kendisiyle Louis’in ayak izlerini kamufle etmekle yetinmiyor, ormanın her noktasına Subaru’yu yavaşlatacak tuzaklar da yerleştiriyordu.</p>
+
+            <p>Subaru, tüm bunların başlangıcında aldığı ağır darbenin ardından ondan fazla tuzağı keşfetmiş ya da daha doğrusu ondan fazla tuzağa düşmüştü. Rem’in tüm bu tuzakları istikrarsız durumdaki bacaklarının üzerinde koşarak ve beraberinde koca bir yük taşıyarak yaptığını bilen Subaru’nun Rem’den fazlasıyla etkilenmemesi mümkün değildi.</p>
+
+            <p>Subaru: [Çimleri bağlamak veya sığ çukurlar kazmak falan olunca sevimli oluyor ama……]</p>
+
+            <p>Bunlar Subaru’nun ayağını kaydırmak ya da burkmak amaçlı ufak tuzaklardı. Bu tür tuzaklar o kadar zararlı değildi ve Subaru’nun Rem’i takip etmesine pek bir engel teşkil ettikleri de yoktu.</p>
+
+            <p>Fakat sayıları anormal derecede fazlaydı ve hatırı sayılır miktarda çimen ve dökülmüş yaprağın olduğu bir yeri araştırırken onlara dikkat etmesinin gerekmesi can sıkıcıydı.</p>
+
+            <p>Subaru: [Rem’deki güçle yalnızca tek bir bacağı hedef alacak bir çukur kazmasının çocuk oyuncağı olması benim için işleri zorlaştırıyor…… Doğuştan gelen fiziksel kabiliyet farkımız kendisini gösteriyor.]</p>
+
+            <p>Ufak tuzaklar arasında, asmalar ve düşmüş ağaçlardan yapılan, örneğin az önceki gibi onu havaya kaldıran ve tamamen Subaru’yu yavaşlatmaya yönelik olan orta dereceli tuzaklar da yer alıyordu.</p>
+
+            <p>Bir mucize eseri eline bir bıçak geçirme şansı bulmasaydı Subaru’nun kendisini o asma tuzağından kurtarması ne kadar vakit alırdı? Ayrıca bir şekilde soğukkanlılığını yitirmesi gereği kovalamacayı yeniden başlatmakta gecikme ihtimali de olurdu.</p>
+
+            <p>Ve panikleyen Subaru’yu en çok tereddüt ettiren şey de――</p>
+
+            <p>Subaru: [Sh!]</p>
+
+            <p>Belinden çektiği Suçlu Kırbacı savuran Subaru, silahının ucuyla yerdeki şüpheli noktaya güçlü bir darbe indirdi.</p>
+
+            <p>Bir an sonraysa nişan aldığı noktaya iki üç dal çullandı ve yıkıcı bir güçle geri sekti. Bu darbeyi doğrudan aldığı takdirde bir, hatta iki kolunu da kırabilecek bir güçle karşı karşıya kalacaktı.</p>
+
+            <p>Evet, Subaru’yu en çok tereddüt ettiren şey, hareket kabiliyetini yok etmeyi hedefleyen büyük tuzaklardı ― sayıları çok fazla olmasa da gerçekten bir yerlere yerleştirilmiş olmaları, ormanda ilerleme hızını kesinlikle baltalıyordu.</p>
+
+            <p>Girişteki o kalın daldan yediği darbenin de Rem’in büyük tuzaklarından biri olduğunu söyleyebilirdi.</p>
+
+            <p>Ve Subaru ormanın derinliklerine ilerledikçe o büyük tuzakların taşıdığı güç ve tehlike artıyordu. Bu da takip edilen Rem’in merhametini yitirmekten ziyade yeteneğini geliştirdiğini düşündürüyordu.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="arc7bolum2parca3.html" class="nav-btn">← Önceki Parça</a>
+            <a href="arc7bolum3parca2.html" class="nav-btn">Sonraki Parça →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

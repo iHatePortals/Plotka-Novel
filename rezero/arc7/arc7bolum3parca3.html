@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VII, Bölüm 3 Parça 3 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc7bolum3parca2.html" class="nav-btn">← Önceki Parça</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc7bolum4parca1.html" class="nav-btn">Sonraki Parça →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VII, Bölüm 3 Parça 3</h1>
+            <div class="subtitle">"Kurtlar Ülkesi"</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Subaru: [――――]</p>
+
+            <p>Rem’in çayırlıktaki ayak izleriyle Subaru’nun kafasını karıştırması, o andan bu yana tuzak kurma becerilerinde yavaş yavaş ustalaşması ve şu anda Subaru’nun önünde duran ağacın kabuğundan büyük bir parçanın abartılı bir şekilde soyulmuş olması.</p>
+
+            <p>Bu üçlünün Subaru’nun kafasının içerisinde birleşmesiyle, duyduğu tuhaf hissin bulmacası çözüldü.</p>
+
+            <p>Ve en nihayetinde içinde bir cevap türedi.</p>
+
+            <p>Subaru: [Eğer karşımdaki benim tanıdığım Rem’se……]</p>
+
+            <p>İnce düşünceli ve özenli biri olan Rem, açıkça görülebilen tüm izleri ortadan kaldırırdı.</p>
+
+            <p>Yani Rem son derece sınırlı bir bakış açısına sahip olmaya başlamadığı takdirde bu ipucunun bir başına geride bırakılmış olma sebebi――</p>
+
+            <p>Subaru: [――Hah!]</p>
+
+            <p>Aklından bu düşünceler geçen Subaru, ayaklarının altından kalın bir ot öbeği kopartarak ilerlemeye çalıştığı yöne doğru fırlattı.</p>
+
+            <p>Kökleri arasına topraklar birikmiş olan öbek, uzun otlara doğru parabol çizdi――</p>
+
+            <p>――Hemen sonrasındaysa korkunç derecede kuvvetli bir sesle birlikte yere çakıldı ve devasa bir çukur, o bölgeyi yuttu.</p>
+
+            <p>Subaru: [Voaa……!]</p>
+
+            <p>Subaru’nun önünde koca bir çukur açılmış, neredeyse daha önceki ufak tuzakların amacını sorgulayacak hale gelmişti. Bununla birlikte, kurulan tuzak bununla sınırlı da değildi.</p>
+
+            <p>Beliren o koca çukuru çevreleyip hedefleyen ağaçlar, çatırdayıp devrilmeye başlamıştı. Devrilen ağaçlar ardı ardına çukura düşerken de yeni açılmış çukurun dolması hiç vakit almamıştı.</p>
+
+            <p>Yani Subaru o koca çukura düşmüş olduğu takdirde oraya sıkışıp kalmış, diri diri gömülmüş olacaktı.</p>
+
+            <p>Bu noktaya ulaşıldığında, o zamana kadarki tüm tuzakları psikolojik bir hile olarak kullanan cüretkar ve güçlü bir teknik uygulanmıştı.</p>
+
+            <p>Subaru’nun takibine dair birer ipucu olarak hizmet eden izler, onu diri diri gömecek bir tuzak olarak ağzını açmış bekliyordu.</p>
+
+            <p>Son derece Remvari bir önlem olduğu için alkışlamak istese de――</p>
+
+            <p>Subaru: [――Benim tanıdığım Rem bununla da kalmazdı.]</p>
+
+            <p>Psikolojik tuzaklar kuran kişi için en iyi sonuç, takipçisinin bu tuzaklara düşüp hareket etmeyi kesmeye zorlanması olurdu.</p>
+
+            <p>Fakat Subaru’nun tanıdığı Rem özenli ve çalışkandı, tatlı bir sese ve yüze sahipti, takdir edilesi eylemleriyle göğsünü ısıtırdı ve――</p>
+
+            <p>Subaru: [Beklemekten sıkıldığında saldırıya geçerdi. ――Haksız mıyım, Rem!?]</p>
+
+            <p>Subaru, bu sözlerin ardından etrafında dönerek kabuğu soyulmuş ağaca baktı.</p>
+
+            <p>İşte tam da o anda…</p>
+
+            <p>[――fh!!]</p>
+
+            <p>Rem dişlerini sıkarak söz konusu ağacın dalından Subaru’nun üzerine atıldı.</p>
+
+            <p style="text-align: center; margin: 2em 0; color: var(--accent-color);">△▼△▼△▼△</p>
+
+            <p>Takipçisini peşinden ayıramıyor ve tuzakları onu olduğu yerde tutmaya yaramıyordu.</p>
+
+            <p>Subaru’nun tanıdığı Rem, bu duruma düştüğü takdirde ne yapardı?</p>
+
+            <p>Kokusu sayesinde rakibinin yerini belirleyebildiği için güvendiği ekmek kırıntılarının kimliğini ayırt etmeyi de başarabilirse o kırıntıları rakibinin aleyhine kullanıp onu tuzağa düşürür, direkt olarak kaçma sebebini ortadan kaldırmayı denerdi.</p>
+
+            <p>Evet, Subaru bu tahminiyle tam isabet yapmıştı.</p>
+
+            <p>Sorun şuydu ki――</p>
+
+            <p>Rem: [――Haaaaahh!]</p>
+
+            <p>Subaru, aralarındaki güç farkı nedeniyle Rem’in atılışını durdurmayı başaramamıştı.</p>
+
+            <p>Ve “Gh, voaaa!” diye bağırırken düşmekte olan Rem’in kolu tarafından uçurulmuştu.</p>
+
+            <p>Dürüst olmak gerekirse Rem’in bacaklarını tam anlamıyla kullanamıyor olmasına rağmen bu ölçüde hareket edebilmesi de Subaru’nun bedeninin onu yakalama çabasıyla anında harekete geçebilmesi de beklentilerin ötesinde şeylerdi.</p>
+
+            <p>Rem: [Çok inatçısın! Çok ama çok inatçı!]</p>
+
+            <p>Subaru: [Be… bekle, Rem, lütfen dinle……]</p>
+
+            <p>Rem: [Amma da ısrarcısın…!]</p>
+
+            <p>Rem, kollarını savurmuş ve bir kolu Subaru’ya çarparak burnundan kanlar dökülmeye başlamasına yol açmıştı. O, suratı kan içindeyken bile yalvarıyor ama Rem, öfkeye kapıldığı için onu dinlemiyordu.</p>
+
+            <p>Elleri ve ayaklarının üzerinde orman zemininde dikilen Rem, mavi gözlerini Subaru’ya dikmişti.</p>
+
+            <p>Rem: [Şimdi, şu anda yakamızı bıraksaydın bundan daha fazlasını yapmayacaktım. Ama bizi takip etmeye devam ediyorsun…… Lütfen dur artık!]</p>
+
+            <p>Subaru: [Bunun bu denli basitçe söylenmesi gerçekten canımı acıtıyor……]</p>
+
+            <p>Rem: [Resmen burnumun direği sızlıyor! Bana yaklaştığın anda farkına varabiliyorum. İşin kötüsü, artık çayırlıktaki halinden de güçlü……]</p>
+
+            <p>Subaru, kanayan burnunu tutup sendeleyerek ayaklandı.</p>
+
+            <p>O ayakta durabilirken Rem, dört uzvunun üzerindeydi. Durum Subaru’nun lehineymiş gibi görünse de bu, tek bir şeyle tersine çevrilecek bir avantajdan ibaretti, o da fiziksel güçtü.</p>
+
+            <p>Bunun yanı sıra Rem, yalnızca kollarını kullanarak bir hayalet gibi çevikçe ilerlemeye başlayacak olursa Subaru bu defa kesinlikle o koca çukura düşer ve bu da onun sonu olurdu.</p>
+
+            <p>Yani Rem’le arasındaki mesafeyi hesap etmesi ve mevcut yanlış anlaşılmayı adım adım yok etmesi gerektiğini biliyordu.</p>
+
+            <p>Subaru: [Rem, beni dinle lütfen. Sanırım senin gözünde bayağı kokuşmuş durumdayım……]</p>
+
+            <p>Rem: [……Evet, leş gibi kokuyorsun.]</p>
+
+            <p>Subaru: [Nostaljik bir ifade şekli oldu……! Evet, sanırım leş gibi kokuyorum ve bunun iyi bir şey olmadığını hissettiğini biliyorum ama sana karşı hiçbir kötü niyet beslemiyorum!]</p>
+
+            <p>Ellerini havaya kaldıran Subaru, Rem’e düşmanca davranmayı planlamadığını gösteriyordu.</p>
+
+            <p>Fakat onun bu iddiasına rağmen Rem’in yüzündeki temkinlilik dinme belirtisi vermiyordu. Bu bağlamda Cadının miasması, bomboş haldeki Rem’in köşeye sıkışmasındaki en büyük etkendi.</p>
+
+            <p>Subaru nereye giderse gitsin Cadıyla ilişkili hiçbir şeyden hayır gelmiyordu.</p>
+
+            <p>Subaru: [Koku meselesi ortada ve sana verdiğim ilk izlenimin korkunç olduğunu da biliyorum. Buna rağmen ben, kendim denilen bu varlığa on sekiz yıl boyunca katlandım. O yüzden tekrar etmeme izin ver lütfen.]</p>
+
+            <p>Rem: [……Tekrar etmene mi?]</p>
+
+            <p>Subaru: [Hatalı olan bendim. Endişeli, tedirgin ve her şeyi unutmuş olmana rağmen sana tek bir şey bile açıklayamadım. Tamamen şahsi meselelerim yüzünden senin hislerini dinleyip bu konuda düşünceli davranamadım……]</p>
+
+            <p>Hevesli düşünceleri ve sabırsız hisleri, işte Rem’e düşünceli davranamama sebepleri bunlardı.</p>
+
+            <p>Kabahat tamamen bu iki sebepteydi ― Subaru için kendini bu şekilde savunmak kolaydı. Fakat bu acınası, yetersiz haklı çıkma çabalarının ne anlamı vardı?</p>
+
+            <p>Onun ihtiyaç duyduğu şey, kendisini savunacağı kelimeler değildi.</p>
+
+            <p>Onun ihtiyaç duyduğu şey, Rem’e hitap edecek, onun inatçı kalbindeki gerilimi yatıştıracak kelimelerdi.</p>
+
+            <p>Subaru: [Sen benim için önemlisin. Tek isteğim seni korumak. O yüzden lütfen dinle beni. Lütfen reddetme beni. ――Lütfen, bir şans daha ver bana.]</p>
+
+            <p>Rem: [――――]</p>
+
+            <p>İki eli de hala havada olan Subaru, olduğu yerde iyice eğilmiş halde Rem’e yalvarıyordu.</p>
+
+            <p>Tüm bedeni ve tüm ruhuyla samimi olup olamadığını bilmiyordu ama hiç değilse bu yakarışa hislerini katabilmişti. Eğer Rem’in kalbine azıcık olsun dokunabildiyse, eğer Rem ona kendisini açıklama fırsatı verebilirse――</p>
+
+            <p>Rem: [――Söyleyeceklerin bitti mi?]</p>
+
+            <p>Subaru: [……Eh?]</p>
+
+            <p>Rem: [Yalnızca bu açıklamayı yapmakla mı yetineceksin?]</p>
+
+            <p>Subaru, aldığı bu yanıt karşısında çekinerek kafasını kaldırdı.</p>
+
+            <p>Rem’in sesinde yoğun bir şekilde var olan duygu, Subaru’nun umduğundan farklıydı. Bununla birlikte işlerin ters gitmesi durumunda beklediği şeyden de farklıydı ve bu da afallamasına yol açmıştı.</p>
+
+            <p>Rem’in sesi, sessiz bir öfke ve katlanılmaz bir hiddetle bezenmişti.</p>
+
+            <p>Subaru: [Re, Rem……?]</p>
+
+            <p>Rem: [Bizi kovalamış olman ve korkunç derecede uğursuz kokunun şüpheli olması, elbette ki fena halde tuhaf bulduğum şeyler. Ama-]</p>
+
+            <p>Bu noktada konuşmayı kesen Rem, dudaklarını sımsıkı kapattı.</p>
+
+            <p>Ve mavi gözlerinde, önünde yatan yanıtlardan emin olamayan Subaru’yu kalbinin en derinlerinde affı olmayan bir kötü adam olarak görüyormuşçasına bir düşmanlık parıldadı.</p>
+
+            <p>Rem: [Hepsinden öte, küçücük bir kızı bir başına bırakmaya çalıştığın gerçeğini ortadan kaldıramazsın. Bana böylesine acımasız ve aşağılık birine güvenmemi nasıl söylersin?]</p>
+
+            <p>Subaru: [――ah]</p>
+
+            <p>Aşağılık olduğuna hükmeden o bakışlar karşısında nutku tutulmuştu.</p>
+
+            <p>Ona yöneltilen bu sözler beynine nüfuz etmiş ve Subaru, Cadının miasmasından bağımsız olarak kazanıp kazanamayacağı bilinemese de ilk hamlesiyle Rem’in güvenini sarsarak yanlış seçim yaptığını anlamıştı.</p>
+
+            <p>Rem’in güvenini gerçek anlamda yaralayan şey ne annesinden miras aldığı korkutucu gözlerdi ne de zorla kendisine geçirilmiş olan miasma.</p>
+
+            <p>Rem’in inancını yok eden şey, halihazırda sahip olduğu şeyler değil, gerçekleştirdiği eylemlerdi.</p>
+
+            <p>Louis, bir Günah Başpiskoposu ve kötülüğün vücut bulmuş hali olsa da bu konuda hiçbir şey bilmeyen Rem’in gözünde gencecik, güçsüz bir kızcağızdı ve Subaru bu gerçeği gözden kaçırmıştı.</p>
+
+            <p>Subaru: [――――]</p>
+
+            <p>O anda vermesi gereken cevabı bulmayı başaramıyordu.</p>
+
+            <p>Subaru, pek çok farklı zamanda pek çok farklı zorluğun üstesinden gelmişti. Bazen canından olmuş ve farklı bir açıdan çözüm bulmayı denemişti ama bu seferki cevap, içinde bulunmuyordu.</p>
+
+            <p>Özür, mazeret veya gerçek. Hangisine öncelik vermeliydi?</p>
+
+            <p>Bir çocuğu terk etmeye çalıştığı gerçeği için özür mü dilemeliydi?</p>
+
+            <p>Bunu süslemek için mazeretlerini sıralamalı, bir sebebi olduğunu mu söylemeliydi?</p>
+
+            <p>Yoksa o “güçsüz kızcağız” aslında bir canavar mı demeliydi?</p>
+
+            <p>Hangisini seçerse seçsin hemen karşısındaki Rem’in güvensiz bakışlarını değiştirebileceğini sanmıyordu.</p>
+
+            <p>Ve bu, Subaru’nun “Ölümden Dönüş” aracılığıyla çoktan tarihe yazılmış eylemlerinin sonucuydu.</p>
+
+            <p>Rem: [――Artık konuşmuyorsun.]</p>
+
+            <p>Subaru’nun bakışları etrafı tarar, yanakları kaskatı kesilir ve ağzından hiçbir söz çıkmazken Rem, onu beklemekten usanmıştı.</p>
+
+            <p>Böylece muazzam bir çabayla ayaklanarak Subaru’dan uzaklaşmaya çalıştı. ――Geleceğe yönelik endişelerinin kaynağını ortadan kaldırmak için onu olduğu yerde pataklamaya niyetli değilmiş gibi görünüyordu.</p>
+
+            <p>Belki de bitap olan Subaru’nun peşinden gelmeyeceğini düşünüyordu.</p>
+
+            <p>Ama elbette ki öyle olmayacaktı. Subaru, burada itilip kakılsa bile, Rem tarafından tutulana dek elini uzatmaya devam edecekti.</p>
+
+            <p>Yollarının ayrılması ― gibi bir şey gerçekleşmiyordu. Gerçekleşmiyordu, ama――</p>
+
+            <p>Subaru: [――Re,]</p>
+
+            <p>Bedeninin doğrultusunu değiştiren Subaru, bölgeden ayrılmak üzere olan Rem’e durması için seslendi.</p>
+
+            <p>İlk olarak, cümlesinin devamını getirecek herhangi bir kelime düşünmeden, yalnızca adını söylemeyi, ona seslenmeyi denedi.</p>
+
+            <p>Ve sonra da――</p>
+
+            <p>Subaru: [――――]</p>
+
+            <p>Tam bedenini büken Rem’in sırtına uzanacakken, görüş alanında bir değişiklik gerçekleşti.</p>
+
+            <p>Sık ağaçların arasında minicik bir gölge titreşti ― ve Subaru, o gölgeyi tanıdı.</p>
+
+            <p>Subaru: [――Rem!!]</p>
+
+            <p>Geliyor! Subaru, bu düşüncenin zihninde belirişinden de hızlı şekilde kendisini Rem’in sırtına doğru attı. Ve bu ani eylem karşısında gafil avlanan Rem’in minyon bedeni kaskatı kesildi.</p>
+
+            <p>İşte tam da Subaru’nun o ufak bedeni etrafını sarıyormuşçasına kucakladığı anda…</p>
+
+            <p>――Ağır, güçlü bir yaydan salınan bir ok, kafalarının üzerinden uçup geçti ve koca bir ağaç, gövdesinin ortadan delinip geçilmesiyle parçalandı.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="arc7bolum3parca2.html" class="nav-btn">← Önceki Parça</a>
+            <a href="arc7bolum4parca1.html" class="nav-btn">Sonraki Parça →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

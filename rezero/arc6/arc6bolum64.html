@@ -1,0 +1,470 @@
+﻿
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VI, Bölüm 64 Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff; /* Görseldeki Açık Mavi / Cyan */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc6bolum63.html" class="nav-btn">← Önceki</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc6bolum65.html" class="nav-btn">Sonraki →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VI, Bölüm 64</h1>
+            <div class="subtitle">"İkinci Engel"</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <!-- Metin buraya eklenecek -->
+             <p class="wp-block-paragraph"><em>——</em><em>Gümüş saçlı bir yabancı.</em></p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ha?”</p>
+<p class="wp-block-paragraph">Ram’ın beklenmedik ifadesi, Subaru’nun bilincinde belli belirsiz bir boşluk oluşmasına yol açmıştı.</p>
+<p class="wp-block-paragraph">Basitçe “Gümüş saçlı biri” deseydi de oldukça şüpheli bir anlatım olur ama elbette ki Subaru’nun herhangi bir tuhaflık hissine kapılmasına olanak tanımazdı.</p>
+<p class="wp-block-paragraph">Emilia’nın güzelim gümüş saçlara sahip olduğu kuşkusuzdu. Ametist gözleri de güzeldi. Yüzü ve bedenini oluşturan diğer kısımların hepsi de çok hoştu, bizzat Tanrının elinden çıkma bir sanat eseri gibiydi.</p>
+<p class="wp-block-paragraph">Ancak o sondaki gereksiz “yabancı” kısmı, ima edilen şeyi büyük ölçüde değiştiriyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Gümüş saçlı bir, yabancı…”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Evet, öyle. Daha önce bu kulede hiç görülmemiş biri. Hiç değilse bize karşı bir düşmanlığı varmış gibi görünmüyordu… Durumu gözlemleyen Ram, şimdilik geri çekilmeyi seçti. Ama…”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“——Destek kuvvet olarak kim katılırsa katılsın rakip Oburluk olunca işler bambaşka bir hâl alıyor.”</p>
+<p class="wp-block-paragraph">Subaru’nun fısıltısına karşılık veren Ram, gözlerini geldiği istikamete çevirdi.&nbsp; Oburluğun yankısının yol açtığı huzursuzlukla kasvetli bir ifadeye bürünerek sözlerinin devamını getirense Julius oldu.</p>
+<p class="wp-block-paragraph">Ardından dudaklarını sımsıkı büzerek beline takılı Şövalye kılıcına dokundu.</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Öngörülmemiş bir karşılaşma olsa da düşman olarak yüzlerini gösterdiklerine göre kaçmalarına müsaade edilemez. Zaten amacımız Oburluk ve Şehvet Günah Başpiskoposlarının yol açtığı hasarı onarmanın bir yolunu bulmaktı. Madem kendileri buraya geldi, öyleyse tek yapmamız gereken cevabı onların ağızlarından almak.”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Katılıyorum Ram’ın da onların buradan sağ çıkmasına izin vermeye niyeti yok. Böylesine umursamazca buraya geldiklerine pişman edilmeliler.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“B-Bekleyin! Bekleyin bir saniye! Sabırsızlığınızı anlıyorum! Anlıyorum ama… Hık.”</p>
+<p class="wp-block-paragraph">İkili Oburluğa yönelik düşmanlıklarını sergilerken Subaru, düşüncesizce bir duraksama talep etti.</p>
+<p class="wp-block-paragraph">Bilinen varlığı dünyadan silinen Julius ve biricik kardeşi kendi kalbinden adamakıllı yok edilen Ram—— Subaru, ikisinin de Oburluğu yenme motivasyonunu anlıyordu. Gerçek şu ki Subaru da fırsatların iyisiyle kötüsüyle ayaklarına geldiğini hissediyordu.</p>
+<p class="wp-block-paragraph">Ama buradaki problem şuydu ki——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Tüm konuşma boyunca Emilia’nın ismi anılmadı. Peki ya buna, ne demeli?”</p>
+<p class="wp-block-paragraph"><strong>Herkes:</strong> “————”</p>
+<p class="wp-block-paragraph">Bu konuda kötü bir hisse kapılan Subaru, şüphesini doğruca dile getirdi.</p>
+<p class="wp-block-paragraph">Ram’ın doğal olmayan konuşma şekli ve Julius ile Beatrice’in Emilia konusundaki tepkisizliğinin yanı sıra kafasını çevirdiğinde Beatrice ile Echidna’nın bir tuhaflık hissettiklerini anlatan bir ifadeye bürünmediklerini bile fark edebiliyordu.</p>
+<p class="wp-block-paragraph">Yani Ram’ın “gümüş saçlı bir yabancı” yorumunu olduğu gibi kabullenmişlerdi.</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“——Emilia derken… kimden bahsediyorsun?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Hık.”</p>
+<p class="wp-block-paragraph"><em>Ç.N: (Küçük bir bilgi. Burada Ram’ın kurduğu cümleyle 2. Sezonun başında Emilia’nın “Rem derken kimden bahsediyorsun” cümlesi birebir aynı yapıda.)</em></p>
+<p class="wp-block-paragraph">Ram şüphelerini gizlemeksizin boynunu eğerken Subaru’nun boğazı şaşkınlık içerisinde kavruluyordu.</p>
+<p class="wp-block-paragraph">Gözlemlediği kadarıyla Julius, Beatrice, hatta Echidna bile gözlerinde bir anlayışsızlıkla kendisine bakıyordu—— Bunun doğurduğu etki, azımsanacak gibi değildi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Yani.”</p>
+<p class="wp-block-paragraph">Olaylar, tek bir dakikalık mühlet içerisinde olup bitenleri düşündürecek düzeydeydi.</p>
+<p class="wp-block-paragraph">Subaru, bu seviyeye ulaşmadan önce Julius ve diğerleriyle Emilia hakkında konuşmuştu. Her şeyden önce balkondan kulenin içine doğru koşturma sebepleri Emilia ve Ram’ın onlara katılmamış olmasından kaynaklanan endişeleri ve onlarla sağ salim buluşma arzularıydı.</p>
+<p class="wp-block-paragraph">Peki nasıl olmuştu da bir dakika içerisinde——</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Subaru, yoksa…”</p>
+<p class="wp-block-paragraph">O anda Subaru’nun elini tutmakta olan Beatrice, bir şey fark etmişçesine farklı bir ifadeye büründü. İlk fark eden Beatrice olsa da hemen ardından grubun kalan üyelerinin ifadeleri de doğru tahminde bulunmuşçasına değişim gösterdi.</p>
+<p class="wp-block-paragraph">Subaru’nun bahsettiği ismin, anılarında yer almayan o ismin, kendileri için büyük önem taşıyan birine ait olduğunu anında anlamışlardı.</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Emilia… O, gümüş saçlı kızın ismi mi?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Evet öyle. Eğer gümüş saçlı bir kız vardıysa o Emilia isimli kızdır, yani bizim yoldaşımız. Bu yüzden Ram’a kaçmasını söylemiş ve geride kalmıştır. Ve şu anda bile çarpışmaya devam ediyordur.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Böyle bir şeyin gerçekleşmesinin, mümkün olduğuna inanıyorum. Benim dışımda hiç kimse bu hissi tatmamıştır.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Subaru’nun güçsüz yanıtına karşılık veren Julius, inanılması zor bir şey işitmişçesine kaküllerine dokunuyordu.</p>
+<p class="wp-block-paragraph">Julius hayretini gizlemek için hiçbir çaba sarf etmese de Subaru, Oburluğun gücünün boyutlarını, ani etkisini, acımasız ve şeytani mizacını bir kez daha kavramış ve ne denli korkutucu olduğunu hissetmişti.</p>
+<p class="wp-block-paragraph">Dürüst olmak gerekirse Subaru anılarının çalındığı gerçeğinin farkında olsa da bunun verdiği gerçek hislerle ilgili deneyimi oldukça zayıftı.</p>
+<p class="wp-block-paragraph">Elbette anılarını yitirişiyle yanlış anlaşılmaların ve şüphelerin önü açılmış, Emilia ve diğerlerine unutulması zor negatif duygular beslemiş, eğer mümkünse ilelebet unutmak istediği karanlık bir geçmişi olmuştu.</p>
+<p class="wp-block-paragraph">Ama buna rağmen gerçek hisleri zayıftı. Var olduğu hissine dayanarak hiç var olmamış bir şeyi arama eylemi, görüş mesafesinin sıfır olduğu bir gecede uçsuz bucaksız bir okyanusta balık tutmaya benzer belirsiz bir mücadeleydi.</p>
+<p class="wp-block-paragraph">İşte bu yüzden, gerçek hissiyatı zayıftı. Ama bu defa hepsi bu değildi.</p>
+<p class="wp-block-paragraph">Daha az önce hatırladıkları Emilia’yı, birlikte sayısız zorluğun üstesinden geldikleri yoldaşlarını unutmaları—— Bundan daha korkutucu bir şey olabilir miydi?</p>
+<p class="wp-block-paragraph">Oburluk, anıları gasp eden, anıları ayaklar altına alan, bağları tüketen biriydi ve bunlar da onun alışıldık suçlarıydı.</p>
+<p class="wp-block-paragraph">Nihayet buna bizzat tanık olan Subaru, artık anlıyordu.</p>
+<p class="wp-block-paragraph">Oburluk, kendi mutlulukları uğruna asla el sürülmemesi gereken bölgelere izinsiz giren ve baskın yapan kötü karakterlerden oluşuyordu.</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“——Ih, kıh.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ram!?”</p>
+<p class="wp-block-paragraph">Ve Subaru, bir şekilde bu şaşkınlığı sindirmişti. Derken bir yoldaşlarına dair anılarının çalınmasının verdiği şoku yaşayan grup üyeleri arasındaki Ram, ansızın olduğu yere diz çöktü. &nbsp;</p>
+<p class="wp-block-paragraph">Patrasche’nin yanı başında durarak siyah ejderin ayaklarına yaslanan Ram, kabaca bir nefes verdi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ne oldu? İyi misin?”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“…Ram’ın başı, birazcık ağrıyor. O kişiyi, o yabancıyı düşününce.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Emilia’yı mı?..”</p>
+<p class="wp-block-paragraph">Elini alnına yerleştiren ve sıkıntılı bir ifadeye bürünen Ram karşısında Subaru’nun alnı kırıştı ve kaşları çatıldı.</p>
+<p class="wp-block-paragraph">Oburluk Emilia’ya dair anıları çalarken Ram, bu sahneye bizzat kendi gözleriyle tanık olmuş olabilirdi. Ve Subaru, bu ağrı bunun etkisi olabilir mi diye merak ediyordu.</p>
+<p class="wp-block-paragraph">Ancak Beatrice, omuzları kaskatı kesilmiş hâlde kafasını sallayıp “Subaru” diyerek,</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Onu hatırlatmaya çalışmaya bir son versen iyi olur, doğrusu. Fazla noksan, sanırım.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Fazla noksan, mı…”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Oburluk Otoritesinin gevşek kısmı kendini gösteriyor, doğrusu—— Çalınan kişinin hafızalardaki noksanlığının tespit edilemediği kısımlar çok fazla, bu da bazı kısımlarda tutarsızlıklara yol açıyor, sanırım.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Beatrice’in sözlerini işiten Subaru’nun bir an için nutku tutuldu.</p>
+<p class="wp-block-paragraph">Fakat ima edilen şeyi anında kabullendi ve anlamını çözdü.</p>
+<p class="wp-block-paragraph">&nbsp;Oburluk Otoritesi kullanıldığında Emilia’ya dair anılar Ram ve diğerlerinden silinmişti.</p>
+<p class="wp-block-paragraph">Ram’ın üstlendiği pozisyon Emilia’nın bakıcılığıydı—— başka bir deyişle aralarında efendi hizmetkâr ilişkisi vardı. Ve bu bağla birlikte -açıklanması zor olsa da- birbirlerine besledikleri belirgin bir samimiyet ve sıcaklık da mevcuttu.</p>
+<p class="wp-block-paragraph">Bunların bütünüyle silinişiyle Ram’ın içerisinde taşıması gereken “Emilia”nın varlığının yerinde bir boşluk doğmuştu.</p>
+<p class="wp-block-paragraph">Anılar, bir çekmecenin içerisinde tutulan belgelere benzerlerdi.</p>
+<p class="wp-block-paragraph">Normal şartlarda oradaki varlıklarının bilincinde olmazdınız ancak hatırlamaya çalışıp çekmeceyi açtığınızda çeşit çeşit şeyle karşılaşırdınız—— Öyle olmasaydı hayat denen şey var olmazdı.</p>
+<p class="wp-block-paragraph">Başka bir deyişle Ram benliğinin içerisinde Emilia’nın adını arayacak olursa durmaksızın çekmeceyi açıp kapatmak ve hiçbir şey bulamamak gibi yorucu bir şey yapıyor olacaktı.</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Ben onu kollayacağım.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Echidna?..”</p>
+<p class="wp-block-paragraph">İfadesi ıstırap içerisinde çarpılan Ram’ın yanındaki Echidna, orada durup elini kaldırarak böyle söyledi. Subaru kendisine şaşkınlıkla bakarken de ince omuzlarını silkerek,</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Şu anda konuşup tartışmaya ayıracak vaktimiz yok. Hele de Oburluk gelmiş ve yoldaşlarımızdan biri ismini yitirmiş şekilde çarpışmaya devam ederken duraksamamalıyız.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Echidna, lütfen Ram Hanım ve kız kardeşiyle ilgilen. Ve Patrasche’yle birlikte savaş alanıyla aranıza bir mesafe koyun.”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Elbette, burası bana emanet—— Julius, bu bir ölüm kalım meselesi ama kendini fazla kaptırmadığından emin ol.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Biliyorum. Mücadeleci ruhum epeyce soğudu. Tıpkı bu kılıç gibi.”</p>
+<p class="wp-block-paragraph">Julius Echidna’nın önerisini anında kabullendi ve asil bakışlarını önüne dikti. Esasında Subaru’yu ne diyeceğini bilemez hâle getirecek kadar keskin bir mücadele ruhuyla doluydu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ram.”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Can sıkıcı olsa da Ram peşinizden geldiği sürece sadece size ayak bağı olur. Bu yüzden Ram’ı geride bırakıp gidin lütfen. Ancak Oburluğun canını bağışlamanızı rica ediyorum. Geri kalanlar Barusu’ya emanet.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Sığır veya domuz etinden bahseder gibi bir hâlin var ama neyse, endişe etme. Gidiyoruz!”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“——Hı hı, başarılı ol lütfen.”</p>
+<p class="wp-block-paragraph">Hüsrana uğramış bir ifadeye bürünmüş olan Ram’ı geride bırakan Subaru, onunla kalacak olan Echidna’ya doğru başını salladı. Sonra da depar atmaya başlamadan önce Patrasche’nin boynunu okşayarak sırtında uzanmakta olan uyuyan güzelin profiline bir bakış attı.</p>
+<p class="wp-block-paragraph">“————”</p>
+<p class="wp-block-paragraph">Değişim göstermeksizin, sessizce, yokmuşçasına nefesler alan Rem’in gözleri ebedi bir rüyaya tanık olurmuşçasına kapalı kalmayı sürdürüyordu.</p>
+<p class="wp-block-paragraph">Şimdilik bunda bir sakınca yoktu. Subaru, onun ağzından dökülmesi gereken kelimeleri çoktan işitmişti.</p>
+<p class="wp-block-paragraph">Geriye kalan şeyse——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bekle de gör, Oburluk!.. Senin bir şeyler yemene müsaade etmekten bıktım usandım artık!”</p>
+<p class="has-text-align-center wp-block-paragraph">※　※　※　※　※　※　※　※　※　※　※　※</p>
+<p class="wp-block-paragraph">——Tam anlamıyla dürüst olmak gerekirse o şüphe, Subaru’nun zihninde durmaksızın belirmeyi sürdürüyordu.</p>
+<p class="wp-block-paragraph">Oburluk Otoritesinin etkileri neden Subaru’da görülmüyordu?</p>
+<p class="wp-block-paragraph">Emilia’nın ismi çalındıktan ve ona dair anılar Beatrice, Ram ve geri kalanların zihinlerinden silindikten sonra bile ismi, cismi ve sesi Subaru’nun içerisinde tüm netliğiyle varlığını koruyordu.</p>
+<p class="wp-block-paragraph">Ona beslediği fani hisleri de hâlâ unutulmaz bir şekilde göğsünde taşıyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong> “Sebep, farklı bir dünyadan gelmiş olmam mı?..”</p>
+<p class="wp-block-paragraph">Bu nedenle bu dünyanın kuralları Subaru’yu etkilemiyor olabilirdi.</p>
+<p class="wp-block-paragraph">Eğer bu dünyaya dair anılar, Anılar Koridorunda ölülerin ruhlarından sıyrılan yaşam kayıtlarıysa Oburluğun onları çalıp gasp etme kabiliyeti, farklı bir dünyadan gelmiş bir istisna olması gereği Subaru’ya işlemiyor olabilirdi, böyle bir olasılık mevcuttu.</p>
+<p class="wp-block-paragraph">Eğer öyleyse kendisine geçici bir ölü gibi davranıldığı takdirde “Natsuki Subaru”nun anıları da bu dünyanın Anılar Koridoruna kazınırdı. Aksi takdirde——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Ben, bunu yapamadığım için mi Ölümden Dönüş yaşıyorum?”</p>
+<p class="wp-block-paragraph">Ulaşmış olduğu, insanın içini ürpertebilecek soğuklukta sonuç buydu.</p>
+<p class="wp-block-paragraph">Eğer Subaru’nun neden Ölümden Dönüş yaşadığı sorusunun cevabı buysa Subaru’nun hayatı bu dünyada sonsuz bir yaşam sarmalını takip ediyor demekti.</p>
+<p class="wp-block-paragraph">Özetlemek gerekirse bunun anlamı, bu dünyada onlarca yıl geçirse bile yaşlılıktan dahi ölemeyeceğiydi.</p>
+<p class="wp-block-paragraph">Bkurala tabi olmadan hayatını tamamlayacaksa da Natsuki Subaru’nun anılarını gerçek anlamda bırakabileceği bir dünya olmak zorundaydı——</p>
+<p class="wp-block-paragraph"><strong>???:&nbsp;</strong>“——Buzul Savaş Sanatı!!”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Hık!?”</p>
+<p class="wp-block-paragraph">O anda Subaru’nun düşüncelere dalmış bilinci, gümüşi bir çanın keskin sesiyle dağıldı.</p>
+<p class="wp-block-paragraph">Kafasını kaldırmış hâlde hızla koşan Subaru’nun önünde uzanan şey—— Yeşil Odaya çıkan donmuş, beyaz koridor olmuş ve teninde hissettiği korkunç, dondurucu bir rüzgârla karşılanmıştı.</p>
+<p class="wp-block-paragraph">Ve kaynağı da dalgalanan elmas tozlarının içerisinde dans edermiş gibi görünerek bedenini hareket ettiren bir kar perisi—— gibi görünse de esasında gümüş saçları savrulan Emilia’ydı.</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“——Yah! Hiyah! Hi! Yah!”</p>
+<p class="wp-block-paragraph">Ellerindeki ikiz buz kılıçlarını savuran Emilia, bağıra bağıra şiddetli bir saldırı gerçekleştiriyordu. Bağırışında bir nebze keder olsa da buz kılıçlarıyla koşarken süratinde hiçbir eksiklik bulunmuyordu.</p>
+<p class="wp-block-paragraph">Kılıçlarıyla açıkça yüzleşmekte olduğu düşmanına darbe indiriyor, işini tek bir vuruşta bitirmeye çalışıyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bu…”</p>
+<p class="wp-block-paragraph">Ve Emilia ellerindeki buz kılıçlarıyla oradan oraya savrulup dans ederken savaş alanına dönüşmüş koridor mavimsi beyaz bir surette donduğu için bu dönüşüm, Subaru’da çöldeki kuleden bambaşka bir dünyada oldukları izlenimini uyandırıyordu.</p>
+<p class="wp-block-paragraph">Belki de bu, Emilia’nın kullandığı buz büyüsünün çevresine yayılmasının etkisiydi. Ve bu, bu dünya için bile olağanüstü bir güçmüşçesine Beatrice ve Julius, yaşananları görür görmez derin birer nefes almıştı.</p>
+<p class="wp-block-paragraph">Bununla birlikte daha da çarpıcı bir şey varsa o da——</p>
+<p class="wp-block-paragraph"><strong>???:</strong>&nbsp;“A~haha~! Bunu yapıyorsun, bunu kesinlikle yapıyorsun, bunu yapmıyor musun, bunu gerçekten yapıyorsun, bunu yapıyor gibi görünüyorsun, bunu yapabildiğin için, bunu yaptığın için! Bu bizim de yediğimiz bir şey~!”</p>
+<p class="wp-block-paragraph">Düşmanın Emilia’yla yüzleşir ve buz kılıçlarını kolaylıkla, rahatlıkla savuştururken takındığı güleç ve alaylı hâli gayet belirgindi.</p>
+<p class="wp-block-paragraph"><strong>???: </strong>“————”</p>
+<p class="wp-block-paragraph">Melankolik bir deliliğe bürünmüş şekilde gülümseyen, uzun, koyu kahve saçları özgürce dalgalanan genç bir oğlandı.</p>
+<p class="wp-block-paragraph">Ergenlik çağındaydı, kıyafetleri eski püsküydü, hatta bazı noktalarda renkleri atmıştı. Ne sağlıklı ne de temiz görünüyordu ancak onu en itici kılan şey gözlerindeki ışıltıydı, başkalarına yönelik sınırsız küçümseyişini, onları hiç tereddütsüz besine dönüştüreceğini anlatan, umutsuzluk ve “Yaşam” özlemini belli belirsiz yansıtan o ışıltı.</p>
+<p class="wp-block-paragraph">Tek bakışta anlaşılabiliyordu. Bahsetmeye dahi lüzum yoktu.</p>
+<p class="wp-block-paragraph">Rui Arneb haricinde böyle gözlere sahip bir başka varlığın daha olduğu gerçeği katlanılamazdı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Oburluk Günah Başpiskoposu!”</p>
+<p class="wp-block-paragraph"><strong>Oburluk:</strong>&nbsp;“Ahhaa~! Müşteriler! Şey, yo! Ana öğün onii-sanmış! Biz de hevesle seninle karşılaşmayı bekliyorduk. Anlaşılan küçük kardeşimize göz kulak olmuşsun, öyle değil mi!”</p>
+<p class="wp-block-paragraph">Emilia’nın kılıç saldırılarını savuştururken Subaru’nun kükreyişini işiten Oburluk, şeytani gülümsemesini yoğunlaştırdı. Ve Emilia da bu uğursuz gülümsemeden korkmanın yanı sıra Subaru ve arkadaki diğer kişileri fark ederek şaşkın bir sesle “Eh!” dedi.</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Ah, millet! Umm, beni tanımıyor olabilirsiniz ama düşman o! Kötü adam o! Siz burayı bana bırakın… gerçi beni, tanımıyor olabilirsiniz!”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong> “————”</p>
+<p class="wp-block-paragraph">Emilia ardındaki yoldaşlarının varlığıyla bağlantılı olarak düştüğü durumu doğru bir şekilde tespit etmişti.</p>
+<p class="wp-block-paragraph">Elbette ona dair anılar herkesten silindiği için bir şok yaşamış olmalıydı. Yalnızca bu etki nedeniyle unutulmuş olduğunu düşünürken de bu tarz bir unutuşu hiç tecrübe etmemiş olan Subaru’yu hesaba katmamıştı.</p>
+<p class="wp-block-paragraph">Bununla birlikte yalnızca Ram’ın kaçmasına olanak sağlamakla kalmamış, bir yandan Oburlukla çarpışmayı sürdürürken bir yandan da Subaru ve diğerlerini arayarak ilerlemeye çalışmıştı.</p>
+<p class="wp-block-paragraph">Subaru, içine akın eden bir duygu seliyle birlikte ona seslendi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Sorun yok, Emilia-chan! Ben unutmadım!”</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong> “————”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Seni bir daha asla unutmayacağım, yemin ederim! Ne olursa olsun seni unutmayacağım!”</p>
+<p class="wp-block-paragraph">İşte Subaru’nun yumruğunu havaya kaldırarak Emilia’nın ardından kurduğu cümleler bunlar oldu.</p>
+<p class="wp-block-paragraph">Ve Emilia’nın gözleri bu cümleleri işitir işitmez gözleri fal taşı gibi açılsa da yeniden kısılmaları çok kısa sürdü.</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>“————”</p>
+<p class="wp-block-paragraph">Subaru, o anda Emilia’nın zihninde nasıl duygular filizleniyor olabileceğinden bihaberdi.</p>
+<p class="wp-block-paragraph">Bununla birlikte anlık gülümsemesine bakılırsa o duyguların herhangi bir negatiflikle ilişkili olmadığı barizdi.</p>
+<p class="wp-block-paragraph">Emilia, aynı hızla Oburlukla kafa kafaya çarpışmaya devam ediyor, ikiz buz kılıçlarını kaldırıyor ve yerden bir buz mızrağı çekerek buz hamleleriyle dans ediyor, düşmanı takip ediyordu.</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Şu anda sözlerinin onun üzerinde bıraktığı etkinin boyutunun farkında değilsin.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ah?”</p>
+<p class="wp-block-paragraph">Subaru, Julius’un hemen yanı başından gülümseyerek bu sözleri söylediğini işitti. Bu sözler kulağa fazlasıyla derin bir anlam taşırmış gibi gelirken Julius, kendisine dönüşü sonrası Subaru’ya cevap vermekten kaçındı.</p>
+<p class="wp-block-paragraph">Bununla birlikte belindeki kılıcı çekip temiz bir yol çizerek hazır hâle getirdi. Ve——</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Sormaya dahi lüzum yok ama o bizim tarafımızda, öyle değil mi, Subaru?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Evet, öyle. Bu tatlılıkla düşmanımız olması mümkün değil!”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“——Anlıyorum.”</p>
+<p class="wp-block-paragraph">Başını sallayıp onay veren Julius, bir anda Subaru’nun görüş alanından kayboldu—— Yo, bu bir illüzyondu.</p>
+<p class="wp-block-paragraph">Aslında yaptığı şey, hemen sonrasında tek bir adımla ivmelenip devasa bir sıçrayışla buzun hüküm sürdüğü yakın dövüş alanına doğru atılarak iki kolunu göğsünün önünde kavuşturmuş olan Oburluğu delici bir saldırıyla zapt etmekti.</p>
+<p class="wp-block-paragraph"><strong>Oburluk:</strong>&nbsp;Uu~pss, onii-san…”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Ben de hevesle bu anı bekliyordum, Oburluk!——”</p>
+<p class="wp-block-paragraph">Julius’un keskin kılıç darbesi, belli belirsiz şekilde gülümseyen Oburluğa zorla atıldı. Ancak Oburluk hür iradesiyle geriye sıçrayıp darbeyi öldürdü, etkisiz hâle getirdi ve ayaklarını donmuş duvara yerleştirmesinin ardından keder ve mutsuzluk dolu bir ifadeyle boğazından bir ses yükseltti.</p>
+<p class="wp-block-paragraph">Ve Oburluk, tüm bunlardan sonra uzun dilini kışkırtıcı bir şekilde çıkartarak,</p>
+<p class="wp-block-paragraph"><strong>Oburluk:</strong>&nbsp;“Heyhey, böylee~ bir anda harekete geçip saldırmasana. Üzgünüm ama biz ve bizler yediğimiz her şeyi paylaşmıyoruz, anlarsın yaa~. Onii-san’ı gördüğümüzü hatırlamıyoruz. Bunun anlamı suçlanacak kişinin biz değil de Roy olduğu değil mi?”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“——Hık.”</p>
+<p class="wp-block-paragraph"><strong>Oburluk:</strong>&nbsp;“Ehh, sanırım arada pek fark olmadığını düşünüyor olabilirsiniz. Ne olursa olsun, Roy bir yana, biz onii-san’la pek ilgilenmiyoruz, ee~h. Bizim beslenme standartlarımıza uymuyormuş gibi geliyor?”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Beslenme standartları mı?”</p>
+<p class="wp-block-paragraph"><strong>Oburluk:</strong>&nbsp;“Ah, hı hı, hı hı. Öyle…”</p>
+<p class="wp-block-paragraph">Diyen ve iki elini de tembelce aşağı sarkıtan Oburluk, bileklerine takılı hançerleri onardı. Ve Julius’a bakarken fena hâlde uğursuz bir üslupla konuşmaya çalıştı. Ancak——</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Hiya—— Hık!!”</p>
+<p class="wp-block-paragraph"><strong>Oburluk:</strong>&nbsp;“——Hık!?”</p>
+<p class="wp-block-paragraph">Emilia, iki elini aşağı doğru savurup bir buz kütlesini parçalayarak araya girdi.</p>
+<p class="wp-block-paragraph">Bu tek saldırı görünüşte savaşa uygun olmayan bir menzille koridoru merhametsizce etkisi altına aldı ve Emilia, saldırısından kaçınılmasını mümkün kılmamak adına özel bir özen gösterdi.</p>
+<p class="wp-block-paragraph">Konuşmanın ortasında bunu sezen Oburluk ise ifadesini değiştirip buz kütlesinin altından kayarak canını kurtarmayı başardı.</p>
+<p class="wp-block-paragraph"><strong>Oburluk:</strong>&nbsp;“Çıh ~tsu! Bu yediğimiz için bildiğimiz bir şey ama gerçekten tereddüdün yok, değil mi, Emilia! Bu şekilde saldırmaya devam edip de korkutucu biri olarak görülmeye başlarsan ne olacak…”</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Hiçbir şey olmayacak, o yüzden kes sesini! Benim korkutucu biri olarak görülmeye alışkın olduğumun farkında olmalısın, haksız mıyım?! Asıl önemi olan, benim onlar hakkında ne düşündüğüm! Ayrıca…”</p>
+<p class="wp-block-paragraph">Diyen Emilia, güzelim dizlerini buz kütlesine doğru atılmış ve nefesi ağırlaşmış Oburluğa doğru kaldırdı. Oburluk ise bu saldırıyı koluyla karşıladı ve darbeyi etkisiz hâle getirerek geriye doğru sıçradı.</p>
+<p class="wp-block-paragraph">Bu sırada Emilia aynı hızla Subaru’ya bakarak cesurca bir gülümsemeyle sözlerinin devamını getirdi.</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Hatırlamasını en çok istediğim kişi beni hatırlıyor. Şu anda kendimi geeerçekten iyi hissediyorum!”</p>
+<p class="wp-block-paragraph"><strong>Oburluk:</strong>&nbsp;“İşte bu yüzden duygularına dayanarak hareket eden tipler bizim güçlü noktamız değil. Aksine en anlaşamadığımız tipler.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“——Demek öyle. Gel gör ki ben de o kızla aynı fikirdeyim.”</p>
+<p class="wp-block-paragraph">&nbsp;Oburluk sinir bozukluğuyla yanaklarını büzerken Julius’un uzun bedeni arkasına doğru kaydı. Ardından kafasını kesmeye yönelik bir darbe indirdi ve Oburluk, ansızın arkasına savrulan koluyla darbeyi karşıladı.</p>
+<p class="wp-block-paragraph">Bununla birlikte henüz gelişme çağında olan kolu, o kesici saldırıyı tam anlamıyla engelleyemedi, dirseğine aldığı kesikten kanlar akmaya başladı. Ve Oburluğun acılı uğultularıyla birlikte art arda darbeler indi de indi.</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“——Zamanında herkes tarafından unutuldum, dayanağımı yitirerek yaşamaktan menedildiğimi hissettim ama en başından beri nerede durduğum konusunda en ufak bir kafa karışıklığı yaşamam gerekmedi.”</p>
+<p class="wp-block-paragraph"><strong>Oburluk:</strong>&nbsp;“Çıh! Ahh, ghi, ghya~!”</p>
+<p class="wp-block-paragraph">Sessiz kararlılığını kelimelerine işleyen Julius’un savurduğu kılıç darbelerinin sayısı arttıkça artıyordu.</p>
+<p class="wp-block-paragraph">Onları bütünüyle karşılayamayan Oburluğun yaraları da giderek çoğalıyordu. Nihayet göğsüne adamakıllı bir darbe yediğindeyse çığlığı yükseldi.</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Subaru.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Biliyorum. Ortaya atlamayacağım.”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“…Bunu biliyorsan sorun yok, doğrusu.”</p>
+<p class="wp-block-paragraph">Julius şiddetli saldırılarını sürdürürken Emilia da Oburluğa merhametsizce darbeler indiriyordu. Diğer taraftan Oburluk defansif pozisyonda kalarak ikilinin saldırılarını karşılıyordu.</p>
+<p class="wp-block-paragraph">Elbette mümkün olsaydı Subaru da onlara katılıp Oburluğun köşeye sıkıştırılmasına yardımcı olmak isterdi ama bunu yapacak kabiliyette olmadığının fazlasıyla farkındaydı.</p>
+<p class="wp-block-paragraph">Şu anda ve şu noktada, yaşananları izleyip Emilia ve Julius birleşiminin Oburluğu mağlup edeceği anın er ya da geç geleceğine inanmaktan başka çaresi yoktu. Ancak——</p>
+<p class="wp-block-paragraph"><strong>Oburluk:</strong>&nbsp;“Aceleyle oluşturulmuş bir birleşim için epey iyi iş çıkarıyorsunuz ~tsu! Peki, ya buna ne diye~ceksiniz?”</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Neye?”</p>
+<p class="wp-block-paragraph"><strong>Oburluk:</strong>&nbsp;“——Buzul Savaş Sanatı.”</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img decoding="async" width="2560" height="1439" src="https://web.archive.org/web/20260619064632im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-91-scaled.png" alt="" class="wp-image-8225" srcset="https://web.archive.org/web/20260619064632im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-91-scaled.png 2560w, https://web.archive.org/web/20260619064632im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-91-2000x1124.png 2000w, https://web.archive.org/web/20260619064632im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-91-1000x562.png 1000w, https://web.archive.org/web/20260619064632im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-91-768x432.png 768w, https://web.archive.org/web/20260619064632im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-91-1536x864.png 1536w, https://web.archive.org/web/20260619064632im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-91-2048x1151.png 2048w" sizes="(max-width: 2560px) 100vw, 2560px"><figcaption class="wp-element-caption"><a href="https://web.archive.org/web/20260619064632/https://x.com/Ro_ka_ro_ka/status/1632055573863890944">Görsel Sahibi</a></figcaption></figure>
+</div>
+<p class="wp-block-paragraph">Kanı akmaya devam etse de rahat gülümseyişi silinmeyen Oburluk, başı öne eğik hâlde, kederli bir ses tonuyla bu kelimeleri mırıldandı. Bu mırıltıyı işittikleri andaysa Subaru ve Emilia’nın kaşları hayretler içerisinde kalktı. Bu yaşananların ardındaki anlamı çözemeyen Beatrice ve Julius’un da kaşları çatılırken dörtlüyü esas sersemleten, mırıltının ardından gelen şey oldu. &nbsp;</p>
+<p class="wp-block-paragraph">Hemen akabinde Oburluğun ayaklarının altından bir buz mızrağı atıldı Julius hızla yana dönerek kaçınırken Emilia o mızrağı, kendi ellerindekini bir buz çekicine dönüştürerek kuvvetli bir imha yoluyla engelledi.</p>
+<p class="wp-block-paragraph">Bununla birlikte tek bir saldırıdan kaçınmış olmaları şaşırmadıkları ve gafil avlanarak saldırıdan savunmaya geçmedikleri anlamına gelmiyordu.</p>
+<p class="wp-block-paragraph"><strong>Oburluk:</strong>&nbsp;“Haha ~tsu! Meşhur saldırının yenilmesi nasıl bir hismiş ha~? Nasılmış, nasıl bir şeymiş, söyle nasılmış, eh nasılmış, nasıl olabilirmiş, nasıl olması gerekiyormuş, nasıl olmalıymış, söylediğimiz şeyin nasıl olması gerekiyormuş, söylediğimiz şey nasıl hissettiriyormuş, oburca içmek ~tsu! Oburluk ~tsu!”</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“——Hık! Öyle ansızın…”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Hareketleri mi değişti yani!?”</p>
+<p class="wp-block-paragraph">Emilia ve Julius hayretler içerisinde böyle söylerken karşılarındaki Oburluk , yerden bir buz silahı yükseltiyordu. Şekillendirilmesi zor o buz silahının yükselişine tanık olan Subaru’ysa derin bir nefes almıştı.</p>
+<p class="wp-block-paragraph">Çünkü o silah——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“E-Excalibur mu!?”</p>
+<p class="wp-block-paragraph"><strong>Oburluk:</strong>&nbsp;“Buzul Savaş Sanatı Emilia’ya ait bir hamle olsa da onu yeniden şekillendirenler onii-san’ı yiyen bizleriz, görüyorsunuz yaa~! Bilgi silahtır! Biz de entelektüel Günah Başpiskoposuyuz.”</p>
+<p class="wp-block-paragraph">Diyen Oburluk, bizzat şekillendirmiş olduğu kutsal buz kılıcını öne doğru savurdu ve Emilia ile Julius’a doğru parlak, kesici bir darbe indirdi. Elbette görünüşü gereği yalnızca buz yoluyla şekillendirilmiş bir kılıçtı ve ışık enerjisi gibi bir şey salmıyordu.</p>
+<p class="wp-block-paragraph">Bununla birlikte Oburluk bu enerjiyi sürdürerek bu dünyada var olmayan silahları ardı ardına üretiyor ve afallamış hâldeki Emilia ile Julius’u dezavantajlı duruma düşürüyordu.</p>
+<p class="wp-block-paragraph">Tabii ki Emilia anında kendisini toparlayıp o ilk etkiyi silkip atarak duruşunu almış ve Oburluğa bir karşı saldırı gerçekleştirmeye çalışmıştı ancak Oburluk savaş stilini bambaşka bir insanmışçasına değiştirmişti ve bu nedenle baş etmeye çalışmalarına rağmen dezavantajlı duruma düşmekten kurtulamadıkları mücadele süregeliyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong> “————”</p>
+<p class="wp-block-paragraph">Oburluğun savunma ve saldırı stillerine tanık olan Subaru’ysa çok sayıda insanın anılarının ele geçirilmesinin ne denli büyük bir tehdit olduğunu idrak ediyordu.</p>
+<p class="wp-block-paragraph">Emilia’nın ardı ardına buzdan silahlar üretme kabiliyeti başlı başına yeterince güçlüyken bir de kullanıcının hayal gücü eklenince bambaşka bir hamleye dönüşmüştü. Özellikle de Subaru’dan gelen başka bir dünyaya ait bilgilerle şekillendirilen silahlar olağanüstü derecede sorun yaratıyordu.</p>
+<p class="wp-block-paragraph">Bu dünyada olmasa da uygun kullanıma sahip bir yığın silah mevcuttu. Bu da Subaru’nun lise birinci sınıfta kendisini geçmişin, günümüzün, doğunun ve batının silahlarını okuyamaya adayarak geçirdiği suçlu tarihinin kabahatiydi.</p>
+<p class="wp-block-paragraph">Üstüne üstlük Oburluk onca yaşam içerisinden çok sayıda savaşçıyı da ele geçirmiş olmalıydı ve bunun sonucunda o sayısız savaşçının mücadele gücünü dur durak bilmeksizin, sonu gelmeksizin kullanabileceği bir formdaydı.</p>
+<p class="wp-block-paragraph">Bundan böyle yalnızca stoktaki uygun anıları kullanıp bir anda mevcut silahta uzman birine dönüşecek ve gönlünce saldırı ve savunma yığacaktı.</p>
+<p class="wp-block-paragraph">Ayrıca Emilia’nın altta kalmasının bir sebebi daha vardı.</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Julius! Oraya değil!”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Kıh… Hık.”</p>
+<p class="wp-block-paragraph">Julius’un acılı adımları, Emilia’nın çığlıklarıyla örtüşüyordu.</p>
+<p class="wp-block-paragraph">Tek bir düşmanı alaşağı etmek için geliştirdikleri iş birliği hünersizdi.</p>
+<p class="wp-block-paragraph">Yani söz konusu iş birliği olduğunda Emilia ve Julius’un uyumları iyi değildi.</p>
+<p class="wp-block-paragraph">Bu da büyük ölçüde Emilia’nın mücadele stilinin duygularına dayanışıyla “Duygu Ağırlıklı” olurken Julius’un stilinin eğitimleri ve disiplinlerine dayanarak “Teknik Ağırlıklı” olmasından kaynaklıydı.</p>
+<p class="wp-block-paragraph">Bununla birlikte güçlerine değinilecek olsa bile esas sorun, birbirlerinin alışkanlıklarını bilmeleri ve düzeltmelerinin ne denli makul olacağıydı.</p>
+<p class="wp-block-paragraph">Evet, birbirlerini tanıyor olsalardı birbirlerinin alışkanlıklarına dayalı bir ilişki geliştirebilirlerdi.</p>
+<p class="wp-block-paragraph"><strong>Oburluk:</strong>&nbsp;“Kesinlikle üzücü. Gerçekten iş birliği gerçekleştirebileceğinizi mi sanıyorsunuz? Partnerini tanımak ve o an için ona güvenmek sonuçlar söz konusu olduğunda aynı doğrultuda olabilir ama esasında bambaşka şeyler, öyle değil mi? Düşüncelerinizi bilmediğiniz için hemfikir olamazsınız, alışkanlıklarınızı bilmediğiniz için onları düzeltemezsiniz. Sonunda birbirinizle çarpışır ve birbirinizin yoluna çıkarsınız… hahaa~, böyle olmaz, olmaz~, siz ikinize diyorum!”</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Kıh…”</p>
+<p class="wp-block-paragraph"><strong>Oburluk:</strong>&nbsp;“Bilgi güçtür! Anılar bağlardır! Anıların feda edilişiyle biz sizlerden çok daha yukarıdayız! Biz güçlüyüz! Biz en yükseklere, zirveye kanat çırpabiliriz, anlarsınız yaa~!”</p>
+<p class="wp-block-paragraph">&nbsp;Oburluğun yukarı sıçrayarak attığı tekme, aynı anda iki rakibini de zapt etti.</p>
+<p class="wp-block-paragraph">Henüz minyon bir bedene sahipti ve bacakları çok uzun değildi ama ayak tabanları ve topuklarıyla ikilinin omuzlarına mutlak bir mükemmeliyetle güçlü bir darbe indirmiş, sonra da ikiliyi anında geri uçurmuş, acı feryatlarla havalandırmıştı.</p>
+<p class="wp-block-paragraph">Bu esnada kendisi de çevik bir takla atarak buzlu zemine inmiş, savaş alanına tamamıyla hâkim olmuştu.</p>
+<p class="wp-block-paragraph"><strong>Oburluk:</strong>&nbsp;“Sorunlar! Küstahlıklar! Büyük zorlukta bir dövüş! Bizim bu yeteneklerimiz hakkında ne düşünüyorsunuz, ha! Oradan izlemekle yetinen Onii-san, sadece sıkıntı duygusunu tatmakla tatmin oluyor musun, ha?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Seni piç kurusu…”</p>
+<p class="wp-block-paragraph"><strong>Oburluk:</strong>&nbsp;“Unutulmamakla falan ilgili bir şeyler söyledin ama~ bu değere sahip biri ne kadar şeyi kurtarmayı başarabilir ki? Neticede her şeyi belirleyen şey deneyimdir. Harika deneyimler biriktirmek, işte hayatı zenginleştiren ve insanları kazananlara dönüştüren şey tam da budur. Başka bir deyişle anlatmak istiyorum ki en güçlü biziz!”</p>
+<p class="wp-block-paragraph">İki kolunu birden açan Oburluk, işine geldiğince konuşup gülerek keskin dişlerini sergiliyordu.</p>
+<p class="wp-block-paragraph">&nbsp;Oburluğun ağzından dökülen bu sözler ise sahiden de kelimesi kelimesine onun felsefesiydi. Kız kardeşi olması gereken Rui’nin bahsettiği “Mutluluğa Ulaşma Felsefesinden” birazcık farklı olsa da başkalarının hayatlarını daha yukarı çıkıp yağlanmak için bir basamak olarak kullanmayı tasavvur eden ve buna niyet edilen bir ideoloji olarak bundan daha kötüsü olamazdı.</p>
+<p class="wp-block-paragraph">Subaru bunun insanın en derinlerinden tiksinmesine layık bir ideoloji olduğunu düşünürken ise——</p>
+<p class="wp-block-paragraph"><strong>???:&nbsp;</strong>“——Hey, ne bok yemeye bu kadar gaza geldin sen?”</p>
+<p class="wp-block-paragraph"><strong>Oburluk:</strong>&nbsp;“Ne?!”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong> “————”</p>
+<p class="wp-block-paragraph">Bu cümleyi işitişiyle birlikte o noktaya dek kuvvetli kahkahalar atan ve altın çağının tadını çıkaran Oburluğun gözleri irileşti. Ve bu şaşkınlığı Subaru ile diğerleri tarafından da paylaşıldı.</p>
+<p class="wp-block-paragraph">Bu yere hiç utanmadan izinsiz giren, fazlasıyla beklenmedik bir katliam sahnesi söz konusuydu.</p>
+<p class="wp-block-paragraph">Bir tarafını açıkta bırakacak rahat bir kıyafet giyinmiş kırmızı saçlı uzun bir adam, kararlı bir şekilde, sağlam adımlarla buzlu koridorda yürüyordu. Şeytani bir gülümsemeyle koridorun diğer tarafında belirdikten sonraysa—— doğrudan Subaru ve diğerleriyle yüz yüze gelecek şekilde Oburluğu aralarına aldı. Ve——</p>
+<p class="wp-block-paragraph"><strong>???:&nbsp;</strong>“En güçlünün senin gibi çarpık iradeli bi velet olması hiçbi şekilde mümkün diil. Çünkü <em>en güçlü</em>, <em>en harika</em>, <em>en iyi</em>, <em>en üstün</em> sıfatlarının hepsi bana ait.”</p>
+<p class="wp-block-paragraph">İşte Reid Astrea, bu sözlerle birlikte inmemesi gereken İkinci Kattan inerek çarpık bir gülümsemeyle karşılarına dikildi.</p>
+</article>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+            <a href="arc6bolum63.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="arc6bolum65.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

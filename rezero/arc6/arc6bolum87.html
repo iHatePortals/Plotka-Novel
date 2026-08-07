@@ -1,0 +1,572 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VI, Bölüm 87 Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff; /* Görseldeki Açık Mavi / Cyan */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc6bolum86.html" class="nav-btn">← Önceki</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc6bolum88.html" class="nav-btn">Sonraki →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VI, Bölüm 87</h1>
+            <div class="subtitle">"Mesafeli Bakışlar"</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <!-- Metin buraya eklenecek -->
+             <p class="wp-block-paragraph">Kafası son derece şiddetli şekilde soldan sağa savruldu.</p>
+<p class="wp-block-paragraph">Ve ağır ağır, birileri tarafından valiz gibi taşınmakta olduğunu, o kişinin hayatları buna bağlıymışçasına koştuğunu idrak etti.</p>
+<p class="wp-block-paragraph">Yo, bu şekilde taşındığı ilk sefer değildi.</p>
+<p class="wp-block-paragraph">Yine de buna alışık olduğunu söylemek abartı olurdu. Valiz gibi sağa sola sürüklenmeyi sık sık tecrübe ettiğini söylemek daha uygun kaçardı, gerçi kabahat kendisini pek düşünmeyen partnerindeydi.</p>
+<p class="wp-block-paragraph"><strong>???: </strong>“Beni bu kadaaaar sarsmaya bir son ver, Elsa…”</p>
+<p class="wp-block-paragraph">Kaç kez talep ederse etsin duymazdan gelinirdi. Yine de onunla arasındaki ilişkiyi tarif etmekte zorlanırdı.</p>
+<p class="wp-block-paragraph">Ona suç ortağı veya partner demek zordu, çünkü ilişkileri güven temelinden yoksundu ve Elsa’yla aralarında ona ‘abla’ veya ‘anne’ diyebileceği bir yakınlık da yoktu. Ona arkadaş demek tuhaf kaçardı ki aralarında böyle bir ilişki olmadığı kesindi ama birbirlerine o denli yabancı olmadıkları için ona bir tanıdık demek de bir o kadar zordu.</p>
+<p class="wp-block-paragraph">Bu yüzden Meili, daima içten içe bu meseleye kafa yorardı. Sahiden nasıl bir ilişki vardı aralarında?</p>
+<p class="wp-block-paragraph">——Elsa kendisini Meili’nin gözünde ne olarak görürdü?</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“Hadi ama, bu kadar çok saaarsmaaa…”</p>
+<p class="wp-block-paragraph">Şikâyetlerini dile getirmek pek fark yaratmasa da hiçbir şey söylemeyince teslim olduğunu hissettiği için kendisini bırakamazdı. Dolayısıyla şimdi de sözlerini dinleyen olmasa bile konuşmaya devam ediyordu—— Ya da hiç değilse bunu deniyordu.</p>
+<p class="wp-block-paragraph">Ancak sıcak bir sıvı, konuşmasına fırsat vermeden kelimelerinin üzerini örterek ağzından çıkıyordu. İlk düşüncesi o şeyin kahvaltısı olduğuydu ama yanılıyordu.</p>
+<p class="wp-block-paragraph">Minicik bedeninin derinliklerinden fışkırarak çıkan şey, koyu kırmızı renkli kanıydı.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Kanama durmuyor, kahretsin! Beako, ne yapacağız!?”</p>
+<p class="wp-block-paragraph"><strong>Beatrice: </strong>“Yalnızca! Şimdilik yalnızca o her nerenin kanıysa boğazından tamamen attığından emin olalım, sanırım! Kan orayı tıkarsa işler çok daha kötü hâle gelir, doğrusu!”</p>
+<p class="wp-block-paragraph">Etrafında sesler çınlayan Meili, ansızın yana doğru eğildi. Ve durmaksızın boğazına doğru yükselen kanı, öksürük ve mukus karışımıyla ağzından çıktı.</p>
+<p class="wp-block-paragraph">Dudaklarına bir şey dokundu, boğazını tıkayan kan hızla emildi. İşte tam da o anda hava nihayet ciğerlerine dolarak beynine hücum etti.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“——Oh be! Tamamdır, tekrar nefes alıyor! Beako, ona biraz şifa ver!”</p>
+<p class="wp-block-paragraph"><strong>Beatrice: </strong>“Biliyorum, biliyorum, sanırım! Ama bunu defalarca tekrar edemeyiz, doğrusu.”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Farkındayım!.. Meili’yi çok zorladım, bu benim suçum. Bedelini ödeyeceğim.”</p>
+<p class="wp-block-paragraph">Meili yukarısından bağrışlar geldiğini fark edebiliyordu ancak nefes almaya başladığı anda zihni ve bedeni herhangi bir şeyi algılayamayacak kadar ağırlaşmıştı.</p>
+<p class="wp-block-paragraph">Yo, durum böyle olamazdı. Başından beri bitap düşmüş olmalıydı. Yalnızca vücudu en büyük tehdidin ortadan kalktığını idrak etmiş ve bilinci nihayet diğer fonksiyonlara odaklanabilmişti. Artık aldığı hasarın tam olarak ne kadar kötü olduğunu hissedebiliyordu. &nbsp;</p>
+<p class="wp-block-paragraph">Elleri ve ayakları aksıyor, başı dönüyordu. Üç fincana yakın kan kusmuştu. Tüm bedeni alev almış gibi hissediyor ve o alevlerin çıkış noktasının sırtı olduğunu anlayabiliyordu.</p>
+<p class="wp-block-paragraph">Orada, tüm sırtında ters, hem de çok ters bir şeyler vardı.</p>
+<p class="wp-block-paragraph">Bedenimi kımıldatamamamın ve mütemadiyen kan kusmamın sebebi bu olabilir, diye düşünüyordu.</p>
+<p class="wp-block-paragraph">Tepesinde bağrışan iki kişinin kimliği ve bu olaylardan önce ne yapıyor olduğuysa belirsiz ve sisliydi.</p>
+<p class="wp-block-paragraph">Ancak bu sisli ve buğulu dünyasının içerisinde bile seçebildiği belirgin bir şey vardı. Ve o şey de——</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“Bir… söz…”</p>
+<p class="wp-block-paragraph">Belirgin bir şekilde anımsayabildiği bir sözün, birine verdiği sözün siluetiydi——</p>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph">——Akrep, rengini değiştirir değiştirmez o ana kadarki en kuvvetli ışığını göndermişti.</p>
+<p class="wp-block-paragraph">Büyüyen parlak, beyaz ışık dört bir yana yayılmış, kızıl derilerini hedeflediği çok sayıda alevli Aç At Kralı toza çevirip kum denizine dalgalanmalar göndermişti.</p>
+<p class="wp-block-paragraph">Elbette ki Subaru ve Beatrice de yıkıma yakalanmaktan kaçamamış ama en ağır darbeyi Meili almıştı.</p>
+<p class="wp-block-paragraph">Cadı Canavarlarına komuta etmek zorunda olması onu ön safa fazla yaklaştırmış ve devasa akrep—— yani Kan Kırmızı Akrep saldırısını gerçekleştirdiğinde hain sonuçlarına katlanmıştı.</p>
+<p class="wp-block-paragraph">Tek umut ışığı, ışık iğneleriyle şişlenmekten kurtulmuş olmasıydı. Onların tek bir tanesiyle bile sıyrılmış olsaydı minicik bedeninin buhar olacağı kesindi.</p>
+<p class="wp-block-paragraph">Ancak bu gerçekleşmemiş olsa bile kum denizini parçalayıp dalgalandıracak güçte bir darbeye doğrudan maruz kaldığı gerçeği değişmiyordu. Bu da ölümcül denilebilecek bir hasar alması için başlı başına yeterliydi.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Meili!!”</p>
+<p class="wp-block-paragraph">Subaru ve Beatrice’in kumlara yığılıp kalmış bedenini almak için koşturdukları sırada korkunç durumdaydı. Belki de son anda kıvrılıp büzüldüğü için yaraları büyük oranda sırtındaydı.</p>
+<p class="wp-block-paragraph">Siyah pelerini patlamanın etkisiyle havaya uçmuş, kumaşın altındaki lekeli teni tüm çıplaklığıyla açığa çıkmıştı. Onun kömürleşmiş ve parçalanmış tenini kendi gözleriyle gören Subaru’nunsa bir anlığına gözü kararmıştı. Fakat——</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Gerçekten bu kadar mı aptalım ben? Burada ne halt yiyorum ki!?”</p>
+<p class="wp-block-paragraph">Subaru, sıktığı yumruğuyla bilincine bağlanmış, içindeki saklı güce seslenmişti.</p>
+<p class="wp-block-paragraph">Cor Leonis hâlihazırda aktifti—— Yoldaşlarının acılarını ve yüklerini omuzlamasına izin veren güçle Meili’den gelen akışı arttırmış, onun ölümcüle yakın yarasının doğurduğu hislerin neredeyse tamamını üzerine almıştı.</p>
+<p class="wp-block-paragraph">Doğal olarak tüm acısını üstlenmesi mantıksız olurdu, çünkü o acının yığılıp kalmasına yol açması, öngörülemeyecek derecede büyük sonuçlar doğururdu. Bu nedenle bayılmadan kaldırabileceği kadar acıyı üstlenmiş durumdaydı ama,</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Hâlâ iyiyim… Bunu kaldırabilirim—— Öyle değil mi, Natsuki Subaru?”</p>
+<p class="wp-block-paragraph">Söz konusu önceki benliği olsaydı hem soğukkanlılığını hem de cesaretini yitirebilir, işler nahoş bir rezillikle sonlanabilirdi.</p>
+<p class="wp-block-paragraph">Fakat Subaru, “Natsuki Subaru”nun yolundan gitmenin ne anlama geldiğini gayet iyi çözmüştü. Varlığının hangi amaca hizmet etiğini ve doğal olarak yalnızca kendisinin başarabileceği şeyler olduğunu biliyordu. Bu nedenle——</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“——Emilia-tan… ve Julius’un durumu iyiymiş gibi görünüyor. Echidna, Patrasche ve Rem de güvende gibi.”</p>
+<p class="wp-block-paragraph">Kulenin içerisinde savaşan yoldaşlarının konumlarına göz gezdirerek durumlarını kendi kendine teyit etmişti.</p>
+<p class="wp-block-paragraph">Emilia’nın ortadan kaybolması içini kemirirken Julius’un Reid’le olan mücadelesindeki durumundan da endişe duyuyordu. Echidna ve Patrasche’nin kuledeki konumları bile Subaru’yu geriyordu ama sonuç olarak hepsine inanmakta karar kılmıştı.</p>
+<p class="wp-block-paragraph">Ve dikkatini onlar yerine Ram ile gözlerinin önündeki Meili’ye vermişti.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“——Kıh.”</p>
+<p class="wp-block-paragraph">İşte o saniyede iç organları alev alev yanarak inlemişti. Meili’nin acısının yükü, içine akmaya başlamıştı.</p>
+<p class="wp-block-paragraph">Ram’ın yükünü üstlenmek bir hayli tüketiciyken Meili’nin ölüme yakın acısının yükünü üstlenmek intihardan farksızdı.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Durum kötü!..”</p>
+<p class="wp-block-paragraph">Büyük bir güçle konuşmuş ama sınırlarını daha fazla zorlamaya yetecek gücü bulamamıştı.</p>
+<p class="wp-block-paragraph">Dolayısıyla Ram’dan gelen akışı azaltıp daha ziyade ölüme yakın olan Meili’nin acısını yüklenmeyi istemek durumunda kalmıştı.</p>
+<p class="wp-block-paragraph">Ram’ın her zamanki sertliğiyle Subaru’nun bu seçiminden tek bir çıkarım yapacağı kesindi.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Daha sonra kesin azar yiyeceğim…”</p>
+<p class="wp-block-paragraph"><strong><em>Ram:</em></strong><em> “Hah! O kadar konuştuktan sonra şu acınası hâline de bak. Sen Barusu’sun, sonuçta.”</em></p>
+<p class="wp-block-paragraph">Ram’ın fazlasıyla olası bu görüntüsü zihninde beliren Subaru, dişlerini sıkarak boğazında yükselen kanı yutmuştu.</p>
+<p class="wp-block-paragraph">Cor Leonis başkalarının fiziksel değil, yalnızca zihinsel yüklerini üstlenebiliyor olsa da ağzına yayılan ölüm tadı, ters tepkinin Subaru’yu zihinsel durumunun da ötesinde etkilediğine işaret ediyordu.</p>
+<p class="wp-block-paragraph">Zihnin beden üzerindeki etkisi, hayal ettiğinden çok daha büyüktü.</p>
+<p class="wp-block-paragraph">Zamanında, bir insanın tenine kızgın demir bastırıldığına inandığı takdirde gerçekten de yanıkların oluşabileceğini duymuştu.</p>
+<p class="wp-block-paragraph">Başka bir deyişle Meili’nin dayanılmaz acısını üstlenmek, o acıyı deneyimlediği ve bedeninin acının kaynağını yeniden ürettiği anlamına geliyordu.</p>
+<p class="wp-block-paragraph">Önlem almazsa en nihayetinde Beatrice’in elinde iki ceset olabilirdi.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Aynen, bundan gerçekten kaçınmak isterim!——”</p>
+<p class="wp-block-paragraph">Böylece ağzında biriken kanları tükürüp Meili’yi kollarında kaldırmıştı. Sonra da bir Aç At Kralın alevli mızrağının altına doğru eğilmiş, Beatrice onu uzak tutmak için bir iki mor ok atarken de koşarak uzaklaşmıştı.</p>
+<p class="wp-block-paragraph">Az önce saldıran Aç At Kral, Subaru ve Beatrice’in bindiği Cadı Canavarıydı.</p>
+<p class="wp-block-paragraph">Şok edici olaylar silsilesi içerisinde kaostan faydalanma fırsatını gören Cadı Canavarı, yeni yoldaşlarına ihanet etmişti—— Yo, hayır. Sebep yalnızca Meili’nin İlahi Korumasının etkisizleşmesi ve Cadı Canavarının olağan soğuk, kana susamış tavrına geri dönmesiydi.</p>
+<p class="wp-block-paragraph">Meili olmadıkça Cadı Canavarları insanoğlunun ve vekaleten Subaru’nun düşmanlarıydı.</p>
+<p class="wp-block-paragraph">Ve sayılamayacak çoklukta Cadı Canavarı, kum denizinin altında pusuya yatmıştı.</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“Hçk!”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Meili!”</p>
+<p class="wp-block-paragraph">Subaru onu gevşek bir valiz gibi taşır ve saldırıya geçen Cadı Canavarlarından çaresizce kaçınmaya çalışırken Meili daha da çok kan kusmakla meşguldü. Onun yüzündeki rengin çekilişini gören Subaru’nun duruma yönelik hüsranıysa anbean artıyordu.</p>
+<p class="wp-block-paragraph">Yerleşip soluklanarak Meili’yi iyileştirmek gibi bir imkânları yoktu. Ve böyle devam ederse——</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Kanama durmuyor, kahretsin! Beako, ne yapacağız!?”</p>
+<p class="wp-block-paragraph"><strong>Beatrice: </strong>“Yalnızca! Şimdilik yalnızca o her nerenin kanıysa boğazından tamamen attığından emin olalım, sanırım! Kan orayı tıkarsa işler çok daha kötü hâle gelir, doğrusu!”</p>
+<p class="wp-block-paragraph">Beatrice şevkle Subaru’nun hızına ayak uydurmaya çalışırken hiçbir Cadı Canavarının yaklaşmaya cesaret edemeyeceğinden emin oluyordu. Subaru da bu esnada öksürüp boğazındaki kanları çıkartması için Meili’yi sarsmıştı.</p>
+<p class="wp-block-paragraph">Fakat Meili aynı solgunluktaydı ve akıttığı kanların damlayışı duraksamıyordu. Başka bir yolu olmayan Subaru, avcunu top yapıp bir ucunu Meili’nin dudaklarına yapıştırmış, diğer ucundan da boğazındaki kanı çekmeye çalışmıştı.</p>
+<p class="wp-block-paragraph"><strong>Meili: </strong>“Hçk! Geh-!”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“——Oh be! Tamamdır, tekrar nefes alıyor! Beako, ona biraz şifa ver!”</p>
+<p class="wp-block-paragraph"><strong>Beatrice: </strong>“Biliyorum, biliyorum, sanırım! Ama bunu defalarca tekrar edemeyiz, doğrusu.”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Farkındayım!.. Meili’yi çok zorladım, bu benim suçum. Bedelini ödeyeceğim.”</p>
+<p class="wp-block-paragraph">Açık konuşmak gerekirse hatasının bedelini ödemeye çoktan başlamıştı.</p>
+<p class="wp-block-paragraph">Ram’dan üstlendiği yükün bir kısmını bırakmış olmasına rağmen kendisinin de beti benzi atıyordu.</p>
+<p class="wp-block-paragraph">Her şey, bu şekilde ne kadar devam edebileceğine bağlıydı——</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Yo, bu noktada kendimi daha çok zorlamalıyım! Bunu yapamazsam kendime adam diyemem…”</p>
+<p class="wp-block-paragraph"><strong>Beatrice: </strong>“Uhyaa! Sanırım!”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Ooh!?”</p>
+<p class="wp-block-paragraph">Dişlerini sıkan Subaru, Otoritesinin tüm bedenine yayılışının etkisiyle kollarında Meili’yle koşuyordu. İşte o saniyede Beatrice ansızın sıçrayarak Subaru’nun kafasına tutundu.</p>
+<p class="wp-block-paragraph">Subaru’ysa bu beklenmedik gelişme karşısında duyduğu şaşkınlığa rağmen Beatrice’in tuhaf bir şekilde sırtına binmesine izin verdi. Elbette ki Beatrice yalnızca bir pamuk topu ağırlığındaydı——</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Bea——”</p>
+<p class="wp-block-paragraph"><strong>Beatrice: </strong>“Subaru, her şeyi bir başına sırtlanmaya çalışmaya bir son ver, doğrusu. Biz Subaru ve Betty’iz, <em><u>partneriz</u></em>. Ve Meili bizim arkadaşımız, sanırım. Yardım etmek isteyen tek kişi sen değilsin, Subaru.”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“————”</p>
+<p class="wp-block-paragraph">Diyen Beatrice, minik ellerini Subaru’nun alnına bastırarak usulca itiraz etti.</p>
+<p class="wp-block-paragraph">Subaru’ysa sessizleşti. Ve Beatrice, elini Meili’ye kaydırarak hassas bir şifa büyüsü gerçekleştirdi—— Meili’nin ve onun aracılığıyla Subaru’nun bedenine ılık ışıklar dolmaya başladı.</p>
+<p class="wp-block-paragraph">Beatrice de dostları için endişeleniyordu. Subaru, o ılık ışık yoluyla Beatrice’in duygularını hissedebiliyordu.</p>
+<p class="wp-block-paragraph"><strong>???: </strong>“————KSHEEEEEEGHHH!!”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“————”</p>
+<p class="wp-block-paragraph">Cadı Canavarlarıysa arkalarında çarpışmaya devam ediyordu.</p>
+<p class="wp-block-paragraph">Neyse ki Meili’nin İlahi Koruması etkisiz hâle gelse bile Cadı Canavarlarının Kan Kırmızı Akreple barışmak gibi bir arzusu yoktu. Aç At Krallar ve daha nice farklı Cadı Canavarı formu birbiriyle savaş hâlindeydi.</p>
+<p class="wp-block-paragraph">Kan Kırmızı Akrebin devasa kıskaçları ve uzun kuyruğu kendisiyle Subaru’nun arasına giren tüm Cadı Canavarlarını un ufak ediyordu.</p>
+<p class="wp-block-paragraph">Bunun yanı sıra sayısız Cadı Canavarının yarıdan fazlası da Subaru’yu hedefliyordu, dolayısıyla durup dinlenecek vakti yoktu.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Başka bir seçeneğim var mı ki——”</p>
+<p class="wp-block-paragraph">Doğrusunu söylemek gerekirse başka bir şansı olmadığı söylenemezdi.</p>
+<p class="wp-block-paragraph">Ama ani bir galibiyet yolu olmasa da şansını arttırmak için Beatrice’in Meili’ye yardım etme arzusundan faydalanabilirdi.</p>
+<p class="wp-block-paragraph">Bununla birlikte -denemeden bilemeyecek olsa da- şu anki düşmanları düşünülünce planını gerçeğe dönüştürmekten yana tereddüt ediyordu. Fakat——</p>
+<p class="wp-block-paragraph"><strong>Beatrice: </strong>“Subaru! Tereddüt etme sebebin Betty için endişelenmense Betty böyle yarım yamalak kaygıları arzulamıyor, sanırım! Sebep Betty değilse de daha sonra gidip o sebeplerden özür dileyebiliriz! Birlikte, doğrusu!”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“————”</p>
+<p class="wp-block-paragraph"><strong>Beatrice: </strong>“Betty acını da sevincini de paylaşmak istiyor… Betty’i dışarıda bırakma, doğrusu! Bu Kontratımızın maddelerinden biriydi, sanırım!”</p>
+<p class="wp-block-paragraph">Beatrice’in kendisinin yüzünde nasıl bir ifade gördüğünü bilmiyordu ama ne görürse görsün sinirinden patlıyordu.</p>
+<p class="wp-block-paragraph">Kafasının üzerinde oturduğu için kendisi de Beatrice’in ifadesini göremiyordu. Ama partnerim demekten gurur duyduğu bu küçük kızın öfkeden şişmiş hâliyle bile çok tatlı göründüğünü tahmin edebiliyordu. İhtiyaç duyduğu cesareti ve arzuladığı rahatlığı veren sözleri de gururunu pekiştiriyordu.</p>
+<p class="wp-block-paragraph">Tereddüde yer yoktu.</p>
+<p class="wp-block-paragraph">Partneri, tereddüdünün asıl nedeninin gereksizliğini bizzat ilan etmişti. Dolayısıyla——</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Seni seviyorum, Beako.”</p>
+<p class="wp-block-paragraph"><strong>Beatrice: </strong>“Betty seni daha da çok seviyor, doğrusu.”</p>
+<p class="wp-block-paragraph">Birbirlerine olan sevgilerini ifade edişlerinin sonrasında Subaru, Meili’yi kibarca yere yatırdı.</p>
+<p class="wp-block-paragraph">Ve içten içe ne pahasına olursa olsun bu hayatın kaybına müsaade etmeyeceğine karar vererek——</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“——Cor Leonis, İkinci Vites.”</p>
+<p class="wp-block-paragraph">İçindeki çarkları değiştirerek, kabiliyeti olan “Aslanın Kalbi”ne yeni bir isim verdi.</p>
+<p class="wp-block-paragraph">Bunu yaparak Otoritesi Küçük Kral’ın etkisini güçlendirdi—— Çünkü halkının yükünü tek başına sırtlanan bir kral olduğu için azarlanmıştı.</p>
+<p class="wp-block-paragraph">Tabii ki bu, Açgözlülüğün tüm yükü başkalarının omuzlarına yükleyişi kadar utanmazca bir seçim değildi.</p>
+<p class="wp-block-paragraph">Subaru’nun yapmayı arzuladığı şey, o yükü yanında yer alacak kişilerle paylaşmak, aralarında bölüştürmekti.</p>
+<p class="wp-block-paragraph">Başka bir deyişle——</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“İkinci Vites—— İş Bölümü.”</p>
+<p class="wp-block-paragraph">Artık Subaru’nun tek başına taşıdığı yükler, taşımasına yardım etmeye gönüllü kişiler arasında bölüştürülüp paylaşılabilecekti.</p>
+<p class="wp-block-paragraph">Ve an itibarıyla bu teklifte bulunan ve yeterince yakın olan tek kişi——</p>
+<p class="wp-block-paragraph"><strong>Beatrice: </strong>“——Subaru.”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Evet?”</p>
+<p class="wp-block-paragraph"><strong>Beatrice: </strong>“…Bu inanılmaz zorlayıcıymış, sanırım!!”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Şey, evet, acayip zorlayıcı!!”</p>
+<p class="wp-block-paragraph">İşte böylece Cor Leonis’in ikinci kısmı devreye girmiş ve Subaru’nun sırtlandığı yük, Beatrice’le paylaşılmıştı.</p>
+<p class="wp-block-paragraph">Subaru, kendisine düşen yükün yarısını ona devredebilmişti. Yani yarının da yarısını verebilmişti. Ama bu bile Subaru’yu rahatlatmaya yetmişti. Diğer taraftan onun paylaştığı yükü üstlenen Beatrice’in beti benzi atmıştı.</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img decoding="async" width="827" height="1169" src="https://web.archive.org/web/20260619065514im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-179.png" alt="" class="wp-image-8393" srcset="https://web.archive.org/web/20260619065514im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-179.png 827w, https://web.archive.org/web/20260619065514im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-179-707x1000.png 707w, https://web.archive.org/web/20260619065514im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-179-768x1086.png 768w" sizes="(max-width: 827px) 100vw, 827px"><figcaption class="wp-element-caption"><a href="https://web.archive.org/web/20260619065514/https://x.com/yowaikomax/status/1323553824796073984">Görsel Sahibi</a></figcaption></figure>
+</div>
+<p class="wp-block-paragraph">Acısını gizlemek için bağırmış ve Subaru da düşüncesine aynı şekilde karşılık vermişti.</p>
+<p class="wp-block-paragraph">Zorlayıcıydı. Acı vericiydi. Buna hemen şu anda son vermek istiyordu.</p>
+<p class="wp-block-paragraph">Herkesin yükünü üstlenme oyunu oynayan bu sahte kralın canı cehennemeydi—— Küçük Kral ayağa kalkabiliyorsa tek sebebi, yanında onu desteklemeye istekli kişilerin olmasıydı.</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Aynen, bu arada, sana onca yük bindirmem…”</p>
+<p class="wp-block-paragraph"><strong>Beatrice: </strong>“————”</p>
+<p class="wp-block-paragraph"><strong>Subaru: </strong>“Asla söz konusu olamaz. Hay aksi.”</p>
+<p class="wp-block-paragraph">Beatrice Meili’nin sırtını iyileştirmeyi sürdürürken yükünü onunla paylaşan Subaru da dikkatini Kan Kırmızı Akrebe verdi.</p>
+<p class="wp-block-paragraph">Cor Leonis aracılığıyla kendisine bağlı kalan ışıkla Shaula’nın varlığını hâlâ orada hissedebiliyordu. Belli belirsiz ama var olduğu kesin bir ışıktı.</p>
+<p class="wp-block-paragraph">Ama maalesef ki Subaru, Beatrice ile paylaştığı o yükü öylece üzerinden atıp Kan Kırmızı Akrebin üzerine bindiremezdi—— Çünkü muhtemelen o şey ne bunu yapacak iradeye sahipti ne de bu yükü kabullenirdi.</p>
+<p class="wp-block-paragraph">Yalnızca bu Küçük Kral’ı desteklemek isteyenler, onun yükünü paylaşabilirdi.</p>
+<p class="wp-block-paragraph">Gerçekten de anlaşılması kolay ve esnekliği olmayan bir güçtü. Tam da bu yüzden kullanıcısının gurur duymasına müsaade etmiyordu.</p>
+<p class="wp-block-paragraph">Subaru’ya sürekli dik durabilmesini yalnızca kendisini destekleyip yanında duran kişilerin varlığına borçlu olduğunu hatırlatıyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong> “Beako! Kafanla birlikte elin de çalışsın!”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong> “——Çıh, amma abartılı bir talep oldu, doğrusu!!”</p>
+<p class="wp-block-paragraph">Beatrice’in elleri Meili’yi iyileştirmekle meşgul olurken zihni de kendilerini bu tehlikeli durumdan kurtarmak için ne yapmaları gerektiğini düşünmekle meşgul olacaktı. Çünkü Kan Kırmızı Akrebin kuyruğu bir kez daha beyaz ışıklarıyla parıldamıştı ve kötülüğünün hedefi Subaru’ydu——</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong> “——E · M · M!!”</p>
+<p class="wp-block-paragraph">İşte böylece Subaru, tek seferlik mutlak yenilmezlik kozunu kullandı ve artçı bir şok dalgası üçlüyü yuttu.</p>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph">——Bulutların altında yaşananlar, bulutların üzerinde olan Emilia’ya iletilmiyordu.</p>
+<p class="wp-block-paragraph">Ama tıpkı canları pahasına mücadele veren yoldaşlarının zorlu savaşların doruk noktasına ulaşışı gibi Emilia da nihayet o noktaya ayak basmıştı.</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“————”</p>
+<p class="wp-block-paragraph">Pleiades Gözcü Kulesi’nin en üst katmanına, ilk katın da üzerine, en sahici anlamda zirveye ulaşmıştı.</p>
+<p class="wp-block-paragraph">Çok sayıda buz savaşçısını feda ederek ulaşmış olduğu bu noktada gözlerini diktiği şeyse ana sütunun dibiydi—— Orada, siyah bir monolit vardı.</p>
+<p class="wp-block-paragraph">O monolit, Üçüncü Katın Sınavı esnasında gördüğü monolitle neredeyse tıpatıp aynıydı.</p>
+<p class="wp-block-paragraph">Tek farklarıysa bu monolitin havada süzülmüyor olması ve düz olması gereken yüzeyinde göz alıcı bir şey bulunmasıydı. O şey de——</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“Birilerinin, el izleri mi?”</p>
+<p class="wp-block-paragraph">Ametist gözleri irileşen Emilia’nın görüş alanında, yüzeye basılmış birden çok el izi bulunuyordu—— yani farklı erkek ve kadınlara ait olmak üzere toplam altı iz.</p>
+<p class="wp-block-paragraph">Avuçların ebadı ve parmakların kalınlığına bakarak her birinin farklı insanların elleri olduğu anlaşılabiliyordu.</p>
+<p class="wp-block-paragraph">Bu şahısların birlikte buraya el izlerini bırakmak için çabalamalarına bakınca birbirlerine yakın ve bu gözcü kulesiyle bağlantılı oldukları da apaçık ortadaydı——</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“…Acaba, Shaula’nın Ustası veya Reid olabilir mi?”</p>
+<p class="wp-block-paragraph">Kuleyle bağlantılı kişileri düşününce aklına gelenler bu ikiliden ibaretti.</p>
+<p class="wp-block-paragraph">Volcanica da oradaydı ama mevcut el izlerinin hepsi insanlara aitti, yani geride kalmış bir ejderha izi varmış gibi görünmüyordu.</p>
+<p class="wp-block-paragraph">Bu nedenle Emilia, el izleri konusunda altı kişiden yalnızca ikisini tahmin edebiliyordu.</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“——? Bir saniye, bu.”</p>
+<p class="wp-block-paragraph">Düşüncelerinde bu noktaya gelen Emilia, el izlerinden biriyle ilgili bir huzursuzluğa kapıldı.</p>
+<p class="wp-block-paragraph">Altı el izinin arasında nazikçe basılmış olan ilk el izi—— yanındakiyle aşağı yukarı aynı ebatta olsa da basılan ilk iki elin diğerlerinden küçük olduğu barizdi.</p>
+<p class="wp-block-paragraph">Belki de yalnızca o ikisi, kadınlara aitti.</p>
+<p class="wp-block-paragraph">Ve o izlerden birinde Emilia’nın dikkatini çeken şey de——</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“Bu el izi, benim mi?..”</p>
+<p class="wp-block-paragraph">Kaşlarını çatıp sağ eline bakarak bu şekilde fısıldadı.</p>
+<p class="wp-block-paragraph">Tuhaf bir durum olsa da o, böyle hissetmiyordu. Monolite basılmış izlerden biri Emilia’ya aitmiş gibi görünüyordu.</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“————”</p>
+<p class="wp-block-paragraph">Emilia derin bir nefes alarak monolitle karşı karşıya geldi. Ve şüphelerini gidermek için sağ eliyle o el izine uzandı——</p>
+<p class="wp-block-paragraph"><strong><em>???: </em></strong><em>“</em><em>——</em><em>Ey, kulenin tepesine ulaşmış olan sen. Birinci Katta ilerle, her şeye kadir arzuhâl sahibi.”</em></p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“——Hık! Geri geldi!”</p>
+<p class="wp-block-paragraph">Ancak monolite dokunmasına ramak kala, yukarıdan alçalan amansız sese döndü.</p>
+<p class="wp-block-paragraph">Ve bunu yaptığı anda gördüğü şey, Emilia’nın buz savaşçısının boğazındaki beyaz pula dokunuşuyla yoğun bir ıstırap çeken Volcanica’nın kanatlarını çırparak en üst katmanda yerini alışı oldu.</p>
+<p class="wp-block-paragraph"><strong><em>Volcanica: </em></strong><em>“</em><em>————</em><em>”</em></p>
+<p class="wp-block-paragraph">Sırtını monolite dönen Emilia, bir kez daha İlahi Ejderha’yla yüzleşti.</p>
+<p class="wp-block-paragraph">Sütuna tırmanma savaşı oldukça çetindi ama o savaşa burada da devam edecek olurlarsa yoğun bir mücadeleye zorlanacaktı. Burası kendi çapında geniş bir yer olsa da en üst katmandaki boşluk, ilk kata kıyasla azdı ve sığışmak zordu.</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“Ayrıca, monolit kırılacak olursa geeerçekten sorun çıkar…”</p>
+<p class="wp-block-paragraph">Monolitin dayanıklılığı meçhuldü.</p>
+<p class="wp-block-paragraph">Üçüncü Kattaki monolitle karşı karşıya geldiğinde ona vurması Julius ve Ram tarafından engellenmişti, dolayısıyla onun ne denli sağlam olduğu da bilinmiyordu.</p>
+<p class="wp-block-paragraph">Bununla birlikte Emilia, ne kadar sağlam bir şekilde yapılmış olursa olsun İlahi Ejderha’nın kudretiyle inecek bir darbe karşısında sapasağlam kalacağına inanmıyordu.</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“Ona vurursan, kesinlikle kırılacaktır. Bu yüzden!——”</p>
+<p class="wp-block-paragraph"><em>Bunu yapmana izin veremem</em>, aklından bu düşünceyi geçiren Emilia, bir kez daha yedi buzdan askerini yanına çağırdı.</p>
+<p class="wp-block-paragraph">Buzdan askerler Emilia’yı en üst katmana ulaştırma gayesiyle paramparça edilmişti ama tıpkı Emilia gibi onların ifadeleri de kararlılıkla ışıldıyor ve güven veriyordu.</p>
+<p class="wp-block-paragraph">Emilia, onların buzdan silahlarını kuşanışına eşlik ederek eline iki buzdan kılıç aldı.</p>
+<p class="wp-block-paragraph">Ve yedi buzdan askerle birlik olarak Volcanica’ya hücuma geçti.</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“Hadi gidelim millet! Volcanica’nın zayıf noktası, boynunun beyaz kısmı.”</p>
+<p class="wp-block-paragraph">Böylesine şiddetli bir tepki verdiğine göre o beyaz pul, zayıf noktası olmalıydı.</p>
+<p class="wp-block-paragraph">Emilia onu yaralayacak kadar ileri gitmek istemezdi ama biri o noktaya dokunduğu takdirde monoliti inceleyecek zaman bulabilirdi——</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“——Eh?”</p>
+<p class="wp-block-paragraph">Ancak bir an sonra dünyasının altüst oluşuyla boğazından bir ses kaçtı.</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“————”</p>
+<p class="wp-block-paragraph">Olanları çok hızlı değerlendirmişti.</p>
+<p class="wp-block-paragraph">Az önce ilerlemek adına öne adım attığı ayaklarında yalnızca çevik bir temas hissiyatı oluşmuştu. Bu öyle belli belirsiz bir histi ki dokunuşunu yalnızca tepetaklak olduktan sonra fark edebilmişti.</p>
+<p class="wp-block-paragraph">Ve bununla birlikte——</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“Ah.”</p>
+<p class="wp-block-paragraph">Tepetaklak olan Emilia’nın etrafını saran yedi buz savaşçısı saniyesinde paramparça olmuştu.</p>
+<p class="wp-block-paragraph">Yalnızca kafaları beceriyle parçalanmış, karşı koyamadan mana formuna dönmüşlerdi. Emilia’ysa bunu teniyle hissettiği anda bir ürperti eşliğinde gerçeği fark etmişti.</p>
+<p class="wp-block-paragraph">Az önce onlara dokunan şey, Volcanica’nın kuyruğuydu.</p>
+<p class="wp-block-paragraph">Volcanica’nın kuyruğu hızla Emilia’nın bacaklarına savrulmuş ve aynı hızla buzdan savaşçıların kafalarını parçalamıştı.</p>
+<p class="wp-block-paragraph">Tek bir kuyruk savuruşunun tüm bunlara kadir olduğunu idrak eden Emilia’nın boğazı donup kalmıştı.</p>
+<p class="wp-block-paragraph">Bu, Emilia’nın anında gardını almayı başardığı o sürpriz saldırıdan çok farklı bir ligdeydi. &nbsp;</p>
+<p class="wp-block-paragraph">Subaru’nun kırbacı birse Volcanica’nın kuyruk savuruşu bin, belki on bindi, aradaki fark bu düzeydeydi.</p>
+<p class="wp-block-paragraph">Emilia bile bu muazzam saldırıyla amansızca mağlup edilirdi.</p>
+<p class="wp-block-paragraph">İşte bu yüzden, zihninde bir şüphe belirmişti.</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“Bana neden, yumuşak davrandı?..”</p>
+<p class="wp-block-paragraph">Emilia’nın bacaklarını sıyırmış, buz savaşçılarınınsa kafalarını parçalamıştı.</p>
+<p class="wp-block-paragraph">Burada doğan farkın kaynağı neydi? Daha önce beyaz puluna dokunan askerle tıpatıp aynı yüze sahip oldukları için misilleme yapmış olamazdı, bu olanak dışı görünüyordu.</p>
+<p class="wp-block-paragraph">Tüm bunları düşünen Emilia, henüz tepetaklak olma durumundan kurtulamadığını anımsadı.</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“Oh hayı!——.”</p>
+<p class="wp-block-paragraph">Bu gidişle kafa üstü yere çakılması an meselesiydi.</p>
+<p class="wp-block-paragraph">Havada tepetaklak alçalan Emilia’nın bacakları ikinci kez, yandan gelen hafif bir darbeye maruz kalırken,</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“Uvah!..”</p>
+<p class="wp-block-paragraph">Baş aşağı olmaktan ucu ucuna kurtulan Emilia, riskli bir iniş yaptı.</p>
+<p class="wp-block-paragraph">Ve yüzünü kaldırıp tehlikede olduğunu anlatan bir ifadeye büründüğü sırada——</p>
+<p class="wp-block-paragraph"><strong><em>Volcanica: </em></strong><em>“</em><em>Ne yapıyorsun sen?”</em></p>
+<p class="wp-block-paragraph">Diyen kişi, yüzü Emilia’nın bakışlarına hedef olan İlahi Ejderha idi.</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“Umm?..”</p>
+<p class="wp-block-paragraph">Kelimenin tam anlamıyla Emilia’nın gözlerinin önünde, burnunun dibindeydi.</p>
+<p class="wp-block-paragraph">Emilia’nın yüzünü azıcık oynattığı takdirde o kaya gibi sert tene ve burna dokunacağı mesafedeydi.</p>
+<p class="wp-block-paragraph">Ejderhanın yüzünün bu kadar yakınında olması bile Emilia’yı şaşırtmak için yeterliydi.</p>
+<p class="wp-block-paragraph">Ancak onu esas hayrete düşüren——</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“Sen, sürekli tekrar edip durduğun cümlelerden farklı bir şey söyledin!”</p>
+<p class="wp-block-paragraph"><strong><em>Volcanica: </em></strong><em>“</em><em>————</em><em>”</em></p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“Aklın başına mı geldi? Öyleyse, bir şeylerden bahsedebilir misin? Mesela Sınavdan veya bu Gözcü Kulesinin belirlenmiş kurallarını değiştirmekten falan. Seninle konuşmam gereken bir sürü şey var…”</p>
+<p class="wp-block-paragraph">Emilia, Volcanica’nın durumundan umutlu olduğunu belli ederek hızla bu cümleleri kurdu.</p>
+<p class="wp-block-paragraph">Alzheimer’a yakalandığını düşündüğü İlahi Ejderha iyileştiyse Emilia, onunla bir kez daha Sınav hakkında konuşabilirdi. Dolayısıyla şiddet içeren önlemlere başvurma gerekliliği ortadan kalkardı.</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“Hey, lütfen! Doğru düzgün iletişim kuralım…”</p>
+<p class="wp-block-paragraph"><strong><em>Volcanica: </em></strong><em>“</em><em>Ya düşseydin ne olurdu? Bu ihtimal gerçek olsaydı paylanması gereken kişi ben olurdum… En nihayetinde, herkes önünde eğiliyor.”</em></p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“Volcanica?..”</p>
+<p class="wp-block-paragraph">Kuledekilerin durumlarından endişe duyan Emilia umutsuzca yalvarırken Volcanica bir kez daha tekrarlarından farklı cümleler kurdu.</p>
+<p class="wp-block-paragraph">Ancak içerikleri Emilia’nın sözlerine karşılık gelmiyordu, bu da Emilia’nın şaşkınlığını arttırdı.</p>
+<p class="wp-block-paragraph">Bununla birlikte Volcanica’nın Emilia’ya çevrili kehribar rengi gözlerinin içerisinde bir sakinlik yer alıyordu.</p>
+<p class="wp-block-paragraph">Önceki boşluğa benzer belirsizliğin aksine artık bir duygu ışıltısı taşıyordu.</p>
+<p class="wp-block-paragraph">Emilia’ya nazikçe, sakince, dikkatle ve şefkatle bakıyor gibi görünüyordu——</p>
+<p class="wp-block-paragraph"><strong><em>Volcanica: </em></strong><em>“</em><em>Flugel ve Reid nereye kayboldu? Veda sözcüklerinin dahi olmayışı Shaula’yı yapayalnız bırakır. Farsale de kıyamet kopartır.”</em></p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“————”</p>
+<p class="wp-block-paragraph">Volcanica, şefkatli bakışlar atmaya devam ederek konuşmayı sürdürüyordu.</p>
+<p class="wp-block-paragraph">Ejderhanın mesafeli bakışlarla sıraladığı isimler Flugel, Reid ve Shaula’ydı, onlardan sonra gelen isimse——</p>
+<p class="wp-block-paragraph">Soyadı sorulmadıkça kim olduğu net olarak anlaşılamasa da Emilia, bu yankıya aşinaydı. Eğer Emilia’nın hatırladığı gibiyse Farsale…</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“Farsale, derken, Farsale Lugunica’yı mı kastediyorsun? Dört yüz yıl önceki kralı?”</p>
+<p class="wp-block-paragraph">O, Emilia’nın Kraliyet Seçimi için okuduğu sayısız kitapta bahsi geçen bir şahıstı.</p>
+<p class="wp-block-paragraph">Farsale Lugunica—— yani Lugunica Krallığının 35. kralı ve dört yüz yıl önceki Cadı çağında ülkeyi yöneten büyük adam.</p>
+<p class="wp-block-paragraph">İlahi Ejderha Volcanica’nın anlaşma yaptığı kişinin ta kendisi olan ve Lugunica Krallığında uzun süredir devam eden refahın ilk adımını atan Son Aslan Kral.</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“————”</p>
+<p class="wp-block-paragraph">Emilia’nın bakışları ansızın arkasındaki monolite çevrildi.</p>
+<p class="wp-block-paragraph">Altı kişinin el izi—— eğer Volcanica’nın sözleri alakasız değilse üçü Flugel, Reid ve Farsale’e ait olabilirdi. Kalan üç kişiyse muammaydı ama teyit edilmiş olmasa da biri Emilia’nın el iziyle uyuşuyor gibi görünüyordu.</p>
+<p class="wp-block-paragraph">Muhtemelen geri kalan ikilininse biri erkek biri kadındı.</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“Öyleyse, kadın eli olan Shaula’nın mı?..”</p>
+<p class="wp-block-paragraph">En olası ihtimal buymuş gibi duruyordu.</p>
+<p class="wp-block-paragraph">Son izin sahibi olan erkeğin kimliği de bilinmiyordu ama bu kadarı Emilia’yı sakinleştirmek için yeterliydi. Her zamanki gibi en büyük sorun, orada kendisinin el izinin bulunması ve bunu hatırlamamasıydı——</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“Acaba… Annem ve Ormandaki diğer kişiler dışında bir şeyleri daha unutmuş olabilir miyim?!”</p>
+<p class="wp-block-paragraph">Şüphelenmeye başlayan Emilia, anıları tarafından gizlenen bir geçmişin varlığını fark ediyordu.</p>
+<p class="wp-block-paragraph">Buna rağmen Oburluk Günah Başpiskoposunun varlığı nedeniyle Anılar ve İsimlerin tamamen darmadağın olduğunun da bilincindeydi.</p>
+<p class="wp-block-paragraph">Belki de öylece buraya gelivermiş ve elini basmış, sonraysa unutup gitmişti.</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“…Yo, koşullar nasıl olursa olsun durum bu olamaz. Gerçi Puck yanımda olsaydı buraya gelip gelmediğimi bir şekilde öğrenebilirdim.”</p>
+<p class="wp-block-paragraph"><strong><em>Volcanica: </em></strong><em>“</em><em>——</em><em>Ne oldu? Kaygıların mı var?”</em></p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“Ah, umm, ben iyiyim. Endişelendiğin için teşekkür ederim. Teşekkür ederim ama…”</p>
+<p class="wp-block-paragraph">Sonuç olarak Volcanica’yla diyalog kurmanın riskli olduğunu hisseden Emilia, afallamış durumdaydı.</p>
+<p class="wp-block-paragraph">Evet, hiç konuşmadan kuyruğu veya ön ayakları tarafından hırpalanmaktan çok daha iyiydi ama Sınavla ilgili açmaz, aynı şekilde varlığını koruyordu.</p>
+<p class="wp-block-paragraph">Emilia şimdi ne yapmalıyım diye düşünürken——</p>
+<p class="wp-block-paragraph"><strong><em>Volcanica: </em></strong><em>“</em><em>Bir mesele varsa anlat haydi. Söz konusu senin kaygılarınsa onları alıp götürürüm</em><em>—— </em><em>Satella.”</em></p>
+<p class="wp-block-paragraph">——Kendisine bu şekilde hitap edilişiyle derin bir nefes aldı.</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“————”</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img decoding="async" width="945" height="1341" src="https://web.archive.org/web/20260619065514im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-181.png" alt="" class="wp-image-8396" srcset="https://web.archive.org/web/20260619065514im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-181.png 945w, https://web.archive.org/web/20260619065514im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-181-705x1000.png 705w, https://web.archive.org/web/20260619065514im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-181-768x1090.png 768w" sizes="(max-width: 945px) 100vw, 945px"><figcaption class="wp-element-caption"><a href="https://web.archive.org/web/20260619065514/https://x.com/112oVic2">Görsel Sahibi</a></figcaption></figure>
+</div>
+<p class="wp-block-paragraph">Bu hitabı işittiği ilk sefer değildi.</p>
+<p class="wp-block-paragraph">Gümüş saç, ametist gözler ve yarı elf ırkı—— Emilia bu özelliklere sahipti ve bu dünyada yaşayan pek çok vatandaş Emilia’ya bakar bakmaz onu, onunla tıpatıp aynı özelliklere sahip biriyle ilişkilendiriyordu. &nbsp;&nbsp;</p>
+<p class="wp-block-paragraph">Geriyeyse yalnızca onu ne şekilde adlandıracakları kalıyordu.</p>
+<p class="wp-block-paragraph">Kimileri Satella diyordu, kimileri en büyük musibet, kimileriyse Kıskançlık Cadısı.</p>
+<p class="wp-block-paragraph">Bu nedenle birilerinin Emilia’ya böyle söylemesinin esrarengiz bir yanı yoktu.</p>
+<p class="wp-block-paragraph">Esas esrarengiz olan, Volcanica’nın Satella’nın ismini derin bir sevgiyle dile getirişiydi.</p>
+<p class="wp-block-paragraph">Neticede Volcanica, Reid ve başarıları Shaula ismine kaydedilmiş olan Flugel üçlüsü, Kıskançlık Cadısı olarak adlandırılan Satella’yı mühürleyen gruptu.</p>
+<p class="wp-block-paragraph">Öyleyse neden——</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“Neden, Kıskançlık Cadısı’na böylesine kibar hitap ediyorsun?”</p>
+<p class="wp-block-paragraph">Ona böyle hitap etmesi, belli belirsiz bir aldırmazlık şüphesi doğuruyordu.</p>
+<p class="wp-block-paragraph">Bunu şu anki Emilia için bir teşvik şeklinde adlandırmak epey zorlayıcı olurdu ama hiç değilse, duruma objektif bir şekilde baktığında, bu tek cümlenin hepsinin kökeni olduğunu fark ediyordu.</p>
+<p class="wp-block-paragraph">Belki de hem Satella hem de Kıskançlık Cadısı uygun kaçıyordu.</p>
+<p class="wp-block-paragraph">Evet, kimileri Satella diyordu, kimileri en büyük musibet, kimileriyse Kıskançlık Cadısı.</p>
+<p class="wp-block-paragraph">Emilia’ysa ona Kıskançlık Cadısı demeyi tercih ediyordu. Karşılığında——</p>
+<p class="wp-block-paragraph"><strong><em>Volcanica: </em></strong><em>“</em><em>——</em><em>Kıskançlık Cadısı.”</em></p>
+<p class="wp-block-paragraph">——Volcanica’nın mesafeli bakışlarında bir değişiklik gerçekleşmişti.</p>
+<p class="wp-block-paragraph">Kehribar rengi gözlerinde, çarpıcı bir değişim doğmuştu.</p>
+<p class="wp-block-paragraph">Ejderha, kafasını hiç kımıldatmaksızın hemen burnunun dibinden Emilia’yı izliyordu. Bu nedenle bu değişimin kapsamına bu denli yakın olan Emilia, tüm bedenine bir ürperti yayıldığını hissediyordu. &nbsp;</p>
+<p class="wp-block-paragraph">Ve o değişimin sakıncalı olduğunu seziyordu.</p>
+<p class="wp-block-paragraph">Ormanda büyüyen Emilia, vahşi doğada büyümüş olmak şeklinde bir deneyime sahipti. Sayısız hayvanın ve Cadı Canavarının böyle durumlarda tamamen değiştiğine tanık olmuşluğu vardı.</p>
+<p class="wp-block-paragraph">Sezgilerini dinleyerek geriye doğru sıçradı.</p>
+<p class="wp-block-paragraph">Doğru bir karar vermişti.</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“——Hık.”</p>
+<p class="wp-block-paragraph">Çünkü o saniyede gözlerinin önündeki hava yarılıp açıldı.</p>
+<p class="wp-block-paragraph">Bu bir abartı değildi, hava kelimenin tam anlamıyla önce ufalmış, sonra da şişip patlayarak açılmıştı.</p>
+<p class="wp-block-paragraph">Prensibi bilinmeyen bu fenomen bizzat uzayın kendisi bükülüp yuvarlanmışçasına tuhaftı ve Emilia az önceki konumunda olsaydı savunmasının gücünden bağımsız olarak kıvrılıp bükülürdü.</p>
+<p class="wp-block-paragraph">Ve bu olay, Emilia’nın kafasının bulunduğu noktada gerçekleşmişti.</p>
+<p class="wp-block-paragraph">Yani kafasını eğmekte bir saniyecik gecikmiş olsaydı şimdiye ölmüş olacaktı.</p>
+<p class="wp-block-paragraph">Kuyruk savuruşu ve az önceki uzay bükülüşüyle Emilia, kulenin tepesine tırmanışının ardından pek çok ölüme yakın deneyim yaşamıştı.</p>
+<p class="wp-block-paragraph">Belki de daha önce bu kadar çok tehlike yaşadığı hiçbir durum olmamıştı.</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“Ama, her şey yönetildiğine göre, geeerçekten başarabilirim demektir.”</p>
+<p class="wp-block-paragraph">Kader unsurunun müttefiki olması Emilia’nın yaşamasına izin veriyorsa aldığı her nefes bile talihinin lütfu demekti, durumu bu şekilde olumlu yorumluyordu.</p>
+<p class="wp-block-paragraph">Aksi takdirde yaşanan yeni değişiklikler yüzünden cesaretini yitirirdi. Çünkü——</p>
+<p class="wp-block-paragraph"><strong><em>Volcanica: </em></strong><em>“</em><em>——</em><em>Satella.”</em></p>
+<p class="wp-block-paragraph">Bir kez daha kanatlarını açan Volcanica, o yöne doğru kesin bir düşmanlık yönlendirmişti.</p>
+<p class="wp-block-paragraph">Bunu gözlemleyen Emilia, ayaklarını yere vurma arzusuna direndi. Tam da Volcanica’nın aklı başına geldi diye düşünürken işler yine kötüleşmeye başlamıştı.</p>
+<p class="wp-block-paragraph">Hatta o eski yarı uykulu hâlinin aksine, Alzheimer olduğu sürece kıyasla daha da kararlı görünüyordu.</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“——Buz Hattı.”</p>
+<p class="wp-block-paragraph">Bu nedenle Emilia, kendisini hiç tutmadan, kararlı bir inançla büyü gücünü serbest bıraktı.</p>
+<p class="wp-block-paragraph">Atmosfer buz misali çatırdadı ve yavaşça beyaz bir pus yayıldı. Hâlâ gözcü kulesinin bulutların üzerindeki en üst katmanında olsalar da dünyaları beyaza boyandı.</p>
+<p class="wp-block-paragraph">Çatırtı sesleriyle birlikte buzdan silahlar ağır ağır şekil aldı—— Mızrak çekerek yerde ayaklanmalarını ve yavaşça etraflarında dönmelerini sağlayan Emilia’ysa yüzünü önüne döndü.</p>
+<p class="wp-block-paragraph">Ve bir kez daha, Volcanica’yla çarpışmaya hazırlandı.</p>
+<p class="wp-block-paragraph">Ancak Emilia’nın bacaklarını sıyırıp geçen saldırısı Volcanica adına ciddi bir oyuna dönerse onunla nasıl başa çıkacağını bilemiyordu.</p>
+<p class="wp-block-paragraph">Gücü, Alzheimer olduğu zamana kıyasla bambaşka bir ligdeydi—— yo, şimdi bile Alzheimer’mış gibi görünüyordu.</p>
+<p class="wp-block-paragraph">Ancak rakibinin kehribar rengi gözlerine gözlerini diken Emilia, Volcanica’nın tavırlarını yalnızca bir Alzheimer hastası şeklinde nitelendiremiyordu.</p>
+<p class="wp-block-paragraph">Neticede Volcanica’nın gözleri hüzün ve acıyla dolup taşıyordu.</p>
+<p class="wp-block-paragraph"><strong><em>Volcanica: </em></strong><em>“</em><em>Satella, evet, Satella.</em><em> </em><em>Kıskançlık Cadısı’na</em><em> </em><em>indirgenen seni durdurmak zorundayız.”</em></p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“…Onunla yakın arkadaş mıydınız?”</p>
+<p class="wp-block-paragraph"><strong><em>Volcanica: </em></strong><em>“</em><em>O gün, tereddüt etmemeliydim. O gün tereddüt etmeseydim, geri kalan herkes</em><em>——</em><em>”</em></p>
+<p class="wp-block-paragraph">Sorusuna yanıt vermemişti.</p>
+<p class="wp-block-paragraph">Ancak Volcanica’nın titreyen sesi başlı başına bir yanıt niteliğindeydi.</p>
+<p class="wp-block-paragraph">Yaslı ejderha derin bir nefes alarak bir kez daha dünyayı kasıp kavuracak ejder nefesini topladı.</p>
+<p class="wp-block-paragraph">Emilia’ysa bundan önce öne çıktı, o beyaz pula vurmak zorundaydı. Bunu yapmadığı takdirde kendisinin de geri kalanların da kurtuluşu olmayacaktı.</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“——Subaru, Beatrice, Ram, Rem, Meili, Patrasche-chan, Echidna, Julius, Anastasia-san.”</p>
+<p class="wp-block-paragraph">Bu kuleye gelmiş ve çile çekmiş olan herkesi aklından geçirdi.</p>
+<p class="wp-block-paragraph">Kurtarılması gereken herkesi, kendisiyle aynı hedefi gözüne kestirmiş herkesi.</p>
+<p class="wp-block-paragraph">Ve bunu yapmak, Emilia’nın göğsünün derinliklerinde bilinmeyen bir güç doğurdu.</p>
+<p class="wp-block-paragraph"><strong><em>Volcanica: </em></strong><em>“</em><em>——</em><em>Kıskançlık Cadısı, Satella!!”</em></p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“——Yo, yanılıyorsun. Ben ulu Elior Ormanının Buzul Cadısı, Emilia’yım.”</p>
+<p class="wp-block-paragraph">Tüm bedeni şifalı bir güçle yıkanan Emilia, kendisini benzediği biriyle karıştırıyormuş gibi görünen İlahi Ejderha’ya yüksek sesle bu karşılığı verdi.</p>
+<p class="wp-block-paragraph">Rakibi ister İlahi Ejderha olsun, ister bir başkası—— Emilia’nın yanında niceleri vardı. Bu yüzden——</p>
+<p class="wp-block-paragraph"><strong>Emilia: </strong>“Yalnızca ismimi olsa bile, gereğince hatırla, tamam mı!”</p>
+<p class="wp-block-paragraph">——Ve böylece Pleiades Gözcü Kulesini çevreleyen oyunun son evresinde bulutların üzerinde ve gökyüzünde eşzamanlı bir ışık patlaması gerçekleşti.</p>
+</article>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+            <a href="arc6bolum86.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="arc6bolum88.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

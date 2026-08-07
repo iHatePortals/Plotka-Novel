@@ -1,0 +1,144 @@
+:root {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #d1d5db;
+    --accent-color: #3b82f6; /* Mavi tema rengi */
+    --border-color: #333;
+    --font-size: 18px;
+}
+
+/* 1. BEYAZ TEMA */
+body.theme-light {
+    --bg-color: #ffffff;
+    --card-bg: #f3f4f6;
+    --text-color: #111827;
+    --accent-color: #2563eb;
+    --border-color: #e5e7eb;
+}
+
+/* 2. SEPYA TEMASI */
+body.theme-sepia {
+    --bg-color: #f5efe6;
+    --card-bg: #e8dfd1;
+    --text-color: #433422;
+    --accent-color: #8c531b;
+    --border-color: #d8c8b4;
+}
+
+/* METİN KUTUSU GÖRÜNÜMÜ */
+body.theme-gray-box .novel-text {
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+body {
+    font-family: 'Segoe UI', Georgia, serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.reader-container {
+    max-width: 750px;
+    width: 100%;
+}
+
+.controls {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    background-color: var(--card-bg);
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 25px;
+    position: sticky;
+    top: 10px;
+    z-index: 100;
+}
+
+.nav-left {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-start;
+}
+
+.controls-center {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-btn, .action-btn, .theme-select {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    background: var(--bg-color);
+    padding: 7px 12px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.theme-select {
+    outline: none;
+    font-family: inherit;
+}
+
+.nav-btn:hover, .action-btn:hover, .theme-select:hover {
+    background-color: var(--accent-color);
+    color: #000;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 35px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+h1 {
+    color: var(--accent-color);
+    font-size: 1.8rem;
+    margin: 0 0 8px 0;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 0.95rem;
+}
+
+.novel-text {
+    font-size: var(--font-size);
+    line-height: 1.85;
+    letter-spacing: 0.2px;
+    transition: background-color 0.3s, padding 0.3s;
+}
+
+.novel-text p {
+    margin-bottom: 1.4em;
+    text-indent: 1.5em;
+}
+
+.bottom-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}

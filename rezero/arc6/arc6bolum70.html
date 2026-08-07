@@ -1,0 +1,513 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VI, Bölüm 70 Plotka Novel</title>
+   <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff; /* Görseldeki Açık Mavi / Cyan */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc6bolum69.html" class="nav-btn">← Önceki</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc6bolum71.html" class="nav-btn">Sonraki →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VI, Bölüm 70</h1>
+            <div class="subtitle">Samimi Yıldız</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <!-- Metin buraya eklenecek -->
+             <p class="wp-block-paragraph">——Natsuki Subaru’nun hayatı, yıkılmakta olan kulede Reid’in indirdiği kafa kesici darbenin tadına varışıyla yanıp yok olmuştu.</p>
+<p class="wp-block-paragraph">Sahiden de ölüm anı kelimenin tam anlamıyla yanıp yok olmak şeklindeydi.</p>
+<p class="wp-block-paragraph">Acısını çektiği ve teyit etmesi gereken pek çok şey vardı, mesela yaklaşan gölge kütlesiyle nasıl başa çıkacağı, sonrasında ne yapmayı planladığı ve hepsinden öte ufalanmakta olan kuledeki bir yapı iskelesini bir şekilde tasdiklemesi gibi. Ancak tüm bu çabaları geride kalmıştı.</p>
+<p class="wp-block-paragraph">Teyit edebildiği tek şey, Reid’in son saldırısının Subaru’yu yutup buharlaştırdığıydı.</p>
+<p class="wp-block-paragraph">Belki de canı acımamıştı, aklından geçen şey buydu.</p>
+<p class="wp-block-paragraph">Tabii ki bunun Reid’in yardımseverliğinden kaynaklandığına inanmıyordu ama kısa bir süre içerisinde birkaç kez ölen Subaru için “Ölüm” anına acı ve korkunun eşlik etmemesi beklenmedik bir olaydı.</p>
+<p class="wp-block-paragraph">Evet, ne acı ne de korku duymuştu—— Duyduğu tek şey öfke olmuştu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Yapacağım.”</p>
+<p class="wp-block-paragraph">Daha kaç anlamsız ölüm biriktirirse biriktirsin başaracaktı, böyle düşünüyordu.</p>
+<p class="wp-block-paragraph">Yanına aldığı şeyler, onu bu çıkmazdan kurtaracak ipuçları var olduğu müddetçe Subaru’nun “Ölümleri” anlamsız olmayacak ve biriktirmeye devam ettiği “Ölümler” boşuna olmayacaktı.</p>
+<p class="wp-block-paragraph">Bu, korkunç bir aldatmacaydı.</p>
+<p class="wp-block-paragraph">Bu, yalnızca gözlerini kendi güçsüzlüğünden kaçırabilmesi için bir bahaneydi.</p>
+<p class="wp-block-paragraph">Anlamsızca, güçsüzce, iradesizce, kalpsizce, amaçsızca ölmüştü ve bunu düşünmek istemiyordu, işte hepsi buydu. İşte bu yüzden, öylece ölmüş olmamak için “Ölümünün” bir anlamı olmasını arzuluyordu.</p>
+<p class="wp-block-paragraph">Keşke daha güçlü olabilseydi.</p>
+<p class="wp-block-paragraph">Keşke daha zeki olabilseydi.</p>
+<p class="wp-block-paragraph">Keşke şu anki benliği yerine daha güçlü, daha zeki, daha cesur biri olabilseydi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ama…”</p>
+<p class="wp-block-paragraph">Elde olan tek şey güçsüz, aptal, acınası Natsuki Subaru’ydu.</p>
+<p class="wp-block-paragraph">Çünkü hiç kimse, bir kez olsun, o Subaru’yu yalnız bırakmaya kalkmamıştı.</p>
+<p class="wp-block-paragraph">Çünkü şu anki benliğinin yaralarla dolu kararlılığını destekliyorlardı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bu yüzden ben——”</p>
+<p class="wp-block-paragraph">Bu yüzden Natsuki Subaru——</p>
+<p class="has-text-align-center wp-block-paragraph">※　※　※　※　※　※　※　※　※　※　※　※　※</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Sana ölmeni söylersem, ölür müsün?”</p>
+<p class="wp-block-paragraph">Bunu dile getirdiği sırada hiçbir tereddüdü yokmuş gibi durmuyordu.</p>
+<p class="wp-block-paragraph">Bunun sebebi, rakibinin bu soruyu işittiği anda nasıl bir tepki vereceğini tahmin edemeyişiydi——Yo, söz konusu yalnızca tahmin etmekse, bunu yapmıştı.</p>
+<p class="wp-block-paragraph">Çeşitli hayal gücü örnekleriyle en nihayetinde olabilecekleri düşünmüştü.</p>
+<p class="wp-block-paragraph">Öyleyse sorusunu dile getirirken yaşadığı o duraksama, sahip olduğu o tereddüt nedendi?</p>
+<p class="wp-block-paragraph">Her hâlükârda——</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“——? Ustam ölmemi söylerse ben de ölürüm, bunu biliyor olmalısın?”</p>
+<p class="wp-block-paragraph">Bir parmağıyla yanağına dokunan Shaula’nın verdiği bu kayıtsız cevap, Subaru’nun kalbini acıttı.</p>
+<p class="wp-block-paragraph">Ve sanki çatlaklar oluşturacak kadar fena bir şekilde bıçaklanmışçasına göğsünün ortasından acı dolu bir çığlık attı.</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Bu acı verici optik yanılsama üzerine karın boşluğunu tutarak derin bir nefes verdi.</p>
+<p class="wp-block-paragraph">O yaralayıcı sözlerin kendi ağzından dökülmesine rağmen acı çekiyor olmasını komik buluyordu. Subaru’nun bu hâline bakan Shaula, merakla gözlerini devirdi.</p>
+<p class="wp-block-paragraph">Hiçbir kötü niyet taşımayan Shaula’nın tavrı, bugün yemekte ne olduğu sorulmuş, o da uygun bir şekilde cevap vermiş gibiydi.</p>
+<p class="wp-block-paragraph">Bu tepkisi de Subaru’nun en kötü tahminleri arasında ikinci sıradaydı.</p>
+<p class="wp-block-paragraph">Shaula, hiçbir hile hurda olmaksızın canından vazgeçme talimatını kabul etmeyi seçmişti.</p>
+<p class="wp-block-paragraph">Bunda ne yalan vardı ne mizah, yalnızca ikinci kez düşünmeden dile getirdiği gerçek niyetiydi. Subaru, o dürüst gözlerin içine attığı tek bakışla bunu anlayabiliyordu.</p>
+<p class="wp-block-paragraph">Onun gelecekteki karanlık kişisel çıkarları ve planlarına göz atmak, Subaru’nun kalbini kurtarmış olabilirdi.</p>
+<p class="wp-block-paragraph">Lakin gerçek şu ki Subaru, böyle bir kaçış yolu için hazırlanmamıştı. Bu merhamet miydi merhametsizlik mi, bu aşamada ikisi arasındaki ayrımı bile yapamıyordu fakat——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“…Demek, öyle.”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Ustam, benim ölmemi mi istiyor? Hmm, Ustam talep ettiği sürece her şeye uyarım, şahsen benim için hiç sıkıntı yok ama tekrar ediyorum, böyle şeyler düşünmek için epey tuhaf bir zamanlama değil mi? Şu anda kulenin içerisi tam bir fiyasko…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Biliyorum. Biliyorum.”</p>
+<p class="wp-block-paragraph">Subaru’nun boğuk sesli yanıtını işiten Shaula, parmağını yanağında tutmayı sürdürerek boynunu eğdi. Bu boyun hareketiyle birlikte de uzun saç örgüsü—— yani akrep kuyruğu sallandı.</p>
+<p class="wp-block-paragraph">Akrep kuyruğu. Düşününce epey ironik bir isim tercihiydi.</p>
+<p class="wp-block-paragraph">Tıpkı akrep anlamı bahşedilen Shaula gibi ismi bedeniyle bile ifade ediliyordu. Bu yalnızca ismiyle değil, çeşitli yönleriyle de ortaya çıkıyordu.</p>
+<p class="wp-block-paragraph">Elbette ki bu, gerçeği gizleme niyeti taşımayışından kaynaklanıyordu. İşte bu yüzden——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Shaula, sen, sen iri bir akrep şekli alamıyor muydun?”</p>
+<p class="wp-block-paragraph">Subaru, miskin bir konuşma tarzı izlemeden açıkça rakibinin sırrının bahsini açtı.</p>
+<p class="wp-block-paragraph">Pleaides Gözcü Kulesine saldıran beş engel—— onlardan biri, simsiyah, devasa akrebin varlığıydı. Ve Subaru, yarı yolda o akrebin Shaula olduğuna ikna olmuştu.</p>
+<p class="wp-block-paragraph">Bununla birlikte bu yanıt yalnızca meçhul mizaçlı ve güçlü Cor Leonis Otoritesinden aldığı hissiyatı kendince yorumlamasından ibaretti.</p>
+<p class="wp-block-paragraph">Hissettiği yanıtı onaylamaya kalkışacaksa da bunun en hızlı yolu, rakibini doğrudan sorgulamak olurdu.</p>
+<p class="wp-block-paragraph">Elbette vakti olsaydı farklı bir seçeneğe de yönelebilirdi ve rakibinin verdiği yanıta güvenemezse başka bir yol izlemeye mahkûm olabilirdi.</p>
+<p class="wp-block-paragraph">Ancak Shaula, Subaru’nun bu sorgusu karşısında boynunu eğik tutmaya devam ederek…</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Şeklini almak demeyelim, nüansı bundan birazcık farklı ama hı hı, yapabiliyorum~. Ah, ama, tatlılığıma zarar veriyor, o yüzden gerçekten bu işten pek hoşlanmıyorum. Annem ve Ustam tarafından bana verilen tasarımın en iyisi olduğunu düşünüyorum.”</p>
+<p class="wp-block-paragraph">Shaula, sorunun herhangi bir mantık zincirinden yoksun olmasına rağmen bir kez daha hiç tereddüt etmeksizin kolayca yanıt verdi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Herhangi bir şey saklamaya niyeti yoktu.</p>
+<p class="wp-block-paragraph">Ve Shaula’nın mizacının bu kanıtla temel aldığı söylenebilirdi. Aynı zamanda kulede beliren devasa akrebin—— gerçek kimliğinin Shaula olduğu da Subaru tarafından teyit edilmişti.</p>
+<p class="wp-block-paragraph">Cor Leonis’in etkisiyle kulenin içerisindeki yoldaşlarının yerlerini algıladığı sırada devasa akrebin de o algı sınırlarında yer alması, onu teşvik eden hile tam da buydu.</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Ustam? Sen iyi misin? Suratının rengi bayağı kötü oldu, farkında mısın? Diz yastığımda, kol yastığımda, göğüs yastığımda, kucak yastığımda falan tazelenmek ister misin?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“…Moralimi bozacak şeyler söylemesene. Her şeyden önce o kadar vaktimiz yok, bunu az önce kendin söylemedin mi sen.”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Kulenin içerisinde bir fiyasko olduğu doğru ama benim öncelik listemin başını Ustam çekiyor, geri kalan her şey sonraya bırakılabilir. İşte bu yüzden Ustamın kafası karışır ve benimle bir kucaklaşmada kenetlenmek isterse kollarım fazlasıyla açık. Gaza geliyorum ya!”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Gaza gelme. Git su iç.”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Her zamanki gibisin, Tanrıım, Ustaam~.”</p>
+<p class="wp-block-paragraph">Dudak şekli keskinleşen Shaula, bu sözlerin ardından surat astı.</p>
+<p class="wp-block-paragraph">Yalnızca Shaula’nın ifadesi ve Subaru’yla bu şekilde didişmeleri hesaba katılırsa Subaru ve diğerlerinin kuledeki durumunun huzurlu olduğu şeklinde bir yanlış anlaşılmaya varılabilirdi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Bununla birlikte gerçeklik, Subaru ve diğerlerine karşı hiç de kibar davranmıyordu. Huzura daha uzak olamazlardı.</p>
+<p class="wp-block-paragraph">Subaru ve Shaula sakince sohbet ederken Emilia ve Ram Oburluğu uzak tutmak için çabalıyor, Beatrice de onlara destek oluyordu. Julius İkinci Katta Reid=Roy ile çarpışıyordu, Echidna Patrasche’yle birlik olmuş şekilde Rem’le birlikte Taygeta’ya sığınıyor olmalıydı. Ve Meili de Cadı Canavarı sürüsünün kuleye yaklaşmasına engel oluyordu—— yani beş engelle mücadele etmek için ellerinden gelenin en iyisini yapıyorlardı.</p>
+<p class="wp-block-paragraph">Lakin bu bile, Shaula’yla konuşma amaçlı bir aldatmacadan ibaretti.</p>
+<p class="wp-block-paragraph">Çünkü bu koşullar içerisindeki Natsuki Subaru——</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“U-Ustam? Gerçekten iyi misin? Bana böyle etkileyici bakışlar atmaya devam edersen dört yüz yıl boyunca tattığım bekleyişten sonra kendimi daha fazla tutamayacağım, anlıyor musun?..”</p>
+<p class="wp-block-paragraph">Shaula, Subaru’nun üzerine diktiği bakışları karşısında kollarıyla ince bedenini sardı. Her zamanki numaraları gibi görünüyor olsa da bu defa öyle değildi.</p>
+<p class="wp-block-paragraph">Gerçekten de Subaru’nun tavırlarından tedirgin olduğu bir durum içerisindeydi. Bu hiç ona yaraşır bir şey değildi—— yo, bu yanlıştı. Belki de gerçek hisleri bu şekildeydi.</p>
+<p class="wp-block-paragraph">Subaru kendisine ölmesini söylediğinde bile sarsılmamışken o anormal davrandığında kırılgan kalbi hayret verici düzeyde sarsılmıştı—— Masum masum anne babasını özleyen yavru bir kuş gibiydi âdeta.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Subaru, Shaula’ya ilk sorusunu yöneltirken birkaç olasılığı değerlendirmişti.</p>
+<p class="wp-block-paragraph">Bunlar arasındaki en kötü olasılık, Shaula’nın o kalpsiz sözleri işittiği saniyede fevri davranıp Subaru’yu o saniye oracıkta öldürmesiydi—— Shaula’nın şu ana kadarki davranışlarının rolden ve her şeyin bir numaradan ibaret olması durumunda bu senaryo imkânsız değildi.</p>
+<p class="wp-block-paragraph">Subaru daha önce bu sorunun onayını almış olmasa da Shaula’nın devasa akrep formunda Subaru, Echidna ve Beatrice’i öldürmek şeklinde bir kaydı vardı. Subaru’nun etrafta tek bir canlı insan bile bulamadığı o trajedide de devasa akrebe dönüşmesini takiben parmağı olabilirdi.</p>
+<p class="wp-block-paragraph">İşte bu yüzden Subaru, ilk sorusuyla kumar oynamıştı.</p>
+<p class="wp-block-paragraph">Bu soruyu dile getirişinin hemen ardından Shaula’nın o soruyu sindirmesi ve Subaru’nun kafasını buharlaştırıp uçurmasının hiç de tuhaf olmayacağı cinsten bir kumardı—— Subaru, şimdi bu kumarda kazanmışken bunu söyleyebiliyordu.</p>
+<p class="wp-block-paragraph">Ancak kumar asla tek seferle sonlanmazdı.</p>
+<p class="wp-block-paragraph">Subaru’nun bilinçsizce biriktirdiği borçlar ve Oburluk ile Pleiades Gözcü Kulesinin hazırladığı bahislerle kaybettiklerini telafi etmeye bu tarz ufak zaferleri biriktirmek yetmezdi.</p>
+<p class="wp-block-paragraph">Büyük bir galibiyet için büyük bir kumar oynamak gerekirdi. Bu nedenle——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Shaula, bu kadar çok soru sorduğum için üzgünüm ama bir şey daha sormak istiyorum. Duyduğum kadarıyla bu Pleiades Gözcü Kulesi’ndeki Sınavların bazı kuralları varmış, öyle mi?”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Bana bu kadar sıcak basmışken bunu mu soruyorsun yani?! …Neyse, evet var, ne olmuş? Bunu Ustam kafasını tuvalete çarpmadan önce de konuşmuştuk gerçi…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bana, o kuralları anlat.”</p>
+<p class="wp-block-paragraph">Memnuniyetsizliğini gizlemeyen Shaula, parmaklarını kibarca göğsünün karşısına uzattı. Ve konumlandırdığı parmakları hızla sallayarak “Umm” diye fısıldadı.</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Birincisi, Sınavları tamamlamadan ayrılmak yasak. İkincisi, Sınav kurallarını ihlal etmek yasak. Üçüncüsü, kütüphanelere saygısızlık etmek yasak. Dördüncüsü kulenin kendisine yıkım getirecek herhangi bir şey yapmak yasak—— İşte böyle.”</p>
+<p class="wp-block-paragraph">Parmaklarını kapalı tutan Shaula, fena hâlde akıcı bir ses tonuyla açıklamasını tamamladı.</p>
+<p class="wp-block-paragraph">Elbette ki düşüncesiz yorumlarını sınırladığı takdirde konuşma konusunda yetkin bir kızdı ve herhangi bir duraksama içermeyen konuşmasında hiçbir tuhaflık yoktu. Gerçi tuhaflık denmese de göze çarpan bir nokta vardı.</p>
+<p class="wp-block-paragraph">O da kendisine yakışmayan ciddilikte bir ses tonuyla açıklamasını yaparken parmaklarını sayma hareketinin sonunda son parmağına da dokunup o noktada durmasıydı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Peki beşinci kural?”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“…Beşinci yok. Ustam, beni duymadın mı? Dördünü de saymış olmalıyım. Ustam, sayı saymayı da mı unuttun? Böyle olmaz ki~. Sayı hesabı benim de güçlü olduğum bir konu değil ama o kadarını ben bile sayabiliyorum…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Shaula.”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Gözlerini diken Subaru, sesini yükseltip bir adım öne çıkarak Shaula’yla arasındaki mesafeyi kısalttı.</p>
+<p class="wp-block-paragraph">Önceden de kafa kafayayken artık birbirlerinin ellerini tutabilecekleri yakınlıktaydılar. ——Bu eylem bile Subaru adına bir kumardı.</p>
+<p class="wp-block-paragraph">Elbette aralarındaki mesafe bir kol boyu uzadı veya kısaldı diye her ikisinin savaş potansiyellerinde bir değişiklik meydana gelmesi gibi yüzeysel bir şey söz konusu değildi.</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Ustam… acaba, benim duygularımla oynuyor olabilir misin? Ustam benim arzumla değil de kendi arzusuyla bana yaklaşmışken ağzımı açmamı istersen, öyle olsun, açarım. Hadi aynı hızla ve aynı enerjiyle sarıl bana ve erit beni…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bunu yapmakla ağzın gerçekten açılacaksa yaparım. Bunun bir yan fayda olacağı bile söylenebilir… Ama sezgilerine dayanarak amacım olduğunu varsaydığın şeyi amaçlamadığım takdirde durum böyle olmayacaktır.”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Shaula, sana tekrar soruyorum. Kulenin, beşinci kuralı ne?”</p>
+<p class="wp-block-paragraph">Subaru, Shaula’nın ılımlı reddini kabullenerek sorusunu tekrarladı.</p>
+<p class="wp-block-paragraph">Bu, ona fiziksel olarak değil, duygusal olarak yaklaşmaya yönelik bir eylemdi. Tekrarladığı sözleri birazcık acı olabilirdi ama artık onları duymamış gibi davranamazdı.</p>
+<p class="wp-block-paragraph">Yumruklarını sıkan Subaru’nun karşısında bu kararı kabullenen Shaula, hafifçe bir nefes vererek,</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“——NG.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“…NG?”</p>
+<p class="wp-block-paragraph"><em>Ç.N: (NG = no good = hiç iyi değil/olamaz)</em></p>
+<p class="wp-block-paragraph">Boynunu sağa sola döndüren Shaula, rahatsızlığının sembolü olarak kollarını dolgun göğüslerinin önünde bağlayarak X işareti yaptı.</p>
+<figure class="wp-block-image size-full"><img decoding="async" width="945" height="671" src="https://web.archive.org/web/20260619052122im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-53.png" alt="" class="wp-image-8126" srcset="https://web.archive.org/web/20260619052122im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-53.png 945w, https://web.archive.org/web/20260619052122im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-53-768x545.png 768w" sizes="(max-width: 945px) 100vw, 945px"></figure>
+<p class="wp-block-paragraph"><br>Tavrı çocukça olsa da gözleri ciddilikten de öteydi.</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Riskli bir noktada dikilen Subaru’ya diktiği o gözler, ağır duygularla doluydu.</p>
+<p class="wp-block-paragraph">Bir yakarış olarak adlandırılması gereken o sessiz ama uçsuz bucaksız derinlikte, ağırlıkta duygular kırılgan ve gelip geçiciydi.</p>
+<p class="wp-block-paragraph">Shaula, istemsizce boynunu bir kez daha sağa sola çevirerek,</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“NG. Hayır, bu konuda konuşmak istemiyorum. Beşinci kural mı? Öyle bir şey olsa bile önemi var mı ki? Benim ve Ustamın balayıyla hiçbir ilişkisi…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ne demek hiçbir ilişkisi yok! Ben ve geri kalan herkes bu kulenin “Sınavlarına” meydan okuyor. “Sınavların” kurallarını bilmesem de sorun çıkmayacağını düşünecek kadar iyimser olamam. İşte bu yüzden, Shaula…”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“…Söylememeyi yeğlerim.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Shaula!”</p>
+<p class="wp-block-paragraph">Shaula itaatsiz bir çocuk gibi kulaklarını tıkayıp gözlerini kaçırıyordu. Subaru’ysa onun bu tavrı karşısında güçlü bir ses tonuyla şöyle dedi:</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Senin de bu kulede belirli görevlerin olmalı. Kulenin Yıldız Muhafızı mıydın?.. Onca zamandır bu görevi yerine getiriyor olmalısın, öyle değil mi! Doğru mu yanlış mı bilmiyorum ama tam dört yüz yıldır! Öyleyse——”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“——Daha, dört gün oldu.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“…Ah?”</p>
+<p class="wp-block-paragraph">Fısıltı misali dökülen bu kelimeler, Subaru’nun düşüncelerini hızla durdurdu.</p>
+<p class="wp-block-paragraph">Subaru’nun sorguladığı yıllarla Shaula’nın ağzından dökülen zaman çerçevesini kıyaslamak dahi mümkün değildi. Elbette ki beyanlarının yalan çıkması ve kulede geçirdiği sürenin başından beri bu denli kısa olması—— imkânsız değildi.</p>
+<p class="wp-block-paragraph">Ancak gözlerindeki ağır duyguları koruyan Shaula, dudakları titreyerek sözlerinin devamını getirdi.</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Ustam kuleye geleli yalnızca dört gün oldu. Bu sürenin iki gününü yatakta geçirdi, yani ben dört yüz yıldır bu anı beklerken… Ustam buluşmamızın, konuşmamızın, yan yana vakit geçirmeye başlamamızın üzerinden yalnızca iki gün geçti! Yalnızca iki gün…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Shaula…”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Tek bir an, tek bir bakış yeter diye düşünüyordum.”</p>
+<p class="wp-block-paragraph">Gözlerini kapatan Shaula, bakışlarının yere kaymasına o saniyede son verdi. Subaru’yu bir an olsun gözlerinin önünden ayırdığına pişman olduğunu anlatır gibiydi—— Yo, düşününce durum gerçekten de buydu.</p>
+<p class="wp-block-paragraph">Subaru’nun anımsayabildiği kadarıyla Shaula, aynı ortamda, aynı zaman diliminde bulundukları sürece daima Subaru’yu izliyordu. Bu, Subaru’yu minimum çabayla gözetlemek gibi sığ bir amaca yönelik değildi, kesinlikle——</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Dört yüz yıl boyunca, kulede Ustamı bekledim. Tek bir bakışla, tatmin olurum sandım—— Ama gerçek bu değilmiş.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Yani, sonuçta Ustam benim her şeyim. Ustam benim için her şey demek ve beni ben yapan da Ustama yönelik hislerim. Tam dört yüz yıl almışken, o hisleri Ustama iletemem. Hepsini, yalnızca iki günde… Yo yapamam, bunu kabul edemem.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“…Bu yüzden mi, bana beşinci kuralı söylemiyorsun?”</p>
+<p class="wp-block-paragraph">Keskin duygular Shaula’nın bedenini bütünüyle sarıyor, onu o kılan varoluşu şekillendiriyordu.</p>
+<p class="wp-block-paragraph">Dört yüz yıl—— Yalnızca birkaç kelime olarak algıladığı o kelimelerin ağırlığı nihayet Subaru’nun gözünde gerçek bir zaman çerçevesine dönüşüyor ve bunu hissedebileceği bir konuma ulaşıyordu.</p>
+<p class="wp-block-paragraph">Nihayetinde Shaula’nın dört yüz yıldan bahsetme şekli başından beri çok rahat olmuştu.</p>
+<p class="wp-block-paragraph">Ve Subaru da onda zorluk, mutsuzluk gibi hisleri kucaklama yetisi olmayabilir diye düşünmüştü.</p>
+<p class="wp-block-paragraph">Belki de o akrep gibi kalbinin derinliklerine, ruhunun derinliklerine dek insanlık dışıdır demişti.</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“O kuraldan bahsetmek istemiyorum. NG. Sonuçta ondan bahsedersem…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Ondan bahsedersem Ustam Sınavların üstesinden gelmenin yolunu bulur. İşte bu yüzden, eğer ondan bahsedersem, ondan bahsedecek olursam… Ustamla geçireceğim vakit sona erer.”</p>
+<p class="wp-block-paragraph">Shaula dokunaklı bir şekilde kollarıyla bedenini sarmış ve Subaru’ya gerçek hislerini açıklamıştı.</p>
+<p class="wp-block-paragraph">Kan kusuyormuş—— yo, ağlamamak için kendini zor tutuyormuş gibi çıkan ses tonuysa Subaru’nun kalbini yaralamıştı.</p>
+<p class="wp-block-paragraph">Subaru’nun hiç beklemediği bir yanıt olmuştu.</p>
+<p class="wp-block-paragraph">Tıpkı ilk sorusu gibi bu soru için de bazı tahminlerde bulunmuştu.</p>
+<p class="wp-block-paragraph">Shaula’nın Pleiades Gözcü Kulesi’nin kurallarını gizlemesinin gerçek amacı—— eğer bu rezil kulenin kurallarını yaratan kişiyle iş birliği içerisindeyse belirgin bir amacı, planları vardır, diye düşünmüştü.</p>
+<p class="wp-block-paragraph">İkinci bir ihtimal olarak kurallardan bahsetmeme sebebinin planlardan bağımsız şekilde basit bir kapris çıkabileceğini veya karanlık kuralın hiçbir önem taşımayabileceği ya da Shaula tarafından unutulmuş olabileceğini düşünmüştü.</p>
+<p class="wp-block-paragraph">Ama her iki ihtimal de gerçek çıkmamıştı.</p>
+<p class="wp-block-paragraph">Shaula’nın kulenin kurallarından bahsetmemek için bir sebebi vardı. Ve o sebep, Bilge’nin veya bu kuleyi her kim yarattıysa onun fikirlerinden bağımsız olarak Shaula’nın samimi isteğiydi.</p>
+<p class="wp-block-paragraph">——Shaula, dört yüz yıl boyunca bir başına yaşamış ve beklediği kişiyle kavuşmayı iple çekmişti.</p>
+<p class="wp-block-paragraph">Bu dilek gerçek olunca ve mutluluğu bulunca da geçirdikleri sürenin hiç değilse birazcık uzamasını istemişti.</p>
+<p class="wp-block-paragraph">Eğer tüm bunlar gerçekten bu mütevazı arzuyu yerine getirme amaçlıysa——</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Ustam, sana yalan söyleyen benden, nefret edecek misin?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Benden nefret edecek, yüzümü bile görmek istemeyecek… noktaya gelecek misin?”</p>
+<p class="wp-block-paragraph">Sebep neydi de şu anda kendisine “Ölür müsün” gibi bir sorunun sorulduğu andan çok daha acılı bir surat ifadesine bürünüyordu?</p>
+<p class="wp-block-paragraph">Sebep neydi de Subaru’nun kendisinden nefret etmesini canını yitirmesinden çok daha kötü buluyordu?</p>
+<p class="wp-block-paragraph">——Sebep neydi de dört yüz yıl beklemiş olmasına rağmen her şeyi bir hedef gibi görebiliyordu?</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“…Senden, nefret falan etmeyeceğim.”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Sen sessiz kaldığın için gerçekten zor durumlarla yüzleşmek zorunda kalacağımı düşünüyorum ve dürüst olmak gerekirse bazen de hiç bu kadar fena hâlde köşeye sıkışmamıştım galiba diyorum.”</p>
+<p class="wp-block-paragraph">Sessizleşen Shaula’yla yüzleşen Subaru, zihnindekileri dile getiriyordu.</p>
+<p class="wp-block-paragraph">Burada yalan yoktu. Bunlar gerçek hisleriydi. Shaula gerçek niyeti doğrultusunda bir bilgiyi gizlediği için Subaru çok önemli araştırmalardan yoksun kalmış ve ardı ardına acımasızca, korkunç ölümlerle yüzleşmeye mecbur bırakılmıştı.</p>
+<p class="wp-block-paragraph">Yalnızca Subaru da değil. Emilia ve Beatrice de aynı şekilde.</p>
+<p class="wp-block-paragraph">Subaru, o anlarda hissettiği çaresizliği, hoşnutsuzluğu ve umutsuzluğu asla unutamazdı.</p>
+<p class="wp-block-paragraph">İşte bu yüzden, tüm bu kötülüklerin mucidi olan varlığı asla ama asla bağışlayamayacağına inanıyordu.</p>
+<p class="wp-block-paragraph">Peki şu anda, bu hâldeki Shaula’nın önünde, aynı şeyi yapabilecek miydi?</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Hayır.”</p>
+<p class="wp-block-paragraph">Dört yüz yılını yalnızlık içerisinde geçiren, doğumunun anlamını iki gün içerisinde karşılayan ve bu mutluluğa ulaştığı için tatmin olan Shaula’nın, o kötülüğün mucidi olduğunu düşünmüyordu.</p>
+<p class="wp-block-paragraph">O kötülüğün bir mucidi varsa o da bu dünyanın adaletsizliğiydi ve de karşısında hiçbir şey yapmanın mümkün olmadığı bu koşulları yaratan, Shaula’ya dört yüz yıllık bir emir veren Ustası——</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“——Ah.”</p>
+<p class="wp-block-paragraph">Ansızın Shaula’nın boğazından boğuk bir nefes kaçtı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Shaula?”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Ah, ah… aaah, ah…”</p>
+<p class="wp-block-paragraph">Gözlerinin önündeki kızın durumundaki anormalliği gören Subaru, ona seslendi. Ancak Shaula, onun seslenişine yanıt veremeden avuçlarıyla yüzünü örttü.</p>
+<p class="wp-block-paragraph">Ve boğazından kendisine yakışmayan, acılı, titrek bir ses işitildi.</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Bu hiç, iyi değil… iyi değil… Ustam! UstamUstamUstamUstam!..”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Shaula!? Shaula, ne oldu!? Böyle ansızın…”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“——Biri, kuralları ihlal etti.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Subaru onu beyaz omuzlarından sarsarken kendi kollarını Shaula’ya kaptırdı. Ve ince kollarıyla Subaru’nun kollarını acı verici şekilde kavrayan Shaula, bu cümleyi kurdu.</p>
+<p class="wp-block-paragraph">Kendisine böyle söyleyen Shaula’nın gözlerine dikkatle bakan Subaru’ysa derin bir nefes aldı.</p>
+<p class="wp-block-paragraph">——Shaula’nın kara gözbebekleri ve irislerinde tuhaf bir değişiklik meydana geliyordu.</p>
+<p class="wp-block-paragraph">Küresel gözlerindeki karanlık gözbebekleri ve göz küresinin irisi üçe bölünüyor, kızarıyor, titreşiyordu.</p>
+<p class="wp-block-paragraph">Her iki gözünde de aynı dönüşümün gerçekleşmesiyse karanlık gözbebekleri ve irislerinin altıya bölündüğü anlamına geliyordu.</p>
+<p class="wp-block-paragraph">——Yani üç sağda, üç solda altı bileşik göze sahip oluyordu.</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Ustam!.. Şu anda, hâlâ yapabilirim…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ne yapabilirsin?”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Eğer Ustam, şu anda emrederse, ben hâlâ… kendimi, öldürebilirim.”</p>
+<p class="wp-block-paragraph">Gözbebekleri kırmızı ışıklarla titreşen Shaula’nın tüm bedeninden beyaz buharlar yükselmeye başlıyordu. Beyaz teni kırmızı bir tonla kaplanırken yanı başında duran Subaru bile onun vücut sıcaklığındaki anormal yükselişi hissedebiliyordu.</p>
+<p class="wp-block-paragraph">Bunun ardındaki prensip belirsizdi—— Yalnızca Shaula’nın bedeni ısı üretiyor ve ardından değişiklikler meydana geliyordu.</p>
+<p class="wp-block-paragraph">Belki de bu, devasa akrep dönüşümünün ilk aşamasıydı.</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Eğer dönüşürsem, bunu yapamam. Kan ve gözyaşından yoksun bir ÖLÜM MAKİNESİ olurum ve Ustamı öldürürüm. Yani, Ustamı öyle çok istiyorum ki… Ustamı öyle fena, öyle fena istiyorum ki buna katlanamam, işte bu yüzden…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bu yaşanmadan önce…”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Lütfen bana, ölmemi söyle… Eğer bunu yaparsan, Ustamı…”</p>
+<p class="wp-block-paragraph"><em>‘Öldürmeden önce her şey sona erecek’</em> diyerek sözlerinin devamını getirememişti.</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img decoding="async" width="790" height="1401" src="https://web.archive.org/web/20260619052122im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-55.png" alt="" class="wp-image-8128" srcset="https://web.archive.org/web/20260619052122im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-55.png 790w, https://web.archive.org/web/20260619052122im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-55-564x1000.png 564w, https://web.archive.org/web/20260619052122im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-55-768x1362.png 768w" sizes="(max-width: 790px) 100vw, 790px"><figcaption class="wp-element-caption"><a href="https://web.archive.org/web/20260619052122/https://x.com/kagerou378">Görsel Sahibi</a></figcaption></figure>
+</div>
+<p class="wp-block-paragraph">Bunun yerine gözleriyle, titrek sesiyle, tüm bedeni ve ruhuyla aynı mesajı iletiyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Subaru’nun bedeni de emsalsiz bir dehşetle dolmuş durumdaydı. Elbette ki bu, uhrevi korkularla yüzleşen bir insanın içgüdüsel tepkisiydi. &nbsp;</p>
+<p class="wp-block-paragraph">Natsuki Subaru olarak bilinen İnsan, gözlerinin önündeki Shaula olarak bilinen Canavardan korkuyordu.</p>
+<p class="wp-block-paragraph">İşte bu yüzden Subaru——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Shaula, bana beşinci kuralı söyle.”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Ustam, şimdi bunun zamanı değil…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Eğer bana söylersen!——”</p>
+<p class="wp-block-paragraph">Subaru, kendisine yakaran Shaula’nın sözünü yüksek bir sesle keserken göz dağı veren bakışları karşısında Shaula’nın omuzları ürperdi. Subaru’ysa o omuzları kavradı. Sıcaklardı. Hem de avcunu eritebilecek kadar sıcak. Shaula’nın vücut ısısı çoktan ateş seviyesine yükselmişti.</p>
+<p class="wp-block-paragraph">Ancak Subaru ellerini çekmedi. O an için Shaula’nın yanan ve kavrulan bedenini bırakmadı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bana cevap verirsen, sana o emri vereceğim—— Sakin ol. Sen bir canavara dönmeden önce, sana emredeceğim.”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Subaru’nun dobra dobra böyle söylediğini işiten Shaula’nın gözleri irileşti. &nbsp;</p>
+<p class="wp-block-paragraph">Sonra da Subaru’ya seslenip “Ustam” diyerek…</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Ustam tam bir kadın avcısı.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Öyle olduğumu anımsamıyorum ama…”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Öyleyse Ustam bir Shaula avcısı. En sevdiğim avcı tipi…”</p>
+<p class="wp-block-paragraph">Diyerek güçsüzce gülümseyen Shaula, ellerini hafifçe omuzlarını kavrayan ellerin üzerine koydu. Ve——</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“——Beşinci kural, Sınavları yok etmek yasak değil.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Bak, gözlerimin rengi değişti—— Biricik, Ustamın karşısında…”</p>
+<p class="wp-block-paragraph">Diyen Shaula, kendini Subaru’nun göğsüne attı.</p>
+<p class="wp-block-paragraph">Beklediğinden büyük bir güçle karşılaşan Subaru’ysa onu tutmayı sürdüremeyerek geriye fırladı. Ve hafifçe öksüren Shaula’ya döndüğü sırada Shaula’nın kendi bedenini kucaklayıp çömelişiyle——</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Ah, ah… ahhh, ahhhhhh… Hık!”</p>
+<p class="wp-block-paragraph">Tüm bedeninden kan rengini andıran kırmızı buharlar yükseldi. O buharların renk değiştirişi bir tehlike işaretiydi. Shaula’nın gözleri karanlık gözbebekleri ve irislerini de yitirmiş ve fark edileceği üzere hepsi de parlak kırmızıya dönmüştü.</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Ustam… acele et. Ben kendimi, kaybetmeden önce…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Lütfen bana… ölmemi söyle Hık! Eğer Ustam söylerse, ölürüm…”</p>
+<p class="wp-block-paragraph">Shaula, Subaru ve diğerlerinin “Sınavları” tamamlayıp kuleden ayrılmasına karşı olduğunu söylediği ağızla şimdi de hayatı pahasına Subaru ve diğerlerini—— yo, Subaru’yu öldürmeyeceği bir yolu işaret ediyordu.</p>
+<p class="wp-block-paragraph">Onun o çaresizce sesini işiten Subaru, derin bir nefes aldı. Ve sonra da…</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Shaula.”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Ustam…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Üzgünüm. Az önce söylediğim şey yalandı.”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Eh?”</p>
+<p class="wp-block-paragraph">Subaru’nun bilgilendirici kelimeleri karşısında Shaula, gözlerini devirdi. Ve onun verdiği tepkiyi izleyen Subaru, nefes almayı keserek aynı hızla geriye doğru sıçradı.</p>
+<p class="wp-block-paragraph">Shaula tarafından itilmiş olması, tüm bu talihsizlikler içerisindeki bir lütuftu—— Çünkü Shaula bileklerini tutuyor olsaydı bu hareketi asla gerçekleştiremezdi.</p>
+<p class="wp-block-paragraph">——Subaru’nun bedeni balkonun dar açık hava verandasını aşmış ve havaya fırlamıştı.</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Ah——.”</p>
+<p class="wp-block-paragraph">O anda Shaula’nın ansızın yükselen sesi şiddetli kum fırtınalarına karışarak işitilemez hâle geldi. Subaru’nun herhangi bir desteği kalmayan bedeniyse aynı hızla durmaksızın birkaç yüz metre kadar alçaldı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Bu şekilde düşerken kendisini kurtarmaya yönelik hiçbir planı yoktu.</p>
+<p class="wp-block-paragraph">Canını kurtarmak için hiçbir plan yapmamıştı. Subaru’nun yaptığı şey, kendini ölümün kollarına atmaktı. Bunu yapmayı hiç arzulamıyor, bu konuda konuşmak da istemiyordu ama—— niyeti başından beri buydu.</p>
+<p class="wp-block-paragraph">Bu koşullarda yaptığı şey mazur görülebilecekse, kesinlikle bunu yapmaya niyetliydi.</p>
+<p class="wp-block-paragraph">Çünkü Subaru, bundan böyle herhangi bir kararsızlık olmadan seçimine güvenebilecekti. Sonuçta——</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“——USTAM!!”</p>
+<p class="wp-block-paragraph">Benzer şekilde kendini balkondan atan Shaula da Subaru’nun peşine düşmüştü.</p>
+<p class="wp-block-paragraph">İrileşen o gözlerle, ellerini çaresizce uzatışıyla düşmekte olan Subaru’yu yakalamaya, canını elinden almaya değil, kendi elleriyle kurtarmaya çalışıyordu.</p>
+<p class="wp-block-paragraph">——Devasa akrebin gerçek kimliği Shaula’ydı.</p>
+<p class="wp-block-paragraph">——Shaula bile isteye kulenin kurallarını gizlemişti.</p>
+<p class="wp-block-paragraph">——Shaula Subaru ve yoldaşlarını defalarca öldürmüş, beşinci engel olarak yollarına çıkmıştı.</p>
+<p class="wp-block-paragraph">Ama——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Ben yalnızca, seni kurtarmak istiyorum.”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Onun duygularına karşın girdiği dönüşüm sürecine katlanışını ve Subaru’yu öldürmemek adına son ana dek kendisini öldürmesini emretmesi için yalvarışını asla unutamazdı.</p>
+<p class="wp-block-paragraph">Epey çirkin bir söylem olsa da bunu teyit etmek istemişti.</p>
+<p class="wp-block-paragraph">Kimleri kurtarması, kimleri kurtarmaması gerektiğini, kimleri yenmesi, kimleri koruması, kimleri sevmesi gerektiğini bilmek istemişti.</p>
+<p class="wp-block-paragraph">Çünkü Natsuki Subaru, bunlardan emin olmadıkça daha fazla ilerleyemeyeceğine inanıyordu.</p>
+<p class="wp-block-paragraph">Ve artık, kimleri sevmesi gerektiği konusunda kafası karışmayacaktı.</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“——USTAAAAAAAAAAAAAAAAAAAAAAAAM!!”</p>
+<p class="wp-block-paragraph">Shaula’nın elini uzatan ve Subaru’yu yakalamaya çalışan formu, havada değişim geçiriyordu.</p>
+<p class="wp-block-paragraph">Uzanan eli irileşiyor ve simsiyah bir kabukla örtülü iri kıskaçlara çevriliyordu. Beyaz teni ardında hiçbir iz bırakmaksızın sert bir kabukla kaplanıyor ve fiziksel bedeni içeriden açılırcasına genişliyordu.</p>
+<p class="wp-block-paragraph">Eti ve kanı açılıp parçalanırcasına acı verici bu dönüşüm bir anda bant tersine dönmüşçesine sona ulaştığındaysa o muazzam, uğursuz aykırılık—— o devasa akrep, dönüşümünü tamamlamayı başardı.</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" decoding="async" width="945" height="1343" src="https://web.archive.org/web/20260619052122im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-56.png" alt="" class="wp-image-8129" srcset="https://web.archive.org/web/20260619052122im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-56.png 945w, https://web.archive.org/web/20260619052122im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-56-704x1000.png 704w, https://web.archive.org/web/20260619052122im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-56-768x1091.png 768w" sizes="auto, (max-width: 945px) 100vw, 945px"><figcaption class="wp-element-caption"><a href="https://web.archive.org/web/20260619052122/https://www.deviantart.com/norvakkk/art/Re-Zero-Kara-Hajimeru-Isekai-Seikatsu-861778891">Görsel Sahibi</a></figcaption></figure>
+</div>
+<p class="wp-block-paragraph">Ve akrebin kuyruğunun ucu, çevikçe Subaru’yu hedef aldı.</p>
+<p class="wp-block-paragraph">Belki de beyaz bir ışıltıya benzer o iğneler oradan ateşlenecek ve Subaru’nun hayatını bir anda yakıp kül edecekti. Havadaki Subaru, buna mâni olacak herhangi bir teknikten yoksundu. Ancak——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Canımın senin tarafından alınmasına müsaade etmeyeceğim, çünkü bu Shaula’yı ağlatırdı.”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong> “————”</p>
+<p class="wp-block-paragraph">Derken kuyruk iğnesi ateşlendi—— ama bunun hemen öncesinde Subaru’nun düşüşünün sonu geldi.</p>
+<p class="wp-block-paragraph">Subaru ve devasa akrep ikilisi, şiddetle kuleye yaklaşan Cadı Canavarı sürüsünün üzerine düştü.</p>
+<p class="wp-block-paragraph">Natsuki Subaru olarak bilinen varlık, birkaç yüz metrelik bir düşüşe direnecek kabiliyete sahip değildi.</p>
+<p class="wp-block-paragraph">Bedeni patladı, hayatı saçıldı.</p>
+<p class="wp-block-paragraph">Fakat tam da hayatının saçılıp gidişine ramak kalmışken ağzından son birkaç kelime döküldü——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Ne olursa olsun, sana yardım edeceğim.”</p>
+<p class="wp-block-paragraph">——Kalan ufacık vaktini, devasa akrebin algılayamayacağı o mesajı kum fırtınalarına iletmek için kullandı.</p>
+</article>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+            <a href="arc6bolum69.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="arc6bolum71.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

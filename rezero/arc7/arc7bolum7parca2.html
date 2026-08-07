@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VII, Bölüm 7 Parça 2 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 2em 0;
+            letter-spacing: 4px;
+            color: var(--accent-color);
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc7bolum7parca1.html" class="nav-btn">← Önceki Parça</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc7bolum7parca3.html" class="nav-btn">Bölüm 7 Parça 3 →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VII, Bölüm 7 Parça 2</h1>
+            <div class="subtitle">"Güneyde Ücra Bir Bölge"</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p>Todd: [Pardon, konudan saptım. Bu şekilde kaşlarının çatılmasını istemezdim.]</p>
+
+            <p>Subaru’nun sessizliğe gömüldüğünü gören Todd, ortamdaki havayı normale çevirmek için böyle söyledi. Subaru da kendisinin hesaba katmamış olduğu bu değerlere cevaben Todd’a başıyla onay vererek “Sorun yok” dedi.</p>
+
+            <p>Ve Todd, konuyu değiştirme çabasıyla dikkatini çadırın dışına verdi.</p>
+
+            <p>Todd: [Ama, durum buysa, hücredeki küçük hanımın da gezi arkadaşlarından biri olması gerekmez miydi? Buna rağmen neden bu kadar azar yiyorsun?]</p>
+
+            <p>Subaru: […Öngörülmedik bir kaza, sanırım. Eskiden aşağı yukarı aynı frekanstaydık ama bazı sebeplerden ötürü işler tamamen tek taraflı hale geldi. Uzun vadeye bakarsan minnettar olurum.]</p>
+
+            <p>Todd: [Benim için sıkıntı yok da senin için epey zormuş gibi görünüyor… Ama, bu durumda…]</p>
+
+            <p>Todd, Subaru ve Rem’i çevreleyen karmaşık koşulları derinlemesine irdelemek yerine çenesiyle oynayarak başka bir noktaya baktı.</p>
+
+            <p>O nokta da Subaru’nun kasten görmezden geldiği sağ koluydu. Ve epey uzun bir zaman önce o kola yapışıp kalan şey ise…</p>
+
+            <p>???: [Ah?]</p>
+
+            <p>Yüzünde aptalca bir ifadeyle boş boş böyle söyleyen Louis’ti.</p>
+
+            <p>Hala Subaru’nun sağ koluna tutunuyor, komik bir şey varmış gibi gülümsüyor, arada bir parmaklarıyla oynayıp saçlarını etraflarına doluyor ve canı ne isterse onu yapıyordu.</p>
+
+            <p>Todd: [Onun babası olacak yaşta olmadığın bariz, haksız mıyım? Peki o senin neyin oluyor?]</p>
+
+            <p>Subaru: [Daha kaç kez söylemem gerekecek, o yalnızca yabancının teki. Düzgün bir insan olmadığından kesinlikle eminim gerçi.]</p>
+
+            <p>Todd: [Bayağı sert oldu… Ama hücredeki küçük hanım bu kızla ilgileniyor gibi görünüyor, değil mi?]</p>
+
+            <p>Subaru: [Can sıkıcı olan da o zaten…]</p>
+
+            <p>Subaru, Todd tarafından bir kez daha ifade edilişiyle durumun karmaşıklığı karşısında bir of çekti.</p>
+
+            <p>An itibarıyla Rem’e beslediği tüm hisler nafileydi. Hatıralarını yitiren Rem’in sergilediği soğuk tavırlar, büyük oranda Subaru’nun Louis’i küçümsemesinden kaynaklanıyordu.</p>
+
+            <p>Subaru’ysa buna rağmen, sebebin bu olduğunu bilse bile, Louis’i kabullenemiyordu.</p>
+
+            <p>Gayet basitti. O bir Günah Başpiskoposuydu, saf bir kötülük timsaliydi. Subaru’nun hiçbir şekilde geçinemeyeceği biriydi.</p>
+
+            <p>Subaru: [Bu nasıl yaşanabilir? Ne biçim bir oyun peşindesin, benden ne halt istiyorsun!?]</p>
+
+            <p>Louis: [Ooh? Aah, Avoh!]</p>
+
+            <p>Louis bu sorulara yanıt vermek yerine uçarı bir gülümsemeyle yetindi.</p>
+
+            <p>Tavrı kesinlikle can sıkıcıydı. Elbette Hatıralar Holünde olduğu kadar ahlaksız davranması da sorun yaratırdı ama muhtemelen onu elinden geldiğince düşman olarak görmek, Subaru için işleri netleştirirdi.</p>
+
+            <p>Hiç değilse bir bebek veya çocuk gibi davranması nedeniyle tehlikeli mizacını Subaru’dan başka hiç kimsenin anlamadığı şu duruma kıyasla daha iyi olurdu.</p>
+
+            <p>Todd: [Her halükarda o senin yoldaşlarından biri. Dolayısıyla nereye giderseniz gidin, ilişkinizi birazcık daha geliştirmeye çalışmak zorundasınız.]</p>
+
+            <p>Subaru: [――. Bu tavsiye kimin içindi?]</p>
+
+            <p>Todd: [Tavs…? Neyse, nasıl algılayacağın sana kalmış.]</p>
+
+            <p>Todd, daha önce hiç duymadığı bu kelime karşısında aklı karışarak kafasını kaldırdı.</p>
+
+            <p>An itibarıyla hastaları iyileştirmeye ayrılmış çadırdaydılar, yani muhtemelen oradakiler uzun bir süre kalıp sohbet etmemelerini yeğlerdi. Bu nedenle Louis’in hala sağ eline yapışmayı sürdürdüğü Subaru da Todd’u takip edip dışarı çıktı.</p>
+
+            <p>Todd: [Her neyse, tamamen onarıldığına göre… artık işe koyulabiliriz. Benim için bir şey yapmanı isteyebilir miyim?]</p>
+
+            <p>Subaru: [Mhm, tabii. Bu sayede yapacak hiçbir şeyimin olmayacağı senaryoya göre kendimi daha az suçlu hissederim. Vereceğin iş ayakkabı yememi içermediği sürece her şeye hazırlıklıyım.]</p>
+
+            <p>Todd: [Jamal gerçekten sabrını zorlamış anlaşılan… Tamamdır, anlaşıldı, bu şekilde davranmasına müsaade etmeyeceğim. En azından şimdilik.]</p>
+
+            <p>Todd’un bunları düşünürken baktığı nokta siyah bir çadır grubuydu.</p>
+
+            <p>Subaru da onun bakışlarını izleyip o çadırlara bakarak “Onların amacı nedir?” diye sordu.</p>
+
+            <p>Todd: [Kampımızın stokları orada tutuluyor. Şu ya da bu nedenle onları buraya getirdik ama içlerini düzenli tutma konusunda çok kötüyüm. Bir şeyleri temiz ve düzenli tutmaktan gurur duyduğun hesaba katılınca da bu noktada sen devreye giriyorsun.]</p>
+
+            <p>Subaru: […Benim ağzımdan bir kez olsun böyle bir şey çıktı mı ki?]</p>
+
+            <p>Todd: [Çıkmadı mı? Yine de öyle olmasını umuyordum. Ve öyle değilse bile, sana yardım etmemden duyduğun minnet nedeniyle elinden geleni yapacağına eminim.]</p>
+
+            <p>Subaru: […Ne kadar da fantastik bir kişiliğe sahipsin, Todd-san.]</p>
+
+            <p>Todd, yüzünde iyi huylu bir gülümsemeyle son derece kötü huylu bir şey söyledi. Bu sözler karşılığındaysa Subaru’nun ifadesi kaskatı kesildi, sonra da gözleri siyah çadırlara çevrildi.</p>
+
+            <p>İlk bakışta yirmi civarı çadır görünüyordu; hepsi stoklarla doluysa ve daha da kötüsü Todd’un söylediği gibi düzenlenmeleri gerekiyorsa, zor bir iş olacak demekti.</p>
+
+            <p>Subaru: [Bir iki gün içerisinde bitirebileceğimden şüpheliyim…]</p>
+
+            <p>Todd: [Tedarik Grubunun Ejder Vagonu gelinceye dek düzenlediğin sürece sıkıntı yok. Hahaha.]</p>
+
+            <p>Subaru: [Hahaha…]</p>
+
+            <p>Yani acele etmesi gerekecekti.</p>
+
+            <p>Sol elindeki yaralar hesaba katılınca zorluk seviyesi daha da yukarı çıkıyordu ama yapabileceği hiçbir şey yoktu.</p>
+
+            <p>Subaru: [Bugünkü ekmeğimi çıkarabilmek için, Rem’le birlikte Emilia-tan’ın yanına dönebilmem için böyle olması gerekiyor…]</p>
+
+            <p>Louis: [Uuuh!]</p>
+
+            <p>Subaru zorlu bir işe atılmaya hazır halde yumruğunu sıkarken yanı başındaki Louis, sesini yükseltti. Hala sağ koluna asılıyor ve Subaru’nun mide bulantısı içerisinde yüzünü ekşitmesine neden oluyordu.</p>
+
+            <p>Günah Başpiskoposu, neler olup bittiğine dair hiçbir fikri olmadığını gösteren yüz ifadesiyle Subaru’nun zihni ve bedenine yük bindiriyordu. Hala var olan kurnazlığıyla, baş edilmesi zor olacağı izlenimini fazlasıyla güçlü şekilde veren çetin bir düşmandı.</p>
+
+            <p>Subaru: [Shaula’yla da olduğu gibi hiç hatırlamadığım insanlarla ilişki kurma oranım fazla yüksek…]</p>
+
+            <p>Louis: [Aah, Uuuh.]</p>
+
+            <p>Louis onu anlasa da anlamasa da Subaru, morali yerinde görünen kızı çekiştirerek siyah çadırlara doğru ilerlemeye başladı.</p>
+
+            <p>Son anda nihayet birbirlerini anlayabilir hale geldikleri Shaula’nın aksine Louis’le başından beri geçinemiyorlardı. Ve geçinmelerinin imkansız olacağını düşüne düşüne ilerleyen Subaru, hedefine ulaştı.</p>
+
+            <div class="divider">△▼△▼△▼△</div>
+
+            <p>Rem: [……Demek gece çökene dek çadırı düzenledin.]</p>
+
+            <p>Bacaklarını yana doğru katlamış halde yerde oturan Rem, yorucu bir çalışma seansını tamamlamış olan Subaru’yu bu şekilde selamladı.</p>
+
+            <p>Subaru’nun kaşlarının kenarları alçalırken Rem, bu tepki karşısında gözlerini kısarak,</p>
+
+            <p>Rem: [Seni selamlamıyorum.]</p>
+
+            <p>Subaru: [Aklımı okumasana…… Ama, seni hücrenden salmışlar herhalde?]</p>
+
+            <p>Rem: [――. Buradakiler hiç değilse bana karşı bir düşmanlık beslemiyormuş gibi görünüyor.]</p>
+
+            <p>Muhtemelen başını öne eğme sebebi Subaru’nun duymuş olduğu nehir kenarı karşılaşması ― ve Jamal’ın birliğiyle yaşadıkları nahoş tanışmadan kaynaklı suçluluk hissiydi.</p>
+
+            <p>Rem, genellikle güvenmediği insanlara düşmanca davranırdı.</p>
+
+            <p>Onu tanıdıktan sonra Subaru’ya karşı tavırları epey bir yumuşamış ama hatıralarını yitirişiyle eski özellikleri yeniden yüzeye çıkmaya başlamıştı. Subaru, Rem’in bunun üzerine düşündüğünü hissediyordu.</p>
+
+            <p>Subaru: [Yine de kendini sorgulayabildiğin için aferin, Rem. Bir kurdeleyi hak ettin.]</p>
+
+            <p>Rem: [……Beni nasıl bir bakış açısıyla gözlemliyorsun acaba? Bana iltifat etsen de benim için hiçbir anlam ifade etmiyor. Her şeyden önce-]</p>
+
+            <p>Gülümseyen Subaru’ya bu iğneleyici karşılığı veren Rem, kafasını kaldırdı.</p>
+
+            <p>Subaru da aynı şeyi yapmaya teşvik olsa da tek görebildiği, çadırın koni şeklindeki ince tavanıydı. Rem’in aklından neler geçiyor diye düşünerek kafasını eğdi. Ve Rem, huysuz bir havayla dilini şaklatarak,</p>
+
+            <p>Rem: [Sen ne diye bizimle aynı çadırdasın ki? Çok fazla şey talep etmek istemem ama daha düşünceli olamazlar mıydı……]</p>
+
+            <p>Subaru: [Yo, bence bu düşünceliliğin vücut bulmuş hali. Todd-san’a aynı yolculuğa çıkan yoldaşlar olduğumuzu söyledim, yani eğer…… ofofofofofof!]</p>
+
+            <p>Rem: [Canının istediği her şeyi söyleme!]</p>
+
+            <p>Yanına oturduğu saniyede Rem’in eli, Subaru’nun kalça kemiği civarını delice sıktı. Subaru belinin gıcırdayan kemiklerinde acı duyarken de sert bakışlarını üzerine dikti.</p>
+
+            <p>Fakat o anda araya giren minik bir siluet, bir “Ahh!” sesiyle Rem’in hareketlerini durdurdu.</p>
+
+            <p>O siluet――</p>
+
+            <p>Rem: [Yine mi sen……]</p>
+
+            <p>???: [Uuu!]</p>
+
+            <p>Rem’in Subaru’nun belini sıkan eline tüm ağırlığıyla asılan Louis, itirazını aktarmak için tüm bedenini kullanıyordu.</p>
+
+            <p>Her nedense Louis’in yaptıklarına boyun eğiyor olan Rem ise onun bu çabaları karşısında iç çekip teslim olarak istemeye istemeye Subaru’ya verdiği cezayı sonlandırdı. Ve onun yerine Louis’i dizlerine doğru çekti.</p>
+
+            <p>Ve başını, pek fazla kımıldatamadığı bacaklarının üzerine yerleştirerek usulca okşamaya başladı.</p>
+
+            <p>Subaru: [Tch.]</p>
+
+            <p>Rem: [……Böyle bir anda neden dilini şaklatıyorsun? Sana bu denli bağlıyken nasıl bu kadar kalpsiz olabildiğini anlamıyorum.]</p>
+
+            <p>Rem'in Subaru'nun tatsız tavrına verdiği tepki pek iyi değildi.</p>
+
+            <p>Subaru’nun tek yapabildiğiyse Rem’in dizine yatan Louis’in her ama her hareketini gözlemlemekti, bu sayede Louis gerçek yüzünü göstermeye karar verdiği takdirde Rem’i koruyabilirdi.</p>
+
+            <p>――Subaru, Todd’dan aldığı emirle siyah çadırların içlerini düzenlemeye başlamıştı.</p>
+
+            <p>Tam da düşündüğü gibi, çadırların içlerini düzenlemek öyle kısa sürede sonlandırılabilecek bir iş değildi. Elbette bu kısmen Subaru’nun sol elinin mükemmellikten fazlasıyla uzak olmasından kaynaklanıyordu ama Vollachia halkının bir şeyleri organize etmeye dair kurallara beklediğinden de uzak olmasının da etkisi vardı. Bunun yanı sıra――</p>
+
+            <p>Subaru: [Şu, benim en ufak bir işime bile müdahale ediyor. Ivır zıvırlarını toplayacağım diye varımı yoğumu veriyorum ama hanımefendi sürekli bir şeyleri devirip ortalığa saçıyor. Onun sayesinde en ufak bir gelişme kaydedemiyorum.]</p>
+
+            <p>Rem: [E hiçbir şey bilmiyor ki, yapacak bir şey yok yani.]</p>
+
+            <p>Subaru: [Sen de hiçbir şey bilmiyor musun. Ama onun yaptığı hiçbir şeyi yapmıyorsun. Hepsi bu, her şey ortada! QED!]</p>
+
+            <p>Rem: [Yine en ufak bir anlamı olmayan şeyler söylüyorsun!]</p>
+
+            <p>Rem’in kendisine sergilediği nahoş tavırların sebebinin Louis olduğunu bilmesine rağmen nasıl oluyor da ona aynı şekilde davranamıyordu?</p>
+
+            <p>Bunun bir kötü davranış sarmalı olduğunun farkındaydı ama yalnızca dış görünüş olsa bile Louis’le iyi anlaşırmış gibi yapmaya içi elvermiyordu. ――Varlığının her bir zerresiyle ona tahammül edemiyordu ve bu, gizlemeyi başaramadığı bir şeydi.</p>
+
+            <p>Subaru: [――――]</p>
+
+            <p>Cesareti büyük ölçüde kırılan Subaru, sırtüstü yere uzandı.</p>
+
+            <p>Yalnızca üç kişinin, yani Subaru, Rem ve Louis’in bulunduğu çadır ― sadece birkaç günlüğüne de olsa Todd tarafından onlar için tahsis edilmişti.</p>
+
+            <p>Henüz müttefikleri ormandan geri dönmediği için kamp kurma işinin ortasındaki Subaru’nun grubuna gülümsemiş ve onlara hoşlarına giden, sahipsiz bir çadırı kullanabileceklerini söylemişti.</p>
+
+            <p>Subaru: [Yo, gülünecek bir şey değil, ama…]</p>
+
+            <p>Buna rağmen Todd’un onlara mahsus bir çadır vermesini fazlasıyla takdir etmişti.</p>
+
+            <p>Kendisi bir yana, Rem’i kadınların olmadığı bir kampta yalnız bırakmaktan yana endişe duymuştu. Todd onlara misafir muamelesi göreceklerini söylese de sözünün ne denli geçeceği belli olmazdı.</p>
+
+            <p>Zaten Rem’in çoktan Jamal’ın canını sıkmış olduğunu söylemeye gerek dahi yoktu.</p>
+
+            <p>Subaru, eğer mümkünse kendisi ayak işleriyle uğraşırken onu görüş alanında tutabilmek için yakınlarında olmasını isterdi――</p>
+
+            <p>Rem: [Surat asıp durma da yemeğini ye.]</p>
+
+            <p>Subaru: [Eh?]</p>
+
+            <p>Subaru, sırtüstü yatmış şekilde düşüncelere dalmıştı. O anda görüşünü engelleyen şeyse, Rem’in kafasının üzerinde tuttuğu şiş oldu.</p>
+
+            <p>Subaru spontane bir şekilde otururken de Rem, ondan uzaklaşarak şişi önüne doğru uzattı.</p>
+
+            <p>Subaru: [Bu ne…?]</p>
+
+            <p>Rem: [Yemek diyorlar. Kamp halkına dağıtılıyordu, ben de gidip biraz aldım…… Çünkü, hareket kabiliyetim üzerinde azıcık da olsa çalışmalıyım.]</p>
+
+            <p>Diye mırıldanarak boştaki eliyle bacağını ovuşturdu.</p>
+
+            <p>İkisi de Rem’in bacaklarının ne zaman normale döneceğini ve bu acizlikten kurtulacağını bilmiyordu ama Rem, bu konuda Subaru’dan daha sıkıntılı ve tedirgin olmalıydı.</p>
+
+            <p>Tanımadığı insanların kampına düşmüş, hatıralarını kaybetmiş, kendisini bu karmaşada belirsiz bir pozisyon içerisinde bulmuştu. Ve bir şeyler öğrenmek için harekete geçmek istese de bacakları özgürce hareket etmesine müsaade etmiyordu.</p>
+
+            <p>Rem: [……Şunu alır mısın artık? Ellerim yoruluyor.]</p>
+
+            <p>Subaru: [A-aldım, aldım. Ahh, sen çoktan yedin mi?]</p>
+
+            <p>Rem: [Ha? Kız daha yememişken ilk önce ben nasıl yiyebilirim? Böylesine bencil bir şey yapmam mümkün değil.]</p>
+
+            <p>Subaru’yu azarlayan Rem, çadırın kenarına yerleştirilmiş kemikten yapılmış kabı yaklaştırıp üzerini örten kumaşı kaldırdı ve içindeki şişi Louis’in ağzına doğru kaldırdı.</p>
+
+            <p>Rem tarafından şımartılan Louis de onun bu nezaketini memnuniyetle kabullenip ebeveynlerinin beslediği bir civciv misali, kendisine uzatılan eti azar azar çiğnedi.</p>
+
+            <p>Rem: [Fufu.]</p>
+
+            <p>Rem, yemeğini gagalarcasına yiyen Louis’i şefkatli bir gülümsemeyle izledi.</p>
+
+            <p>Bu manzaradan gözlerini ayıramayan Subaru da kendisine verilen şişi kemirmeye başladı. Basitçe şişlenip kızartılmış görünen etin ne eti olduğuna dair hiçbir fikri yoktu.</p>
+
+            <p>Her halükarda sert ve tatsız tuzsuzdu, lezzetli şeklinde tarif edilemeyecek bir şeydi.</p>
+
+            <p>Subaru: [Emilia-tan ve Beako’nun yemekleriyle aynı düzeyde gibi……]</p>
+
+            <p>Rem: [Yine ne mırıldanıyors…… ah!]</p>
+
+            <p>Subaru: [――?]</p>
+
+            <p>Yemekle ilgili çeşitli düşüncelerini sesli olarak dile getiren Subaru’ya bakan Rem’in gözleri ansızın irileşti. Subaru’ysa onun bu tepkisi karşısında neler döndüğünü merak ederek kaşlarını çattı.</p>
+
+            <p>Rem’in mavi gözleri Subaru’nun yüzüne dikilip kalmıştı. Subaru, bu durumda şaşkınlığının sebebi yüzüm olmalı diye düşünüyordu, ama…</p>
+
+            <p>Subaru: [Sorun nedir? Bir saniye, sakın “İlk defa yüzüne doğru düzgün bakıyorum” gibi üzücü şeyler söyleme.]</p>
+
+            <p>Rem: [Yo… ondan değil, ama…… umm, gözyaşları……]</p>
+
+            <p>Subaru: [Gözyaşları mı?]</p>
+
+            <p>Rem: [……Yüzünden aşağı… gözyaşları dökülüyor. Farkında değil miydin?]</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="arc7bolum7parca1.html" class="nav-btn">← Önceki Parça</a>
+            <a href="arc7bolum7parca3.html" class="nav-btn">Bölüm 7 Parça 3 →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

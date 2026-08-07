@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kısım VII - Bölümler | Re:Zero</title>
+    <style>
+:root {
+    --bg-color: #121212;        /* Arka plan: Tam koyu ton */
+    --card-bg: #1e1e1e;        /* Kartlar: Bir tık açık koyu gri */
+    --text-color: #e1e1e1;      /* Beyaza yakın gri metinler */
+    --accent-color: #00bfff;    /* Parlak turkuaz/mavi (Görseldeki mavi) */
+    --border-color: #2d2d2d;    /* İnce kart kenarlığı */
+    --hover-bg: #282828;        /* Üzerine gelince kart rengi */
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 850px;
+    width: 100%;
+}
+
+.header-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+}
+
+.back-btn {
+    color: var(--accent-color);
+    text-decoration: none;
+    background-color: var(--card-bg);
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.back-btn:hover {
+    background-color: var(--hover-bg);
+}
+
+.main-title {
+    color: var(--accent-color);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.chapter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chapter-item {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 14px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.chapter-item:hover {
+    background-color: var(--hover-bg);
+}
+
+.chapter-number {
+    font-weight: bold;
+    color: var(--accent-color);
+    font-size: 1.05rem;
+}
+
+.chapter-title {
+    color: #a0a0a0;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+    .header-area {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    .chapter-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+}
+</style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="header-area">
+            <a href="index.html" class="back-btn">← Serilere Dön</a>
+            <h1 class="main-title">KISIM VII – KURTLAR ÜLKESİ</h1>
+        </div>
+
+        <div class="chapter-list">
+
+            <!-- İlk Bölüm Grubu -->
+            <a href="arc7/arc7bolum1parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 1 (1/4)</span><span class="chapter-title">Başlangıç</span></a>
+            <a href="arc7/arc7bolum1parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 1 (2/4)</span><span class="chapter-title">Başlangıç</span></a>
+            <a href="arc7/arc7bolum1parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 1 (3/4)</span><span class="chapter-title">Başlangıç</span></a>
+            <a href="arc7/arc7bolum1parca4.html" class="chapter-item"><span class="chapter-number">Bölüm 1 (4/4)</span><span class="chapter-title">Başlangıç</span></a>
+
+            <a href="arc7/arc7bolum2parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 2 (1/3)</span><span class="chapter-title">İz Sürme</span></a>
+            <a href="arc7/arc7bolum2parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 2 (2/3)</span><span class="chapter-title">İz Sürme</span></a>
+            <a href="arc7/arc7bolum2parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 2 (3/3)</span><span class="chapter-title">İz Sürme</span></a>
+
+            <a href="arc7/arc7bolum3parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 3 (1/3)</span><span class="chapter-title">Rem’e Karşı</span></a>
+            <a href="arc7/arc7bolum3parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 3 (2/3)</span><span class="chapter-title">Rem’e Karşı</span></a>
+            <a href="arc7/arc7bolum3parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 3 (3/3)</span><span class="chapter-title">Rem’e Karşı</span></a>
+
+            <a href="arc7/arc7bolum4parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 4 (1/3)</span><span class="chapter-title">Cesurca Bir Seçim</span></a>
+            <a href="arc7/arc7bolum4parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 4 (2/3)</span><span class="chapter-title">Cesurca Bir Seçim</span></a>
+            <a href="arc7/arc7bolum4parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 4 (3/3)</span><span class="chapter-title">Cesurca Bir Seçim</span></a>
+
+            <a href="arc7/arc7bolum5parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 5 (1/3)</span><span class="chapter-title">Erkek Olmak Zor</span></a>
+            <a href="arc7/arc7bolum5parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 5 (2/3)</span><span class="chapter-title">Erkek Olmak Zor</span></a>
+            <a href="arc7/arc7bolum5parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 5 (3/3)</span><span class="chapter-title">Erkek Olmak Zor</span></a>
+
+            <a href="arc7/arc7bolum6parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 6 (1/3)</span><span class="chapter-title">Güneyde Ücra Bir Bölge</span></a>
+            <a href="arc7/arc7bolum6parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 6 (2/3)</span><span class="chapter-title">Güneyde Ücra Bir Bölge</span></a>
+            <a href="arc7/arc7bolum6parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 6 (3/3)</span><span class="chapter-title">Güneyde Ücra Bir Bölge</span></a>
+
+            <a href="arc7/arc7bolum7parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 7 (1/3)</span><span class="chapter-title">Erkek Olmak Zordu</span></a>
+            <a href="arc7/arc7bolum7parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 7 (2/3)</span><span class="chapter-title">Erkek Olmak Zordu</span></a>
+            <a href="arc7/arc7bolum7parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 7 (3/3)</span><span class="chapter-title">Erkek Olmak Zordu</span></a>
+
+            <a href="arc7/arc7bolum8parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 8 (1/4)</span><span class="chapter-title">İsim</span></a>
+            <a href="arc7/arc7bolum8parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 8 (2/4)</span><span class="chapter-title">İsim</span></a>
+            <a href="arc7/arc7bolum8parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 8 (3/4)</span><span class="chapter-title">İsim</span></a>
+            <a href="arc7/arc7bolum8parca4.html" class="chapter-item"><span class="chapter-number">Bölüm 8 (4/4)</span><span class="chapter-title">İsim</span></a>
+
+            <a href="arc7/arc7bolum9parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 9 (1/3)</span><span class="chapter-title">İmparatorluk Yolu</span></a>
+            <a href="arc7/arc7bolum9parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 9 (2/3)</span><span class="chapter-title">İmparatorluk Yolu</span></a>
+            <a href="arc7/arc7bolum9parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 9 (3/3)</span><span class="chapter-title">İmparatorluk Yolu</span></a>
+
+            <a href="arc7/arc7bolum10parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 10 (1/3)</span><span class="chapter-title">Shudraq Halkı</span></a>
+            <a href="arc7/arc7bolum10parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 10 (2/3)</span><span class="chapter-title">Shudraq Halkı</span></a>
+            <a href="arc7/arc7bolum10parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 10 (3/3)</span><span class="chapter-title">Shudraq Halkı</span></a>
+
+            <a href="arc7/arc7bolum11parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 11 (1/3)</span><span class="chapter-title">Yaşam Kaynağı Ritüeli</span></a>
+            <a href="arc7/arc7bolum11parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 11 (2/3)</span><span class="chapter-title">Yaşam Kaynağı Ritüeli</span></a>
+            <a href="arc7/arc7bolum11parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 11 (3/3)</span><span class="chapter-title">Yaşam Kaynağı Ritüeli</span></a>
+
+            <a href="arc7/arc7bolum12parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 12 (1/3)</span><span class="chapter-title">Vollachia İmparatorluğu</span></a>
+            <a href="arc7/arc7bolum12parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 12 (2/3)</span><span class="chapter-title">Vollachia İmparatorluğu</span></a>
+            <a href="arc7/arc7bolum12parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 12 (3/3)</span><span class="chapter-title">Vollachia İmparatorluğu</span></a>
+
+            <a href="arc7/arc7bolum13parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 13 (1/2)</span><span class="chapter-title">Bir Ölümlü Olarak</span></a>
+            <a href="arc7/arc7bolum13parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 13 (2/2)</span><span class="chapter-title">Bir Ölümlü Olarak</span></a>
+
+            <a href="arc7/arc7bolum14parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 14 (1/2)</span><span class="chapter-title">Orta Noktada Buluşulamayan Değerler</span></a>
+            <a href="arc7/arc7bolum14parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 14 (2/2)</span><span class="chapter-title">Orta Noktada Buluşulamayan Değerler</span></a>
+
+            <a href="arc7/arc7bolum15parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 15 (1/2)</span><span class="chapter-title">Korumak İstediklerim</span></a>
+            <a href="arc7/arc7bolum15parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 15 (2/2)</span><span class="chapter-title">Korumak İstediklerim</span></a>
+
+            <a href="arc7/arc7bolum16parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 16 (1/3)</span><span class="chapter-title">İmparatorluktaki Durum</span></a>
+            <a href="arc7/arc7bolum16parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 16 (2/3)</span><span class="chapter-title">İmparatorluktaki Durum</span></a>
+            <a href="arc7/arc7bolum16parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 16 (3/3)</span><span class="chapter-title">İmparatorluktaki Durum</span></a>
+
+            <a href="arc7/arc7bolum17parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 17 (1/4)</span><span class="chapter-title">Ufukta Beliren Kötülük</span></a>
+            <a href="arc7/arc7bolum17parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 17 (2/4)</span><span class="chapter-title">Ufukta Beliren Kötülük</span></a>
+            <a href="arc7/arc7bolum17parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 17 (3/4)</span><span class="chapter-title">Ufukta Beliren Kötülük</span></a>
+            <a href="arc7/arc7bolum17parca4.html" class="chapter-item"><span class="chapter-number">Bölüm 17 (4/4)</span><span class="chapter-title">Ufukta Beliren Kötülük</span></a>
+
+            <a href="arc7/arc7bolum18parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 18 (1/3)</span><span class="chapter-title">Hisar Şehri Guaral’daki Çarpışma</span></a>
+            <a href="arc7/arc7bolum18parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 18 (2/3)</span><span class="chapter-title">Hisar Şehri Guaral’daki Çarpışma</span></a>
+            <a href="arc7/arc7bolum18parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 18 (3/3)</span><span class="chapter-title">Hisar Şehri Guaral’daki Çarpışma</span></a>
+
+            <a href="arc7/arc7bolum19parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 19 (1/2)</span><span class="chapter-title">Can Sıkıcı Bir Buluşma</span></a>
+
+            <a href="arc7/arc7bolum20parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 20 (1/5)</span><span class="chapter-title">İmparator – Tüccar – Natsuki Subaru</span></a>
+            <a href="arc7/arc7bolum20parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 20 (2/5)</span><span class="chapter-title">İmparator – Tüccar – Natsuki Subaru</span></a>
+            <a href="arc7/arc7bolum20parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 20 (3/5)</span><span class="chapter-title">İmparator – Tüccar – Natsuki Subaru</span></a>
+            <a href="arc7/arc7bolum20parca4.html" class="chapter-item"><span class="chapter-number">Bölüm 20 (4/5)</span><span class="chapter-title">İmparator – Tüccar – Natsuki Subaru</span></a>
+            <a href="arc7/arc7bolum20parca5.html" class="chapter-item"><span class="chapter-number">Bölüm 20 (5/5)</span><span class="chapter-title">İmparator – Tüccar – Natsuki Subaru</span></a>
+
+            <a href="arc7/arc7bolum21parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 21 (1/2)</span><span class="chapter-title">Zikr Osman</span></a>
+            <a href="arc7/arc7bolum21parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 21 (2/2)</span><span class="chapter-title">Zikr Osman</span></a>
+
+            <a href="arc7/arc7bolum22parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 22 (1/2)</span><span class="chapter-title">Kansız Kuşatma Planı</span></a>
+            <a href="arc7/arc7bolum22parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 22 (2/2)</span><span class="chapter-title">Kansız Kuşatma Planı</span></a>
+
+            <a href="arc7/arc7bolum23parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 23 (1/4)</span><span class="chapter-title">Müzisyen Natsumi Schwartz</span></a>
+            <a href="arc7/arc7bolum23parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 23 (2/4)</span><span class="chapter-title">Müzisyen Natsumi Schwartz</span></a>
+            <a href="arc7/arc7bolum23parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 23 (3/4)</span><span class="chapter-title">Müzisyen Natsumi Schwartz</span></a>
+            <a href="arc7/arc7bolum23parca4.html" class="chapter-item"><span class="chapter-number">Bölüm 23 (4/4)</span><span class="chapter-title">Müzisyen Natsumi Schwartz</span></a>
+
+            <a href="arc7/arc7bolum24parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 24 (1/4)</span><span class="chapter-title">Kibir</span></a>
+            <a href="arc7/arc7bolum24parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 24 (2/4)</span><span class="chapter-title">Kibir</span></a>
+            <a href="arc7/arc7bolum24parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 24 (3/4)</span><span class="chapter-title">Kibir</span></a>
+            <a href="arc7/arc7bolum24parca4.html" class="chapter-item"><span class="chapter-number">Bölüm 24 (4/4)</span><span class="chapter-title">Kibir</span></a>
+
+            <a href="arc7/arc7bolum25parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 25 (1/2)</span><span class="chapter-title">Kavurucu Kana Benzer Bir Buluşma</span></a>
+            <a href="arc7/arc7bolum25parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 25 (2/2)</span><span class="chapter-title">Kavurucu Kana Benzer Bir Buluşma</span></a>
+
+            <a href="arc7/arc7bolum26parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 26 (1/3)</span><span class="chapter-title">Yuvarlak Masa Toplantısı</span></a>
+            <a href="arc7/arc7bolum26parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 26 (2/3)</span><span class="chapter-title">Yuvarlak Masa Toplantısı</span></a>
+            <a href="arc7/arc7bolum26parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 26 (3/3)</span><span class="chapter-title">Yuvarlak Masa Toplantısı</span></a>
+
+            <a href="arc7/arc7bolum27parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 27 (1/3)</span><span class="chapter-title">Varlıklılar ve Yoksullar</span></a>
+            <a href="arc7/arc7bolum27parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 27 (2/3)</span><span class="chapter-title">Varlıklılar ve Yoksullar</span></a>
+            <a href="arc7/arc7bolum27parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 27 (3/3)</span><span class="chapter-title">Varlıklılar ve Yoksullar</span></a>
+
+            <a href="arc7/arc7bolum28parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 28 (1/3)</span><span class="chapter-title">Galibiyet Şartları</span></a>
+            <a href="arc7/arc7bolum28parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 28 (2/3)</span><span class="chapter-title">Galibiyet Şartları</span></a>
+            <a href="arc7/arc7bolum28parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 28 (3/3)</span><span class="chapter-title">Galibiyet Şartları</span></a>
+
+            <a href="arc7/arc7bolum29parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 29 (1/2)</span><span class="chapter-title">Her Birinin Vaziyeti</span></a>
+            <a href="arc7/arc7bolum29parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 29 (2/2)</span><span class="chapter-title">Her Birinin Vaziyeti</span></a>
+
+            <a href="arc7/arc7bolum30parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 30 (1/2)</span><span class="chapter-title">Kendini Kahraman İlan Eden Natsuki Subaru</span></a>
+            <a href="arc7/arc7bolum30parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 30 (2/2)</span><span class="chapter-title">Kendini Kahraman İlan Eden Natsuki Subaru</span></a>
+
+            <a href="arc7/arc7bolum31parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 31 (1/2)</span><span class="chapter-title">Yurttaşlar Arasında Bir Sohbet</span></a>
+            <a href="arc7/arc7bolum31parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 31 (2/2)</span><span class="chapter-title">Yurttaşlar Arasında Bir Sohbet</span></a>
+
+            <a href="arc7/arc7bolum32parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 32 (1/3)</span><span class="chapter-title">İleriye Uzanan Yol</span></a>
+            <a href="arc7/arc7bolum32parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 32 (2/3)</span><span class="chapter-title">İleriye Uzanan Yol</span></a>
+            <a href="arc7/arc7bolum32parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 32 (3/3)</span><span class="chapter-title">İleriye Uzanan Yol</span></a>
+
+            <a href="arc7/arc7bolum33parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 33 (1/3)</span><span class="chapter-title">İblis Şehri Yolculuğu Zamanı</span></a>
+            <a href="arc7/arc7bolum33parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 33 (2/3)</span><span class="chapter-title">İblis Şehri Yolculuğu Zamanı</span></a>
+            <a href="arc7/arc7bolum33parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 33 (3/3)</span><span class="chapter-title">İblis Şehri Yolculuğu Zamanı</span></a>
+
+            <a href="arc7/arc7bolum34parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 34 (1/4)</span><span class="chapter-title">Vagonda Yaşanan Tartışma</span></a>
+            <a href="arc7/arc7bolum34parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 34 (2/4)</span><span class="chapter-title">Vagonda Yaşanan Tartışma</span></a>
+            <a href="arc7/arc7bolum34parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 34 (3/4)</span><span class="chapter-title">Vagonda Yaşanan Tartışma</span></a>
+            <a href="arc7/arc7bolum34parca4.html" class="chapter-item"><span class="chapter-number">Bölüm 34 (4/4)</span><span class="chapter-title">Vagonda Yaşanan Tartışma</span></a>
+
+            <a href="arc7/arc7bolum35parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 35 (1/2)</span><span class="chapter-title">Sohbetle Geçen Gece</span></a>
+            <a href="arc7/arc7bolum35parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 35 (2/2)</span><span class="chapter-title">Sohbetle Geçen Gece</span></a>
+
+            <a href="arc7/arc7bolum36parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 36 (1/3)</span><span class="chapter-title">Kaotik İblis Şehri</span></a>
+            <a href="arc7/arc7bolum36parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 36 (2/3)</span><span class="chapter-title">Kaotik İblis Şehri</span></a>
+            <a href="arc7/arc7bolum36parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 36 (3/3)</span><span class="chapter-title">Kaotik İblis Şehri</span></a>
+
+            <a href="arc7/arc7bolum37.html" class="chapter-item"><span class="chapter-number">Bölüm 37</span><span class="chapter-title">Kırmızı Lapis Kalenin Lordu</span></a>
+
+            <a href="arc7/arc7bolum38parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 38 (1/3)</span><span class="chapter-title">Sekiz Yıllık Bir Ödül</span></a>
+            <a href="arc7/arc7bolum38parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 38 (2/3)</span><span class="chapter-title">Sekiz Yıllık Bir Ödül</span></a>
+            <a href="arc7/arc7bolum38parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 38 (3/3)</span><span class="chapter-title">Sekiz Yıllık Bir Ödül</span></a>
+
+            <a href="arc7/arc7bolum39parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 39 (1/3)</span><span class="chapter-title">Huysuz</span></a>
+            <a href="arc7/arc7bolum39parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 39 (2/3)</span><span class="chapter-title">Huysuz</span></a>
+            <a href="arc7/arc7bolum39parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 39 (3/3)</span><span class="chapter-title">Huysuz</span></a>
+
+            <a href="arc7/arc7bolum40parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 40 (1/2)</span><span class="chapter-title">Natchuki Subawu</span></a>
+            <a href="arc7/arc7bolum40parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 40 (2/2)</span><span class="chapter-title">Natchuki Subawu</span></a>
+
+            <a href="arc7/arc7bolum41parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 41 (1/3)</span><span class="chapter-title">Çay Eşliğinde Bir Sohbet</span></a>
+            <a href="arc7/arc7bolum41parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 41 (2/3)</span><span class="chapter-title">Çay Eşliğinde Bir Sohbet</span></a>
+            <a href="arc7/arc7bolum41parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 41 (3/3)</span><span class="chapter-title">Çay Eşliğinde Bir Sohbet</span></a>
+
+            <a href="arc7/arc7bolum42parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 42 (1/2)</span><span class="chapter-title">Hırsından Gözü Dönmüş Canavar</span></a>
+            <a href="arc7/arc7bolum42parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 42 (2/2)</span><span class="chapter-title">Hırsından Gözü Dönmüş Canavar</span></a>
+
+            <a href="arc7/arc7bolum43parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 43 (1/3)</span><span class="chapter-title">Gözkapaklarının Ardında Saklı</span></a>
+            <a href="arc7/arc7bolum43parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 43 (2/3)</span><span class="chapter-title">Gözkapaklarının Ardında Saklı</span></a>
+            <a href="arc7/arc7bolum43parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 43 (3/3)</span><span class="chapter-title">Gözkapaklarının Ardında Saklı</span></a>
+
+            <a href="arc7/arc7bolum44parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 44 (1/2)</span><span class="chapter-title">Küçülen Vizyon</span></a>
+            <a href="arc7/arc7bolum44parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 44 (2/2)</span><span class="chapter-title">Küçülen Vizyon</span></a>
+
+            <a href="arc7/arc7bolum45parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 45 (1/2)</span><span class="chapter-title">Konkon</span></a>
+            <a href="arc7/arc7bolum45parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 45 (2/2)</span><span class="chapter-title">Konkon</span></a>
+
+            <a href="arc7/arc7bolum46parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 46 (1/2)</span><span class="chapter-title">Çocukça Bir Pervasızlık</span></a>
+            <a href="arc7/arc7bolum46parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 46 (2/2)</span><span class="chapter-title">Çocukça Bir Pervasızlık</span></a>
+
+            <a href="arc7/arc7bolum47parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 47 (1/2)</span><span class="chapter-title">Ölmeyen ■■</span></a>
+            <a href="arc7/arc7bolum47parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 47 (2/2)</span><span class="chapter-title">Ölmeyen ■■</span></a>
+
+            <a href="arc7/arc7bolum48parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 48 (1/3)</span><span class="chapter-title">İblis Şehrinde Birbirine Karışan Amaçlar</span></a>
+            <a href="arc7/arc7bolum48parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 48 (2/3)</span><span class="chapter-title">İblis Şehrinde Birbirine Karışan Amaçlar</span></a>
+            <a href="arc7/arc7bolum48parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 48 (3/3)</span><span class="chapter-title">İblis Şehrinde Birbirine Karışan Amaçlar</span></a>
+
+            <a href="arc7/arc7bolum49parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 49 (1/3)</span><span class="chapter-title">Yıldızlar Hizalanıyor</span></a>
+            <a href="arc7/arc7bolum49parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 49 (2/3)</span><span class="chapter-title">Yıldızlar Hizalanıyor</span></a>
+            <a href="arc7/arc7bolum49parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 49 (3/3)</span><span class="chapter-title">Yıldızlar Hizalanıyor</span></a>
+
+            <a href="arc7/arc7bolum50parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 50 (1/3)</span><span class="chapter-title">Manzarası Güzel Çukur</span></a>
+            <a href="arc7/arc7bolum50parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 50 (2/3)</span><span class="chapter-title">Manzarası Güzel Çukur</span></a>
+            <a href="arc7/arc7bolum50parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 50 (3/3)</span><span class="chapter-title">Manzarası Güzel Çukur</span></a>
+
+            <a href="arc7/arc7bolum51parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 51 (1/2)</span><span class="chapter-title">İblis Şehrinin Hanımı</span></a>
+            <a href="arc7/arc7bolum51parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 51 (2/2)</span><span class="chapter-title">İblis Şehrinin Hanımı</span></a>
+
+            <a href="arc7/arc7bolum52parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 52 (1/2)</span><span class="chapter-title">Zorla Güzellik Olmaz</span></a>
+            <a href="arc7/arc7bolum52parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 52 (2/2)</span><span class="chapter-title">Zorla Güzellik Olmaz</span></a>
+
+            <a href="arc7/arc7bolum53parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 53 (1/4)</span><span class="chapter-title">On Birinci Saniyenin Ötesi</span></a>
+            <a href="arc7/arc7bolum53parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 53 (2/4)</span><span class="chapter-title">On Birinci Saniyenin Ötesi</span></a>
+            <a href="arc7/arc7bolum53parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 53 (3/4)</span><span class="chapter-title">On Birinci Saniyenin Ötesi</span></a>
+            <a href="arc7/arc7bolum53parca4.html" class="chapter-item"><span class="chapter-number">Bölüm 53 (4/4)</span><span class="chapter-title">On Birinci Saniyenin Ötesi</span></a>
+
+            <a href="arc7/arc7bolum54parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 54 (1/5)</span><span class="chapter-title">Kaos Alevi Ütopyası</span></a>
+            <a href="arc7/arc7bolum54parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 54 (2/5)</span><span class="chapter-title">Kaos Alevi Ütopyası</span></a>
+            <a href="arc7/arc7bolum54parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 54 (3/5)</span><span class="chapter-title">Kaos Alevi Ütopyası</span></a>
+            <a href="arc7/arc7bolum54parca4.html" class="chapter-item"><span class="chapter-number">Bölüm 54 (4/5)</span><span class="chapter-title">Kaos Alevi Ütopyası</span></a>
+            <a href="arc7/arc7bolum54parca5.html" class="chapter-item"><span class="chapter-number">Bölüm 54 (5/5)</span><span class="chapter-title">Kaos Alevi Ütopyası</span></a>
+
+            <a href="arc7/arc7bolum55parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 55 (1/3)</span><span class="chapter-title">İblis Şehri Kakofonisi</span></a>
+            <a href="arc7/arc7bolum55parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 55 (2/3)</span><span class="chapter-title">İblis Şehri Kakofonisi</span></a>
+            <a href="arc7/arc7bolum55parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 55 (3/3)</span><span class="chapter-title">İblis Şehri Kakofonisi</span></a>
+
+            <a href="arc7/arc7bolum56parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 56 (1/2)</span><span class="chapter-title">Büyük Felaket</span></a>
+            <a href="arc7/arc7bolum56parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 56 (2/2)</span><span class="chapter-title">Büyük Felaket</span></a>
+
+            <a href="arc7/arc7bolum57parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 57 (1/2)</span><span class="chapter-title">Akıllıca Yaşayamam</span></a>
+            <a href="arc7/arc7bolum57parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 57 (2/2)</span><span class="chapter-title">Akıllıca Yaşayamam</span></a>
+
+            <a href="arc7/arc7bolum58parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 58 (1/3)</span><span class="chapter-title">Dönecek Bir Yeri Olmayanlar</span></a>
+            <a href="arc7/arc7bolum58parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 58 (2/3)</span><span class="chapter-title">Dönecek Bir Yeri Olmayanlar</span></a>
+            <a href="arc7/arc7bolum58parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 58 (3/3)</span><span class="chapter-title">Dönecek Bir Yeri Olmayanlar</span></a>
+
+            <a href="arc7/arc7bolum59parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 59 (1/4)</span><span class="chapter-title">Shudraq Taritta</span></a>
+            <a href="arc7/arc7bolum59parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 59 (2/4)</span><span class="chapter-title">Shudraq Taritta</span></a>
+            <a href="arc7/arc7bolum59parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 59 (3/4)</span><span class="chapter-title">Shudraq Taritta</span></a>
+            <a href="arc7/arc7bolum59parca4.html" class="chapter-item"><span class="chapter-number">Bölüm 59 (4/4)</span><span class="chapter-title">Shudraq Taritta</span></a>
+
+            <a href="arc7/arc7bolum60parca1.html" class="chapter-item"><span class="chapter-number">Bölüm 60 (1/3)</span><span class="chapter-title">Çalkantılı Bir Temelin Atılışı</span></a>
+            <a href="arc7/arc7bolum60parca2.html" class="chapter-item"><span class="chapter-number">Bölüm 60 (2/3)</span><span class="chapter-title">Çalkantılı Bir Temelin Atılışı</span></a>
+            <a href="arc7/arc7bolum60parca3.html" class="chapter-item"><span class="chapter-number">Bölüm 60 (3/3)</span><span class="chapter-title">Çalkantılı Bir Temelin Atılışı</span></a>
+
+            <a href="arc7/arc7bolum54bparca1.html" class="chapter-item"><span class="chapter-number">Bölüm 54B (1/2)</span><span class="chapter-title">Mavi Göğü Örterek</span></a>
+            <a href="arc7/arc7bolum54bparca2.html" class="chapter-item"><span class="chapter-number">Bölüm 54B (2/2)</span><span class="chapter-title">Mavi Göğü Örterek</span></a>
+
+            <a href="arc7/arc7bolum55bparca1.html" class="chapter-item"><span class="chapter-number">Bölüm 55B (1/3)</span><span class="chapter-title">Hisar Şehri Kakofonisi</span></a>
+            <a href="arc7/arc7bolum55bparca2.html" class="chapter-item"><span class="chapter-number">Bölüm 55B (2/3)</span><span class="chapter-title">Hisar Şehri Kakofonisi</span></a>
+            <a href="arc7/arc7bolum55bparca3.html" class="chapter-item"><span class="chapter-number">Bölüm 55B (3/3)</span><span class="chapter-title">Hisar Şehri Kakofonisi</span></a>
+
+            <a href="arc7/arc7bolum56bparca1.html" class="chapter-item"><span class="chapter-number">Bölüm 56B (1/4)</span><span class="chapter-title">Uçan Ejder Baskını</span></a>
+            <a href="arc7/arc7bolum56bparca2.html" class="chapter-item"><span class="chapter-number">Bölüm 56B (2/4)</span><span class="chapter-title">Uçan Ejder Baskını</span></a>
+            <a href="arc7/arc7bolum56bparca3.html" class="chapter-item"><span class="chapter-number">Bölüm 56B (3/4)</span><span class="chapter-title">Uçan Ejder Baskını</span></a>
+            <a href="arc7/arc7bolum56bparca4.html" class="chapter-item"><span class="chapter-number">Bölüm 56B (4/4)</span><span class="chapter-title">Uçan Ejder Baskını</span></a>
+
+            <!-- Yeni Eklenen Bölüm Grubu -->
+            <a href="arc7/arc7bolum57b.html" class="chapter-item"><span class="chapter-number">Bölüm 57B</span><span class="chapter-title">Bana Salak Denmesi Umurumda Bile Değil</span></a>
+            <a href="arc7/arc7bolum58b.html" class="chapter-item"><span class="chapter-number">Bölüm 58B</span><span class="chapter-title">Gidecek Yeri Olmayanlar</span></a>
+            <a href="arc7/arc7bolum59b.html" class="chapter-item"><span class="chapter-number">Bölüm 59B</span><span class="chapter-title">Flop O’Connell</span></a>
+            <a href="arc7/arc7bolum61.html" class="chapter-item"><span class="chapter-number">Bölüm 61</span><span class="chapter-title">Gladyatör Adasına Hoş Geldiniz!</span></a>
+            <a href="arc7/arc7bolum62.html" class="chapter-item"><span class="chapter-number">Bölüm 62</span><span class="chapter-title">Adanın Düzeni</span></a>
+            <a href="arc7/arc7bolum63.html" class="chapter-item"><span class="chapter-number">Bölüm 63</span><span class="chapter-title">Sparka</span></a>
+            <a href="arc7/arc7bolum64.html" class="chapter-item"><span class="chapter-number">Bölüm 64</span><span class="chapter-title">Sihirli Sözcükler</span></a>
+            <a href="arc7/arc7bolum65.html" class="chapter-item"><span class="chapter-number">Bölüm 65</span><span class="chapter-title">Okulun Yemek Savaşçısı</span></a>
+            <a href="arc7/arc7bolum66.html" class="chapter-item"><span class="chapter-number">Bölüm 66</span><span class="chapter-title">Hiain Yatz</span></a>
+            <a href="arc7/arc7bolum67.html" class="chapter-item"><span class="chapter-number">Bölüm 67</span><span class="chapter-title">Azı Dişinin Arkasında Saklı</span></a>
+            <a href="arc7/arc7bolum68.html" class="chapter-item"><span class="chapter-number">Bölüm 68</span><span class="chapter-title">Kılıç Kurdunun Rehberliği</span></a>
+            <a href="arc7/arc7bolum69.html" class="chapter-item"><span class="chapter-number">Bölüm 69</span><span class="chapter-title">İmparatorluk Başkentinden Geliş</span></a>
+            <a href="arc7/arc7bolum70.html" class="chapter-item"><span class="chapter-number">Bölüm 70</span><span class="chapter-title">Tek Bir Şey</span></a>
+            <a href="arc7/arc7bolum71.html" class="chapter-item"><span class="chapter-number">Bölüm 71</span><span class="chapter-title">Su</span></a>
+            <a href="arc7/arc7bolum72.html" class="chapter-item"><span class="chapter-number">Bölüm 72</span><span class="chapter-title">Gülünç Dedikodular</span></a>
+            <a href="arc7/arc7bolum73.html" class="chapter-item"><span class="chapter-number">Bölüm 73</span><span class="chapter-title">Weitz Rogen</span></a>
+            <a href="arc7/arc7bolum74.html" class="chapter-item"><span class="chapter-number">Bölüm 74</span><span class="chapter-title">Idra Missanga</span></a>
+            <a href="arc7/arc7bolum75.html" class="chapter-item"><span class="chapter-number">Bölüm 75</span><span class="chapter-title">Biliyorum</span></a>
+            <a href="arc7/arc7bolum76.html" class="chapter-item"><span class="chapter-number">Bölüm 76</span><span class="chapter-title">İmparatorluk Başkentinde Tesadüfî Karşılaşmalar</span></a>
+            <a href="arc7/arc7bolum77.html" class="chapter-item"><span class="chapter-number">Bölüm 77</span><span class="chapter-title">Kaderin Cilvesi</span></a>
+            <a href="arc7/arc7bolum78.html" class="chapter-item"><span class="chapter-number">Bölüm 78</span><span class="chapter-title">Çalkantılı Buluşma</span></a>
+            <a href="arc7/arc7bolum79.html" class="chapter-item"><span class="chapter-number">Bölüm 79</span><span class="chapter-title">Kızıl Kahkahaların Kükreyişi</span></a>
+            <a href="arc7/arc7bolum80.html" class="chapter-item"><span class="chapter-number">Bölüm 80</span><span class="chapter-title">İris ve Dikenler Kralı</span></a>
+            <a href="arc7/arc7bolum81.html" class="chapter-item"><span class="chapter-number">Bölüm 81</span><span class="chapter-title">Haşin Hanım ve Palyaço</span></a>
+            <a href="arc7/arc7bolum82.html" class="chapter-item"><span class="chapter-number">Bölüm 82</span><span class="chapter-title">İsyancıların Maksadı</span></a>
+            <a href="arc7/arc7bolum83.html" class="chapter-item"><span class="chapter-number">Bölüm 83</span><span class="chapter-title">Harp ve Çatışma Bölgeleri</span></a>
+            <a href="arc7/arc7bolum84.html" class="chapter-item"><span class="chapter-number">Bölüm 84</span><span class="chapter-title">Çay Odası</span></a>
+            <a href="arc7/arc7bolum85.html" class="chapter-item"><span class="chapter-number">Bölüm 85</span><span class="chapter-title">Arkahan</span></a>
+            <a href="arc7/arc7bolum86.html" class="chapter-item"><span class="chapter-number">Bölüm 86</span><span class="chapter-title">Beş Kale</span></a>
+            <a href="arc7/arc7bolum87.html" class="chapter-item"><span class="chapter-number">Bölüm 87</span><span class="chapter-title">Kaledeki Nihai Savaş</span></a>
+            <a href="arc7/arc7bolum88.html" class="chapter-item"><span class="chapter-number">Bölüm 88</span><span class="chapter-title">Yeni Rüzgârlar</span></a>
+            <a href="arc7/arc7bolum89.html" class="chapter-item"><span class="chapter-number">Bölüm 89</span><span class="chapter-title">Kafma Irulux</span></a>
+            <a href="arc7/arc7bolum90.html" class="chapter-item"><span class="chapter-number">Bölüm 90</span><span class="chapter-title">Cehennemin Beşiği</span></a>
+            <a href="arc7/arc7bolum91.html" class="chapter-item"><span class="chapter-number">Bölüm 91</span><span class="chapter-title">Savaş Meydanında Koşuşturmaca</span></a>
+            <a href="arc7/arc7bolum92.html" class="chapter-item"><span class="chapter-number">Bölüm 92</span><span class="chapter-title">Eski Bağlar Yeniden Canlanıyor</span></a>
+            <a href="arc7/arc7bolum93.html" class="chapter-item"><span class="chapter-number">Bölüm 93</span><span class="chapter-title">Taş Ordu</span></a>
+            <a href="arc7/arc7bolum94.html" class="chapter-item"><span class="chapter-number">Bölüm 94</span><span class="chapter-title">Uğruna Direndiğimiz Kişiler</span></a>
+            <a href="arc7/arc7bolum95.html" class="chapter-item"><span class="chapter-number">Bölüm 95</span><span class="chapter-title">Kalelerdeki Düşmanlar</span></a>
+            <a href="arc7/arc7bolum96.html" class="chapter-item"><span class="chapter-number">Bölüm 96</span><span class="chapter-title">Derin Sevgiyle Boya</span></a>
+            <a href="arc7/arc7bolum97.html" class="chapter-item"><span class="chapter-number">Bölüm 97</span><span class="chapter-title">Batı’nın Ötesinden Gelenler</span></a>
+            <a href="arc7/arc7bolum98.html" class="chapter-item"><span class="chapter-number">Bölüm 98</span><span class="chapter-title">Pleiades Taburu</span></a>
+            <a href="arc7/arc7bolum99.html" class="chapter-item"><span class="chapter-number">Bölüm 99</span><span class="chapter-title">Gökyüzüne Hükmedenler</span></a>
+            <a href="arc7/arc7bolum100.html" class="chapter-item"><span class="chapter-number">Bölüm 100</span><span class="chapter-title">Kalelerdeki Sayısız Değişimler</span></a>
+            <a href="arc7/arc7bolum101.html" class="chapter-item"><span class="chapter-number">Bölüm 101</span><span class="chapter-title">Sevgi Alev Gibidir</span></a>
+            <a href="arc7/arc7bolum102.html" class="chapter-item"><span class="chapter-number">Bölüm 102</span><span class="chapter-title">Azimden Duvarlar</span></a>
+            <a href="arc7/arc7bolum103.html" class="chapter-item"><span class="chapter-number">Bölüm 103</span><span class="chapter-title">Yıldızların Geri Sayımı</span></a>
+            <a href="arc7/arc7bolum104.html" class="chapter-item"><span class="chapter-number">Bölüm 104</span><span class="chapter-title">Kaostaki Kaleler (Birinci Perde)</span></a>
+            <a href="arc7/arc7bolum105.html" class="chapter-item"><span class="chapter-number">Bölüm 105</span><span class="chapter-title">Kaostaki Kaleler (İkinci Perde)</span></a>
+            <a href="arc7/arc7bolum106.html" class="chapter-item"><span class="chapter-number">Bölüm 106</span><span class="chapter-title">Kaostaki Kaleler (Üçüncü Perde)</span></a>
+            <a href="arc7/arc7bolum107.html" class="chapter-item"><span class="chapter-number">Bölüm 107</span><span class="chapter-title">Chisha Gold</span></a>
+            <a href="arc7/arc7bolum108.html" class="chapter-item"><span class="chapter-number">Bölüm 108</span><span class="chapter-title">Büyük Felaket Yaklaşıyor</span></a>
+            <a href="arc7/arc7bolum109.html" class="chapter-item"><span class="chapter-number">Bölüm 109</span><span class="chapter-title">İmparatorluğun Kılıç Kurtları</span></a>
+            <a href="arc7/arc7bolum110.html" class="chapter-item"><span class="chapter-number">Bölüm 110</span><span class="chapter-title">Tebrik Sözleri</span></a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

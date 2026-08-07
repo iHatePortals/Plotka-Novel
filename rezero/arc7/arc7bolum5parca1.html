@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VII, Bölüm 5 Parça 1 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        .novel-text p.italic-intro {
+            font-style: italic;
+            text-indent: 0;
+            color: #aaa;
+            text-align: center;
+            margin-bottom: 2em;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc7bolum4parca3.html" class="nav-btn">← Önceki Parça</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc7bolum5parca2.html" class="nav-btn">Sonraki Parça →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VII, Bölüm 5 Parça 1</h1>
+            <div class="subtitle">"Erkek Olmak Zor"</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <p class="italic-intro">*Yine anılarla geçen bir bölüm*</p>
+
+            <p>Subaru: [Vabuuh――!]</p>
+
+            <p>???: [Kyah! Subaru-sama, üzgünüm!]</p>
+
+            <p>Subaru, kafasının üzerinden dökülen ve serpiştirilen sularla sırılsıklam olmuş durumdaydı. Ne haltlar döndüğünü merak edip panik içerisinde bağırdığındaysa yukarılardan tiz bir özür sesi yükseldi.</p>
+
+            <p>Kafasını sallayarak yukarı bakan Subaru, açık bir pencerenin sallanan perdelerini gördü ve gözleri bir kızın ― yukarıdan kendisine bakan Petra’nın gözleriyle buluştu.</p>
+
+            <p>Görünen o ki Petra, ikinci katın penceresinden birazcık su dökmüştü.</p>
+
+            <p>Elbette ki bahçenin ortasına su dökmek gibi kötü bir şey yapmazdı. Aslında suları kimsenin üzerine sıçramasın diye çiçek tarhının köşesine dökmeye niyetliydi.</p>
+
+            <p>Subaru: [Ama gelin görün ki tüm şanssızlığımla tam da orada bahçıvanlık yapıyordum……]</p>
+
+            <p>Petra: [Ü-üzgünüm, Subaru-sama! Sana hemen yeni kıyafetler getireceğim……]</p>
+
+            <p>Subaru: [Ahh, bu kadar zahmete girmene gerek yok. Sadece sırılsıklam oldum ve…… leş gibi kokuyor yaa! Galiba sadece sırılsıklam olmamışım!?]</p>
+
+            <p>Petra: [Çünkü o, odayı temizlemek için kullandığım suydu ve…… neyse! Hemen geliyorum, beni su kaynağının yanında bekle!]</p>
+
+            <p>Petra, her yerine saçılan kirli suların kokusuyla şaşkına dönen Subaru’ya böyle söyledi. Sonra da tatlı suratı pencerenin öteki tarafına çekildi ve Subaru’ya yeni kıyafetler getirmek için koşturmaya başlayışıyla adımları zemini dövdü.</p>
+
+            <p>Subaru’ysa Petra’nın panikleyişine buruk bir şekilde gülümseyip bahtsızlığına hüzünlenerek tam da Petra’nın söylediği üzere köşkün bahçesindeki su kaynağına yöneldi.</p>
+
+            <p>Subaru: [Ehh, bahçeyle işimi bitirince üzerimi değiştirmeyi planlıyordum zaten……]</p>
+
+            <p>Ve yalnızca planlarının azıcık öne çekildiğini söyleyerek kendi kendini teselli etti.</p>
+
+            <p>Petra temiz kıyafetler getirecekse ilk önce üzerindeki pislikten arınmalıydı. Kuyudan su çekmeden önce aceleyle gömleğini çıkarttığı andaysa――</p>
+
+            <p>???: [――Hm, öyle bir anda soyunuyorsun ha, epey cüretkarsın.]</p>
+
+            <p>Subaru: [Bekle…… kyaaaaaa!?]</p>
+
+            <p>???: [Voaa, bir anda kız gibi çığlık atacağın kimin aklına gelirdi ki…… Normal şartlarda tam tersi pozisyonlarda olmamız gerekmez miydi?]</p>
+
+            <p>Diyen ve çığlıklar atan Subaru’ya gözlerini diken kişi, pembe saçlı bir kız ― yani su kaynağının yanındaki bir taşın üzerinde oturan Lewes’ti.</p>
+
+            <p>Çıkartmış olduğu gömleği bastırarak üst bedenini örten Subaru’ya bakan Lewes’in gözleri, fena halde genç görünümünün aksine zekayla ışıldıyordu.</p>
+
+            <p>Lewes: [Bu şekilde gizlemene gerek yok. Çıplak oğlan bedeni görmeye alışkınım. Eskiden Gar-bo’yla yaşıyordum, biliyorsun ya.]</p>
+
+            <p>Subaru: [Ehh, haklı olabilirsin, ama utanç verici olan her halükarda utanç vericidir, haksız mıyım?]</p>
+
+            <p>Lewes: [Utanılacak bir şey yok ki. Ayrıca fiziğin de fena değil, Su-bo. Göze oldukça hoş geliyor. Evet, oldukça hoş geliyor gerçekten.]</p>
+
+            <p>Subaru: [Sonuç olarak utanç verici işte! Lewes-san, karakterine aykırı davranışlar sergilemiyor musun şu an!?]</p>
+
+            <p>Lewes, sakin ve rahat bir konuşma tarzı gibi görünüşüne uymayan özelliklerle tanınırdı fakat görünüşü haricinde her konuda kendisine emanet eden role sadık oluşuyla Subaru’da güçlü bir izlenim bırakmış biriydi.</p>
+
+            <p>İşte bu yüzden yarı çıplak bedenini kullanarak Subaru’yla alay etmesi şaşırtıcıydı.</p>
+
+            <p>Subaru: [Bunun büyük ölçüde Sığınağın lideri olmak gibi ağır bir sorumluluktan kurtulmuş olmandan kaynaklandığını tahmin etmekte haklı mıyım?]</p>
+
+            <p>Lewes: [Sanırım önemli ölçüde bundan kaynaklanıyor. Gerçi Sığınağın dışına çıkmış olsam da Ros-bo’nun hazırladığı topraklara taşındım ve yine benzer bir görevi üstlendim. Yani kendime omzundaki yük gerçekten kalktı mı diye soracak olursam……]</p>
+
+            <p>Diyen Lewes, kıstığı gözlerini arkaya ― köşke doğru çevirdi.</p>
+
+            <p>Net olmak gerekirse baktığı şey köşk değil, içerisinde yaşayan insanlardı. Daha da net olmak gerekirse, her ikisini de kendi torunlarıymışçasına sevdiği abla kardeş ikilisine bakıyor olmalıydı.</p>
+
+            <p>Garfiel ve Frederica arasındaki uzlaşmanın sağlanışıyla birlikte Garfiel de yıllardır taşıdığı dertten kurtulmuştu. Gerçi Subaru, onun omzundaki yükten kurtulması sonucunda beklentilerinin de ötesinde afacan bir velede dönüşmesine şaşırmıştı ama,</p>
+
+            <p>Subaru: [Garfiel ve Frederica’dan ayrı yaşadığın için kendini yalnız hissediyor musun?]</p>
+
+            <p>Lewes: [Nn…… bir anda içine ne girdi öyle senin?]</p>
+
+            <p>Subaru: [Fazla mı ani oldu? Ama, öyle bir düşündüm işte. Tabii ki birlikte köşkte kalmanızın Emilia-tan’ın Kraliyet Seçimine epey yardımı dokunurdu. Ancak……]</p>
+
+            <p>Lewes: [Yapacak bir şey yok. Köşkte yaşamama mani olan bir sürü sorun var, tabii ki diğer klonlar…… yani kardeşlerim de aynı şekilde. Bir işe yarayabileceğimizi de sanmıyorum zaten.]</p>
+
+            <p>Subaru: [――――]</p>
+
+            <p>Lewes küçük bir kahkaha eşliğinde böyle söylerken Subaru, söylediklerini dinleyerek çenesini kapattı.</p>
+
+            <p>Duygusal tarafı, ‘ben işe yaramak veya yaramamaktan bahsetmiyordum’ diye bağırmak istiyordu.</p>
+
+            <p>Fakat bu meselenin detaylarını bir çocuğun öfke nöbeti gibi bir şeyle ilişkilendiremezdi.</p>
+
+            <p>Şu anda Roswaal Köşkünde yaşamasına izin verilen kişiler yalnızca aktif olarak bir rol üstlenenler ve sorumluluklarını yerine getirebilenlerden oluşuyordu. Bu gibi zamanlarda bu tarz ağır düzenlemeler getirmek gerekiyordu.</p>
+
+            <p>Subaru: [……Ama yine de Garfiel yalnızca 14 yaşında. Daha bir çocuk.]</p>
+
+            <p>Lewes: [―― Kibar birisin. Gar-bo için endişeleniyor musun?]</p>
+
+            <p>Subaru: [Yani, evet…… Ben 14 yaşındayken olgunlaşmamış, aptal bir velettim. O “aptal velet” kısmı şimdi bile değişmedi ama zamanında daha da kötüydüm. Kendimden, ebeveynlerimden ayrıldığımda hiçbir şey yapamayacağımı düşünecek kadar bıkıp usanmıştım.]</p>
+
+            <p>Elbette ki Subaru, bu dünyadaki normlara tamamen zıt şekilde rahat ve hoşgörülü, hatta bir beşiğin içerisinde sağa sola sallanmak kadar huzurlu bir gündelik hayat sürmüştü.</p>
+
+            <p>Garfiel 14 yaşındaydı ― henüz ortaokul çağında olsa bile -ki bu kategori bu dünya için geçerli değildi- Subaru’nun o yaşta olduğundan çok daha olgundu.</p>
+
+            <p>Buna rağmen――</p>
+
+            <p>Subaru: [Başkalarının sizin için yaptıkları, onlar için de yapılabilir… benim düşüncem bu şekilde……]</p>
+
+            <p>Lewes: [Fufu, müsaadenle söylediklerimi farklı bir şekilde ifade edeyim. Sen yalnızca kibar değil, aynı zamanda uysal ve toysun da.]</p>
+
+            <p>Subaru: [Erkeklerin yalnızca güçlü değil, aynı zamanda kibar da olması gerektiğine dair ünlü bir yazı okumuştum…… ha? Bu mantıkla, güçlü olmadığım için erkek değil miyim…? Peki neyim ben?]</p>
+
+            <p>Subaru’nun kendi başına açtığı dert karşısında kendisini savunamadığını gören Lewes’in boğazından bir kahkaha kaçtı. Subaru onun bu tepkisinin beklenmedik bir şey olduğunu düşünürken de bir parmağıyla gözlerinin kenarlarını silip “Pardon, pardon” diyerek,</p>
+
+            <p>Lewes: [Söylemek istediğin şeyi anlıyorum. Gar-bo ve Frederica yalnız hissetmesin diye arada bir uğrayacağım. Olur mu?]</p>
+
+            <p>Subaru: [Özür dilerim. Muhtemelen yaptığım şey, bir yabancı seni bu konuda rahatsız ediyormuş gibi göründü.]</p>
+
+            <p>Lewes: [Özür dilemeni gerektirecek hiçbir şey yok…… Sadece, daha olgunlaşmadan, çok genç yaşta ebeveynlerinden ayrılan birinden bahsedeceksek, bu köşkte Gar-bo’dan daha genç biri var, öyle değil mi?]</p>
+
+            <p>Subaru: [Sen……]</p>
+
+            <p>Subaru tam da Lewes’in bahsettiği kişi hakkında bir tahminde bulunacakken adım sesleri yükseldi. Ve gözlerini o seslerin kaynağına çeviren Subaru-Lewes ikilisi, Petra’nın onlara doğru koşturmakta olduğunu gördü.</p>
+
+            <p>Ellerinde Subaru için yeni kıyafetler taşıyıp “Subaru-sama~!” diye bağıra bağıra koşturan Petra, enerji dolu görünüyordu. Ancak su kaynağının yanına adımını atmasına ramak kala hareketi kesti.</p>
+
+            <p>Petra: [Vuaah! Kya! Subaru! Neden çıplaksın!?]</p>
+
+            <p>Subaru: [Ah, kahretsin. Yıkanmayı planlıyordum ama bu derin konuşmaya fazla odaklanmışım.]</p>
+
+            <p>İki eliyle yüzünü örtmüş şekilde Subaru’nun yarı çıplak bedeninden bahseden Petra, utancından kızarmıştı. Fakat yüzünü örttüğü parmaklarının arasından Subaru’ya bakıyor ve Subaru da bu yaşananların anime ve mangalarda sıklıkla gördüğü şeyler olduğunu fark ediyordu.</p>
+
+            <p>Büyük bir heyecanla “Vaaah, vaaah” diye bağıran Petra’nın kulakları bile kıpkırmızıydı.</p>
+
+            <p>Subaru: [Bak, Lewes-san. İşte tatlı bir genç kız tepkisi böyle olur.]</p>
+
+            <p>Lewes: [Benden böyle davranmamı isteyerek bayağı açgözlülük ediyorsun………. İstediğini yapsam bile fayda etmez ki. Yaşlı başlı biriyim ben.]</p>
+
+            <p>Subaru: [Olgun konuşma tarzın dışında hiç de yaşlı başlı biri gibi hissettirmiyorsun……]</p>
+
+            <p>Subaru, Lewes’in umursamaz sesi karşısında kuyudan bir kova su çekti. Sonra da “Aaaah! Soğuuk!” diye bağırarak buz gibi suyu kafasından aşağı döktü.</p>
+
+            <p>Subaru: [Neyse, yaşına göre bayağı olgun bir tepki verdin, Petra.]</p>
+
+            <p>Petra: [Ah, Subaru-sama, bana hala çocuk muamelesi yapıyorsun, değil mi? Sırf lafı açıldı diye söylüyorum ama yakın zamanda 13 oldum. Garf-san’la aramda sadece bir yaş var!]</p>
+
+            <p>Subaru: [Doğum günleri ortada olsa da Petra ve Garfiel arasında sadece bir yaş olması bana biraz komik geliyor……]</p>
+
+            <p>Bir tarafta görünüşü ve savaş gücüyle hiç de 14 durmayan ama karakteriyle öyle olan Garfiel vardı. Diğer taraftaysa genç ve sevimli görünümünü koruyarak yavaş yavaş çiçek açan bir tomurcuk olan Petra.</p>
+
+            <p>Bu doğal bir süreçti, çünkü zaman akıp geçiyor ve durdurulamıyordu fakat büyüme konsepti, değerli bir kavramdı.</p>
+
+            <p>Subaru: [Ben, şey, 18im ve Emilia-tan ile Beako’nun görünüşünde hiçbir değişiklik olmuyor. Bu bağlamda, Petra’nın potansiyeli bayağı yüksek gibime geliyor……]</p>
+
+            <p>Lewes: [Su-bo, Su-bo. Bir gencin olaylara bu perspektiften bakması doğru mu?]</p>
+
+            <p>Subaru: [Böyle söylesen de…… oh, yeni kıyafetler için teşekkürler, Petra. Bana bakarken elinden düştüler gerçi.]</p>
+
+            <p>Saçındaki sulardan kurtulmak için kafasını sallayan Subaru, Petra’nın ayağıyla attığı gömleği yakaladı ve üzerindeki tozları silkeleyerek giyindi. Ona getirdiği kıyafetleri düşürdüğünü fark etmiş olan Petra’ysa “Vaaah!” diyerek kendi gafı karşısında utanıp kızardı.</p>
+
+            <p>Petra: [Uu~, üzgünüm. Yeni kıyafetler için de az önceki su meselesi için de özür dilerim……]</p>
+
+            <p>Subaru: [Yok canım, yalnızca ufak, tatlı bir hata işte. Kıyafetlerim bir yana, ıslanma sebebim şanssızlığımdı. Ve bu sayede iki genç kıza yakışıksız bir tarafımı gösterdim.]</p>
+
+            <p>Lewes: [Beni de genç kız olarak saydın ha…… Bak baaak, ihtiyarlarla flört etmekte iyiymişsin.]</p>
+
+            <p>Subaru, her zamanki tavırlarıyla ağır ağır kafasını sallayan Lewes’e buruk bir şekilde güldü. Sonra da hala yaptığı hataları düşünmekte olan Petra’nın kafasını usulca okşayıp “Sorun yok” diyerek gülümsedi.</p>
+
+            <p>Subaru: [Herkes arada bir hata yapar, hem bu hata yüzünden yaralanan da olmadı. Sorun yok, hiç sorun yok.]</p>
+
+            <p>Petra: [……Evet, anlıyorum. Bunu bugünkü günlük sayfama yazacağımdan emin olacağım.]</p>
+
+            <p>Subaru: [Sen günlük mü tutuyorsun? Bu harika. Ben de her gün azar azar bir şeyler karalamakta başarılı biriyim ama ne yaparsam yapayım günlüklerimin sonu asla gelmiyor.]</p>
+
+            <p>Günlük antrenman ve koşularını alışkanlık haline getirmeyi başarmıştı ama tuhaftır ki günlükleri uzun süreli olmuyordu. Bunun yazdığı şeylerin tutarlı olmamasından kaynaklanıyor olabileceğini düşünüyordu.</p>
+
+            <p>Bunun yanı sıra dersleri astığı günler monoton ve sıkıcı olduğu için yazacak bir şey bulamıyordu.</p>
+
+            <p>Subaru: [Tatlı Beako Günlüğüm hala ilerliyor gerçi……]</p>
+
+            <p>Petra: [İleride Beatrice-chan’a gösterecek misin?]</p>
+
+            <p>Subaru: [Hı hı, ona her gün şefkatle nasıl şımartıldığını göstermek istiyorum.]</p>
+
+            <p>Ayrıca Beatrice’in tepkileri de çarpıcı ve tatlıydı. Ve bu, Beako’ya karşı şefkatli olması anlamına gelecekse günlük tutamama zayıflığının üstesinden gelmek için kendisine memnuniyetle meydan okurdu.</p>
+
+            <p>Her neyse――</p>
+
+            <p>Petra: [Ee, siz ikiniz neden bahsediyordunuz?]</p>
+
+            <p>Subaru: [Ahh, yalnızca boş sohbetler herhalde? “Garfiel’den ayrı kaldığın için yalnız hissediyor musun?” gibi şeyler işte…… Ama sen de annenle babandan çok uzaktasın. Vatan hasreti falan çekmiyor musun?]</p>
+
+            <p>Petra: [“Vatan hasreti” mi…… Evimi özleyip özlemediğimi mi soruyorsun?]</p>
+
+            <p>Bir parmağını dudaklarına götüren Petra, kaşlarını çatarak Subaru’nun söylediklerini çözüp anlamlandırdı. Derin düşüncelere dalmış gibi görünüp “Hmmm, bir düşüneyim…” diye mırıl dandıktan sonraysa,</p>
+
+            <p>Petra: [Bazen, kendimi yalnız hissediyorum. Ama bu benim yapmak istediğime karar verdiğim şeydi ve karar verdiğim şeyi yapıyorum. Bu yüzden sızlanamam.]</p>
+
+            <p>Subaru: [Voaa, şu olgunluğa bak…… duydun mu, Lewes-san?]</p>
+
+            <p>Lewes: [Duydum, duydum. Vay be, onunla gurur duyarmış gibi bir halin var, ha?]</p>
+
+            <p>Lewes, Petra’nın kendinden emin cevabından gerçekten de gurur duyuyor olan Subaru’ya başını salladı.</p>
+
+            <p>Tam da Petra’nın söylediği gibiydi.</p>
+
+            <p>Subaru da yapmaya karar verdiği şeyi yapmakla meşguldü. Bu yüzden güçsüz şikayetlerde bulunmak yerine, acı ve ıstırap içerisinde olsa bile başını dik tutmalı ve gülümsemeliydi.</p>
+
+            <p>Petra: [Subaru-sama, yanıtım iyi miydi?]</p>
+
+            <p>Subaru: [―― Hı hı, tabii ki. Petra’dan da bu beklenirdi! İstediğim yanıt buydu!]</p>
+
+            <p>Petra: [Kya!]</p>
+
+            <p>Subaru, endişeli görünen Petra’nın sorusuna karşılık olarak genç kızı kollarıyla havaya kaldırdı.</p>
+
+            <p>Tıpkı Beako’ya yaptığı gibiydi ama Petra, ona kıyasla daha ağırdı ― çünkü büyüme çağındaydı.</p>
+
+            <p>Subaru: [Artık seni taşıyabileceğim yaşta değilsin, ha……]</p>
+
+            <p>Petra: [O kadarı apaçık ortada! ……Ama bu kadar üzgün bir surat ifadesine bürüneceksen sana eşlik edebilirim sanırım.]</p>
+
+            <p>Subaru: [Oh, teşekkürler!]</p>
+
+            <p>Yüzünü kaçırsa da bencillik etmesine izin veriyordu. Petra’nın bu nezaketini fırsat bilen Subaru, onun çocukluğunu geride bırakmasına bir müddet daha hüzünlendi.</p>
+
+            <p>Ve ikisini izleyen Lewes,</p>
+
+            <p>Lewes: [Aah ah, çocuk olan hangisi hiç bilmiyorum.]</p>
+
+            <p>Genç suratı ve yaşlı mizacıyla işte bu sözleri mırıldandı.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="arc7bolum4parca3.html" class="nav-btn">← Önceki Parça</a>
+            <a href="arc7bolum5parca2.html" class="nav-btn">Sonraki Parça →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

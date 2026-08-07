@@ -1,0 +1,574 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VI, Bölüm 69 Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff; /* Görseldeki Açık Mavi / Cyan */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc6bolum68.html" class="nav-btn">← Önceki</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc6bolum70.html" class="nav-btn">Sonraki →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VI, Bölüm 69</h1>
+            <div class="subtitle">"Demir Kılıcın Absürt Bozgunu"</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <!-- Metin buraya eklenecek -->
+             <p class="wp-block-paragraph">——İşittiği kelimeleri yutan Subaru’nun artlarındaki imayı sindirebilmesi için birkaç saniye geçmesi gerekmişti.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Reid, Roy Alphard mı?..”</p>
+<p class="wp-block-paragraph">Beklentilerine ihanet eden bir rapor alan Subaru’nun düşünceleri, üstlendiği ıstırabın aksine bir şekle bürünmüştü.</p>
+<p class="wp-block-paragraph">Yoldaşlarından geçici olarak aldığı acı ve ıstırabın negatifliği nedeniyle zihni yavaş çalışsa da bu, o negatifliğin bile günah keçisi olarak kullanılamayacağı bir durumdu.</p>
+<p class="wp-block-paragraph">Beyni eriyip kulaklarından çıkacakmış gibi hissettiği kısa bir sürenin sonundaysa düşüncelerinin sonunun gelmeyeceğini anladı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Karşısında duran ve hakkında böyle bir ifşa yapılan kırmızı saçlı kılıç ustası, Pleiades Gözcü Kulesinin hiç şüphesiz en sorunlu varlığı, Reid Astrea, Subaru’nun kendi kendine fısıldadığı tüm süreçte gözlerini üzerinden ayırmamıştı.</p>
+<p class="wp-block-paragraph">Gözlerini Reid’e dikmiş ve Şövalye kılıcını yanında hazır etmiş Julius’un ifadesinde en ufak bir sahtekârlık belirtisi bulunmuyordu.</p>
+<p class="wp-block-paragraph">Zaten her şeyin bir ölüm kalım meselesi teşkil ettiği bir ortamda tatsız şakalar yapacak bir karakter değildi. Zamanında her şeyi unutmuş olan Subaru’nun Julius hakkındaki yorumu bu şekildeydi ve söz konusu kişi, bu fikre bağlı olarak tüm ciddiyetini koruyordu.</p>
+<p class="wp-block-paragraph">Bu da bu kanaate sahip olan Julius’un beyanının kesinlikle gerçek olduğu anlamına geliyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Eğer Reid, Oburluksa, bunun anlamı…”</p>
+<p class="wp-block-paragraph">Reid Gözcü Kulesindeki engellerden biriydi, bununla birlikte dost mu düşman mı şeklinde bir sınır çizmek gerektiğinde belirsiz bir konumda duruyordu.</p>
+<p class="wp-block-paragraph">Fakat esasında kesinlikle düşman denilebilecek bir varlıksa——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Demek o yüzden… defalarca, bu kadar ısrarcı şekilde?..”</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“——Oy, beklesene, sana diyorum. Bu epey sıkıcı bi yanlış anlaşılma oldu, bilirsin ya.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Eh?”</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Şaka yapmıyorum, sana diyorum. Hey, sen. Sana diyorum. Sen, o alakasız salağın şeklini aldıımı söylüyosun, böyle sıkıcı sonuçlara güvenme, sana diyorum.”</p>
+<p class="wp-block-paragraph">Subaru’nun titrek sesini işitişiyle birlikte Reid’in yanakları acı bir hoşnutsuzluk görünümüyle çarpıldı.</p>
+<p class="wp-block-paragraph">Subaru ise bu tepkinin ne anlama geldiğini algılayamadı.</p>
+<p class="wp-block-paragraph">——Oburluk Günah Başpiskoposu, Roy Alphard, Reid’in bedeninde tezahür ediyordu.</p>
+<p class="wp-block-paragraph">Öncesinde Rui Arneb’in dönüşümlerini görmüş Subaru için bu, son derece hatırı sayılır bir sonuçtu. Oburluğun rakibinin şekil, form ve savaş gücünü gasp etme Otoritesinin sonucu, karşılarındaki Reid olmuştu.</p>
+<p class="wp-block-paragraph">Ancak varılan bu sonuç, Reid’in moralini fena hâlde bozmuştu.</p>
+<p class="wp-block-paragraph">Bunun sebebi ne zaman açığa çıkacağını bilmeden gerçek kimliğini gizleyen bir korkağın sergileyeceği tavırdan ziyade alaya alınan bir çocuğun hoşnutsuzluğuna benzerdi.</p>
+<p class="wp-block-paragraph">Bunun ardındaki gerçek anlamsa——</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Ben olcaağım çok açık diil miydi? Bu asla değişmeyeceği için burda duruyorum. Bana katılmıyo musun? Sen, benim hatalı olduumu mu söylüyosun?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Sol gözündeki banda dokunup keskin dişlerini sıkan Reid, Subaru’ya böyle söyledi.</p>
+<p class="wp-block-paragraph">Onun ağzından dökülen sözleri işiten Subaru’ysa derin bir nefes alıp kaşlarını çatarak o sözleri derinlemesine inceledi.</p>
+<p class="wp-block-paragraph">Ve belirgin bir olasılığın farkına vararak kısaca bir nefes aldı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Yok artık, Julius…”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Ah, muhtemelen, düşündüğün şey doğru.”</p>
+<p class="wp-block-paragraph">Reid’i görüş alanında tutmaya devam eden Julius, Subaru’nun boğuk sesi karşısında çenesini oynattı. Ve kendi kanına bulanmış yanağını omzuyla ovuşturan yakışıklı adam, o kan lekesini silmeye devam ederken,</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Az önce kurduğum cümle, hatalıydı. Müsaadenizle düzelteyim. ——Gözlerimizin önündeki bu kişinin, fiziksel bedeni Roy Alphard’a ait. Ancak zihni farklı.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Zihni.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Roy Alphard, Reid Astrea’nın Anılarını yemiş ve o Anılar aracılığıyla kendi zihni üzerindeki kontrolünü çaldırmış. Bu sayede hiçbir kısıtlama olmaksızın İkinci Kata inebilmiş ve işte şimdi de karşımızda.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Subaru, Julius’un aklına gelen absürt ihtimali onaylayışı karşısında kalakalmıştı.</p>
+<p class="wp-block-paragraph">Böyle bir şey mümkün olabilir mi ki diye merak ediyordu—— yo, yalnızca Subaru değil, Emilia, Beatrice ve hatta Ram’ın bile gözleri irileşmişti.</p>
+<p class="wp-block-paragraph">Her şeyin mantığı, Julius’un açıklamasıyla uyuşup anlam kazanıyordu, o kadarı kesindi.</p>
+<p class="wp-block-paragraph">Esasında Pleiades Gözcü Kulesinin Sınav sorumlusu olarak Reid Astrea’nın İkinci Katı terk edememesi gerekiyordu ama mekânın sahibiymişçesine bir ifadeyle kuleye dolaşmaya başlamış ve bunun ardındaki gerçek açığa çıkmıştı.</p>
+<p class="wp-block-paragraph">Ardı ardına tanık olmayı sürdürdüğü dünyalarda kulenin sonunu getiren kargaşa yüzünden kafası karışan Subaru, özgürlüğüne bizzat kavuşabilmiş olmasa da Oburluğun eylemlerini fırsat bilerek bunu başarabilmişti.</p>
+<p class="wp-block-paragraph">Evet, bu doğruydu. Böylece Reid’le ilgili kafa karıştırıcı durumların tümü anlam kazanmıştı.</p>
+<p class="wp-block-paragraph">——Gelin görün ki Subaru, normları fazlasıyla aşan bu durum karşısında açık kalan ağzını kapatamıyordu.</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Anılara kapıldı ve gerçek benliğini gözden kaybetti, kastettiğin şey bu mu, sanırım?”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Basitçe ifade etmek gerekirse bu, güçlü olan benliğin kazanıp geride kaldığı anlamına geliyor olmalı—— Benlik ilkeleri bağlamında biri diğerini kovalamış.”</p>
+<p class="wp-block-paragraph">Subaru’ya kıyasla bir nebze gecikmiş olsalar da Beatrice ve Ram da aynı sonuca varmıştı.</p>
+<p class="wp-block-paragraph">Yapılandırılmamış bir konuşma şekli olsa da Ram’ın sözleri gerçeği tüm açıklığıyla ifade ediyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ama, benim bir şüphem var…”</p>
+<p class="wp-block-paragraph">O şüphe de yenilen Reid’in varlığının herkesin anılarından neden silinmediğiydi.</p>
+<p class="wp-block-paragraph">O ana dek Subaru haricinde Oburluğa kurban gidenlerin, yani Rem ve Julius’un varlıkları herkesin anılarından silinmişti, görünen buydu.</p>
+<p class="wp-block-paragraph">Gerçek şu ki bir önceki döngüde Emilia’nın varlığının Ram ve geri kalanların anılarından silinişi de Subaru’nun onaylayabileceği bir şeydi. Öyleyse aynı şeyin Reid’in başına gelmemiş olması,</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Prensip olarak Oburluğun yediği şey Reid’in İsmi değil, Anılarıymış, bu anlama geliyor olmalı. Ölü bir insanın hem İsminin hem de Anılarının yenmesi mümkün değilmiş. Roy öyle söylemişti.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Hık! Sen Reid’in yenildiği sahneye bizzat tanık mı oldun?!”</p>
+<p class="wp-block-paragraph">Subaru’nun şüphelerini sezen Julius, onu tek gözü açık şekilde yanıtladı. Kısa bir “evet” cevabı sonrası da geçip gelmiş olduğu ufalanmış duvara bakarak, &nbsp;</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Senin talimatların doğrultusunda İkinci Kata gittiğimde tanık oldum. İyi bir zamanlamayla tam da Roy Alphard ve Reid’in müzakere yaptığı ana denk geldim. Bunu müzakere şeklinde etiketlemek başlı başına şüpheli kaçar gerçi.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bunun, nesi şüpheli ki?”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Çünkü Reid en ufak bir direnç sergilemiyordu—— Belki de Oburluk, her nedense, Sınava tabi tutulmuştu. Sınav görevlisi olarak rakibine saldıramama sebebi bu olabilir.”</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Hah! Sen, söylediklerinin yarısı doğru, yarısı yanlış.”</p>
+<p class="wp-block-paragraph">Julius’un dile getirdiği varsayımlara bir son getiren kişi Reid’in ta kendisi oldu. Kalın boyun kemiklerini çatırdatıp tırnaklarını karın deliğine değdirirken de,</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Onun bi Sınav katılımcısı olmasına imkân yoktu ama bunu yapmayı düşünmüş olsaydım bunu yapardım, anlıyo musun? Bunu yapmış olsaydım da şimdi burda olmazdım, öyle diil mi?”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Rakibinin benliğini ele geçirdin. Bu konuda, çoktan kendinden emin olduğunu mu söylüyorsun?”</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Sadece güçlü kısımlara odaklanıyomuş gibi hareket etmek, benim müsaade etmiceğim bi şey. Esas ilgi çekici olan, bi tarafın her şeyini ortaya koyup öyle kumar oynamasıdır. Bu, o cücenin anlamadığı bi şeydi gerçi.”</p>
+<p class="wp-block-paragraph">İşte Reid, o fiziksel bedeni ele geçirdiği gerçeğinden ve bu olaylar silsilesinden etkilenmiş olabilecek Oburluğun olası çıkarlarından bağımsız olarak, korkunç bir kayıtsızlıkla yüzleşmiş olduğu Roy’la ilgili bu açıklamayı yaptı.</p>
+<p class="wp-block-paragraph">Yalnız gözlerinin önünde yaşanan gerçeklik, hakikatti—— Roy Alphard’ın benliği, Reid Astrea olarak bilinen canavar tarafından boyanmıştı.</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Beni yemek istiyosanız beni sığdırcak kadar büyük bi mideniz olması gerekir. Onda o mide yoktu. Bu yüzden ben de midesini ısırıp parçaladım. Hepsi bu kadar.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Hepsi, bu kadar, diyorsun…”</p>
+<p class="wp-block-paragraph">Subaru’nun çektiği mide bulantısı ve zihniyle bedenindeki yıpranma hissinin yanı sıra başı da ağrımaya başlamıştı.</p>
+<p class="wp-block-paragraph">Başka bir deyişle, Reid’in vücudunda gerçekleşenler doğrudan dile getirilirse…</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Canlandı… Ölüyken diriltildi, bu mudur yani?”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Sonuca bakarak böyle söylenebilir. Her şeyden önce ölü birinin Anılarına burnunu sokmanın mümkün olması ve o kabiliyete sahip varlığa ilk defa karşı çıkılması, sonrasında da varoluşa ulaşılması, mucize denilebilecek bir olaylar silsilesi.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Mucize…”</p>
+<p class="wp-block-paragraph">Dört yüz yıl önce sona ermiş olması gereken bir hayatın bu şekilde tekrar başlayışına tanık olan Julius, niyeti ne olursa olsun bu durumu ironik bir mucizenin şekillenişi şeklinde dile getirebilirdi.</p>
+<p class="wp-block-paragraph">Bununla birlikte diriliş gerçeğini de dile getirmeye niyeti olmasa da——</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Umm, bir şey sorabilir miyim?”</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Haa?”</p>
+<p class="wp-block-paragraph">Aniden, tam da tüm yaşananlar düzene girerken bu şekilde sesini yükselten kişi Emilia oldu.</p>
+<p class="wp-block-paragraph">Emilia, tartışma konusunun dağılmaması için Reid’le karşılaşmalarından bu yana çenesini kapalı tutmuştu. Tartışmanın durdurulabilecek bir noktaya geldiğini gördüğündeyse ametist gözlerini Reid’e çevirmişti. Ve…</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Sen… yani Reid dirildi, öyle değil mi? Böylelikle buradan ayrılabilir hâle geldin, bu da seni geeerçekten tebrik edeceğim bir konu.”</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Ah, teşekkürler. Böylece sana doğru ortamlarda her türlü şeyi öğretebilirim, hiddetli çıtır. Hadi bu gece bi şeyler içelim, sana diyorum. Bunun yanı sıra… ah, oyoy sana öğreticeğim bi şeyler yaparız.”</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“——? Beni seninle bir şeyler yapmaya mı davet ediyorsun? Ama ben yalnızca Puck ve Subaru’yla <em>randeğvuya</em> gittim, yani üzgünüm olmaz. Ayrıca…”</p>
+<p class="wp-block-paragraph">Bu Subaru’nun asla kaçırmak istemeyeceği bir şey olsa da şu anda Emilia’nın randevu yorumuna takılmak gibi bir şeye ayıracak vakti yoktu.</p>
+<p class="wp-block-paragraph">Subaru’nun bu içsel düşünceleri bir başka zamana bırakılırken Emilia, omzunda taşımakta olduğu Subaru’nun konumunu yeniden ayarlayarak,</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Özgür kalmış olsan bile yolumuzda durmasan olmaz mı? Bilmiyor olabilirsin diye söylüyorum, şu anda geeerçekten meşgulüz…”</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Bana bunu söyletme, hiddetli çıtır. Burda olanları aşağı yukarı kavramış durumdayım. Sonuçta bu bedendeki ufak velet alışılmadık şekilde bilgili ki bundan nefret ettim——Ah, gerçekten hiç hoşlanmadım.”</p>
+<p class="wp-block-paragraph">Reid, kusarmışçasına can sıkıcı bir şekilde bağırsaklarını sıktı.</p>
+<p class="wp-block-paragraph">Görünen o ki bu yalnızca dirilişten ibaret değildi, Reid, Roy Alphard’ın anılarını okuyabilme kabiliyetine de sahipti—— başka bir deyişle, Oburluğun Otoritesine kıyıdan köşeden bakma gücüne dahi sahip olmuştu.</p>
+<p class="wp-block-paragraph">Hepsinden öte, bu estetik olarak güçlü ve korkunç derecede mide bulandırıcı bulduğu bir şeymişçesine,</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Kendine ait bi duruşu bile yoktu, bu yüzden kendini böyle aptalca boklara dahil etti. İflah olmaz bi veletti. Yerini bilmeden bunu yaptııı için ortadan kaybolmuş olsa da bu doğal bi ödül olmalı.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“…Neden yalnızca buradan bahsedip duruyoruz ki, madem özgürsün, öyleyse dünyayı ve uçsuz bucaksız okyanusları fethetmeye ne dersin? Gerçe~kten yalnızca problemi erteliyorsun gibime geliyor, eğer durum buysa-”</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Sana diyorum, kaçmaya hazırlanayım deme. Bi kadının sırtında taşındııın bu durum öyle acınası ki ölsen daha iyi. Utançla kaplanmak mı istiyosun sen?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Subaru’nun savaşmaktan kaçınma ve durumu onarma girişimi başarısızlıkla sonuçlanmıştı.</p>
+<p class="wp-block-paragraph">Subaru dışındakiler bile onun az önce teklif ettiği şeyi anlayamamış olabilirdi. Neticede Reid özgürlüğüne kavuşacak olsa bile sınav görevlisi rolüne sadık kalmaya niyetliydi.</p>
+<p class="wp-block-paragraph">Aksi takdirde sınav görevlisi ünvanı konusunda titiz davranmayarak silahını çarpıştırmakta karar kıldığı bir rakibin kaçmasına müsaade etmez, olur biterdi. Her hâlükârda…</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“——Demek öyle. Madem yoldan çekilmiyorsun, öyleyse başka çaremiz yok.”</p>
+<p class="wp-block-paragraph">Emilia’nın bu durumun talihsizliği nüansıyla tıkanmış uzunca bir iç çekişle verdiği yanıt, Reid’e saldırma kararı aldığını yeterince açık ediyordu.</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Üzgünüm.”</p>
+<p class="wp-block-paragraph">Bu kelimenin hedefiyse yüzleşmekte olduğu Reid değil, omuzlarında taşıdığı Subaru’ydu ve Subaru, bunu bir saniye geç fark edebilmişti.</p>
+<p class="wp-block-paragraph">Çünkü bir saniye sonrasında bedeni Emilia’nın omuzlarından alınarak kibarca yanlarındaki Beatrice’e teslim edilmişti.</p>
+<p class="wp-block-paragraph">——Ve Emilia aynı saniyede bir mermi hızıyla koridoru aşarak buz kılıcını Reid’e savurmuştu.</p>
+<p class="wp-block-paragraph">Ortamda tiz bir ses yükseldi, don oluştu ve güzel ama acımasız buz bıçağı, yayılan dumanların içerisinde gizlenerek koridor boyunca dalgalandı. Ne olursa olsun hiç tereddütsüz hayati bir yarayı hedefleyen bu saldırı—— Emilia’nın harekete geçmekte karar kılışı sonrasında en ufak bir bocalama olmadan gerçekleştirilmişti. Bu, onca mücadeleden sonra açıkça anlaşılan bir şeydi.</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“——Haaa!”</p>
+<p class="wp-block-paragraph">Ancak Subaru’nun gözlerinin nihayet yakalayabildiği kesik saldırısı, yani pusuyu andıran darbe, Reid’in rahat giysisinin göğüs cebinden çıkartarak elinde tuttuğu yemek çubuklarını kullanışıyla rahatlıkla karşılandı.</p>
+<p class="wp-block-paragraph">Reid’in özel silahı olarak yemek çubuklarını kullanışını ilk görüşleri değildi. Bununla birlikte kaç kez görürseniz görün alışamayacağınız bir manzaraydı. Anormallik anormallikti, onları kabullenmek bir başka olurdu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Aaaaay!.. Emilia-chan!”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“S-Subaru! Kendini zorlama, doğrusu! Kımıldama, sanırım!”</p>
+<p class="wp-block-paragraph">Subaru, Reid’in anormal kılıç ustalığı karşısında Emilia’nın güvenliğinden endişe duyarak bağırdı. Subaru’ya kendisine iyi bakması için yalvaransa Emilia’nın Subaru’yu bir anda bırakıp emanet ettiği Beatrice oldu.</p>
+<p class="wp-block-paragraph">Koridora diz çökmüş şekilde o minyon beden tarafından desteklenen Subaru, gözlerini açık kalmaya zorluyordu.</p>
+<p class="wp-block-paragraph">Bu esnada Emilia parçalanan, daha doğrusu yemek çubukları tarafından kesilen silahlarını yenilemişti ve ışıltılı elmas tozları içerisindeki bir peri misali kılıç dansı performansına devam ediyordu.</p>
+<p class="wp-block-paragraph">Sıradaki saldırıyı da püskürten Reid, bir köpekbalığı misali “Hahaa!” diye gülerek…</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Hah! Tam da beklenildii gibi, hızlı kaptın, hiddetli çıtır! Ama, sen, bilmiyo musun? Senin Sınavın çoktan bitmişti, anlarsın ya?”</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Öyleyse! Diğerlerini de geçir!”</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Oyoy, ne boktan bi mantık bu, heyt. Bunu yapmak için hiçbi sebebim yok ki.”</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Senden rica ediyorum!”</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Böyle yalvarmanın tatlı bi yanı yok. Şimdi, çıkar o kıyafetleri, sana diyorum.”</p>
+<p class="wp-block-paragraph">Emilia ciddi bir ifadeye bürünmüş olsa da yakarışları Reid’in kulaklarında hiçbir etki doğurmamıştı.</p>
+<p class="wp-block-paragraph">Reid, tıpkı ilk saldırıda olduğu gibi ikinciyi ve sonrasında gelenleri de yemek çubuklarıyla sergilediği canlı tekniklerle savuşturuyordu, bu yaptıkları akıl alır gibi değildi. Subaru, gördüğü o anormal kılıç ustalığı karşısında açık kalan ağzını kapatamıyordu.</p>
+<p class="wp-block-paragraph">Elbette Reid’in su götürmez uzmanlığı bilinmedik bir şey değildi.</p>
+<p class="wp-block-paragraph">Bununla birlikte Emilia, Oburluk ve devasa akrep şeklindeki düşmanlar karşısında bir adım olsun geri çekilmemiş, çeşitli savaşçılara kıyasla ezici bir kabiliyet sergilemişti. En az yüz Subaru bir araya gelse bile Emilia’ya rakip olamazdı—— Ama Reid için Emilia’yla savaşmak, kelimenin tam anlamıyla çocuk oyuncağıydı.</p>
+<p class="wp-block-paragraph">Emilia’nın saldırı ve savunmasının ya hep ya hiç ruhunu taşıyor oluşu Reid’in gözünde beceriksiz bir çocuğun sergilediği oyundan ibaretti.</p>
+<p class="wp-block-paragraph">Yalnızca birkaç etkileşimin sonunda Emilia’nın ona ulaşamayacağı anlaşılmış ve mağlubiyeti tatmıştı. Kabiliyet farkları eğitimsiz gözler tarafından bile tespit edilebilecek derecede muazzamdı. Ancak——</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“——Tüm gücünü kullanmaktan kaçınma sebebi mi? Gayet basit olmalı.”</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Haaah?”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Çünkü sen, burada, Ram ve diğerlerinin ellerinden nahoş bir mağlubiyet tadacaksın.”</p>
+<p class="wp-block-paragraph">Minyon bedeniyle savaş alanına giriş yapan Ram, Reid’in arkasında pozisyon alarak böyle söyledi.</p>
+<p class="wp-block-paragraph">——Ve Reid’i arkadan yakaladı.</p>
+<p class="wp-block-paragraph">Başlı başına bu bile fazlasıyla takdire şayandı ancak Ram’ın korkutuculuğu bununla da sınırlı değildi.</p>
+<p class="wp-block-paragraph">Emilia, rakibi Reid Astrea’ya acıma bilmeksizin saldırıyordu. Ram da tanrısal bir içgüdüyle zamanlamasını, duyularına dayanarak savaşan Emilia’ya uyduruyordu.</p>
+<p class="wp-block-paragraph">İşte tam da bu, Emilia’nın -Subaru’nun tam olarak çözememiş olduğu- ilk sürpriz saldırısıydı—— gerçekten çözülüp çözülemedikleri sorusunu doğuran ve işin doğrusu sahiden de çoktan çözülmüş izlenimi veren hareketlerdi.</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong> “————”</p>
+<p class="wp-block-paragraph">Hemen ardından Ram’ın savurduğu yumruğu, Reid’in günlük kıyafetinin yan bölgesine saplandı.</p>
+<p class="wp-block-paragraph">Darbe anında et ve kemiklerin gıcırdama sesleri yükselirken Ram’ın beyaz yumruğunun delici kuvveti Reid’in iç organlarına doğru nüfuz etti ve koridor, yerini korumaya devam eden Reid’in ayaklarının dibinden parçalandı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ulaştı mı… Hık!?”</p>
+<p class="wp-block-paragraph">Bu manzaraya bakan Subaru, hiç düşünmeden Beatrice’i sımsıkı kucakladı.</p>
+<p class="wp-block-paragraph">Tezahürat etmek istiyor ama ağzından daha fazla ses dökülemiyordu. Bunun yerine bedeninin kanı kaynıyormuşçasına ısındığını hissediyordu. Çünkü -Subaru’nun bildiği kadarıyla- bu, Reid’in süper bir şansın eseri olmadan aldığı ilk darbeydi.</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Ha AHHHHH!——”</p>
+<p class="wp-block-paragraph">Ram’ın narin kollarından akıl almaz bir güçle savrulan yumrukları fırtına misali Reid’i dövüyordu. Reid ise o darbeleri savunmasız alt bedeniyle karşılıyor ve geri çekiliyordu.</p>
+<p class="wp-block-paragraph">Tamamen defanstan yoksun değildi. Yalnızca iki yemek çubuğunu Emilia’nın azılı saldırılarını engellemek için kullanırken Ram’ın saldırıları karşısında sergileyebileceği doğrudan bir defansın eksikliğini çekiyordu.</p>
+<p class="wp-block-paragraph">Böylelikle Ram’ın muazzam yumruklarının kudretiyle baskılanan Reid’in bedeni büyük bir güçle geri itildi.</p>
+<p class="wp-block-paragraph">Ve o uçadururken Emilia, yaratmış olduğu ikiz kılıçları iki elinden fırlattı, kılıç kesiklerinin Reid’in yemek çubuklarını savuruşuyla yok edilecek bir yay çizişinin hemen sonrasında da Reid, uzuvları dört bir yana yayılmış hâlde koridora yığıldı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Yoksa, başardılar mı?..”</p>
+<p class="wp-block-paragraph">Reid’in yığılıp kalarak koridora dümdüz yattığını gören Subaru, gözleri irileşmiş şekilde hayretler içerisinde fısıldadı.</p>
+<p class="wp-block-paragraph">Emilia’nın sürpriz saldırısını karşılamak son çaresizce taktiği olurken tadına baktığı şey, diğer rakibi Ram’ın saldırıları olmuştu. İnen her darbe, kemiklerini çatırdatacak güçteydi.</p>
+<p class="wp-block-paragraph">Emilia’nın zorlu mücadelesi ortadaydı ama belki de Reid’in mağlubiyet sebebi, Ram’ın savaş gücünü yanlış hesap etmesiydi.</p>
+<p class="wp-block-paragraph">“Cor Leonis’in” etkisiyle herhangi bir mâni olmadan hareket edebilen Ram’ın kabiliyeti, Reid ciddileşemeden önce rakibinin bilincini kapatmaya yetmişti——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Hık! Şu anda onu çabucak bağlayabilir ve savaşamaz hâle getirebilirsiniz! Emilia-chan! Onu buzunla kısıtla…”</p>
+<p class="wp-block-paragraph">Zaferlerini onaylamasının öncesinde bir anlığına düşünceleri duraksasa da son derece kıymetli bu durumu göz ardı edemezdi. Panikleyen Subaru, Emilia’ya Reid’i kısıtlama emri verdi.</p>
+<p class="wp-block-paragraph">Aynı hızla büyük çabalar sarf eden Ram’a da seslenmeye çalışırken——</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“…Subaru, sağlığın, ne zaman yerine geldi?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Eh?”</p>
+<p class="wp-block-paragraph">Subaru’nun bedenini destekleyen Beatrice, ansızın bu soruyu yöneltti.</p>
+<p class="wp-block-paragraph">Bu şüpheyle karşılaşan Subaru’ysa yavaşça bacaklarının üzerinde durarak Emilia’ya talimatlar yağdırdığı gerçeğinin farkına vardı—— İçini bir lanet gibi yiyip bitiren ıstıraptan eser kalmamıştı.</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“——Ka, uğğğf”</p>
+<p class="wp-block-paragraph">Bunun ne anlama geldiğini anlamasının hemen sonrasındaysa Ram’ın bedeni şiddetli titremeler eşliğinde yalpaladı.</p>
+<p class="wp-block-paragraph">Sırtı onlara dönük olan bedeninin üst yarısı yana doğru eğildi ve vücudunu destekleyemeyerek dizlerinin üzerine yığıldı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ram!!”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Kuğh!”</p>
+<p class="wp-block-paragraph">Elini bile uzatamayan Ram, ipleri kesilmiş bir kukla misali yığılıp kalırken onun yığılan bedenine atılan kişi, savaşa dahil olmak için bir boşluk kollayan Julius oldu.</p>
+<p class="wp-block-paragraph">Ram’ın bütünüyle tükenmiş bedenini destekleyen Julius, donuk bir ifadeyle genç kızın durumunu teyit etti. Bu donukluğun sebebiyse Ram’ın suratının rengi ve kıyafetlerini boyayan yoğun kırmızı kanlardı.</p>
+<p class="wp-block-paragraph">Ram’ın kanamasını durdurmuş olduğu karnındaki yaradan fena hâlde kan akıyordu. Kan kaybının hayatı için ciddi bir tehlike teşkil ettiği doğru olsa da mesele bundan ibaret değildi.</p>
+<p class="wp-block-paragraph">Asıl sorun, Subaru’nun iyileşmesiyle bağlantılıydı. Başka bir deyişle——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Cor Leonis’in etkisi, kesildi…”</p>
+<p class="wp-block-paragraph"><strong>???:&nbsp;</strong>“——A~h, demek nihayet kesildi, heyt. Sana diyorum, böyle sıkıcı haltlar yeme. Sen sadece bi kadının arkasına saklanmıyo muydun? Balıkçıkların yüz karasısın, sana diyorum.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Nutku tutulmuş Subaru’nun önünde yığılıp kalmış hâlde yatan Reid, iki ayağını birden savurup yerleştirerek enerjik bir şekilde ayaklandı. Sonra da sırtını hafifçe dövüp temizledi ve yemek çubuklarını kavrayarak kollarını omuzlarından daireler çizecek şekilde salladı.</p>
+<p class="wp-block-paragraph">Ram’ın darbelerinden hiç hasar almamışçasına sergilediği tavrı düşünmek başlı başına Subaru’nun bedenini titretmeye yetse de onu esas tedirgin eden sonrasında söyledikleriydi.</p>
+<p class="wp-block-paragraph">——Reid, nihayet kesildi demişti. Peki, bahsettiği şey neydi?</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Bu şekilde oynamak daima sıkıcı oluyo. Her şeyden önce, bağırsakların paramparça olmuşken ne bi acı ne de ağrı duyman gibi bi şeyle benimle kafa mı buluyodun, sana diyorum.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Vo, ah…”</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Bu işi mükemmel bi şekilde yapmak istediiini söylüyosan karşına çıkanı kabullenmeyi de bilceksin. Ama, bunun işi bitti. Sana diyorum, bunun işi bitti, anlarsın ya. Bu kadın, kesilmeden önce de ölecekti zaten.”</p>
+<p class="wp-block-paragraph">Reid’in kısık sesle söyledikleriyle gözü korkan Subaru, bakışlarını Julius’un kollarındaki Ram’a çevirdi. O bakışları karşılayan Julius ise hafifçe çenesini kımıldattı.</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Doğru söylüyor. Ram Hanımın yaraları hafife alınacak cinsten değil. Şu anda dahi ölüm döşeğinde.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Hık.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Kanamasının durmama sebebi kanın pıhtılaşmasına mâni olan bir kimyasalın kullanılmasından kaynaklı olabilir. Bunun dışında vücudunu aşırı zorlamasının geri tepişi de etkili olmalı.”</p>
+<p class="wp-block-paragraph">Julius’un analizinin her bir kelimesi, Subaru’nun göğsüne acı verici bir yarık açmaya teşebbüs ediyordu.</p>
+<p class="wp-block-paragraph">O, başarısız olmuştu—— Subaru’nun Cor Leonis’i, onun kayıtsız başarısızlığıyla örtüşüyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp; “————”</p>
+<p class="wp-block-paragraph">Ram’ın düşük fiziksel formunu devralarak onun savaşabileceği koşullar yaratmıştı.</p>
+<p class="wp-block-paragraph">Hatalı bir muhakeme olmasa da Ram’ın aldığı yaraları hiçe saymıştı—— yo, asıl Ram’ın o yaraları hiçe sayması hataydı.</p>
+<p class="wp-block-paragraph">Subaru o yaraların doğurduğu acı ve ıstırabı üstlendiği takdirde Ram, yaralarının ciddiyetinin bilincinde olamazdı. Ve Ram yaralı olmadığını düşündürecek şekilde hareket ettiği takdirde de Emilia hiçbir şeyin farkına varamazdı.</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Duyu paylaşımına dayalı Nect’e benzer bir büyü, belki de ondan biraz veya tamamen farklı. Kullanılması çok daha zor bir şey. Ve sen, bunu kesip sonlandırdığını söylüyorsun.”</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Görünmez şeyleri kesmekte iyiyimdir, anlarsın ya. Eh, işin püf noktası sezgiler. Bununla birlikte azıcık da zaman harcadım. Epey sağlam bi darbe aldı.”</p>
+<p class="wp-block-paragraph">Reid, Ram’ın fırtına misali yumruklarını yeme sebebini abartıyordu. Yine de esas konuya dönecek olursak, aldığı hasarı neredeyse hiç hissedemediği doğruydu.</p>
+<p class="wp-block-paragraph">Bunun ardındaki numaraysa Julius’un ağzından dökülmüştü. Ram’ı kucaklamayı sürdüren Julius, bakışlarını usulca yere indirerek—— yakın dövüşün parçaladığı koridora çevirdi.</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Ram Hanımın tüm saldırılarının ayağının altından yere kaçmasına müsaade ettin, ha.”</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Bu, bi kadın arkadaşımın, Trisha’nın iyi olduğu bi teknikti, anlarsın ya.”</p>
+<p class="wp-block-paragraph">“Kaha” şeklinde bir kahkaha atan Reid, ayağındaki<em> zoriyi</em> sertçe koridora geçirdi.</p>
+<p class="wp-block-paragraph">Titremeye devam eder hâlde ikili arasındaki konuşmayı işiten Subaru’ysa göz ucuyla koridordaki yarıklara baktı. Zeminin aldığı sayısız yara, Reid’in Ram’ın saldırılarını koridora yönlendirdiğinin kanıtıydı.</p>
+<p class="wp-block-paragraph">Belki de darbelerin etkisini başka bir yere yönlendirmeye yönelik bir teknikti—— Dövüş sanatlarının zirvesi olduğu söylenebilirdi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“…Ah.”</p>
+<p class="wp-block-paragraph">Gerçek şu ki Ram’ın ilk darbesi indiğinde Subaru da koridorda muazzam bir yarık açıldığına kendi gözleriyle tanık olmuştu. Bu, ardından gelen tüm darbeler için de geçerli olmuştu.</p>
+<p class="wp-block-paragraph">Osu busu derken tüm bunlar——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ben ve Ram arasındaki bağlantıyı kesmek için miydi?.. En başta, bunu nasıl…”</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Dedim ya. Kesmek istediimi keser, yaşamak istediim yerde yaşar ve yatmak istediim kadınla yatarım—— Ben de mırıldana mırıldana o sıkıcı oyunu kestim gitti.”</p>
+<p class="wp-block-paragraph">Umursamaz bir hayat sürmek, Reid’in işiydi.</p>
+<p class="wp-block-paragraph">Görülmesi mümkün olmayan şeyleri kesebilmek. Fizikse olarak var olmayan bağlantıları koparmak. İşte bunları yapabiliyor olmak, “Kılıç Azizi” denen varlığın gerçek kabiliyetiydi.</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Ama, ben bir sürü güç kullanarak sana yukarıdan saldırdığımda canın yanmıştı!..”</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“O sıralar durum farklıydı, anlarsın ya, hiddetli çıtır. Şu anda Sınavdan ziyade dövüşten keyif almak için burdayım. Ortada bi dövüş varsa Sınava kıyasla daha ciddi olman gerekir, anlarsın ya. Yoksa sen aynı fikirde diil misin, sana diyorum?”</p>
+<p class="wp-block-paragraph">Emilia’nın yanıtını kesip püskürten Reid, burnundan homurdanarak yemek çubuklarını hazırladı. Onlara normal bir yemeğe başlamak üzereymişçesine pozisyon aldırdıktan ve uçlarını Julius’a çevirdikten sonraysa mavi gözleri alev alev parladı.</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“İşte böyle. Sen ne söylediiimi anlıyosun di mi, heyt, sana diyorum. Sen. Oy, sana diyorum.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“——Bu meseleyi, kılıçla çözmek. Niyetin bu, doğru mu?”</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Aynen, doğru. Sana şöyle söyliim, kılıç dışındaki tüm o lanet olasıca şeylere de müsaade edicem, anlıyo musun? İster büyü yapmak iste, ister benimle çarpışmak, hiç sorun diil. Eğer bana karşı galip gelmek istiyosan…”</p>
+<p class="wp-block-paragraph">Diyen Reid, büyük bir cesaretle parmağıyla göğsüne dokunarak kalbini işaret etti.</p>
+<p class="wp-block-paragraph">Başka bir deyişle, hayatına son vermenin tek yolu buydu, ifadesi bunu anlatıyordu.</p>
+<p class="wp-block-paragraph">Bu da Subaru’nun savaş başlatma kartının doğru olduğunun kanıtıydı——</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Neden, bana takılıp kalmak zorundasın?”</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Ahhh? Ben mi sana takılıp kalıyorum? Hadi amaa. En çok da güzel yüzlerle tatlı sözlerden ibaret piçlerden nefret ederim, öyle dii mi? Üstelik, sana ne diye takılayım ki?”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Öyleyse…”</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“——Asıl senin bana takılıp kalmak için bi sebebin var. Şimdi çekilirsem sorun olmiicağını mı düşünüyosun gerçekten?”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Reid’in Julius’a verdiği yanıt, net şeklinde tanımlanamazdı.</p>
+<p class="wp-block-paragraph">Kendisi de her şeyi kelimelerle dile getirmeye değer biçen bir ırka mensuptu. Ayrıca yanıtının büyük bir kısmı heyecana benzer, algılanması zor bir şeyin etkisi altındaydı.</p>
+<p class="wp-block-paragraph">Lakin bunun anlamını çözenlerin alabildiği yanıt yalnızca şununla sınırlı oldu——</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“——Çıh. Bi baş belası geldi.”</p>
+<p class="wp-block-paragraph">Ve Reid, daha bu yanıtın sindirilme fırsatı olmadan dilini hoşnutsuzlukla şaklattı.</p>
+<p class="wp-block-paragraph">Bu şaklatışın ardındaki sebepse Subaru ve diğerlerinin aşmış olduğu koridorun içerisinden kendisini gösterdi—— yo, bir hâle formunda üzerlerine çullandı.</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Subaru!”</p>
+<p class="wp-block-paragraph">O halenin Subaru’yu buharlaştırmasına ramak kala Emilia’nın buz kılıcı ikiliyi birbirinden ayırıp uzaklaştırdı. Buzun kırılma sesi yankılanırken de püskürtülen ışık, koridora saplandı—— Ve son derece uzun bir kuyruk iğnesi, aşınırcasına yitip gitti.</p>
+<p class="wp-block-paragraph">İşte bu, Bilge’nin Gözcü Kulesi’nin gardiyanı tarafından gerçekleştirilen vaftizdi——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Shaula.”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong> “————”</p>
+<p class="wp-block-paragraph">Koridorun içerisinde beliren kırmızı, bileşik gözlerle çok bacaklı devasa akrep kendini göstermişti. Simsiyah kabuğu ve şeytani irilikte kıskaçlarıyla hem uğursuz hem de sağlıklı görünüyordu.</p>
+<p class="wp-block-paragraph">Bununla birlikte, o devasa akreple çarpışır hâlde geride bıraktıkları Ray, ortalarda yoktu. Akrebin üzerinde kan izi olmasa da eğer Ray, o akrebin ellerinde mağlubiyeti tattıysa her şey yolunda demekti. Fakat,</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Reid ve Shaula, aynı zamanda…”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“S-Subaru…”</p>
+<p class="wp-block-paragraph">İki hatırı sayılır düşmanın arasında, dikkatsizce hiçbir eylem gerçekleştiremeyecekleri bir durumun ortasında kalırlarken Beatrice, titrek bir sesle Subaru’ya seslendi.</p>
+<p class="wp-block-paragraph">Dönüp ona bakan Subaru’ysa betinin benzinin atmış olduğunu fark etti. Beatrice’in ifadesini korku bürümüştü ve Subaru, onu sımsıkı göğsüne bastırdı.</p>
+<p class="wp-block-paragraph">Onun göğsündeki huzursuzluğu öyle ya da böyle yatıştırma amaçlı kelimeleri arayarak,</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Beatrice, sorun yok. Henüz bir plan bulmayı başaramamış olsak da sorun yok. Toparlamak hâlâ…”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Ondan değil, sanırım, ondan değil, doğrusu! ——O geliyor, sanırım!”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“O mu geliyor?”</p>
+<p class="wp-block-paragraph">Gözleri irileşen ve ifadesi değişen Beatrice’in endişelerini işiten Subaru, bir kez daha akrebe doğru baktı.</p>
+<p class="wp-block-paragraph">Reid oradaydı, Shaula da diğer taraftaydı ki bu da tamı tamına tehlike demekti. Korkunç varlıkların toplaştığı bir durumda dahil olan şey ise——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Yok artık.”</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Size demiştim, di mi! Bi baş belası geldi diye.”</p>
+<p class="wp-block-paragraph">Reid, Subaru’nun aklından geçen düşünceyi onaylarcasına böyle söyledi.</p>
+<p class="wp-block-paragraph">Ses tonu ciddiydi, durumu sindirmekte zorlanırmış gibi bir hâli vardı.</p>
+<p class="wp-block-paragraph">——Hemen sonrasında şiddetli bir depremi andıran bir etki, ayaklarına ulaşarak Pleiades Gözcü Kulesini sarstı.</p>
+<p class="wp-block-paragraph"><strong>???: </strong>“————”</p>
+<p class="wp-block-paragraph">Subaru o etkinin bedenine ulaştığını hissettiğindeyse hiç abartısız dünyası altüst oldu.</p>
+<p class="wp-block-paragraph">Herhangi bir teknik bile kullanılmaksızın havaya fırlatılmıştı—— Subaru’nun görüş alanındaki kişiler, yani bu fantezi dünyasının sakinleri de sırasıyla hayret uyandırıcı hareketler sergiliyordu.</p>
+<p class="wp-block-paragraph">Havadaki Emilia, buzla yaratmış olduğu dayanağı tekmeleyerek yoldaşlarına—— yo, Subaru’ya doğru ilerliyor gibi görünen akrebin ardı ardına fırlattığı kuyruk iğnelerini püskürtüyordu.</p>
+<p class="wp-block-paragraph">Julius, çaprazlama eğilmiş dünyada duvarın üzerinde hızla koşarak Reid’e yaklaşıyor ve Şövalye kılıcıyla indirdiği elit bir darbeyle mücadeleyi başlatıyordu.</p>
+<p class="wp-block-paragraph">Ve Beatrice ise Ram’a sımsıkı sarılarak onu kendine yakın tutan Subaru’ya doğru sıçrıyordu.</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“——Murak!”</p>
+<p class="wp-block-paragraph">Beatrice’in bu büyüyü yaptığı saniyede Subaru, çarpışmadan farklı olarak askıya alınıp durdurulma şeklinde bir hisse kapıldığını duyumsadı. Bu, yerçekiminden kurtulma, yerçekimsiz bir dünyaya fırlatılma tarzında bir histi.</p>
+<p class="wp-block-paragraph">Bu etki onun altüst olan dünyasını onarmak gibi ufak bir şeyle sınırlı değildi.</p>
+<p class="wp-block-paragraph">Sırasıyla her biri, elinden gelenin en iyisini eyleme döküyordu——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Ah.”</p>
+<p class="wp-block-paragraph">Ve yoğun kara gölgeler, onların en iyi eylemlerini alaya alırcasına kuleyi bütünüyle yutuyordu.</p>
+<p class="wp-block-paragraph"><strong>???:</strong> “————”</p>
+<p class="wp-block-paragraph">Korkunç bir baskı yankı buluyor ve yalnızca taştan olduğuna inanmayı zor kılacak kadar güçlü gözcü kulesi tamamıyla un ufak oluyordu. İşte bu, normal şartlarda bir kütleye sahip olmaması gereken gölgenin zulmüydü.</p>
+<p class="wp-block-paragraph">Yıkıcı bir olaydan ziyade doğal afete yakın darbenin gelişi, bu dünyanın insanüstü denilebilecek kadar olağanüstü kabiliyetlere sahip bireylerini bile yutup çiğniyordu.</p>
+<p class="wp-block-paragraph">Devasa akrebe karşı çıkıp büyüsünü ve fiziksel kabiliyetlerini özgürce kullanarak cesurca bir mücadele veren Emilia da.</p>
+<p class="wp-block-paragraph">Şövalye kılıcını savurup kendisi tarafından eğlendirilen efsaneye doğru hücum eden Julius da.</p>
+<p class="wp-block-paragraph">Subaru’yu koruyup ufak bedeniyle büyü yapan Beatrice de.</p>
+<p class="wp-block-paragraph">Işıl ışıl parladıkları o mühim anda uzanan gölgeler birbirine dolanıyor ve hepsi görünmez oluyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong> “————”</p>
+<p class="wp-block-paragraph">Emilia ve diğerlerinin formları sessiz, yankısızca yitiyordu.</p>
+<p class="wp-block-paragraph">Vücutlarının başına gelen bu şeye nasıl bir isim verilmeliydi, Subaru buna uygun kelimeleri kendi benliğinde bulamıyordu.</p>
+<p class="wp-block-paragraph">Net olarak söyleyebileceği tek bir şey vardı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong> “——Başarısız oldum.”</p>
+<p class="wp-block-paragraph"><strong><em>???: </em></strong><em>“——</em><em>Seni seviyorum.</em><em>” </em><em></em></p>
+<p class="wp-block-paragraph">Gerçekliği kabul edişiyle karanlık aşk kelimelerinin fısıldanışı aynı anda gerçekleşmişti.</p>
+<p class="wp-block-paragraph">Kulaklarına fısıldanırken veya öpülürken veya tüm bedeni kucaklanırken veya ruhu okşanırken işitilen tüyler ürpertici, doğrudan, aşk timsali kelimeler.</p>
+<p class="wp-block-paragraph">Subaru, o anda anlamıştı. Beş engel içerisindeki en büyük problemi bulmuştu.</p>
+<p class="wp-block-paragraph">Her şeyi yutan gölge gelmişti ve onunla baş etmenin mümkün olup olmadığı bile başlı başına sorgulanasıydı. &nbsp;</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong> “————”</p>
+<p class="wp-block-paragraph">Bu, o gölgeyi üçüncü görüşüydü ve onunla karşılaştıkları her seferde canından olmuştu.</p>
+<p class="wp-block-paragraph">Bu sefer de bir istisna değildi, o gölge geldiğine ve kendisine uzandığına göre——</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“——Sana diyorum, uyumayı düşünerek ne bok yiyosun, oy!”</p>
+<p class="wp-block-paragraph">O saniyede Subaru’yu kuşatan kapkara gölgeler, savrulan bir ışık tarafından biçildi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Şaka yapıyor olmalısın.”</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Gözlerini iyice aç da bak. Ne şakası, sana diyorum. Sana diyorum, şu gözlerini aç. Gözlerini aç da etrafına güzelce bak, sana diyorum. Benim nerem şaka yapıyomuş!”</p>
+<p class="wp-block-paragraph">Rahat bir havayla Şövalye kılıcını savurarak böyle söyleyen ve gölgeleri kesen kişi Reid’di. Evet, kuşanmış olduğu silah yemek çubukları değil, bir Şövalye kılıcıydı—— Julius’a ait bu kılıcı savurarak burnundan nefes veriyordu.</p>
+<p class="wp-block-paragraph">Sahibini yitirmiş kılıcın sahibindense Kılıç Azizi’nin ellerinde daha çok yetenek sergiliyor olması gerçekten ironikti fakat şu anda bunları düşünmeye ayıracak zamanları yoktu.</p>
+<p class="wp-block-paragraph">Çünkü dimdik duran Subaru, Reid’in <em>zorisi</em> tarafından gövdesine tekme yemişti.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Guhu, eğh.”</p>
+<p class="wp-block-paragraph">Dar koridorun içerisinde asılı duran bedeni ne tavana ne de duvarlara çarpabiliyordu.</p>
+<p class="wp-block-paragraph">Gözcü kulesinin hatları çoktan yok edilmişti ve artık neresi tavan, neresi duvar bilemiyordu. Şu anda Subaru’yu çevreleyen şey sonu gelmez kara bir tavan, sonu gelmez kara bir taban, sonu gelmez kara bir dünyaydı.</p>
+<p class="wp-block-paragraph">Her ama her şey algılanamaz hâle gelmişti—— Yo, kollarının arasında belli belirsiz bir ısı mevcuttu.</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“——Ih.”</p>
+<p class="wp-block-paragraph">Bilinçsiz, baygın Ram’ın ılık bedeni varlığını öne sürüyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Hık.”</p>
+<p class="wp-block-paragraph">Azı dişlerindeki kuvveti kullanıp dudaklarını ısırıp parçalayan Subaru, yaşamı kendi benliğine yönlendiriyordu.</p>
+<p class="wp-block-paragraph">Her şeyin siyaha boyandığı o anda durumu algılamaktan vazgeçerek bedenini basitçe sonuna havale ediyor değildi.</p>
+<p class="wp-block-paragraph">Şu anda yaşamak için elinden gelenin en iyisini yapan o canın önünde bu, affedilmezdi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Yine de… bir şeyler…”</p>
+<p class="wp-block-paragraph">Durum bu olsa da elde edebileceği bir şeyler olmalıydı.</p>
+<p class="wp-block-paragraph">Subaru şu ana dek bu simsiyah, şeytani etki tarafından iki defa yutulup ölmüştü. Ancak iki sefer de çok ani olmuş ve bunu yapmaya ayıracak vakit bulamamıştı.</p>
+<p class="wp-block-paragraph">Bu yolla elde ettiği şeyler, kırılgan canını öne süren Ram ve——</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“——Haaah.”</p>
+<p class="wp-block-paragraph">Subaru’yla aynı gölgenin içerisinde bulunarak acımasızca gülümseyen Reid’in attığı tekmeydi.</p>
+<p class="wp-block-paragraph">Elbette o tekme için minnettar değildi.</p>
+<p class="wp-block-paragraph">Karın çukuru oyulmuşçasına canı acımıştı ve daha en başta gölgeler kuleyi yutana dek zaman kaybetme sebepleri Reid’in gereksiz müdahalesiydi.</p>
+<p class="wp-block-paragraph">Bu yüzden——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Sen de ezileceksin——Tanıdığım Şövalyelerin En İyisi tarafından.”</p>
+<p class="wp-block-paragraph"><strong>Reid:</strong>&nbsp;“Demek, son ana dek, havalı davranmaya devam ediyorsun, ha, balıkçık.”</p>
+<p class="wp-block-paragraph">Diyerek aşağı bakan Reid, Şövalye kılıcını tersten kavrayarak Subaru’yu hedef aldı. Aralarında biraz mesafe olsa da Reid’in bakış açısından birkaç metre gibi bir mesafe yok gibi bir şey olsa gerekti.</p>
+<p class="wp-block-paragraph">Ve Subaru’yu düşmanı belleyen Reid’in aşağısından da canlı, kapkara gölgelerin ilerleyişi sürüyordu. Böyle bir şey bile Reid’in kılıç ruhu karşısında pek önem taşımayabilirdi.</p>
+<p class="wp-block-paragraph">Subaru, henüz farkında olmasa da buna tanık oluyor olabilirdi.</p>
+<p class="wp-block-paragraph">Uzun bir süre önce -söylentilere göre dört yüz yıl önce- Cadı ve Kılıç Azizi efsanevi bir şey gerçekleştirmişti.</p>
+<p class="wp-block-paragraph">Absürt bir yıkım ve şiddet, yani Ölüm, Subaru’ya yaklaşırken böyle bir şey yetersiz kalsa da——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Hiç değilse…”</p>
+<p class="wp-block-paragraph"><em>Birkaç saniyecik daha hayatta kalmanı istiyorum.</em></p>
+<p class="wp-block-paragraph">Bütünüyle bu arzuyla sarmalanan Subaru, kollarının arasındaki Ram’ın bedenini sıkıca kucakladı.</p>
+<p class="wp-block-paragraph">Bir an sonraysa bir kılıçtan çıktığına inanmanın mümkün olmadığı bir ışık seli, Subaru’yu yuttu——</p>
+<p class="has-text-align-center wp-block-paragraph">※　※　※　※　※　※　※　※　※　※　※　※　※</p>
+<p class="wp-block-paragraph">——Her silinişinde, her tekrar edişinde, her dilek dileyişinde, o vahşetle karşı karşıya kalıyordu.</p>
+<p class="wp-block-paragraph">Sayısız kez tekrar ediyor da ediyor, yalnızca bir defa gerçekleşmesi gereken sonları biriktirmeyi sürdürüyordu.</p>
+<p class="wp-block-paragraph">Ansızın, bir şey düşündü.</p>
+<p class="wp-block-paragraph">Daima son anında yanında birinin olması, sevinilesi bir şey olabilirdi.</p>
+<p class="wp-block-paragraph">Son saniyelerinde asla yalnız kalmamak, ona ayakta duracak gücü bahşediyordu.</p>
+<p class="wp-block-paragraph">Ama bununla birlikte, bir şey daha düşünüyordu.</p>
+<p class="wp-block-paragraph">Natsuki Subaru neden son anlarında yanına aldığı kişileri kurtarmayı asla başaramıyordu?</p>
+<p class="has-text-align-center wp-block-paragraph">※　※　※　※　※　※　※　※　※　※　※　※</p>
+<p class="wp-block-paragraph"><strong>???: </strong>“————”</p>
+<p class="wp-block-paragraph">Kum bulutları, göğün asla ulaşmamaları gereken yüksekliklerine erişiyordu.</p>
+<p class="wp-block-paragraph">Pleiades Gözcü Kulesinin yerden metrelerce yukarıda yer alan balkonunun altından, kuleyi alaşağı etmek için saldırılarını başlatan Cadı Canavarı sürüsü yaklaşıyordu.</p>
+<p class="wp-block-paragraph">Cadı Canavarlarını kontrol etme kabiliyetiyle onları uzakta tutan Meili, büyük çabalar sarf ediyordu.</p>
+<p class="wp-block-paragraph">Julius yukarıya, İkinci Kattaki Reid’e doğru ilerliyordu.</p>
+<p class="wp-block-paragraph">Ve Subaru ile diğerlerinin de Ray Batenkaitos’la çarpışan Emilia ve diğerlerine katılmak için acele etmesi gerekiyordu——</p>
+<p class="wp-block-paragraph"><strong>???:</strong>&nbsp;“Ustam? Sen iyi misin?”</p>
+<p class="wp-block-paragraph">Subaru’nun çağrısına uyan kız boynunu eğmişti ve uzun, siyah örgüsü savruluyordu.</p>
+<p class="wp-block-paragraph">Bu soruyu sorarken ifadesinde ve gözlerinde sabırsızlık veya rahatsızlık gibi duygular sezilmiyordu. Elbette onları aldatmayı planladığına dair bir kurnazlık ışıltısı da algılanmıyordu.</p>
+<p class="wp-block-paragraph">Bunun bir kamuflaj mı yoksa gerçek hisleri mi olduğunun kesin bir yanıtı olmasa da——</p>
+<p class="wp-block-paragraph"><strong>???:</strong>&nbsp;“Ustam, beni dinliyor musun? Ustam ve benim dışımdakiler sıkıntılı işlere bulaşmış gibi görünüyorlar ama… benim Ustam için yapabileceğim bir şey var mı?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ah, demek öyle… Benim için yapabileceğin bir şey, ha.”</p>
+<p class="wp-block-paragraph"><strong>???:</strong>&nbsp;“Hıı hııı. Ustam isterse ateşe, suya, koskoca patlamalara bile tüm enerjimle uçarım!”</p>
+<p class="wp-block-paragraph">Enerjik bir şekilde, hiçbir kötülük gütmeksizin, kollarını kocaman açarak bunları söyleyen kişi Shaula’ydı.</p>
+<p class="wp-block-paragraph">Onun o umursamaz gülümseyişine bakan Subaru, arkasını dönerek derin bir nefes aldı.</p>
+<p class="wp-block-paragraph">Geri dönmüştü. Bu ana, geri dönmüştü.</p>
+<p class="wp-block-paragraph">Yapması gerekenlerde hiçbir değişiklik yoktu. Kurtarılması gereken insanlar, mağlup edilmesi gereken düşmanlar vardı.</p>
+<p class="wp-block-paragraph">İşte bu yüzden, yolunu yitirmeden yapılması gereken her şeyi yerine getirmek adına zorunlu bir seremoniyi yerine getirmesi gerekiyordu.</p>
+<p class="wp-block-paragraph">O da şuydu——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Shaula, sana ne söylersem söyleyeyim dinleyecek misin?”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Tabii ki tabii ki! Ustam ne isterse istesin dinlerim! Ustamın talebiyse birazcık ekstrem olabilecek şeyleri bile dinlerim. Ah, ah, ah, acaba Ustam, nihayet dinamit gibi vücudum karşısında kendisini tutamaz hâle mi geldi? O yüzden mi herkesi bir yerlere gönderdin de baş başa kaldık? Ah, seni seni seni! Tanrııım, Ustam——”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Shaula.”</p>
+<p class="wp-block-paragraph">Kıvranıp dönen, yanaklarını elleri arasına sıkıştıran Shaula, Subaru’nun söyledikleri karşısında kızarmıştı.</p>
+<p class="wp-block-paragraph">Ancak Subaru, onun ağzından dökülenleri umursamıyor, ciddi bir ifadeyle yüzüne bakmayı sürdürüyordu. Ve sonra da——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Sana ölmeni söylersem, ölür müsün?”</p>
+</article>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+            <a href="arc6bolum55.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="arc6bolum57.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

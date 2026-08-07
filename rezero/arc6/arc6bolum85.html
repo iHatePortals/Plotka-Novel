@@ -1,0 +1,701 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VI, Bölüm 85 Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff; /* Görseldeki Açık Mavi / Cyan */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc6bolum84.html" class="nav-btn">← Önceki</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc6bolum86.html" class="nav-btn">Sonraki →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero Kısım VI, Bölüm 85</h1>
+            <div class="subtitle">Gut Luzır</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <!-- Metin buraya eklenecek -->
+             <p class="wp-block-paragraph">——Şövalyelerin En İyisi, kendini bu şekilde adlandırmak cesaret isterdi.</p>
+<p class="wp-block-paragraph">Başkaları tarafından bu şekilde anılmaktan, övülmekten gerçekten gurur duyuyordu.</p>
+<p class="wp-block-paragraph">Ama bugüne dek bir kez olsun kendisini “en üstün”, “en iyi” olarak adlandırdığı olmamıştı.</p>
+<p class="wp-block-paragraph">Günlerini bitmek bilmez çabalarla ve öğrenmeye yönelik azimli bir bağlılıkla geçirmenin gururunu taşıyordu.</p>
+<p class="wp-block-paragraph">Bununla birlikte yetersiz ve deneyimsiz kaderi içerisinde etrafını saran mükemmel öncülerin, saygı uyandıran yoldaşların ve takdire şayan astların sonu yoktu.</p>
+<p class="wp-block-paragraph">Üzücü olsa da bunu bir lütuf olarak görüyordu.</p>
+<p class="wp-block-paragraph">Birileri tarafından kabul görmek, yorucu çaba ve gayretlerin ödülü olmalıydı.</p>
+<p class="wp-block-paragraph">Hele hele herkes tarafından kabul görmek için o yorucu çaba ve gayretler olağanüstü görülecek kadar yoğun bir özveriyle gerçekleştirilmeliydi ki insanlar yalnızca onlara bile hayranlık besleyebilsin.</p>
+<p class="wp-block-paragraph">——Peki Julius’un benliği gerçekten buna layık olacak kadar gayret vermiş miydi?</p>
+<p class="wp-block-paragraph">Evet, günlerini bitmek bilmez çabalarla ve öğrenmeye yönelik azimli bir bağlılıkla geçirmenin gururunu taşıdığı kesindi.</p>
+<p class="wp-block-paragraph">Ama sınırların ötesine geçmiş miydi? Her gün tüm gücünü tüketinceye dek kendisini parlatıp arındırmış mıydı? Başkalarının yoğun çabalarından ilham alarak kendi idealleri üzerinde daha çok çabalamaya yemin etmiş miydi?</p>
+<p class="wp-block-paragraph">Kendisinin sorduğu bu soruya kendisi yanıt verecekti.</p>
+<p class="wp-block-paragraph">Evet Julius Juukulius, gerçekten de bunu başarmıştı.</p>
+<p class="wp-block-paragraph">Sınırları aşmış, tüm gücünü tüketene dek kendisini parlatıp arındırmış, başkalarının yoğun çabalarından ilham alarak kendi idealleri üzerinde daha çok çabalamaya yemin etmişti.</p>
+<p class="wp-block-paragraph">——Bu nedenle kılıcın zirvesi olarak karşısında duran varlığın önünde özgüvenle başını dik tutabiliyordu.</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“——Ben Şövalyelerin En İyisi, Julius Juukulius. Krallığın seni kesecek olan kılıcı.”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“————”</p>
+<p class="wp-block-paragraph">Pelerininin ucunu tutan Julius eğilmişti ve karşısındaki Kılıç Azizi sessizce dikiliyordu.</p>
+<p class="wp-block-paragraph">Ardından göz bandıyla örtülü olmayan gözünü de kapatmış ve Julius’a bakmak yerine iri, hantal kollarını sararak sessizce bir şeyler düşünmeye başlamıştı.</p>
+<p class="wp-block-paragraph">Ancak bu düşünme seansı üzün sürmedi. Şimdiye kadarki kısa yoldaşlıkları hesaba katılınca düşünme eylemine hiç yatkın olmayan bir mizaca sahip olduğu açıktı. Bu nedenle——</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Ah, ah, ahhhh, AHHHHHHHHHH—— LANET OLASICA!!”</p>
+<p class="wp-block-paragraph">Kafasını sertçe kaşıyan Kılıç Azizi Reid, ayağını tek bir kez kuvvetle yere geçirdi.</p>
+<p class="wp-block-paragraph">O tek darbe üzerine İkinci Katın zemini çatlıyormuşçasına sarsıldı. Ancak ikilinin karşılaşmasını izlemekte olan Echidna geri çekilse de Julius hiç sarsılmadan, dimdik durmayı sürdürdü.</p>
+<p class="wp-block-paragraph">Buna tanık olan Reid, “Çıh” sesiyle dilini şaklattı.</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Görünüş, görünüş, görünüş… hı hı, görünüş heyt. Cidden takipçim gibi saçma sapan konuşuyosun. Ne dayanılmaz bi piçsin, sana diyorum.”</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Maalesef ki onu tanımıyorum ama yine de takipçin olduğunu söylediğin adama acımak durumundayım.”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Ha? Takipçimin erkek olduunu kim söyledi ki? Her şeyden önce piçleri peşimde dolaştırmak hiç eğlenceli olmazdı. Benim bahsettiim takipçi bi kadın. Güzel bi yüzü var ama kahretsin ki mantığı çok sinir bozucu.”</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Bir kadın… öyleyse ben ve bahsettiğin o kadın arasındaki benzerlik ne?”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Ah? Bana defalarca söyletip durmasana.”</p>
+<p class="wp-block-paragraph">Burnunda kırışıklıklar beliren Reid, köpekbalığını andıran vahşi bir gülümseme sergiledi.</p>
+<p class="wp-block-paragraph">Ve bağladığı kollarını ayırıp elleriyle yanaklarına vurarak,</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Kokuşmuş bi mantık ve güzel bi surat.”</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“————”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Hayırdır, demek sinir bile olmiycaksın. Bu hiç hoş diil… neyse, sıkıntı yok.”</p>
+<p class="wp-block-paragraph">Julius’tan bir tepki alamayan Reid, büyük bir kuvvetle boyun kemiklerini çatırdattı. Sonra da mavi gözüyle Julius’u—— yo, yalnızca Julius’u değil, etrafını da gözlemledi.</p>
+<p class="wp-block-paragraph">Julius’un etrafı titreşen, yanıp sönen ışıklarla çevriliydi ve parlaklıkları öncekine nazaran güçlenmişti.</p>
+<p class="wp-block-paragraph">Her şeyden önce bu, Julius’un kızlarını Reid’in karşısına çıkardığı ilk sefer olacaktı.</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Tomurcuklarım… yo, benim tatlı kızlarım, bir ihtimal onlara bir itirazın olabilir mi?”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Hah, itirazım falan yok. Irklarından bağımsız olarak hoş kızlar. Ama maalesef yatamadııım kadınlarla ilgilenmiyorum—— Hey, kabuğunu kırmış olsaydın daha da güçlenirdin, biliyo musun?”</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Öyle diyorsan böyle bir yol kesinlikle var olabilir demektir.”</p>
+<p class="wp-block-paragraph">Reid’in kişiliği düşünülünce astlarına tavsiye vermek gibi bir kararsızlık sergilemesi düşünülemezdi.</p>
+<p class="wp-block-paragraph">Onun bunu yapması kendi huysuzluğundan ve kılıcına sarılmaktan başka bir şey yapmayan Julius’un çaresiz formunu savurgan bulmasından kaynaklanıyor olmalıydı.</p>
+<p class="wp-block-paragraph"><em>İlla da kılıca tutunmaya devam edeceksen hiç değilse nasıl göründüğüne aldırış etme</em>—— Julius’ta aradığı tutum ve kararlılık buydu ve bu da izlenebilir bir yoldu. Ancak——</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Ben, bu yolda yürümeye kararlıyım. Ya da dediğin gibi, belki de gerçek benliğimi açığa vurmak beni daha güçlü kılabilir.”</p>
+<p class="wp-block-paragraph">Julius, bunun adamakıllı bilincinde olmadığı takdirde gidişatın doğal olarak böyle olacağının farkındaydı.</p>
+<p class="wp-block-paragraph">Ansızın, kısıtlı bir etkileşim sırasında kabuğunun tek bir parçası bile ölümle yaşam arasında ayrılacak olursa Julius’un gerçek yüzü ortaya çıkardı.</p>
+<p class="wp-block-paragraph">Fakat bu, yaşananların adamakıllı bilincinde olmadığı takdirde gerçekleşecek bir senaryoydu—— Ve Julius artık tereddüt etmeyecekti.</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Bu vesileyle beyan ediyorum ki bundan böyle kendimi bir Şövalye olarak düşüneceğim. Ayrıca beni yönlendirmeye çalıştığın yol yerine tüm cephelerde üstün olan kendim olacağım.”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Ha, hangi boktan akıl yürütme şekli sana bunu yapıcaanı söyletiyo, sana diyorum?”</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Cevap bariz—— Güvendiğim Şövalye, ideallerin kişiselleştirilmiş hâli. O herkesten asil, adil ve güçlü. Öyleyse kendisini bir Şövalye olarak adlandıran benim de öyle olmamın gerekmesi kaçınılmaz.”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“——Hah.”</p>
+<p class="wp-block-paragraph">Kendi kelimeleriyle bile gülünç bir akıl yürütme, mantıksız bir argüman ve iddia dizisi, alay konusu olacak keyfî bir küstahlıktı.</p>
+<p class="wp-block-paragraph">Lakin bunu duyan Reid bile öfkesini açıkça ifade etmesine rağmen keskin dişlerini sergileyerek, hiçbir tiksinti veya küçümseme sergilemeyerek gülümsedi. Ve——</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Seni ağlatıcam.”</p>
+<p class="wp-block-paragraph">Diyen Reid, elinde tuttuğu yemek çubuğunu bir kenara atıp şaşkınlıkla kendisine bakan Julius’un önünde büyük bir sıçrayış yaparak geri çekildi. Sonra da elini yavaşça yan tarafına uzattı.</p>
+<p class="wp-block-paragraph">Koca avcuyla kavradığı şey, beyaz zemine yerleştirilmiş koşullu bir kılıçtı——</p>
+<p class="wp-block-paragraph">Reid Astrea’nın en başta Gözcü Kulesinin sınav görevlisi olarak varlığını ödünç vermesi gerekiyordu.</p>
+<p class="wp-block-paragraph">Ama kaderin bir cilvesiyle ve yoğun bir öz bilinçle kulenin bu düzeninden sapmış ve nihayet kendisini baskın yapan Oburluk Günah Başpiskoposunun fiziksel bedeninin üzerine yazarak sahte bir diriliş bile gerçekleştirmişti.</p>
+<p class="wp-block-paragraph">Ve kulenin Sınavına uyma gerekliliğinin kalmadığı bu durumda nihayet orijinal rolüne uyum sağlayarak kendisine koşullanan kılıcı çekmişti. Yani——</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“——Göksel Kılıca uzanan Aptalın eliyle, onun affını kazanın.”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Bu benim repliğim, bilirsin ya… şey, gerçi tamamen unutmuştum.”</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Ben de öyle düşündüğüm için senin yerine dile getirdim—— Sana meydan okuyorum.”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Sen benim affımı bok kazanırsın, mankafa. Seni öyle çirkin ağlatıcam ki.”</p>
+<p class="wp-block-paragraph">Şövalye kılıcını önüne alan Julius’un karşısındaki Reid, çektiği kılıcı kabaca önüne uzattı.</p>
+<p class="wp-block-paragraph">Herhangi bir aralık yoktu. Rahat bir duruş sergileyen, en uç noktalara erişmiş olan nihai kılıç ustası——</p>
+<p class="wp-block-paragraph">——Kılıç kuşananların zirvesindeki Kılıç Azizi Reid Astrea.</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Ve şimdi——”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Canın nası isterse.”</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“——Kendini hazırla!!”</p>
+<p class="wp-block-paragraph">Kendisini şekillendiren Şövalyeliğe güvenen Julius Juukulius, gücünün her zerresiyle Kılıç Azizi’yle çarpışmaya başlıyordu.</p>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph">Hem bedeni hem de kalbi hafiflemişti.</p>
+<p class="wp-block-paragraph">Mecazi anlamda değildi, bu Şövalye kılıcını savuran Julius’u etkisi altına alan güçlendirmenin kudretiydi.</p>
+<p class="wp-block-paragraph">Savaşta zihinsel istikrarın muazzam bir rol oynadığını söylemeye lüzum yoktu.</p>
+<p class="wp-block-paragraph">Düşününce Julius’un Pleiades Gözcü Kulesi’ne vardı varalı—— yo, benliğinin İsmi Su Geçidi Şehrinde çalındı çalınalı güvensiz bir ruh hâli içerisinde olduğunu söylemek hata olmazdı.</p>
+<p class="wp-block-paragraph">Tabii ki kendisini azarlamış, benliğini olabildiğince dizginlemiş, bunun yüzüne yansımasına engel olmuştu.</p>
+<p class="wp-block-paragraph">Evet, herkesin öveceği, sarsılmaz bir öz kontrole sahip olduğu söylenebilirdi ama—— aslında bu hiç de övülecek bir şey değildi.</p>
+<p class="wp-block-paragraph">Üstelik benliğinin bu güçsüzlüğünün yüzüne yansımasına mâni olmasının, yoldaşlarını ve hatta kendisini kandırmasının sonucu art arda gelen nahoş yenilgiler, bu kuleye gelmelerinden bu yana verilen ardışık kayıplar olmuştu.</p>
+<p class="wp-block-paragraph">Julius daha en başında başkalarına güvenmek zorundaydı.</p>
+<p class="wp-block-paragraph">Benliğinin unutulmasının etkisiyle soğukkanlılığını yitirir ve başka insanların dünyasından koparılan benliğine acırken en çok inanması gereken şeyi fark etmeyi başaramamıştı.</p>
+<p class="wp-block-paragraph">Julius’un değer verdiği, güvendiği, sadakat yemini ettiği, sırtını yasladığı insanlar, farkında olmaksızın dünyalarından koparılan Julius Juukulius’u öylece hiçe sayabilir miydi?</p>
+<p class="wp-block-paragraph">——Kesinlikle yapmazlardı, bunu iddia edebilirdi.</p>
+<p class="wp-block-paragraph">Bu nedenle, Julius’un yapması gereken tek bir şey vardı.</p>
+<p class="wp-block-paragraph">İçtenlikle yaklaşmalı, sevgisini kendi istemiyle göstermeliydi—— Tıpkı tomurcuklarıyla olduğu gibi.</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Kopan bağlarımı onarmalıydım. Hiç kimse olan kişi herkes olabilir… herkesten önce ben, bunun canlı tanığı değil miyim!”</p>
+<p class="wp-block-paragraph">Hiç kimse olan halktan bir çocuk, bu dünyanın en çekici, en havalı Şövalyesi bile olabilmişti.</p>
+<p class="wp-block-paragraph">Hiç kimse olan Julius’un bir kez daha birileri olması gerekiyordu. Ve——</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Bana kaç fırsat verilirse verilsin yine o günkü alevlere bürünmüş görünümlü o genç adamın büyüsüne kapılır, Şövalyeliği temsil eden o kişinin sırtındaki idealleri algılar ve sonunda sana, Kılıcın zirvesine meydan okurdum!——”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Ne boklar geveliyosun seni lanet olasıca arsız, sana diyorum!!”</p>
+<p class="wp-block-paragraph">Kararlılığını kılıcının ucuna adamış olan Julius’un kafa kesici darbesini aynı kılıç darbeleriyle eşleştiren Reid, bu şekilde böğürdü.</p>
+<p class="wp-block-paragraph">Vücudu bütünüyle bu kılıç hamlelerine ve kılıcın kudretine konu olan Julius ise şaşkınlığa kapılarak sarı sarı ışıldayan gözlerini kıstı.</p>
+<p class="wp-block-paragraph">Tekrarlarla birlikte bu, Reid’le bu şekilde çarpıştığı dördüncü seferdi.</p>
+<p class="wp-block-paragraph">İlk mücadele ve hemen ardından gelen mağlubiyet. Derken kısıtlı Gözcü Kulesinin tamamen sınırlandırılması ve tomurcuklarıyla yeniden, başarıyla kontrat oluşturmasıyla dördüncü sefer gelmişti.</p>
+<p class="wp-block-paragraph">Yemek çubuklarına silah demenin biraz aşırıya kaçtığı şüphesiz olsa da—— bu, şu ana kadarkiler arasında Reid’in yemek çubuklarından başka bir silah kullandığı ilk seferdi.</p>
+<p class="wp-block-paragraph">İşte bu seferde, Kılıcın zirvesi olan Kılıç Azizi’nin kılıcını kuşanmış olduğu bu anda Julius’un aklından bir düşünce geçiyordu.</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Kılıç gücün yemek çubuğu kullandığın zamana kıyasla bir değişim göstermedi!..”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Saana söylediiim gibi işte, lanet olasıca. Benim güçlü olma sebebim kılıç sallamam diil. Güçlü olmamın tek sebebi güçlü olmam.”</p>
+<p class="wp-block-paragraph">Tepeden öylece sallanan kılıç darbelerine karşı kendisini savunuyor, dizlerini kırdığında da dosdoğru aşağıdan hedef alınıyordu. İlk kez tanık olduğu bu saldırının üstesinden zar zor gelen Julius, darbenin etkisiyle geriye uçtu.</p>
+<p class="wp-block-paragraph">Reid ise koşarak değil, yalnızca birkaç uzun adım atarak peşine düştü.</p>
+<p class="wp-block-paragraph">Bu tuhaf yürüyüşü insanda şüphe uyandırsa da özel bir yanı yoktu.</p>
+<p class="wp-block-paragraph">Yalnızca geri çekilen rakibini yakalama düşüncesiyle adım atarak var olan okulların hepsinden farklı, yeni bir yürüyüş biçimini rahatlıkla icat edip geliştirmek Reid’e mahsus bir kabiliyetti.</p>
+<p class="wp-block-paragraph">Reid’in de bizzat dile getirdiği üzere bu yalnızca onun normunun “Varoluşu” aşmasıyla ilgili bir meseleydi.</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Artık ağlamak istiyo musun?”</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“——Hayır, bir efsaneye meydan okuma hissi göğsümü kabartıyor!”</p>
+<p class="wp-block-paragraph">Julius blöf yapmamış, harekete geçerken dürüstlükle karşılık vermişti.</p>
+<p class="wp-block-paragraph">Evet, bu doğruydu. Gözlerinin önündeki kişi Reid Astrea’ydı.</p>
+<p class="wp-block-paragraph">Ona dair efsanelerle kalbi kaç defa çarpmış, gözleri kaç defa ışıldamış, ona kaç defa hayran olmuş ve onun gibi olmayı kaç defa arzulamıştı!</p>
+<p class="wp-block-paragraph">Kişiliği karşısında hayrete düşmüş olsa da o kişiyle bizzat tanışmış, gücü tam da hayal ettiği ve arzuladığı düzeyde çıkmıştı.</p>
+<p class="wp-block-paragraph">Yani içerisinde bulunduğu bu durumda benliği nasıl da savurganlık ediyordu!</p>
+<p class="wp-block-paragraph">Onunla konuşma, kılıçlarını çarpıştırma, inançlarını ve görüşlerini paylaşma fırsatı varken——</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Hah.”</p>
+<p class="wp-block-paragraph">“Hakiki Olanla” kılıç çarpıştıran Julius, beklenmedik bir düşüncenin varışıyla tuttuğu nefesi bıraktı.</p>
+<p class="wp-block-paragraph">Bununla birlikte, fazlasıyla yersiz olan bir beklenti, kalbinin gerçek bir keyif ve keskinlikle çarpmasına sebep oldu.</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Ne bok yemeye gülüyon?”</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Yok bir şey, yalnızca aklıma bir fikir geldi—— Buradaki amacımı tamamlayıp efendimin hizmetine döndükten sonra dostum, Reinhard’a meydan okuyacağım.”</p>
+<p class="wp-block-paragraph">Julius, Reid’in sorusu üzerine fikrini beyan etti.</p>
+<p class="wp-block-paragraph">Bugüne dek bir kez olsun Reinhard’la kılıç becerilerini yarıştırmamıştı. Hatta Kraliyet Seçiminde farklı gruplarda olacakları belirlenmiş olsa bile herhangi bir konuda rekabet edecekleri düşüncesi asla aklına gelmemişti.</p>
+<p class="wp-block-paragraph">——Onunla eşit bir konuma ulaşmaya teşebbüs etmemenin pişmanlığı.</p>
+<p class="wp-block-paragraph">Bu, Julius’un Anastasia’ya hizmet etme ve Kraliyet Seçimlerine girme sebeplerinden biriydi.</p>
+<p class="wp-block-paragraph">Tabii bu duygulara sahip olmasa bile Anastasia’nın muazzam yeteneği karşısında büyülenir, onunla aynı rüyaları görmeyi ve aynı yerde durmayı dilerdi.</p>
+<p class="wp-block-paragraph">Bu nedenle, daha en başta asla sıkıcı bahanelere veya dolambaçlı duruşlara ihtiyaç duymamalıydı.</p>
+<p class="wp-block-paragraph">En başta iki ahşap kılıç alıp Reinhard’ın karşısına geçmeliydi.</p>
+<p class="wp-block-paragraph">Zamanında Reinhard ve Vollachia İmparatorluğunun en güçlü kılıç ustası kılıç çarpıştırmıştı.</p>
+<p class="wp-block-paragraph">O gün geçit törenindeki herkes kılıcın havasına çılgınca bir coşku beslerken Julius da göğsünde bir sıcaklık duymuştu.</p>
+<p class="wp-block-paragraph">İşte bu yüzden yanıt——</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Hah, hiç duymadıım bi isim. Kimin nesi ki o önemsiz?”</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“O senin soyundan geliyor. Ve günümüzün Kılıç Azizi olmasının yanı sıra benim de arkadaşım.”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Kah! Çocuğumun çocuğu dediiin o noktada lanet olasıca bi yabancı işte. Onu yol kenarında görsem bile tanımam.”</p>
+<p class="wp-block-paragraph">Kılıç hareketleri ve tekmelerini birbirine dolaştıran Reid, burnundan homurdanarak sorumsuzluğunu sergiledi.</p>
+<p class="wp-block-paragraph">Bu tezde belli belirsiz bir yalanlama sezen Julius kılıçlarını çarpıştırırken ağzını açmaya çalışırkense——</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Yabancılardan bahsetmekten usanmaya başlıyorum. Hey, benimle lanet olasıca bi sohbet gerçekleştirmeye mi çalışıyosun sen?”</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“——İnkâr etmek istemesem de edeceğim.”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“————”</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Vaktimiz olsaydı seninle hiç değilse iki üç gün konuşmak isterdim. Fakat maalesef ki şu anda bu niyetimi gerçekleştirebileceğim vakte sahip değilim. Bana acele etmem söyleniyor, teşvik ediliyorum. Bu nedenle——”</p>
+<p class="wp-block-paragraph">Aralarında bir mesafe açılırken Reid, Julius’u izleyerek yanaklarını kaldırdı. Ve Reid’in mavi gözlerine yansıyan Julius’un formu ışıltısını arttırdı.</p>
+<p class="wp-block-paragraph">Etrafında dönen altı renkli ışığın birbirine dolanışıyla usulca bir Aurora, bir gökkuşağı şekillenmeye başladı. Ve——</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“——Al Clauseria!!”</p>
+<p class="wp-block-paragraph">Oluşan gökkuşağının ışıltısı, fethedici beyaz bir dünyayı Reid’e doğru savurdu.</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img decoding="async" width="945" height="652" src="https://web.archive.org/web/20260619051659im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-158.png" alt="" class="wp-image-8364" srcset="https://web.archive.org/web/20260619051659im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-158.png 945w, https://web.archive.org/web/20260619051659im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-158-768x530.png 768w" sizes="(max-width: 945px) 100vw, 945px"><figcaption class="wp-element-caption"><a href="https://web.archive.org/web/20260619051659/https://x.com/re0chikuwanda/status/1322117122730831872">Görsel Sahibi</a></figcaption></figure>
+</div>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph">Auroranın yayılışı ve kudreti karşısında Julius’un da gözleri irileşmişti.</p>
+<p class="wp-block-paragraph">An itibarıyla daha önceki gibi davranılmasıyla nezaketsizliği davet ederek sıra dışı ölçekte bir büyüye dönüşen azami ruh sanatları sergileniyordu——</p>
+<p class="wp-block-paragraph"><strong><em>???: </em></strong><em>“</em><em>————</em><em>“</em></p>
+<p class="wp-block-paragraph">Tomurcuklar—— yo, örtülü armağanları ve yetenekleri filizlenen o kızlara tomurcuk demeyecekti.</p>
+<p class="wp-block-paragraph">Güzellikle, çekicilikle, kahramanlıkla, haysiyetle, canlılıkla yücelik olarak adlandırılabilecek bir büyümeyi gerçekleştirmiş olan o ruhlar; tomurcuk değil, genç kızlardı.</p>
+<p class="wp-block-paragraph">Her biri kendine has bir cazibeye sahip o kızların altısını da tekeline almak, Julius’u Günah Başpiskoposlarından da büyük bir günahkâr kılabilirdi. Fakat——</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Sizler beni unutmuş olsanız da ben hepinizi seviyorum.”</p>
+<p class="wp-block-paragraph">Diyen Julius, yayılan auroraya yetişme düşüncesiyle öne çıktı.</p>
+<p class="wp-block-paragraph">Altı elementle sarılı gökkuşağının parlaklığı tüm kalkanları kırar ve hedefi paramparça ederdi. Bu nedenle gökkuşağı rengindeki ışıkların karşısındaki kişinin yalnızca iki seçeneği olurdu—— bu meydan okumayı kabul etmek veya kaçınmak.</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“——Hah.”</p>
+<p class="wp-block-paragraph">Ve Reid Astrea da karakterine uygun şekilde gökkuşağının ışıltısından kaçınmayacaktı.</p>
+<p class="wp-block-paragraph">Reid, önünde dalgalanan gökkuşağının parlaklığına tepki olarak iriyarı kollarını kaldırdı ve imparatorluğun taahhüt ettiği kılıcının keskin ucunu savurdu.</p>
+<p class="wp-block-paragraph">Hiçbir özel büyüye veya İlahi Korumaya bel bağlamadığı, saf şiddet namında bir “Kılıç Hamlesi”—— yani tek bir savuruş, işte Julius’un tüm gücüyle gerçekleştirdiği azami büyüyü ortadan kaldıran şey buydu.</p>
+<p class="wp-block-paragraph">Ancak ilerlemeyi sürdüren Julius bunu da hesaba katmıştı.</p>
+<p class="wp-block-paragraph">Yok olan aurorasının ardından ilerlerken kılıcının ve genç kızlarının güçlerinden faydalandı.</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“İa! Aro!”</p>
+<p class="wp-block-paragraph">O anda kırmızı ve yeşil Ruhlar çağrısına karşılık vererek güçlerini birleştirdi, rüzgârın yükselen alevlerin arasında bir girdap oluşturuşuyla Reid’in ayaklarının dibinde akkor bir hortum yaratıldı.</p>
+<p class="wp-block-paragraph">Ayaklarının altındaki ısı sarmalını hisseden Reid ise kavrulmadan önce çevikçe yukarıya kaçtı.</p>
+<p class="wp-block-paragraph">Fakat Ruh Şövalyesinin, Şövalyelerin En İyisi’nin bağlantısı daha yeni başlıyordu.</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Kua! İk!”</p>
+<p class="wp-block-paragraph">Berrak zeminde çıkıntı yapan sarı Ruh, Julius’un bedenini daha da yukarılara itti. Aynı anda mavi Ruhun parıltısı havadaki nemi buzullaştırarak yukarıya sıçramış olan Reid’in yükselişine mâni oldu.</p>
+<p class="wp-block-paragraph">Dilini şaklatan Reid, havayı adımlamak gibi insani sınırların açıkça ötesinde bir hareketle ayaklarını havada belirmiş olan buzdan tavana yerleştirerek tepetaklak hâlde Julius’a kaşlarını çattı.</p>
+<p class="wp-block-paragraph">Reid’in koluna sağlam bir güç akar ve yükselmekte olan Julius’a müdahale etmeyi hedeflerken——</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“İn! Ness!”</p>
+<p class="wp-block-paragraph">Tam da Kılıç Azizi’nin karşı saldırısının yaklaştığı noktada, beyaz ve siyah Ruhlar da kendi güçleriyle dünyaya burunlarını soktu.</p>
+<p class="wp-block-paragraph">Beyaz ışık Julius’un bedenine bütünüyle güç bahşederken siyah ışık, Julius’un düşmanının kudretini az da olsa düşürdü. O saniyede doğan ufak farklılık, ardından gelecek sonuçta mühim bir rol oynayacaktı.</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“————”</p>
+<p class="wp-block-paragraph">Basamağa dönüşen buzdan tavanın paramparça oluşuyla Reid’in ileri atılan bedeni hızı nedeniyle bulanıklaştı.</p>
+<p class="wp-block-paragraph">Taahhüt edilen kılıcın hünersiz duruşuyla belirli tipte ve nihai cinsten uzunlamasına ve çaprazlama bir darbe savruldu—— bunu bir tehdit olarak algılamayan Julius ise göğsünü dik tutarak kılıçla yüzleşti.</p>
+<p class="wp-block-paragraph">Bunun dayandığı gerçek, iki kılıç darbesi karşı karşıya geldiğinde güçlü tarafın diğerini püskürteceğiydi.</p>
+<p class="wp-block-paragraph">Julius bu nedenle gözlerini açtı—— Mütemadiyen, sürekli olarak yükseldikçe yükselen o şeyi izleyen gözlerini.</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“————”</p>
+<p class="wp-block-paragraph">Reid’in ışıltısı, bizzat ses ve ışık konseptini öldürerek havayı yarıyordu.</p>
+<p class="wp-block-paragraph">Bunu teyit edecekti. İster kılıç olsun ister yemek çubuğu, onların ışıltılarının yoluna çıkan şey her ne olursa olsun mutlaka kesilirdi.</p>
+<p class="wp-block-paragraph">Çünkü bu, tamı tamına “Kılıç” kavramının tezahürüydü.</p>
+<p class="wp-block-paragraph">“Kılıç”, nesneleri kesme amacıyla yaratılmış bir şeydi.</p>
+<p class="wp-block-paragraph">Ve kılıç hamleleri de nesneleri kılıçla kesmeye adanmış teknikleri ifade ederdi.</p>
+<p class="wp-block-paragraph">Dolayısıyla dünyadaki tüm nesneleri kesen o ışıltı, “Kılıç” ve “Kılıç Hamlelerinin” doruk noktası, nicedir kıymet biçtikleri orijinal arzularıydı.</p>
+<p class="wp-block-paragraph">O ışıltıyla kesilenler, kesilip geçildikleri gerçeğini ilelebet unutamazlardı.</p>
+<p class="wp-block-paragraph">İşte bu nedenle Julius Juukulius’un sol gözünün altında kalan yara da ilelebet silinmeyecekti.</p>
+<p class="wp-block-paragraph">Bu, Kılıç Azizi’nin ışıltısını sıyrılabileceği yakınlıktan savuşturmasının bedeliydi.</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“————”</p>
+<p class="wp-block-paragraph">Darbe karşılama duruşunu bozan Julius’un anlık bir saldırı ve savunmayla rakibinin kılıcının arasından algıladığı şey buydu.</p>
+<p class="wp-block-paragraph">Kesilmiş olan göz dibinden kanlar fışkırıyordu. Fakat gözlerini kapatmayacaktı. Rakibine odaklanmayı sürdürerek hızla kolunu savurdu.</p>
+<p class="wp-block-paragraph">Ve savunmadan sıyrılıp yüzlerce ışıltıdan oluşan bir yağmurla saldırıya geçişiyle——</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“——Al Clarista.”</p>
+<p class="wp-block-paragraph">Julius Juukulius’un şu ana kadarki en büyük kılıç darbesi, bir gökkuşağının renklerini boyadı.</p>
+<p class="wp-block-paragraph">Reid Astrea’nın köpekbalığı misali vahşi gülümsemesini yakalarken——</p>
+<p class="wp-block-paragraph">——Kılıç Azizi’nin sol gözünü örten göz bandı, Şövalyenin saldırısıyla delinerek havaya savruldu.</p>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“————”</p>
+<p class="wp-block-paragraph">Julius, ayak parmaklarıyla berrak zemine iniş yaptığı anda korkunç bir şekilde yankılanan adım seslerini işitti.</p>
+<p class="wp-block-paragraph">Ve bunun bilincine vardığı saniyede göğsünün derinliklerinde atmayı unutmuş olan kalbi panik içerisinde harekete geçti.</p>
+<p class="wp-block-paragraph">Hemen ardından da arkasına dönerek kendisine dönük iriyarı omurgayı gördü.</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“————”</p>
+<p class="wp-block-paragraph">Uzun kırmızı saçları savruluyor, sırtı dimdik ve hareketsiz, öylece duruyordu.</p>
+<p class="wp-block-paragraph">Sağ eliyle kılıcını kavramış olan ulu adamın sol eli suratına yerleşmişti. O elinin dokunmakta olduğu noktada bir göz bandı olmalıydı ancak şu anda yerinde değildi.</p>
+<p class="wp-block-paragraph">&nbsp;Kılıç Azizi’nin sol gözünü örten göz bandı, an itibarıyla Julius’un ayaklarının dibindeydi.</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“…Demek oldu, ha.”</p>
+<p class="wp-block-paragraph">Berrak zemine düşmüş olan göz bandına ve kendi elindeki Şövalye kılıcına bakan Julius’un sesi titriyordu.</p>
+<p class="wp-block-paragraph">Fısıltısıyla meydana gelen olayları onaylamaya çalışsa da gerçeklikle arasında büyük bir bağlantı eksikliği vardı. Tüm bunlar ona her şeyin parmaklarının arasından kayıp gideceği gelip geçici bir rüyaymış gibi geliyordu. Ancak——</p>
+<p class="wp-block-paragraph"><strong><em>Genç Kızlar:</em></strong><em> “</em><em>————</em><em>“</em></p>
+<p class="wp-block-paragraph">Altı ışık, sözlerle olmasa da Julius’un resmileşmiş başarısını övüyordu.</p>
+<p class="wp-block-paragraph">Kıymetlileri olan sıcacık çiçekler, Julius’un kalbindeki boşluğu doldurmayı arzuluyordu.</p>
+<p class="wp-block-paragraph">Ve filizlenen genç kızlarının övgülerine eşlik eden——</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’: </strong>“——Julius.”</p>
+<p class="wp-block-paragraph">O yumuşak sesi işiten Julius, bakışlarını sesin geldiği yöne çevirdi.</p>
+<p class="wp-block-paragraph">Julius’a seslenen kişi, savaşı omurgası ona dönük ulu adamdan da övgülerini ileten genç kızlardan da farklı bir noktadan gözlemleyen açık mor saçlara sahip kadındı.</p>
+<p class="wp-block-paragraph">El üstünde tuttuğu, kılıcını adamaya yemin ettiği efendisiyle tıpatıp aynı surata sahip olan, bilmeksizin karşılıklı birbirini yaralamaya dayalı bir ilişki içerisine girmiş olduğu ve ömrü ilelebet süregelecek Yapay Ruh——</p>
+<p class="wp-block-paragraph">Julius’a duyduğu ilginin nedeninin Anastasia’ya değer vermesi mi yoksa Julius’un Ruh Cezbetme İlahi Koruması mı olduğu belirsizdi.</p>
+<p class="wp-block-paragraph">Her hâlükârda Julius Juukulius’un kararlılığını izleyen birilerinin olması kalbini öylesine yatıştırmıştı ki Şövalye kılıcını minnetle kaldırabilmişti.</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“————”</p>
+<p class="wp-block-paragraph">Tek kelime etmemiş, Şövalye kılıcını göklere yükseltmişti.</p>
+<p class="wp-block-paragraph">Aurora ile süslenmiş kalıntılar parıldamış, kılıcın yolu kelimesi kelimesine bir gökkuşağını tasvir etmişti.</p>
+<p class="wp-block-paragraph">Bunun Julius Juukulius isimli Şövalyenin kutsanışı gibi bir şey olduğu kesindi——</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“——Bu lanet olasıca boktan bi Sınav olsaydı bu hamleyle galip geliceeğin kesindi.”</p>
+<p class="wp-block-paragraph">Bunu dile getiren ulu adam, ayağını teğet olacak şekilde yere geçirdi.</p>
+<p class="wp-block-paragraph">Önünü döndüğünde suratında bariz bir yara görünmüyordu. Yani Julius’un kılıcının ucunun değdiği şeyin yalnızca göz bandından ibaret olduğu belliydi. Fakat Reid bile abartıp da kılıcın bana değmedi ki diyecek kadar utanmaz değildi.</p>
+<p class="wp-block-paragraph">Her şeyden önce, az önceki sözleri yenilgiyi kabul etme konusundaki isteksizliği değil, gerçeklerdi.</p>
+<p class="wp-block-paragraph">Eğer gerçekten de Pleiades Gözcü Kulesi’nin İkinci Katı Electra’daki Sınava devam ediyor olsaydılar Julius, tek bir başarılı darbe koşulunu sağlayarak sınavı geçmiş ve üst kata ilerlemeye hak kazanmış olurdu.</p>
+<p class="wp-block-paragraph">Fakat Julius ve Reid arasındaki mücadele, bir Sınav olmaktan çıkmıştı.</p>
+<p class="wp-block-paragraph">Onlar, bir Şövalye ve bir kılıç ustası olarak erkek erkeğe, aralarındaki meseleyi çözmek için çarpışıyorlardı.</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“————”</p>
+<p class="wp-block-paragraph">Göz bandını yitirmiş olan Reid, iki gözü de açık hâlde kılıcını iki eliyle tutmuştu.</p>
+<p class="wp-block-paragraph">Kabzasını kavramış, gözü hedefinde olacak şekilde kılıcını hazırlamıştı—— Evet, Kılıç Azizi hazırlanmıştı.</p>
+<p class="wp-block-paragraph">Öyle doğalca çubuk sallamaya hazırlanmamıştı, düşmanını katiyetle kesmek için kılıcını hazırlamıştı.</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Yok olacak olsan bile şikâyet edeyim deme.”</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Şikâyet etmek istesem bile şikâyet edebilecek bir ağza sahip olmadığım takdirde bunu başarmanın bir yolunu bulmam zor olurdu.”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Hah! Kerata, şakalara gülcek hâlde diiliz, lanet olasıca. Hey, ismin ne demiştin?”</p>
+<p class="wp-block-paragraph">Julius, bir efsane tarafından isminin sorgulanması üzerine kaşlarını kaldırdı.</p>
+<p class="wp-block-paragraph">Şimdiye dek sayısız örnekte ismini bolca vermiş olsa da hatırlayamıyordu. Ancak hatırlayıp hatırlamamasının bir önemi yoktu.</p>
+<p class="wp-block-paragraph">Çünkü Reid, bu soruyla birlikte ilk defa Julius’u kabul ettiğini tartışmasız olarak gözler önüne sermişti.</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Julius Juukulius. Unutulması kolay bir isim olduğu için hatırlamanı rica ediyorum.”</p>
+<p class="wp-block-paragraph">Daha az önce mizah olarak algılanamayacak gereksiz bir açıklama yapmış olan Julius da bu sözlerle birlikte Şövalye kılıcının ucunu Reid’e doğrulttu.</p>
+<p class="wp-block-paragraph">Ve bir kez daha onun adına çalışmaktan başka hiçbir şey yapmamış olan altı Ruhtan yardım istedi.</p>
+<p class="wp-block-paragraph">Şu anki benliği ve o kızlarla gökkuşağının aurorasını daha da yükseklere taşıyacağı kesindi.</p>
+<p class="wp-block-paragraph">Al Clauseria ve Al Clarista.</p>
+<p class="wp-block-paragraph">Altı Ruhun gücünü ödünç alan gökkuşağının aurorası altı elementin gücünü sarıyordu—— Azami büyüyü ateşleyen Clauseria ve onu Şövalye kılıcına yerleştiren Clarista.</p>
+<p class="wp-block-paragraph">Deneyimsizliği nedeniyle bir zamanlar başaramadığı, daha da üst seviye gizli bir ritüel——</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“——Bu vesileyle hakkından geleceğim.”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“——Hadi gel.”</p>
+<p class="wp-block-paragraph">O anda beyaz alan aurorayla kaplandı ve gökkuşağı şeritleri ulu, kızıl adamı yakaladı.</p>
+<p class="wp-block-paragraph">Bu, Julius Juukulius tarafından tasarlanan orijinal gökkuşağı ruh sanatlarının sırları arasındaki bir sırdı.</p>
+<p class="wp-block-paragraph">Yöntemi ne altı elementi saran gökkuşağı ışıklarını fırlatmak ne de kılıcın üzerine çökmesini sağlamaktı, kendisini o gökkuşağının arasına sokup rakibi auroranın ta kendisi olarak imha etmekti.</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“——Al Clanveir.”</p>
+<p class="wp-block-paragraph">İşte Ruh Şövalyesinin bu üstün saldırısı, net, beyaz bir ışıltının doğrudan saldırısıyla karşılandı.</p>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph">Saldırı ve savunmanın aşkın boyutu, başından sonuna dek eğitimsiz gözlerin algılayabileceği sınırların fazlasıyla ötesindeydi.</p>
+<p class="wp-block-paragraph">Çarpışan kılıç darbelerinden bahsetmeye dahi gerek yoktu, yalnızca pozisyonların ve ayak hareketlerinin şaşırtıcı etkileşiminde hangi tarafın üstün olduğu, hangi tarafın altta kaldığı bile soluk gök mavisi gözler tarafından algılanamıyordu.</p>
+<p class="wp-block-paragraph">Bu, o fiziksel bedenin esas sahibi olmayışıyla bütünüyle alakasız bir durumdu. &nbsp;</p>
+<p class="wp-block-paragraph">Yalnızca karşısındakiler o boyutta bir ölüm kalım meselesi içerisindeyken onlara kıyasla kendisinin içerisinde yaşadığı dünya çok daha küçük bir boyuttaydı, gerçek buydu.</p>
+<p class="wp-block-paragraph">Canlı varlıkların değer duygusu ve değerleri, yine canlı varlıklar olarak sahip oldukları güçle karşılanıyorsa onun kırılgan benliği değersizliğe yatkındı.</p>
+<p class="wp-block-paragraph">Dahası bu, benliğinin birkaç yüzyıla denk gelen vakti boşa harcadığının, kendini geliştirme ve yüceltme yoluna sırtını döndüğünün de kanıtıydı.</p>
+<p class="wp-block-paragraph">Kendi benliğinin farkına varmasından bu yana bir önseziye sahipti.</p>
+<p class="wp-block-paragraph">O da kendisi olan o yapay varoluşun doğduğu anda amacını yerine getirmiş olduğuydu.</p>
+<p class="wp-block-paragraph">Doğmak onun amacıymış, bu olay gerçekleştiği anda amacı yerine gelmişti âdeta. Sonrasında da birkaç yüzyılı dünyada amaçsızca dolaşarak, boşluk hissinden kaçınamayarak geçirmişti.</p>
+<p class="wp-block-paragraph">Ölse bile umurunda değildi. Bununla birlikte ölmek için de bir sebebi yoktu.</p>
+<p class="wp-block-paragraph">Bu nedenle hareketsizlik içerisinde ölümünü de çok uzun süreliğine ertelemiş, tembelliğe kapılmıştı.</p>
+<p class="wp-block-paragraph">Ve bu uzatma sürecinde o genç kıza denk gelmişti.</p>
+<p class="wp-block-paragraph">Onun izlediği canlı, hareketli yaşam tarzının büyüsüne kapılmış, buz kesmiş hayatına bir sıcaklık gelmişti.</p>
+<p class="wp-block-paragraph">Minicik bir cüsseye sahip olan ama akıl almaz büyüklükte laflar eden o kız nasıl birine dönüşecek ya da dönüşemeyecek diye merak etmiş, buna kendi gözleriyle tanık olmak istemişti.</p>
+<p class="wp-block-paragraph">Ve kimseler farkına varamadan bu tür entrikaları ve ilgisi önemsiz hâle gelmişti——</p>
+<p class="wp-block-paragraph"><strong>???:</strong> “——Seni ya da değer verdiğin çocukları kaybetmek istemiyorum.”</p>
+<p class="wp-block-paragraph">Zamanın akışı olarak adlandırılan şeyin nazik ama aynı zamanda acımasız da olduğunun farkındaydı.</p>
+<p class="wp-block-paragraph">Zaman yaraları iyileştirse de duyguları da demode hâle getirirdi.</p>
+<p class="wp-block-paragraph">Uzun, devamlı bir sürecin sonunda yeni yeni düşünmeye başlamıştı—— Bunu geçmişe bırakıp yitirmek istemiyordu.</p>
+<p class="wp-block-paragraph"><strong>???:</strong> “Bu da imkânsız bir arzu gerçi.”</p>
+<p class="wp-block-paragraph">Durması için yalvarıp yakarsa bile zaman durmadan akıp gidiyordu.</p>
+<p class="wp-block-paragraph">Küçücük, zayıf hayatlara sahip olmaya mahkûm bireyler zaman içerisinde her türlü değişimi gösteriyordu.</p>
+<p class="wp-block-paragraph">Tıpkı İsmi yağmalanan ve hiç kimsenin anılarında kalmayan isimsiz Şövalyenin Julius Juukulius isimli tekil bir insan olduğunu kanıtlaması gibi.</p>
+<p class="wp-block-paragraph">——Gökkuşağının parlaklığına bürünen Şövalye doğrudan beyaz ışıltıya dalmıştı.</p>
+<p class="wp-block-paragraph">Kumarını oynayan ve gizli ritüelini sergileyen Julius’un karşısındaki Reid Astrea’nın hareketleriyse korkunç basitlikteydi.</p>
+<p class="wp-block-paragraph">Elindeki kılıcı aşağı doğru savurmakla, belki de bu dünyada en sık tekrarlanan kılıç hamlesiyle—— dünyayı eğik bir şekilde ikiye bölmüş, yoluna çıkan her şeyi mahveden bir ışığa dönüşmüştü.</p>
+<p class="wp-block-paragraph">Ne özel bir büyü ne de özel bir hamle.</p>
+<p class="wp-block-paragraph">Basit bir kılıç savuruşuyla ışıklar dünyayı kavurmuştu. Akıl alır gibi değildi.</p>
+<p class="wp-block-paragraph">Reid Astrea mı normların ötesindeydi, yoksa tüm Kılıç Azizleri mi?</p>
+<p class="wp-block-paragraph">Bu kadarı meçhul olsa da——</p>
+<p class="wp-block-paragraph"><strong>???:</strong> “——Julius.”</p>
+<p class="wp-block-paragraph">Aurora o absürt beyaz ışık tarafından bastırılmasın diye gücünü adamak istemişti.</p>
+<p class="wp-block-paragraph">Hiç kuşkusuz ki samimi amacı buydu, fakat o mücadeleye doğrudan dahil olmak şeklinde bir eylem intihara meyilli olmaktan önce kabalık olurdu ve o günah, tövbeleriyle ruhu paramparça olsa dahi kendisine şikâyet etme hakkı tanımazdı.</p>
+<p class="wp-block-paragraph">Ve genç kız—— Echidna, kendisinin hiçbir şey yapamayacağının da bilincindeydi.</p>
+<p class="wp-block-paragraph">Eğer bu yerde, auroraya dönüşmüş Julius Juukulius için yapabileceği bir şey varsa…</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong> “————”</p>
+<p class="wp-block-paragraph">Eli ince göğsünün üzerindeydi, o göğsün derinliklerindeki varoluşu hissedebiliyordu.</p>
+<p class="wp-block-paragraph">Echidna’nın kum denizindeki bu kulede aradığı şey, bu fiziksel bedenin orijinal sahibinin derin uykusundan uyanamama sebebiydi—— Fakat bu bir aldatmacaydı.</p>
+<p class="wp-block-paragraph">Echidna, onun uyanmama sebebini zaten biliyordu.</p>
+<p class="wp-block-paragraph">Açgözlülüğünü ilan eden, her şeyi elde etme arzusuyla böbürlenen o kız.</p>
+<p class="wp-block-paragraph">O, bir kez çantasına koyduğu hiçbir şeyi bırakmak istemezdi, çünkü bir şeyleri bırakmak zorunda kalmaktan, bir şeylerle yollarını ayırmaktan nefret ederdi, dolayısıyla hesaba katabileceği tek bir sebebi vardı.</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong> “Bedeni bana teslim ettikten ve Od’unda geçici olarak uykuya daldıktan sonra dış dünyadan herhangi bir müdahale göremeyecek hâle geleceksin—— Çünkü Od da bir nevi öz-dünya.”</p>
+<p class="wp-block-paragraph">Hür iradesiyle kendisini oraya kapatmıştı.</p>
+<p class="wp-block-paragraph">Sebep barizdi—— Dışarı çıkarsa etkilere maruz kalacaktı. Oburluk Günah Başpiskoposunun mide bulandırıcı Otoritesinin etkilerine maruz kalacaktı.</p>
+<p class="wp-block-paragraph">Asla unutmak istemeyeceği kişiyi unutacak, asla vazgeçmek istemediği kişiden vazgeçecekti.</p>
+<p class="wp-block-paragraph">Anastasia Hoshin, Julius Juukulius’u unutacaktı.</p>
+<p class="wp-block-paragraph">Yani amaç buydu. Ancak——</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong> “Görünüşe göre bu kuleye gelenlerin hepsi güvenilir mankafalar—— Hepsi de bir şeyleri kaybetmemek için ölecek kadar sevimsiz.”</p>
+<p class="wp-block-paragraph">Yaklaşık iki ay boyunca onun gibi yapmaya çalışmış ama artık doğru zaman gelmişti.</p>
+<p class="wp-block-paragraph">Ayrıca onun olumlu ve olumsuz yönlerini, isimsiz bir Şövalye olan telaşlı benliğini yakından gözlemlediği için artık o kız unutsa bile ona anlatabilirdi.</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong> “Ah, demek öyle.”</p>
+<p class="wp-block-paragraph">Hiçbir amacı olmayan, doğum anında görevini yerine getirmiş olan Yapay Ruh.</p>
+<p class="wp-block-paragraph">Hakkında verilen hükümle yalnızca bu nahoş görevi üstlenmiş ancak beklentilerin aksine her şey bununla sınırlı kalmamıştı.</p>
+<p class="wp-block-paragraph">Sevdiği genç kız ve sevdiği Şövalye arasında aracılık eden bir köprü şeklinde hareket etmişti.</p>
+<p class="wp-block-paragraph">Bu yükümlülük, hayati önemde bir görev değil miydi?</p>
+<p class="wp-block-paragraph">Doğumunun amacının bu olduğunu düşündüğünde gülümseyebiliyor olması, hayati önemde değil miydi? İşte bu yüzden——</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’: </strong>“——En havalı Şövalyenin sende olduğunu görememek, böylesine müsrif bir hareket, senin cimri benliğine yakışmaz ki.”</p>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph">——Beyaz ışık, sanki onu boyamak istercesine aurorayı avlamıştı.</p>
+<p class="wp-block-paragraph">Hâlbuki o, ruhunu bütünüyle kullanarak ve kontratını yenilediği altı Ruhun kudretini ödünç alarak bastırıyordu.</p>
+<p class="wp-block-paragraph">Rakibi yalnızca içtenlikle, ciddiyetle kılıç savururken o, sırlar arasındaki bir sırrın örtüsünü kaldırıyor, kumar oynuyordu—— Gerçekten de normların bu denli absürt ölçüde aşılışı karşısında şaşkına dönüyordu.</p>
+<p class="wp-block-paragraph">Ayrıca göğsünde ‘işte bu iş böyle yapılmalı’ şeklinde duygular taşıyor, kendi benliğini ise kurtarılamaz buluyordu.</p>
+<p class="wp-block-paragraph">Tek bir kılıç darbesiyle dünya çatırdamıştı.</p>
+<p class="wp-block-paragraph">Bu, Reinhard kılıcını savurduğunda gerçekleşen özel bir Kılıç Azizi hamlesiydi.</p>
+<p class="wp-block-paragraph">İki yaşam arasındaki rekabetin ortasındaki Julius’un aklınaysa ansızın bir şey gelmişti.</p>
+<p class="wp-block-paragraph">Reinhard ve Reid çarpışacak olsaydı, hangisi daha güçlü çıkardı acaba?</p>
+<p class="wp-block-paragraph">Bir efsane ve bir efsane, bir Kılıç Azizi ve bir Kılıç Azizi arasındaki erişilemez çarpışmanın galibi kim olurdu acaba?</p>
+<p class="wp-block-paragraph">Maalesef bunu kesinleştirme fırsatı bulamayacaklardı.</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Öyleyse, bunu kendi bedenimle teyit etmekten başka şansım yok.”</p>
+<p class="wp-block-paragraph">Hem Reinhard van Astrea hem de Reid Astrea’yla kılıç çarpıştırma şansını yalnızca bu kuleye gelenler bulabilirdi.</p>
+<p class="wp-block-paragraph">Ayrıca bu olasılık sadece Julius ve üst kata çıkmış olan Emilia isimli o kız için geçerli olabilirdi—— Julius’un bu görevi bir başkasına devretmeye niyeti yoktu.</p>
+<p class="wp-block-paragraph">Bu yüzden ona düşen tek şey zafer kazanmaktı.</p>
+<p class="wp-block-paragraph">Beyaz ışığı dürtmek ve gökkuşağının parıltısıyla Reid Astrea’yı katletmek.</p>
+<p class="wp-block-paragraph">Bu amaçla, ruhunun ve kılıç gücünün bütünlüğünü bir adım öteye taşımalıydı——</p>
+<p class="wp-block-paragraph">Eğer Şövalyelerin En İyisi’nin kılıcının ucuna bir gurur ve güç zerresi yerleşecek olursa——</p>
+<p class="wp-block-paragraph"><strong>???: </strong>“——Julius.”</p>
+<p class="wp-block-paragraph">Ulaşılması umulmayan bir çağrıydı.</p>
+<p class="wp-block-paragraph">Lakin zaman akışını belirsiz kılan darbeler esnasında kılıçların her bir kavuşması için gerekli süre, saniye kesitlerinden de azdı. İşte bu anlık dünyanın saldırı ve savunması bu şekildeydi.</p>
+<p class="wp-block-paragraph">Muhtemelen o boşlukta, ölüm kalım pahasına yapılan o mücadelenin ortasında hiç kimsenin sesinin ulaşması mümkün değildi.</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“————”</p>
+<p class="wp-block-paragraph">Ama gelin görün ki o ses, Julius’u kamçılamıştı.</p>
+<p class="wp-block-paragraph">Belki kulak zarlarına değil ama çok daha derinlere, göğsünün en derin noktalarına ulaşmıştı.</p>
+<p class="wp-block-paragraph">Kalbini Şövalye isimli kabukla kaplamaya karar verdiğine göre hata yapmadan karşılık vermek zorundaydı.</p>
+<p class="wp-block-paragraph">İşte bu yüzden, duyamamış olması gereken o sesi işiten Julius, bakışlarını görememiş olması gereken kişiye çevirdi ve o açık mavi gözlerle bakıştı.</p>
+<p class="wp-block-paragraph">O iri, yuvarlak gözlerdeki ışıltı, az önceki hâlinden bariz şekilde farklıydı——</p>
+<p class="wp-block-paragraph"><strong>???: </strong>“——Hakla onu, Şövalyem.”</p>
+<p class="wp-block-paragraph">——Bu tek cümle, Julius’un kılıcı için ihtiyaç duyduğu son itici güç olmuştu.</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“İa! Kua! Aro! İk! İn! Ness!”</p>
+<p class="wp-block-paragraph">Son bir hamle talep ederek birlikte Auroranın bir parçası olduğu Ruhlara seslendi.</p>
+<p class="wp-block-paragraph">Hemen önünde duran ve ötesinde mağlup etmesi gereken düşmanın formunu barındıran o beyaz ışığı aşmak için…</p>
+<p class="wp-block-paragraph">Kılıcının ucunu o beyaz ışığın ötesine ulaştırmak için——</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“OHHHHHHHHH!!——”</p>
+<p class="wp-block-paragraph">Kendisine yakışmayan bir şekilde ağzını açarak sesini kan kusacak kadar yükseltti.</p>
+<p class="wp-block-paragraph">Ve ölmeye hazır bir ifadeyle, zarafeti rüzgâra bırakarak, yalnızca kendisini destekleyen kemiklerin kırılmamasını sağlayarak, olabilecek en büyük adanmışlıkla öne çıktı.</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“————”</p>
+<p class="wp-block-paragraph">Gökkuşağı aurorasının parlaklığının yoğunlaştığını algılayan pusucu beyaz ışık da enerjisini arttırdı.</p>
+<p class="wp-block-paragraph">Güçlerini arttırdıkça arttıran, arttırdıkça arttıran gökkuşağı ile beyaz ışığın parıltıları şiddetle çarpıştı——</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“——Ah.”</p>
+<p class="wp-block-paragraph">Ve ilelebet var olacakmış gibi görünen şey, beklenmedik bir perde inişiyle karşılaştı.</p>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“——Ah.”</p>
+<p class="wp-block-paragraph">Afallayan Julius, boğazından kaçan cılız sesin farkına vardı.</p>
+<p class="wp-block-paragraph">Azami güçleri karşılıklı çarpışmış, perdeler aniden inmişti. Fakat aurorayla süslenmiş kılıcı, enerjisini hiç duraksatmaksızın doğrudan rakibinin iç organlarına saplanmıştı.</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Neden…”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Çıh, ah, kahretsin, bu can sıkıcı bi son diil de ne!”</p>
+<p class="wp-block-paragraph">Bıçaklama işinin sorumlusu olan Julius kargaşa hâlindeyken bıçaklanan taraf olan Reid, sakinliğini koruyordu.</p>
+<p class="wp-block-paragraph">Göğsüne saplı olan kılıca rağmen kaşları bile çatılmıyordu.</p>
+<p class="wp-block-paragraph">Bu onun iradesinin inatçı gücünün sonucu muydu, yoksa sebep, o ulu adamın fiziksel bedeninde meydana gelen bir anomali miydi?</p>
+<p class="wp-block-paragraph">Julius’un kılıcının nüfuz edişinden bağımsız olarak Reid Astrea’nın göğsünde bir yara—— yo, bir yarık oluşmuştu.</p>
+<p class="wp-block-paragraph">Ve bu yalnızca göğsüyle de sınırlı değildi. Kolları ve bacakları, boynu ve yanakları, vücudunun daha pek çok kısmı çatırdayan camlar misali yaralarla doluyordu.</p>
+<p class="wp-block-paragraph">Julius, neler yaşandığını içgüdüsel olarak algılayabiliyordu.</p>
+<p class="wp-block-paragraph">Başlangıçtaki akıl almaz bozulma düzeltiliyordu. Bu, o mekanizmaya dair bir fenomendi.</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Nihayetinde mesele bu işte. Benim adımı taşıyan insan, benimkinden başka bi bedene uyum sağlayamıyo.”</p>
+<p class="wp-block-paragraph">Çatlayan avcuna bakan Reid’in homurdandığı tespit doğruydu.</p>
+<p class="wp-block-paragraph">Oburluk Otoritesine bağlı olarak o fiziksel beden üzerindeki kontrol hakkını yağmalayarak ele geçiren Reid Astrea, bir cisme kavuşmuştu—— lakin gerçek şu ki bu beden, acı son gelene dek onun temeli olan Oburluk Günah Başpiskoposu Roy Alphard’a aitti ve bu değişmeyecekti.</p>
+<p class="wp-block-paragraph">Başka bir deyişle Roy Alphard adlı hazne, normları aşan Reid Astrea adlı ruhun işleyişine dayanamamıştı.</p>
+<p class="wp-block-paragraph">Başarısızlığı da Julius’a karşı verdiği mücadelenin son evresinde gerçekleşmişti.</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Öyleyse, bunu yapmanı tercih ederim!”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Ehh, bu adam tarafından mideye indirilmiş olmasaydım sona vakitlice ulaşabilirdim. Bu durumda işler göz bandını çıkardıın anda sonlanırdı, anlıyo musun?”</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Kıh…”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Kakaka. Zayıf insanlar için işler her zaman istedikleri gibi gitmez. Şimdi ağlamak istiyo musun?”</p>
+<p class="wp-block-paragraph">Diyerek kendisine taahhüt edilmiş kılıcı bir kenara atan Reid, dişlerini göstererek kötü niyetli bir kahkaha attı.</p>
+<p class="wp-block-paragraph">Nasıl oluyor da böyle gülebiliyordu? Artık ortadan kaybolacağı, kesinleşmişti.</p>
+<p class="wp-block-paragraph">Hâlbuki Julius’u yenmiş olsaydı bir kez sona ermiş olan hayat çizgisi üzerinde bir kez daha yürümesi mümkün olabilirdi. Ama bu olasılığın parmaklarının arasından kayıp gitmesine izin vermişti.</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Aptal mısın sen, sana diyom? Bi kez daha yaşamakmış, böyle can sıkıcı bi şeyi hangi geri zekâlı yapar ki! Her şeyden önce, bir yerlerde kendime rastlayacak olursam ne boklar olur, heyt!”</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“…Bunu söylediğim için üzgünüm ama sen yüzyıllar önce yaşlılıktan vefat ettin. Yani şu anki benliğin ortalıkta dolaşacak olsa bile eski benliğin…”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Hah! Öyleyse siz benim bi yabancı olan çocuumun çocuuna mı tapıyosunuz yani? Saçmalık.”</p>
+<p class="wp-block-paragraph">Kendi nesline yabancı muamelesi yapan Reid’in son sözleri, gerçek düşünceleriymiş gibi görünüyordu.</p>
+<p class="wp-block-paragraph">İkinci bir hayat çizgisiyle hiç ilgilenmediğini dürüstlükle ifade eden Reid, boyun kemiklerini çatırdattı.</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Her şeyden önce, sen ne halt yemeye bana hayata döndükten sonra naapcaamı söylüyosun, hey sana diyorum. Şuradaki de epey iyi olsa da az önce geçip giden ateşli çıtırla oynamak vardı mesela. Bi de erotik bakışlı şu kadın var…”</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Oh, yani gerçekten kalıcı hiçbir bağın yok?..”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Yok be, kahrolasıca. Aklımdan geçtiinde canımın istediini yapmak benim yaşam tarzım. Sen de bunu yapabilseydin her şey çok daha kolay olurdu.”</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“…Tavsiye için minnettarım. Fakat benim için çok daha dikenli bir yol olurdu.”</p>
+<p class="wp-block-paragraph">Onun benliği, bile isteye bir kabuğa bürünmeyi seçmişti.</p>
+<p class="wp-block-paragraph">Kendisini kandırmak ya da temelinin bir parçası farklıymış gibi davranmak da uygun etiketler olurdu.</p>
+<p class="wp-block-paragraph">Bu seçimin kendisine yakıştığını, isteklerine uyduğunu fark eden Julius, Reid’in aşırılığının göz kamaştırıcı olduğunu düşünse de bunu tercih etmeyecekti.</p>
+<p class="wp-block-paragraph">Julius’un bu yanıtını işiten Reid, sinir bozukluğu içerisinde homurdandı.</p>
+<p class="wp-block-paragraph">Ardından göğsündeki yaraya—— sınırları aşmasının sonucunda doğan yarıklardan farklı olan o tek yaraya parmaklarıyla dokunarak,</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Hey, yanlış anlama, tamam mı? Kılıcının ulaşmış olması şans eseriydi. Bu benim bedenim olsaydı senin gibi biri bana sümüğünü bile süremezdi.”</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Böyle bir şey yapmaya yeltenmezdim zaten ama neyse…”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Hah! Ne sıkıcısın be!”</p>
+<p class="wp-block-paragraph">Diyen Reid, göğsüne dokunduğu eliyle Julius’un omzuna vurdu.</p>
+<p class="wp-block-paragraph">Bu darbenin etkisiyle bedeni kaskatı kesilen Julius ise derin bir nefes aldı.</p>
+<p class="wp-block-paragraph">Ne her şeyi kabulleniyor ne de bir tepki veriyordu.</p>
+<p class="wp-block-paragraph">Bununla birlikte gözlerinin önünde yaşananlar karşısında aklını yitirip kargaşaya kapılarak bu anları özgür bırakmanın çok daha dayanılmaz olduğunu düşünüyordu.</p>
+<p class="wp-block-paragraph">Yarıklar genişliyor ve son, kendisini gösteriyordu.</p>
+<p class="wp-block-paragraph">İşte bu nedenle Julius, kınından çıkarmış olduğu Şövalye kılıcını önüne doğru kaldırarak——</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Kılıcının gücüne, kalbimin en derinlerinden saygı duyuyorum.”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Bi piçin hayranlııına ihtiyacım yok—— Zaferle veda ediyorum, Julius.”</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“————”</p>
+<p class="wp-block-paragraph">Reid’in son sözleri arasında ismi dillendirilen Julius, şaşkınlık içerisinde bakakaldı.</p>
+<p class="wp-block-paragraph">Ancak heyecana kapılmama kararlılığıyla bu şaşkınlığı bir gülümsemenin ardına gizleyerek eğildi.</p>
+<p class="wp-block-paragraph">Tam da bu efsanevi varlığın önünde kendisini özgüvenle adlandırdığı o Şövalyelerin En İyisi’nin yapacağı gibi.</p>
+<p class="wp-block-paragraph">Tam da Julius Juukulius’un, hayranlığına utanç getirmeyecek çizgide şekillendirdiği ideallerinde olduğu gibi.</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Evet, son anına dek—— Galibiyet senindir, Reid Astrea.”</p>
+<p class="wp-block-paragraph"><strong>Reid: </strong>“Hah, işte bu güzel bi surat, lanet olasıca kederli ezik.”</p>
+<p class="wp-block-paragraph">Ve sonu işaret eden bu sözcüklerle birlikte Reid Astrea’nın yarıkları genişledi——</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img decoding="async" width="945" height="709" src="https://web.archive.org/web/20260619051659im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-160.png" alt="" class="wp-image-8366" srcset="https://web.archive.org/web/20260619051659im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-160.png 945w, https://web.archive.org/web/20260619051659im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-160-768x576.png 768w" sizes="(max-width: 945px) 100vw, 945px"><figcaption class="wp-element-caption"><a href="https://web.archive.org/web/20260619051659/https://www.pixiv.net/en/artworks/80735537">Görsel Sahibi</a></figcaption></figure>
+</div>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" decoding="async" width="945" height="1343" src="https://web.archive.org/web/20260619051659im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-162.png" alt="" class="wp-image-8368" srcset="https://web.archive.org/web/20260619051659im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-162.png 945w, https://web.archive.org/web/20260619051659im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-162-704x1000.png 704w, https://web.archive.org/web/20260619051659im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-162-768x1091.png 768w" sizes="auto, (max-width: 945px) 100vw, 945px"><figcaption class="wp-element-caption"><a href="https://web.archive.org/web/20260619051659/https://www.deviantart.com/norvakkk/art/Re-Zero-Kara-Hajimeru-Isekai-Seikatsu-865461402">Görsel Sahibi&nbsp;</a></figcaption></figure>
+</div>
+<p class="has-text-align-center wp-block-paragraph">△▼△▼△▼△</p>
+<p class="wp-block-paragraph"><strong>???: </strong>“————”</p>
+<p class="wp-block-paragraph">Görsel izlenimlerinin aksine genişleyen yarıklara son ana dek herhangi bir ses eşlik etmedi.</p>
+<p class="wp-block-paragraph">Camın kırılmasının aksine kırmızı saçlı ulu adam, sönen ışıklar misali öylece yitip gitti—— onun yerine berrak zemine yığılansa şişmiş soğuk gözlere sahip minyon bedenli genç bir oğlan oldu.</p>
+<p class="wp-block-paragraph">Başkalarının Anıları ve İsimlerini gönlünce yiyen Pisboğaz bir kâfir.</p>
+<p class="wp-block-paragraph">Oburluk Günah Başpiskoposu Roy Alphard, yenik düşmüş, yığılıp kalmıştı.</p>
+<p class="wp-block-paragraph"><strong>Roy: </strong>“————”</p>
+<p class="wp-block-paragraph">Ölü mü diri mi olduğu bilinmeyen Oburluk, bir kez olsun seğirmeden hareketsizce yatıyordu.</p>
+<p class="wp-block-paragraph">Ancak tıpkı Reid gibi onun da göğsünün sol yanında ölümcüllüğü tartışılmaz, derin bir kesik bulunuyordu.</p>
+<p class="wp-block-paragraph">Gözleriyle bu manzarayı yakalayan Julius, bir onur göstergesi olarak kaldırmış olduğu Şövalye kılıcını indirdi ve kuşanmış olduğu kınına takarak arkasını döndü.</p>
+<p class="wp-block-paragraph">Aurora dağılmış, Julius’un etrafı parlaklıkları artırılmış altı Ruhla sarılmıştı.</p>
+<p class="wp-block-paragraph">Tomurcukken filizlenip genç kızlara dönüşen o Ruhların gücü olmasaydı bu şekilde berrak zeminin üzerinde yatan kişinin rakibindense kendisi olacağı kesindi.</p>
+<p class="wp-block-paragraph">Bunun için duyduğu minnettarlık ve takdiri itinayla iletmeliydi.</p>
+<p class="wp-block-paragraph">Ancak özür dileyerek bu minnettarlık göstergesini ertelemek zorundaydı.</p>
+<p class="wp-block-paragraph">İstikrarlı bir şekilde ilerliyordu.</p>
+<p class="wp-block-paragraph">İlerlediği yöndeyse muhteşem, narin, minyon bedenli bir kız, açık mavi gözlerle dikkatlice kendisini izliyordu. Dalgalı açık mor saçlara sahip, kum tepelerine yakışmayan beyaz bir kıyafete bürünmüş bir şahıstı.</p>
+<p class="wp-block-paragraph">Ayaklarının dibindeyse gözbebekleri merakla titreşen beyaz bir tilki duruyordu.</p>
+<p class="wp-block-paragraph">Her daim bir atkı gibi davranan o kişinin formu ve oradaki varlığının önemi.</p>
+<p class="wp-block-paragraph">Bir kez daha bunun farkına varan Julius, gözlerini kapattı. Ve——</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“——Tanıştığımıza memnun oldum.”</p>
+<p class="wp-block-paragraph">Bir meydan okuyucu olarak Kılıç Azizi’ne söylemiş olduğu sözleri bir kez daha dile getirdi.</p>
+<p class="wp-block-paragraph">Ama bu defa göğsünün derinliklerinde taşıdığı his, savaş öncesi tattığı güçlenişten farklıydı.</p>
+<p class="wp-block-paragraph">Bununla birlikte aynı olan bir şey de vardı.</p>
+<p class="wp-block-paragraph">O da Şövalyeliğe hasret bir gencin bir macera masalının yeni bir sayfasını açarcasına maceracı yüreğiydi.</p>
+<p class="wp-block-paragraph"><strong>???: </strong>“Ben…”</p>
+<p class="wp-block-paragraph">O noktada diz çöken Julius’un ilk kelimeleri telaffuz edişiyle diğer kişi karşılık verdi.</p>
+<p class="wp-block-paragraph">Eğilmiş hâlde duran Julius, o sözlerin devamını bekliyordu. Ne kadar uzun süre gerekirse gereksin bekleyebileceğini düşünüyordu.</p>
+<p class="wp-block-paragraph">Beklemesi gerektiğine, o sözleri mutlaka işiteceğine inancının olması ne büyük bir mutluluktu.</p>
+<p class="wp-block-paragraph"><strong>???: </strong>“——Ben, Anastasia Hoshin.”</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“————”</p>
+<p class="wp-block-paragraph"><strong>Anastasia: </strong>“Ben, bu dünyadaki her şeyi istiyorum… Ee, harika ve havalı onii-san, peki senin adın ne?”</p>
+<p class="wp-block-paragraph">Diyerek zarafetle gülümsedi ve Julius, sonrasında kesinlikle kafasını eğmiş olmalı diye düşündü.</p>
+<p class="wp-block-paragraph">Ve diz çökmeyi, önüne bakarak yüzünü gizli tutmayı sürdürürken “Ha” deyip kısacık iç çekerek…</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Benim adım Julius Juukulius—— Sizin, tek ve biricik Şövalyeniz.”</p>
+<p class="wp-block-paragraph"><strong>Anastasia: </strong>“————”</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“Siz unutmuş olabilirsiniz. Ama ben, kılıcını size adamış olan kişiyim. Gücünün tamamını size adayan ve arzunuzun gerçekleşmesine yardımcı olacak kişi.”</p>
+<p class="wp-block-paragraph">Şövalye kılıcı yere yerleşmiş hâlde saygılı eğilişini tamamlayan Julius, nihayet suratını kaldırdı.</p>
+<p class="wp-block-paragraph">Karşısındaki efendisi ne gözle bakarsa baksın pişman olmayacaktı.</p>
+<p class="wp-block-paragraph">Kafa karışıklığı, başını öne eğmek, şaşkınlığa kapılmak, bunlar bir Şövalyeye yakışmayan şeylerdi.</p>
+<p class="wp-block-paragraph">Görünüşü her şeyin üstünde tutan ve klas, çekici bir havaya sahip olmayı arzulayan o varlık, Julius’un hayran olduğu ve arzuladığı kişi oydu.</p>
+<p class="wp-block-paragraph">İşte o Julius’a tepeden bakan genç kız, yuvarlak gözlerini kısarak,</p>
+<p class="wp-block-paragraph"><strong>Anastasia: </strong>“Gerçekten mi? Hatırlamıyo’m ama… yine de…”</p>
+<p class="wp-block-paragraph"><strong>Julius: </strong>“————”</p>
+<p class="wp-block-paragraph"><strong>Anastasia: </strong>“İlk bakışta şöyle düşünmüştüm—— Bu onii-san’ı benim yapmalıyım.”</p>
+<p class="wp-block-paragraph">Böylece ebediyen özlem duyan efendisi bu yakınlıktan, alev alev, ışıl ışıl gözleriyle hiçbir şeyden feragat etmeme arzusunu dile getirdi.</p>
+<p class="wp-block-paragraph">Ve Julius Juukulius, her şeyi elde etme arzusundaki o Açgözlülüğe bir kez daha kılıcını adadı.</p>
+<p class="wp-block-paragraph">Kurgusal bir efendi ve Şövalye masalı misali olağanüstü bir oyunla——</p>
+<p class="wp-block-paragraph">İkinci kat Electra’da, efendi ve hizmetkârının yağmalanan bağının onarımı gerçekleşti.</p>
+<p class="wp-block-paragraph">İşte bu, Natsuki Subaru’nun ortaya koyduğu beş engelden birinin başarıyla ortadan kaldırılışıydı.</p>
+<p class="wp-block-paragraph">Büyük Pleiades Kütüphanesi’nin ikinci Sınavı—— böylece sonlanmıştı.</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" decoding="async" width="945" height="675" src="https://web.archive.org/web/20260619051659im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-166.png" alt="" class="wp-image-8375" srcset="https://web.archive.org/web/20260619051659im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-166.png 945w, https://web.archive.org/web/20260619051659im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-166-768x549.png 768w" sizes="auto, (max-width: 945px) 100vw, 945px"></figure>
+</div>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" decoding="async" width="945" height="1342" src="https://web.archive.org/web/20260619051659im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-168.png" alt="" class="wp-image-8377" srcset="https://web.archive.org/web/20260619051659im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-168.png 945w, https://web.archive.org/web/20260619051659im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-168-704x1000.png 704w, https://web.archive.org/web/20260619051659im_/https://www.rezeroturkce.com/wp-content/uploads/2026/06/image-168-768x1091.png 768w" sizes="auto, (max-width: 945px) 100vw, 945px"><figcaption class="wp-element-caption"><a href="https://web.archive.org/web/20260619051659/https://x.com/112oVic2/status/2063952684399620523">Görsel Sahibi</a></figcaption></figure>
+</div>
+</article>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+            <a href="arc6bolum84.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="arc6bolum86.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

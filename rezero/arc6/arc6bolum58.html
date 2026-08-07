@@ -1,0 +1,526 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Zero Kısım VI, Bölüm 58 Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #00bcff; /* Görseldeki Açık Mavi / Cyan */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #0099dd;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c531b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+            text-indent: 1.5em;
+        }
+
+        /* Alt Navigasyon */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="arc6bolum57.html" class="nav-btn">← Önceki</a>
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="arc6bolum59.html" class="nav-btn">Sonraki →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Re:Zero  Kısım VI, Bölüm 58</h1>
+            <div class="subtitle">Olmuşla ölmüşe çare yok</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <!-- Metin buraya eklenecek -->
+            <p class="wp-block-paragraph"><em>——</em><em>Hadi gidip</em><em> </em><em>Taygeta</em><em> </em><em>Kütüphanesi’nde Reid’in kitabı var mı diye bakalım.</em></p>
+<p class="wp-block-paragraph">Subaru’nun hem kuleyi ele geçirmek hem de acilen çözülmesi gereken İkinci Kat problemini çözmek için önerdiği şey buydu.</p>
+<p class="wp-block-paragraph">Çember hâlinde oturan topluluktaki herkesin yüzlerine şaşkın ifadeler yerleşmişti.</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Onun kitabı mı?.. Sen ciddi misin?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong> “Ooo, Emilia-chan, bakıyorum da kitaplar konusunda bayağı ciddisin. Çok komik.”</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong> “Off ya… Subaru!”</p>
+<p class="wp-block-paragraph">Subaru, bu tepkiyi veren Emilia’ya baktı. Ve tatlılığıyla sevimli mizacına şükredip sevindikten sonra geri kalanlara dönerek “Dinleyin” dedi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Reid’in kitabını aramak, bence İkinci Katı ele geçirmenin en kolay ve en hızlı yolu bu. Siz de aynı fikirde değil misiniz?”</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Bunu daha önce de sormuştum, ama neden? Kitabı aramaya karşı değilim. Ama neden Reid’in kitabını aramamız gerektiğini anlamıyorum. Ayrıca…”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“——Her şeyden önce, Reid Astrea’nın kitabı gerçekten o Kütüphanede olacak mı ki?”</p>
+<p class="wp-block-paragraph">Subaru’nun önerisini işiten Emilia kafasını eğerken sözlerinin ikinci yarısını tamamlayan Julius oldu.</p>
+<p class="wp-block-paragraph">Tüm bakışları üzerine çeken Julius, birbirini tamamlayan gözleri ve kirpikleriyle bakışlarını yukarı çevirdi. Tavanın üzerinde uzanan İkinci Kata bakıyormuş gibi bir hâli vardı.</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“İnanması zor olsa da tarihe adını yazdırmış bir kahraman olan Reid Astrea, Sınavı kendi üzerine almış şekilde İkinci Katta ona meydan okumamızı bekliyor. Onun dört yüz yıl önce yaşamış bir şahsiyet olduğundan ve hâlâ aynı kişi olmayı sürdürdüğünden şüphe duymak için hiçbir sebep olmasa da… artık zihnimde ölümünü sorgulamam mümkün.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ne kadar canlı olduğunu bir düşünüyorum da gerçekten ölmüş müdür ki? Bu nokta hesaba katılınca tahminimde yanılıyor olabilirim herhâlde…”</p>
+<p class="wp-block-paragraph">İşin doğrusu Subaru, Emilia ve diğerlerinden dinlediği şeylerden sonra onun yüzlerce yıl önce ölmüş biri olduğuna hükmetmişti.</p>
+<p class="wp-block-paragraph">Bu koşullar hakkında bilgisi olmadan tanışmış olsalardı Reid’in ölü bir insan olduğuna inanmakta gerçekten zorlanırdı. Her şeyden önce canlılık doluydu. Fazla enerjik bir ölüydü.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Her şeye rağmen işler, üzerine bu denli düşünmemizi gerektirmeyecek düzeyde bence. Sonuçta birkaç yüz yıl yaşaması akıl almaz bir şey olurdu, yani şimdiye ölmüş olması gerekiyor. Öyle değil mi, Beatrice?”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Her şeye rağmen Betty dört yüz yıl yaşadı, doğrusu.”</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Yüz küsür yıl da bende var sanırım?”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Aynen, benim doğumum düşünülünce yaşım dört yüz civarı oluyor herhâlde. Gerçi bilinçli olduğum süre kısaydı.”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Ben de! Ben de, Ustam! Dört yüz yıldır boşu boşuna burada bekliyorum! Çok yalnızdım! O dört yüz yıl için bir sarılma talep ediyorum!”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bu kadar çok yaşayan bunca kişi mi var?! Hem de Emilia-chan bile mi?!”</p>
+<p class="wp-block-paragraph">Amacı uzlaşmakken bilmeden itirazlara yol açmış, duydukları karşısında ağzı açık kalmıştı.</p>
+<p class="wp-block-paragraph">Grup üyelerinin yarıdan fazlasının uzun süredir yaşayan karakterler çıkacağı hiç aklına gelmemişti. Grubun yaş ortalaması öyle fena sıçramıştı ki bu işin şakası yoktu.</p>
+<p class="wp-block-paragraph">Bilhassa Beatrice ve Emilia söz konusu olunca açık kalan ağzını kapatmayı beceremiyordu.</p>
+<p class="wp-block-paragraph">Yalnızca bunu kabullenmesi gerektiğini düşünüyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“D-Demek öyle, Emilia-chan bir yarı elf… ayrıca eşsiz bir güzellik olduğuna da ikna olmuş durumdayım. Kurallar gereği yarı elfler güzel olur ve çok yaşar neticede.”</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Um, mhm, evet… Subaru, hafızanı kaybetmene rağmen yarı elflerden korkmuyor musun?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Korkup korkmadığımı soruyorsan, asıl bu tatlılığından korkuyorum. Hakikaten öldürücü. Yarı uykuluyken sana bakarsam ve gardımı indirirsem kör olabilirim. Dürüst olmak gerekirse şimdi bile sık sık gözlerimi kırpmam gerekiyor.”</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“…Tanrım, çok şapşalsın.”</p>
+<p class="wp-block-paragraph">Hafiften somurtan Emilia tarafından azarlanan Subaru, kendini iyi hissettiği bu ortamla ilgili düşüncelere dalıyor ama bir yandan da aptalca bir yanlış anlaşılmaya sebep olmadığından emin olmak için kendisini hazırlıyordu.</p>
+<p class="wp-block-paragraph">Emilia inanılmaz kibar biriydi, öyle ki Subaru’ya karşı bir his beslediği şeklinde dikkatsizce bir izlenim edinmek mümkündü. Subaru’nun kalbi hızla çarpıyor, yerinden çıkacak gibi oluyordu. Ehh, hiç değilse hâlâ atıyor olması iyiydi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Haaa~… böyle anlarda sen, ailemin evine dönmüşüm gibi bir rahatlama hissi uyandırıyorsun, Beatrice.”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Bu azıcık kabul edilemez bir şeymiş gibi geldi, sanırım… ama neyse, Betty’nin kafasını okşadığın için bu seferlik paçayı yırttın, doğrusu.”</p>
+<p class="wp-block-paragraph">Emilia tarafından düzeni bozulan Subaru’nun kalp atışları, Beatrice’i sevdikçe yatışıp düzene giriyordu. Görünüşe göre Beatrice’in morali de iyiye gidiyordu, yani iki tarafa da hizmet eden bir aktiviteydi.</p>
+<p class="wp-block-paragraph">Konuşma bu şekilde rayından çıkarken Echidna, “Bir şey söylememde sakınca var mı?” diyerek elini kaldırdı.</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Julius’un endişesini anlayamıyor değilim ama Reid’in ölü bir insan olduğu varsayımını içtenlikle desteklemek isterim. Gerçi bu yalnızca onunla bizzat irtibata geçtiğimde edindiğim bir izlenim.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Peki ya bu izlenimin sebebi ne?”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Öncelikle, tam da Natsuki-kun’un söylediği üzere Reid Astrea’nın uzun ömürlü ırklardan birine ait olduğunu tasavvur edemiyorum. O pek çok açıdan normların ötesine geçen biri olabilir ama yine de özünde bir insan. İkinci sebepse kişiliği.”</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Kişiliği mi? Gerçeeekten enerjik mizacı gibi mi?”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Hem de benzeri görülmemiş derecede enerjik. Ve böylesine zinde, heyecan dolu bir karakterin kendisini dört yüz yıl boyunca sessiz sedasız kuleye kapatabileceğini hayal edemiyorum. Onunla… Shaula’yla bile hiç karşılaşmamış olması daima İkinci Kattaki o odada olduğu anlamına geliyor. Ki buna inanmak çok zor. Bu benim keyfi görüşüm olsa da bana kalırsa büyük ihtimalle üç güne buradan ayrılırdı.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ah.”</p>
+<p class="wp-block-paragraph">Subaru, Echidna’nın bakış açısına kabulleniş ve uzlaşmayla dolu bir sesle karşılık verdi.</p>
+<p class="wp-block-paragraph">Emilia ve diğerlerinin aklı da Reid’in hareketli tavırlarındaydı. Hepsi de Echidna’nın görüşlerinin güvenilirliğine ikna olmuş görünüyordu.</p>
+<p class="wp-block-paragraph">Tüm grubu gözlemleyen Echidna, soluk mavi gözlerini Julius’a çevirdi.</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Ee, benim izlenimlerim bu şekilde. Peki ya sen, bana katılıyor musun Julius?”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Katılmamak imkânsız. Reid Astrea’nın gerçek izlenimini düşününce böylesine uzun bir süre aynı yerde kalması mümkün görünmüyor. Bunun arkasındaki neden, kulenin Sınavlarının ve Reid’in şu anki benliğinin kendileriyle ilişkili bir dizi koşula sahip olması olmalı… bu durumu bu şekilde değerlendirmeliyiz.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Kule, Reid ve onlarla ilişkili bir dizi koşul, ha.”</p>
+<p class="wp-block-paragraph">Echidna ve Julius’un konuşmalarını işiten Subaru, bir önceki döngünün akıbetini anımsadı.</p>
+<p class="wp-block-paragraph">Reid, büyük bir kaos ve kargaşanın alevlerine yakalanmış kulede özgürce dolanıyor ve dışarı çıkma konusunda böbürleniyordu. Hiçbir çekincesi olmadan İkinci Kattan Dördüncü Kata inmiş ve hatta Subaru’yu kafasının arkasından itmişti.</p>
+<p class="wp-block-paragraph">Subaru’ya hiç de özgürlüğü kısıtlıymış gibi gelmemişti.</p>
+<p class="wp-block-paragraph">Gerçek şu ki o son tereddüdü olmasaydı yaşam dolu bacaklarının her zamanki hızıyla kuleden ayrılacağı şüphesizdi—— Bunu yapmamış olma sebebiyse…</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“——? Ne oldu, benden istediğin bir şey mi var?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Yoo…”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Heh. İnanıyorum ki benim yüzümde de gözler, burun, kulaklar ve dudaklar var ama onlarla ilgili bir tuhaflık mı var ki?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ah, Emilia-chan’ın aksine seninkiler hiç de tatlı değiller, yani taramada başarısız oldular. Onu bunu bırak da…”</p>
+<p class="wp-block-paragraph">Konuşma çoktan eldeki ana konudan bir hayli uzaklaşmıştı. Bunu düşünen Subaru, gözlerini Julius’tan kaçırdı.</p>
+<p class="wp-block-paragraph">Ve bir kez daha Reid’in kitabı meselesine döndü.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Neyse, Reid’in hayat dolu bir ölü olduğunda hemfikir olduğumuza göre ilk cümleme geri dönelim. Taygeta Ölülerin Kitaplarını barındırıyor, değil mi?”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Şu an için bu fikirdeyiz. Ölülerin anıları okuyucunun kafasına doluyor… Barusu ve Julius bu kadarını teyit etti. Gerçi maalesef ki o anıları da yitirmişsin gibi görünüyor.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Üzgünüm dedim ya, yüzüme vurmasana—— Ve konuşmanın odak noktası da burada yatıyor.”</p>
+<p class="wp-block-paragraph">Diyen Subaru, parmağıyla Ram’ı işaret etti. Ram ise bu hareketi nahoş bulmuş olacak ki Subaru’nun parmağını bükerek ona tattırdığı acıyla “Ga~a~h!” şeklinde çığlık atmasına yol açtı.</p>
+<p class="wp-block-paragraph">Bu konuşma yanı başında gerçekleşen Beatrice ise hafif bir “Ah” sesi yükseltti.</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Demek öyle, sanırım!”</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Beatrice, Subaru’nun söylemeye çalıştığı şeyi anladın mı?”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“Evet, doğrusu. Neyse o, sanırım—— Başka bir deyişle, Reid’in Ölü Kitabının onu yakalamanın kilit noktası olduğunu söylüyor, doğrusu.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Aynen.”</p>
+<p class="wp-block-paragraph">Bükülen parmağını okşayan Subaru, yüzünde acıklı bir ifadeyle Beatrice’in sözlerini teyit etti.</p>
+<p class="wp-block-paragraph">Bu açıklamayı işiten Emilia’ysa ametist gözleri açılıp “Demek öyle” diye fısıldadı.</p>
+<p class="wp-block-paragraph">——Ölü Kitabını kullanacak ve ölünün kendisini yakalayacaklardı.</p>
+<p class="wp-block-paragraph">Özetlemek gerekirse Ölü Kitabı yalnızca bahsi geçen kişinin yaşam kaydından ibaret değildi, aynı zamanda o kişinin neden öldüğünün de ayrıntılı bir şekilde kaydedilişiyle bir “yakalama rehberi” görevi görüyordu.</p>
+<p class="wp-block-paragraph">Ve hâlihazırda dört defa ölmüş tecrübeli bir oyuncu olan Subaru’nun sözleriyle ifade etmek gerekirse—— ölüm sebebi öyle kolayca kaçınılabilecek bir şey değildi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bu nedenle Ölü Kitabını okuyabilirsek ölüm sebebini öğreneceğiz. Bunun da onu yakalamamızda çok yardımı dokunacak. Ölü Kitapları dolambaçlı bir yol olsa da yalnızca bu amaca hizmet ediyor, anlıyor musunuz?”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Bu… benim fark etmediğim bir şeydi. Ama sen bahsedince düşünüyorum da kesinlikle öyle. Sınav görevlisi olarak ölü bir insanı kullanarak yola çıkmışlar. Yani hedefledikleri şeyin bu olması şaşırtıcı olmaz.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ehh, bu kadar kolay kabullenmen gerekmezdi…”</p>
+<p class="wp-block-paragraph">Subaru, kendisini beklediğinden de çok metheden Echidna karşısında gözlerini devirerek acı acı gülümsedi.</p>
+<p class="wp-block-paragraph">Ne olursa olsun öyle bir durum içerisindeydiler ki ya Reid’i yakalayacak bir yol bulabilecek ya da bundan tamamen kaçınacak bir kestirme yol belirleyebileceklerdi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ah, bu yalnızca kişisel bir inançla söylediğim bir şey… yalnızca hafızasını yitirmiş şu anki benliğim değil, hafızası yerinde olan benliğim de bu yöntemi test etmeye çalışmış sanırım.”</p>
+<p class="wp-block-paragraph"><strong>Beatrice:</strong>&nbsp;“…Bu ikna edici, sanırım. Subaru’nun böyle bir yan sola sapmayı denememesi mümkün değil, doğrusu.”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Bu doğruluğu değil, kötülüğü izleyen bir yol. Tam da Barusu’nun yapacağı bir şeye benziyor. Ram da ikna oldu.”</p>
+<p class="wp-block-paragraph"><strong>Emilia:&nbsp;</strong>“Mhm, evet. Subaru <em>hakkaniyetsiz</em> şeylerde gerçeeekten iyidir.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bu çağda kim <em>hakkaniyetsiz</em> der ki…”</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“——Hık!”</p>
+<p class="wp-block-paragraph">“Natsuki Subaru”ya yönelik bu net değerlendirme nedeniyle Subaru’nun yanakları biçimsizleşirken Emilia’nın gözleri anlık bir tepkiyle ışıldadı. Subaru onun bu tepkisi karşısında şaşırsa da Emilia hemen ardından parmağıyla yanağına dokundu.</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Ahh, böyle olmaz, böyle olmaz. Bu olayın en ağır geldiği kişi Subaru sonuçta. Kendimi toparlamam gerekiyor…”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Emilia-sama, hislerin anlaşılabilir ama yanakların kıpkırmızı kesilmiş.”</p>
+<p class="wp-block-paragraph">Emilia’nın elini tutan Ram, dikkatini onun başına gelenlere vermişti.</p>
+<p class="wp-block-paragraph">Emilia da Beatrice de bir süredir fazlasıyla duygusal tepkiler veriyordu ve bunun ardındaki sebep, belki de hissedebildikleri “Natsuki Subaru” izleriydi.</p>
+<p class="wp-block-paragraph">Subaru’ysa kendisini gerçekten suçlu ve mahcup hissediyordu. “Natsuki Subaru”yu bir an önce Emilia ve diğerlerine geri verebilmek istiyordu.</p>
+<p class="wp-block-paragraph">Öyle ya da böyle, düne kadar burada olan Subaru’nun Emilia ve diğerlerinin izlenimlerine uygun şekilde Reid’i yakalama yöntemi olarak Ölü Kitabını kullanma noktasına varmış olma ihtimali yüksekti.</p>
+<p class="wp-block-paragraph">O esnada Subaru’nun düşüncelerini işiten Meili, eliyle ağzını kapatarak “ah” dedi.</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“…Bu bana dün gece onii-san’ı etrafı~na bir sürü kitap saçılmış hâlde Taygeta’da gördüğümü hatırlattı. Bu amaçla mı~ydı acaba?”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Subaru dün gece Taygeta’da mıydı? Hmm…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bu arada, hangi kitabı okuduğumu görebilmiş miydin?”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Ummm~… O kadarıı~nı bilmiyorum. Gerçekten üzgünüm~.”</p>
+<p class="wp-block-paragraph">Diyen Meili, hâlâ Shaula’nın kucağında oturup saçları okşanırken gözlerini kapattı.</p>
+<p class="wp-block-paragraph">Elini “Endişe etme” dercesine sallayan Subaru da kendisine ait olmayan <em>“</em><em>Bendenizin</em><em>” </em>anılarına atıfta bulunarak aynı sonuca varmıştı.</p>
+<p class="wp-block-paragraph">Meili’nin anıları arasında Ölü Kitabı meselesini teyit etmiş ama Subaru’nun etrafında bir sürü kitap saçılmış hâlde oturduğunu görmesine rağmen o noktaya dair detayları görememişti.</p>
+<p class="wp-block-paragraph">Bu nedenle Subaru, sorusuna aldığı yanıt karşısında pek de hayal kırıklığına uğramamıştı. Bununla birlikte Taygeta Kütüphanesinde olduğu sırada “Natsuki Subaru”da bir nevi anormallik olduğu kesindi.</p>
+<p class="wp-block-paragraph">O kitapları dağıtmadan önce, belki de çok kısa bir süre sonrasında——</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Bu eylemin hafıza kaybınla bir bağlantısı olma ihtimali nedir?”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Bir sürü kitap etrafa saçılmıştı ha… Olası maksimum limitin ötesinde Ölü Kitabı okumanın anıların depolandığı yeri doldurması ve taşmalarına yol açması mümkün olamaz, değil mi?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Mümkün olamayacağını düşünmek isterim ama mümkün değil diyemem. Öyle ya da böyle, hafızamı kaybettim işte!”</p>
+<p class="wp-block-paragraph">Julius ve Echidna, göğsünü şişirip tek bir parmağını kaldıran Subaru karşısında aynı anda iç çekti.</p>
+<p class="wp-block-paragraph">Subaru’nun hafıza kaybı tartışmasında çıkmaza girmişlerdi ancak Subaru’nun, hafıza kaybının sebebinin o kitapta yattığından yana şüphesi yoktu.</p>
+<p class="wp-block-paragraph">İşte bu yüzden eğer gerçekten bulabilirlerse kendisinden başka birinin Reid’in Ölü Kitabını okumasına izin vermekten kaçınmayı düşünüyordu.</p>
+<p class="wp-block-paragraph">Biri o kitabı okumak zorundaysa bu kişi hâlihazırda anılarını yitirmiş Subaru olmalıydı, çünkü onları yeniden yitirmenin pek bir önemi olmazdı—— yo, Subaru şimdiden yitip gitmelerine izin veremeyeceği kadar çok anı biriktirmişti.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong> “————”</p>
+<p class="wp-block-paragraph">Önceki döngüde yaşananlar, ondan da önceki döngülerde yaşananlar.</p>
+<p class="wp-block-paragraph">Bununla birlikte etrafında kalbini adadığı şeyler veya Ram’a verdiği söz veya Meili’ye ettiği yemin.</p>
+<p class="wp-block-paragraph">Bu da neyin nesiydi, burada yalnızca birkaç gün geçirip dört tekrar yaşamasına rağmen ellerini unutulmaması gereken şeylerle doldurmuştu bile!</p>
+<p class="wp-block-paragraph">İşte bu yüzden anılar kıymetli, emsalsiz ve kopması zor şeylerdi—— Unutulmamaları gerekirdi.</p>
+<p class="wp-block-paragraph"><strong>Emilia:</strong>&nbsp;“Subaru?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Uh, ah, ben iyiyim, iyiyim, iyiyim. Eeem, öhöm.”</p>
+<p class="wp-block-paragraph">Emilia’nın seslenişiyle birlikte Subaru, sessizliğinden silkinerek kendini toparladı.</p>
+<p class="wp-block-paragraph">Sonra da tek tek herkesin yüzüne bakarak,</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Tüm bu konuşmaların ardından Taygeta’ya yönelmemizi teklif ediyorum. O herif -geçmiş zamanın kahramanı veya efsanevi falanca- her kimse ondan sonraki yaşamına başarıları yansımıştır. Ama ardında başarısızlıklar veya zayıflıklar da bırakmış olmalı ve biz de şöhret bedeli olarak dosdoğru o noktalara saldıracağız.”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Bir yerlerde duyduğun şeylerden bahsederken bayağı kendinden emin konuşuyorsun.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Hehe, çünkü bu kuleyi ele geçirmenin gerçekçi bir yolunu kullanma fırsatı bulacağımı hiç düşünmemiştim. Ama rakip köklerine dek izlenebilirse ölüm sebebi ve kıymet verdiği şeyler bile tespit edilebilir. İşte gerçek modern çağ bilgi hilekarlığı diye buna denir!..”</p>
+<p class="wp-block-paragraph">Büyük bir güçle yumruklarını sıkmış Subaru’nun sözlerini işiten Emilia ve Beatrice’in kafaları eğilmişti.</p>
+<p class="wp-block-paragraph">Subaru yalnızca dalga geçiyor olduğu için detaylara girmiyor olsa da Reid Astrea’nın bu dünyada ismi tarihe kazınacak derecede ünlü bir şahıs olduğu şüphesizdi.</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Yani başka bir deyişle, o herifin mağlubiyet sebebi şöhretinin bedeli olacak… bayağı acayip bir zayıflıkmış, öyle değil mi?”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“——Barusu’nun ne amaçladığı anlaşıldı. Ram da ikna oldu. Gerçi Ram’ın bu konuda bazı tedirginlikleri yok değil.”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Denemeye değer, ha. Aman aman. O uçsuz bucaksız kütüphanede tek bir kitabı bulmanın ne denli zor olacağını düşündükçe üzerime bir ağırlık çöküyor.”</p>
+<p class="wp-block-paragraph">Subaru’nun uçarı yorumlarını duymazdan gelen Ram ve Echidna ikilisi bu sözlerle birlikte yerlerinden kalkarken Emilia, Beatrice, Meili ve Shaula da kısa bir süre sonra arkalarından geldi.</p>
+<p class="wp-block-paragraph">Son olarak Subaru da ayaklandı ve göz ucuyla, geride kalan Julius’a baktı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ne oldu? Bu fikre karşı mısın?”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“…Yo, bu işin üstesinden gelmek için başka bir çözümümüz yok. Ayrıca teklif senden geldiği için geçerli olduğuna inanıyorum.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ama yine de aklında bir şey var?”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“——Bu, bana özel bir problem. Dikkate almamanı isterim.”</p>
+<p class="wp-block-paragraph">Diyerek kafasını sağdan sola sallayan Julius, olduğu yerde ayaklandı.</p>
+<p class="wp-block-paragraph">Subaru’ysa kendisine öyle söylense bile bunu dikkate almaması imkânsız olduğu için daha da endişelendiğiyle kaldı——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Dikkate almayacağım, ama yalnızca şimdilik—— Bu arada Ölü Kitabı meselesi haricinde Reid tam olarak ne kadar ünlü? Bana çılgınca ünlüymüş gibi geldi de.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Görünüşe göre hafızan epey güçlüymüş. Anılarının bir kısmı parçalanıp dağılsa da geriye kalanlar olmuş gibi… Reid Astrea, geçmişte var olan Cadı’yı mağlup eden üç kahramandan biriydi.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bilge, Shaula; İlahi Ejderha, Volcanica; ve Kılıç Azizi, Reid…”</p>
+<p class="wp-block-paragraph"><strong>Shaula:</strong>&nbsp;“Bilge Ustamı ifade ediyor, beni değil.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bu mantıkla ben de mi birkaç yüz yaşındayım? Marketten çıkışımla sabah uyanışım arasında bayağı şok edici bir zaman dilimi geçirmişim…”</p>
+<p class="wp-block-paragraph">Subaru, Shaula’nın konuşmasını şüpheyle karşılamak yerine söyleyeceklerinin yalnızca ufak bir yüzdesinin tadına varıp bütününü görmezden gelmiş, bunun yerine üç kahramandan biri olduğu söylenen Reid efsanesinin derinlerine dalmıştı.</p>
+<p class="wp-block-paragraph">Bu bahsin geçişiyle Emilia ve diğerlerinin bakışları da Julius’a çevrilmişti.</p>
+<p class="wp-block-paragraph">Julius ise o bakışları kabullenip kaküllerine dokunarak,</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Elbette ki dünyanın her yerindeki gelecek nesillere izini bırakmış Reid Astrea efsanesini sayıp dökecek vaktimiz yok. Onu bu üne kavuşturan şeylerden bahsedecek olursak… yüz ejderi katlettiği mücadele veya kılıç ustaları adasındaki savaş arenasında kaydolmuş namağlup altı bin galibiyet başarısından söz edilebilir. Hiddetli bir tanrı olarak adlandırılabilecek bir varlık, içki müsabakalarının galibi gibi daha pek çok şey mevcut.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Hepsi de kulağa çok aptalca geliyor ama onunla gerçekten tanışınca…”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Abartı olmadıkları hissediliyor. O gücü öğrendikten sonra hiç tereddütsüz diyebilirim ki o… Hayır.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——?”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Bildiğim kadarıyla onunla ilgili tüm anekdotlar başarılarını ve buna benzer yaşanmışlıklarını anlatıyordu. Kişiliği veya insani başarısızlık ve mağlubiyetleri gibi anılardan eser yoktu.”</p>
+<p class="wp-block-paragraph">Kaküllerine dokunan Julius, bu şekilde bildiklerini sergilemeyi sonlandırdı.</p>
+<p class="wp-block-paragraph">Onun ağzından dökülenleri işitmek, hiçbir mağlubiyet kaydı olmadığı gerçeğine bağlı olarak Subaru’nun hafiften ürpermesine yol açmıştı. Tabii bu tür bir kaydın olmamasından yana sıkıntı yoktu, hiç mağlup edilmemiş olması mümkün olamazdı.</p>
+<p class="wp-block-paragraph">Ancak Subaru, onun tüm ömrü boyunca bir kez olsun mağlup edilmemiş olmasının gayet de makul olduğunu düşünerek ürperdi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Oh, işte geldik.”</p>
+<p class="wp-block-paragraph">Grup, konuşa konuşa Taygeta’ya bağlanan merdivenlerin olduğu odaya ulaşmıştı.</p>
+<p class="wp-block-paragraph">O merdivenlerin sonundaysa onları Ölü Kitaplarıyla dolu bir kütüphane ve Üçüncü Kat olan Taygeta karşılayacaktı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“——Ram, geri kalanlara bir müddet öncülük etmen mümkün mü? Julius’la konuşmak istediğim bir şey var da.”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Julius’la mı?”</p>
+<p class="wp-block-paragraph">Ram, adımlarını duraksatan Subaru’ya kaşlarını kaldırarak bu karşılığı verdi.</p>
+<p class="wp-block-paragraph">Julius da bu sözleri işittiğine şaşırmıştı ancak o an için bir itirazda bulunmadı. Onların bu hâlini gören Ram ise açık kırmızı gözlerini kısıp Subaru’nun kara gözlerine bakarak iç çekti.</p>
+<p class="wp-block-paragraph">Ve keder ya da belki de anlayış sergileyen o iç çekişle,</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Hızlı olmasına dikkat et lütfen. Ram ve diğerleri de oraya ulaşıp Barusu gibi hafızalarını kaybederse işler tamamen kontrolden çıkar.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Böyle korkunç şeyler söylemesene. Gerçi Ram’ın hafızasını kaybedip daha uysal ve zarif birine dönüşmesi görülmeye değer bir manzara olurdu eminim.”</p>
+<p class="wp-block-paragraph"><strong>Ram:</strong>&nbsp;“Ram’ın, daha fazla şeyi, unutmaya niyeti yok.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“…Haklısın. Lütfen denk geldiğin tuhaf kitaplara yaklaşmamaya özen göster.”</p>
+<p class="wp-block-paragraph">Bu etkileşimin ardından merdivenlerden çıkmaya başlayan ilk kişi Ram oldu.</p>
+<p class="wp-block-paragraph">Subaru, o an için Ram’ın varabileceği yanlış hükümlerden yana endişe duymuyordu. Tüm grup üyeleri arasında bu güvene en layık kişinin Ram olduğunu düşünüyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Meili, birazcık hanımefendi ol. Emilia-chan’la el ele tutuş ya da onun gibi bir şeyler yap hiç değilse.”</p>
+<p class="wp-block-paragraph"><strong>Meili:</strong>&nbsp;“Bu, gerçekten üzü~cü. Bana bu~ şekilde, bir yükmüşüm gibi davranmana gerek yok. Çıplak onee-san ben elini tutmak istemesem de benim elimi tutuyor zate~n.”</p>
+<p class="wp-block-paragraph">Bir eli Shaula, diğeri de Emilia tarafından tutulan Meili, somurta somurta Taygeta’ya götürülüyordu. Arkasından Beatrice geliyor, en sonuysa merdivenlere adımını atarken arkasına bakan Echidna çekiyordu.</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Natsuki-kun.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Hm?”</p>
+<p class="wp-block-paragraph"><strong>‘Anastasia’:</strong>&nbsp;“Kibar davran lütfen.”</p>
+<p class="wp-block-paragraph">Echidna, ardında bu sözleri bırakarak üst kata yöneldi.</p>
+<p class="wp-block-paragraph">Subaru’ysa kafasını kaşıyarak arkasından baktı. Görünen o ki Echidna büyük ihtimalle Subaru’nun Julius’u geride bırakma sebebini anlamıştı.</p>
+<p class="wp-block-paragraph">İşte böylece tüm kadınların ayrılışıyla geriye yalnızca merdivenlerin başında dikilen Subaru ve Julius kalırken,</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Ee, hangi konuda konuşmak istemiştin? Emilia-sama ve diğerlerini uzaklaştırmak için yolundan çıktığına göre çok önemli bir şey olduğuna inanabilir miyim?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Çok önemli bir şey… yani şey, sanırım. Muhtemelen.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Ne kadar da belirsiz bir konuşma şekli.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Açıkça dile getirmesi zor bir şey.”</p>
+<p class="wp-block-paragraph">Subaru, sırtı merdivenlere dönük Julius’un karşısında siyah saçlarını kaşıyarak böyle söyledi.</p>
+<p class="wp-block-paragraph">Julius’u bu noktada durdurma sebebi bazı şeyleri teyit etme isteğiydi. Buna bir önceki konuşmalarındaki endişeleri de dahildi——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Subaru?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bekle bir saniye. Aklımdakileri düzene koymakla meşgulüm.”</p>
+<p class="wp-block-paragraph">Diyen Subaru, beklenenden daha çok karışan mesele üzerine düşünüyordu.</p>
+<p class="wp-block-paragraph">Kitabı arama işini Emilia ve diğerlerine bırakmış ve Julius’a burada beklemesini söylemişti. Elbette ki buradaki ana odak Reid Astrea’ydı.</p>
+<p class="wp-block-paragraph">Bununla birlikte Subaru’nun zihninde süzülen diğer bir şey de bir önceki döngüsünde gerçekleşen büyük savaştaki vukuatlardan biriydi.</p>
+<p class="wp-block-paragraph">——Özgürlüğünü kazanmış olan Reid, Julius’la teke tek çarpışmış, o son isteksizliğin sebebi olarak bunu seçmişti.</p>
+<p class="wp-block-paragraph">Mevcut durumda var olan sayısız engele rağmen gerçekten de teke tek çarpışma denilmeye layık bir manzaraydı. Bununla birlikte sahici yeteneklerindeki farklılık -ki buna ortada psikolojik bir sorun olması bağlamı da eklenebilirdi- mutlaktı.</p>
+<p class="wp-block-paragraph">Üstüne üstlük Subaru, Julius’un daha önce de Reid’le çarpışıp acı çektiğini, mağlubiyeti tattığını işitmişti.</p>
+<p class="wp-block-paragraph">Bu da duruma eklenince Reid, Julius’a karşı bir nevi bağlılık duyuyordu.</p>
+<p class="wp-block-paragraph">Bu Julius isimli kişiye özgü bir şey olsa da olmasa da Subaru, Reid’in şifresini çözmenin anahtarının bu olduğunu düşünmeden edemiyordu—— Lakin problem, bundan nasıl faydalanacağıydı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ah, Reid hakkında ne düşünüyorsun? Ondan hoşlanıyor musun?”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“——Bu soru nasıl bir önem taşıyor merak ediyorum doğrusu.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Şey, yalnızca ortamı daha az ciddi hâle getirmeye çalışmıştım. Gerçek sorumun biraz daha farklı dile getirilmesi gerekiyor—— Esas kastettiğim şey, Reid karşısında galip gelmeye niyetin olup olmadığıydı.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“——Hık.”</p>
+<p class="wp-block-paragraph">Subaru’nun tek gözünü kapatarak söylediği şey, Julius’un sarı gözlerinin irileşmesine yol açarken o gözlerde şiddetli bir kargaşa koptuğunu gören Subaru, hafif bir nefes verdi.</p>
+<p class="wp-block-paragraph">Bunun hem beklendik hem de beklenmedik bir şey olduğunu hissediyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Kendimle ilgili farkında olmadığım şeyler bir kenara bırakılırsa… bu, korkup sinmeye izin verilemeyecek bir durum, anlarsın ya. Hem kaybetmenin giderek kurtulması zor bir alışkanlığa dönüştüğünü de söylerler.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Subaru, sen…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Aşağılığım, doğru… Gerçek şu ki ben bile biraz vakit ayırıp farklı şeyler yaptıktan sonra yılgın kalbini tekrar ayağa kaldırman gerektiğini düşünüyorum. Evet, böyle düşünüyorum ama buna ayıracak vaktimiz yok. Anlıyorsun, değil mi?”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Subaru’nun sorusuyla karşı karşıya kalan Julius’un yanakları gerilmiş ve nefesi kesilmişti.</p>
+<p class="wp-block-paragraph">Subaru ve Julius, “vakit yok” kelimelerinin ardındaki imayı farklı yorumlasa da Julius, Subaru’yla birebir aynı huzursuzluğu taşıyordu.</p>
+<p class="wp-block-paragraph">Ve elbette ki bu yaşananlar, düne kadar burada olan Subaru’nun yapamayacağı şeylerdi. Yani kendi kalbindeki huzursuzluğun farkına varamayan yaralı bir adama söylenmesi gerekenleri söylemek ve bunun farkına varmasını sağlamak… &nbsp;</p>
+<p class="wp-block-paragraph">Belki de Natsuki Subaru, “Natsuki Subaru”nun yapamadığı şeyi yapıyordu.</p>
+<p class="wp-block-paragraph">Bunun, bu zorlu durumdaki çıkmazı aşmak için gerekli bir darbe olduğuna inanarak——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Açık konuşacağım, Julius. Sebebini sorarsan da şöyle söyleyeceğim: Şu an için yenilmezim.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Yenilmez, ha… epey büyük konuştun.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Beni bağlayan hiçbir yükümlülük olmadığı için böyle büyük konuşabiliyorum. Benim gözlerimin içine, Echidna’nın gözlerinin içine baktıktan ve Reid’le konuştuktan sonra bir köşeye kıvrılıp kaldığını görmeye katlanamam. Başkalarını etkileyebilen bir yapıya sahibim, dolayısıyla onlar adına kesin konuşamayacağım ama ben, gözlerimi kapatıp açık konuşacağım.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“——Seni dinleyeceğim.”</p>
+<p class="wp-block-paragraph">Oturur hâlde pozisyonunu düzenleyen ve derin bir nefes alan Julius, gözlerini Subaru’ya dikti.</p>
+<p class="wp-block-paragraph">Onun ciddi bakışlarını karşılayan Subaru’ysa şöyle devam etti:</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Olmuşla ölmüşe çare yok.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“——Ha.”</p>
+<p class="wp-block-paragraph">Julius, Subaru’nun bu kendinden emin beyanına afallamış bir karşılık verdi.</p>
+<p class="wp-block-paragraph">Julius’u bu şekilde karşısına alan Subaru’ysa kollarını iyice açarak,</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Bana bakıyor olduğun için durum biraz tuhaflaştı, farkındayım. Muhtemelen düne kadarki ben, sana bir şeyler yapmaktan sorumludur. Ama düne kadarki ben bu dünyadan silinmemiş olsa da benim zihnimden kesinlikle silindi.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Sanırım, öyledir. Bu doğru. Fakat, ben…”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Sonuna dek dinle. Ben bu hâlde olduğum için ilişkimizi sıfırdan başlatmamız gerekiyor. Hiç değilse şu anki benliğimle olan ilişkin için geçerli olan bu. Yani diyorum ki düne kadar burada olan beni şimdilik unut.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Konuşmadaki gelgitler oldukça ciddi bir hâl alırken Julius, henüz az önceki huzursuzluğunda boğulmaktan kurtulabilmiş değildi.</p>
+<p class="wp-block-paragraph">Fena hâlde baskıcı bir mantıktı. Ne istediğini adamakıllı anlatmayı da başaramamıştı.</p>
+<p class="wp-block-paragraph">Gerçek şu ki Subaru, Emilia, Beatrice, Julius ve geri kalanların—— yani “Natsuki Subaru”nun başarılarından etkilenmiş olan kişilerin güçlerini ödünç alıyordu.</p>
+<p class="wp-block-paragraph">Ancak şu anda bu etkinin yalnızca pozitif yönlerini kullanacak ve negatif olanlardan kurtulacaktı. Çünkü——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Grubumuzun en güçlü kişisi sensin. Bu nedenle Reid’le çarpışacak kişi sen olacaksın. Kitabını sorunsuzca bulmayı başarsak bile onunla çarpışma görevi hâlâ sana düşüyor olacak.”</p>
+<p class="wp-block-paragraph">Elbette ki Reid’in bağlılığını, rakibin Julius’la teke tek çarpışma arzusunu da dikkate almıştı.</p>
+<p class="wp-block-paragraph">Bununla birlikte Subaru’nun bu noktada pes etmeye niyeti yoktu. Ram, Shaula, Echidna, Meili, Beatrice, yani tanıdığı herkes arasından yalnızca Emilia’nın galibiyet elde etmeye çalıştığı gerçeğini göz ardı etse bile hiç kimsenin bu manzara karşısında pes etmeye niyetli olmayacağı kesindi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Korkmanı anlıyorum. Kafanın karışmasını anlıyorum. Ve düne kadarki benliğim adına içtenlikle özür diliyorum—— Tüm bunları düşünerek değişmeli ve mücadele etmelisin.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“…Ben çoktan, onun karşısında iki kez, mağlup oldum bile.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Biliyorum. Ama, bir dahakine, galip gelmelisin.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Julius’un mağlubiyetlerinin sayısı, Subaru’nun bildiğinden bir fazlaydı.</p>
+<p class="wp-block-paragraph">Lakin bu durumla alakasızdı ve pek önemli değildi.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Hesaplamalarımıza göre er ya da geç galip gelmek zorunda kalacaksın. Aklımda çeşitli eşleşmeler yaptım ama kızlar ellerinden geleni yapmadan önce erkekler olarak bizler elimizden gelenin en iyisini yapmalıyız, aksi takdirde Şövalyelerin yüz karası oluruz.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“——Yüz karası. Şu anki benliğim, Şövalyelerin yüz karası olacak, ha.”</p>
+<p class="wp-block-paragraph">Yumruğunu sıkan Subaru’nun önündeki Julius, gözerini kapatıp başını eğerek usulca fısıldadı.</p>
+<p class="wp-block-paragraph">Afallamış, yoldan çıkmış, yaralanmış, mağlup edilmiş ve son olarak şimdi de yakasından sıkıca tutulmaya benzer bir mantıkla Subaru’nun sözleriyle hafife alınmıştı.</p>
+<p class="wp-block-paragraph">Bu da Julius’un zarif ifadesini, Subaru’nun beklemediği yönde değiştiren bir şeydi——</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Tıpkı az önce Ram Hanımın söylediği gibi, hafızanı gerçekten yitirip yitirmediğinden şüphe duymaya başladım. Ya da korkumdan kılıcımı bırakmamı engellemek adına hafızanı yitirmiş gibi mi yapıyorsun acaba?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Emilia-chan’ın gülen yüzünü donuklaştıracak kadar ileri gidebilir miydim? Seni ahmak, böyle dolambaçlı bir şeyi hayatta yapmam. Ayrıca, hepsinden öte, ben bunu yapmasam bile kılıcını bırakıp herkes uğruna savaşmaktan vazgeçmeyecektin herhâlde.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Bu… çelişkili oldu. Şu an gerçekten de ürkek kalbime baskı uygulamaya çalışıyorsun, ha.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Hayır. Yanılıyorsun. Eksikliğini çektiğin şey cesaret değil. Cesaretin gayet yerinde—— Senin eksikliğini çektiğin şey kazanma kararlılığı. Mücadele ruhu, rekabet kabiliyeti.”</p>
+<p class="wp-block-paragraph">Diyen Subaru yaklaştı ve sıktığı yumruğuyla Julius’un göğsüne dokundu.</p>
+<p class="wp-block-paragraph">O sözleri ve yumruğu karşılayan Julius ise derin bir nefes aldı.</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph">Subaru’nun sözleri yalandan yoksundu.</p>
+<p class="wp-block-paragraph">Julius, bir önceki döngüde Cadı Canavarları ve Reid tarafından köşeye sıkıştırılmış olmasına rağmen çaresizliğe yenik düşmemiş ve Subaru’ya “Echidna sana emanet” demişti.</p>
+<p class="wp-block-paragraph">Ve bu sözcüklerin diğer yönü görünür olsa da onlardan, “Bu işi bana bırak” dışında bir anlam çıkamazdı.</p>
+<p class="wp-block-paragraph">Julius, o şartlar altında kesinlikle böyle söylemişti.</p>
+<p class="wp-block-paragraph">——Reid Astrea’yı, bana bırak demişti.</p>
+<p class="wp-block-paragraph">Ve onun bunu söyleyişi, Subaru’nun onunla ilgili tanık olduğu son şeydi.</p>
+<p class="wp-block-paragraph">İşte bu yüzden——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“…Ben o hesaplaşmayı, görmedim. Düne kadarki anılarıma da sahip değilim. İşte bu yüzden, senin Reid’e mağlup olduğuna, bir kez olsun tanık olmadım.”</p>
+<p class="wp-block-paragraph">Julius, Julius Juukulius, mağlup olmamıştı.</p>
+<p class="wp-block-paragraph">Bu Şövalye, bu adam, Natsuki Subaru’nun önünde bir kez olsun mağlup olmamıştı.</p>
+<p class="wp-block-paragraph">İşte bu yüzden, kim ne derse desin Natsuki Subaru, o hesaplaşmaya boyun eğmeyecekti.</p>
+<p class="wp-block-paragraph">Julius Juukulius’tan, Reid Astrea’yı mağlup etmesini beklemekte ısrarcı olacaktı.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Reid Astrea’yı, sana bırakıyorum. O fazlasıyla can sıkıcı düşmanı mağlup et. Karşılığında ben de… geri kalan her konuda şansımı zorlayacak, kendi yöntemlerimi kullanacağım.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“————”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Beni duyamıyor musun, Julius? Arkadaşının beklentilerine karşılık versene.”</p>
+<p class="wp-block-paragraph">Öncesinde üzerine beklentilerin ağırlığını yüklerken şimdi, ona zorla umut aşılıyordu.</p>
+<p class="wp-block-paragraph">Subaru’nun yumruğu, bir kez daha Julius’u dürttü.</p>
+<p class="wp-block-paragraph">Ve o tek hareket sonrasında Julius, göğsüne dokundu.</p>
+<p class="wp-block-paragraph">Elini göğsünde tutmaya devam ederken de geri çekildi ve derin bir nefes aldı.</p>
+<p class="wp-block-paragraph">Derin, derin, derin, deriiin bir nefes aldı ve…</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“…Nasıl oluyor da düne kadarki her şeyi unutan sen, benden bu denli çok şey bekleyebiliyorsun?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Sebep… sahip olduğun imaj gibi bir şey. Bir nevi izlenimin yani. Görünüşün, konuşma şeklin, davranışların, kuşandıkların, giyindiklerin, beslenme şeklin, yürüme şeklin, tüm bunları sentezleme sanatı işte.”</p>
+<p class="wp-block-paragraph">Subaru, önceki döngüye değinmeden bu yanıtı vererek göğsünün acıyla sıkışmasına sebep oldu.</p>
+<p class="wp-block-paragraph">Hiç planlanmaksızın Subaru da Julius da kendi göğüslerine dokunur hâlde karşı karşıya gelmişti. Derken Julius, elini göğsünden ayırmadan duruşunu düzelterek yavaşça kalçalarını yerden kaldırdı.</p>
+<p class="wp-block-paragraph">Zarif, güzel, doğal bir tavırla, tam da hikâyelerdeki Şövalyelere yaraşır şekilde…</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“İzlenim, ha.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Hı hı. Görünüşün diyorum. Her şeyinle, bende bu denli beklenti uyandırıyorsun.”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Demek öyle… Görünüşüm, sana bunları düşündürüyor, diyorsun.”</p>
+<p class="wp-block-paragraph">Başı hâlâ öne eğik olan Julius’un ses tonu değişmişti.</p>
+<p class="wp-block-paragraph">O ana dek dokunulması zor bir yerine dokunulmuş izlenimi veren o ses tonu şimdi çok hafif olmasına rağmen güç kazanmış, içine bir yumuşaklık yerleşmiş, yeniden bir sıcaklık tomurcuklanmıştı, verdiği izlenim bu şekildeydi.</p>
+<p class="wp-block-paragraph">Ve——</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Dünya tarafından unutulmuş, beni hatırlayan tek kişi olan sen tarafından unutulmuş, efendimin varlığını tespit etmeyi başaramamışken benliğimin nerede olduğu belirsizleşmişti. Fakat, bu durumda olmama rağmen—— şimdiye dek beslediğim her şeyi yitirmedim. Hiç değilse bu kadarını söylemek isterim.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Benim cümlelerim çok akıllıca veya derli toplu değildi ama nüans ortada.”</p>
+<p class="wp-block-paragraph">Julius Subaru’nun bayağı ve dolambaçlı kelimelerini alıp akıllıca, süslü bir şekle sokmuştu.</p>
+<p class="wp-block-paragraph">Subaru, az önce aktarmak istediği her şeyi aktaramadığını düşünüyordu. Fakat şimdi, dinleyicisinin anlatmak istediği her şeye yakın bir sonuç çıkarttığını hissediyordu.</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Ehh, bu kavramlar üzerine gerçekleştirilmiş bir sohbet gibiydi, herhâlde psikolojik bir tartışma da diyebilirsin ama bu psikolojik sorun ciddiymiş gibi hissettiriyor. Yani söylediklerimde haklı mıydım?”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Heh. Bu konuda neden bu kadar çekingenleştin acaba? Senin yenilmez olman gerekmiyor muydu?”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Şey, Mario bir yıldız toplasa bile deliğe düşünce ölüyor sonuçta …”</p>
+<p class="wp-block-paragraph">Bu mantıksız mecazı işiten Julius kaşlarını çatsa da meseleyi üstelemedi.</p>
+<p class="wp-block-paragraph">Görünüşe göre bu da “Natsuki Subaru”yla ilişkili bir şeydi ve onun anlamsız alaylarını görmezden gelmek herkesçe kabullenilmiş bir hareketti ki bunun tuhaf hissettirdiği kuşkusuzdu.</p>
+<p class="wp-block-paragraph">Öyle ya da böyle——</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Artık birazcık önüne bakabilir hâle geldin mi?”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Eh, merak ediyorum doğrusu. Nihayetinde sözlerin somut olmaktan ziyade psikolojik bir tartışma tadındaydı ve başıma gelen onca şey çarpıcı bir değişime uğramış da değil.”</p>
+<p class="wp-block-paragraph"><strong>Subaru:</strong>&nbsp;“Sen…”</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“Ama…”</p>
+<p class="wp-block-paragraph">Sözlerini burada duraksatan Julius, Subaru’yu izleyen gözlerini kıstı.</p>
+<p class="wp-block-paragraph">Ve ansızın dudaklarını gevşeterek,</p>
+<p class="wp-block-paragraph"><strong>Julius:</strong>&nbsp;“——Olmuşla ölmüşe çare yok.”</p>
+<p class="wp-block-paragraph">Kendisine uymayan bu sözlerle sohbeti sonlandırdı.</p>
+<p class="wp-block-paragraph">#Subaru-Julius arkadaşlığı kalp ben. Bugünlere gelebilecekleri hiç aklımıza gelir miydi yaaa, neredeeen nereye! Peki bu cesaretlendirme işe yarar mı dersiniz? Söz konusu Reid olunca pek ümidim yok. Gerçi kitapta okuyacakları şeylerin yardım dokunabilir belki. Göreceğiz. Okumaya devam!</p>
+<p class="wp-block-paragraph"></p>
+</article>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+            <a href="arc6bolum57.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="arc6bolum59.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>
