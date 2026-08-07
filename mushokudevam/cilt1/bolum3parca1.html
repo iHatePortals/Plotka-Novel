@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei Cilt 1, Bölüm 3.1 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #cc0000;
+            --border-color: #e5e7eb;
+        }
+
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c1b1b;
+            --border-color: #d8c8b4;
+        }
+
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        body.theme-light .nav-btn:hover,
+        body.theme-light .action-btn:hover,
+        body.theme-light .theme-select:hover,
+        body.theme-sepia .nav-btn:hover,
+        body.theme-sepia .action-btn:hover,
+        body.theme-sepia .theme-select:hover {
+            color: #ffffff;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin: 0 0 1.05em 0;
+        }
+
+        .novel-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 30px auto;
+            border-radius: 6px;
+        }
+
+        .author-note {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--border-color);
+            text-align: center;
+        }
+
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 700px) {
+            body {
+                padding: 10px;
+            }
+
+            .controls {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .nav-left, .controls-center, .nav-right {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .novel-text {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="reader-container">
+        <div class="controls">
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="bolum2parca3.html" class="nav-btn">←Önceki bölüm</a>
+            </div>
+
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <div class="nav-right">
+                <a href="bolum3parca2.html" class="nav-btn">Sonraki Bölüm →</a>
+            </div>
+        </div>
+
+        <header>
+            <h1>Mushoku Tensei Cilt 1, Bölüm 3.1</h1>
+            <div class="subtitle">"Asura'nın Yedi Şövalyesi / Isolde Koca Arıyor (Kısım 1)"</div>
+        </header>
+
+        <main class="novel-text" id="text-content">
+            <img src="bolum3foto1.png" alt="Bölüm 3 görseli 1" class="novel-image">
+
+            <p>Çok, çok uzun zaman önce, Su Tanrısı Stili’nin bile henüz var olmadığı dönemlerde, bir ülke Deniz Ejderha Kralı tarafından terör estirilerek korkutuluyordu. Halk, Deniz Ejderha Kralı’nın sularında balık avlamış ve onun gazabını üstüne çekmişti.</p>
+            <p>Neredeyse her gün, balıkçı tekneleri mahvoluyor, Deniz Ejderhaları limanlarda görünmeye başlıyordu. Ülkenin şövalyeleri onlara karşı durmaya çalışsa da, Deniz Ejderhaları devasa boyutlardaydı ve suda hızla süzülerek savaşanları tüketiyordu.</p>
+            <p>Krallığın düşüşü an meselesiydi.</p>
+            <p>Bu mesele, kralın omuzlarına büyük bir yük bindirmişti. Kral, Deniz Ejderha Kralı’nı kim öldürürse kızını ve tahtını ona vereceğini duyurdu.</p>
+            <p>Bunun üzerine pek çok şövalye, şampiyon ve kahraman Deniz Ejderha Kralı’na meydan okudu ama hepsi yenilgiye uğradı.</p>
+            <p>Bir gün, bir adam ortaya çıktı. Kalçasında eski püskü, yıpranmış bir kılıç sallanıyordu ve kıyafetleri lime limeydi.</p>
+            <p>Sonradan anlatılan hikayelerde onu nefes kesici bir yakışıklılıkta betimleseler de, aslında gerçek anlatımlarda o pek de göz alıcı biri değildi. Yüzü kirle kaplı, serseri kılıklı bir adamdı.</p>
+            <p>Adı Reidar’dı. Saraya çıkıp krala Deniz Ejderha Kralı’nı öldürmek istediğini söyledi.</p>
+            <p>Elbette kral, bu yabancıya pek inanç duymadan, yarı umudunu kaybetmiş bir şekilde kabul etti.</p>
+            <p>Ama Reidar gerçekten güçlüydü. Okyanusun yüzeyini dondurarak denizin derinliklerine bakabildi ve Deniz Ejderhalarının hareketlerini gözetledi.</p>
+            <p>Bir anda, göz açıp kapayıncaya kadar, Deniz Ejderha Kralı’na ulaştı. Deniz Ejderha Kralı, buzları paramparça ederek saldırıya geçti ve kudretle kıvrılarak Reidar’a doğru hamle yaptı.</p>
+            <p>Ancak Reidar, eski ve yıpranmış kılıcıyla bu ölümcül saldırıyı savuşturdu ve karşılık olarak tek bir darbeyle canavarın kafasını uçurdu.</p>
+            <p>Deniz Ejderha Kralı’nın başını koltuğunun altında taşıyarak ülkeye döndüğünde onu bir kahraman gibi karşılamaları gerekiyordu. Kral, ona bir ömür boyu çalışmasına gerek kalmayacak kadar altın ve mücevher bahşetti, ancak verdiği sözün en önemli kısmını geri aldı: ne kızını ne de tahtını Reidar’a vermedi.</p>
+            <p>Reidar bu duruma öfkelenmedi, ama yüreğini büyük bir hüzün kapladı. Çünkü prensesi seviyordu.</p>
+            <p>Geçit törenlerinde ve şölenlerde uzaktan onu izlerken, prenses Reidar’ın kalbini kazanmıştı. Gücüyle tahtı zorla ele geçirebileceğini bilse de, sevdiği kadını kazanamayacaksa bu ülkeden gitmeye karar verdi.</p>
+            <p>Ancak onun yerine öfkelenen biri vardı: prenses. Babasına bağırdı, onu yumrukladı, tekmeledi ve sarayı terk etti.</p>
+            <p>Reidar’ın peşinden koştu ve ülkeyi terk etmek üzere olan adamın önünde diz çöküp yalvardı:</p>
+            <p>“Ülkemi terk ettim. Artık bir prenses değilim.</p>
+            <p>Artık bir adım bile yok. Beni eşin olarak kabul ettiğinde bir krallık kazanmayacaksın, kral da olmayacaksın.</p>
+            <p>Eğer bu senin için kabul edilebilir bir şeyse, ne olur, beni eşin yap.”</p>
+            <p>Reidar, gülümseyerek prensesi kollarına aldı. Birlikte ülkeyi terk ettiler.</p>
+            <p>Evlenip gözden kayboldular.</p>
+            <p>Yıllar sonra, dünyanın bir köşesinde Su Tanrısı Stili doğdu. En azından anlatılanlara göre böyle oldu.</p>
+            <p>Bu olay, şu kanunun temeli olarak kabul edilir: “Su Tanrısı’nın eşi, adını terk edecektir.”</p>
+            <p>Isolde Cluel, Asura Krallığı’nda Su Tanrısı Stili‘nin başı ve krallığın şövalye birliğinde kılıç eğitmenlerinden biriydi. Şu anda Su İmparatoru seviyesine ulaşmıştı ama Su Tanrısı Stili’nin beş gizli tekniğinden sadece üçüncüsüne kadar öğrenmişti.</p>
+            <p>Birkaç ay içinde Su Tanrısı unvanını alacağı bir tören düzenlenecekti.</p>
+            <p>Kaç yaşında olduğu tam olarak bilinmiyordu ama yirmilerinde gösteriyordu. Asil hatlara sahipti ve neredeyse maviye çalan koyu, muhteşem saçları vardı.</p>
+            <p>Güzelliği herkesçe kabul edilse de, bazı dedikodular onun genç görünmek için makyaj yaptığını söylüyordu. Asura Krallığı’nda onun yaşını bilen tek kişi Kraliçe Ariel’di.</p>
+            <p>Isolde aktif bir şekilde kendine bir eş arıyordu. Su Tanrısı unvanını aldığında, yıllar süren zorlu antrenmanları büyük ölçüde tamamlamış olacaktı.</p>
+            <p>Elbette yeteneklerini geliştirmeye devam edecekti, ancak bu önemli bir dönüm noktasıydı ve artık evlilik düşünmenin zamanı geldiğini hissediyordu.</p>
+            <p>Ne yazık ki bu arayış pek de kolay ilerlemiyordu. Elbette talibi boldu.</p>
+            <p>Sonuçta Su Tanrısı olmaya hazırlanan bir kadın, özellikle Su Tanrısı Stili’ni benimsemiş kılıç ustaları arasında çok rağbet görüyordu. Güzelliğiyle büyülenen ve antrenmanlara olan bağlılığına hayranlık duyan pek çok erkek vardı.</p>
+            <p>Ancak bunlar kılıç ustasıydı. Hayatlarını kılıçla kazanıyorlardı ve çoğu, kendilerinden güçlü bir kadınla evlenebilecek kadar geniş düşünceli değildi.</p>
+            <p>Isolde ise kendisine denk, en azından Kral Seviyesi yeteneklere sahip birini tercih ederdi. Bir Asura soylusu da iş görürdü.</p>
+            <p>Su Tanrısı Stili’ni kullanan kadınlar Asura’da oldukça popülerdi. Savunmaya dayalı bu stilin kılıç ustaları, Kılıç Tanrısı Stili kullanan kadınların aksine fazla atılgan değildi; daha nazik ve kadınsıydılar.</p>
+            <p>Bazen dik başlı olabilirlerdi ama ne istediklerini iyi bilirlerdi.</p>
+            <p>Isolde, bu konuda örnek biriydi. Sarayda nasıl davranması gerektiğini biliyordu.</p>
+            <p>Genç, güzel, iyi huylu ve kocasına saygı gösterecek bir kadındı. Üstüne üstlük, usta bir kılıç ustasıydı.</p>
+            <p>Böyle bir kadını eş olarak isteyen çok sayıda Asura soylusu vardı. Bu adamlar, Isolde’nin gündüzleri onlara hizmet etmesini, geceleri ise yataklarını ısıtmasını hayal ediyordu.</p>
+            <p>Ancak Isolde, sadece şehvet düşkünü kocalara zerre kadar ilgi duymuyordu.</p>
+            <p>Ama ara sıra birini gördüğünde, içinden şöyle diyordu: “Olabilir gibi duruyor.”</p>
+            <p>Yakışıklı, iyi huylu, düzgün bir soydan gelen ve kılıçta da fena olmayan biri çıkıyordu karşısına. Bu beyefendi, sapkın düşüncelerini ustalıkla gizleyip, inci gibi dişlerini göstererek ona gülümsüyordu.</p>
+            <p>Prens. Isolde, delicesine ona vurulmuştu.</p>
+            <p>Etrafındaki insanlar ona “Ona güvenme. O fırsatını bulunca tam bir pisliktir” dese de, Isolde kulağını tıkadı.</p>
+            <p>Prens yakışıklıydı, sevimliydi ve Isolde, güzel bir yüz karşısında asla dayanamıyordu. “Olabilir” diye düşünmüştü.</p>
+            <p>Ancak prensle evlilik konusunda konuşurken Isolde bir şart koşunca, prens hiç düşünmeden teklifini geri çekmişti:</p>
+            <p>“Bir gün ben Su Tanrısı olup, Su Tanrısı Reida Reia adını alacağım. Eğer benimle evlenirsen, adını ve aileni terk etmelisin.</p>
+            <p>Su Tanrısı’nın eşi aile adını taşıyamaz.”</p>
+            <p>Bu, Su Tanrısı Stili’nin geleneğiydi. Bu kurala uymayanlara ceza verilmezdi ya da uyanlara özel bir ödül yoktu.</p>
+            <p>Yalnızca Su Tanrılarının nesilden nesile aktardığı bir adetti. Önceki Su Tanrısı olan Reida – yani Isolde’nin büyükannesi – bu geleneği başlatmıştı.</p>
+            <p>Hatta Isolde’nin babası bile bir soyadı taşımıyordu; Cluel, annesinin soyadıydı. Büyükannesine büyük bir hayranlık duyan Isolde de bu geleneğe sadık kalmak istiyordu.</p>
+            <p>Ama o prens… Evet, Isolde’yi baştan çıkarmıştı, ama o bir asilzade olarak doğmuş ve asil bir hayat sürüyordu.</p>
+            <p>Tüm yaşamı ailesinin ünvanı ve statüsü üzerine inşa edilmişti. Isolde’yi ne kadar sevseler de, kimse ailesini ve ismini terk edecek kadar onu istemiyordu.</p>
+            <p>Isolde endişeliydi. Bir eş aramaya başlamasının üzerinden yıllar geçmişti.</p>
+            <p>Arada birkaç aday çıkmıştı ama işler hep son anda bozuluyordu. Böyle giderse, Su Tanrısı adını almadan önce bir koca bulamayacaktı.</p>
+            <p>Yine de Isolde kendinden emindi. Her zaman bakımlıydı, harika yemek yapardı ve makyajda bir sanatçı gibiydi.</p>
+            <p>Saç ve cilt bakımını asla ihmal etmezdi. Konuşma konusunda da kendine güveniyordu.</p>
+            <p>Su Tanrısı Stili’nin eğitimleri arasında, karşısındakini konuşmaya teşvik etme sanatı bile vardı. Isolde elinden gelenin en iyisini yapıyordu.</p>
+            <p>Ama tüm bu çabalarına rağmen hâlâ bir eş bulamamıştı. Eris bulmuştu, hatta Nina bile bulmuştu.</p>
+            <p>Onların çocukluk arkadaşları vardı ve böyle kısıtlayıcı gelenekleri yoktu. Isolde, büyüleyici kişiliğinin bu açığı kapatacağına inanmıştı.</p>
+            <p>Standartları yüksekti, ama er ya da geç mükemmel eşini bulacağına emindi. Hayatında istediği her şeyi başarmıştı, bu konuda da başarısız olacağını düşünmüyordu.</p>
+            <p>“Kaçıncı oldu bu?”</p>
+            <p>Uzun bir sessizliğin ardından Isolde mırıldandı: “Yirmi bir.”</p>
+            <p>Tam yirmi bir kez reddedilmişti. İşin içine kendi bitirdiği ilişkiler de dahil edilirse bu sayı daha da artıyordu.</p>
+            <p>Isolde şu anda evinin oturma odasında, abisiyle karşı karşıya oturuyordu. Ev, hemen yanındaki antrenman salonuna bitişikti.</p>
+            <p>Isolde’nin abisi Tantris Cluel, İleri Seviye bir Su Tanrısı Stili kılıç ustasıydı. Cluel ailesinin en büyük oğluydu ama küçük kız kardeşinin yanında yetenek açısından sönük kalıyordu.</p>
+            <p>Ne kadar sıkı çalışsa da ileri seviyenin ötesine geçememişti.</p>
+            <p>Yine de dürüst bir adamdı. Hatta büyükanneleri Reida ona, “Seni Su Azizi yapayım, ne dersin?” dediğinde, “Hak etmediğim bir unvana ihtiyacım yok,” diyerek teklifi reddetmişti.</p>
+            <p>Reida hayattayken, eğitim salonunun yönetimini ve Isolde’nin geleceğini Tantris’e emanet etmişti.</p>
+            <p>“Belki de standartların çok yüksek?”</p>
+            <p>“Sanmıyorum.”</p>
+            <p>“Sen yeteneklisin ve önemli birisin. Uygun bir eş seçme hakkına sahipsin, ama fazla seçici olursan seçeneklerin tükenir.”</p>
+            <p>“Biliyorum.”</p>
+            <p>Tantris, Isolde’nin hayatında her zaman onu alçakgönüllü olmaya iten bir figürdü. Anne babalarını küçük yaşta kaybetmişlerdi.</p>
+            <p>Neyse ki, Su Tanrısı olan büyükanneleri Reida sayesinde yokluk çekmemişlerdi, ama büyükanneleri, çocuklarla yakından ilgilenecek vakte sahip değildi. O zamanlar Isolde’nin ebeveyn rolünü üstlenen, ona destek olan ve onu büyüten Tantris olmuştu.</p>
+            <p>Eğitim salonunda yetenek her şeydi. Isolde on yaşına geldiğinde, yetenek açısından çoktan abisini geride bırakmıştı.</p>
+            <p>Buna rağmen, geçmişteki paylaştıkları bağa hürmet ediyordu.</p>
+            <p>“Cluel ailesinin şerefini düşünmek zorunda değilsin. Su Tanrısı olarak seni zor bir kader bekliyor.</p>
+            <p>Görünüşü ya da unvanı unut—kendine bir sırdaş bul.”</p>
+            <p>Isolde sessiz kaldı. Tantris zaten evliydi ve bir çocuk babasıydı.</p>
+            <p>Isolde tabii ki abisinin ailesiyle tanışmıştı ama özellikle yengesi hakkında olumlu düşünceleri yoktu. Yengesi bir Asura soylusunun kızıydı.</p>
+            <p>Bu evlilik tamamen, Su Tanrısı Reida ile bağları güçlendirmek için düzenlenmişti. Yengesi, Tantris’e her fırsatta tepeden bakıyor, kılıç ustalarını küçümsüyordu.</p>
+            <p>Eğitim salonuna bir kez bile uğramamıştı. Bir çocukları olmasına rağmen, Tantris ve eşi neredeyse ayrı yaşıyorlardı.</p>
+            <p>Isolde de böyle bir evliliğe mahkûm olmamak için koca seçiminde dikkatli davranıyordu.</p>
+            <p>Tabii, bu seçiciliği yakışıklı bir yüz karşısında hemen buharlaşıyordu. Yine de, kendi koyduğu bir sınır vardı: En azından Orta Seviye bir kılıç ustası olmalıydı.</p>
+            <p>Unvanlara takıntılı olduğunu düşünmüyordu. Kılıç eğitmeni olduktan sonra Ariel’i koruma görevleri de artmıştı ve görüştüğü herkesin bir unvanı vardı.</p>
+            <p>Bir fakir soylu, bir halktan biri ya da bir maceracı bile olabilirdi. Yeter ki eksiklerini kapatacak bir şeyleri olsun.</p>
+            <p>“Seçici olmaya çalışmıyorum.” diye mırıldandı sonunda.</p>
+            <p>“O zaman seçimi bana bırak?”</p>
+            <p>“Hayır, en azından kendi kocamı kendim bulacağım.”</p>
+            <p>Isolde bu konuda kesinlikle geri adım atmıyordu. Tabii bunda, Tantris’in ona sürekli çirkin adamları tanıştırmasının da payı büyüktü.</p>
+            <p>Seçici olmadığını söylese de, o konuda asla taviz vermezdi. Onlarla evlilik, onun için neredeyse imkânsızdı.</p>
+            <p>“Anlıyorum…”</p>
+            <p>Tantris ona açıkça karşı çıkmazdı. Su Tanrısı’nın eşi olmadan yaşamaya devam ettiği tek örnek bu değildi.</p>
+            <p>Cluel soyunun devamı zaten onun sayesinde güvence altındaydı. Küçük kardeşinin mutluluğunu istiyordu ve Isolde bir koca aradığına göre ona destek olmak istiyordu.</p>
+            <p>Ama eğer Isolde abisinin yardımını istemiyorsa, Tantris de zorlamayacaktı. Yetenekli olmayabilirdi, ama yine de Su Tanrısı Stili‘nin yolunu bilen biriydi.</p>
+            <p>“Bu arada Isolde, Majesteleri tarafından bugün saraya çağrılmadın mı?”</p>
+            <p>“Evet,” diye cevap verdi Isolde, kısa bir duraksamadan sonra.</p>
+            <p>“Geç kalmayacaksın, değil mi?”</p>
+            <p>“Vaktim var.”</p>
+            <p>“Majestelerini bekletmek korkunç olur. Bugünlük burada bırakalım.”</p>
+            <p>“Pekala. Sonra görüşürüz, Abi.”</p>
+            <p>Isolde hafifçe eğilerek selam verdi ve odasına döndü. Saraya gitmeden önce kendini hazırlaması gerekiyordu.</p>
+            <p>O gittikten sonra Tantris iç çekti. “Su Tanrısı adını almadan önce evlenmesi imkansız gibi görünüyor” diye düşündü ve eğitim salonuna gidip öğrencileriyle ilgilenmeye koyuldu.</p>
+            <p>Isolde, Asura’nın Gümüş Sarayı’nda ilerliyordu. Her adımında, göğsünde kalkan taşıyan savaşçı bakire arması olan gümüş göğüs zırhı tıkırdıyor, mavi ve beyaz pelerini arkasında dalgalanıyordu.</p>
+            <p>Botlarının topukları taş zeminde tık tık ses çıkarıyordu. Geçtiğini gören nöbetçi askerler hemen hazır olda dikilip mızraklarını yere dayadılar.</p>
+            <p>Gözlerindeki hayranlık açıkça belli oluyordu. Saraydaki herkes Su İmparatoru Isolde’nin adını biliyordu ve bu asil figür, pek çok askerin gizli hayranlık beslediği biriydi.</p>
+            <p>Ama kimse onun içinden geçenleri tahmin edemezdi: “Evde kalmak istemiyorum… Acaba etrafta düzgün biri var mıdır?”</p>
+            <p>Tam bu sırada, bir adam yolunu kesti. Kısa boylu, zayıf ve seyrek saçlıydı.</p>
+            <p>Görünüşüyle acınası bir hâl sergiliyordu. Yaşı kırklarının başında gibi görünüyordu, insandı, ve Rudeus onu görse muhtemelen “ofis fazlası” derdi.</p>
+            <p>Ne bir savaşçıya ne de bir kılıç ustasına benziyordu ama Isolde’nin zırhına benzer gümüş bir zırh giyiyordu. Ancak zırhındaki arma farklıydı: taç giymiş dua eden bir bakirenin tasviri.</p>
+            <p>“Ah, Isolde Hanım. Nereye böyle?”</p>
+            <p>“Lord Ifrit. Umarım sizi iyi bulmuşumdur?”</p>
+            <p>“Evet, gayet iyiyim. Aynı rütbeye sahibiz, diz çökmenize gerek yok…”</p>
+            <p>Sylvester Ifrit, Asura’nın Yedi Şövalyesi’nden biri olan Kraliyet Kalesi unvanını taşıyordu. Yüzüne hiç uymayan bu isimle, Gümüş Saray muhafızları arasında en yüksek otoriteye sahip kişiydi.</p>
+            <p>Isolde ise sadece bir şövalyeydi. Bu da onu, soylu ama oldukça alt sınıftan biri yapıyordu.</p>
+            <p>Sylvester, saraydaki tüm şövalyelerin ve askerlerin tepesinde duran kişiydi ve orta seviyeli bir soyluydu. Geleneklere göre, Isolde’nin koridorun bir köşesine çekilip diz çökmesi ve Sylvester geçip gidene kadar başını eğik tutması gerekiyordu.</p>
+            <p>“Efendim…”</p>
+            <p>“İkimiz de Majesteleri’nin şövalyesiyiz” dedi Sylvester, bir anda keskinleşen sesiyle. Isolde anında dik durup hazır ola geçti.</p>
+            <p>“Çok iyi,” dedi Sylvester. “Hizmet ettiğimiz şey bu ülke değil, Majesteleri’nin ta kendisidir.</p>
+            <p>Diz çökmeniz gereken tek kişi kraliçedir.”</p>
+            <p>Onun aurası öylesine güçlüydü ki, Isolde sadece başını sallamakla yetindi.</p>
+            <p>Sylvester küçük bir adamdı. Hastalığa meyilliydi ve bedeni zayıftı.</p>
+            <p>Ne kılıç konusunda yetenekliydi ne de büyüde özellikle başarılıydı. Ancak Kraliyet Şövalyeleri Akademisi’nden sınıf ikincisi olarak mezun olmuştu.</p>
+            <p>Onun en büyük yeteneği, yetenekli insanları bulmak ve onları yetiştirmekti. Doğru kişiyi doğru işe yerleştirmenin ne kadar önemli olduğunu gerçekten anlayan biriydi.</p>
+            <p>Bu tek yeteneği sayesinde, Kraliçe Ariel onu krallığın ücra köşelerinden başkente çağırmış ve kendi şövalyesi yapmıştı.</p>
+            <p>“Nereye gidiyorsunuz, Isolde Hanım?”</p>
+            <p>“Majesteleri beni çağırdı.”</p>
+            <p>“Majesteleri mi? O halde sizi tutmayayım.”</p>
+            <p>“Benden bir şey istemiyor muydunuz?”</p>
+            <p>“Ah, çok da önemli bir şey değil. Oğlum sizinle tanışmak istediğini söyledi.</p>
+            <p>Aptal oğlumu şımartmak adına, uygun bir zamanınız olursa onunla tanışmayı kabul eder misiniz, diye soracaktım.”</p>
+            <p>Isolde, bu “aptal oğul” lafına biraz olsun ilgisini kaybetmemekle birlikte, efendisinin çağrısını göz ardı edemezdi.</p>
+            <p>“Bunu bana söylediğiniz için teşekkür ederim. Daha sonra uygun bir zamanınızda tekrar konuşuruz,” dedi sakin bir tavırla, ardından hızlı adımlarla yoluna devam etti.</p>
+            <p>Sarayın derinliklerine ilerledikçe, karşısına çıkan insan sayısı gittikçe azalıyordu. Sade zırhlar giyen askerlerin yerini, pahalı zırhlar giymiş şövalyeler alıyordu.</p>
+            <p>Bu şövalyeler düşük rütbeli soylular olsalar da, hepsi Ariel’e sadakat yemini etmişlerdi. Onların ihanet etme ihtimalleri yok denecek kadar azdı.</p>
+            <p>Sarayın en iç kesimlerine doğru ilerledikçe, etrafta neredeyse kimse kalmamıştı. Burada ne asker ne şövalye vardı, sadece boş koridorlar uzanıyordu.</p>
+            <p>Arada keskin bakışlı hizmetçiler ile karşılaşıyordu—aslında bunlar da korumalardı—ama başka kimse yoktu.</p>
+            <p>Burası Ariel’e iliklerine kadar sadık insanların bölgesiydi. Ardından Kraliyet Odaları, yani Ariel’in ikamet ettiği yere ulaştı.</p>
+            <p>Muhteşem bir kapının önünde, altın zırhlı devasa bir adam duruyordu. Elinde kocaman bir savaş baltası tutuyordu.</p>
+            <p>İşte, Asura Krallığı’nın en güçlü kapı bekçisi bu adamdı. Ariel’e ihanet etme ihtimali tamamen sıfırdı.</p>
+            <p>Bu dev adam, Altın Şövalyeler’den biri olmasının yanı sıra, Asura’nın Yedi Şövalyesi arasında yer alıyordu: Dohga, Kraliyet Kapı Bekçisi. Başında ters çevrilmiş bir kova şeklinde altın bir miğfer vardı ve miğferin üzerinde, bir kapının önünde duran savaşçı bir bakirenin tasviri işlenmişti.</p>
+            <p>“Isolde Cluel. Majesteleri’ni görmek için geldim.”</p>
+            <p>“Mm.”</p>
+            <p>Isolde adını söylediğinde, Dohga yavaşça hareketlendi. Hareketleri ağır ve hantal gibi görünüyordu, ama Isolde onun bir an bile gardını indirmediğini biliyordu.</p>
+            <p>Bir kriz anında o devasa savaş baltasını inanılmaz bir hızla savurabilirdi ve eğer ciddi bir şekilde dövüşürse, Isolde onun karşısında direnemeyeceğini hissediyordu.</p>
+            <p>“Hm?”</p>
+            <p>Dohga elini ona doğru uzattı. Isolde kaşları hafifçe seğirerek eline baktı.</p>
+            <p>Yüzü sıradan ve solgundu—çirkin sayılmazdı, ama Isolde’nin zevkine hiç uymuyordu. Onun kendisine dokunacak olması düşüncesi, içinde hafif bir tiksinti uyandırdı.</p>
+            <p>“Üst araması mı? Devam edin.”</p>
+            <p>Burası kraliçenin odalarıydı. Böyle bir şey beklenirdi.</p>
+            <p>Hiç kimsenin, bir şövalye bile olsa, hükümdarın özel odalarına silah getirmesine izin verilmezdi.</p>
+            <p>Dohga, aşırı ihtiyatlı olmasıyla biliniyordu. Krallığın bakanlarından biri bile onun sıkı denetimi sonrasında küçük bir tahta kaşık bile içeri sokamazdı.</p>
+            <p>Isolde, Dohga’nın dokunmasını özellikle nerede sürdüreceğini merak etti, ama dişini sıkmaya karar verdi.</p>
+            <p>“Mm.”</p>
+            <p>Ama Dohga, Isolde’ye dokunmadı. Eli, onun… saçlarına doğru uzandı.</p>
+            <p>Ve o elinde bir şey tutuyordu.</p>
+            <p>Isolde şaşkınlıkla Dohga’ya baktı. Parmaklarının arasında tuttuğu şey, tek bir çiçek yaprağıydı.</p>
+            <img src="bolum3foto2.png" alt="Bölüm 3 görseli 2" class="novel-image">
+            <p>“Takılmıştı.”</p>
+            <p>“Ha?”</p>
+            <p>“Isolde… güzelsin. Böyle bir şeyi üzerinde bırakamam.”</p>
+            <p>Miğferinin arkasında Dohga, sıcak bir şekilde gülümsedi. Isolde, ona boş boş bakarken vücudundaki gerginlik yavaşça kayboldu.</p>
+            <p>“Ah, silahım.”</p>
+            <p>Birden kılıcını hatırlayıp kemerinden çıkararak Dohga’ya uzattı. Ama Dohga kılıcı almadı.</p>
+            <p>“Isolde… Sen Kraliçe Ariel’in şövalyesisin.</p>
+            <p>Silahına ihtiyacın var. Onu korumak için.”</p>
+            <p>Isolde sessiz kaldı. Dohga, onu aramamıştı ve silahını da almamıştı.</p>
+            <p>Ariel’in şövalyesi olarak, bu adamın—Asura’nın en yetenekli kişilerinden biri olan Dohga’nın—güvenini kazanmıştı. Bunu fark ettiğinde kalbi bir an için biraz daha hızlı atmaya başladı.</p>
+            <p>Ama… o yüzle, asla. Başını iki yana sallayıp derin bir nefes aldı.</p>
+            <p>“Isolde Cluel, girmek için izin istiyor.”</p>
+            <p>“Lütfen, içeri gel.”</p>
+            <p>Isolde, Ariel’in sesini duyana kadar bekledi, ardından odaya girdi.</p>
+            <p>Asura’nın Yedi Şövalyesi, Kraliçe Ariel’e mutlak bağlılık yemini etmiş olan Luke Notos Greyrat, namıdiğer Kraliyet Hançeri tarafından yönetiliyordu. Bu yedi şövalye, diğer şövalyeler arasında özel bir konuma sahipti ve belirli bir bağımsızlıkları vardı.</p>
+            <p>Isolde de onlardan biriydi. Ona verilen unvan Kraliyet Kalkanı idi—Kraliçeyi korumakla yükümlü bir Su Tanrısı Stili kılıç ustası için tam anlamıyla uygun bir isim.</p>
+            <p>Isolde, Sylvester ve Dohga, Solun Üç Şövalyesi olarak biliniyorlardı ve doğrudan Ariel’i korumakla görevliydiler.</p>
+            <p>Yedi Şövalye, en azından teoride, Ariel’e tam bağlılık yemini etmişlerdi. Ancak Isolde, bu şövalyelerin nasıl seçildiğini bilmiyordu.</p>
+            <p>Hepsi, görünüşte Ariel’e sadık olsalar da, çoğu başka yerlerden gelmiş, krallıkla güçlü bağları olmayan kişilerdi. Muhtemelen her birinin, Ariel’e ihanet etmelerini imkansız kılan bir şeyleri vardı.</p>
+            <p>Ama Isolde için durum farklıydı. Kalbinin derinliklerinde, bir gün ihanete yönelebileceğini biliyordu.</p>
+            <p>Bunu biliyordu çünkü Ariel’in taht mücadelesi sırasında, Isolde’nin büyükannesi ve önceki Su Tanrısı olan Reida, Ariel’in müttefiki olan Ejderha Tanrısı Orsted tarafından öldürülmüştü.</p>
+            <p>Isolde bir kılıç ustasıydı; savaşın acı gerçeklerini biliyordu. Büyükannesinin ölümüyle, Su Tanrısı unvanı ona geçmişti.</p>
+            <p>Ariel’e ihanet ederse, Su Tanrısı Stili Asura Krallığı’ndan tamamen dışlanabilirdi. Bu yüzden ihanet etmeyi hiç düşünmemişti—bu tamamen mantıksal bir karardı.</p>
+            <p>Buna rağmen, onun geçmişini bilen hiç kimse Isolde’ye tam anlamıyla güvenmiyordu. Kimse kalbinin derinliklerine bakamazdı.</p>
+            <p>Belki de büyükannesinin ölümünden dolayı içinde gizli bir kin besliyor ve doğru zamanı bekliyordu. Belki de hedefi Ariel değil, Ejderha Tanrısı Orsted idi.</p>
+            <p>Ariel tahta çıktığında pek çok aristokrat ve şövalye öldürülmüştü ve hâlâ o dönemin yarattığı öfkeleri içinde tutanlar vardı. Görünüşte bağlılık yemini edip güler yüzle sadık gibi davranan pek çok kişi, intikam için doğru zamanı kolluyordu.</p>
+            <p>Isolde’nin bulunduğu konum, onun böyle niyetler taşıdığına inanılmasını kolaylaştırıyordu. Şövalyelerin yeminini etmiş ve Ariel’e sadakatini ilan etmişti.</p>
+            <p>Ama Ariel’e hayranlık duymuyordu, ne de bir vatanseverdi—bunu kendi pozisyonunu ve bir Su Tanrısı Stili ustası olarak gururunu savunmak için yapmıştı. Şu anda Ariel’in ona olan güveni, Isolde’yi koruyordu.</p>
+            <p>Ancak bu güven bir gün sarsılırsa, Isolde hiçbir koşulda sadık kalmazdı. Bu bir plan değildi, sadece kendisinin nelere muktedir olduğunu bilmesinden ibaretti.</p>
+            <p>Yine de Yedi Şövalye’den biri olarak seçilmişti. Garip bir seçimdi.</p>
+            <p>Bunun mutlaka bir nedeni olmalıydı.</p>
+            <p>“Isolde, sana birkaç evlilik adayı ayarlamamı ister misin?”</p>
+            <p>Kraliyet odasında, Ariel bu teklifi yaptığında, Isolde temkinli bir şekilde kaşlarını çattı.</p>
+            <p>“Neden bu işe karışıyorsunuz, Majesteleri?”</p>
+            <p>“Çünkü sen Su Tanrısı olacaksın. Senin uygun biriyle evlenmen benim için de faydalı olacak.</p>
+            <p>Düşündüğüm adayların hepsi benim kanımdan geliyor ve aralarında… biraz sorunlu eğilimleri olanlar olsa da, belki biri senin hoşuna gider.”</p>
+            <p>“Majesteleri’yle akraba… Yani kraliyet ailesinden mi?!”</p>
+            <p>“Evet, tam olarak öyle.”</p>
+            <p>Isolde’nin kalbi bu sözleri duyduğunda kontrolsüzce atmaya başladı. Kendi kendine kızdı.</p>
+            <p>Ne kadar da kolay kandırılan biriydi!</p>
+            <p>“Ama Su Tanrısı olduğumda, aile adlarını terk etmeleri gerekecek. Bu, kraliyet ailesinden biri için sorun yaratmaz mı?”</p>
+            <p>“İsimleri olmasa bile kan bağları baki kalır. Aileleriyle tüm bağlarını koparmaları gerekmiyor, değil mi?”</p>
+            <p>“Eh, hayır.”</p>
+            <p>“O halde endişelenmene gerek yok. Onlar durumu anlıyorlar.</p>
+            <p>Onlara söz verdim: Seninle evlenseler bile kraliyet ailesinin desteği devam edecek. Sen sadece onlarla tanışıp en çok hoşuna gideni seçmelisin.”</p>
+            <p>Bu bir oyundu, diye düşündü Isolde. Onu kazanmak için hazırlanmış bir plan.</p>
+            <p>Şartlar fazla iyiydi. Kraliyet ailesinin uzak bir kolundan bile gelseler, Ariel’in kanından olanlar gerçek prenslerdi.</p>
+            <p>Tahta çıkma şansları belki çok çok düşüktü, ama yine de… Ayrıca Ariel’in ailesinde herkesin yakışıklı ve zarif olduğu da bilinen bir gerçekti.</p>
+            <p>“Ee, ne dersin? Oldukça cazip bir teklif, değil mi?”</p>
+            <p>“Öyle tabii!” diye coşkuyla yanıtladı Isolde. Reddetmesi için hiçbir neden yoktu.</p>
+            <p>Daha dünyayı görmüş bir Asura soylusu olsaydı, Ariel’in sözlerinin ardındaki ima edilenleri düşünür ve teklifi geri çevirirdi. Ama ne yazık ki Isolde, sadece bir kılıç ustasıydı—üstelik bir eş arayışındaki genç bir kadın.</p>
+            <p>Fazla derin düşünmedi.</p>
+            <p>“Çok iyi. Ne zaman müsait olduğunu Luke ya da Sylvester’a bildir.</p>
+            <p>Gerisini ben hallederim.”</p>
+            <p>“Evet, Majesteleri. Teşekkür ederim, Majesteleri.”</p>
+            <p>“Peki, peki. Artık gidebilirsin.”</p>
+            <p>Isolde, Ariel’in odasından bir rüyanın içindeymiş gibi çıktı. Kraliyet ailesiyle evlilik görüşmeleri…</p>
+            <p>Belki hayal gücüydü, ama ayaklarının neredeyse yere değmediğini hissediyordu. Kalbi deli gibi atıyordu.</p>
+            <p>İlk fırsatta Sylvester’ın yanına gidip boş günlerini söyleyecekti. Bu düşünceler arasında fark etti ki boğazı kupkuruydu.</p>
+            <p>Aniden çağrılmış olmanın verdiği gerginlikten olsa gerekti.</p>
+            <p>“Susadım” diye mırıldandı kendi kendine.</p>
+            <p>“Mm.”</p>
+            <p>Tam o sırada arkasından bir ses duyuldu. Isolde anında alt bir gard pozisyonuna geçti, hızla döndü ve kendisini Dohga’yla burun buruna buldu.</p>
+            <p>Devasa vücuduna tamamen ters düşen, minicik bir bardak tutuyordu.</p>
+            <p>“Al. Soğuk.”</p>
+            <p>Isolde bardağı yavaşça aldı. “Teşekkür ederim.” Bir an için zehirli olabileceğini düşündü, ama sonra içindekini ağzına döküp tek yudumda içti.</p>
+            <p>Suyun derinlerine işlediğini hissederken, aslında ne kadar gergin ve yorgun olduğunu fark etti.</p>
+            <p>“Oh” diye derin bir nefes verdi.</p>
+            <p>“Isolde…iyi iş çıkardın.”</p>
+            <p>Dohga gülümsedi. Miğferinin aralığından bakan yüzünde en ufak bir art niyet olmadığını görebiliyordu.</p>
+            <p>“Dikkatli biri” diye düşündü Isolde, bu düşünce doğal olarak zihnine yerleşmişti. Bu adam, sırtımı güvenle emanet edeceğim biri.</p>
+            <p>Keşke yüzü zevkime uygun olsaydı, diye içinden geçirdi.</p>
+            <p>“Sen de aynı şekilde, Dohga,” dedi sakin bir ifadeyle. “Nöbet görevini hakkıyla yapmaya devam et.”</p>
+            <p>“Mm!”</p>
+            <p>Olan buydu işte. Sırada, dişlerini parlatarak bekleyen evlilik adaylarıyla görüşeceği günleri hayal ederek, Isolde yoluna devam etti.</p>
+
+            <div class="author-note">
+                <p><i>“Birinin hayatı dışarıdan kolay görünse bile, onu yaşayan için çalkantılı olabilir.”<br>
+                — Sakin bir hayat gibi görünebilir, ama zordur.</i></p>
+                <p><b>Yazar:</b> Rudeus Greyrat</p>
+                <p><b>Çeviren:</b> Jean RF Magott</p>
+            </div>
+        </main>
+
+        <div class="bottom-nav">
+            <a href="bolum2parca3.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="bolum3parca2.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

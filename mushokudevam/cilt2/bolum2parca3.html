@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei Cilt 1, Bölüm 1 (Kısım 1) | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b; /* Mushoku Tensei Kırmızı Tema */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #cc0000;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c1b1b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        body.theme-light .nav-btn:hover, 
+        body.theme-light .action-btn:hover, 
+        body.theme-light .theme-select:hover,
+        body.theme-sepia .nav-btn:hover, 
+        body.theme-sepia .action-btn:hover, 
+        body.theme-sepia .theme-select:hover {
+            color: #ffffff;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+        }
+
+        /* Resimler için özel stil */
+        .novel-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 6px;
+        }
+
+        /* Ayrıştırıcı Çizgi */
+        .divider {
+            text-align: center;
+            margin: 2em 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="bolum2parca2.html" class="nav-btn">←Önceki Bölüm</a> 
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="bolum2parca4.html" class="nav-btn">Sonraki Bölüm →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Mushoku Tensei Cilt 2, Bölüm 2</h1>
+            <div class="subtitle">Millis Seyehatnamesi(Kısım 3)</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <img src="bolum2foto1.png" alt="Kitap Çizimi 1" class="novel-image">
+            <p>Bahçede bir sandalyeye oturmuş kitap okuyordum. Göz ucuyla, tatile gelmiş olmamıza rağmen Eris ve Sieg’in birlikte kılıç antrenmanı yaptıklarını görebiliyordum. Arus da bir süre onlarlaydı ama sonra Rudy’nin teyzesi Therese ondan bir yere gitmesini istedi ve o da gitti. Belki de şu an onun odasındadır ve Therese ona şeker falan veriyordur. Ah, o çocuk… Önüne büyük göğüslü bir kadın koyun, anında tav oluyordu. Kadınlar ileride bu çocuğun başına kesin dert açacaktı.</p>
+<p>Lara ise bu sırada bahçede Leo ile aylaklık ediyordu. Yine bir şeyler tezgâhladığından şüpheleniyordum. Son zamanlarda o kızın yaptığı her şey bana saçlarımı yolduruyordu!</p>
+<p>Eğer Arus, Sieg ve Lara evde uslu uslu dursaydı, bugün olaysız bir gün olmalıydı. Sylphie ve Norn, Lucie ve Clive’ı Maceracılar Loncası’nı ziyarete götürmüşlerdi. Beni de davet ettiler ama reddettim. Çocukların önünde genç maceracıların yanıma gelip, <em><strong>“Varlıklarını kullanarak yeni grup üyeleri mi tavlamaya çalışıyorsun, ha?”</strong></em> demelerini istemiyordum.</p>
+<p>Zaten burada, Millishion’da, ortalıkta dolaşan bir iblisin tuhaf bakışları üzerine çekmesi kaçınılmazdı. Ayrıca, Lily ve Chris ile biraz zaman geçirmek istemiştim. Şimdi onlar öğle uykusuna yattığına göre yapacak bir şeyim kalmamıştı, bu da bana uzun zamandır ilk defa rahatlama fırsatı vermişti. Tek başıma kitabımın tadını çıkaracaktım.</p>
+<p>Neyse ki Latria ailesinin kütüphanesinde oldukça ilgi çekici bir kitap bulmuştum. Adı Kutsal Büyünün Kökenleri’ydi. Özellikle necromancy (ölü çağırma sanatı) hakkındaki açıklaması çok ilginçti.</p>
+<p><i>Büyük İnsan-İblis Savaşı’nda, iblisler Millis halkını Ölü Büyüsü(nekromansi) olarak bilinen büyü türüyle dehşete düşürdü: ölüleri diriltip hizmetkâra dönüştüren yasaklı sanat. Bugün bile izleri iskeletler, tayflar ve hareketli zırhlar gibi canavarlarda varlığını sürdürmektedir. Kutsal Büyü, Ölü Büyüsü(nekromansi)’yi yenmek için yaratıldı. Birinci Büyük İnsan-İblis Savaşı’nın orta dönemlerinde, Kutsal Büyü kullanan insanlar ile&nbsp;Ölü Büyüsü(nekromansi) kullanan iblisler arasındaki ilişki bir tür silahlanma yarışına dönüştü. Savaşın sona ermesinin ardındanÖlü Büyüsü(nekromansi)&nbsp;yasaklandı ve bu sanat kayboldu. Kutsal Büyü ise zirve döneminden sonra gerilemiş olsa da günümüze kadar kullanılmaya devam etmektedir.</i></p>
+<p>Kitap, büyü çemberleri veya efsunlar hakkında detaya girmiyordu ve ölü büyüsü(nekromansi) denemeyi de planlamıyordum ama okurken merakımı gıdıkladığı kesindi. Geçmiş çağların bu büyü savaşı destansıydı.</p>
+<p><strong>“Bayan Roxy?”</strong> Arkamdan biri adımı seslendi.</p>
+<p><strong>“Evet?</strong><strong>”</strong> Kitabımdan başımı kaldırdığımda Latria ailesinin hizmetçilerinden birinin orada durduğunu gördüm.</p>
+<p><strong>“Hanımefendi… yani, Leydi Claire sizi görmek istiyor.”</strong></p>
+<p>Claire Latria. Teknik olarak kayınvalidemin annesiydi, yani hemen hemen aynı yaşta olsak da rütbe olarak benden üstündü. Şimdiye kadar bana tek bir tatsız bakış bile atmamıştı ama kendisi bir iblis karşıtıydı, bu yüzden beni görmekten memnun olduğundan şüpheliydim. Ne diyecekti ki? Dürüst olmak gerekirse, bu işten sıyrılmak istiyordum.</p>
+<p>Bunları düşünürken gözüm Eris’e kaydı.</p>
+<p><strong>“Hadi, duruşunu sıkılaştır! Çeneni içeri çek!”</strong> Bugün de kılıç eğitimi verirken her zamanki gibi şevkliydi. Eğer Claire’in benim bir iblis olmamla ilgili söyleyecek bir şeyi varsa sorun değildi, ama ya konu başka bir şeyse? Mesela, çocukları yetiştirme tarzımız hakkında fikirleri varsa? O zaman Eris’e de söyleyecek bir iki lafı olabilirdi. Eris karmaşık konular hakkında konuşmakta zorlanırdı ve dilini tutamazdı. Eğer Claire ona kötü bir şey söylerse, yumruklarıyla cevap verirdi. O tam olarak böyle bir kadındı.</p>
+<p>Claire ne derse desin ona karşılık verebilirdim ama işin sonu kolayca bir tartışmaya varabilirdi.</p>
+<p><strong>“Pekâlâ,”</strong> dedim hizmetçiye. Bu da Rudy’nin eşi olarak görevlerimden biriydi sanırım.</p>
+<p style="text-align: center;">***</p>
+<div id="model-response-message-contentr_73845001020893ce" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Bu zorluğa karşı kendimi hazırlama çabama rağmen, kendimi Claire’in odasında, o sessizce çayını yudumlarken karşısında ağzımı bile açamaz halde otururken buldum. Öylece oturuyordum. Nedendir bilinmez, Lilia ve Zenith de oradaydı; Lilia benim gibi donakalmış bir haldeydi, Zenith ise her zamanki gibi sessizdi.</p>
+<p>Dürüst olmak gerekirse, bu çok ızdırap vericiydi. Çayın yanındaki tatlılara uzanamıyordum bile. Tatlılar en sevdiğim şeydi ama Claire beni azarlayacakmış gibi hissediyordum. “Akşam yemeğinin tadını kaçırırsın” falan derdi herhalde. Aslında, bu benim de sık sık Lara’ya söylediğim bir şeydi.</p>
+<p>Hem Lilia’yı hem de beni çağırmış olması bir tesadüf olamazdı. Kocalarımız farklıydı ama ikimiz de (biraz doğruluk payıyla) metres olarak görülebilirdik. Millis Dini metresliği kabul etmezdi. Her neyse! Hazırdım. Son zamanlarda kendime biraz fazla nazik davranmıştım ama insanların bana yöneltebileceği her türlü ağır söze hazırlıklıydım.</p>
+<p>Bunu düşünürken Lilia’ya baktım, göz göze geldik. Görünüşe göre o da benimle aynı şekilde hissediyordu. Hatta belki de bunu benden çok daha uzun zamandır bekliyordu. Tüm bu işin iyi yanı, Claire’in Eris’i çağırmamış olmasıydı. Bu durumu gereken zarafetle idare edebileceğini sanmıyordum.</p>
+<p><strong>“Rudeus dışarı çıktı sanırım,”</strong> dedi Claire aniden. Odaya girdiğimden beri birinin söylediği ilk şey buydu.</p>
+<p><strong>“Cliff’e bir hediye götürmeye gitti.”</strong></p>
+<p><strong>“İş yani. Ailesiyle tatilde olması gerekiyordu. Bu konuda tıpkı Carlisle’a benziyor.”</strong></p>
+<p>O sabah erkenden Rudy, Cliff’e <em>“bebeği”</em> teslim etmek için Elinalise ile birlikte gitmişti. Bunun tam olarak iş olup olmadığından emin değildim. Söz konusu bebek, Cliff’e göz kulak olması için yaptığı bir otomatondı. Anne’i duymuştum ve onun hakkında iyi ya da kötü bir fikrim yoktu, ama bu yenisinin biraz ürkütücü olduğunu söylemeliyim. Kısa, insan benzeri kulakları dışında, beden dilinden ses tonuna kadar tıpatıp Elinalise’e benziyordu.</p>
+<p>Anlaşılan o ki, bu Elinalise’in fikriydi. Cliff son zamanlarda yükselişe geçmişti ve kadınlar arasındaki popülaritesi de artmıştı. Etrafı, onu evlenmeye teşvik eden insanlarla dolup taşmıştı. Bebeği ona bırakmasının bir nedeni de bu tür baş belalarına karşı bir caydırıcı olmasıydı. Bu plan, Cliff’in evleneceği kişinin bu tür biri olduğu mesajını verirken, onun bir elf olduğu gerçeğini de gizli tutmayı amaçlıyordu. Elinalise aylarca bebeğe kendi konuşma tarzını ve beden dilini öğretmişti. Yine de Elinalise’in muhtemelen bebek için aklında daha az politik bir kullanım amacı vardı.</p>
+<p>Her halükârda, kilit bir şeylerin eksik olduğunu söyleyerek ondan hâlâ memnuniyetsiz görünüyordu. Yakından bakınca tam olarak ona benzemiyordu ama bir bakışta o kadar benziyordu ki bu tüyler ürperticiydi.</p>
+<p>Rudy bir zamanlar benim de bir figürümü yapmıştı ama onu canlandırması için izin vermemiştim. Eğer bir gün sorarsa, reddetmeyi düşünüyordum. Rudy bile izinsiz böyle bir şey yapmazdı. Benim bir bebeğime ihtiyacı yoktu; canı ne zaman isterse gerçeğine sahip olabilirdi. Ben Sylphie değildim ama Rudy’den gelecek ara sıra taleplere hayır demezdim—yine de benden çok sapkın şeyler istememesini tercih ederdim.</p>
+<p>Cliff ile çok yakın sayılmazdım ama Millis’in dindar takipçilerinin böyle bir şeye ne kadar sevineceğini merak ediyordum. Rudeus bunun bir sürpriz olduğunu söyledi. Bence sonunda Cliff’in ona kızmasıyla sonuçlanabilirdi ama yorum yapmak bana düşmezdi.</p>
+<p><strong>“Buna iş demezdim,”</strong> dedim Claire’e. <strong>“Cliff onun özellikle yakın bir arkadaşıdır.”</strong></p>
+<p><strong>“Anlıyorum. Ben olsaydım, başkalarının görmesini istemediğim bir şey olmadığı sürece, bu zahmete kendim girmek yerine hizmetçilerden birine teslim ettirirdim. Sanırım bu bir gelenek farkı.”</strong></p>
+<p>Eyvah, haklıydı. Başka insanların görmesini istemiyordu. Ayrıca, Cliff muhtemelen Rudy ve Elinalise’in açıklaması olmadan bebeği kabul etmezdi.</p>
+<p><strong>“Bu arada Lilia, Aisha bugün ne yapıyor?”</strong> diye sordu.</p>
+<p><strong>“Aisha bu sabah paralı asker birliğini ziyarete gitti. Öğleden sonra döneceğini söyledi.”</strong></p>
+<p>Aisha, Arus’un bütün gün evde olacağını duyduktan sonra aniden günü paralı askerlerle geçirme kararı almıştı. Evde olmak istemiyor muydu? Şimdi düşününce, Norn da Sylphie, Lucie ve diğerlerinin dışarı çıktığını duyunca aniden onlara katılmaya karar vermişti. Tabii, Lucie de Norn’a onlarla gitmesi için yalvarmıştı.</p>
+<p><strong>“Sanırım o kızlar bu evden pek hoşlanmıyor,”</strong> dedi Claire iç çekerek. Çayından bir yudum aldı ama tadı hoşuna gitmemiş gibi yüzünü buruşturdu. Hâlâ kaşları çatık bir halde Lilia’ya döndü. <strong>“Lilia, en son buradayken sana karşı oldukça serttim.”</strong></p>
+<p>Lilia tereddütle,<strong> “Hayır…”</strong> diye cevap verdi. <strong>“Hiç de değil, Hanımefendi.”</strong></p>
+<p>“<strong>Özür dilemek istiyorum. Nereden geldiği belirsiz, Zenith’in kocası olduğunu iddia eden bir adam yardım istemek için kapıma dayandı, sonra tam Zenith bulunduğunda, peşinde bir kız çocuğuyla onun diğer karısı olduğunu iddia eden bir kadın ortaya çıktı. Bu durum keyfimi pek yerine getirmedi.”</strong></p>
+<div id="model-response-message-contentr_e0f99fdae38e8599" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p><strong>“Anlıyorum, Hanımefendi. Bu beni rahatsız etmiyor.”</strong></p>
+<p>Claire,<strong> “Aisha hâlâ kin besliyor,”</strong> dedi.</p>
+<p>Hava neredeyse çıtırdıyor gibiydi. Mideme ağrılar girmeye başlamıştı.</p>
+<p><strong>“Korkularımın aksine, Greyrat ailesine iyi hizmet ettin. Zenith bu hale geldiğinde, daha fazla nüfuz iddia edebilirdin ama sen geri planda kalıp ona baktın.”</strong></p>
+<p><strong>“Beni fazla yüceltiyorsunuz. Öyle bir gücüm yoktu.”</strong></p>
+<p><strong>“Sen öyle düşünebilirsin ama Zenith’in dün Kutsanmış Çocuk aracılığıyla söyledikleri, Greyrat ailesinin sana minnettar olduğunu açıkça ortaya koydu.”</strong></p>
+<p>Lilia sessiz kaldı.</p>
+<p>Haklıydı. Rudy farkında olmayabilirdi ama Zenith ile Lilia’ya eşit davranmaya çalışıyordu. Lilia, Zenith’in dengiydi ama Zenith’in durumu kendini düzgün bir şekilde ifade edemeyeceği anlamına geliyordu. Eğer Lilia isteseydi, hizmetçi üniformasını çıkarıp evin hanımı pozisyonunu alabilirdi. Öyle yapsaydı, aile içindeki uyumumuz bozulur ve Zenith’e de farklı davranılırdı. Ama Lilia cazibesini kötüye kullanmamış; geri planda kalmıştı ve Greyrat ailesinin bugünkü halinde olmasının sebebi de buydu. Claire kesinlikle haklıydı.</p>
+<p><strong>“Aynısı senin için de geçerli, Roxy.”</strong></p>
+<p><strong>“Ha?”</strong> Aniden adımı duyunca şaşırarak başımı kaldırdım ama Claire bana bakmıyordu. Gözleri kendi ellerinden Zenith’e kaydı. Sonra pencereden dışarı bakmaya başladı.</p>
+<p>“<strong>Son birkaç gündür çocukları izliyorum. Hepsi mutlu ve sağlıklı. Lara şakalarını biraz ileri götürüyor ama çok da anormal sayılmaz.”</strong></p>
+<p><strong>“Lara bir şey mi yaptı, şey?”</strong></p>
+<p><strong>“Dün bana bir kurbağa hediye etme lütfunda bulundu.”</strong></p>
+<p>Başım döndü. Bu kızın nesi vardı Tanrı aşkına? <strong>“Ç-çok özür dilerim. Ne diyeceğimi bilemiyorum.”</strong></p>
+<p><strong>“Özür dilemene gerek yok. Teşekkür mahiyetinde, kurbağayı ızgara yaptırıp öğleden sonraki atıştırmalığı olarak ona yedirdim.”</strong></p>
+<p>Baş dönmem geri geldi. Şimdi o söyleyince hatırladım, Lara dün bir çubuğa geçirilmiş bir şeyler yiyordu. Ne olduğunu sorduğumda sadece, <em>“Sır,”</em> demişti.</p>
+<p><strong>“Elbette, aşçılarım onu usulüne uygun hazırladı,” diye devam etti Claire. “Ben şahsen kurbağaya pek düşkün değilimdir ama bu yörenin insanları yer.”</strong></p>
+<p>Çok yağışlı olan Millis Kıtası’nda kurbağa ve kertenkelelerden yapılan pek çok yemek vardı. Maceracıyken ben de bu tür yiyeceklerle hayatta kalmıştım. Panzehir büyüsü kullanmayı bilmediğim zamanlarda, zehirli bir tür yiyerek neredeyse ölüyordum. Aşçıların malzemeleri kontrol ettiğinden emindim, bu yüzden Lara’ya tehlikeli bir şey yedirmemişlerdir.</p>
+<p>Şaşırmıştım. Rudy’nin anlattıklarından, Claire’i aşırı katı biri olarak hayal etmiştim—tarif ettiği şeyi yapacak türden biri kesinlikle değildi.</p>
+<p><strong>“Bu sabah, atıştırmalığını çok sevdiğini ve bana mutlaka teşekkür edeceğini söyledi. Teşekkürünün ne şekilde olacağını ancak hayal edebiliyorum,”</strong> dedi Claire.</p>
+<p>Beni mi suçluyordu? Sesi her zamanki gibi iğneleyiciydi ve yüzünde bir gülümseme belirtisi yoktu, yani muhtemelen öyleydi. Sonra hafifçe iç geçirdi. Sonunda bizi neden buraya çağırdığını söyleyecek miydi?</p>
+<p><strong>“Neden bu kadar gergin olduğunuzu bilmiyorum ama haberiniz olsun, Rudeus bana aile işlerinize karışmamam gerektiğini çok kesin bir dille söyledi. Söylemek istediğim şeyler var ama sözümü tutacağım.”</strong></p>
+<p>Bu keskin bir azar gibi çıkmıştı ama—madem öyle diyordu.</p>
+<p><strong>“İkinizi bugün buraya çağırmamın sebebi,” diye devam etti Claire, “diğerlerine kıyasla en yetişkin siz olmanız. Sylphiette hâlâ genç ve Eris de olgunlaşmamış. Zenith’in başına bunlar gelmeden önce nasıl biri olduğunu söyleyemem ama şu anki durumunda kimseye bakabilecek halde değil. Bana öyle geliyor ki, ikiniz bir adım geri çekilip büyük resmi görebiliyorsunuz. Ve bu yüzden… öhö, öhöm…”</strong></p>
+<p>Öksürerek sözünü kesti ve hizmetçiler yanına koşturdu. Ben de ayağa fırlayıp panzehir büyüsü yapmaya hazır bir şekilde ona doğru gittim. Claire hiçbir şey olmamış gibi hizmetçileri eliyle uzaklaştırdı, sonra çayının geri kalanını içti.</p>
+<p><strong>“Gayet iyiyim, sadece genzime kaçtı biraz. Oh—bu da ne?”</strong> Claire başını kaldırıp Zenith’e baktı. Bir an öncesine kadar Zenith boşluğa bakıyor, başka bir dünyadaymış gibi davranıyordu. Ama Claire öksürdüğünde, Lilia’nın yardımı olmadan ayağa kalkmış ve şimdi boş gözleriyle ona bakıyordu.</p>
+<p><strong>“Belki de dinlenmelisiniz.”</strong> Konuşan Lilia’ydı ama sözler neredeyse Zenith’in ağzından çıkmış gibiydi.</p>
+<p><strong>“Aman Tanrım, küçücük bir öksürük için bu kadar telaş, bir de bastonumu gördüklerinde herkesten aldığım o şok olmuş bakışlar… Sırtım ağrıyor olabilir ama ciğerlerim gayet iyi. Zenith, bana öyle bakmayı kes ve otur.”</strong></p>
+<p>Claire <em>“bana öyle bakmayı kes”</em> dediğinde Zenith’e tekrar baktım ama yüzü her zamanki gibi ifadesizdi. Soru sorarcasına Claire’e baktım, o da şaşırmış görünüyordu. Sandalyeme geri döndüm ve Lilia da Zenith’in elinden tutup tekrar oturmasına yardım etti.</p>
+<p>Bir süre sessizce oturduk. Şok Claire’in yüzünden yavaş yavaş silindi ama duygularının o kadar çabuk yatışmayacağı belliydi.</p>
+<p><strong>“Topluma ilk çıkışıydı,”</strong> dedi aniden. <strong>“Zenith’in katıldığı ilk soylular partisinde, eve dönerken merdivenlerde takılıp düşmüştüm.”</strong> Sesi neredeyse sevgi doluydu. Gözlerini indirdiğini ve sesine gizli bir hıçkırık gibi başka bir tınının eklendiğini fark ettim.</p>
+<div id="model-response-message-contentr_5615074139c19aba" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p><strong>“Ciddi bir yara almamıştım ve iyileştirme büyüsü beni hemen düzeltti. Ama tuhaf. Az önce, Zenith’in bana o günküyle aynı şekilde baktığını hissettim.”</strong></p>
+<p>Claire’in eğik yüzünden bir şeylerin şıpırtısı duyuldu. Yakındaki bir mendili alıp gözlerini sildi.</p>
+<p><strong>“Zenith çok takdir edilirdi. Ona kızım demekten gurur duyardım. Ben… onu iyi yetiştirdiğimi sanmıştım…”</strong> Claire’in omuzları sarsıldı.</p>
+<p>Ona ne diyeceğimi bilemeden, tek yapabildiğim izlemekti. Aklıma bir düşünce geldi. Çocuklarımın geleceği hakkında hiç ciddi olarak düşünmüş müydüm? Rudy ile evlenmiş, Lara ve Lily’yi doğurmuş, sonra da büyü üniversitesinde öğretmenlik yapmak için onları ailenin bakımına bırakmıştım. Evdeki çocuklara Sylphie ve Lilia, okuldaki çocuklara ise ben bakıyordum. Bu beni tatmin ediyordu, bu yüzden çocukları nasıl yetiştirdiğimizi hiç sorgulamamıştım.</p>
+<p>Kendi kızım Lara’nın Lucie’den daha az çalışkan ve yaramazlığa daha yatkın olması beni biraz endişelendiriyordu. Bunun benim bir iblis olmamdan mı yoksa onun yarı insan olmasından mı kaynaklandığını merak etmiştim. Ben endişelenirken yıllar geçti ve Lara büyüdü. Diğer çocuklarla uyum sağlamış, Arus ve Sieg ile yakındı. Biraz daha büyüyünce durulacağından emindim. Bu konuda düşündüklerim bu kadardı. Yani, çoğunlukla.</p>
+<p>Asıl düşünmediğim şey ise bundan sonra ne olacağıydı. Söylenene göre Lara bir kurtarıcıydı ve bu kulağa ağır bir sorumluluk gibi geliyordu. Bunun tam olarak ne anlama geleceğini bilemezdim. Muhtemelen, İnsan-Tanrı’ya karşı savaşta yer alacaktı. Peki ya ondan sonra? Savaştan sonra bile hayat devam ederdi.</p>
+<p>Aslında, gelecek için endişelenmenin bir faydası olmayacağının farkındaydım.</p>
+<p><strong>“Affedersiniz,”</strong> dedi Claire. <strong>“Duygularıma hâkim olamadım.”</strong></p>
+<p><strong>“Hiç de değil,”</strong> dedim.</p>
+<p><strong>“İnsan benim yaşımda kolayca gözyaşlarına boğuluyor.”</strong></p>
+<p>Claire mendili masaya geri koyarken gözleri kıpkırmızıydı. Dün katedralde, Kutsanmış Çocuk Zenith’in sözlerini aktardığında da ağlamıştı.</p>
+<p><strong>“Öhöm.”</strong> Boğazını temizledi. <strong>“Burada, Millis Kutsal Ülkesi’nde, çarpık ailelerin çarpık çocuklar yetiştirdiği söylenir. Ben de bu görüşü paylaşıyorum.”</strong> Bize delici bir bakış attı. <strong>“Greyrat çocukları sağlıklı ve hiç de çarpık görünmüyorlar. Zenith de kesinlikle çarpık değildi. Yine de sizden dikkatli olmanızı rica ediyorum. Eğer bir şeyler ters giderse, bunu ilk fark edecek olanlar, koruduğunuz o uygun mesafeden gözlem yapan siz ikiniz olacaksınız.”</strong></p>
+<p>Bir şeylerin ters gitmesi—tıpkı Zenith’in evden kaçması gibi. Bu olasılık tabii ki vardı. Özellikle Lara’nın aklından ne geçtiği hakkında hiçbir fikrim yoktu. Öte yandan, bu Lara olmayabilirdi. En uyumlu görünen çocuklar risk altında olanlar olabilirdi. Mesela Lucie okulda örnek bir öğrenciydi ama bir şeyler ters gitmek üzereyken bunu gerçekten fark eder miydim?</p>
+<p><em>Öf.</em> Üzerimdeki beklentilerin ağırlığı midemin kasılmasına neden oldu.</p>
+<p><strong>“Size iletmek istediğim mesaj buydu,”</strong> diye sözünü bitirdi Claire ve sandalyesine geri gömüldü.</p>
+<div id="model-response-message-contentr_10ed07a073424df8" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Lilia ve ben birbirimize baktık. Benim kafa karışıklığımın aksine, Lilia kararlı bir tavırla Claire’e döndü.</p>
+<p><strong>“Anlaşıldı, Hanımefendi,”</strong> dedi. “<strong>Gereğini yapacağımdan emin olabilirsiniz.”</strong> Sesi, çok önemli bir görev verilmiş bir asker gibi çıkmıştı. Bu özgüven, Norn ve Aisha’yı—hatta şimdi düşününce Rudy’yi de—yetiştirmiş olmasından geliyordu herhalde.</p>
+<p><strong>“Ben de yapacağım,”</strong> diye ekledim. <strong>“Elimden geldiğince.”</strong> O kadar özgüvenli değildim. Sonuçta, bir öğretmen olarak pek çok farklı insanı gözetlemiştim ama hâlâ öğretmenlikte iyi olduğuma ikna olmamıştım. Yine de, Sylphie ve Eris’in sunabileceğinden farklı bir eğitime ihtiyaç duyan çocuklara bir alternatif sunmak bile olsa, bunu başarabileceğime emindim. Başarmak zorundaydım.</p>
+<p>Beni cesaretlendiren başka bir şey daha vardı. Claire’in sahip olduğundan emin olduğum çekincelere rağmen, bana bir eşit olarak davranıyordu. Bir iblis sürgüncüsü, iblislerden hoşlanmamaktan kendini alamazdı ve ben de neysem oydum. Claire benim için taviz veriyordu ve ben de onun beklentilerini karşılamam gerektiğini hissettim.</p>
+<p><strong>“Hm?”</strong> Tam o sırada kapı açıldı ve beyaz bir köpek odaya girdi. Doğal olarak, Lara da sırtındaydı. Nedendir bilinmez, her yeri çamur içindeydi: ayakkabıları, kıyafetleri, her şeyi. İçeri girmeden önce ayakkabılarındaki çamuru silmesini ona kaç kez söylemiştim?!</p>
+<p>Laf olsun diye, <strong>“Lara, evin içinde Leo’nun sırtına binmemelisin,”</strong> dedim.</p>
+<p>Lara suratını astı ama Leo’nun üstünden indi. Okulda bile, arkamı döner dönmez üzerine tırmanıyordu. Bu sinir bozucuydu.</p>
+<p>İndikten sonra Lara yavaşça Claire’in yanına gitti.</p>
+<p><strong>“Büyük-Büyükanne, havalı bir şey buldum,”</strong> dedi Lara.</p>
+<p><strong>“Neymiş o bakalım?”</strong> diye sordu Claire.</p>
+<p><strong>“Bu.”</strong></p>
+<p>Lara cebinden yuvarlak ve altın rengi bir şey çıkardı. Oturduğum yerden tam göremiyordum ama bir kolyeye veya benzeri bir şeye benziyordu. Claire onu görünce gözleri fal taşı gibi açıldı.</p>
+<p><strong>“Bunu nerede buldun?”</strong> diye sordu.</p>
+<p><strong>“Bahçede, yerde. Onu arıyordun, değil mi, Büyük-Büyükanne?”</strong></p>
+<p><strong>“E-evet, çok uzun zamandır arıyordum… ama nasıl?”</strong></p>
+<p><strong>“Dün, Büyükanne senin onu hep taktığını, bu yüzden bir yerlere düşürmüş olman gerektiğini, sonra da onu ararken sırtını incittiğini söyledi.”</strong> Bunu söylerken Lara, Zenith’e baktı. Bu, Kutsanmış Çocuk’un güçlerinin Zenith’in düşüncelerinden ortaya çıkardığı şeyler arasında yoktu… Bu da Lara’nın bunu kendisinin duymuş olması gerektiği anlamına geliyordu.</p>
+<img src="bolum2foto3.jpg" alt="Kitap Çizimi 1" class="novel-image">
+<p>Claire, <strong>“Onu aramaya mı gittin?”</strong> diye sordu.</p>
+<p><strong>“Dünkü atıştırmalığım için sana teşekkür etmek istedim.”</strong></p>
+<p>Claire sessiz kaldı.</p>
+<p>Lara, çayın yanında gelen tatlıların durduğu masaya bakarak ekledi: <strong>“Lezzetliydi ama atıştırmalık olarak şunları tercih ederim.”</strong></p>
+<p><strong>“Alabilirsin,”</strong> dedi Claire.</p>
+<p><strong>“Teşekkürler!”</strong> Lara bir bisküvi kapıp ağzına attı. Bir tane daha, sonra bir tane daha derken, göz açıp kapayıncaya kadar masadaki her şeyi silip süpürdü. Tam ona en azından önce ellerini yıkamasını söyleyecektim ki benimkileri de yediğini fark ettim.</p>
+<p><strong>“Hey.”</strong> Kendi kendime homurdandım, aslında o kadar da önemli bir mesele olmasa da. Rudy’den istemem yeterliydi, canımın istediği kadar tatlı yiyebilirdim. Yemeğimi aldığı için çocuğuma kızacak değildim. Ama, bilirsiniz işte, benim atıştırmalıklarım…</p>
+<p><strong>“Mmm!”</strong> Lara, yanakları patlayacak gibi dolmuş bir halde, keyifle çiğnedikten sonra büyük bir yudumda yutkundu.</p>
+<p>Leo ona, <em><strong>“Peki ya benimki?”</strong></em> der gibi inanmaz bir bakış attı. Muhtemelen benim de yüzümde benzer bir ifade vardı.</p>
+<p><strong>“Kurbağadan çok daha iyi!”</strong> diye ilan etti Lara.</p>
+<p><strong>“O halde yarın yine yersin,”</strong> dedi Claire.</p>
+<p><strong>“Süper.”</strong> Bununla birlikte Leo’nun sırtına atladı ve ikisi odadan ayrıldı. O kadar şaşkındım ki, içeride Leo’ya bindiği için onu azarlamadan gidişini izledim.</p>
+<p>Telaşla, <strong>“Ben, ıı, özür dilerim,”</strong> dedim. <strong>“Görgü kurallarını bilmiyor.”</strong></p>
+<p>Şansıma, Claire Lara’nın getirdiği eşyaya kilitlenmişti. Öne eğilince, içinde genç bir adamın portresi olan altın bir madalyon olduğunu gördüm.</p>
+<p><strong>“Bunu bana evlenmeden hemen önce Carlisle vermişti,”</strong> dedi Claire. Ben sessiz kalınca, nostaljik bir tonda devam etti. <strong>“O zamanlar böyle pahalı bir hediye gücünü çok aşıyordu ama parayı denkleştirip benim için almıştı. <em>‘Evlendikten sonra bir Latria olacağım ve sana bir daha asla kendi paramla hediye alamayacağım,’</em> demişti. Yaklaşık bir yıl önce kaybettim ve o zamandan beri eğilip bükülerek onu arıyordum. Sırtımı da bu yüzden incittim. Onu bulmaktan umudumu kesmiştim…”</strong></p>
+<p>Hizmetçiler bile buna şaşırmış görünüyordu. Kaybettiğini hizmetkârlarına bile söylememiş miydi?</p>
+<p><strong>“Roxy,”</strong> dedi Claire.</p>
+<p><strong>“Evet?”</strong></p>
+<p><strong>“Görgü kuralları başkalarına düşünceli davranmaktan başka bir şey değildir—resmiyete takılıp kalmaya gerek yok, değil mi?”</strong></p>
+<p><strong>“Şey, sanırım yok.”</strong></p>
+<p><strong>“Lara, görgü kuralları mükemmel olan iyi bir kız. Ben yanılmışım.”</strong></p>
+<p>Hmm, Lara’nın pek de öyle bir kız olmadığından oldukça emindim ama karşı çıkmak bana mı düşerdi? Claire’i yanlış anlamıştım. Rudy’nin surat asmalarını ve Aisha’nın açıkça hoşnutsuzluğunu gördükten sonra gardımı almıştım ama o hiç de beklediğim gibi biri değildi. Rudy ile tanışmak onu da değiştirmiş olabilirdi. Onun tarafından değiştirilmemek zordu.</p>
+<p>Her halükârda, bu hanımefendiyle anlaşabileceğimi hissettim. Çok uzun yaşamayacak olsa bile. Bu ziyaret bittiğinde, onu bir daha asla göremeyebilirdim.</p>
+<p><strong>“Onu doğru yolda tutun,”</strong> dedi Claire.</p>
+<p><strong>“Evet, Hanımefendi,</strong>” diye onayladım.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum2parca2.html" class="nav-btn">← Önceki Bölüm</a>
+            <a href="bolum2parca4.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

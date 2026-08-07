@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei Cilt 2, Bölüm 3, Parça 2 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #cc0000;
+            --border-color: #e5e7eb;
+        }
+
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c1b1b;
+            --border-color: #d8c8b4;
+        }
+
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        body.theme-light .nav-btn:hover,
+        body.theme-light .action-btn:hover,
+        body.theme-light .theme-select:hover,
+        body.theme-sepia .nav-btn:hover,
+        body.theme-sepia .action-btn:hover,
+        body.theme-sepia .theme-select:hover {
+            color: #ffffff;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+        }
+
+        .novel-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 30px auto;
+            border-radius: 6px;
+        }
+
+        .section-break {
+            text-align: center;
+            margin: 30px 0;
+            color: var(--accent-color);
+            letter-spacing: 4px;
+        }
+
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <div class="controls">
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="bolum2parca1.html" class="nav-btn">← Önceki Bölüm</a>
+            </div>
+
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <div class="nav-right">
+                <a href="bolum3parca3.html" class="nav-btn">Sonraki Bölüm →</a>
+            </div>
+        </div>
+
+        <header>
+            <h1>Mushoku Tensei Cilt 2, Bölüm 3, Parça 2</h1>
+            <div class="subtitle">"Kapı bekçisi Dohga"</div>
+        </header>
+
+        <main class="novel-text" id="text-content">
+            <img src="bolum3foto1.png" alt="Bolum 3 Foto 1" class="novel-image">
+
+            <p>Asura Krallığı’nda, Asura’nın Yedi Şövalyesi olarak bilinen yedi savaşçı vardı. Bunlar, Ariel Anemoi Asura‘ya mutlak bağlılık yemini etmiş kişilerdi. Liderleri, Şövalye Sancaktarı Luke Notos Greyrat, namıdiğer Kraliyet Hançeri idi.</p>
+
+            <p>Sağın Üç Şövalyesi, saldırıdan sorumluydu. Onlar:</p>
+            <p>
+                - Kraliyet Büyük Kılıcı Sandor von Grandeur<br>
+                - Kraliyet Halberdı Oswald Euros Greyrat<br>
+                - Kraliyet Muhafız Köpeği Ghislaine Dedoldia
+            </p>
+
+            <p>Solun Üç Şövalyesi, savunmadan sorumluydu. Onlar:</p>
+            <p>
+                - Kraliyet Kapı Bekçisi Dohga<br>
+                - Kraliyet Kalesi Sylvester Ifrit<br>
+                - Kraliyet Kalkanı Isolde Cluel
+            </p>
+
+            <p>Bu yedi şövalyeden bazılarının geçmişleri ve kökenleri geniş çevrelerce bilinse de, yarısı Ariel ve Luke tarafından özel olarak keşfedilip göreve getirilmişti. Soylu olanlardan halktan kişilere, hatta yarı insan yarı ölümsüz bir iblise kadar çeşitlilik gösteren bu topluluk, birbirinden farklı kökenlere sahipti. Ancak onları birleştiren şey, Ariel’ere olan sarsılmaz bağlılıklarıydı.</p>
+
+            <p>Isolde, Ariel’in “biraz sorunlu eğilimler” ifadesindeki “biraz” kelimesini yanlış anlamış olsa da, hikayemizi bu şövalyelerden bir diğerine çevirelim…</p>
+
+            <div class="section-break">---</div>
+
+            <p>Çocuk, Asura Krallığı’ndaki Donati Bölgesi’ndeki küçük bir köyde doğmuştu. Biraz yavaş öğreniyordu, bu yüzden diğer çocuklar onu küçümsüyordu. Ama sağlıklıydı, güçlü bir yapısı vardı ve neredeyse hiç hasta olmazdı. Babası, köyü koruyan az sayıdaki askerden biriydi ve çoğu zaman evde bulunmazdı. Nöbet görevleri yüzünden nadiren izin yapar, bazen de tüm gece boyunca dışarıda olurdu.</p>
+
+            <p>Çocuk beş yaşındayken küçük kız kardeşi doğdu. Tatlı bir bebekti; annelerine çok benziyordu. Ama anneleri doğumdan sonra bir türlü toparlanamadı ve hayatını kaybetti.</p>
+
+            <p>Çocuk, o gün ilk defa ağladı. Arkadaşları ona vurduğunda ya da bir sivrisinek soktuğunda bile sesini çıkarmayan çocuk, annesinin ölümünde hıçkırarak ağladı.</p>
+
+            <p>Babası, onun başını okşayarak, “Şimdi ağlamakta özgürsün. Ama ağlaman bittiğinde, kardeşini benim için koruyacaksın” dedi.</p>
+
+            <p>Babası, kucağında küçük kız kardeşiyle dururken, çocuk başını kaldırıp babasına baktı ve defalarca kez başını salladı. O günden sonra, çocuk bir daha ağlamadı. Babasının sözünü tuttu; küçük kız kardeşini koruyacaktı.</p>
+
+            <p>Onun için bu, evi korumak anlamına geliyordu. Odun kesmek için kullandıkları baltayı aldı ve bütün gün kapının önünde nöbet tuttu. Kız kardeşi ağladığında ise hemen içeri koşar, onu sakinleştirirdi.</p>
+
+            <p>Arkadaşları onu gördüklerinde alay ederdi. “Ne yapıyorsun sen? Git de içeride bak ona” derlerdi. Köyün yetişkinleri ise, “Bırak ona biz bakalım. Zaten bir sürü çocuğumuz var, bir tanesi daha sorun olmaz” diye ısrar ederdi.</p>
+
+            <p>Ama çocuk inatla direniyordu. Bebek bakmayı öğrendi ve kardeşinin bakımını asla başkalarına bırakmadı.</p>
+
+            <p>Tam bu sıralarda, köyde tuhaf bir şeyler olmaya başladı. Bir gece, ahırlardan birinde ne kadar hayvan varsa hepsi öldürülüp yenmişti. Ayak izlerinden, köydekiler bunun bir kurt olduğunu düşündü. Köydeki askerler ev ev dolaşıp herkese kapılarını kilitlemelerini ve ne olursa olsun açmamalarını söylediler.</p>
+
+            <p>Ertesi gün, canavar bu sefer bir eve saldırdı. Bir şekilde gece karanlığında içeri sızmış, bir çocuğun boynunu tek hamlede kırarak öldürmüş ve camdan kaçıp gitmişti. Aile sabah uyandığında ne olduğunu anlayamamıştı. Kan izlerini takip ettiklerinde, köyün hemen dışında bir kan gölünün ortasında bebeğin giysilerini buldular. Bu manzara onları deliliğin eşiğine getirmişti.</p>
+
+            <p>Olaylar devam ettikçe askerler, ilk tahminlerinin yanlış olduğunu fark ettiler. Köyde dolaşan yaratık bir kurt değil, bir canavardı. Görünüşte sıradan bir kurt kadar küçük olsa da vahşi bir yaratıktı.</p>
+
+            <p>Ve gerçekten de öyleydi: Kafası ve arka bacakları bir kurda benziyordu, ama omuzlarından maymun kolları çıkmıştı. İstediğinde iki ayağı üzerinde yürüyebiliyor, ağaçlara tırmanabiliyordu. Büyük bir köpek boyutunda olmasına rağmen, başı bedenine göre fazla büyüktü. İnsan etinin tadını almış zeki bir mutanttı.</p>
+
+            <p>Sanki köylülerin korkusunu keyifle izliyormuş gibi, yaratık bir evin buğday tarlasına gizlenip bir gün boyunca bir sonraki hedefini seçti. Seçimini, gece eve dönmeyen bir yetişkinin evinden yana yaptı. Baba, yaratığı köy dışında avlamaya çalışırken, iki çocuğunu savunmasız bırakmıştı. Ağzının kenarını yalayarak, yaratık maymun kollarını kullanarak evin çatısına tırmandı ve bacadan aşağı kayarak içeri girdi.</p>
+
+            <p>Ertesi sabah güneş doğduğunda, gece devriyesinden dönen çocukların babası eve girdi. Onu karşılayan ilk şey bir kan gölü oldu.</p>
+
+            <p>“Hayır,” diye soluk soluğa kaldı babası. Yüzü kireç gibi olmuştu. Etrafına bakındığında, hemen yerde yatan paramparça cesedi gördü. Yaratığın kafası ortadan ikiye ayrılmıştı. Yaratık ile yatağında huzurla uyuyan kızı arasında duran kişi ise oğluydu. Çocuk, odun kesme baltasını sıkı sıkıya kavramış, bacaklarını sağlamca yere yerleştirmişti. Yüzünde vahşi bir kararlılık vardı. Bu, umutsuz bir savaştı. Çocuk, baştan aşağı kana bulanmıştı ve kolu kırıktı ama iki kardeş de hayattaydı. Yaratık küçük sayılabilirdi, evet, ama bir kurt büyüklüğündeydi—yani çocuğun boyunun iki katı. Bu çocuk, kız kardeşini korumak için kör bir odun baltasıyla canavarı ölene kadar dövmüştü.</p>
+
+            <p>Bu, ileride Kuzey İmparatoru Dohga olarak anılacak çocuğun ilk savaşıydı.</p>
+
+            <p>Dohga, hayatı boyunca kapı bekçisi oldu.</p>
+
+            <p>On yaşına geldiğinde, köyün kapısını koruyordu. Yer Değiştirme Olayı’ndan hemen önce, tüm krallık boyunca ormanlardan sayısız canavar fırlamış ve büyük bir saldırı başlamıştı. Birçok köy, bu yıkım dalgasında yerle bir olmuştu. Bazıları ise bu canavar sürüsünün altında ezilmişti.</p>
+
+            <p>Dohga’nın köyü de saldırıya uğramıştı. Ama Dohga, cesurca baltasını alarak canavarlara karşı durdu. Elliden yüz canavara kadar öldürdüğü söyleniyordu. Ancak Dohga’nın oluşturduğu devasa canavar cesetlerinin yığınına rağmen, babası bu savaşta hayatını kaybetmişti. Dohga, babasının cansız bedeni önünde donup kaldı.</p>
+
+            <p>Onun savaşını gören bir şövalye, Dohga’ya krallığın başkentindeki muhafız birliğine katılmasını önerdi. Ama Dohga tereddüt etti. Kız kardeşini koruduğunu söyledi.</p>
+
+            <p>Şövalye ona şöyle dedi: “İyi dinle, evlat. Biz ailelerimizi geride bırakıp krallığın dört bir yanına gideriz, köyleri koruruz. Krallık güvende olduğu sürece, ailelerimiz de huzur içinde yaşayabilir. Krallığı korumak, aileni de korumak demektir.”</p>
+
+            <p>Dohga zeki bir çocuk değildi ve o zaman şövalyenin söylediklerini tam anlamamıştı. Sonunda onu ikna eden şey paraydı. Babasının ölümüyle, kız kardeşiyle birlikte geçimlerini sağlamak zorundaydı. Eğer başkente giderse, ikisi için de geçinebilecekleri kadar para kazanabileceği söylendi. Bu karar, Dohga’nın kaderini belirledi. Kraliyet başkentinin askeri oldu.</p>
+
+            <p>Görevlendirildiği yer, gecekondu mahallesi ile alt sınıf vatandaşların yaşadığı bölgeyi ayıran küçük bir kapıydı. Bu kapı, gecekondu halkı ayaklanıp aşağı bölgeye hücum ettiğinde bir tıkanma noktası görevi görüyordu. Gece geçişler yasaktı, ama onun dışında özel bir önemi yoktu. Eğitimsiz bir köy çocuğu için uygun bir görev yeriydi.</p>
+
+            <p>Kendisine ve kız kardeşine tahsis edilen oda küçük ama yeterliydi. Dohga, buradan kışlaya gidiyor, sabahın ilk ışıklarından gece yarılarına kadar, bazen de sabaha kadar nöbet tutuyordu.</p>
+
+            <p>Yavaş bir çocuktu ama bir o kadar da sempatikti. Başlangıçta, daha on yaşında olduğu için onunla birlikte görev yapmaktan hoşlanmayan askerler olmuşty. Ama Dohga’nın saf doğası ve kız kardeşine olan sarsılmaz bağlılığı, arkadaşlarının kalbini yumuşattı. İlk yılının sonunda, Dohga’yı kendilerinden biri olarak kabul etmişlerdi bile.</p>
+
+            <p>Ve böylece Dohga, ikinci yılına başladı.</p>
+
+            <p>Bir gece, bir kadın Dohga’nın nöbet tuttuğu kapıya koşarak geldi. Kendini onun üzerine atıp “Lütfen, yardım et!” diye yalvardı. Dohga tereddüt ederken, sert yüzlü bir grup adam aniden ortaya çıkıp bağırdı: “Kızı bize teslim et!”</p>
+
+            <p>Dohga ne yapacağını bilemiyordu. Keşke Dohga’yla nöbette olması gereken Hans uyuyakalmasaydı; belki de onun kararı işleri çözerdi.</p>
+
+            <p>Kadın, Dohga’nın kafasının karıştığını görünce kapıdan geçip kaçmaya çalıştı. Ama Dohga, hemen kadının yakasını tutup onu geri çekti. “Gece vakti kimsenin kapıdan geçmesine izin yok” denmişti ona.</p>
+
+            <p>Tam o anda, kadın kaçmaya çalıştığı için paniğe kapılan adamlar saldırıya geçti. Dohga, köyün demircisinin ona asker olurken hediye ettiği savaş baltasını savurdu. Bütün adamları öldürdü. Kanlar içinde ayakta duran Dohga’yı gören kadın, korkudan altına kaçırdı ve dizlerinin üstüne çöktü.</p>
+
+            <p>Gürültüyü duyan Hans, koşarak geldi. Kapıdaki bu katliamı görünce bir anda durdu. “Bu kötü olacak,” diye düşündü. Dohga ayrım gözetmeksizin cinayet işlemiş gibi görünüyordu. Hans nöbet başında uyumuştu; suçun bir kısmı ona da yüklenecekti. Yüzü kül gibi solmuş bir halde, cesetleri kontrol etmeye başladı. Ama sonra o yüzleri tanıdı: alt sınıf bölgesinde terör estiren hırsız çetesi. Bu adamlar, başlarına bela olmuştu. Şövalyeler düşük statülü bu bölgelerle ilgilenmediği için muhafızlar bu çeteyle baş edemiyordu.</p>
+
+            <p>Ve Dohga, tek başına hepsini temizlemişti.</p>
+
+            <p>Bu olaydan sonra Dohga terfi etti. Artık, gecekondu mahallesiyle orta sınıf bölgesini ayıran kapıyı korumaya başlamıştı. Nedense Hans da onunkal birlikte yeni görev yerine atanmıştı.</p>
+
+            <p>Dohga, uzun bir süre bu kapıyı korumaya devam etti. Yağmur yağıyor, bazen fırtına esiyor, bazen rüzgâr uğulduyordu ama Dohga nöbetinden vazgeçmiyordu. Yaşı büyüyüp olgunlaştıktan sonra bile görevini sürdürdü. Zeki bir adam olmadığı için, Hans ona yardım ediyordu.</p>
+
+            <p>Zamanla Hans, Dohga’yı herkesten daha iyi anlamaya başladı. Bu süreçte, Dohga’nın kız kardeşi büyüyüp güzel bir genç kadın olmuştu ve nihayet Hans ile evlendiler. Belki Hans’ın gözü başından beri Dohga’nın kız kardeşiydi ama bu, Dohga için önemli değildi. Hans, nöbet sırasında uyuyakalıyor olsa bile kötü bir adam değildi. Hans, Aziz Millis’in huzurunda Dohga’ya söz verdi: “Onu mutlu edeceğim.”</p>
+
+            <p>Ve böylece Dohga, yalnız kaldı. Kız kardeşi evlenmişti. Babasının ona vasiyet ettiği görevi, sonuna kadar yerine getirmişti. Artık hiçbir kapıyı koruması gerekmiyordu.</p>
+
+            <p>Ama Dohga yine de nöbet tuttuğu yerde kaldı.</p>
+
+            <p>Bazı günler yağmur yağıyor, bazı günler şiddetli fırtınalar kopuyordu, ama Dohga her zaman görevdeydi, kapısını koruyordu.</p>
+
+            <p>Böyle günlerden birinde şehir büyük bir haberle sarsıldı: Ariel Anemoi Asura, taç giyme törenini duyurmuştu. Taç giyme töreni, günler süren büyük bir kutlamaydı. Bu süre boyunca askerlerin maaşına zam yapılacak, üstelik ücretsiz yiyecek de verilecekti. Dohga’nın arkadaşları bu habere çok sevindi; Hans ise sevinçle küçük bir dans bile etti.</p>
+
+            <p>Ancak bu, aynı zamanda daha fazla iş anlamına geliyordu. Sadece orta sınıf bölgesi değil, tüm şehirde güvenlik önlemleri sıkılaştırılacaktı. Geçici muhafızlar şehir halkından seçildi, Dohga ve diğer askerler ise daha önemli noktalara görevlendirildi. Dohga ve Hans, bu ek görevleri hevesle yaptılar. Ekstra aldıkları maaşla, Dohga’nın küçük kız kardeşine güzel bir hediye almayı planlıyorlardı.</p>
+
+            <p>Taç giyme töreninin yarısına gelindiği bir gün, Dohga kendisini sarayın hizmetli kapısını korurken buldu. Buradan pek kimse geçmezdi ama arada sırada geçiş belgesi olan bir hizmetçi uğrardı. O gün Hans onunla birlikte değildi. Dohga, birkaç diğer askerle birlikte kapıyı koruyordu.</p>
+
+            <p>O sırada bir adam geldi. Eski püskü bir zırh giymişti ve yanında uzun bir asa taşıyordu.</p>
+
+            <p>“Seni benim geçişime izin vermeye ikna edemez miyim? Kraliçe Ariel’le görüşmek istiyorum.”</p>
+
+            <p>Elbette kapıdaki muhafızlar onu hemen geri çevirdi. “Geçiş iznin olmadan buradan geçemezsin! Belgeni göster!”</p>
+
+            <p>“Geçiş iznim yok. Ama yine de kraliçeyle görüşmek istiyorum.”</p>
+
+            <p>“İzin yoksa geçiş de yok. Defol git buradan!”</p>
+
+            <p>“O halde başka çarem yok” dedi adam. “Neyse ki bu kapıya gelmişim. Majesteleri’nin bu görkemli gününü gölgelemek zorunda kalacağımı düşünmüştüm.”</p>
+
+            <p>Ve aniden kapıyı zorlamaya başladı. Adamın asası adeta büyüyle hareket etti. Bir anda, diğer muhafızların hepsi yere yığılmıştı.</p>
+
+            <p>Ama Dohga ayakta kalmıştı. Adam, asasının ucuyla Dohga’nın hayati noktalarına defalarca vurdu ama Dohga yere düşmedi. Dohga, baltasını savurarak adama saldırdı, ama bir türlü isabet ettiremiyordu. Hayatında ilk defa bir hedefi ıskalıyordu. Buna rağmen, Dohga inatla saldırmaya devam etti.</p>
+
+            <p>Adam bu durumdan memnun görünüyordu. “Muhteşem! Böyle bir yerde senin gibi birini bulacağımı hiç düşünmemiştim. Tamam. Gücüne saygımdan dolayı, bu kapıdan geçmekten vazgeçiyorum. Özür dilerim. Ama bir teklifim var: Ne dersin, benim çırağım olmak ister misin? Gerçekten yeteneklisin!”</p>
+
+            <p>Dohga, adamın ne söylediğini tam olarak anlamamıştı, ama adam kapıdan geçmekten vazgeçmiş gibi görünüyordu. Ancak Dohga tam gevşediği anda bayıldı. Öylece yere düşmedi bile; ayakta bayılmıştı.</p>
+
+            <p>Gözlerini açtığında, adam hâlâ oradaydı. Dohga’nın baltasını tutuyor ve kapıyı koruyormuş gibi görünüyordu. Ancak etrafında bir yığın asker vardı.</p>
+
+            <p>“Günaydın, çocuk! Senin yerine kapıyı korudum!”</p>
+
+            <p>İşte Dohga’nın Sandor, yani diğer adıyla Alex Rybak, namıdiğer Kuzey Tanrısı Kalman II ile tanışması böyle oldu.</p>
+
+            <p>Dohga, Sandor’un çırağı olduğu gün eve döndü ve neredeyse yatağa yarı baygın bir halde yığıldı. Gelen askerlerin arasında bir şifa büyücüsü olduğu için, aldığı yaraların kalıcı bir hasarı olmamıştı. Ancak Kuzey Tanrısı Kalman II ile yaptığı savaş, bitmek bilmeyen enerjisinin her zerresini tüketmişti. Hayatında ilk kez, tamamen yorgunluktan uyuyakaldı.</p>
+
+            <p>İki gün boyunca uyuduktan sonra uyandığında, yatağının başında kız kardeşini, gözyaşı izleri yüzünde donmuş halde, ve Hans’ı, rahatlamış bir ifadeyle buldu. Dahası, orada da Sandor vardı—uygunsuz bir neşeyle gülümsüyordu.</p>
+
+            <p>“Günaydın, çırak! Hadi benimle gel.”</p>
+
+            <p>Sandor, olağanüstü gücünü sergileyerek Dohga’yı ayaklarının üzerine çekti, onu zırhına soktu ve bir yerlere götürmek için harekete geçti. Dohga, ne olduğunu anlamadan Hans’a yardım ister gibi baktı.</p>
+
+            <p>“Üzgünüm, Dohga. Ben de tam olarak ne olduğunu bilmiyorum ama sanırım bu bir onurlandırma. O yüzden, şimdilik onunla git. Elinden gelenin en iyisini yap ve sakın saygısızlık etme, tamam mı?”</p>
+
+            <p>“Evet,” diye ekledi kız kardeşi. “Abi, lütfen… elinden gelenin en iyisini yap.”</p>
+
+            <p>Dohga, Hans’ın ne demek istediğini hiç anlamamış bir halde etrafına bakınmıştı ama Sandor’un gücüne karşı koyacak durumda değildi. Böylece yola koyuldular.</p>
+
+            <p>Birlikte önceki gün Dohga’nın nöbet tuttuğu kapıya geldiler. Sandor, bir geçiş belgesini göstererek havalı bir hareketle kapıdan geçtiler. Böylece Dohga, ilk kez sarayın içindeydi. Parıldayan ihtişamlı salonları görünce gözleri fal taşı gibi açılmıştı. Sandor’un peşinden yürürken, farkında olmadan kendini sarışın, güzel bir kadının önünde buldu.</p>
+
+            <p>“Bu çocuk mu?”</p>
+
+            <p>“Evet, Majesteleri!”</p>
+
+            <p>“Onunla biraz konuşmak istiyorum.”</p>
+
+            <p>Sandor, Dohga’nın sırtına hafifçe bir itekleme yaptı ve Dohga kendini kadının tam önünde buldu. Kadın, adeta tanrısal bir güzelliğe sahipti.</p>
+
+            <p>“Ben, Ariel Anemoi Asura. Peki senin adın ne?”</p>
+
+            <p>Dohga bu ismi bilmiyordu. Şehir muhafızı olmasına rağmen kraliçeden habersizdi. Doğal olarak onu daha önce hiç görmemişti. Ama ne olduğunu anlamadan bir anda diz çökmüş halde buldu kendini. Nedense böyle yapması gerektiğini hissetmişti.</p>
+
+            <p>“B-ben… Dohga.”</p>
+
+            <p>“Neden asker oldun?”</p>
+
+            <p>“B-baba… dedi ki… kız kardeşini koru, yani…”</p>
+
+            <p>Dohga, konuşmakta zorlanıyordu. Hayatını daha önce kimseye anlatacak kadar düzgün cümle kurmamıştı. Ama Ariel, söylediklerini hemen anlamış gibiydi.</p>
+
+            <p>“Kız kardeşini korumak için mi? Çok takdire şayan.”</p>
+
+            <p>“A-ama… şimdi Hans koruyor… kardeşimi, yani, evlendiler…”</p>
+
+            <p>Ariel’in bakışıyla, yanında duran şövalye açıkladı: “Kız kardeşi Hans adında bir askerle evlenmiş, Majesteleri.” Dohga’nın bilmediği şey, bu konuşan şövalyenin Luke olduğuydu.</p>
+
+            <p>“Yani… artık onu… korumam gerekmiyor gibi…”</p>
+
+            <p>Ariel, Dohga’nın hafif mahzun ifadesine gülümsedi.</p>
+
+            <p>“Yanılıyorsun, Dohga,” dedi yumuşak ama kararlı bir sesle.</p>
+
+            <p>“Ha?”</p>
+
+            <p>“Hâlâ koruman gereken bir şey var.”</p>
+
+            <p>“N-nasıl yani?”</p>
+
+            <p>“Hans artık senin erkek kardeşin. Bu da demek oluyor ki, ikisini birden koruman gerekiyor. Yani iki kat daha fazla işin var.”</p>
+
+            <p>Bu sözler Dohga için büyük bir şoktu. Daha önce hiç böyle düşünmemişti. Ama Ariel haklıydı. Hans, “Senin kız kardeşini koruyacağım,” dedikten sonra ona “Abi” demeye başlamıştı. Dohga onun ağabeyiydi. Kız kardeşini korumak zorundaydı; o zaman elbette erkek kardeşini de korumalıydı.</p>
+
+            <p>“A-ah. Demek… onları daha çok korumalıyım?”</p>
+
+            <p>“Doğru. Ama eğer her zaman yaptığın gibi devam edersen, belki ikisini birden koruyamayabilirsin.”</p>
+
+            <p>“Ha?! N-neden?”</p>
+
+            <p>“Güçlüsün, ama erişimin kısa,” dedi Ariel. “Belki bir gün, onların başı senin yetişemeyeceğin bir yerde derde girecek.”</p>
+
+            <p>Dohga, ellerine baktı. Babasının ölümünü hatırladı. Onun bu kadar yakınında olmasına rağmen, Dohga’nın bir anlık dalgınlığından yararlanan bir canavar onu öldürmüştü.</p>
+
+            <p>“O-o zaman… ne yapmam… gerek?”</p>
+
+            <p>“Beni koru.”</p>
+
+            <p>“Ha?”</p>
+
+            <p>“Ben krallığa hizmet ediyorum. Onu daha iyi bir yer hâline getiriyorum. Beni koruyarak krallığı koruyacaksın ve krallığı koruyarak, kardeşini ve Hans’ı da korumuş olacaksın.”</p>
+
+            <p>Dohga, bu sözleri tam olarak anlayamamıştı. Önündeki kadını korumanın Hans’ı ve kız kardeşini korumakla ne alakası vardı? Tamamen kafası karışmıştı. Ama Ariel ciddiydi. Dohga, benzer bir şeyi başka birinden de duymuştu: ona şehir muhafızlığına katılması için referans mektubu veren o şövalyeden.</p>
+
+            <p>“İyi dinle, evlat. Ailelerimizi geride bırakıp krallığın dört bir yanına gideriz, köyleri koruruz. Krallık güvende olduğu sürece, ailelerimiz de huzur içinde yaşayabilir. Krallığı korumak, aileni de korumak demektir.”</p>
+
+            <p>O zamanlar ne demek istediğini anlayamamıştı. Onu harekete geçiren şey, para kazanma ihtiyacı olmuştu. Ama şimdi anladığını hissediyordu. Çünkü tamamen başka bir yeri korurken bile, kız kardeşi ve Hans mutlu bir şekilde yaşıyorlardı.</p>
+
+            <p>“Dohga. Bana sadakat yemini eder misin? Beni ve dolayısıyla krallığı korur musun?”</p>
+
+            <p>“Evet, Majesteleri.”</p>
+
+            <p>“Çok güzel, Dohga. Seni bir şövalye ilan ediyorum.”</p>
+
+            <p>O gün, Dohga, Asura’nın Yedi Şövalyesi’nden biri oldu.</p>
+
+            <p>O günden sonra Dohga, kraliyet odalarının son kapısını korumaya başladı. Bazen Ariel’in emirleriyle başka yerlere de gidiyordu. Her gün birkaç saat boyunca Sandor’un eğitimi altında, Ariel’in odalarının yakınında antrenman yapıyordu.</p>
+
+            <p>Ayda bir gün izin yaptığında, kız kardeşi ve Hans ile akşam yemeği yemek için onların evine gidiyordu. Dohga nöbette olmadığında, yerine başka biri geçiyordu. Genellikle bu kişi Kraliyet Kalkanı Isolde Cluel’di. Ama bu, başlarda böyle değildi.</p>
+
+            <p>Dohga şövalye ilan edilip o parlak altın zırhını giydiğinde, inatla görev yerinden bir adım bile ayrılmayı reddetmişti. Artık o kapıyı korumaya karar verdiğine göre, bu görevi yarım yamalak yapacak birine emanet edemezdi. İlk ayında, yerine yalnızca Sandor’un geçmesine izin verdi. Eğer Ariel ona dinlenmesini emretmeseydi, günlerce aç, susuz ve uykusuz nöbette kalırdı. Kim olduğunu ayırt etmeksizin kraliyet odalarına yaklaşan herkes didik didik arıyordu. En küçük çatalı bile el koyarak alıyordu.</p>
+
+            <p>Tam bu sıralarda, Asura’nın Yedi Şövalyesi’ne yeni bir üye katıldı: Isolde Cluel, namıdiğer Kraliyet Kalkanı. Isolde’nin kılıç eğitmeni olarak görevleri vardı ama o zamanlar, Ghislaine henüz gruba katılmamıştı ve Yedi Şövalye içindeki tek kadındı. Kraliçenin kişisel koruması için ideal kişi olduğuna karar verilmişti.</p>
+
+            <p>Bir gün, Sandor’un Altın Şövalyeler birliğini oluşturmak için Asura Krallığı’nı dolaşmasına karar verildi. Sandor olmadan Dohga’nın yerine geçecek kimse yokತ್ತು. Eğer bir ay boyunca nöbet tutarsa, sonunda yere yığılacaktı. Bu yüzden Sandor, Dohga ile Isolde arasında bir dövüş ayarladı.</p>
+
+            <p>O zaman Sandor, Dohga’yı “Kuzey Kralı” olarak tanıtmıştı. Dohga, o sırada eğitiminin başındaydı ama inanılmaz derecede yetenekliydi. Buna rağmen, Isolde onu ezip geçti. Rüzgar gibi hareket edip Dohga’nın koca baltasından gelen darbeleri savuşturuyor, ardından birbiri ardına karşı saldırılar yaparak onu yere seriyordu. Eğer gerçek kılıçlarla ve ölümüne dövüşselerdi, Isolde onu anında öldürürdü.</p>
+
+            <p>Dohga’nın tükenmez bir gücü vardı ama Isolde’ye bir kez bile dokunamadan kaybetmişti. İncecik bir çiçek kadar zarif olan bu kadın, kendi boyundan geniş baltanın darbelerini savuşturmuş ve ardından ince bir diken gibi vurmuştu. Dohga, aldığı darbelerden sonra bu kadının kapıyı onun yerine korumaya layık biri olduğunu kabul etti.</p>
+
+            <p>Ama o anda başka bir şey daha anladı: Bu kadın, ince ve güzel bir çiçekti; onun gibi biri için ulaşılmazdı.</p>
+
+            <p>Dohga, aşık olmuştu.</p>
+
+            <p>“Son zamanlarda biraz keyifsizsin…”</p>
+
+            <p>Dohga, kız kardeşi ve Hans ile akşam yemeğindeydi. Masadaki yemekler basit ama Dohga’nın koca midesini bile doyuracak kadar boldu. Masanın diğer tarafında kız kardeşi, Hans ve onların güzel kızları oturuyordu.</p>
+
+            <p>Dohga, bir elinde ağzına kadar dolu bir şarap kupası tutarken, boş boş Hans’a baktı.</p>
+
+            <p>“Kendini iyi hissetmiyor musun?”</p>
+
+            <p>“N-neden?” diye cevapladı Dohga, içindeki karmaşayı gizlemeye çalışarak.</p>
+
+            <p>Hans, masadaki yemeği işaret etti. “Neredeyse hiç bir şey yemedin.”</p>
+
+            <p>Dohga yemeğine baktı. Hans haklıydı; tabağındaki yemeği neredeyse hiç bitirmemişti. Kız kardeşinin yemeklerini çok severdi. Normalde Dohga, sessizce yemeğini mideye indirir, yanaklarını doldurur, her şeyi silip süpürene kadar mutlu bir şekilde yemeğe devam ederdi. Şarap için de aynı şey geçerliydi. Sadece özel günlerde içilen şarap, Dohga’nın favorisi sayılardı. Böyle zamanlarda bir balık gibi içerdi. Hans, bu özel günler için bir fıçı şarap saklardı. Ama bugün, Dohga yemeğinin sadece yarısını yemiş, şarabından ise ancak birkaç yudum almıştı. Kesinlikle bir tuhaflık vardı.</p>
+
+            <p>“Eğer iyi hissetmiyorsan, saraydaki şifacı büyücülerden birine görün, tamam mı? Sen artık şövalyesin; sana bakarlar. Ama söylemeden edemeyeceğim, oldukça sağlıklı görünüyorsun.”</p>
+
+            <p>Dohga, başını hafifçe yana eğerek boş bir ifadeyle Hans’ın yüzüne baktı. Ona göre kendi hâlinde bir gariplik yoktu.</p>
+
+            <p>“Eğer yorgunsan, birkaç gün daha izin istesen ya? Çok çalışkan olduğunu biliyoruz ve Kraliçe Majesteleri’ni korumak gibi onurlu bir iş yapıyorsun. Ama kendini fazla zorlarsan ve bir gün yere yığılırsan, ne olacak? Gerçi senin yere yığılacağını hayal bile edemem.”</p>
+
+            <p>“Mm.”</p>
+
+            <p>Dohga başını sallayıp yemeğine döndü. Bir şeylerin yanlış olduğu kesindi. Yemek her zamanki gibi lezzetliydi ama yutkunmak ona tuhaf geliyordu. Normalde yemeğini hızla çiğner, yutkunur ve coşkuyla, “Bir sonraki tabağı getirin!” diye bağırırdı.</p>
+
+            <p>Ama bugün öyle değildi. Her yuttuğunda midesi sanki bunu reddediyordu. Tokluk hissine benzeyen, ama daha da rahatsız edici bir şeydi bu. Şarap da tuhaftı—hiçbir tadı yoktu. Daha önce böyle bir şey yaşamamıştı. Belki de gerçekten hastaydı ya da Hans’ın dediği gibi çok yorulmuştu.</p>
+
+            <p>“Hadi ama, anlat şunu. Neyin var?” diye ısrar etti Hans, Dohga’nın sessiz kalmasına dayanamayarak. “Dohga kardeşim… Alt şehirde muhafızken bile hep sırtımı kolladın. Eğer bana derdini anlatmazsan, Aziz Millis’in huzurunda bile yüzümü gösteremem.”</p>
+
+            <p>“Mm. Ben de… bilmiyorum.”</p>
+
+            <p>“Saraya dair son zamanlarda olan bir şey vardır mutlaka. Ufak bir şey bile olsa anlat. Sadece dene,” dedi Hans, ciddi bir ifadeyle.</p>
+
+            <p>Dohga başını kaldırdı. Hans’ın dediği gibi hafızasında dolaşmaya başladı ve parça parça, yaşadıklarını anlatmaya koyuldu. Son kapıyı korurken saraya giren kayıp bir kediden bahsetti. Öğle yemeğinin bir kısmını kediye vermiş, kedi de sık sık onun yanına uğramaya başlamıştı, bu onu mutlu etmişti. Zırhını giyip şehirde yürürken genç bir askerin onu durdurup “Sizi çok takdir ediyorum,” demesi onu mutlu etmişti.</p>
+
+            <p>Bir keresinde, Isolde nöbet tuttuğu kapıya gelmişti. Dohga, saçına takılmış bir çiçek yaprağını alıp ona vermişti. Isolde’nin teşekkür etmesi, onu mutlu etmişti. Sandor, ona yeni bir teknik öğretirken, “Gerçekten yeteneklisin” demişti; bu da Dohga’yı mutlu etmişti.</p>
+
+            <p>Ama sonra… Hastane çevresinde dolaşırken bir muhafız, Dohga’ya bir dedikodu fısıldamıştı: “Isolde yakında evlenebilirmiş.” Bu, onu mutlu etmemişti. Muhafızlar için düzenlenen bir partide, Isolde bir elbise giymiş ve Dohga’nın o güne kadar gördüğü en güzel kadın olmuştu. Bu onu mutlu etmişti. Ama Isolde’yi tanımadığı erkeklerle dans ederken görünce, bu sefer mutlu olmamıştı. Soylu kızlar, Isolde hakkında asılsız dedikodular yayıyordu; bu da Dohga’yı mutsuz etmişti. Bir keresinde Isolde’yi yakışıklı bir adamla yürürken görmüştü; kalbi incinmişti. Ve Isolde—</p>
+
+            <p>“Tamam. Bu kadar yeter. Anladım. Her şeyi anladım,” diye araya girdi Hans, Dohga’yı daha fazla anlatmaktan alıkoyarak. Artık olan biteni çözmüştü. “Sen bu Isolde’ye âşıksın, öyle değil mi?”</p>
+
+            <p>Dohga’nın yanakları kızardı. Söylediklerinden nasıl bunu çıkardığını bilmese de, Hans tam on ikiden vurmuştu.</p>
+
+            <p>“Isolde’nin evleneceğini duyduktan sonra, bunu doğrulayan şeyler gördün ve bu seni sarstı” diye devam etti Hans.</p>
+
+            <p>Uzun bir sessizlikten sonra Dohga, boğuk bir sesle, “Mm” diye mırıldandı. Üzerindeki kara bulutlar neredeyse elle tutulur hâle gelmişti.</p>
+
+            <p>Hans haklıydı. Onun duygulardan bihaber olduğunu düşündüğü ağabeyi, aslında âşıktı.</p>
+
+            <p>Hans’ın aklına ilk aşkı geldi. Mahallelerinde, ailesinin evinin yanında bir manavın kızı vardı. Aralarındaki yaş farkı beş yıldı, ama onlar çocukluk arkadaşıydı ve Hans küçük bir çocukken bile ona hep göz kulak olmuştu. Nazik, güvenilir ve güzeldi. Hans, daha beş yaşındayken ona âşık olmuştu. Büyüyünce asker olmayı hayal ederdi. Bir gün istikrarlı bir gelir kazandığında, onunla evlenmek için elini isteyecekti.</p>
+
+            <p>Ama Hans on iki yaşına bastığında, o kız kasabın oğluyla evlenip onun mesleğini devraldı. Hans, kocasını çocukluk anılarında bile yaşlı biri olarak hatırlıyordu. Adam ondan yaklaşık beş yaş büyük olmalıydı. Aslında, şimdi düşününce o kadar da yaşlı değildi.</p>
+
+            <p>Başlangıçta Hans, bu gerçeği kabullenemedi. Adam iri yapılıydı ama kesinlikle yakışıklı değildi. Hans, onun aslında evlenmek istemediğine inanıyordu ve bir gün onu geri kazanacağından emindi. Ama bir yıl sonra, onu kocasının kollarında mutlulukla gülümserken ve karnı kocaman şişmiş bir şekilde görünce, gerçekle yüzleşti. O gece yastığına kapanarak ağlamıştı. Belki de ona duygularını daha erken söylemiş olsaydı, her şey farklı olabilirdi.</p>
+
+            <p>Tabii ki Hans, şu anki hayatından mutsuz değildi. Eğer o manavın kızıyla evlenseydi, Dohga’nın kız kardeşiyle evlenemezdi. O, Dohga’ya hiç benzemiyordu—narindi, tatlıydı ve kararlıydı. Aşklarının meyvesi şu an masada Dohga’nın yerini doldurup iştahla yemek yiyordu. Sağlam yapılı, zeki bir çocuktu—Hans gibi değildi. Her şeyden önemlisi, çok tatlıydı. Hans, şu anki mutluluğundan daha büyük bir mutluluğun olamayacağına emindi, ama bu mutluluk, acı bir kalp kırıklığının ardından gelmişti.</p>
+
+            <p>O tecrübe sayesinde, Dohga’nın kız kardeşi olan hislerini anladığı an harekete geçmişti. Kız kardeşi onu başta biraz hafif meşrep bulmuş olabilirdi, ama Hans her zaman ona karşı bir centilmen olmuştu. Kapı nöbetçisi olarak işinde daha çok çalışmış, ona “Seni seviyorum” dediğinden beri bir daha asla bir fahişeyle birlikte olmamıştı. Sonuç olarak, pek çok rakibinin arasından sıyrılıp, şu an sahip olduğu mutluluğu kazanmıştı.</p>
+
+            <p>Bu yüzden Hans, “Isolde’ye hemen evlenme teklif et” dedi.</p>
+
+            <p>Dohga, boş bir ifadeyle başını kaldırdı.</p>
+
+            <p>“Hemen evlenmek zorunda değilsin. Bir nişan da olabilir. Sadece ona ne hissettiğini söylemen gerekiyor.”</p>
+
+            <p>Dohga hiçbir şey söylemedi.</p>
+
+            <p>“Eğer daha fazla beklersen, bunu pişmanlıkla hatırlayacaksın.”</p>
+
+            <p>“Ama…”</p>
+
+            <p>“Onun için uygun biri olup olmadığını düşünmeyi bırak. Sen, Asura’nın Altın Şövalyelerinden birisin. Biz muhafızlar seninle gurur duyuyoruz ve sana saygı gösteriyoruz. Başını dik tut ve duygularını açıkça ifade et.”</p>
+
+            <p>Dohga biraz düşündü. İnsanların nasıl “uyumlu” olabileceğini bilmiyordu, ama görünüş hakkında biraz fikri vardı. Isolde onun için fazla güzeldi; böyle bir kadının onunla eşleşmesi imkânsızdı.</p>
+
+            <p>Hans devam etti: “Ondan bir şey beklemene gerek yok. Hislerini söyle ve kalbin kırılsın. Böyle devam edersen, onun düğün günü mutluluk dileyecek hâlin bile kalmayacak.”</p>
+
+            <p>Bu sözler üzerine Dohga anında kararını verdi. Isolde’ye duygularını açıklayacaktı.</p>
+
+            <div class="section-break">---</div>
+
+            <p>Ertesi gün, her zamanki gibi sarayın kapısında nöbet tutan Dohga, o gün biraz farklı hissediyordu. İçindeki o belirsiz ağırlık hâlâ yerindeydi, ama artık atacağı adımı biliyordu. Günün sonunda, nöbet değişimi sırasında Isolde Cluel tam zamanında geldi. Her zamanki gibi zarif duruşu ve kusursuz zırhıyla göz kamaştırıyordu.</p>
+            <p>“İyi akşamlar, Dohga. Bugün de her şey yolunda mı?” diye sordu Isolde hafif bir gülümsemeyle.</p>
+            <p>Dohga, her zamanki gibi kısa bir “Mm” ile onaylamak yerine yerinde dikleşti. Kalbi göğüs kafesinde çılgınca atıyordu. Büyücü zırhı kadar sert görünen bu adamın içi, şu an fırtınalı bir deniz gibi çalkalanıyordu.</p>
+            <p>Derin bir nefes aldı ve Hans’ın söylediklerini hatırladı. “Onun için uygun biri olup olmadığını düşünmeyi bırak.”</p>
+            <p>“Isolde,” dedi Dohga, sesindeki beklenmeyen ciddiyetle.</p>
+            <p>Isolde şaşkınlıkla durdu ve ona baktı. “Evet? Bir sorun mu var, Dohga?”</p>
+            <p>“Ben… sen… yani…” Dohga kelimeleri bir araya getirmekte zorlanıyordu. Hayatında ilk defa kılıçtan ya da düşmandan daha zorlu bir şeyle karşı karşıyaydı. Ama kararlıydı. “Seni… korumak istiyorum.”</p>
+            <p>Isolde’nin gözleri hafifçe büyüdü. Beklemediği bu itiraf karşısında yanaklarında hafif bir kızarıklık belirdi. Dohga ise ellerini nereye koyacağını bilemez halde, ama gözlerini bir an olsun ondan ayırmadan cevabını bekliyordu.</p>
+            <p>İşte bu an, Kraliyet Kalkanı Isolde Cluel ile Kraliyet Kapı Bekçisi Dohga’nın hikayesinde yeni bir dönemin başlangıcı oldu.</p>
+        </main>
+
+        <div class="bottom-nav">
+            <a href="bolum3parca1.html" class="nav-btn">← Cilt İçeriği</a>
+            <a href="bolum3parca3.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

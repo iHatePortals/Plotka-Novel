@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei Cilt 1, Bölüm 1 (Kısım 1) | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b; /* Mushoku Tensei Kırmızı Tema */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #cc0000;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c1b1b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        body.theme-light .nav-btn:hover, 
+        body.theme-light .action-btn:hover, 
+        body.theme-light .theme-select:hover,
+        body.theme-sepia .nav-btn:hover, 
+        body.theme-sepia .action-btn:hover, 
+        body.theme-sepia .theme-select:hover {
+            color: #ffffff;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+        }
+
+        /* Resimler için özel stil */
+        .novel-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 6px;
+        }
+
+        /* Ayrıştırıcı Çizgi */
+        .divider {
+            text-align: center;
+            margin: 2em 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="bolum0.html" class="nav-btn">←Önceki Bölüm</a> 
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="bolum1parca2.html" class="nav-btn">Sonraki Bölüm →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Mushoku Tensei Cilt 2, Bölüm 1</h1>
+            <div class="subtitle">Haydi Otomaton Yapalım! (Kısım 1)</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <img src="bolum1foto1.png" alt="Kitap Çizimi 1" class="novel-image">
+            <p>GECE FIRTINALIYDI. Yağmur toprağı döverken gökyüzünden inen devasa şimşekler yeryüzünü aydınlatıyor, ıssız bir düzlükte tek başına duran bir evi gözler önüne seriyordu.</p>
+<p>Evin içinde, iki çılgın bilim insanı kahkahalar atıyordu.<br>
+<strong>“Muhaha, muhaha, MUHAHAHAHA! Sonunda, sonunda başardık!” </strong><br>
+<strong>“Evet! Sonunda bitti!”</strong><br>
+İkisi de kahkahalar içinde ellerini birbirine vurup odanın içinde dönmeye başladılar.</p>
+<p><strong>“Gerçekten de, sizin dahiyane zekânız olmasaydı, Ustam, bunu asla yapamazdık!” </strong><br>
+<strong>“Saçmalama, Zanoba! Bu, senin sınırsız bilgi birikimin ve ilhamın olmadan mümkün olamazdı!”</strong></p>
+<p>Bu çılgın bilim insanları Rudeus ve Zanoba’ydı. Karşılıklı iltifatları danslarının ardından son buldu. Odanın arka tarafında, taş bir yatak duruyordu. Etrafına korkutucu bir parıltı yayılıyordu. Yatağın üzerinde, çırılçıplak bir kız yatıyordu.</p>
+<p><strong>“Ne uzun bir yolculuk oldu…”</strong> diye düşündü Rudeus, yaşadıkları sayısız başarısızlığı anımsayarak.</p>
+<p>İlk denemeleri hiç çalışmamıştı bile. Bir sürü küçük ayar yapıp sonra o ayarları tersine çevirerek ilk prototipi tamamlamışlardı. Çalışmıştı ama sadece aptalca emirleri yerine getiren bir golem ortaya çıkmıştı. Böylesi için talep vardı elbette, ama bu ikisinin yaratmayı hayal ettiği şeyden çok uzaktı.</p>
+<p>İkinci prototipten itibaren tüm emeklerini, yapay zekâya sahip bir çekirdek ve daha insana benzeyen bir figür geliştirmeye adadılar. Doğal olarak, yine bir dizi başarısızlıkla karşılaştılar. Gövde gittikçe daha insan gibi görünmeye başlamıştı ama hareketlerini daha gerçekçi kılacak şekilde malzemeleri değiştirmek dayanıklılık sorunlarına yol açıyordu. Bunun yerine çekirdeği ayarlamaya çalıştıklarında ise cihaz hiç çalışmamaya başladı. Bir insanın nasıl işlediğindeki o kırılgan dengeye şaşıp kalmış, hayal kırıklığına uğramışlardı.</p>
+<p>Başarısızlık, başarısızlığın peşinden geldi. Çılgın Ejderha Kralı Chaos’un notlarını tekrar tekrar incelediler ve hatta Ejderha Kralı Perugius’tan tavsiye almak için yalvardılar. Perugius, onlara büyü çemberleri ve ruh çağırma konusunda ipuçları verdi. Ejderha Tanrısı Orsted ise zor bulunan bir büyü taşı sağladı ve malzemeler hakkında bilgi paylaştı. Yine de başarısızlıklar devam etti. Bir şekilde, Çılgın Ejderha Kralı’nı bile aşmışlardı. Ama hedeflerinin hep erişilmez kalacağını hayal ettiklerinde, gözyaşlarına boğuldular.</p>
+<p>Son başarısızlığın gözyaşları henüz kurumadan, yeni bir kararlılıkla işe koyuldular—ve yine başarısız oldular. Ancak her başarısızlık, küçük ama yeni gözlemler ve keşifler getirdi.</p>
+<p>Bir ay önce, nihayet, nihayet bir başarı elde ettiler. Prototip bir bebek çalışmıştı! Bu üçüncü sürümdü; boş, şekilsiz bir yüzü vardı, ama çalışmıştı! Rudeus ve Zanoba küçük zafer danslarını yaptılar ve ardından, üçüncü prototipten verileri çıkardıktan sonra, hemen dördüncüsü üzerinde çalışmaya başladılar.</p>
+<p>Dördüncü prototipin özellikleri neredeyse son modelinki kadar iyiydi. İnsan gibi bir vücuda ve yüze sahipti, konuştuğunda ağzı hareket ediyordu ve kendi uzuvlarını kullanarak hareket edebiliyordu. Ancak Rudeus ve Zanoba, önceki prototipte yapmaları gereken her testi tamamlamamış, fark edilmemiş bazı sorunları çözmeden bir sonraki aşamaya geçmişlerdi. Bebeği rüyalarındaki gibi hareket ederken görme arzularına direnememişlerdi.</p>
+<p>Ama sorun olmazdı! Üçüncü prototiple ilgili her şeyi dördüncüye bırakabileceklerini düşünüyorlardı. Dördüncü prototipi kullanarak bir sistem kontrolü yapar ve nihai ürün için temel gövdeyle uyumluluğunu gözden geçirirlerdi.<br>
+<em>Bu sefer tamamdır, kesinlikle,</em> diye düşündüler. <em>Bu bir ileri adım. İstediğimiz şey bu. Oyunun keyfi için yapıyoruz bunu ve işte, tam da burada, üzerinde çalıştığımız otomaton bu.</em></p>
+<p><strong>“Vakit geldi!” diye haykırdı Zanoba. “Çalıştırıyooruz!”</strong><br>
+<strong>“Hemen şimdi!”</strong></p>
+<p>Zanoba, yüzü heyecanla parlayan bir ifadeyle, kızın mütevazı göğüslerinin arasında duran büyü taşına doğru parmağını uzattı. Bu taşın arkasında, göğsünün tam ortasında, çekirdeği yer alıyordu. Çekirdek, hem beynini hem de gerçek anlamda kalbini temsil eden karmaşık ve zarif büyü çemberleriyle oyulmuştu; bir bilgisayarın işlemcisi (CPU) gibi çalışıyordu.</p>
+<p>Çekirdek çalışmaya başladığında, figür kendi ayakları üzerinde durabilecek, kendi kendine öğrenebilecek, kendi kararlarını verebilecek, kendi manasını üretebilecek ve neredeyse sonsuza dek işlev göstermeye devam edecekti: tamamen otonom bir otomaton. Tabii, manası tükenip çökmesi de mümkündü. Öyle bir durumda, yatağına geri konulup yeniden şarj edilebilirdi.</p>
+<p>Rudeus bunu ilk önerdiğinde Zanoba, <strong>“İnsan müdahalesine ihtiyaç duyması, onu eksik kılmaz mı?”</strong> diye sormuştu.<br>
+<strong>“Elbette kılmaz,”</strong> diye cevaplamıştı Rudeus. Tam aksine, onu eksiksiz yapan tam olarak buydu. Bir insan da yere yığıldığında ve tekrar kalkamadığında, başkalarına ihtiyaç duymaz mıydı?</p>
+<p>Zanoba’nın uzattığı parmağı, tereddütle duraksadı. Belki başka biri genç bir kızın göğsüne dokunmaya çekinirdi, ama Zanoba, böyle küçük bir detaydan rahatsız olacak biri değildi.</p>
+<p><strong>“Usta, bunu siz yapmak ister misiniz?”</strong> diye sordu Zanoba, uzun bir tereddütten sonra.<br>
+<strong>“Hayır,”</strong> diye cevap verdi Rudeus. <strong>“Sen yap. Bizi buraya getiren tüm çalışma senindi.”</strong></p>
+<p>Bu, neredeyse on yıllık hayallerinin gerçekleşeceği andı ve Zanoba bu andan korkuyordu. Yine de, korkaklık onun doğasında yoktu. Hatta bu kelime, sözlüğünde bile neredeyse yer almıyordu.</p>
+<p><strong>“Pekâlâ. Öyleyse başlayalım!” </strong><br>
+<strong>“Evet!”</strong></p>
+<p>Zanoba, yavaşça kızın göğsüne parmağını dokundurdu. Parmağı, sanki kız kırılacakmış gibi hafifçe cildinin üzerinde kayarak çekirdeğe ulaştı. Otomatonu çalıştırmak fazla mana gerektirmiyordu; bunu herkes yapabilirdi.<br>
+<strong>“Uyan, ey sevgili kızım,”</strong> dedi Zanoba, açılış tılsımını okuyarak.</p>
+<p>Hemen ardından, mananın akmaya başladığını belirten bir çatırdama sesi duyuldu. Yatağın kenarındaki kırmızı ışık maviye döndü. Bunu gören Zanoba, parmağını geri çekti. Birkaç saniye boyunca ortalık sessizdi. İki adam nefeslerini tutarak kızın çalışmasını izledi. Çalışma sonrası süreçler otomatikti, bu yüzden tek yapmaları gereken beklemekti.</p>
+<p>Kızın siyah gözleri yavaşça açıldı. Tek duyulan ses, yatağına fiziksel bağlantısının kopmasıyla oluşan tıkırtıydı. Bağlantı kesildiğinde, yavaşça doğrulup oturdu. Derisi pürüzsüz ve beyazdı; o kadar inceydi ki, neredeyse kasları yokmuş gibi görünüyordu. Göğüsleri küçük ama biçimliydi ve vücut tipine göre neredeyse garip denebilecek şekilde kıvrımlıydı.</p>
+<p>Bu kız, Zanoba ve Rudeus’un yıllarca süren figür yapımı becerilerinin doruk noktasıydı. Vücudu, yapay etten ve büyü zırhıyla aynı malzemeden yapılmış bir iskeletle inşa edilmişti. Yapay etin temeli, Rudeus’un toprak büyüsüyle yaptığı kildi. Bu kile, kırmızı ejderhaların mana dolu pullarını ve illüzyon kelebeği kanatlarını eklediler. Tamamlamak için yaşlı treantların özsuyu ve ölümsüz bir iblisin kanı da karışıma katıldı. Ortaya çıkan et, sayısız deney ve en kaliteli malzemelerle geliştirilmişti. Normal bir insanın cildinden ayırt edilemeyecek kadar gerçekçi bir hisse sahip olmasının yanı sıra, neredeyse sonsuza dek dayanabilecek kadar sağlamdı.</p>
+<p>Hareket edebilmesi için, bu et büyü çemberleriyle oyulmuş bir iskelete monte edilmişti. Büyü çemberleri, çevresindeki dokuyu hareket ettiren kaslar gibi işlev görüyordu. Temel prensip, büyü zırhıyla hemen hemen aynıydı; ancak otomatonun eklemleri, ölümkıran bir iskeletin kemik tozundan yapılmış parçalar içeriyordu. Bu malzeme, oldukça yüksek mana iletkenliği sayesinde bebeğin hareketlerini daha gerçekçi hale getiriyordu.</p>
+<p>Kız iki kolunu kaldırdı, gerdi, ardından ellerini açıp kapattı. Üst vücudunun hareketleri—kol ve omuzdan göğsüne kadar, göğüslerinin hafifçe sallanması da dahil—oldukça akıcıydı. Bu inanılmazdı: hem duyusal bir zarafet hem de gerçekçilik vardı.</p>
+<p>Rudeus bir yutkundu.<br>
+<strong>“Yaparken fark etmemiştim, ama hareket edişine bir bak. Vay be.”</strong></p>
+<p>Zanoba cevap vermedi, ancak yüz ifadesinden onun da aynı şekilde düşündüğü belliydi. Kız, tek bir kelime etmeden sırt üstü uzandı, ardından birer birer bacaklarını kaldırarak test etmeye başladı. Pürüzsüz, beyaz bir uyluk yükseldi, ardından diğeri. Sırt üstü yatarken dizlerini büküp yeniden gerdi, sonra bacaklarını ayırıp tekrar kapattı. Bu sırada, özenle tasarlanmış anatomisini kısa bir anlığına Rudeus ve Zanoba’ya sergiledi. Ancak bu hareketler tamamen işlevseldi. Otomaton, açıldığında eklemlerinde bir işlev kontrolü yapmak ve tespit ettiği sorunları bildirmek üzere programlanmıştı. Ve bu tam anlamıyla böyleydi; çünkü konuşabilen bir ağzı vardı.</p>
+<p>Sonunda, omuz hizasındaki siyah saçlarını hafifçe savurarak bebek, <strong>“Başarıyla çalıştırıldım,”</strong> diye duyurdu.<br>
+Bu, kontrollerin tamamlandığı anlamına geliyordu. Yapay ses tellerinin ürettiği ses, oldukça tanıdıktı.</p>
+<p><strong>“Ohh,”</strong> diye derin bir nefes verdiler Rudeus ve Zanoba, yüzleri hâlâ gerginken.</p>
+<p>Burada o kadar çok başarısız olmuşlardı ki. Bir seferinde, bebek kolunu kaldırmaya çalışmış, ancak dirseğin üzerindeki her şey bir roket yumruğu gibi tavana fırlamıştı. Başka bir sefer, dizleri yanlış bir açıyla bükülmüş ve tok bir çatırdama sesi duyulmuştu. Bir başka sefer de, vücudu kasık kısmından tuhaf bir heykel gibi ayrılmış, ardından karides gibi büzülüp çatırdama ve kırılma sesleriyle dağılmıştı. İnsan bir bedende olsa, bir korku filminden fırlamış gibi görünecek bu sahneler, üçüncü prototipin yapımı sırasında sayısız kez yaşanmıştı.</p>
+<p>Sorunun kaynağı, bebeğin iskeletiydi. Büyü zırhını giyen bir kişi, gücünü kontrol edebilirdi; ancak bu, uzun süreli bir büyü ve kas tecrübesi gerektiriyordu. Bebek ise hiçbir tecrübeye sahip olmadığından, varsayılan olarak maksimum gücü kullanıyordu ve kendini parçalıyordu. Bu yüzden, vücudunun her yerine sınırlayıcılar yerleştirilmişti. Ancak sınırlayıcılara rağmen, bebeğin iskeleti büyü zırhıyla aynı özelliklere sahipti, bu da ona yüksek bir dayanıklılık eşiği sağlıyordu. Hareket kabiliyeti, Aziz-seviye bir kılıç ustasıyla eşdeğerdi.</p>
+<p>Kısacası, yapay yaratımın gücü ve diz ile dirsek bükme hareket ayarları daha önce pek çok kez başarısız olmuştu. Bu yüzden Zanoba ve Rudeus, hiçbir sorun olmamasından dolayı rahatlamıştı.</p>
+<p><strong>“Her şey yolunda görünüyor,”</strong> dedi Zanoba.<br>
+<strong>“Evet,”</strong> diye onayladı Rudeus.</p>
+<p>Sanki onların sözlerine yanıt verircesine, masanın üzerinde yatan figür camsı ve inorganik gözlerini Zanoba’ya çevirdi.<br>
+<strong>“Efendim, adınızı sorabilir miyim?”</strong><br>
+<strong>“Ben Zanoba’yım!”</strong><br>
+<strong>“Efendi Zanoba. Kaydınız tamamlandı. Emirleriniz nelerdir?”</strong><br>
+<strong>“Şuradaki adamı alt-efendi olarak kaydet.”</strong><br>
+<strong>“Anlaşıldı. Beyefendi, adınızı öğrenebilir miyim?”</strong><br>
+<strong>“Ben Rudeus.”</strong><br>
+<strong>“Alt-efendi Rudeus. Kaydınız tamamlandı. Emirleriniz nelerdir?”</strong></p>
+<p>Üçüncü prototipi test ederken, Zanoba ve Rudeus bu diyalogları sayısız kez gerçekleştirmişlerdi. Önce, bebek sahibini kaydetmeliydi ki verilen emirleri yerine getirebilsin.</p>
+<p><strong>“Güzel,”</strong> dedi Zanoba. <strong>“Şimdi, yatağından kalk ve yere ayakta dur!”</strong></p>
+<p>Figür yataktan indi, ardından dimdik ayakta durdu. Rudeus, zaferle havaya yumruğunu savurdu.<br>
+<strong>“Harika! Efendisinin adını doğru kaydetti ve emirleri yerine getiriyor.”</strong> Yaratımına bakarken içinde sıcak bir başarma duygusu hissetti.</p>
+<p>Bu her zaman böyle iyi gitmemişti. Bir keresinde <strong>“Ben Zanoba’yım”</strong> cümlesini <strong>“Efendim-ben-Zanoba”</strong> olarak kaydetmişti. Başka bir zaman yatağından inememiş ya da <strong>“yatağından kalk”</strong> emrini anlayamamıştı.</p>
+<p>Bu sorunları, Perugius ile doğrudan yaptıkları görüşmelerle çözmüşlerdi. Onun verdiği ipuçlarını kullanarak büyü çemberlerini yeniden ayarlamış, bebeği sıfırdan defalarca yeniden inşa etmişlerdi. Sonunda her şey bir araya gelmişti. Bu çalışmanın sonucu, bebeğin çekirdeğine kazınmış çağırma büyü çemberiydi; bu, insanların içgüdüsel olarak yaptığı pek çok şeyi kapsıyordu.</p>
+<p><strong>“Biraz zıplamayı dene,”</strong> dedi Zanoba.<br>
+<strong>“Evet, Efendi.”</strong> Figür, bacaklarını birleştirerek yukarı aşağı zıpladı. Oldukça güçlü bir sıçramaydı. Yapay et, iskeleti kıracak kadar kuvvet üretebiliyordu, ancak sınırlayıcıların düzgün çalıştığı anlaşılıyordu.</p>
+<p><strong>“Zıplarken kollarını aç.”</strong><br>
+<strong>“Evet, Efendi.”</strong></p>
+<p><strong>“Bacaklarını aç—tamam, dur.”</strong><br>
+<strong>“Evet, Efendi.”</strong></p>
+<p><strong>“Şimdi kollarını çevirerek tekrar zıpla.”</strong><br>
+<strong>“Evet, Efendi.”</strong></p>
+<p><strong>“Bir zıplamada bacaklarını aç, diğerinde kapat.”</strong><br>
+<strong>“Evet, Efendi.”</strong> Bebeğin kısa saçları savrulurken, uzuvları ve bedeni dinamik bir şekilde hareket etti. Denge performansı mükemmeldi.</p>
+<p><strong>“Şimdi komik bir yüz yap.”</strong><br>
+Bebek, bu beklenmedik emir karşısında bir an duraksadı, ardından <strong>“Evet, Efendi,”</strong> dedi. Ellerini yanaklarına koydu ve yüzünü buruşturdu. Ancak hepsi bu kadardı; ifade eksikliği yüzünden oldukça garipti ve en iyi ihtimalle şüpheli bir şekilde komikti. Yine de, bebek verilen emri düşünüp kendi yöntemince yerine getirmişti—başka bir deyişle, Zanoba ve Rudeus istedikleri sonuca ulaşmışlardı.</p>
+<p><strong>“Mm! Gayet tatmin edici,”</strong> dedi Zanoba.</p>
+<p><strong>“Evet…”</strong> diye onayladı Rudeus, ama bebeğe bakarken yüzünde hafif bir kaş çatıklığı vardı. Gözleri, zıplarken küçük ama sallanan göğüslerine, ardından bacaklarının arasındaki özenle tasarlanmış bölgelere kaydı. Ancak, Rudeus’un onuru adına belirtmek gerekir ki, bu bakışta hiçbir cinsel amaç yoktu. Sonuçta bu bebek onun kendi yaratımıydı. Sadece bu seviyede bir mükemmelliği beklememişti. Bu onu korkutmuştu! Ama korktuğu şey kendi dahiliği değildi.</p>
+<p><strong>“Benzetme çok bariz,”</strong> dedi. <strong>“Sadece yüz değil, ses de… bu bir tesadüf olsa bile.”</strong><br>
+Rudeus, bebeğin yüzüne baktı. Bebeğin gözleri onun gözleriyle buluştu ama gülümsemedi. Gülümseyebilecek şekilde tasarlanmıştı, ancak bir emir olmadan bunu hâlâ yapamıyor gibiydi. Yine de, Rudeus’u endişelendiren bu değildi.</p>
+<p><strong>“Bunun yüzünden başımız belaya girecek,”</strong> dedi.</p>
+<p>Çünkü figürün yüzü, ikisinin de tanıdığı birine çarpıcı bir şekilde benziyordu.</p>
+<p><strong>“Nanahoshi Hanım mı diyorsunuz?”</strong> diye sordu Zanoba.</p>
+<p>Aynen öyle. Bebeğin yüzü, başka bir dünyadan gelen ve şu anda Chaos Breaker adlı yüzen kalede uyuyan arkadaşları Shizuka Nanahoshi’ye inanılmaz derecede benziyordu. Sadece yüzü değil. Bebeğin saç uzunluğu Nanahoshi’ninkiyle aynı değildi, ama siyahtı, boyu ve vücut yapısı neredeyse tamamen aynıydı. Rudeus ve Zanoba, Nanahoshi’ye tıpatıp benzeyen çıplak bir bebek yapmışlardı: tesadüfen seksi göğüslere ve tam amaca uygun bölgelere sahip bir bebek.</p>
+<p><strong>“Sylphie ve diğerlerini kastediyorum, aptal!”</strong> diye çıkıştı Rudeus. Korkması gereken, eşlerinin gazabıydı.</p>
+<p><strong>“Efendim, Nanahoshi Hanım’ın uzun uykusu göz önüne alındığında, onun yerine geçecek birine ihtiyacınız olduğunu söylememiş miydiniz?”</strong><br>
+<strong>“Eh, evet…”</strong></p>
+<p>Bu benzerliğin bir nedeni vardı. Nanahoshi’nin, arkadaşının da bu dünyaya taşınmış olabileceği yönündeki hipotezinin doğru çıkması durumunda, gelecek nesillerin Nanahoshi’nin adını bilmesini sağlamanın en iyi yolu, onun nasıl göründüğünü de bilmelerini sağlamaktı.</p>
+<p><strong>“Eşleriniz bunu biliyorlar, değil mi?”</strong> diye sordu Zanoba.<br>
+<strong>“Otomaton yaptığımızı biliyorlar ama onu Nanahoshi’ye benzeyecek şekilde yaptığımızı bilmiyorlar.”</strong><br>
+Doğrusu, Rudeus, eşlerinin niyetlerine bir sorun çıkaracağını düşünmüyordu ve Nanahoshi’nin kendisi de buna onay vermişti. Tüm bunları açıklarsa anlayış göstereceklerdi.<br>
+<strong>“Asıl sorun göğüsler ve bacaklarının arasındaki yer.”</strong></p>
+<p>Bu, arkadaşlarına benzeyen ve cinsel ilişkiye girebilme kapasitesine sahip bir bebekti. Eğer eşleri bunu öğrenirse, kesinlikle sakin karşılamazlardı. Durumu düzgün bir şekilde idare edemezse, yatağı buz gibi soğuyacaktı. Sylphie ağlayabilir ya da depresyona girebilirdi; onu yanaklarını şişirip, <strong>“Bu kadar uğraştığına göre, neden bir denemiyorsun?”</strong> derken hayal edebiliyordu.</p>
+<p>Bunların hiçbiri iyi sonuçlar değildi!</p>
+<p><strong>“Bu kadar ayrıntılı yapmak zorunda değildik,”</strong> dedi Rudeus.<br>
+<strong>“Ama Usta, bu muhteşem modelleme çalışması, yeteneklerinizin tam yelpazesini sergiliyor! Özellikle meme uçları son derece etkileyici.”</strong><br>
+<strong>“Zanoba, aptal, dikkatli olmaya çalışıyorum! Meme uçlarından bahsetmeyi kes!”</strong><br>
+<strong>“Affedersiniz.”</strong></p>
+<p>Neden göğüslerini ve bacaklarının arasındaki bölgeyi bu kadar ayrıntılı yapmışlardı? Doğrusu, planı hazırlarken Rudeus’un tasarım fikirleri bu yönde ilerlemişti—yani, bir tür seks bebeği yönünde. Ancak daha sonra başka bir yola yönelmişlerdi, bu yüzden kendilerini frenlemeleri gerekiyordu. Göğüslerini ve bacaklarının arasındaki bölgeyi daha sade tutarak bu konuşmadan tamamen kaçınabilirlerdi. Bir bebeğin meme uçlarına ihtiyacı yoktu ki! Üstelik bu, sadece dördüncü prototipti. Prototip aşamasında Nanahoshi’ye benzeyen bir bebek yapmalarına gerek yoktu. Ama Rudeus kendini fazla kaptırmıştı.</p>
+<p><strong>“Sylphie’ye ve diğerlerine bundan bahsedemeyiz.”</strong><br>
+<strong>“Ah, evet. Eşlerinizden korkuyorsunuz.”</strong><br>
+<strong>“Korkmak değil, onları seviyorum demeyi tercih ederim.”</strong></p>
+<p>Nanahoshi’nin görüntüsüne sahip bir figür yaptıklarını sadece birkaç kişi biliyordu: Orsted, Perugius ve Nanahoshi’nin kendisi. Doğal olarak, bebek tamamlandığında ilgili taraflara duyurmayı ve gerektiğinde kullanmayı planlıyorlardı. Ancak, figürün ne kadar ayrıntılı olduğu ortaya çıkarsa, Rudeus ve Zanoba ciddi bir yan bakış tufanıyla karşılaşabilirdi.</p>
+<p>Rudeus, Roxy’nin etkilenmemiş bir şekilde ona bakıp, <strong>“Yaratımın benimkinden çok daha güzel bir vücuda sahip, değil mi?”</strong> dediğini hayal edebiliyordu. Ya da sadece ona karanlık bir bakış atıp biraz mesafe koyabilirdi. Bu olursa, Rudeus seppuku yapmayı düşünebilirdi.</p>
+<p><strong>“Hmm. Eşlerinizin böyle bir şey yüzünden çok tepki göstereceklerini sanmıyorum,”</strong> dedi Zanoba. <strong>“Herkes sizin güçlü tutkulara sahip bir adam olduğunuzu biliyor, Usta.”</strong></p>
+<p><strong>“Eğer bu sadece normal bir bebek olsaydı, sana katılırdım. Ama Nanahoshi’ye benzemesi bir şeyleri kesinlikle karmaşık hale getirecekmiş gibi hissediyorum,”</strong> dedi Rudeus, şüpheyle bebeğin göğsüne dokunarak. Tam olarak insan cildi gibi hissettirmiyordu, ama yine de oldukça yumuşaktı. Eğer bunu kendi yapmamış olsaydı, onu hayli heyecanlandırabilirdi. Böyle bir heyecan aldatma olarak yorumlanabilirdi.</p>
+<p>Eğer Eris, onun aldattığını düşünürse, dudaklarının köşeleri aşağı iner, <strong>“Hmph!”</strong> diyerek hiçbir kural tanımayan bir yumrukla onu yere sererdi. Sonra üzerine çıkar, onu bir daha asla sapıtmayacak şekilde tamamen domine ederdi.<br>
+Aslında, Rudeus buna çok da karşı olmayabilirdi.</p>
+<p>Rudeus bebeği dürterken, bebek sabit bir şekilde parmağına baktı ama başka hiçbir tepki vermedi. Sadece dokunulduğunu hissedebiliyordu. Ona cinsel haz duyma yeteneği verilmemişti. Eğer projeye Elinalise ya da Ariel daha yakından dahil olsaydı, durum farklı olabilirdi, ama ikisi de annelik mücadelesiyle meşguldü.</p>
+<p><strong>“Bu durumda, onu hurdaya mı çıkaralım?”</strong> diye sordu Zanoba, ciddi bir ifadeyle. Bir bebeği—ya da herhangi bir figürü—atmak, onun sevdiği bir fikir değildi.</p>
+<p><strong>“Hayır! Bu kadar tamamlanmaya yakın bir şeyi hurdaya çıkarmak yazık olur!”</strong> Rudeus kollarını çaprazladı ve sorunu düşünmeye başladı. En kötü ihtimali göz önünde bulundurarak, bu figürü hurdaya çıkarmak ve baştan başlamak daha mantıklıydı. Ellerindeki mevcut teknolojiyle sadece göğüsleri ve bacaklarının arasındaki bölgeyi değiştirmeleri mümkün değildi. Bu, ancak seri üretim düşünülürse ele alınacak bir şey olabilirdi, ama şu anda bu, benzersiz bir parçaydı.</p>
+<p><strong>“Ama eğer bir gün bulunursa, biliyorsun…”</strong> diye devam etti.<br>
+<strong>“Bulunacağını sanmıyorum. <span class="--l --r hover:bg-[#B4DAE8] hover:dark:bg-blue-600">Bunu</span> <span class="--l --r hover:bg-[#B4DAE8] hover:dark:bg-blue-600">önlemek</span> <span class="--l --r hover:bg-[#B4DAE8] hover:dark:bg-blue-600">için</span> <span class="--l --r hover:bg-[#B4DAE8] hover:dark:bg-blue-600">laboratuvarımızı</span> <span class="--l --r hover:bg-[#B4DAE8] hover:dark:bg-blue-600">buraya</span> <span class="--l --r hover:bg-[#B4DAE8] hover:dark:bg-blue-600">kadar</span> <span class="--l --r hover:bg-[#B4DAE8] hover:dark:bg-blue-600">kurma</span> <span class="--l --r hover:bg-[#B4DAE8] hover:dark:bg-blue-600">zahmetine</span> <span class="--l --r hover:bg-[#B4DAE8] hover:dark:bg-blue-600">katlandık</span><span class="--l --r hover:bg-[#B4DAE8] hover:dark:bg-blue-600">,</span> <span class="--l --r hover:bg-[#B4DAE8] hover:dark:bg-blue-600">değil</span> <span class="--l --r hover:bg-[#B4DAE8] hover:dark:bg-blue-600">mi</span><span class="--l --r hover:bg-[#B4DAE8] hover:dark:bg-blue-600">?</span>”</strong><br>
+<strong>“Evet, ama…”</strong></p>
+<p>Şu anda Asura Krallığı’ndaki Fittoa Bölgesi’nin kenarındaydılar. Hâlâ toparlanmaya çalışan bu bölgeden Boreas ailesinden kiraladıkları bir alanı laboratuvara çevirmişlerdi. Konumunu çok az kişi biliyordu; hatta bir girişi bile yoktu. Sadece bir teleportasyon çemberi aracılığıyla girilip çıkılabiliyordu.</p>
+<p><strong>“Senin için sorun değil,”</strong> diye işaret etti Rudeus. <strong>“Başını o kadar da belaya sokmazsın.”</strong><br>
+<strong>“Sokarım. Hatırla, sana Julie’nin son zamanlarda bana kızmaya başladığını söylemiştim.”</strong><br>
+<strong>“Ah, doğru.”</strong></p>
+<p>Aslında, bu plana teorik olarak katkıda bulunan Juliette bile buranın yerini bilmiyordu. Onlara yapay et ve kemik yaratma konusunda yardım ediyordu, ancak hepsinin nerede bir araya getirildiğinden habersizdi. Onu bilerek dışarıda bırakmışlardı, çünkü son zamanlarda, Zanoba seksi figürler aldığında huysuzlanıyordu. Elbette figürleri yok etmiyordu, ama Zanoba’nın gözünden uzak tutmaya çalışıyordu.</p>
+<p>Durum buydu. Julie, toplumun standartlarına göre bir süredir yetişkin sayılıyordu, ancak yaşı itibariyle hâlâ o çağdaydı: ergenlik. Rudeus ve Zanoba, onun gibi bir genç kızın duygularını dikkate alacak kadar hassastılar.</p>
+<p><strong>“Ama Julie teleportasyon çemberini bulabilir, değil mi?”</strong> diye sordu Rudeus.</p>
+<p>Laboratuvara götüren teleportasyon çemberi, Zanoba’nın atölyesinin bodrum katındaydı. Ya Julie oraya iner, teleportasyon çemberini öğrenir ve merak edip üzerine adım atarsa? Sonuç olarak, çırılçıplak bir otomaton—yani, çıplak bir kız—ile yüz yüze gelirdi. Bu onun için büyük bir şok olurdu.</p>
+<p><strong>“Hayır, çünkü içeriden kilitli tutuyorum ve anahtarı sadece bende,”</strong> dedi Zanoba.<br>
+<strong>“Bu Julie’yi durdurmaz. Ona toprak büyüsüyle nasıl kilit açılacağını ben öğrettim.”</strong><br>
+<strong>“Julie, benim kilitlediğim bir kapıyı asla açmaz. Bana söz verdi.”</strong><br>
+<strong>“Ah, doğru.”</strong></p>
+<p>Julie ve Zanoba o kadar yakındı ki neredeyse birbirlerinin düşüncelerini okuyabiliyorlardı, ancak teknik olarak hâlâ efendi ve köleydiler. Julie, asla aşamayacağı bazı sınırların olduğunu biliyordu.</p>
+<p><strong>“Soruna geri dönersek, ne yapabiliriz?”</strong> diye sordu Zanoba. Rudeus düşünceli bir şekilde kollarını çaprazladı. Sorun yalnızca meme uçları ve bacaklarının arasındaki bölgeydi. Bunun dışında şüpheli herhangi bir parça eklememişlerdi. Bu sadece dördüncü prototipti—bütün verileri aldıktan sonra hurdaya çıkarabilirlerdi.</p>
+<p>Rudeus’u figürü hemen hurdaya çıkarmaya karar vermediği için suçlamak doğru olmazdı. Bunun için büyük miktarda para ve zaman harcamıştı, üstelik üçüncü prototiple yapmaları gereken testleri yapmamışlardı. Meme uçlarının biraz fazla seksi olması yüzünden hemen hurdaya çıkarmak aşırı israf olurdu.</p>
+<p>Sonra, Zanoba’nın kafasında bir ampul yandı.<br>
+<strong>“Ama Usta!”</strong> diye haykırdı.<br>
+<strong>“Ne var?”</strong><br>
+<strong>“Ona kıyafet giydirebiliriz!”</strong><br>
+<strong>“Ha? Ha! Haklısın! İşte çözüm!”</strong></p>
+<p>Zanoba’nın fikri, Rudeus’un zihninde de bir şeyleri yerine oturttu. Şu anda her şey ortadaydı! Hiç iyi değildi. Ama kıyafetlerle, müstehcen kısımlar gizlenebilirdi. Çılgın bir tecavüzcü olmadığı sürece kimse bebeğin kıyafetlerini aniden yırtıp çıkarmazdı. Kimse bir şey söylemediği sürece, kim öğrenecekti ki?</p>
+<p><strong>“Tamam o zaman, bir dakika bekle.”</strong></p>
+<p>Rudeus hızla diğer odaya koştu. Orada daha önceden hazırladığı kıyafetler vardı—büyü şehrinde yaygın olan türden ağır, bej bir elbise, yepyeni bir külot ve sütyen. Aslında, figüre baştan beri kıyafet giydirmeyi planlamışlardı. Zanoba ve Rudeus, seksi ve çıplak bir kız yüzünden gereksiz yere korkmuşlardı.</p>
+<p><strong>“Tamam,”</strong> dedi Rudeus geri döndüğünde, hareketsiz bir şekilde duran bebeğe dönerek. <strong>“Bu kıyafetleri giy.”</strong><br>
+<strong>“Evet, Efendim.”</strong><br>
+<strong>“Giyindikten sonra yatağa uzan.”</strong><br>
+<strong>“Evet, Efendim.”</strong></p>
+<p>Bebek emirlerini yerine getirdi. Şimdilik, kıyafetleriyle günahkâr bir görüntü taşımıyordu. Yatağa kusursuz bir şekilde yerleşmiş, Nanahoshi’ye çok benzeyen sıradan bir kızdı sadece. Bu görüntünün uzaklardan bile kışkırtıcı bir yanı yoktu. Aslına bakılırsa, açık ve kırpmadan bakan gözleriyle biraz ürkütücü bile görünüyordu.</p>
+<p>Bu hâliyle kaldığı sürece tüm sorunları çözülmüştü!</p>
+<p><strong>“Biliyor musun? Tüm bunlardan sonra çok yoruldum,”</strong> dedi Rudeus. <strong>“Biraz erken olabilir ama bugünlük bu kadar yeter.”</strong><br>
+<strong>“Kesinlikle.”</strong></p>
+<p>Şimdilik bir hareket planları vardı. Rudeus derin bir nefesle sandalyesine çöktü. Sonunda, güç açma prosedürü dışında bir şey test edememişlerdi, ama sonuçlar harikaydı. Panik yapmaya gerek yoktu. Bebeğe daha fazla şey öğretmeyi yarına bırakabilirlerdi.</p>
+<p>Rudeus zaferle yumruğunu avucuna vurdu. <strong>“Hadi, planımızın ilk büyük adımını kutlayalım!”</strong><br>
+<strong>“Evet, kutlayalım!”</strong> diye onayladı Zanoba. <strong>“Bunu söyleyeceğini düşündüğüm için hazırlandım!”</strong></p>
+<p>Zanoba, odanın köşesindeki bir fıçıyı alıp ortalığa taşıdı, ardından yumruğuyla üstündeki tahtaları parçaladı. Tahtalar çatırdarken, içindeki sıvının bir kısmı dışarı taştı.</p>
+<p><strong>“Her şeyi düşünmüşsün!”</strong> dedi Rudeus.</p>
+<p>Zanoba, yanında getirdiği bardaklardan birini aldı ve fıçının içindeki sıvıyı doldurdu. Bardak, yarı saydam mor bir sıvıyla dolmuştu—Asura şarabı.</p>
+<p><strong>“Yiyecek bir şeyin var mı?”</strong> diye sordu Rudeus.<br>
+<strong>“Sadece korunmuş erzaklar.”</strong><br>
+<strong>“Eh, olur o da.”</strong></p>
+<p>İki adam, bodrumdan kucak dolusu kuru erzak getirip fıçının yanına yığdılar. Her şey hazır olduğunda, dolup taşan bardaklarını birbirlerine kaldırdılar.</p>
+<p><strong>“Figür projesinin ilerlemesine.”</strong><br>
+<strong>“Hayalimizin gerçekleşmesine.”</strong><br>
+<strong>“Şerefe!”</strong></p>
+<p>Ve böylece kutlama başladı.</p>
+<p style="text-align: center;"><strong>***</strong></p>
+<p><strong>“Ona önce ne öğretmeliyiz?”</strong><br>
+<strong>“Basit bir işlevsellik kontrolünü tamamladığımıza göre, şimdi uyum sağlama yeteneğini, ne kadar şey hatırlayabildiğini ve düşünce esnekliğinin sınırlarını test etmek istiyorum.”</strong><br>
+<strong>“Araştırmamız gereken çok şey var. Yapabildiğimiz kadar çok test yapalım.”</strong></p>
+<p>Rudeus ve Zanoba, gelecekteki planlarını tartışarak şaraplarını içtiler. Bebeği biraz önce çalıştırdıklarında, dışarıdan olağanüstü bir şey yapmış gibi görünmüyordu, ama belirsiz emirleri bile yorumlayıp yerine getirmişti. Temel ayarlarında yer alan başlangıç bilgilerine dayanarak kendi kendine öğrenebiliyordu. Ancak zekâsının ne kadar büyüyebileceği henüz bilinmiyordu. Ne kadar şeyi hatırlayabilecek ve neler öğrenebilecekti? Kendi kendine düşünebilecek ve karar verebilecek miydi?</p>
+<p><strong>“Bunu bana bırakın, Usta. Ona geniş bir eğitim vermekten sorumlu olacağım.”</strong><br>
+<strong>“Sadece ona bilmemesi gereken şeyleri öğretmediğinden emin ol, tamam mı?”</strong><br>
+<strong>“Aynı şeyi size de söylemeliyim, Usta!”</strong><br>
+<strong>“Ne zaman bu kadar ukala oldun?”</strong></p>
+<p>İkisi de geleceği hayal ederek güldüler ve şarapla karınlarını doldurdular.</p>
+<p>Zanoba konuyu değiştirdi. <strong>“Yarattığınız ‘yan ürünler’ iyi satıyor, Usta.”</strong><br>
+<strong>“Evet, araştırma yaparken bir sürü şey ürettim. Mağazada mı satıyorsunuz?”</strong><br>
+<strong>“Özellikle, şu şey… kurbağa kılıfı… oldukça olumlu tepkiler aldı.”</strong><br>
+<strong>“Ah, evet…”</strong></p>
+<p>Rudeus’un insan derisinin dokusunu yeniden üretebilmesi için çok deneme yanılma yapması gerekmişti. Bir seferinde, güçlendirilmiş kurbağa yanak keseleri kullanmıştı. Bu malzeme son derece ince, elastik ve yırtılması için oldukça güçlü bir kuvvet gerektirecek kadar dayanıklıydı. Başlangıçta, figür için deri yapmak için kullanılabileceğini düşünmüştü, ama sonunda daha iyi bir malzeme bulmuş ve bunu kullanmamışlardı.</p>
+<p>Onun yerine, başka bir şey yapmıştı…<br>
+<strong>“Doğum kontrolü, ha?”</strong> diye sordu Rudeus. Bu bir kondomdu.<br>
+<strong>“Aynen öyle. Lord Luke özellikle bundan çok memnun kaldı. Asura’da bir fabrika kurmamız için bizim adımıza bastırıyor.”</strong><br>
+<strong>“Asura soyluları bu tür şeyleri gerçekten seviyor, değil mi?”</strong><br>
+<strong>“Böyle söylüyorsunuz, ama siz de kullanıyorsunuz, değil mi, Usta?”</strong><br>
+<strong>“Eh, biliyorsun işte.”</strong></p>
+<p>Evet, kullanıyordu—neredeyse her gece.</p>
+<p>Üçüncü ve dördüncü kızları Lily ve Chris doğduktan sonra, bir sonraki bebeğin Sylphie’nin olacağı konusunda sessiz bir anlaşma yapılmıştı. Bir süredir, Rudeus en çok ilgiyi Sylphie’ye veriyor ve Roxy ile Eris’e daha az zaman ayırıyordu. Ancak, belki de ırkı yüzünden, Sylphie henüz üçüncü kez hamile kalmamıştı. Lucie ve Sieg’in doğumunda zamanlama konusunda şanslı olmuş olabilirlerdi ya da belki Tanrı acımasızdı. Kim bilebilirdi?</p>
+<p>Her halükarda, Eris daha az birlikte olduklarında huzursuzlanıyordu. Cinsel dürtüsü eskisine göre epey sakinleşmişti, ama hâlâ dikkate değer bir güçtü; gözlerinde aç bir vahşi hayvanın bakışıyla doluydu. Rudeus kendisini kolayca Eris tarafından üzerine atlanılmış bulabiliyor ve sonrasında Eris’in hamile kalma olasılığı doğuyordu.</p>
+<p>İşte burada doğum kontrolü devreye giriyordu. Şu küçük şeyi kullan ve hey, presto! Aç vahşi canavar Eris’i memnun ederken yeni küçük canavarlar yapmıyordu! Ne Sylphie, Eris’in hamile karnına hüzünle bakıp yanağını kaşıyor, ne de Eris, suçluluk dolu bir ifadeyle <strong>“Ne?”</strong> diye savunmaya geçiyordu. Hiçbir aile içi huzursuzluğa gerek kalmıyordu. Ve bu mucizevi icat sadece bir—evet, yalnızca bir—Asura gümüş sikkesine mal oluyordu!</p>
+<p><strong>“Yani, biliyorsun işte,”</strong> dedi Rudeus. <strong>“Daha fazla bakıcı tutmadan daha fazla çocuk sahibi olmak ideal değil.”</strong><br>
+<strong>“Neden bir hizmetçi tutmuyorsunuz o zaman?”</strong><br>
+<strong>“Bir hizmetçi tutarsak, çocuklara bakan kişi ben olmam. Şu anki altı tanesiyle bile zor yetişiyorum. Belki inanmazsın ama her birini kendim izlemek istiyorum.”</strong></p>
+<p>Zanoba kıkırdadı. <strong>“Bu tam da size yakışır bir şey, Usta.”</strong></p>
+<p>Bu söz üzerine, Rudeus’un aklına her zaman merak ettiği bir şeyi sormak geldi.<br>
+<strong>“Aklıma geldi de, sen ve Julie’nin durumu nedir?”</strong><br>
+<strong>“Ne demek istiyorsunuz?”</strong><br>
+<strong>“Yani, yeniden evlenmeyi düşünüyor musun?”</strong><br>
+<strong>“Julie ile mi demek istiyorsunuz?”</strong></p>
+<p><strong>“Tabii, bir yaş farkı var ve Julie toplumun alt tabakalarından geliyor,”</strong> diye kabul etti Rudeus. <strong>“Ama artık kendini kraliyet ailesinin bir parçası olarak görmüyorsun, değil mi? Evlilik tatlı bir şey, bilirsin. Evlenmek, tüm çocuklarının etrafında olması, onlara ne kadar gurur duyduğunu söylemek… Bazen sana oyunlar oynarlar ve onları azarlaman gerekir…”</strong></p>
+<p>Zanoba yavaşça başını salladı, ardından kesin bir şekilde konuştu. <strong>“Ben evlenmeyeceğim.”</strong><br>
+<strong>“Öyle mi?”</strong></p>
+<p>Rudeus sessizliğe büründü. Herkesin, başkalarının kurcalamasını istemediği şeyleri vardı. Zanoba’nın da basit bir tercihten daha fazlasını düşündüğü belliydi. Taşıdığı büyük bir yük vardı—kraliyet ailesinden gelmek, önceki evliliği, küçük kardeşini öldürmesi, Pax’la olanlar…</p>
+<p><strong>“Çok da heyecan verici bir şey değil,”</strong> dedi Zanoba. <strong>“Duymak ister misin?”</strong><br>
+<strong>“Eğer anlatmak istersen, dinlerim.”</strong><br>
+<strong>“Kutsanmış Çocuk olarak inanılmaz derecede güçlü ve dayanıklıyım, ama bunun bedeli olarak cildim duyarsız.”</strong><br>
+<strong>“Yani…?”</strong><br>
+<strong>“Kanlı canlı bir kadının cildi, bana his verecek kadar sert değil.”</strong></p>
+<p>Bu sözler Rudeus’un kafasına balyoz gibi indi. Biraz müstehcendi, ama her şeyi açıklıyordu—mesela neden Zanoba’nın her şeyi bronz bir heykelle yaptığı gibi.</p>
+<p><strong>“Tabii bu tek sebep değil,”</strong> diye devam etti Zanoba. <strong>“Pax gibi şeyler var, Julius gibi şeyler var. Ama her şeyden öte, ona bir çocuk veremeyeceksem bir partner edinmek zalimlik olur.”</strong></p>
+<p><strong>“Haklısın,”</strong> dedi Rudeus. <strong>“Ama bence yine de Julie’ye sorabilirsin, eğer bir gün fırsatın olursa. Belki çocuk sahibi olmamasını umursamadığını söyler, demek istiyorum… ya da evlat edinmeyi düşünebilirsin.”</strong><br>
+Kendisinin altı çocuğu olduğu için cümlelerini biraz tökezleyerek kurdu.</p>
+<p>Zanoba hevesli olmayan bir kahkaha attı. <strong>“Bu doğru.”</strong></p>
+<p>Rudeus, evlilik hakkında daha fazla konuşmamaya karar verdi ve asıl konuya geri döndü. Bu, kutlama için içtikleri bir akşam olmalıydı; eğlenmek ve keyif almak için buradaydılar.</p>
+<p><strong>“Neyse, kondomları geçelim! Diğer şeyler nasıl? İyi satıyorlar mı?”</strong> diye sordu Rudeus.<br>
+<strong>“Ortalama bir ticaret hacmi var. Görünüşe göre bunlar daha çok merak objeleri olarak görülüyor, bu yüzden sadece belirli bir grup meraklı bunları toplamaya çalışıyor.”</strong></p>
+<p><strong>“Bence oldukça kullanışlılardı,”</strong> dedi Rudeus, hayal kırıklığıyla. <strong>“Aisha, elektrik süpürgesini çok sevmişti.”</strong></p>
+<p>Rudeus’un yan ürün icatları oldukça çeşitliydi. Bunlar arasında büyü çemberlerini kullanan vantilatörler ve elektrik süpürgeleri, çeşitli su geçirmez eşyalar ve bir soğutucu kutu vardı. Her biri faydalıydı, ancak çok azı popüler olmuştu. Çoğu etkinin büyü kullanılarak da elde edilebilmesi ve kullanılan özel malzemelerin maliyeti yüzünden, fiyatları nispeten yüksek tutmak zorunda kalmışlardı. Malzemeler üzerinde daha fazla araştırma yapmak, ürünleri daha ucuza satmayı mümkün kılabilirdi, ama bu zaten hedefleri değildi.</p>
+<p><strong>“Ne kadar kullanışlı olsalar da, Asura ve Millis’te zaten aynı etkiyi üreten büyülü aletler var, üstelik bir hizmetçi tutmak hem daha hızlı hem daha pratik.”</strong><br>
+<strong>“Hizmetçi tutmak daha zahmetli olurmuş gibi geliyor,”</strong> dedi Rudeus, içkisini yudumlayıp iç çekerek. Bu dünyada doğmuş kadar uzun süre yaşamış olsa da, önceki hayatının etkisini tamamen atamıyordu.<br>
+<strong>“Neyse. En azından onları nasıl yapacağımı anlatan bir kitap hazırlasam nasıl olur? Teknolojiyi aktarsam bile, gelecekte birilerinin işine yarayabilir.”</strong></p>
+<p><strong>“Harika bir fikir. Şüphesiz, bu kitap mirasınızı devam ettirmek isteyen herkes için harika bir keşif olur!”</strong><br>
+<strong>“Adını <em>Rudeus’un Kitabı</em> falan koyabilirim.”</strong><br>
+<strong>“Ha ha! Ejderha Tanrısı’nın sağ kolunun adını taşıyan bir kitabın, ev eşyalarının nasıl yapıldığını anlattığını gelecek nesillerin büyücüleri asla tahmin edemez!”</strong></p>
+<p>Rudeus ve Zanoba, şarap fıçısını keyifle bitirmeye devam ettiler; yüzleri gittikçe kızarıyordu. Bir fıçı şarap, ikisi için biraz fazla gelmişti.</p>
+<p><strong>“Cliff ve Lord Bardi’nin burada olmaması kötü.”</strong><br>
+Bir an duraksayan Zanoba, <strong>“Eminim, Lord Cliff böyle ahlaka aykırı bir bebek fikrine itiraz ederdi,”</strong> dedi.</p>
+<p><strong>“Evet, dehşete düşerdi ama sonunda görmezden gelirdi. Bir sonraki aşama için onu da dahil edelim. Hatta Millis’teki odasında onunla birlikte kadeh kaldırabiliriz.”</strong><br>
+<strong>“Mükemmel bir fikir! Evet, işte bu! Bu prototipi kullanarak ilk otomatonumuzu tamamladıktan sonra, neden onu Cliff’e bir hediye olarak sunmayalım?”</strong><br>
+<strong>“İyi fikir! Ah, ama kız modeli olamaz,”</strong> diye düşündü Rudeus. <strong>“Onu bir erkek yapalım.”</strong><br>
+<strong>“Bir erkek de güzel olur.”</strong><br>
+<strong>“Vay, vay. İlgin bu yöne de kayıyor mu?”</strong><br>
+<strong>“Erkeklere karşı bir arzu hissetmiyorum, ama bir erkeğin güzelliğini takdir edebilirim. Siz de anlıyorsunuz, değil mi, Usta?”</strong><br>
+<strong>“Oh, çok iyi anlıyorum. Öyle iyi anlıyorum ki Fitz gerçekten bir erkek olsaydı bile umursamazdım.”</strong><br>
+<strong>“Ha ha ha! Siz gerçekten bir harikasınız, Usta!”</strong></p>
+<p>Bu noktada, kutlamaları tam gaz devam ediyordu ve ikisi de her dakika biraz daha sarhoş oluyordu. Başarının tatlılığıyla şarap daha da güzel geliyordu.</p>
+<p><strong>“Tamam, peki. Bir dahaki sefere bir erkek model yapıyoruz ve o kadar süper havalı olacak ki Cliff kıskançlıktan çatlayacak.”</strong><br>
+<strong>“Ha ha, ha ha ha!”</strong></p>
+<p>Ancak, ikisi de önemli bir şeyi fark etmemişti. Kendilerini izleyen gözlerin varlığından habersizdiler ve konuşmalarının dinlendiğini anlamamışlardı.<br>
+Onu gülümserken görmemişlerdi.</p>
+<p style="text-align: center;"><strong>***</strong></p>
+<p><strong>“Offf,”</strong> diye inledi Rudeus. <strong>“Kafam çatlıyor.”</strong></p>
+<p>Ertesi gün olmuştu. Rudeus yerinden kalkarken, ağrıyan başı için bir panzehir uyguladı. Pencereden dışarı baktığında fırtınanın tamamen dindiğini ve bulutsuz, masmavi bir gökyüzü bıraktığını gördü.</p>
+<p><strong>“Saat bu kadar geçmiş mi? Sanırım fazla içtim…”</strong></p>
+<p>Yine de, erkek erkeğe içki içmenin, hele bir kutlama sırasında, tadı bir başkaydı. Önceki gün bebeğin uygunsuzluğu onu biraz rahatsız etmişti, ama olan olmuştu. Prototip bu kadar iyiyse, geleceğin ne getireceğini görmek için sabırsızlanıyordu. Rudeus, geleceğin olasılıklarının kanat çırptığını hissederek, umudu ve sevgiyle dolu bir kalple bebeğin yüzüne göz atmak için döndü—</p>
+<p><strong>“Ha?”</strong></p>
+<p>Bebek yerinde yoktu. Sadece boş bir yatak duruyordu. Bebeksiz.</p>
+<p><strong>“Dur bir dakika. Zanoba? Bebeği nereye koydun?”</strong> Rudeus, belki de Zanoba’nın daha erken kalkıp ona bir şeyler öğretmeye başladığını düşündü. Etrafına bakınırken, Zanoba odanın köşesindeki battaniye yığınından tembelce çıktı.</p>
+<p><strong>“Hmm…? Usta? Bebeği yatağa yatırdıktan sonra kapatmadınız mı?”</strong><br>
+<strong>“Kapatmak mı?”</strong></p>
+<p>O anda, Rudeus’un hafızası hızla yerine geldi. Kesinlikle bebeğe giyinmesini, sonra da yatağına uzanmasını emretmişti. Bundan emindi.<br>
+<strong>“Sanırım…öyle yaptım…?”</strong></p>
+<p>Bebeği kapatmak için ya kapatma ya da uyku moduna geçme komutlarından biri verilmeliydi. Kullanıcı, büyü taşının üzerine elini koyup büyülü sözleri söylemek zorundaydı. Ama… bunu yapmamıştı.</p>
+<p><strong>“B-bul onu!”</strong> diye kekelerken bağırdı Rudeus.<br>
+<strong>“A-anlaşıldı!”</strong></p>
+<p>İkisi de panikle bebeği aramaya koyuldular, ama hiçbir yerde bulamadılar—ne laboratuvarın içinde ne de hemen dışında. Bebekten iz yoktu.</p>
+            
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum0.html" class="nav-btn">←Önceki Bölüm</a>
+            <a href="bolum1parca2.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

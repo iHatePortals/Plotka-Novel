@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei Cilt 1, Bölüm 1 (Kısım 1) | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b; /* Mushoku Tensei Kırmızı Tema */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #cc0000;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c1b1b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        body.theme-light .nav-btn:hover, 
+        body.theme-light .action-btn:hover, 
+        body.theme-light .theme-select:hover,
+        body.theme-sepia .nav-btn:hover, 
+        body.theme-sepia .action-btn:hover, 
+        body.theme-sepia .theme-select:hover {
+            color: #ffffff;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+        }
+
+        /* Resimler için özel stil */
+        .novel-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 6px;
+        }
+
+        /* Ayrıştırıcı Çizgi */
+        .divider {
+            text-align: center;
+            margin: 2em 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="bolum1parca4.html" class="nav-btn">←Önceki Bölüm</a> 
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="bolum2parca2.html" class="nav-btn">Sonraki Bölüm →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Mushoku Tensei Cilt 2, Bölüm 2</h1>
+            <div class="subtitle">Millis Seyehatnamesi (Kısım 1)</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <img src="bolum2foto1.png" alt="Kitap Çizimi 1" class="novel-image">
+            <p>Çocuklar gayet iyi büyüyorlardı. Lucie, Ranoa Büyü Üniversitesi’ne alışmıştı. Lara ders çalışmaktan nefret ediyordu, ama yapacak bir şey yok, keyfi yerindeydi. Arus’un da Eris gibi biraz sert bir tarafı vardı, ama beklenmedik şekilde özenliydi ve küçük çocuklara takılmıyordu. Onda iş var. Sieg hâlâ küçüktü ve her zamanki gibi ağlaktı, ama son zamanlarda biraz daha sağlam durmaya başlamıştı. Neredeyse birileri bir yerlerde onu gizlice çalıştırıyormuş gibi. Lily ve Chris hâlâ çok ufaktı ama emzirmeyi bırakalı çok olmuştu ve yakın zamanda özel yetenek eğitimlerine başladılar. Yedinci çocuk henüz ortalıkta yoktu, ama altı tanesi zaten yeterince kalabalıktı. Her gün hareketli ve zorluydu. Yine de, Lara’yla Arus okula başlarken, Lily ve Chris de kendi başlarına etrafta dolaşarak bir şeyler öğrenmeye başladığından, ortalık son zamanlarda biraz sakinleşmiş gibiydi. İnsan-Tanrı da bir hinlik peşinde değilmiş gibi görünüyordu. Günler tasasızca geçip gidiyordu.</p>
+<p>O akşam da başka bir hareketli gündü: Lucie kendi başının çaresine bakıyordu; Lara, yemeğiyle oynadığı için azar işitiyordu; Arus, yemek seçtiği için paylanıyordu; Sieg, ağzı pirinçle dolu şişmiş yanaklarıyla oturuyordu; Lily, yer yer sevimli önlüğüne çorba dökerek yiyordu; Chris ise kucağımda ağzını kocaman açmış, sıradaki lokmayı bekliyordu. Sonra üç eşim, küçük kız kardeşim ve iki annem de o masadaydı. Yemek masası tam anlamıyla cıvıl cıvıldı.</p>
+<p>Sadece yemek vakitleri değildi, son zamanlarda ev hep böyleydi. Altı çocukla, ister istemez, asla sıkıcı bir an yaşamıyorsun! Arus ve Lara, en ufak şeyde hemen kapışacak kadar yaramaz tiplerdi. Lily ve Chris de hemen hemen aynı yaşta olduklarından, sürekli didişiyor ve çığırıyorlardı. Daha sakin sayılan Lucie’yle Sieg bile arada sırada gürültü patırtı çıkarabiliyordu. Gerçekten de evde hiç sessizlik olmuyordu.</p>
+<p>Bunun sonsuza dek sürmeyeceğini düşündüğüm anlar oluyordu. Çocuklar büyüyünce neler olur, kim bilir? Belki Orsted’in mücadelesine katılmaya karar verirler, belki de Sharia’yı terk edip başka diyarlara giderler. Hepsi reşit olunca, üç sene boyunca Asura Kraliyet Akademisi’ne gönderme kararı almıştık; oraya alışsınlar istedik. Ama tabi, daha büyümeden evden çıkıp kendi başlarının çaresine bakmak isteyebilirler. Sonuçta Paul da babasıyla kavga ettikten sonra aynı şeyi yapmıştı; benzer bir şey ailemde de yaşanabilirdi.</p>
+<p>Aklımda bir de İnsan-Tanrı meselesi vardı, o yüzden onlara nasıl yaşamaları gerektiğini söyleme dürtüsü hiç eksik olmuyordu. Ama çocuklar zaten ebeveynlerini pek dinlemez. Misal, ders çalışmaktan ve eğitimden nefret eden Lara, durmadan derslerden kaçış planları yapıyor. Uzun vadede bu beni endişelendirmiyordu.</p>
+<p>Muhtemelen bütün çocukların aynı çatı altında bu şekilde bir arada olabileceği tek zaman buydu. O yüzden şöyle topluca bir aile tatiline gidelim diye düşündüm.</p>
+<p>Zaten çok fazla vaktimiz kalmamıştı.</p>
+<p style="text-align: center;"><strong>***</strong></p>
+<p>Tabii ki dünya turuna çıkacak değildim. Sadece bir ay kadar zaman ayırıp, uzun zamandır ziyaret etmemiz gereken insanlarla çocukları bir araya getirmeyi planladım. Bu vesileyle, onlara Sharia’nın dışındaki dünyanın aynı yer olmadığını da biraz göstermiş olacaktım, hepsi bu. Bunun için seçtiğim rota Millis Kıtası’ydı.</p>
+<p>Plan şöyleydi:<br>
+Kutsal Millis Toprakları’na ışınlanma dairesiyle gidip, orada on gün kadar kalacaktık. İlk birkaç gün, Zenith’in ailesini ziyaret edecek, ardından Cliff’le Millis Kilisesi’ne uğrayacaktık. Sonraki günlerde de Maceracılar Birliği Genel Merkezi ve büyü kulesi gibi Millis’e özgü yerleri gezecektik. Oradan bir arabaya atlayıp Kutsal Kılıç Yolu boyunca kuzeye çıkacak, kısaca Büyük Orman’a uğradıktan sonra Mavi Ejder Dağları’ndaki kaplıcalarda keyif yapacaktık. Son olarak da bir ışınlanma dairesi kurup, eve dönecektik. Bu arada, bir süredir ertelediğim Cevher Tanrısı ile iletişim kurma işini de oradayken halletmeyi düşünüyordum.</p>
+<p>Altı ay kadar önce aileme bu fikri açtım. Roxy’nin öğretmenlik programını hesaba katmam gerekiyordu, ayrıca “CEO” olarak Ejderha Tanrısı Orsted’den de izin istemem lazımdı. Çocukların dersleri vardı, öbürlerinin de kendi planları. Ama buna rağmen herkes “Tamam, gidelim!” dedi. Özellikle Lucie, belki Asura Krallığı’nı ziyaret ettiğini hatırladığından, bu gezi fikrine bayağı heveslendi. Elinalise’e “Sen de gelir misin?” diye sorduğumda, resmen havaya uçtu. Ona göre bu, güzel bir bahane olmuştu; Cliff’i yılda birkaç kez görüyordu ama aslında sürekli onunla olmak isterdi. İdealde Cliff, kilise içinde hızla yükselecek de Elinalise’le Clive’ı yanına aldıracaktı; ama oradaki güç çekişmeleri zaman istiyordu.</p>
+<p>Latria ailesini ziyaret edeceğimiz için, Zenith ve Lilia da bizimle geliyordu. Fırsat bulabilirsek Kutsanmış Çocuk’tan yeniden Zenith’in zihnini incelemesini isteyecektim. Lara, Zenith’le iletişim kurabiliyordu ama nedense bizimle fazla bilgi paylaşmıyordu. Ne zaman sorsam yüzünü ekşitiyordu. Bu yaşta konunun ne kadar önemli olduğunu tam kavrayamıyor olabilir, diye düşündüm.</p>
+<p>Neyse, konuyu çok uzatmayayım—bu kişisel bir gezi olsa bile, altı ay önceden randevuları ayarladığım sürece Kutsanmış Çocuk’la ve Papa gibi önemli Millis şahsiyetleriyle görüşmek sorun olmayacaktı. Bu sefer Norn ve ailesini de davet etmiştim, bir de Claire’e onu mutlaka getireceğime <strong>“söz”</strong> vermiştim. Tabii ki, <strong>“söz”</strong> biraz iddialı bir kelime. Ama Norn’un mutlu bir evliliği olduğunu Claire’in gözleriyle görmesini istedim ve evlendiğini çoktan haber vermiştim. Hem de kiminle evlendiğini—iblis olduğu gerçeği de dahil—oldukça açık bir şekilde anlatmıştım. Yine de cevap gelmedi, yani belki de kızgın, ya da duymamış gibi davranmak istiyor. Ama ne olursa olsun bu konuda geri adım atmaya niyetimiz yoktu.</p>
+<p>Başta, Norn davetimi reddetti, çünkü kızı hâlâ çok küçüktü. Ama Luicelia hızla büyüyordu; emzirmeyi bırakmıştı, bütün dişleri çıkmıştı ve babasından miras kalan yeşil saçları ve sevimli kuyruğu sallanarak paytak paytak ortalarda dolaşıyordu. Yine de hâlâ oldukça küçük olduğundan Norn’un gözünü ondan ayırmaması gerekiyordu.</p>
+<p>Derken Ruijerd onu bir kenara çekti ve <strong>“Ben Luicelia’yla ilgilenirim. Sen git.”</strong> dedi.<br>
+<strong>“Ama Ruijerd…”</strong><br>
+<strong>“Aileni önemsemelisin.”</strong></p>
+<p>Söyleme şekli biraz ağırdı ama Norn boyun eğmişti. Anlaşılan Ruijerd de bize katılmak istermiş; insanların adetlerini pek bilmese de aile ziyaretinin önemli bir şey olduğunu anlamış. Ne var ki, yanında bir bebek—hele bir de Superd bir bebek—taşıyarak bir ay sürecek bir yolculuğa çıkmak kolay iş değildi. Sieg’in yeşil saçı vardı, ona bir şapka takınca sıkıntı olmuyordu ama bir kuyruğu saklayamazdık ve Luicelia’nın gerçek bir Superd olduğunu gizlemek mümkün olmazdı. İnsanlar bir korkuya kapılabilir, bu da o küçücük kız için travmatik olabilirdi. Hem Ruijerd’in de köyle ve Biheiril Krallığı’nda ilgilenmesi gereken işleri vardı. Bu yüzden Norn’u istemeye istemeye bize emanet etti.</p>
+<p><strong>“Peki,”</strong> dedi Norn, <strong>“ama kaplıcalara ya da başka yerlere gitmem. Ailemi ziyaret ettikten sonra eve döneceğim.”</strong><br>
+<strong>“Buna gerek yok. Yolculuğun tadını çıkarmalısın.”</strong><br>
+<strong>“Hayır. Burada, senin ve Luicelia’nın yanında olmak istiyorum.”</strong> Sonuçta, gelmeyi kabul etmişti ama hâlâ gözü sevdiğinden başkasını görmeyen bir kadındı.</p>
+<p>Evde yokken evi koruması için paralı asker grubuna ve Zanoba’ya ricada bulundum. Byt ve Dillo da ne olur ne olmaz diyerek evde kalacaklardı. Hırsız girmesini istemiyorduk, ayrıca sebze bahçesinin de bakıma ihtiyacı vardı.</p>
+<p>Genel olarak plan fazla detaylı değildi, ama zaten programı tıka basa doldurup zamanı daraltmak da istemezdim. Bu kadar hazırlık tam ayarında olur diye düşündüm.</p>
+<p style="text-align: center;"><strong>***</strong></p>
+<p>Altı ay sonra olmuştu. Her zamanki gibi, Büyü Şehri Sharia&nbsp;yine bembeyaz karla kaplıydı. Eve bir fayton çağırdık. Fayton da bizi, yerlerin karla dolu olduğu kasabanın içinden geçirdi.</p>
+<p>Ofise varınca, hızlıca Ejderha Tanrısı Orsted’e selam verdik, sonra da bizi Millishion’a ışınlayacak büyü çemberine çıktık. Bu çember şehrin içindeki bir gizli geçide bağlıydı. Hoop diye Millis Kıtası’na geçmiştik bile. Aslında ben yolculuğun tadını çıkarmak istiyordum; böyle ışınlanınca o özel his kayboluyordu. En azından, bizi şehrin biraz dışına bırakacak bir büyü çemberi kullanıp çocuklara Millishion’u dışarıdan göstermek isterdim. Sonuçta her gün kocaman kuleyi ya da o yüksek duvarları görme şansın olmuyor, heyecan verici bir manzara! Gerçi şehirden çıkarken o manzarayı yine görecekler, aceleye gerek yoktu.</p>
+<p>Gizli geçide varınca bizi bekleyen büyük faytonlara geçtik, sonra da Millishion’daki Latria ailesinin evine doğru yola çıktık. Ben de dahil toplam on dört kişiydik, artı bir köpek. Bu yüzden iki tane büyük fayton ayarlamıştık. Birinci faytonda Roxy, Zenith, Lilia, Lara, Chris ve Leo ile ben vardım. İkinci faytonda ise Sylphie, Eris, Lucie, Arus, Sieg, Lily, Aisha ve Norn vardı. Cliff’i ziyaret edecek olan Elinalise ve Clive’a geçici bir süreliğine hoşça kal dedik.</p>
+<p>Çocuklar ilk kez yolculuğa çıkmanın heyecanıyla adeta yerlerinde duramıyordu, anneleri olan üç kadın da onları zapt etmekte zorlanıyordu. Lara ise özellikle Millishion’un manzarasını çok sevmiş gibiydi. Faytonun penceresinden dışarıya bakıp derin derin nefes alıyordu. Her şeye karşı ilgisiz olup sürekli uyuklayan Lara için bu oldukça sıra dışıydı.</p>
+<p><strong>“Lara, kes şu faytondan sarkma işini.”</strong></p>
+<p><strong>“Peki,”</strong> diye homurdandı.</p>
+<p>Arada bir, Lara kafasını ve omuzlarını pencereden dışarı sarkıtıyor, Mavi Anne Roxy de onu azarladıktan sonra tekrar içeri çekiyordu. Lara çenesini pencere pervazına koyup etrafı kocaman gözlerle seyrediyordu. Bir an dengesini kaybedip düşer diye endişelendim, ama Leo elbisesinin eteğini ağzında tuttuğu için sorun çıkmaz diye düşündüm.</p>
+<p><strong>“Bizim oralara kıyasla ne kadar çok renk var, Mavi Anne.”</strong><br>
+<strong>“Burada halka kıyafet tasarlayan bir sürü ünlü tasarımcı yaşıyor. Hepsi de şık giyinmeyi seviyor.”</strong><br>
+<strong>“Kış olmasına rağmen hiç kar yok. Soğuk da değil.”</strong><br>
+<strong>“Bu civarlarda çok kar yağmaz, ama senenin belli bir zamanında yoğun yağmur yağar. Şu büyük kule su seviyesini kontrol ediyor, o yüzden şehir hiç sel basmıyor.”</strong></p>
+<p>Lara’nın her şeyi merak etmesi ve Roxy’nin ona hevesle anlatması kalbimi ısıttı. Lara tam anlamıyla Roxy’nin küçük bir kopyasıydı. Mini Roxy resmen.</p>
+<p>Bu sırada Chris kucağımda oturmuş, yüzüme bakarak <strong>“Baba, acıktım,”</strong> dedi. Şehirden mi korkuyordu yoksa faytonun sarsıntısından mı, tam anlayamadım, ama kolumu sımsıkı tutuyordu. Eğer kolumu bırakmasını söylesem kesin ağlamaya başlardı.<br>
+<strong>“Büyükannenin evine varınca yeriz, tamam mı?”</strong><br>
+<strong>“Hı hı,”</strong> diyerek Chris itiraz etmeden kabul etti. Eğer annelerinden biri ben olsaydım, şimdiye çoktan mızmızlanmaya başlayıp “Şimdi yemek istiyorum!” falan derdi. Sylphie’yle diğerlerine haksızlık gibi ama Chris’in favorisinin ben olması beni biraz da olsa ayrıcalıklı hissettiriyordu.</p>
+<p>Chris elimi tutup boş karnını ovuşturmaya başladığında, dayanamadım, ona bir şeyler ısmarlamak istedim doğrusu.</p>
+<p><strong>“Hey sen, meyveci,”</strong> diyerek seslenmek istedim, <strong>“En tatlı elman hangisiyse ondan alayım. Ne? Hangisinin en tatlı olduğunu bilmiyor musun? O zaman dükkândaki hepsini ver. Korkma, kalanını Latria ailesine hediye ederim.”</strong></p>
+<p>Aklıma gelmişken, Latriaları memnun etmek için yanımda bir sürü hediye getirdim ama <strong>Claire</strong>’in beğenip beğenmeyeceğinden emin değildim. Ya <strong>‘Bunlar gibi bayağı şeylere ilgim yok,’</strong> falan derse? Ne kabaca olurdu!</p>
+<p>Bunları düşünürken, Lilia’nın gergin bir yüz ifadesine sahip olduğunu fark ettim.<br>
+<strong>“Lilia? Bir şey mi oldu?”</strong> diye sordum.<br>
+<strong>“Biraz…endişeliyim,”</strong> dedi.<br>
+<strong>“Ne hakkında?”</strong> diye üsteledim.<br>
+<strong>“Lady Claire.”</strong></p>
+<p>Bu yolculuğun tek zorluğu, huysuz büyükannem Claire Latria’ydı. Millis’e geleceğimizi söyleyince, hemen ısrarcı bir tavırla evinde kalmamızı istedi. Keşke reddetseydim diye düşünmeden edemiyorum. Evde kalmadan da onu ziyaret edebilirdik aslında. Norn, Aisha ve Lilia’ya karşı geçmişteki tavırlarını düşününce hâlâ biraz şüpheliydim.</p>
+<p>Ama her şeye rağmen, yaşlı huysuzdan o kadar da nefret etmiyordum. Claire’in ciddi kusurları var evet, ama sevimli çocuklarımı birkaç gün görmesine de karşı çıkacak kadar değil. En azından bir uğrayıp tanıştıralım diye düşündüm. Ortalık çok karışırsa da kalacak başka bir yer bakarız. Aile toplantısında da böyle karar vermiştik.</p>
+<p>Claire’in geçmişte Lilia hakkında hiç de hoş olmayan şeyler söylediği doğruydu. Lilia’nın aynı şeyleri tekrar yaşayacak olmaktan çekinmesi gayet mantıklıydı.</p>
+<p><strong>“Claire’in nasıl biri olduğunu biliyorum, ama bize değer veriyor—biraz katı olsa bile,”</strong> dedim. <strong>“İstersen arkamda saklanabilirsin.”</strong></p>
+<p><strong>“Ah, kendim için değil,”</strong> dedi Lilia. Gözleri Roxy ve Lara’nın üzerindeydi.</p>
+<p>Evet, çocuklar. Roxy ve Lara’nın iblis kanı var. Sonra Norn var, o da bir iblisle evli. Üstüne benim üç karım olduğunu da ekleyelim. Öte yandan, Claire inançlı bir Millis üyesi ve demon karşıtı. Zamanında <strong>‘Görüşlerimi kendime saklayacağım,’</strong> demişti, ama üzerinden yıllar geçti. Böyle küçük bir sözü unutmak için birkaç yıl yeterli. Roxy’ye anlatmam gerekmedi gerçi. Aile toplantısında hiçbir sorun olmayacağını söylerken kendinden çok emindi.Lara ve Lily için biraz tatsız olabilir, ama onlara insanların yaşadığı yerlerde iblis kökenlilerin nasıl muamele gördüğünü öğretir diye düşünmüştü.</p>
+<p>Norn da Claire’in laflarına hazırlıklıydı. Benim tek endişem iblislerle ilgili falan değildi, Claire ona sert bir şey söylerse Lara’nın nasıl tepki vereceğiydi. Lara’nın muzırlıkları bazen korkutucu olabiliyor, kime dokunduğuna hiç bakmıyordu.</p>
+<p>Tam bu sırada Zenith, Lilia’nın elini sıktı. Hiçbir şey söylemedi ama bir şey demek istediği belliydi. Ben de Lara’nın omzuna dokunup sordum:<br>
+<strong>“Büyükannen ne diyor?”</strong><br>
+Lara, dünyadaki en sıkıcı soruyu sormuşum gibi bana bakıp, sonra Zenith’e baktı, tekrar bana döndü. <strong>“Büyük-büyükanne gereksiz yere çok endişelenir. Bir şey olmaz,”</strong> diyor.<br>
+<strong>“Sağ ol,”</strong> dedim.</p>
+<p>Bu sefer Lara gerçekten çevirmişti! Eğer Zenith <strong>“Bir şey olmaz,”</strong> diyorsa, büyük ihtimalle haklıdır.</p>
+<p style="text-align: center;"><strong>***</strong></p>
+<p>Eve vardığımızda ortam gayet samimiydi. Hizmetçiler yüzlerinde kocaman gülümsemelerle karşıladı bizi, uşak da gayet kibar davrandı. Önceden Millishion’a geldiğimdeki hallerine göre çok daha mutluydular—gerçi o zamanki beklenti de zaten yerlerdeydi. Eşyalarımızı teslim ettikten sonra bizi Claire’in beklediği odaya götürdüler.</p>
+<p>Claire bizi görünce, <strong>“Ne uzun bir yolculuğunuz olmuş,”</strong> dedi. Yerinden kalkmadı ama saygısızlık ettiğini söyleyemem. Neticede bu evin sahibi o.</p>
+<p>Ben de <strong>“Aslında artık neredeyse hiç zaman almıyor,”</strong> dedim.</p>
+<p>Claire “Ah, evet. Hâlâ aklım almıyor,” diyerek elini şakağına götürdü; resmen kendini tutuyor gibiydi. Muhtemelen ışınlanma büyü çemberlerini kendi malım gibi kullanmamla ilgili ufak bir iğneleme yapıyordu. Sonuçta ışınlanma büyüsü teknik olarak yasaktı.</p>
+<p><strong>“Ailemle sizi tanıştırayım,”</strong> dedim.</p>
+<p><strong>“Lütfen,”</strong> diye karşılık verdi Claire.</p>
+<p>Bütün aile fertlerini sıraya dizdim: çocuklar, üç eşim, bir de Norn ve Aisha. Aisha bugün hizmetçi kıyafeti yerine güzel bir elbise giymişti. Tanımayan biri onu ailenin en büyük kızı sanabilirdi. Lilia da hizmetçi kıyafetini giymemişti, ama Zenith’le birlikte başka bir odaya geçmişti bile.</p>
+<p><strong>“Mary,”</strong> diye seslendi Claire, yakındaki bir hizmetçiye.</p>
+<p><strong>“Evet, efendim.”</strong> Hizmetçi, Claire’e destek olmak için kolunu uzattı, ayağa kalkmasına yardım etti ve sonra ona bir baston verdi. Claire bastona iyice yüklenmişti, belli ki ayakta durmakta zorlanıyordu. Onu en son gördüğüm zamandaki o soylu duruşundan eser kalmamıştı. Bizi karşılamak için ayağa kalkmamasının sebebinin gurur değil, sağlık olduğunu o an anladım.</p>
+<p><strong>“İyi misiniz… rahatsız mısınız yoksa?”</strong> diye sordum.</p>
+<p><strong>“Yaşlandım,”</strong> dedi.</p>
+<p><strong>“Ama yine de ayakta duramayacak kadar yaşlı değilsinizdir…”</strong></p>
+<p>Evet, büyük-büyükanne olacak kadar yaşlıydı, ama sonuçta annemler beni genç yaşta dünyaya getirmiş, ben de çocuklarımı genç yaşta yapmıştım. Claire’in kaç yaşında olduğunu sormayacaktım tabii, ama Zenith kırk civarındaydı. Claire de en fazla altmış-yetmiş arasıdır herhalde.</p>
+<p><strong>“İsterseniz size bir panzehir veya iyileştirme büyüsü yapabilirim,”</strong> dedim.</p>
+<p><strong>“Hayır, teşekkür ederim. Eminim yetenekli bir büyücüsünüzdür, ama burası Millishion; ben de burada bir soyluyum.”</strong></p>
+<p>Yani, eğer iyileştirme büyüsü isterse, kolayca yaptırabilirdi. Ee, <strong>“İyiyim,”</strong> diyorsa da şüphe etmeme gerek yoktu ama onu böyle güçsüz görmek beni biraz endişelendirmişti doğrusu.</p>
+<p>Tam o sırada Claire <strong>“Benimle bu kadar oyalanacağınıza ailenizi tanıtmanızı tercih ederim,”</strong> diye lafa girdi, gayet net bir şekilde.</p>
+<p><strong>“Haklısınız, hemen.”</strong> Onun yönlendirmesiyle tanışma faslına geçtim. İlk önce Sylphie, Roxy ve Eris’i tanıttım.<br>
+<strong>“Bu Sylphie. İlk onunla evlendim, şu an evimizin işlerini çekip çeviriyor.”</strong></p>
+<p><strong>“Ben Sylphiette, memnun oldum,”</strong> dedi Sylphie. <strong>“Bizi evinizde misafir ettiğiniz için teşekkür ederim.”</strong></p>
+<p>İşte Sylphie bu şekildeydi. Basit bir selamlamayla bile ince bir nezaket sergileyebiliyor. Fittoa Bölgesi’nin taşrasından olduğunu kimse anlayamazdı.</p>
+<p><strong>“Bu da Roxy. Kendisi bir Migurd—yani iblis—görünüşte genç gibi dursa da aslında benden çok daha yaşlı. Büyü üniversitesinde hoca olarak çalışıyor.”</strong></p>
+<p><strong>“Memnun oldum,”</strong> dedi Roxy. <strong>“İblis kökenimle ilgili aklınızda bazı soru işaretleri olabilir, ama umarım iyi geçiniriz.”</strong></p>
+<p>Roxy kendini bir iblis olarak tanıttığında, Claire’ın kılı bile kıpırdamadı. Daha önce hiç karşılaşmamışlardı, ama Roxy’nin kimliği zaten gizli saklı değildi. Görünüşe göre en azından şimdilik Claire bu konudan bir kavga çıkarmayacaktı.</p>
+<p>Sonra dönüp <strong>“Ve bu da Eris,”</strong> dedim. <strong>“Kendisi Kılıç Tanrısı Stili’nde usta ve Asura’nın önemli soylu ailelerinden Boreas ailesinin şu anki liderinin küçük kız kardeşi.”</strong></p>
+<p>Eris hafif bir duraksamayla <strong>“Şey, merhaba. Tanıştığımıza memnun oldum,”</strong> dedi. Normalde Asura’daki partilerde daha doğal davranabiliyordu ama büyükannemle ilk kez karşılaşınca biraz gerilmiş gibiydi.</p>
+<p>Claire ise… hiçbir şey söylemedi! Evliliklerimle ilgili iğneleyici bir yorum bile yapmadı. Şimdilik sorun yok gibi görünüyordu. Sırada çocuklar vardı.</p>
+<p><strong>“Bu da en büyük kızım Lucie,”</strong> dedim.<br>
+<strong>“Ben Lucie Greyrat!”</strong> dedi Lucie, hafifçe reverans yaparak. <strong>“Sizinle ilk kez tanışmak büyük bir onur, Büyük-Büyükanne! Sizinle kalmayı dört gözle bekliyorum!”</strong></p>
+<p>Claire, az da olsa gülümsedi. Torunlarına karşı sert davranmıştı ama büyük-torunları söz konusu olunca daha yumuşak görünüyordu.</p>
+<p><strong>“Bu da sıradaki kızım Lara,”</strong> dedim.<br>
+<strong>“Merhaba,”</strong> dedi Lara, sanki sıkılmış ve başka bir yerde olmak istiyormuş gibi bir tonla. Claire’ın kaşları hafifçe çatıldı. Anlaşılan, Claire’ın yumuşak tarafı her büyük-toruna karşı geçerli değildi.</p>
+<p><strong>“Sırada en büyük oğlum Arus var.”</strong><br>
+<strong>“Ben Arus, neredeyse sekiz yaşındayım! Tanıştığımıza memnun oldum!”</strong></p>
+<p>Sonuç olarak, surat asan tek kişi Lara’ydı. Sieg, Lily ve Chris sıkıntısız tanıtıldı. Nezaket kurallarına uydukları için, Claire geri kalanına kaşlarını çatmadı.</p>
+<p><strong>“Hadi siz de merhaba deyin,”</strong> dedim ve Norn ile Aisha’yı öne çağırdım. İkisi de zarifçe başlarını eğdiler—sadece Aisha değil, Norn da gayet kibar davrandı.<br>
+<strong>“Uzun zaman oldu, Büyük-Büyükanne,”</strong> dedi Norn. <strong>“Artık Norn Superdia olarak anılıyorum.”</strong><br>
+<strong>“Bize ev sahipliği yaptığınız için teşekkür ederiz,”</strong> diye ekledi Aisha. Görgü kuralları açısından mükemmel bir performanstı.</p>
+<p>Claire, bastonuna yaslanarak çenesini kaldırdı ve <strong>“Evet, gerçekten uzun zaman oldu”</strong> dedi. Hepsi bu kadardı. Norn’un evliliğiyle ilgili hiçbir şey sormadı. Belki bunun uygun bir an olmadığını düşünüp saygılı davranmak istemişti. Herkes uslu uslu davrandığı için sorunsuz başladık diyebilirim. Güzel, güzel! Gerçi… ah, Lara burnunu karıştırıyor. Onunla sonra konuşurum artık.</p>
+<p>Sonra aileye dönüp, <strong>“Bu da büyükannenizin annesi Claire Latria, yani sizin büyük-büyükanneniz. Önümüzdeki on gün boyunca burada kalacağız, o yüzden lütfen saygılı olun,”</strong> dedim.<br>
+Claire zarif bir şekilde eğildi. Her zamanki gibi çok etkileyici görgü kuralları vardı. Umarım çocuklar da ondan bir şeyler kapar.</p>
+<p><strong>“Hepiniz hoş geldiniz. Uzakta olan kocam adına, evimize geldiğiniz için teşekkür ederim. Hizmetçilerle uşağımız daima emrinize amade. Burada kültürel farklar yüzünden bazen kafanız karışabilir ya da rahatsız olabilirsiniz ama bu evi kendi eviniz gibi görmenizi istiyorum.”</strong></p>
+<p><strong>“İlginiz için çok müteşekkiriz. Hadi, herkes teşekkür etsin.”</strong></p>
+<p><strong>“Teşekkür ederiz! Burada kalmayı dört gözle bekliyoruz!”</strong> diye çocuklar hep bir ağızdan eğilerek karşılık verdiler.</p>
+<p>Claire büyük bir asaletle yerine oturdu. Neyse, bu tanışma faslını kazasız belasız atlattık. Ailenin Millishion tatili artık başlayabilirdi.</p>
+<p>Tam odadan çıkacakken Claire beni durdurdu.</p>
+<p><strong>“Rudeus, biraz kalır mısın? Seninle konuşmak istiyorum, eğer sakıncası yoksa.”</strong></p>
+<p>Claire beni odada tuttu. Bakışlarından pek bir şey anlamamıştım, ama öfkeli falan görünmüyordu.</p>
+<p><strong>“Otur.”</strong></p>
+<p><strong>“Teşekkür ederim,”</strong> dedim ve denileni yaparak onun karşısına oturdum. Sanki koltuğun üzerinde gizli bir düğme varmış gibi bir anda önümde bir fincan çay belirdi. Aileme çay ikram etmemesine içerleyebilirdim ama sonuçta onları çağıran ben değildim. Hem yeterli sandalye de yoktu zaten.</p>
+<p><strong>“Gerilme. Seni azarlayacak değilim.”</strong> Claire, ne düşündüğümü resmen okudu. Son seferde yaşananları düşününce, biraz temkinli olmama hoşgörü göstereceğini umuyordum.</p>
+<p><strong>“Ne hakkında konuşmak istedin?”</strong> diye sordum.<br>
+<strong>“Sohbet ederiz diye düşündüm.”</strong></p>
+<p>Çayı masum bir ifadeyle yudumluyordu. Gayet zarifti. Görünüşe bakılırsa çay içmenin bile bir adabı vardı. Ben de onu taklit ederek fincanımı kaldırdım. <em>Hımm, kaliteli çay yaprakları.</em></p>
+<p><strong>“Çaydan bahsetmişken,”</strong> dedim, <strong>“Aisha son zamanlarda çay ağaçları yetiştirmeye başladı. Sizin için topladığı yapraklardan bir paket getirdim, denemek istersiniz diye.”</strong><br>
+<strong>“Yarın demleriz.”</strong><br>
+<strong>“Umarım beğenirsiniz.”</strong></p>
+<p>Aisha her birkaç yılda bir yeni bir şey yetiştirmeye merak sarar. Bir ara da yemeklerinde kullanmak için bitki ya da ot benzeri bir şeyler ekiyordu ama sonra vazgeçti. Niye bırakmıştı ki? Ha, evet, Chris alerjik gibi görünüyordu. O otların kokusu arttığında burnu akmaya başlıyordu. Alerjinin belirtilerini bir panzehirle hafifletebilirsiniz ama alerjinin kendisini yok edemiyorsunuz maalesef.</p>
+<p><strong>“Aisha hâlâ evlilikle ilgili bir şey düşünmüyor mu?”</strong> diye sordu Claire.<br>
+<strong>“Şimdilik pek öyle durmuyor.”</strong> dedim.</p>
+<p><strong>“Norn’un evlendiğini duydum.”</strong><br>
+<strong>“Evet, doğru.”</strong></p>
+<p><strong>“Peki, kocası nasıl biri?”</strong></p>
+<p>Ben her şey oldu bitti sanıyordum ama konuya girmeden kaçamadık işte. Neyse, en azından Norn yerine bana sorduğu için sevindim.</p>
+<p><strong>“Kendisi bir iblis,”</strong> diye yanıtladım. Mektupta zaten yazmıştım, o yüzden lafı dolandırmanın pek anlamı yoktu.</p>
+<p><strong>“Biliyorum. Ziyaretimize gelmediğine göre, nasıl biri olduğunu merak ediyorum.”</strong></p>
+<p>Hıh, demek derdi buydu. Yeni evlenmiş bir adam karısını tek başına gönderince Claire neden gelmediğini merak ediyor tabii.</p>
+<p><strong>“Henüz küçük bir çocukları var, o yüzden evde kalıp onunla ilgilenmek istedi. Ama Norn’un en azından büyükannesiyle görüşmeye gelmesini de istedi. Sana ya da Latria ailesine saygısızlık etmek gibi bir niyeti yoktu…”</strong> diye açıklamaya çalıştım.</p>
+<p>Claire kaşlarını çattı.<br>
+<strong>“Ben ‘Nasıl biri?’ diye sordum, ‘Niye gelmedi?’ değil.”</strong></p>
+<p><strong>“Ha? Ah, şey, tabii ki güvenilir biri. Mektubumda yazmıştım sanırım. Zayıfların dostu, kötülüğün düşmanı, düzgün bir adam. Halkı, insanlardan farklı bir aile ve statü anlayışına sahip ama bir zamanlar büyük bir ordunun seçkin muhafız birliğine kaptanlık yapmış, kendi halkı arasında önemli bir konumu var. Ha, bir de Üç Tanrı Katilinden biri olan Ejderha Kralı Perugius ona hayran. Ayrıca—”</strong></p>
+<p><strong>“Yeter,”</strong> dedi Claire, beni lafın ortasında kesti ve keskin bir bakış attı.<br>
+<em>Bir şeyi mi yanlış söyledim acaba?</em></p>
+<p><strong>“Şu an ki anlattıklarına göre, Norn’u güvenilir birine verdiğini anladım. Evlilikle ilgili başka ne düşünürsem düşüneyim, söyleyecek başka bir şeyim yok,”</strong> diye devam etti.<br>
+<strong>“Böyle demene sevindim,”</strong> dedim.<br>
+<strong>“Minnettarlığına gerek yok. İşlerinize karışmayacağıma dair sana söz vermiştim.”</strong><br>
+<strong>“Hatırlıyor musun hâlâ?”</strong><br>
+<strong>“Tabii ki. Belim kötü, aklım değil.”</strong></p>
+<p>İçim rahatlamıştı. Peki niye sordu bu soruları? Muhtemelen öylesine sohbet ediyordu.</p>
+<p><strong>“Eşin Roxy çok ufak tefek, değil mi?”</strong><br>
+<strong>“Migurd ırkından olduğu için. Göründüğünden daha büyük aslında. Ama sakın yüzüne karşı ufak falan deme, çok alınıyor.”</strong></p>
+<p><strong>“Anlıyorum. Ben Latria ailesinin hanımefendisiyim. Dili biraz keskin biri olabilirim ama insanların yüzlerine karşı görünüşleri hakkında yorum yapmam.”</strong><br>
+Yarı şaka yapıyordum aslında, ama Claire gayet ciddiydi.<br>
+<strong>“Ayrıca, geçmişimizi de düşününce, iblisler, canavar halkı ve benzerleri hakkında elimden geldiğince bilgi edinmeye çalışıyorum.”</strong></p>
+<p><strong>“Bence çok iyi yapıyorsun! Sevip sevmemek ayrı mesele, ama önce anlamaya çalışmak önemli,”</strong> dedim. Bazı durumlarda insanlar, sırf anlamadıkları için başkalarından nefret ediyordu. Bilmediğimiz şeyleri küçümseriz ya hani—mesela hiç tadına bakmadığımız bir yemeği direk sevmediğimize karar vermek gibi.</p>
+<p><strong>“Şu Lara ise biraz sıkıntılı, değil mi?”</strong><br>
+<strong>“Yani, evet,”</strong> diye itiraf ettim.</p>
+<p><strong>“Annesinin tarafı falan demiyorum. İlk defa tanıştığı insanlarla konuşma şekli hiç uygun değil, ondan bahsediyorum.”</strong></p>
+<p><strong>“Bunun için özür dilerim. Ona en azından insanlara nasıl düzgün selam vereceğini öğretmem lazım ama son zamanlarda beni pek dinlemiyor…”</strong></p>
+<p><strong>“Karışmak gibi olmasın,”</strong> dedi Claire, <strong>“ama çocuklara bazen biraz sert davranmak gerekebiliyor.”</strong></p>
+<p>O belirsiz ifade biçiminin altında, Claire aslında “Lara kendi çocuğum olsaydı fiziksel disiplinle terbiye ederdim” demek istiyor gibiydi. Doğru zamanlarda o yöntem iş görebiliyor tabii, ama Lara da akıllı kızdı; Eris’ten bir şaplak yiyeceği noktayı tam kestirip onu aşmamaya çalışıyordu. Dışarıdan bakınca biraz vahşi görünse de tam olarak nerede durması gerektiğini biliyordu.</p>
+<p><strong>“Bu şekilde davranman gerektiğini en iyi sen biliyorsundur.”</strong><br>
+<strong>“Geleceği için.”</strong><br>
+<strong>“Aynen öyle. İlk selamlaşma biçimi insanların seni nasıl göreceğini belirler. Başlangıçta doğru düzgün bir saygı göstermezsen, ileride başın belaya girebilir. Biz soylular da bu yüzden görgü kurallarını öğreniriz.”</strong></p>
+<p>Eyvah, bu iş azar kıvamına doğru gidiyordu. Yine de Claire bu konuyu anlatmaktan memnundu sanki.</p>
+<p><strong>“Şunu da ekleyeyim, iblis olsun olmasın, Roxy gayet düzgün davranıyor ve bulunduğu konuma yakışır biçimde hareket ediyor.”</strong><br>
+<strong>“Gerçekten mi?”</strong><br>
+<strong>“Kesinlikle. İlk eşin Sylphie’ye karşı her zaman hafifçe geride durarak doğru olanı yapmış, ayrıca o kibar konuşma tarzı da harikaydı. Yerini biliyor.”</strong></p>
+<p>Ah, yok artık, ne münasebet. İlk eş, ikinci eş gibi bir hiyerarşi varmış gibi göstermek istememiştim—dur bir saniye, hayır yani. Roxy bunu bilerek yapıyordu, öyle daha az sorun çıkar diye düşünüyormuş.</p>
+<p><strong>“Eris’e gelince… sonuçta savaşçı. Yapacak bir şey yok herhalde.”</strong></p>
+<p><strong>“Böyle düşünmene sevindim.”</strong></p>
+<p>Claire sanki biraz daha dırdır etmek istiyor gibiydi. Umarım Eris’e çok yüklenmez. Eris de kendince çabalıyor zaten.</p>
+<p><strong>“Neyse, Rudeus,”</strong> dedi Claire.<br>
+<strong>“Efendim?”</strong><br>
+<strong>“Teşekkür ederim. Onları bana getirdiğin için.”</strong><br>
+Sonra başını hafifçe eğdi.</p>
+<p>Norn, Aisha, Roxy veya başka birinin ismini vererek söylememişti bunu. Herkesi kastettiğini anlamıştım. Biraz fazla tedirgin davrandığımı da o an fark etmiştim. Sonuçta bildiğin normal bir babaanne ziyaretine gelmişiz gibi davranabilirdik: Millis’te aile tatilimize.</p>
+            
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum1parca4.html" class="nav-btn">←Önceki Bölüm</a>
+            <a href="bolum2parca2.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

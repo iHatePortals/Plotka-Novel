@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei Cilt 1, Bölüm 2,2 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #cc0000;
+            --border-color: #e5e7eb;
+        }
+
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c1b1b;
+            --border-color: #d8c8b4;
+        }
+
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        body.theme-light .nav-btn:hover,
+        body.theme-light .action-btn:hover,
+        body.theme-light .theme-select:hover,
+        body.theme-sepia .nav-btn:hover,
+        body.theme-sepia .action-btn:hover,
+        body.theme-sepia .theme-select:hover {
+            color: #ffffff;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+        }
+
+        .novel-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 30px auto;
+            border-radius: 6px;
+        }
+
+        .section-break {
+            text-align: center;
+            margin: 30px 0;
+            color: var(--accent-color);
+            letter-spacing: 4px;
+        }
+
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <div class="controls">
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="bolum2parca1.html" class="nav-btn">←önceki Bölüm</a>
+            </div>
+
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <div class="nav-right">
+                <a href="bolum2parca3.html" class="nav-btn">Sonraki Bölüm →</a>
+            </div>
+        </div>
+
+        <header>
+            <h1>Mushoku Tensei Cilt 1, Bölüm 2,2</h1>
+            <div class="subtitle">"Lucie ve Babası / Lucie'nin Okulda İlk Günü (Kısım 2)"</div>
+        </header>
+
+        <main class="novel-text" id="text-content">
+<img src="bolum2foto1.png" alt="Bölüm 2 Çizimi 1" class="novel-image">
+            <p>Mümkün olduğunca yan yolları kullanmaya çalışıyordum. Ama buna rağmen, üzerimdeki kılık dikkat çekiyor gibi hissediyordum.</p>
+            <p>Tabii bu sadece benim kafamda kurduğum bir şeydi. Genel olarak insanlar başka insanlara çok dikkat etmezdi—tabii eğer Orsted gibi görünmüyorsanız.</p>
+            <p>Çünkü ciddi anlamda birkaç bakış üstüme çekiyordum. Bu da normaldi aslında.</p>
+            <p>Orsted, bu kasabanın kenarına ofislerini açalı biraz zaman geçmişti. Onu pek fazla kişi görmese de, neye benzediği hakkında genel bir fikirleri vardı.</p>
+            <p>Onlara göre bu siyah miğferi ve beyaz pelerini giyen biri ancak Orsted olabilirdi. Gerçi lanet üzerimde olmadığı için belki de “onun” hakkında iyi bir izlenim bırakıyordum.</p>
+            <p>*Eğer durum böyleyse, ana caddeyi denesem mi acaba? Orsted’in imajını iyileştirmek için iyi işler yapabilirdim, tıpkı Son Ölüm zamanında yaptığım gibi.</p>
+            <p>Üstelik ana cadde okula da daha yakındı.*</p>
+            <p>“Tamam, yapalım şunu,” dedim kendi kendime. Bu tam anlamıyla bir taşla iki kuş olurdu.</p>
+            <p>Orsted’in itibarı yükselirse bu bana da yarardı. Hatta aklıma bir fikir bile geldi: “Ejderha Tanrısı Festivali” düzenlemeyi önersem mi?</p>
+            <p>Herkes beyaz pelerinler ve miğferlerle giyinir, sabaha kadar eğlenirdi. Bu fikirle kafam doluyken ana caddeye doğru ilerledim.</p>
+            <p>“Ne?!” Ani bir hareketle gölgeye çekildim.</p>
+            <p>Ana caddede çok iyi tanıdığım bir kızıl kafa belirmişti. Yanında büyük, beyaz bir köpek vardı ve sırtında iki çocuk taşıyordu.</p>
+            <p>Eris ve Leo. Leo’nun sırtında oturanlar Lara ve Arus’tu.</p>
+            <p>*Leo, seni hain köpek. Benimle yürüyüşe çıkmaya mızmızlanıp şimdi Eris’le dışarıdasın, ha?* Neyse, tamam.</p>
+            <p>Benimki farklı bir durumdu. Ben tamamen kendi çıkarlarım için sahte bir yürüyüş numarası yapıyordum ama Eris ve Leo devriye atıyorlardı, gerçekten yürüyüş yapıyorlardı.</p>
+            <p>Ama işte ben köşeye sıkışmıştım. Eris’e burada rastlamayı hiç beklememiştim.</p>
+            <p>Belki de bu işte onunla iş birliği yapabilirdim? Hmm.</p>
+            <p>Ama bu kıyafeti nasıl açıklayacaktım ki? Aniden kılıcını çekmezdi herhalde, değil mi?</p>
+            <p>Üstelik çocukları da düşünmem gerekiyordu. Sonuçta açıkça yanlış bir şey yapıyordum—Sylphie’ye verdiğim sözü çiğniyordum.</p>
+            <p>Beni bu hâlde görmelerine izin mi vermeliydim? Kesinlikle hayır.</p>
+            <p>*Bu hiç iyi değildi. Sonuçta kılık değiştirmiştim.</p>
+            <p>Belki en iyisi eve geri dönmekti… Bu kadar gelmişken böyle düşünmek biraz saçma ama ya eve dönüp Lucie’yi beklesem?*</p>
+            <p>Hmmmm. Ama Lucie’yi büyük gününde görmek istiyordum.</p>
+            <p>Bu bencillikti, biliyordum. Sylphie’nin dediği gibi değildi aslında.</p>
+            <p>Lucie’ye güvenmediğim için burada değildim. Gölgelerden yardım etmek için de gelmemiştim.</p>
+            <p>*Yemin ederim ki hiçbir şekilde müdahale etmeyeceğim. Hatta Lucie ağlayacak gibi görünse bile.* O evine döndüğünde, olanları ondan dinleyecektim.</p>
+            <p>İşte o zaman ona yardım eder, tavsiye verirdim. *Anladın mı, Rudeus?</p>
+            <p>İşte sınır bu. Bu çizgiyi aşarsan, Sylphie’ye verdiğin sözü bozmuş olursun.* Bu kuralı Sylphie’ye danışmadan kafamdan uydurmuştum ama ona sadık kaldığım sürece yanlış bir şey yapmış sayılmazdım.</p>
+            <p>Tabii, bu iş bittiğinde Sylphie ile konuşup ondan özür dileyecektim. “Lucie’yi sınıfta görme isteğim o kadar ağır bastı ki dayanamadım,” diyecektim.</p>
+            <p>“Kendimi tutamadım,” diyecektim. *Anladın mı?</p>
+            <p>Buna katlanabilirsin, değil mi? Azarı kabullenirsin, değil mi?* *Elbette kabullenirim!* *Tamam o zaman!</p>
+            <p>Aferin sana, Rudeus!* “Hav! Hav!”</p>
+            <p>Tüh. Görünüşe bakılırsa Leo beni fark etmişti.</p>
+            <p>Burnu seğiriyordu ve olduğu yerden benim tarafa doğru bakıyordu. “Ne oldu oğlum?</p>
+            <p>Neyin var?” Eris de fark edecekti birazdan.</p>
+            <p>Beni bulmaları çok da büyük bir mesele değildi aslında, ama bu hâlde neden böyle giyindiğimi açıklamak uzun sürebilirdi. Zaman kaybetmek istemiyordum, o yüzden kestirmeden gitmeliydim.</p>
+            <p>“Hey, oradaki! Çık ortaya!”</p>
+            <p>Ama iş işten geçmişti. Eris beni fark etmişti bile.</p>
+            <p>İşte dikkat çekince böyle oluyordu… Şimdi ne yapacaktım?</p>
+            <p>Ortaya çıkmalı mıydım, yoksa saklanmaya devam mı etmeliydim? Peki ya ortaya çıkarsam, ne söyleyecektim?</p>
+            <p>Ama bir dakika. Hm.</p>
+            <p>Hâlâ uzaktalardı. Bu mesafeden gizliliğimi koruyabilirdim belki.</p>
+            <p>Gölgelerden yarı yarıya çıktım. Eris, elini belindeki kılıca götürmüş, Leo ise kuyruğunu sallıyordu.</p>
+            <p>O sırada, Leo’nun sırtında oturan iki kişiyle—Lara ve Lara’nın kollarıyla sarılmış şekilde oturan Arus’la—göz göze geldim. İkisi de şaşkın bakışlarla bana bakıyordu.</p>
+            <p>“Orsted…?” Eris şüpheli bir ifadeyle kılıcını bıraktı.</p>
+            <p>Ben de arkamı dönüp yürümeye başladım, gayet rahat bir tavırla. Sanki tesadüfen birbirimize rastlamışız gibi davrandım.</p>
+            <p>“Bir dakika!” diye seslendi Eris bir an sonra.</p>
+            <p>“Tch…!” Oyun bitti mi yoksa?</p>
+            <p>Eris bir Kılıç Kralı’ydı; Orsted olmadığımı tek bakışta anlayabilirdi, değil mi? Daha durmadan Eris, “Yok ya, hayal gördüm herhâlde.</p>
+            <p>Hadi, Leo,” dedi. Geri döndü ve yürümeye başladı.</p>
+            <p>Leo bir an benim tarafa baktı ama peşimden gelmedi. Her şey plana uygundu.</p>
+            <p>Lara ve Arus’la tekrar göz göze geldim. Lara hayallere dalmış gibi bakıyordu, Arus ise ağzı açık şekilde bana bakıyordu.</p>
+            <p>Beni uğurluyor gibiydiler. Okula vardım.</p>
+            <p>Ana kapıyı kullanmaktan kaçındım, bunun yerine bir duvarı tırmanarak içeri sızdım ve sınıflara doğru yöneldim. Birkaç yıl boyunca burada derslere katılmıştım, bu yüzden birinci sınıfların sınıfının nerede olduğunu gayet iyi biliyordum.</p>
+            <p>Derste olmayan ya da güneşli havada dışarıda ders işleyen öğrencilerin gözünden uzak durarak oraya doğru ilerledim. *Bu yer hiç değişmemiş.*</p>
+            <p>Birkaç yıl geçmişti sadece, ama zamanın akışı üzerime ağırlığını hissettirmişti. Çoğu öğrenciyi tanımıyordum.</p>
+            <p>Eskisine göre daha fazla elf, canavar insanı, cüce ve benzeri türlerden öğrenciler vardı. Epeyce iblis ırkından öğrenci de gözüme çarptı.</p>
+            <p>Bir akşam yemeğinde Roxy bana, elf ve cüce liderleriyle bağlantıları olan öğrencilerin öğrenci konseyi içinde yer aldığını söylemişti. İnsan dışı ırkların seslerinin ve konumlarının güçlenmesiyle, dünyanın dört bir yanından gelen diğer ırklardan öğrencilerin sayısı artmıştı.</p>
+            <p>Ariel öğrenci konseyi başkanıyken okul hiç böyle bir yer değildi. Sayıları artsa da diğer ırklar gayet iyi anlaşıyordu.</p>
+            <p>Bu büyük ihtimalle Norn’un öğrenci konseyi başkanı olarak bıraktığı bir mirastı—ırklar arası ayrımcılığa asla göz yummazdı. Okulun kültürüne damgasını vurmuştu.</p>
+            <p>Büyü Ulusları’ndan bazı soylular buna burun kıvırıyormuş, ama şahsen ben gururluydum. Düşüncelere dalmış bir hâlde koridor boyunca yürüdüm.</p>
+            <p>Derken tam köşeyi dönecekken… “Hm?”</p>
+            <p>“Aah.” Köşeyi dönen biriyle çarpıştım.</p>
+            <p>Yanında beş öğrenci vardı ya da daha doğrusu, bu beş öğrenci ona yapışmış gibiydi. “Yapışmış” demek biraz kaba olur, ama asıl mesele şu: Bu kişi popülerdi.</p>
+            <p>Ellerinde not defterleri olduğuna göre, belli ki derste anlamadıkları bir şeyleri tartışıyorlardı. Çok takdire şayan bir durum.</p>
+            <p>Ne öğrenmek istiyorlarsa, bu kişi cevaplara sahipti. Onun dudaklarından dökülen her kelime gerçeği yansıtıyordu.</p>
+            <p>Yani, tamam, bazen hata yapabiliyordu, ama o hatalar bile gerçeğin bir parçasıydı. *Hepiniz kutsal bir vahiy alıyorsunuz.</p>
+            <p>Onun sözleri bu tür bir güç barındırıyor. Dinleyin, ey öğrenciler.</p>
+            <p>Sadakatle kulak verin, anlamlarını dikkatle düşünün ve hayatınıza uygulayın. Ey öğrenciler, şu anda gerçekten kutsanıyorsunuz.* “Orsted…?”</p>
+            <p>Nihayet konuştu. Uykulu gözleri şüpheyle daraldı, ardından bana doğru kaldırıldı.</p>
+            <p>Birkaç saniye geçti ve sonra gözleri birden açıldı. “Hayır, Rudy?</p>
+            <p>Rudy, sensin, değil mi? Sen!”</p>
+            <p>Roxy’den bir şey saklamak imkânsızdı. Keskin bakışları her zaman gerçeği bulurdu.</p>
+            <p>“Nasıl… anladın?”</p>
+            <p>diye sordum. Aptaldım ve bunu bilmem gerekiyordu.</p>
+            <p>Anladım, tamam mı? Roxy inanılmazdı.</p>
+            <p>Bazen, gerçeğe ulaşmak için bir yolculuk yapmasına gerek kalmadan, doğrudan varıyordu. “Orsted taklidi yapmaya cesaret edecek tek kişi sensin, Rudy.”</p>
+            <p>Eh, haksız da sayılmazdı. “Peki, Bay Orsted bundan haberdar mı?”</p>
+            <p>“Şey, evet. Aslında, Bay Orsted’in önerisiydi,” dedim.</p>
+            <p>“Gerçekten mi…? O zaman iyi bir sebebi olmalı, değil mi?”</p>
+            <p>Roxy gözlerini kısarak bana baktı. Görünüşe göre, beni tam da istediğim şekilde yanlış anlamıştı.</p>
+            <p>Hmm. Şimdi Roxy’yi mi kandıracaktım?</p>
+            <p>Anlık bir bencillik için ona yalan mı söyleyecektim? Bununla yaşayabilir miydim?</p>
+            <p>Rudeus, nasıl yapabilirsin ki bunu? “Hayır, pek de iyi bir sebep değil.”</p>
+            <p>Roxy’ye asla yalan söyleyemezdim. Yani, hayat kurtarmak için yapardım belki, ama bu farklıydı.</p>
+            <p>Burada yalan söylersem, gelecekteki yirmi yıl sonraki ben geçmişe gelir, bana bir Taş Mermisi atardı. Ya da sıvıya dönüşüp benliğimi kaybederdim.</p>
+            <p>“O zaman neden böyle giyindin?” diye sordu Roxy.</p>
+            <p>“Şey… şey…</p>
+            <p>Lucie’yi görmek istedim…” dedim kekeleyerek.</p>
+            <p>“Lucie mi?” Roxy, kısa bir duraksamadan sonra tekrarladı.</p>
+            <p>“Ama Sylphie’ye söz vermiştin, değil mi?” “Lucie’ye arkadan yardım etmeye ya da aşırı korumacı bir ebeveyn olmaya çalışmıyorum.</p>
+            <p>Sadece… şey, işte, Lucie’nin derslerde nasıl olduğunu görmek istedim…”</p>
+            <p>diye mırıldandım. Roxy yukarı baktı ve yüzü biraz azarlayıcı bir ifade aldı.</p>
+            <p>Çevremizdeki öğrenciler, bu iki yetişkin arasındaki durumu anlamaya çalışır gibi bakıyordu. *Affet beni, affet beni.* Nihayet, Roxy’nin bakışı yumuşadı ve şöyle dedi: “Pekâlâ.</p>
+            <p>Sadece izleyeceğine ve hiçbir şekilde yardım etmeyeceğine eminsen, seni görmemiş gibi davranacağım. Orsted’in üniversiteyi denetlemeye geldiğini söyleriz.”</p>
+            <p>“Hocam…!” dedim nefesimi tutarak.</p>
+            <p>“Sadece bu seferlik, tamam mı?” “Elbette.</p>
+            <p>Eve gider gitmez Sylphie’den de özür dileyeceğim.” “Çok iyi.”</p>
+            <p>*Tanrı beni affetmişti.* Roxy’ye borçlanmıştım. Bu günden itibaren her gün beş vakit yüzümü Roxy’ye dönüp derin bir saygıyla eğilecektim.</p>
+            <p>“Şimdi, bir sonraki ders başlamadan önce bu öğrencilerin sorularını yanıtlamam gerekiyor, o yüzden… Bu arada Rudy, Lucie’nin sınıfının nerede olduğunu biliyor musun?”</p>
+            <p>“Elbette biliyorum.” “Tamam o zaman.”</p>
+            <p>Roxy, elimi hızlıca sıktı ve ardından koridorda yürüyerek uzaklaştı. Öğrenciler peşinden koşarken, “Bu kimdi?!”</p>
+            <p>diye soruyorlardı. Ona bayılmışlardı.</p>
+            <p>Tabii ki bayılmışlardı. O benim hocamdı.</p>
+            <p>“Tamam,” dedim kendi kendime, tekrar motivasyonumu toparlayarak. Ve koridor boyunca ilerlemeye koyuldum.</p>
+            <p>**\*\*\*** Sınıfa geldim. Koridordan içeri bakmaya çalıştım, ama bu kötü bir fikir gibi geldi.</p>
+            <p>Bunun yerine dışarıdan dolanmayı seçtim. Sonuçta Orsted’in sınıfları gözetlediği dedikodusu yayılırsa, şirketin itibarı zarar görebilirdi.</p>
+            <p>Hızlıca düşündüm ve sınıf penceresinin yanına, çevredeki kimsenin beni görmemesi için bir paravan yaptım. Sonra, pencerenin ardından…</p>
+            <p>“Dur bir dakika. Ya sınıfı gözlemlemek için gidip buna bir teftiş desem?”</p>
+            <p>Roxy bu konuda bana yeşil ışık yakmıştı. Sadece gidip açıklama yapsam, mesela Jenius gibi birine, bunu resmi bir şeymiş gibi gösterebilirdi.</p>
+            <p>Yanlış bir hesap yapmışım. Neyse, şimdilik Lucie’yi görmek bile yeterdi.</p>
+            <p>Uzak Görüş Gözü’mü açtım ve pencerenin ardından baktım. Sınıf sıraları düzenli bir şekilde dizilmişti ve sıralarda birinci sınıf öğrencileri oturuyordu.</p>
+            <p>Çoğu on beş yaşından büyük yetişkinlerdi. Aralarında on yaş civarında görünen birkaç çocuk da vardı.</p>
+            <p>Yedi yaşında olan neredeyse yoktu. Küçük görünenler muhtemelen cüceydi.</p>
+            <p>İnsanlar dışında, iblisler, elfler, cüceler ve hayvan insanlar vardı. Bazıları nazik, bazıları huzurlu, bazıları ise ukala görünüyordu.</p>
+            <p>Çeşit boldu. Sınıfın arka tarafında oturanların yüzleri sertti; muhtemelen eski maceracılardı.</p>
+            <p>Lucie onlarla bir sorun yaşarsa ona bulaşmazlar, değil mi? Hayır, yedi yaşındaki bir çocuğa bulaşacak kadar alçalmazlardı.</p>
+            <p>Lucie nerede…? Aha, işte orada, en önde oturuyordu.</p>
+            <p>İşte benim kızım. Masası o kadar büyüktü ki önünü görmekte zorlanıyor gibiydi.</p>
+            <p>Bu bir sorundu. Belki yarın ona bir minder getirmek iyi bir fikir olabilirdi.</p>
+            <p>Yanında on yaşlarında görünen bir kız oturuyordu. Cüce mi?</p>
+            <p>Yok, insan gibi görünüyordu. Saçının şekline bakılırsa, muhtemelen bir soylu.</p>
+            <p>Ara sıra Lucie’ye bir şeyler söylüyor, sonra büyü kitabına dönüyordu. Not alma alışkanlığı olmadığı belliydi.</p>
+            <p>Ciddi bir ifadeyle Lucie, büyü kitabını işaret ederek bir şeyler söylüyordu. Fısıldadığı için ne dediğini duyamadım.</p>
+            <p>Belki ona bir şeyler öğretiyordu. Kendi yaşında bir arkadaş mı edinmişti?</p>
+            <p>Yoksa ortama şimdiden mi alışmıştı? Belki de derslerin ilk günü olduğu için öğretmen henüz ciddi bir şey öğretmiyordu.</p>
+            <p>Kara tahtadakilere bakılırsa, en temel büyülerden başlıyorlardı. Lucie bunları yıllar önce geçmişti, o yüzden onun için kolay olmalıydı.</p>
+            <p>“Öğretmenim!” Tam o sırada, Lucie elini kaldırdı.</p>
+            <p>“Evet?”</p>
+            <img src="bolum2foto3.png" alt="Bölüm 2 Çizimi 3" class="novel-image">
+            <p>“Çocukken büyü ne kadar çok kullanılırsa, mana kapasitesinin arttığını duymuştum. O yüzden söylediklerinizin yanlış olduğunu düşünüyorum!”</p>
+            <p>Lucie’nin üniversitede öğrendikleriyle Sylphie ve Roxy’nin ona öğrettikleri pek uyuşmuyordu. Lucie, bazen böyle şeyleri dile getirmemek daha iyidir.</p>
+            <p>Çoğu öğretmen, kendisine yanlışının söylenmesinden pek memnun olmaz. “Adın ne senin?”</p>
+            <p>diye sordu öğretmen. “Ben Lucie.</p>
+            <p>Lucie Greyrat.” “Greyrat mı…?</p>
+            <p>O zaman Bayan Roxy ile yaşıyorsun?” “Evet, öyle!”</p>
+            <p>“Ahah, yine de demek ki pek eğitim almışsın!” Öğretmenin gözleri parladı.</p>
+            <p>Amann, benim Roxy’me saygısızlık etmeye mi kalkışıyor. Kim bir çocuğun önünde onun ailesine laf söylemeye cüret edebilir ki?</p>
+            <p>Bugün kendimi tutmaya karar vermiştim ama yarın işler değişebilir. *O öğretmene yarın ara sokaklarda dolaşmamasını tavsiye ederim.* “Doğrudur, böyle bir teori bazı kişilerce savunuluyor ve belki bu durum anneniz ve babanız için geçerliydi.</p>
+            <p>Hatta Bayan Juliet için de doğru olabilir. Ancak, bu teorinin doğruluğu henüz netleşmiş değil.</p>
+            <p>Anneniz, babanız ve Bayan Juliet özel kişiler olabilir. Bu, iblisler ve hayvan insanlar için geçerli olmayabilir.</p>
+            <p>Belki de babanız ve Bayan Roxy bir şeyi yanlış anlamıştır. Yeterli test yapılmamış ve ben bu araştırmalara dahil olmadım.</p>
+            <p>Bu yüzden, mana kapasitesinin hayat boyu aynı kaldığını öğretiyorum. Bu, benim için hep böyleydi.”</p>
+            <p>Öğretmen ya Lucie’yi ya da kendisini ikna etmeye çalışır gibi konuşmaya devam etti. Lucie ise ciddi bir şekilde dinliyordu.</p>
+            <p>“Bundan sonra, siz—hepiniz—büyü de dahil olmak üzere pek çok şey öğreneceksiniz. Okulda öğrendiklerinizle yetinmeyip mezun olduktan sonra da öğrenmeye devam edeceksiniz.</p>
+            <p>Biz büyücüler arasında öncüleriz ve size geniş bir bilgi yelpazesi sunacağız. Öğrettiklerimize inanıp inanmamak size kalmış.</p>
+            <p>Kendi düşüncelerinizle hareket edebilirsiniz. Bizi yanlış bulabilir ve bunu kanıtlayabilirsiniz.</p>
+            <p>Eğer bunu başarırsanız, o zaman sıra sizin bize öğretmenize gelir. Yani, beni ikna edin.”</p>
+            <p>Güzel, güzel. Bu açık fikirli tavırla, kötü bir öğretmen gibi görünmüyordu.</p>
+            <p>Hatta iyi bir öğretmen bile olabilirdi. “Bu kadar.</p>
+            <p>Başka soruların var mı, Lucie?” “Hayır!</p>
+            <p>Teşekkür ederim!” “Harika, o zaman yerine oturabilirsin.</p>
+            <p>Derse devam edelim.” Öğretmen gülümsedi, Lucie de yerine oturdu.</p>
+            <p>Çevresinden bir alkış yükseldi. Lucie, arkasındaki sınıf arkadaşlarına dönüp şaşkın bir şekilde baktı ve ardından başını eğip kıpkırmızı olmuş yüzünü sakladı.</p>
+            <p>*Endişelenme, Lucie. Haklıydın.</p>
+            <p>Gerçekten doğru olup olmadığını boş ver—haklı olduğunu düşünen herkes alkışladı. Bununla gurur duymalısın.* Tam o sırada, Lucie’nin yanındaki kız onun başını okşayıp bir şeyler söyledi.</p>
+            <p>Lucie başını kaldırıp gülümsedi. *Aynen böyle, benim kızımla arkadaş ol.</p>
+            <p>Tartışabilirsiniz de, yeter ki arkadaş kalın.* Lucie’nin derslerini biraz daha izledim. Öğretmenlerin bazıları iyiydi, bazılarıysa kötü.</p>
+            <p>Lucie, soru sormaktan ve şüphelerini dile getirmekten hiç çekinmiyordu. Öğretmenler bazen cevap veriyor, bazen soruları geçiştiriyordu; bazen de Lucie’nin yanlışlarını düzelterek derse devam ediyorlardı.</p>
+            <p>Lucie fark ediliyordu. Yedi yaşında, öğrenmeye bu kadar hevesli bir kız çocuğu nadir bir şeydi.</p>
+            <p>Öğle arası geldiğinde, etrafına bir kalabalık toplanmış, Lucie yemek kutusundan yerken ona eşlik ediyordu. Akşam olduğunda, Lucie okulun gündemindeydi.</p>
+            <p>İnsanlar etrafında toplanmış, ailesini, nerede yaşadığını ve tabii ki kendisini soruyorlardı. Adeta bir yıldız olmuştu.</p>
+            <p>Etraftaki bazıları, onun benim kızım olduğunu biliyor ve bu yüzden yanaşmaya çalışıyor olabilirdi. Sorun değil.</p>
+            <p>Her yeni tanıdık bir hazinedir. Hatta bir ilişki bencilce bir amaçla başlasa bile, nereye varacağını bilemezsin.</p>
+            <p>Hayat uzun; birkaç kötü tip tanımanın zararı olmaz. “Of.”</p>
+            <p>Son ders de bitti. Tatmin olmuştum.</p>
+            <p>Daha ilk gündü ama Lucie çoktan okul hayatına alışmıştı. Zaten endişelenmeme gerek yoktu.</p>
+            <p>O Sylphie’nin kızıydı. Sylphie, Roxy ve Eris ona harika bir eğitim vermişti; korkacak bir şey yoktu.</p>
+            <p>Tamam, belki küçük bir şey vardı: O benim kızımdı. İlk gününü sınıfın kenarındaki bir sıraya oturup uyuyormuş gibi davranarak geçirebilirdi, ama öyle bir şey yapmamıştı.</p>
+            <p>Önünde zorluklar olacaktı, ama altından kalkardı. Lucie her gün okula gidip harika anılar biriktirecek, ben de akşam yemeğinde bana anlattıklarını keyifle dinleyecektim.</p>
+            <p>Yemeğimi yüzümde bir gülümsemeyle yiyebilecektim. *Artık eve gitme vakti.</p>
+            <p>Ama önce Orsted’in ceketini ve miğferini geri vereyim.* Bununla birlikte, paravan olarak kullandığım Toprak Duvarı büyüsünü kaldırdım. “Ah.”</p>
+            <p>Duvarın diğer tarafında bir kadın duruyordu. İnce yapılı, beyaz saçlı, rahat görünen bir pantolon ve kolsuz bir üst giymişti.</p>
+            <p>Omuzlarından aşağı sarkan beyaz kolları, elleri kalçalarına dayalı bir şekilde durmuş, oldukça sinirli görünüyordu. Sylphie’ydi.</p>
+            <p>“Öhö… Bir sorun mu var acaba?”</p>
+            <p>dedim, sesimi mümkün olduğunca Orsted gibi çıkarmaya çalışarak. “Rudy, burada ne yapıyorsun?”</p>
+            <p>Yandım. Tam anlamıyla yandım.</p>
+            <p>“Ah, şey… Sen buraya neden geldin, Sylphiette?”</p>
+            <p>“Lara, yürüyüş sırasında babasını gördüğünü söyledi. Yüzünün gizli olduğunu ve garip giyindiğini söyledi.”</p>
+            <p>“Ah… Öyle miymiş…”</p>
+            <p>Bu Leo’nun işiydi! Leo beni satmıştı!</p>
+            <p>Gözlerini kullanmamıştı; beni kokusuyla bulmuştu. Kokum Orsted’inkine karışmış olsa da, Leo “Rudy burada” dediyse, Lara anlamış olmalıydı.</p>
+            <p>Hele bir de Leo ile Lara konuşabiliyorsa, olay tamamen çözülüyordu. Bir süre sonra Sylphie tekrar konuştu.</p>
+            <p>“Kılık değiştirmişsin.” Omuzları titriyordu.</p>
+            <p>Bu, öfkeydi. Sylphie’nin öfkesi başkaydı.</p>
+            <p>Nasıl olduğunu tam anlatamam, ama Sylphie kötü bir ruh halindeyse, genelde bu, benim öyle hatalı olduğum anlamına gelirdi ki, bütün aile benden nefret ederdi. Hayatımı inanılmaz rahatsız hale getirirdi.</p>
+            <p>Bu durumda köpek kulübesinde bir hafta geçirme ihtimalim yüksekti. “Gerçekten bana ve Lucie’ye bu kadar mı güvenmiyorsun?”</p>
+            <p>Sylphie ağlamaya başladı. *Lanet olsun.</p>
+            <p>Bu kötü. Bu öfkelenmesinden daha kötü.* Hemen diz çöktüm.</p>
+            <p>“Hayır, öyle değil! Hiç değil!</p>
+            <p>Sadece Lucie’yi cesur bir şekilde görmek istedim. Sınıfta elini kaldırıp sorular sorarken ve elinden geldiğince sıkı çalışırken görmek istedim.</p>
+            <p>Şey, biliyorsun, pek ortalarda olmadım, değil mi? Lucie’yi büyütmeye pek yardım edemedim.”</p>
+            <p>Kekeleyerek söylediğim bu sözlerden sonra Sylphie hâlâ ağlarken bana baktı. “Gerçekten mi?”</p>
+            <p>“Gerçekten. Kendimi tutamadım.</p>
+            <p>Her şey bittiğinde sana söyleyecektim.” Sylphie bir an beni süzdü, sonra, “Yalan söylüyorsun, değil mi?”</p>
+            <p>dedi. “Gerçek bu.</p>
+            <p>Özür dileyecektim.” “Lucie’nin sınıfını o kadar görmek istedin mi?”</p>
+            <p>“Evet.” Sylphie elini uzatarak beni yerden kaldırdı.</p>
+            <p>Gözyaşları yavaşlamıştı. “O zaman hata bendeydi.</p>
+            <p>Onu o kadar görmek istemişsin ve sana bir an olsun görmeni bile yasakladım.” “Hayır, sen hiçbir şey yanlış yapmadın.</p>
+            <p>Söylediğin zaman ikna olmuştum.” “Hm…</p>
+            <p>Ah.” Tam orada konuşmaya devam ederken, Sylphie bir anda başını kaldırıp, yüzüne “Eyvah” der gibi bir ifade takındı.</p>
+            <p>Arkamı döndüğümde sebebi hemen anlaşıldı. “Ah…”</p>
+            <p>Sınıftaki tüm öğrenciler bir noktada pencereden dışarı bakmaya başlamıştı. Tabii ki Lucie de buna dahildi.</p>
+            <p>Bana ve Sylphie’ye bakıyordu, hem de oldukça sinirli bir ifadeyle. **\*\*\*** “Bugün, Belinda adında bir kızla arkadaş oldum.”</p>
+            <p>Sylphie ve ben, Lucie’yle birlikte ailece eve yürüyorduk. Hepimiz Lucie’nin bir elini tutmuş, yan yana sıralanmıştık.</p>
+            <p>Başta Lucie’nin, okula geldiğim için bana trip atacağını düşünmüştüm, ama hiç de öyle olmadı. Görünüşe göre, ilk günü oldukça eğlenceli geçmişti ve bunu tek tek, detaylıca anlattı.</p>
+            <p>“Belinda, Ranoan bakanlarından birinin kızıymış. Benim gibi küçük, ama çok zekiymiş, bu yüzden okula başlamasına izin vermişler.</p>
+            <p>Okulda en iyisi olmak ve babasına neler yapabileceğini göstermek istiyormuş.” “Vay be, bu harika bir şey.”</p>
+            <p>“Ha, bir de ilk dersimi Mavi Annemle yaptım. Herkes onunla dalga geçti, buna çok sinirlendim, ama sonra Mavi Anne, ‘Biraz büyü yapayım da görün!’</p>
+            <p>dedi. Herkes bir anda sustu.</p>
+            <p>Sonra, ‘Benim dersimi dinlemek istemiyorsanız bu sizin bileceğiniz iş!’ dedi.</p>
+            <p>Çok havalıydı!” “Bunu akşam yemeğinde Mavi Anne’ye anlatalım.</p>
+            <p>Eminim çok hoşuna gider.” Bu gün böyle planlanmamıştı, ama böyle olması da çok güzeldi.</p>
+            <p>Lucie’nin elini sıktım ve Sylphie’yle yan yana yürüdüm. Üçümüz birden sokakta böyle yan yana yürüyerek yolu kapatmak pek iyi bir şey değildi ama kim umursardı ki?</p>
+            <p>Burası benim şehrim. “Okulda eğlendin mi, Lucie?”</p>
+            <p>“Evet!” dedi Lucie, yüzünde parlayan bir gülümsemeyle.</p>
+            <p>Endişelenecek hiçbir şeyim yoktu. “Baba?</p>
+            <p>İyiydim, değil mi?” diye sordu Lucie, adeta aklımdan geçenleri okumuş gibi.</p>
+            <p>“Evet, iyiydin. Hem de harikaydın.”</p>
+            <p>“Ben senin kızın mıyım, Baba?” “Ha ha ha.</p>
+            <p>Sanırım benim kızım olmaktan bile daha harikasın.” Lucie, nasıl bakarsanız bakın, muhteşem bir genç hanımdı.</p>
+            <p>Bir koruyucuya ihtiyacı yoktu. Ama onun Dede’si?</p>
+            <p>O hiç iyi değildi. Kesinlikle bir koruyucuya ihtiyacı vardı.</p>
+            <p>“Bu arada, Rudy?” diye sordu Sylphie aniden, dirseğiyle beni dürterek.</p>
+            <p>“Hı?” “O kıyafeti ne kadar daha giyeceksin?”</p>
+            <p>O an kendime baktım ve kalın beyaz ceketle siyah miğferi hâlâ üzerimde gördüm. Hâlâ *Gölgedeki Orsted* modundaydım.</p>
+            <p>“Yarın geri vereceğim.” Evet, yarın.</p>
+            <p>Yarın olurdu. Bugün geri vereceğim dememiştim, hem Orsted’in de acelesi olduğunu sanmıyordum.</p>
+            <p>Şu ceketin kumaşı ne kadar güzeldi, değil mi? Kırmızı ejderha derisine benzer bir hissi vardı.</p>
+            <p>Aisha muhtemelen ne olduğunu bilirdi. Tam o sırada, aklıma bir soru takıldı.</p>
+            <p>“Bu arada, Lucie?” dedim.</p>
+            <p>Küçük bir şeydi, ama emin olmak istemiştim. “Evet, Baba?”</p>
+            <p>“Bir soru: Babanın saçları ne renk?” Sorum Lucie’ye güvenmediğimden değildi.</p>
+            <p>Sadece emin olmak istemiştim. “Kahverengi!”</p>
+            <p>“Aynen öyle. Sen akıllısın, Lucie.</p>
+            <p>Senden büyük şeyler bekliyorum. İşte benim kızım!”</p>
+            <p>“Hmph, benimle dalga geçme!” dedi Lucie, dudaklarını biraz büzerek.</p>
+            <p>Onun bu tatlı tepkisiyle gülümseyerek, mutlu bir şekilde eve vardım. “Yalnız, Rudy?</p>
+            <p>Bana verdiğin sözü bozdun, o yüzden üç gün boyunca hiçbir şey yok, tamam mı?” “Anlaşıldı.”</p>
+            <p>Tamam, birkaç gün bir keşiş gibi yaşayacaktım, ama yine de mutluydum. Ertesi gün, şehirde garip bir söylenti dolaşıyordu.</p>
+            <p>İnsanlar Orsted’in Lucie’nin peşinde olduğunu söylüyordu. Tabii ki bu, o kıyafetle dolaşmam yüzündendi.</p>
+            <p>Söylentiler gelir geçerdi. Hiçbirinin gerçeğe dayandığını sanmıyordum, Sylphie ve diğer aile üyeleri de bunu biliyordu, bu yüzden endişelenmiyordum.</p>
+            <p>Ve böylece, Orsted’in ceketini geri vermeye gittim. Bana korkutucu bir bakış attı ve durumu açıklamak için zor bir bahane uydurmam gerekti, ama…</p>
+            <p>işte, o da başka bir zamanın hikayesi.</p>
+        </main>
+
+        <div class="bottom-nav">
+            <a href="bolum2parca1.html" class="nav-btn">←Önceki Bölüm</a>
+            <a href="bolum2parca3.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

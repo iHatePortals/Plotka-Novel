@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei Cilt 1, Bölüm 2,1 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #cc0000;
+            --border-color: #e5e7eb;
+        }
+
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c1b1b;
+            --border-color: #d8c8b4;
+        }
+
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        body.theme-light .nav-btn:hover,
+        body.theme-light .action-btn:hover,
+        body.theme-light .theme-select:hover,
+        body.theme-sepia .nav-btn:hover,
+        body.theme-sepia .action-btn:hover,
+        body.theme-sepia .theme-select:hover {
+            color: #ffffff;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+        }
+
+        .novel-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 30px auto;
+            border-radius: 6px;
+        }
+
+        .section-break {
+            text-align: center;
+            margin: 30px 0;
+            color: var(--accent-color);
+            letter-spacing: 4px;
+        }
+
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <div class="controls">
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="bolum1parca3.html" class="nav-btn">←Önceki Bölüm</a>
+            </div>
+
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <div class="nav-right">
+                <a href="bolum2parca2.html" class="nav-btn">Sonraki Bölüm →</a>
+            </div>
+        </div>
+
+        <header>
+            <h1>Mushoku Tensei Cilt 1, Bölüm 2,1</h1>
+            <div class="subtitle">"Lucie ve Babası / Lucie'nin Okulda İlk Günü (Kısım 1)"</div>
+        </header>
+
+        <main class="novel-text" id="text-content">
+            <img src="bolum2foto1.png" alt="Bölüm 2 Çizimi 1" class="novel-image">
+            <p>GÜNLER HIZLA AKIP GİTTİ. Eris ve Roxy, çocuklarını sorunsuz bir şekilde dünyaya getirdi—ikisi de kızdı. Roxy’nin kızına Lily, Eris’in kızına ise Christina adını verdik. Artık dört kızım ve iki oğlum vardı. Ev gittikçe daralmaya başlamıştı; belki bir ek yapmayı düşünmenin zamanı gelmişti… ve biraz da aile planlaması yapmayı. Bunun üzerine, Lucie yedi yaşına basmıştı ve ilkokula başlayacak yaşa gelmişti. İlkokul, aynı yaştaki çocukların bir araya gelip temel bilgileri öğrendiği bir yerdi. Açıkçası, temel bilgileri ebeveynler de öğretebilirdi. Ama okulun asıl amacı sosyalleşmekti. İnsan, diğer insanlara ihtiyaç duyar. Bazıları tek başına ayakta duracak güce sahip olabilir, ama bunlar istisnalardır. Okul, arkadaş edinmeyi, başkalarıyla ilişki kurmayı ve kavgaları düzgün bir şekilde çözmeyi öğrenme yeridir. Burada, Ranoa Krallığı’nda ilkokul diye bir şey yoktu, ki bu şaşırtıcı değildi; zorunlu eğitim diye bir kavram yoktu sonuçta. Bana sorarsanız, çocuklar okula gitmeli. Önceki hayatımda bir okuldan atılmış olabilirim, ama bu hayatımda okul bana her şeyi verdi. Zanoba’yla dost oldum, Cliff, Badigadi, Nanahoshi ve Ariel ile tanıştım… ve Sylphie ile evlendim. Şüphesiz, Ranoa Büyü Üniversitesi’nde geçirdiğim zaman, şu an sahip olduğum zengin sosyal hayatı kurmamı sağladı. Aynı fırsatların tüm çocuklara sunulmasını istiyordum. Geçen yıl aile toplantısında bunu duyurduğumda, çoğunluk beni destekledi. Sylphie, Roxy ve Lilia benim tarafımdaydı. Eris, “Aslında okula gitmelerine gerek yok,” dese de, güçlü bir karşı çıkış sergilemedi. Böylece, çocuklarımızın yedi yaşından itibaren Ranoa Büyü Üniversitesi’ne gideceklerine karar verdik. Yaşça daha büyük sınıf arkadaşları olmalarının bile bir avantaj olacağını düşündüm. Bugün, Lucie’nin okulunun ilk günüydü. Önünde uzun yedi yıl vardı—tabi eğer bir sınıfta kalmazsa, yoksa daha fazla bile olabilirdi. Bugün ise o uzun yolculuğun ilk günüydü.</p>
+            <p>“Lucie, her şeyin yanında mı?”</p>
+            <p>“Her şeyim tamam!” Lucie, girişte duruyordu. Üzerinde biraz bol gelen okul üniforması ve sırtına büyük gelen çantası vardı. Çantasının içinde, yeni başlayanlar için bir asa, bir büyücü cüppesi, büyü ders kitapları ve öğle yemeği kutusu bulunuyordu. Her şey yepyeniydi. Lucie, tam boy aynada kendini inceledi ve yeni kıyafetiyle belli ki çok memnundu. Yüzünde kendinden emin bir gülümseme vardı. Belki de bu yüzden bu kadar rahat bir şekilde konuşuyordu. Önceki gece her şeyi defalarca kontrol etmiştik ve zaten yanına alması gereken pek bir şey yoktu. Tamamdı herhalde. Ama bir kez daha kontrol etmekten zarar gelmezdi.</p>
+            <p>“Mendilin yanında mı?”</p>
+            <p>“Cebimde!”</p>
+            <p>“Kalem kutun yanında mı?”</p>
+            <p>“Çantamda!”</p>
+            <p>“Ya öğle yemeğin?”</p>
+            <p>“Çantamda!”</p>
+            <p>“Peki, babaya bir veda öpücüğü?”</p>
+            <p>“Asla!” Asla mı?! Hmm, başka ne vardı? İnsanların unutmaya meyilli olduğu şeyler… Gelecek hayalleri, umut, gerçek… “Rudy, hazır olduğunu söyledi.” Sylphie, düşüncelerimi bölerek sırtıma dokundu. “Büyüyor, endişelenme, her şey yolunda olacak.” Büyüyor… Ah, hayır. Zaten yedi yaşında! Yedi yaşına gelmişti, artık kocaman bir çocuk olmuştu—bak ne kadar yetenekli görünüyordu! Kocaman bir çocuk artık.</p>
+            <p>“Baba, iyiyim! Elimden gelenin en iyisini yapacağım!” dedi Lucie, küçük yumruğunu sıkarken. Bu hareket hem cesur, hem tatlıydı… hem de beni inanılmaz derecede endişelendiriyordu. Eğer kötü niyetli biri olsaydım ve böyle sevimli bir çocuğu görseydim, hemen kaçırmak isterdim. Lucie büyümüş olabilirdi, ama hâlâ küçücüktü.</p>
+            <p>“Lucie, tanımadığın hiç kimseyle bir yere gitmemelisin, tamam mı?”</p>
+            <p>“Tamam!”</p>
+            <p>“Eğer biri seni zorla götürmeye çalışırsa, adını bağırarak söyle, anladın mı?”</p>
+            <p>“Tamam!”</p>
+            <p>“Ağzını kapatıp bağırırsan seni öldüreceğini söylerlerse, Dada’nın sana verdiği mektubu göster ve okumalarını sağla, anladın mı?”</p>
+            <p>“Tamam!” Bu arada, mektubun içinde herhangi bir kaçıran kişiye yönelik mesajım vardı. Hizmet ettiğim kişinin doğasını, bağlantıda olduğum insan türlerini ve Lucie’ye zarar gelirse neler olacağını açıklıyordu. Kaçıran kişinin okuma yazma bilmemesi ihtimaline karşı, köle tüccarlarıyla önceden görüşüp, benim çocuğumu kaçıranları dışlamalarını rica etmiştim. Kızımı rahatsız eden herhangi bir suçlu, suç dünyasından aforoz edilecekti. Ama yine de her yerde endişelenecek bir şeyler buluyordum—her durumu önceden kestiremezdim. Kafamı endişelerden kurtaramıyordum.</p>
+            <p>“Lucie, okul arkadaşların seni rahatsız ederse mutlaka öğretmenine söyle, tamam mı?”</p>
+            <p>“Tamam.” “Bunun olacağını sanmıyorum, ama eğer öğretmenin seni rahatsız ederse, Blue Mama’ya ya da müdür yardımcısına söyle. İkisi de öğretmenler odasında olacak.” “Tamam.” “Eğer Blue Mama’ya ya da müdür yardımcısına söyleyemeyecek gibi hissedersen, White Mama’ya, Red Mama’ya, Aisha Teyze’ye, Lilia’ya ya da Elinalise Teyze’ye söyleyebilirsin. Ya da… şey, önemli olan birine söylemen. Tabii ki Dada’ya da anlatabilirsin ya da Dada’nın arkadaşlarına. Ama asla içinde tutma, anladın mı?”</p>
+            <p>“Tamam.” “Ayrıca, başka bir çocuğun zorbalığa uğradığını fark edersen…” Bu noktada biri yakama yapıştı ve beni geriye doğru sürükledi. Etrafıma baktığımda, Sylphie’nin bana sert bir bakış attığını gördüm. Bu sırada Lucie biraz üzgün görünüyordu.</p>
+            <p>“Dada, ben iyiyim…” dedi, biraz tereddütle, kirpiklerinin altından bana bakarak. Onu korkutmuş muydum? Daha tatlı bir şekilde mi anlatmalıydım? “Git yüz tane arkadaş edin,” gibi bir şey mi söylemeliydim? Ama bu önemliydi. Zorbalık, kimsenin sana yardım etmeyeceğini düşündürebilirdi, ama mutlaka bir yerde senin tarafında olan birileri vardı.</p>
+            <p>“Rudy, Lucie’ye biraz daha güven,” dedi Sylphie. Uzun bir sessizlikten sonra, “Tamam,” dedim. Evet, tabii ki. Çocukları okula göndermek, onların daha bağımsız olmalarını sağlamak içindi. Her şeyi onun yerine çözmeye çalışmam bir işe yaramazdı. Lucie bir gün kendi ayakları üzerinde durmak zorunda kalacaktı. Tabii ki o gün daha çok uzaktı, ama okulun amacı bağımsızlık kazanmaktı—bunu ailece böyle kararlaştırmıştık.</p>
+            <p>“Lucie, herkese güle güle de.” “Güle güle!” diye seslendi Lucie. Kapıyı açıp dışarı koştu. Arkasından “Kendine iyi bak!” diye seslenirken onun gidişini izledim. Onu uğurlamak için gelenler arasında ben, Sylphie, Eris, Leo, Lilia ve Zenith vardı. Roxy zaten okula gitmek için erkenden çıkmıştı. Aisha da erkenden ayrılmıştı—anlaşılan paralı asker grubunda bir sorun çıkmış. Diğer çocuklar hâlâ mışıl mışıl uyuyordu.</p>
+            <p>“Ben antrenmana gidiyorum,” dedi Eris.</p>
+            <p>“Çamaşırlara başlıyorum,” dedi Lilia.</p>
+            <p>“Ben de temizlik yapacağım,” dedi Sylphie. Herkes kendi işine dağılırken, ben kapıya bakmaya devam ettim. Yanımda Leo vardı. Muhtemelen o da benim gibi hissediyordu—endişeli. Belki Lucie yolunu kaybetmişti. Sylphie ve Roxy ile okula yürüyerek gitmeyi defalarca tekrarlamış olması gerekiyordu, ama bugün tek başınaydı. Endişeliydim. Yedi yaşında bir çocuğu tek başına bırakmak kötü bir fikirdi belki de. Böyle tatlı bir kız çocuğu tek başına yürümemeliydi. Ona etrafında sert görünümlü bir koruma ekibi ayarlamalıydım; bu ekibe, çocukları seven, beyaz mızrak kullanan, yeşil saçlı birini de dahil ederek. Ve sonra dersler vardı. Lucie, Sylphie, Eris ve Roxy’den oldukça zengin bir yetenek ve bilgi programı almıştı. Derslerde zorlanmazdı, ama belki de diğerlerinin çok önüne geçip kendini izole hissedebilirdi. Tabii, onun gerçekten özel biri olup olmadığını bilmiyorduk. Müdür Yardımcısı Jenius bunu öne sürmüştü, ama ben Lucie’nin tamamen normal bir deneyim yaşamasını istediğim için onu sıradan bir öğrenci olarak kaydettirdim. Hatta sınava da girmesini sağladım. Mükemmel bir puan aldı, ama bu sınıfta aynı başarıyı göstereceği anlamına gelmiyordu. Sanki onu bir deneye dönüştürüyormuşum gibi hissediyordum.</p>
+            <p>“Leo.” Çağırdığımda, kısa bir havlama ile karşılık verdi, bana yukarı bakarak daha fazla bir şey söylememe gerek olmadığını anlatmaya çalışıyor gibiydi. Aynı frekanstaydık. Aramızda kelimelere gerek yoktu.</p>
+            <p>“Rudy! Sakın aklından bile geçirme!” diye bir ses, elimi ön kapıya uzattığım anda arkamdan geldi. Sylphie’nin sert sesiyle irkilip arkamı döndüm. Ellerini beline koymuş, bana kaşlarını çatarak bakıyordu.</p>
+            <p>“Dün bana müdahale etmeyeceğimize dair söz vermiştin, hatırlıyor musun?!”</p>
+            <p>“Hayır, bu Leo. Yürüyüşe çıkmak istiyor.” Bu sözlerim üzerine Leo, yüzünü benden başka tarafa çevirip koridordan çocukların odasına doğru yürüyüp gitti. İhanet eden köpek! Çocuklarımı dış tehditlerden koruyabilirdi, ama beni kendi karımdan korumazdı!</p>
+            <p>“Bak, Rudy…” diye konuşmaya başladı Sylphie, elleri hâlâ belinde, derin bir iç çekerek.</p>
+            <p>“Senden ayrı kalmak beni bir insan olarak büyüttü. Bana büyüyü ve ders çalışmayı öğrettin, bu da kendi ayaklarımın üzerinde durmam için bir temel sağladı. Yer değiştirme olayından sonra Leydi Ariel’in yanındayken zaten iyi bir şekilde hazırlanmıştım.” “Mm.” “Bir çocuğa öğretmek ve onu korumak önemlidir, buna katılıyorum. Ama her şeyi hazır bir şekilde ona sunamayız. Kendi keşiflerini yapmadığı ve kendi yolunu bulmak için çaba göstermediği sürece, hiçbir zaman kendi yolunu bulamaz.” Bugün için sabırsızlanıyordum. Lucie’ye bir veli olarak eşlik etmeyi, öğretmenine “merhaba” demeyi ve okulu ona gezdirmeyi planlamıştım. Bunun için özellikle bugün işten izin almıştım. Ama dün Sylphie gelip ısrar etti—Lucie okula kendi başına gidecekti.</p>
+            <p>“Şimdilik ne yapacağını görmek için biraz bekle, olur mu? Kendi hatalarını yapmasına izin ver.” “Tamam,” dedim sonunda. Sylphie oldukça ikna edici olabiliyordu. Lucie’yi yedi yıldır büyütüp gözetmişti. Eğer Lucie’yi güvenle okula gönderebiliyorsa, onun yargısına güvenmem gerekirdi. Lucie için her şeyi ben yapamazdım. Yani, fazla endişelendiğimi biliyordum. Lucie iyi bir çocuktu. Kardeşlerine iyi bakardı, itaatkârdı ve duyduğuma göre mahalledeki çocuklar da ona hayranlık duyardı. Eğer bir şey varsa, okula alışması benimkinden çok daha kolay olurdu. O yüzden yapabileceğim tek bir şey vardı: okulda eğlenmesi için dua etmek. Dualarım mutlaka Tanrı’ya ulaşmalıydı, çünkü Tanrı da zaten okuldaydı.</p>
+            <p>“Bu durumda,” dedim, “işe gideyim bari.” “Anladım. Bir şey olursa, hallederim. Tamam mı?” Yine de, Orsted’in ofisine doğru ilerlerken içimde garip bir yalnızlık hissi vardı.</p>
+            <p>“—ve olan buydu,” dedim, son bir saatte yaşananları anlatırken. Söylediklerim karşısında sessizlikle karşılandım. “Sylphie haklı, hiç şüphe yok. Benim için de, onun için de ailelerimizden uzak olmak bizi büyüttü. Bu, tartışılmaz bir şey.” Resmen içimi döküyordum. Sylphie beni ikna etmişti—bir çift olarak bir karara varmıştık. Şansıma büyü üniversitesinde tanıdığım bir sürü insan vardı ve ortam da fazla tehlikeli değildi. Bildiğim kadarıyla, Norn’un öğrenci konseyiyle gösterdiği yoğun çaba üniversiteyi epey toparlamıştı. Aisha’nın liderliğindeki Ruquag’ın paralı asker grubu da kasabayı düzene sokmuştu. Ama tüm bunlara rağmen, endişelenmeden duramıyordum. Kelimelere dökmesi zor, belirsiz bir tedirginlik hissiydi.</p>
+            <p>“Lucie daha yedi yaşında, biliyorsun, değil mi? Bu kadar küçükken onu tek başına okula göndermek… Yani, evet, ben de yedi yaşındayken Eris’le yaşamaya başlamıştım. Beş yaşımda köyün her yerinde dolanıyordum ama yine de en azından onu bırakıp almak gerektiğini düşünüyorum. Ne dersiniz, Orsted Bey?” Orsted, sessizce kaşlarını çattı. Bu, “Bu söylediklerinin işimizle ne alakası var?” diyen bir yüz ifadesiydi. Sanırım tavsiye almak için yanlış kişiye gitmiştim. Düşününce, Orsted benim patronumdu; bu tür dertleri ona anlatmak pek mantıklı değildi. Eğer İnsan-Tanrı ile ilgili bir şey olsaydı belki sorun olmazdı ama aile meseleleri sanırım hiç umurunda değildi. Ne diyeceğini bile bilmiyordu muhtemelen. Zaten Lucie, Orsted’in bildiği tarihte var olan biri bile değildi… Yine de, nedense Orsted’in benim bu sıkıntımı anlayacağını düşünüyordum. Tam bunu düşündüğüm sırada, Orsted ayağa kalktı, kavgaya hazırmış gibi bir hali vardı. Tabii, ona bu kadar basit bir şeyle sinirlenmeyeceğini biliyordum. Orsted’i kızdırmak bundan fazlasını gerektirirdi.</p>
+            <p>“Sen aptalsın.” Bir dakika, ne? Kızgın mıydı? Bu beklenmedikti. Başıma bir iş mi gelecekti?</p>
+            <p>“Bunu kullan.” Orsted bana siyah bir miğfer uzattı.</p>
+            <p>Lanetinin etkilerini azaltmak için kullandığı miğferlerden birinin yedeğiydi. Ne yapmamı istiyordu ki?</p>
+            <p>“Sen kızını merak etmiyorsun; sadece onu görmek istiyorsun, değil mi?” Ah! Tabii ya! Asıl mesele buydu!</p>
+            <img src="bolum2foto2.png" alt="Bölüm 2 Çizimi 2" class="novel-image">
+            <p>Onu görmek istiyordum. Mesele endişelenip endişelenmemem değilmiş meğer. Tamam, biraz endişe vardı elbette, ama daha çok onu sınıfta kendini tanıtırken görmek, öğretmenin sorusuna cevap verirken elini havaya kaldırışını izlemek, kütüphanede bir kitaba uzanırken parmak uçlarında durmasını seyretmek… Tüm o “ilkler”i görmek istiyordum. Büyü üniversitesinde veli izleme günleri olmuyordu. Norn’u da okuldayken görmek istemiştim ama o fırsatı bulamamıştım. Bari Lucie’yi görebilseydim.</p>
+            <p>“A-ama gidersem, Sylphie kesin bana çok kızar,” dedim. Hiçbir şey söylemeden Orsted ceketini çıkardı ve omuzlarıma astı. Sanki “Bunu kullan,” diyordu. Önce miğfer, şimdi bu. Ne yapmamı istiyordu ki?</p>
+            <p>“Şey, bu ne için?” diye sordum.</p>
+            <p>“Sen gidemezsin.” Anlamıyorum. Lütfen bunu benim gibi bir aptalın anlayacağı şekilde açıkla. Bu zeka oyunlarına biraz ara versek nasıl olur?</p>
+            <p>“Hm?” Dur bir dakika. Demek mesele bu ha? Eğer Rudeus köprüden geçemeyecekse, Rudeus’un gitmesine gerek kalmaz. Ne giyersen osun. Kıyafeti değiştir, kişiliği değiştir. Ben gri bir cüppe giyiyordum ve Orsted’in sağ koluydum. Rolüm buydu. Peki ya siyah bir miğfer ve beyaz bir ceket giyersem? Miğferi taktım ve ceketi üzerime geçirdim. Miğfer ağırdı, ceket ise kalın ve hâlâ sıcaktı. Bunu uzun süre giyersem omuzlarım tutulurdu ama değecekti.</p>
+            <p>Aynanın karşısına geçtim.</p>
+            <p>“Bu… ben miyim?” Aynadaki kişiyi tanımamak mümkün değildi: Ejderha Tanrısı Orsted!</p>
+            <p>Tabii ya! Siyah miğfer ve beyaz ceketle Ejderha Tanrısı olabilirdim! Gidersem başım belaya girerdi, ama Orsted giderse sorun olmazdı!</p>
+            <p>Hmm… Ama hayır, bu olmaz. Hiç benzemiyordum ki. Boyum, omuz genişliğim… Tüm havam eksikti—Orsted’den yayılan o tuhaf güç auram yoktu. Aynadaki adam tam bir çakmaydı—böyle yaparsam kimseyi kandıramazdım.</p>
+            <p>“Şey… Sence insanlar bunu yutacak mı?” diye sordum.</p>
+            <p>“Sen olduğunu bilmesinler, yeter.” İyi bir noktaya değinmişti. Orsted olmama gerek yoktu, sadece Rudeus olduğum belli olmamalıydı. Bu durumda, dürüst olmak gerekirse, sadece miğfer bile işimi görürdü. Orsted Bey gerçekten zekiydi.</p>
+            <p>“Orsted Bey,” dedim. “Teşekkür ederim.” Orsted, derin bir iç çekip sandalyesine tekrar oturdu. Suratında, “Bu dertleri ben niye çekiyorum?” der gibi bir ifade vardı. Galiba kağıt işlerine geri dönecekti. Belki de onu yarıda bölmüştüm. Sonuçta, bugün izinli olmam gerekiyordu.</p>
+            <p>“Ben çıkıyorum o zaman,” dedim. Hâlâ Orsted kılığında, toplantı odasından hızla dışarı fırladım. Zaman kaybetmemeliydim. Hedefim, büyü üniversitesiydi! Orsted’in ofisinden çıktım. Hava harikaydı. Gökyüzü masmaviydi; Lucie’nin ilk okul günü için mükemmel bir hava. Belki de giydiğim kıyafetin etkisiyle, kendimi daha güçlü hissediyordum. Tam bir “aslan postuna bürünmüş eşek” gibiydim. Şu an, Kuzey Tanrısı’nı serçe parmağımla yere sermek benim için çocuk oyuncağı gibi geliyordu.</p>
+            <p>“Bir yere mi gidiyorsunuz, Orsted Bey?” Donakaldım. Birisi ofisin gölgelerinden bana seslenmişti. Sesin geldiği yöne baktım ve Alexander Rybak’ı, yani Kuzey Tanrısı Kalman III’ü gördüm. Olamaz! Zihnimi mi okumuştu yoksa?</p>
+            <p>Dur bir dakika, öyle bir şey yok! Kuzey Tanrısı’nı sererim dediğimde ciddi değildim ki! Hani, boks filmi izleyince kendini yenilmez hissedersin ya, o hesap! Gözlüklü birine vurmazsın değil mi? Ben sadece sıradan bir NPC’yim!</p>
+            <p>“Bugün nereye gidiyorsunuz, Orsted Bey? Size eşlik etmemi ister misiniz?” Buna ne diyeceğimi bilemedim. Benimle dalga geçiyor olmalıydı, ama Alec’in gözleri gayet ciddiydi, sesi de tamamen samimiyet doluydu.</p>
+            <p>“Ha, bu arada, geçen gün için teşekkür ederim. Kuzey Tanrı Stili’nin dört ayaklı duruşunun böyle bir avantajı olduğunu kim tahmin ederdi? Kuzey Tanrı Stili hakkında bu kadar bilgili olmanıza hayran kaldım. Öğrenecek çok şeyim var. Biheiril Krallığı’ndaki hâlimi hatırladıkça utanıyorum.” Gerçekten Orsted olduğuma mı inanıyordu? Alec son zamanlarda Orsted’in yanında sürekli bulunuyordu. Ofisin bodrum katında yaşıyor, Orsted’in bekçi köpeği gibi etrafta dolaşıyordu. Kendi patronunu tanımıyor olabilir miydi?</p>
+            <p>“Fark etmedin mi?” dedim.</p>
+            <p>“Neyi fark etmedim?!” Ama bir dakika, Kuzey Tanrı Stili’ydi bu adam. Beni kandırmaya çalışıyor olabilirdi. Ölüm Tanrısı’nın Aldatıcı Kılıcı gibi bir teknikle rakibini yanlış yönlendirmek Kuzey Tanrıları’nın işiydi.</p>
+            <p>“Doğruyu söyle. Biliyorsun, değil mi?” Alec önce boş boş baktı, ama sonra yüzü ciddileşti. Elini çenesine koydu, kafasını yana eğdi ve kaşlarını çattı. Resmen kafasının üstünde bir soru işareti belirdi belirecekti. Bu ifadeyi Eris’le yaşadığım tecrübelerden iyi biliyordum—adamın hiçbir fikri yoktu.</p>
+            <p>Ama bu bir numaraysa, gerçekten etkileyiciydi.</p>
+            <p>“Affedin beni,” dedi Alec. “Ben biraz yavaşım, bu yüzden ne demek istediğinizi anlamıyorum.” “Ciddi misin? Ufak farklar olduğunu görüyorsun, değil mi?”</p>
+            <p>“Ufak farklar? Ama ben böyle küçük ayrıntıları fark etmede pek iyi değilim—tuzaklara bile yakalanıyorum. Biliyorum, bu kabul edilemez bir şey, ama benim zayıflığım bu…” Yani, gerçekten mi fark etmiyordu? Boyum farklıydı, yapım farklıydı, sesimiz bile birbirine benzemiyordu. Miğfer lanetin etkisini sadece zayıflatıyordu; eğer gerçekten Orsted olsaydım, Alec’in en azından biraz rahatsız hissetmesi gerekirdi…</p>
+            <p>Bu gerçek mi şimdi? Sonunda, “Cevabı CEO’nun ofisinde bulabilirsin,” dedim.</p>
+            <p>“Anladım! Teşekkür ederim, Orsted Bey.” Alec neşeyle ofise doğru kayboldu. Biheiril Krallığı’nda onunla dövüştüğüm zamana kıyasla daha keskin bir zeka sergilediğini sanmıştım. Ne değişmişti? Belki de sadece savaş dışındaki hali buydu. Mantıklıydı aslında, çünkü benim de savaş dışında dikkatim dağınık olurdu. Belki de böyle bir şeydi. Yine de, artık Orsted’in yanında Alec’i bırakmak içime pek sinmiyordu… Ama şu an Lucie bundan daha önemliydi. En azından Alec’in verdiği tepki, belli bir mesafeden bakıldığında Rudeus olduğumun anlaşılmadığını kanıtlamıştı. *** Alexander, ofise girdiğinde, resepsiyon masasında oturan Faliastia ile göz göze geldi. Faliastia, onu görünce bir an durakladı, sorusunu sormakla sormamak arasında tereddüt etti. Sonunda ağzını açtı.</p>
+            <p>“Şey, Alexander Bey?”</p>
+            <p>“Ne oldu, Falia? Şu an CEO’nun ofisine bir cevap almaya gidiyorum, lütfen kısa kes.” “Rudeus Bey, Orsted Bey gibi giyinmiş olarak çıktı… Bir göreve mi gidiyor?” Alexander’ın yüzü bir anda bembeyaz kesildi.</p>
+            <p>“Şey… Rudeus Bey mi? Orsted Bey gibi giyinmiş mi?!” Böyle bir ihtimal Alexander’ın aklının ucundan bile geçmemişti. Onun için Orsted gibi giyinmek o kadar korkutucu bir fikirdi ki, bunun mümkün olabileceğini bile düşünmemişti. Peki, Rudeus neden Orsted gibi giyinmişti? Bu sorunun cevabı açıktı. Kesinlikle Orsted gibi görünmesini gerektiren bir şey yapmaya gidiyordu. Muhtemelen bir yem olarak hareket ediyordu. Orsted gibi giyinerek bir düşmanı üzerine çekecek ve onu oyalarken, Orsted gizli bir amacını gerçekleştirecekti. Bu da demekti ki bu düşman, sadece Orsted’in karşı koyabileceği kadar güçlü biriydi. Bu kim olabilirdi? Henüz yüzü görünmeyen Büyük Güç Tekniği Tanrısı mı? Yoksa Alexander’ın hâlâ unutamadığı acı bir anı olan Ölüm Tanrısı Randolph mu? Belki de Üç Tanrı Katili’nden biri olan Zırhlı Ejderha Kralı Perugius. Ya da Alexander’ın kendi babası, Kuzey Tanrısı Kalman II. Bunların herhangi biri, Rudeus’un tek başına karşı koyamayacağı kadar güçlüydü. Eğer Rudeus o büyü zırhını kuşanırsa muhtemelen kazanırdı, ama o zaman da yem olarak hiçbir işe yaramazdı. Alexander, Rudeus’un cesaretini çok iyi biliyordu. Korku nedir bilmeyen Rudeus’u. Dövüş yeteneği, Alexander’a göre, kendi seviyesinin altındaydı; ama Biheiril Krallığı’ndaki o parlak dövüşü Alec’in hafızasına kazınmıştı. Mantığın ötesinde, kendisinden çok daha güçlü bir şeye karşı durma cesaretiydi bu. Alexander bunun adını biliyordu—cesaret. Atoferatofe’nin onu bir şampiyon ilan ettiğinde gördüğü şey de buydu. Ve bir şey daha fark etmişti: İşte, bu onun cevabıydı.</p>
+            <p>“Falia, lütfen bu konuda sessiz kal,” dedi.</p>
+            <p>“T-tamam…” Faliastia’nın kafasını yana eğişi iyice arttı, ama Alec buna aldırmadan CEO’nun ofisinin kapısına uzandı. Kalbinde, Orsted’in ona bir şampiyonla yan yana dövüşme onurunu bahşedeceği umudunu taşıyordu. Bundan sadece birkaç dakika sonra Alexander, Orsted’den “cevabını” alacaktı.</p>
+            <p>bolum2parca1e geçtik bu bölümün en başında bolum2foto1.png var "mesele buydu" lafından sonrada bolum2foto2.png var</p>
+        </main>
+
+        <div class="bottom-nav">
+            <a href="bolum1parca3.html" class="nav-btn">←Önceki Bölüm</a>
+            <a href="bolum2parca2.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

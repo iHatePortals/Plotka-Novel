@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei Cilt 1, Bölüm 1 (Kısım 1) | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b; /* Mushoku Tensei Kırmızı Tema */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #cc0000;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c1b1b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        body.theme-light .nav-btn:hover, 
+        body.theme-light .action-btn:hover, 
+        body.theme-light .theme-select:hover,
+        body.theme-sepia .nav-btn:hover, 
+        body.theme-sepia .action-btn:hover, 
+        body.theme-sepia .theme-select:hover {
+            color: #ffffff;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+        }
+
+        /* Resimler için özel stil */
+        .novel-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 6px;
+        }
+
+        /* Ayrıştırıcı Çizgi */
+        .divider {
+            text-align: center;
+            margin: 2em 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="bolum3parca2.html" class="nav-btn">←Önceki Bölüm</a> 
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="bolum4.html" class="nav-btn">Sonraki Bölüm →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Mushoku Tensei Cilt 2, Bölüm 3</h1>
+            <div class="subtitle">Kılıç Tapınağında Yaşayan Tanrı  (Kısım 3)</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+                                    <img src="bolum3foto1.png" alt="Kitap Çizimi 1" class="novel-image">
+<p>Rudeus ve diğerlerinin geceyi Kılıç Tapınağı’nda geçirmesine karar verildi. Onlara uyumaları için ana eğitim salonunda bir oda verilirken, Eris tek başına Nina’nın evine davet edildi. Rudeus’la birlikte eğitim salonunda kalmayı planlamıştı ama Nina ısrar etti.</p>
+<p>Nina’nın evi, Gino Britz’in evi demekti. Eris, Rudeus’a tek başına kalacağını söylediğinde Rudeus endişelenmiş ve onu nazikçe vazgeçirmeye çalışmıştı. Kılıç Azizleri’nin nasıl davrandığını görmüştü; Eris, Gal’ı öldürmüştü ve onlar da kan peşindeydi. Ortam Rudeus’u germişti. Eris ise Kılıç Tapınağı’nın her zaman böyle olduğunu hatırlıyordu. Kılıç savaşçıları güçlü olmaktan çok güçlü görünmek isterlerdi. Eğitim salonu dışında daha yüksek rütbeli bir rakibe saldıracak kadar cesareti olan kimse yoktu. Bunu sadece Eris deneyebilirdi, o da çok daha gençken.</p>
+<p>Rudeus ve diğerlerini eğitim salonunda bırakıp tek başına Britz hanesine doğru yola çıktı. Salondan kısa bir mesafede, bir Kılıç Tanrısı için hayal edeceğiniz gibi görünmeyen küçük bir evde yaşıyorlardı.</p>
+<p><strong>“İşte geldik. İçeri gel. Gino antrenmanını bu saatlerde yapar, o yüzden henüz evde değil.”</strong></p>
+<p><strong>“Peki, şey, teşekkürler.”</strong> Eris gergin bir şekilde içeri girdi. Düşününce, bu, bir arkadaşının evine takılmaya gittiği ilk sefer olabilirdi. Asura başkentinde yaşayan Isolde’yi Asura Krallığı’nı her ziyaret ettiklerinde görüyordu ama Eris onun evine hiç gitmemişti. Isolde’nin evine bağlı olan eğitim salonuna gitmişti ama bu tam olarak aynı şey değildi.</p>
+<p><strong>“Meeerhabaaa!”</strong></p>
+<p>Eris sinirleriyle boğuşurken, neşeli bir ses onu selamlamak için seslendi. Evin arkasından fırlayan iki çocukla birlikte tıpır tıpır ayak sesleri duyuldu.</p>
+<p><strong>“Hoş geldin, anne!”</strong></p>
+<p><strong>“Selam, anne!”</strong></p>
+<p>Biri, sağ elinde bir alıştırma kılıcı ve yüzünde kocaman bir sırıtışla enerji dolu bir oğlan çocuğuydu. Diğeri ise bir kızdı. Neredeyse hâlâ bir bebekti ve sendeleyen adımlarla oğlanın peşinden koşturuyordu. İkisi ön kapıya koştular, ancak Eris’i görünce ağızları bir karış açık bir şekilde durakladılar.</p>
+<p><strong>“Bu benim oğlum Nell ve kızım Jill. Çocuklar, bu Eris. O benim bir arkadaşım.”</strong></p>
+<p><strong>“Şey, tanıştığımıza memnun oldum.”</strong> Nina onu arkadaşı olarak tanıttığında Eris biraz kaşlarını çattı ama başını eğdi.</p>
+<p>Nell onun adını duyunca gözleri fal taşı gibi açıldı. <strong>“Kızıl saçların var! Sen Vahşi Kılıç Kralı Eris misin?!”</strong></p>
+<p><strong>“Kıymıjı şaç!”</strong> diye mırıldandı Jill. Anlamamış ve sadece abisini tekrar ediyor gibiydi, yine de bir şeyin ilgisini çektiği belliydi. Gözleri pırıl pırıl parlayarak Eris’e yaklaştı. Belki de kızıl saç Tapınak’ta nadirdi. Jill’in küçük eli onun dalgalı saçlarına uzandı ama oraya varamadan Nina onu kucağına aldı.</p>
+<p><strong>“Dur bakalım,”</strong> diye azarladı.</p>
+<p><strong>“Paylak kıymıjı!”</strong> diye sızlandı Jill, bacaklarını aşağı yukarı sallayarak.</p>
+<p>Bunu gören Nell hemen, <strong>“Hayır, Jill! O Vahşi Kılıç Kralı! Ona dokunursan seni bir lokmada yutar!”</strong> dedi.</p>
+<p><strong>“Isıyıy mı?”</strong> Jill korkuyla Eris’e baktı. Bu manzara karşısında Eris hafifçe güldü. Davranışları ona birkaç yıl önceki Arus ve Sieg’i hatırlatmıştı.</p>
+<p><strong>“Seni yemem,”</strong> dedi Eris.</p>
+<p>“<strong>Sadece gardlarını düşürmelerini sağlamak için böyle söylüyorsun, sonra onları bir çırpıda kapıvereceksin.”</strong> Nina şüpheyle gözlerini kısarak Eris’e baktı. Eris ona ters ters baktı, o noktada Nina’nın yüzünde bir gülümseme belirdi.</p>
+<p><strong>“Sadece şaka yapıyorum,”</strong> dedi, Jill’i uzatarak. <strong>“Onu tutmak ister misin?”</strong></p>
+<p><strong>“Elbette.”</strong> Eris, Jill’i kucağına aldı. Küçük kız ilk başta korkmuş görünüyordu ama Eris’in bebek tutmaya kendi annesinden çok daha alışkın olduğunu sezmiş olmalı ki çabucak neşelendi.</p>
+<p><strong>“Kıymıjı! Güjey!”</strong> dedi mutlulukla, Eris’in saçından bir tutam kapıp ağzına tıkarken.</p>
+<p><strong>“Ah, hayır, Jill! Onu yeme!”</strong></p>
+<p><strong>“Av…”</strong> Nina onu azarlayınca Jill hemen saçı ağzından çıkardı. Kızıl olsun ya da olmasın, sonuçta saçtı, bu yüzden tadı güzel olamazdı. Şimdi, Eris’in saçı yapış yapış olmuştu.</p>
+<p><strong>“Sanırım yenen ben oldum,”</strong> dedi Eris gülümseyerek. Jill’in başını okşadı.</p>
+<p>Nina’nın gözlerinde bir şaşkınlık ifadesi belirdi. Bu, aynı Eris mi?</p>
+<p>Bunu daha önce Asura Krallığı’nda bir kez görmüştü. Eris artık tıpkı onun gibi bir anneydi; çocuklarla nasıl başa çıkacağını biliyordu.</p>
+<p><strong>“Tadı güzel değildi, değil mi? Demek ki bu yemek için değil. Tamam mı?”</strong> dedi Eris, Jill’e.</p>
+<p><strong>“’mam.”</strong></p>
+<p>Jill’i yere bıraktı ve kız evin içine doğru seke seke gitti.</p>
+<p><strong>“Ben Nell Britz!”</strong> Onun yerini almak için öne çıkan Nell oldu. Diz çöktü, sonra eğildi. <strong>“Sen gerçek Vahşi Kılıç Kralı’sın, ha? Sizinle tanışmak bir onur!”</strong></p>
+<p><strong>“Ben, şey, Eris Greyrat. Eğilmene gerek yok.”</strong></p>
+<p><strong>“Ah, hayır…! Şey! Bu, şey…! Ben her zaman…”</strong> Nell gözleri parlayarak ve yüzü heyecanla dolu bir şekilde kelimelerini toparlamaya çalışırken Eris’e baktı.</p>
+<div id="model-response-message-contentr_c66c4cc3a3b9636f" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p><strong>“Nell, bu kadar yeter,”</strong> diye araya girdi Nina. <strong>“Eris’i daha ne kadar girişte ayakta tutacaksın? En azından akşam yemeğini yiyene kadar bekle.”</strong> Elini onun başına koydu ve saçlarını normalden biraz daha sert bir şekilde karıştırdı.</p>
+<p><strong><em>“Pekiii.”</em></strong> Nell, hayal kırıklığı içinde gözlerini yere indirdi. Daha fazlasını duymak, mümkünse onunla kılıç antrenmanı yapmak istiyordu… ama annesi kesinlikle hayır derdi. Her zaman hayır derdi. Kılıç Tapınağı’na ne kadar ünlü bir kılıç savaşçısı gelirse gelsin, annesi Nell’i onlarla hiç tanıştırmazdı.</p>
+<p>Hayal kırıklığına uğramış Nell’i geride bırakan Eris, evin içine doğru yönlendirildi.</p>
+<p><strong>“Herkes değişmiş, ha?”</strong> Akşam yemeğinden sonra Eris, Nina ile konuşurken oturma odasında rahatladı. Gino orada değildi. Yemeklerini yedikten sonra çocukları başka bir odaya götürmüştü. Çocukların kahkaha seslerine bakılırsa, Eris onlarla oynadığını varsaydı.</p>
+<p><strong>“İşlerin bu şekilde sonuçlanacağını hiç beklemezdim.”</strong></p>
+<p>Nina, Eris ve Gino üçlüsünden Gino her zaman bir adım gerideydi. Kılıcını sallarken her zaman somurtkan görünen ve Kılıç Tanrısı’nın sorularına cevap veremeyen oydu. Aynı Gino, Nina ile evlenmiş ve Eris’i tek bir darbede indirmişti. Eris şaşkınlığını gizleyemedi. Bunu Gal’dan duymuştu ama onu kendi gözleriyle görünce, gerçekten de sanki farklı bir insanmış gibiydi.</p>
+<p><strong>“Nina, demin eğitim salonunda kılıcını eline bile almadın.”</strong></p>
+<p>Aynı şey Nina için de geçerliydi. Güçlü olmak için kendini bu kadar zorladıktan sonra, sadece Eris’i izlemişti. Sadece bu da değil, Gino’nun istediği her şeyi yapmasına izin vermişti. Eris eski Nina’nın bunu yapabileceğini hayal bile edemiyordu.</p>
+<p><strong>“Sıradaki yolda,”</strong> dedi Nina, karnını okşayarak. Anlaşılması zordu ama yakından bakarsanız, orada hafif bir şişkinlik görülebiliyordu. Üzgün bir ifadeyle ekledi: <strong>“Gino, Kılıç İmparatoru unvanını almamı söyledi ama sanırım emekli olacağım.”</strong></p>
+<p><strong>“Ve bu sana yetiyor mu?”</strong> diye sordu Eris, kendini tutamadan.</p>
+<p>                           <img src="bolum3foto3.jpg" alt="Kitap Çizimi 1" class="novel-image">
+
+</p>
+<div id="model-response-message-contentr_0f46f7d1c60e736f" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Nina aşağıya baktı ama yüzünde bir memnuniyet ifadesi vardı. <strong>“Evet… mutluyum. Elbette kılıçla biraz daha devam etmek isterdim ama bilemiyorum. İşin garibi, pek pişmanlığım yok. Sanırım Gino’ya yenildiğimde bir kılıç ustası olmayı bıraktım.”</strong></p>
+<p><strong>“Yenildin mi?”</strong></p>
+<p><strong>“Evet, Kılıç Tanrısı’na meydan okumadan önce bana, <em>‘Eğer kazanırsam benim ol,’</em> dedi. Hiçbir şeyi esirgemeden onunla dövüştüm ve kaybettim.”</strong></p>
+<p><strong>“Evlenme teklif etmek için ne kadar da güzel bir yol.”</strong></p>
+<p><strong>“Değil mi?”</strong> Nina o günü düşünerek usulca güldü. O güne kadar Nina dünyanın en güçlü kılıç savaşçısı, yani bizzat Kılıç Tanrısı olmak istemişti. Bu arzu bir anda yok olmuştu. Gino işte o kadar güçlüydü. Tıpkı bugün Eris’e yaptığı gibi, tek bir darbede onu saf dışı bırakmış, çabalarıyla adeta alay etmişti.</p>
+<p>Eğer bu Gino olmasaydı, eğer küçükken peşinden sürüklediği çocukluk arkadaşı olmasaydı, belki de farklı hissederdi. Tıpkı Eris’e yenildikten sonra yaptığı gibi, yanaklarından süzülen gözyaşları ve yenilenmiş bir kararlılıkla kendini kılıç antrenmanına atabilirdi.</p>
+<p>Ama bu Gino’ydu. Sırf onunla evlenmek için güçlenmişti. Onu yenmiş, sonra da Kılıç Tanrısı Gal Farion ile başa baş dövüşüp kazanmıştı. Kılıç Tanrısı unvanıyla geri döndüğünde, Nina’yı kucaklayıp zorla öpmüş, sonra da oracıkta yere itmişti. O gün Nina, hem zihnen hem de bedenen Gino’nun olmuştu. Nina, olağanüstü bir çaba olmadan Kılıç Tanrısı olmanın imkânsız olduğunu biliyordu. Ne sıkı çalışma ne de yetenek tek başına yeterliydi. Hatta ikisi birden bile yeterli olmayabilirdi. O güne kadar Gino, Nina’nın onu yönlendirmesine izin vermiş, onun kadar çaba göstermişti. Bu temelin üzerine, ondan bile daha ileri gitmiş, kan kusacak kadar kendini zorlamıştı.</p>
+<p>Başarmıştı. Kılıç Tanrısı rütbesine ulaşmış, çok az kişinin erişebildiği bir yere gelmişti. Nina, onun buna uygun bir ödülü hak ettiğini düşündü—Gal Falion’un sözleriyle, istediğini yapmalıydı, bu yüzden hiçbir şey söylemedi. Bu konuda kendi düşünceleri ve söylemek istediği şeyler vardı ve Gino muhtemelen dinlerdi. Ama bunu yaparsa, onun aniden zayıflayacağı korkusuna kapıldı. Nina, hayranlık duymaya başladığı kişinin yoluna çıkamazdı. Bu yüzden, kılıcından vazgeçip bir sonraki mücadelesine, yani bir anne olmaya kendini adamaya karar verdi.</p>
+<p><strong>“Peki ya sen, Eris? Şimdi mutlu musun?”</strong></p>
+<p><strong>“Evet, mutluyum.”</strong></p>
+<p><strong>“Üç karısından biri olmana rağmen mi?”</strong></p>
+<p><strong>“Evet. Bu normal. Babam sadece annemle evliydi ama dedemin pek çok karısı vardı. Rudeus’un babasının da iki karısı vardı.”</strong></p>
+<p><strong>“Yani, Milis inancını takip etmiyorum ama ben sadece… çok eşli olmayı hayal edemiyorum,”</strong> dedi Nina.</p>
+<p>Eris’in de kendine göre hayal kırıklıkları vardı elbette. Bazen Rudeus’un tek karısı olmanın nasıl bir şey olacağını merak ediyordu. Elbette mutlu olurdu. Bütün gün sadece ikisi, aralarına girecek kimse olmadan. Ama mesele de buydu—sadece o ve Rudeus olurdu. Bu, şu anki Greyrat hanesiyle karşılaştırıldığında nasıl olurdu? Eğer Sylphie ve Roxy olmasaydı, bu Lucie, Lara, Sieg ya da Lily’nin de olmayacağı anlamına gelirdi. Yine de Arus ve Chris’i olurdu ve diğer çocukların yerine belki kendisinin daha fazla çocuğu olurdu. Ama şu anki çocuklarından daha iyi çocuklar hayal edemiyordu.</p>
+<p>Olabilecek olanla sahip olduğunu karşılaştırdığında, bir günlük antrenmandan sonra sırılsıklam ter içinde geldiğinde ona bir havlu uzatacak kimse olmazdı; çamurla kaplı bir Lara kollarına itilirken <em>“Onu da banyoya sok”</em> diyecek kimse olmazdı; ve çocukları yıkadıktan sonra çıktığında onun için temiz kıyafet ve iç çamaşırı bırakacak kimse olmazdı.</p>
+<p>Birbirlerine tam doğru miktarda alan tanıyorlardı, sinir bozucu olacak kadar sıkı sıkıya yapışmıyorlar ama küçük işleri paylaşmaktan da çekinmiyorlardı. Eris, Sylphie ve Roxy olmadan hayatının nasıl olacağını hayal edemiyordu—ve hayat güzeldi. Çocuklarının büyümesini izlemek eğlenceli ve tatmin edici geliyordu. Yakında, onlarla daha ciddi kılıç antrenmanlarına başlayacaktı. Lucie kılıçtan çok büyüye odaklanmıştı ve Lara hâlâ biraz dalgındı ama Arus ve Sieg hevesli görünüyordu. Hatta Sieg şimdiden Kuzey Tanrısı Stili öğreniyordu. Onlara nasıl öğreteceğini ve nasıl büyüyeceklerini düşünmek Eris’i mutlulukla dolduruyordu.</p>
+<p><strong>“Sen de değiştin, Eris,”</strong> dedi Nina.</p>
+<p><strong>“Değiştim, ha?”</strong></p>
+<p><strong>“Eski günlerde olsaydı, bir çocuğu evden uçan tekmeyle atardın.”</strong></p>
+<p><strong>“Hadi canım! Asla bir çocuğu tekmelemem.”</strong></p>
+<p><strong>“O zamanlar kendin de bir çocuk gibiydin. Şimdi ise onlara bakıyorsun.”</strong></p>
+<p><strong>“İki tane yaptım.”</strong></p>
+<p><strong>“Üçüncüye ne dersin?”</strong></p>
+<p><strong>“Hayır, bu kadarı yetti.”</strong></p>
+<p><strong>“İşin eğlenceli kısmından yeterince aldın mı?”</strong> diye sordu Nina.</p>
+<p>Eris’in yanakları kıpkırmızı kesildi.<strong> “H-hayır, o kısımdan daha fazlasını istiyorum,”</strong> diye dürüstçe cevapladı. Hamileliğin sonlarına doğru ağırlaşıp özgürce hareket edememe hissini bir türlü sevemiyordu.</p>
+<p><strong>“Biliyor musun, seninle konuşmak şimdi çok daha kolay,”</strong> dedi Nina.</p>
+<p><strong>“Ben de seni şimdi daha çok seviyorum. Eskiden biraz baş belasıydın.”</strong></p>
+<p><strong>“Öyleydimdir herhalde.”</strong></p>
+<p>Eski Nina’nın her yanı sivriydi. En iyisinin kendisi olduğunu düşünür ve altındaki herkese istediği gibi davranabilirdi. Eris tarafından haddinin bildirilmesi onu biraz yola getirmişti ama Gino ile evlenmek daha büyük bir fark yaratmıştı.</p>
+<p>Eris aniden başka birini hatırladı. <strong>“Ah evet, duydun mu? Isolde de evlenmiş.”</strong></p>
+<p>Şimdi Su Tanrısı Reida adıyla anılan Su Tanrısı ekolünün ustası, Isolde Cluel.</p>
+<div id="model-response-message-contentr_1d0617c4cf4d9580" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p><strong>“Evet, düğünle ilgili bir mektup aldım ama hamileydim, bu yüzden gidemedim.”</strong></p>
+<p><strong>“Peki ya bebeği?”</strong></p>
+<p><strong>“Bunu ilk defa duyuyorum. Kız mı erkek mi?”</strong></p>
+<p><strong>“Kız. Su Tanrısı olarak çok fazla çocuğu olamaz, bu yüzden bir varis doğurmadığı için hayal kırıklığına uğramıştı.”</strong></p>
+<p><strong>“Bu zor bir durum. Kocası bir Kuzey İmparatoru değil mi? Kız çocuğu olduğu için sinirlenmemiş ya da hayal kırıklığına uğramamış mıydı?”</strong></p>
+<p><strong>“Dohga asla böyle bir şey söylemez. O iyi bir adamdır.”</strong> Eris konuşurken anılarını karıştırdı.</p>
+<p>Isolde ve Dohga’nın evliliğine en çok karşı çıkan kişi Rudeus’tu. Dohga, Biheiril Krallığı’nda Rudeus’u kurtarmıştı, bu yüzden Rudeus hayatını Dohga’ya borçluydu ve ona gerçekten güveniyordu. Dohga masum, dürüst ve kolay lokma gibi görünüyordu. Rudeus onun Isolde gibi yüzeysel bir kadınla evlendiğini duyduğunda, onun paranın peşinde olup olmadığını ya da onu aldatıp aldatmayacağını merak etmişti. Hatta gizlice onun hakkında bir geçmiş araştırması bile yapmıştı. Belki de Isolde’nin de onu kurtardığını unutmuştu.</p>
+<p>Her halükârda, kızından dolayı hayal kırıklığına uğramasına imkân yoktu. Rudeus’un çok güvendiği o masum Dohga’nın değil. Eris onu son gördüğünde, annesinin tıpatıp aynısı olan kızı omuzlarında otururken ağzı kulaklarındaydı. Isolde, onun temizlik ve çamaşır işlerini bile yaptığını ve çocuklara baktığını, hem de hepsini kendi inisiyatifiyle yaptığını söylemişti.</p>
+<p>Kural olarak ev işleriyle pek ilgilenmeyen Eris bile Isolde’ye, <strong><em>“Senin de biraz yardım etmen gerekmez mi?”</em></strong> demekten kendini alamamıştı.</p>
+<p>Isolde’nin mahcup bir şekilde başka tarafa bakıp, <strong><em>“Ama o bu işte daha iyi…”</em></strong> diye mırıldanmasını asla unutmayacaktı.</p>
+<p><strong>“Umarım çocuklarımız büyürken birbirlerine ilham verirler,”</strong> dedi Nina.</p>
+<p>Eris başıyla onayladı. <strong>“Aynen. İstersen seninkini de Büyücü Üniversitesi’nde okuması için gönderebilirsin.”</strong></p>
+<p><strong>“Kulağa hoş geliyor ama Gino buna izin vermezdi. O, sevdiklerini her zaman yakınında tutmak ister.”</strong></p>
+<p><strong>“O halde Kılıç Tapınağı’ndan asla ayrılamazlar.”</strong></p>
+<p><strong>“Eğer ayrılmak isterlerse, onun iznini beklemeyeceklerinden eminim.”</strong> Nina hafifçe kıkırdadı. Eski Eris ile böyle bir sohbet edebileceğini hayal bile edemezdi.</p>
+<p><em><strong>“Hm?”</strong></em> Eris aniden birini hissederek arkasını döndü. Oturma odasının girişinde bir çocuk duruyordu. Bu, elinde bir kitap tutan Nell’di. Gözleri Eris’inkilerle buluşunca kararlı bir şekilde öne doğru yürüdü.</p>
+<p><strong>“Şey, Vahşi Kılıç Kralı Hanım?”</strong> dedi.</p>
+<p><strong>“Evet?”</strong></p>
+<p><strong>“S-siz bu kişiyi tanıyorsunuz, değil mi?!”</strong> Kitabı ona uzattı. Bu, Superd’in Macerası’ydı; Eris’in çok iyi bildiği bir kitap. Norn yazmış, Rudeus kitap haline getirmiş, Zanoba ve Aisha da satmıştı.</p>
+<p><strong>“Ruijerd’i mi kastediyorsun?”</strong> diye sordu. <strong>“Yoksa Norn’u mu?”</strong></p>
+<p><strong>“Norn…? Yani yazarı da mı tanıyorsunuz?! Ah, doğru ya, sanırım aynı soyadına sahipsiniz!”</strong></p>
+<p><strong>“Norn benim görümcem. Rudeus’un küçük kız kardeşi.”</strong></p>
+<p><strong>“Doğru, <em>‘Bataklık’</em> Rudeus! Yedi Büyük Güç’ün yedi numarası! Ejderha Tanrısı’nın sağ kolu ve Büyücü Kral Rudeus olarak da bilinir!”</strong></p>
+<p><strong>“Aynen öyle. Bayağı çok şey biliyorsun.”</strong></p>
+<p><strong>“Anneme Superd’i ve sizi sordum, Eris Hanım! Bataklık ve Vahşi Kılıç Kralı’nı da ozanlardan duydum! Sizinle bir kez olsun tanışmak istemiştim!”</strong> Nell gözleri parlayarak Eris’e baktı. Onun için Eris, ozanların şarkılarından, doğrudan bir efsaneden fırlamış bir karakterdi.</p>
+<p>Babasının aksine Nell, <em>“Dış Dünya”</em> hakkında daha fazlasını öğrenmek için can atıyordu. Bir gün, oraya açılmayı ve ozanların hakkında şarkılar söylediği biri olmayı hayal ediyordu.</p>
+<p><strong>“Öyle mi? Bu bir onur,”</strong> dedi Eris. Yüzüne bir sırıtışın yayıldığını hissetti ama çocuğun hayalini bozmamak gerektiğini düşünerek kendini ciddi görünmeye zorladı ve ağırbaşlı bir şekilde başını salladı. Zihninde Roxy’nin sakin ifadesini canlandırdı.</p>
+<p><strong>“Rudeus ve Orsted de burada,”</strong> diye ekledi. <strong>“Onlar gitmeden gidip onları da görmelisin. Ah, bir de Kuzey Tanrısı Kalman III var!”</strong></p>
+<div id="model-response-message-contentr_cc2cb3baa4f0ee53" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p><strong>“Gidebilir miyim?!”</strong> Nell’in başı hızla Eris’e döndü. Yedi Büyük Güç’ün yedi ve iki numarası ile Kuzey Tanrısı Destanı’ndan Kalman, hepsi zihninde canavar gibi güçlü babası kadar, hatta ondan daha da heybetliydi. Böyle sıradan bir günde onlarla tanışma hayalinin gerçek olacağını hiç hayal etmemişti.</p>
+<p><strong>“Şey…”</strong> Nell kitabı arkasına sakladı, sonra gergin bir şekilde dizlerini birbirine sürttü. <strong>“Bütün dünyayı dolaştınız, değil mi, Vahşi Kılıç Kralı Hanım?”</strong></p>
+<p><strong>“Evet, İblis Kıtası’ndan Milis Kıtası’na, Merkez Kıta’nın en uçlarına kadar. İlahi Kıta’ya da gittim. Ama Begaritt Kıtası’na gitmedim.”</strong></p>
+<p><strong>“Eğer sakıncası yoksa, merak ediyordum da, acaba… acaba bana maceralarınızı anlatır mısınız…?”</strong></p>
+<p><strong>“Benim maceralarımı mı? Rudeus’unkileri değil mi?”</strong></p>
+<p><strong>“Evet, Vahşi Kılıç Kralı’nınkini duymak istiyorum!”</strong></p>
+<p>Eris başını sallarken yüzüne bir gülümseme yayıldı. Geriye dönüp düşününce, eskiden bu tür masallara bayılırdı, her zaman Ghislaine’e maceralarını anlatması için yalvarırdı. Bir gün hikâyeleri anlatanın kendisi olacağını hiç hayal etmemişti. Şimdilerde, Arus ve Sieg ne zaman isteseler onlara bir sürü hikâye anlatıyordu ama bu farklı hissettiriyordu. Bu sefer ona bir anne olarak değil, bir kahraman olarak soruluyordu.</p>
+<p>Eris’in durumu böyle gördüğü söylenemezdi. Sadece biraz memnun hissetmişti.</p>
+<p><strong>“Bakalım o zaman… İblis Kıtası’na ışınlandığım zamanki hikâyeye ne dersin?”</strong> Bununla birlikte Eris neşeyle masalına başladı.</p>
+<p>Onu izlerken Nina’nın ağzının kenarında bir gülümseme belirdiğini hissetti. <strong><em>“Çok farklı,”</em></strong> diye mırıldandı.</p>
+<p>Nina değişmişti, Eris de öyle. Artık birbirlerini gelişmek için teşvik ettiklerini iddia edemezlerdi ama bir şey varsa o da Eris’le şimdi daha yakın olduklarını hissediyordu. İlk tanıştıklarında asla anlaşamayacaklarından emindi. Eris, Kılıç Tapınağı’ndan bir Kılıç Kralı olarak ayrıldığında bile Nina ona kendine göre saygı duymuştu ama ilişkileri dostluk denilemeyecek kadar karmaşıktı. Bu yeniydi. Nina artık Eris’e aynı düzeyde bir hayranlık duymuyordu ama o zamanlar hiç hissetmediği bir şey hissediyordu. Isolde’yi görmeyeli uzun zaman olmuştu. Şimdi tanışsalar, belki de aynı şeyi hissederdi. Neredeyse hiç gerçek arkadaşı olmayan Nina için bu alışılmadık bir deneyimdi.</p>
+<p><strong>“Eris?”</strong> dedi.</p>
+<p><strong>“Sonra, Ruijerd evcil hayvan kaçakçısının kafasını bir çırpıda kesti ve—ne oldu?”</strong></p>
+<p><strong>“Çocuklarımızı alıp birlikte Isolde’yi görmeye gidelim.”</strong></p>
+<p>Eris gözlerini kırpıştırdı, sonra başını salladı. <strong>“Anlaştık.”</strong></p>
+<p>Kılıç Tanrısı olduktan sonra Gino değişmişti. Onun gibi bir Kılıç Tanrısı ile Kılıç Tapınağı’ın kendisi de yakında farklı görünmeye başlayacaktı. Hiçbir şey sonsuza dek sürmez. Belki de bir gün biri çıkıp Gino’yu tıpkı onun gibi yenebilirdi. Bu, bir kılıç savaşçısı olmanın bir parçasıydı. Onlar kırılgan yaratıklardı.</p>
+<p>Ancak Nina bu dostluğun süreceğini düşündü. Ne de olsa, o artık bir kılıç savaşçısı değildi.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum3parca2.html" class="nav-btn">←Önceki Bölüm</a>
+            <a href="bolum4.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

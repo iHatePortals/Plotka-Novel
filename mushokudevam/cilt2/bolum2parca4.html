@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei Cilt 1, Bölüm 1 (Kısım 1) | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b; /* Mushoku Tensei Kırmızı Tema */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #cc0000;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c1b1b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        body.theme-light .nav-btn:hover, 
+        body.theme-light .action-btn:hover, 
+        body.theme-light .theme-select:hover,
+        body.theme-sepia .nav-btn:hover, 
+        body.theme-sepia .action-btn:hover, 
+        body.theme-sepia .theme-select:hover {
+            color: #ffffff;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+        }
+
+        /* Resimler için özel stil */
+        .novel-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 6px;
+        }
+
+        /* Ayrıştırıcı Çizgi */
+        .divider {
+            text-align: center;
+            margin: 2em 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="bolum2parca3.html" class="nav-btn">←Önceki Bölüm</a> 
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="bolum2parca5.html" class="nav-btn">Sonraki Bölüm →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Mushoku Tensei Cilt 2, Bölüm 2</h1>
+            <div class="subtitle">Millis Seyehatnamesi(Kısım 4)</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <img src="bolum2foto1.png" alt="Kitap Çizimi 1" class="novel-image">
+            <p>Zaman su gibi akıp geçti ve ben ne olduğunu anlamadan on günümüz dolmuştu. İlk gün, saygılarımı sunmak için katedrale gittim. Zenith orada Kutsanmış Çocuk’la görüşmüştü; Kutsanmış Çocuk da güçlerini kullanarak Zenith’in ne söylediğini bize aktardı. Bizimle gelen Claire, görüşmenin yarısında hüngür hüngür ağlamaya başladı. Benim de gözlerim dolmuştu ama Zenith her zamanki gibi mutlu göründüğünden kendimi tuttum.</p>
+<p>Canı sıkkın görünen çocuklar dışarıda bekliyordu ama ben papayla ve Kutsanmış Çocuk’la sohbete dalmıştım. Sonuçta iş beklediğimden uzun sürdü. Benim yerimde başkası olsa suçu, antrenman ve diyet düzenini uzun uzadıya anlatan Kutsanmış Çocuk’a atardı. Nasıl daha ince bir vücuda kavuştuğunu anlatırken gururla sırıtıyordu.</p>
+<p>Tahmin ettiğim gibi çocuklar huzursuzlanınca Aisha, Arus, Lara ve Sieg’i Maceracılar Loncası Genel Merkezi’ni görmeye götürdü. Eve ne kadar geç döndüklerine ve Arus’un yüzündeki ifadeye bakılırsa bir tür belaya bulaştıklarını hissetmiştim. Gerçi Aisha durumu halletmiş gibiydi.</p>
+<p>Lucie’nin geride bırakıldığı için sinirlendiğini düşünebilirsiniz ama hiç de öyle değildi. O ve yine geride kalan Clive, katedralin içini ağızları açık gezmişlerdi. Bu ona yetmiş gibi görünüyordu. Belki de bahçeleri seviyordu ya da Clive’ın arkadaşlığı onu sarmıştı. Bana çiçekler hakkında belirli bir şey söylememesinden yola çıkarak ikincisi olduğuna kanaat getirdim.</p>
+<p>Onu daha fazla sorgulamak istedim ama kendimi tuttum. Şimdilik tek yapabileceğim Clive’ın dürüst bir genç adam olmaya devam etmesini ummaktı.</p>
+<p>İkinci, üçüncü ve dördüncü günler insanları ziyaret etmekle geçti. Ejderha Tanrısı’nın müridi Rudeus Millishion’daydı; ziyaret turlarımı yapmam gerekiyordu. Ziyaretlerim Misyoner Şövalyeleri’nin kaptanını ve Latria ailesinin yan kollarını, yani teyzelerimle amcalarımı kapsıyordu. Elbette Therese de buna dahildi. Ne yazık ki, görünüşe göre hâlâ evlenmemişti.</p>
+<p>Ondan sonra papayla resmi bir görüşme yaptım. Ardından Millis kraliyet ailesiyle, daha doğrusu tahtın beşinci sıradaki varisi olan prensle tanıştırıldım. “Prens” unvanının yarattığı imaja rağmen, adam kırklarındaydı. Sinir bozucu bir şekilde, kralla görüşmem birkaç gün sonraya ayarlandı. Ejderha Tanrısı adına saygılarımı o zaman sunacaktım. Orsted, Millis kraliyet ailesiyle bağ kurmanın bekleyebileceğini ama sadece bir görüşmenin sorun olmayacağını söylemişti.</p>
+<p>Tatile çıkıp neden çalıştığımı merak edebilirsiniz ama bu gezinin amacı çocukların farklı kültürleri görmesini sağlamaktı. Bu yüzden dert etmedim.</p>
+<p>Beşinci gün, Cliff’in yeni bebeğini teslim etmeye gittim. Meğer paylaşacak güzel haberleri varmış. Son beş yıldaki çalışmaları üstlerini etkilemiş ve —henüz resmi olmasa da— piskopos olacaktı. Normalde gençliği buna engel olurdu ama Cliff’in piskoposluk bölgesinin sıra dışı konumuyla ilgili bazı siyasi durumlar vardı.</p>
+<div id="model-response-message-contentr_a8eb7fa5a1cf4d05" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Cliff, Büyük Orman’ın güney ucunda bir bölgeden sorumluydu. Ben zamanında seyahat ederken orası isimsiz bir han kasabasından ibaretti. Son on yıl kadar bir sürede nüfusu artmış, kasaba da nüfusla birlikte büyümüştü. Kasaba herhangi bir ülkeye veya ırka ait değildi, ama büyüdükçe kimin nerede yetki sahibi olduğu sorunu ortaya çıktı. Çeşitli ırkların temsilcileri, kendi çıkarlarını müzakere etmek için kasabada toplandı.</p>
+<p>Millis Kilisesi’nin gönderdiği temsilci bir başpiskopostu; kardinalin sağ kolu olarak bilinen iblis sürgüncüsü hizbinin bir üyesiydi. Kendisi bir insan üstünlükçüsüydü ve sadece iblisleri değil, canavar halkı gibi diğer ırkları da küçümsüyordu. Bağnazlığına rağmen kurnaz ve işinde iyiydi; tam da kilisenin, kasabadaki çeşitli çıkarları kendi lehine çevirebileceğine güvendiği türden biriydi. Ancak eğilimleri göz önüne alındığında, Büyük Orman’da yaşayan ırklarla ilişkilerine zarar verme ihtimali vardı ve bu da yalnızca iblis sürgüncülerinin en radikal üyelerinin istediği bir şeydi.</p>
+<p>İşte bu yüzden Cliff seçilmişti. Cliff sadece iyi bağlantılara sahip, ön yargısız ve papanın hizbinden biri olmakla kalmıyor, aynı zamanda üyeleri arasında pek çok canavar halkından kişinin bulunduğu Ruquag Paralı Askerleri’yle de arası iyiydi ve Doldia Kabilesi’nin kan bağı olan akrabalarıyla yakındı. Bu yüzden onu daha yüksek bir rütbeye terfi ettirmeye ve başpiskoposa göz kulak olması için ona eşlik etmesini sağlamaya karar verildi.</p>
+<p>Cliff, insanların onu sırf liyakatine dayanarak yükselttiğini düşünmememiz gerektiğini hayıflanarak belirtti. Yine de kasabadaki işi bittiğinde hem ismen hem de cismen bir piskopos olacaktı, bu da ona çok daha büyük bir yetki kazandıracaktı. Eğer Büyük Orman halklarıyla iyi ilişkilerini sürdürebilirse, bu durum bir elfi eş olarak alması için bir bahane sağlayacaktı. Durum böyle olursa, Elinalise ve Clive’ı Millis’te kendisiyle yaşamaya davet edebilirdi.</p>
+<p>Bu noktaya geldiğinde, bebeğin terfisi için de bir kutlama hediyesi olabileceğini düşündüm ve büyük sürprizi yaptım.</p>
+<p>Cliff resmen küplere bindi. Şu an bir kadına abayı yaktığını birilerinin öğrenmesinin felaket olacağını söyledi. Yine de bebeği almayı reddetmedi, bu yüzden memnun kaldığını düşündüm. Hatta bebeği hareket ettiren büyü çemberlerinin ince detaylarını ilgiyle inceledi. Her neyse, Sylphie’nin de belirttiği gibi, en kötü ihtimalle bebeğe güneş gözlüğü takıp erkek kıyafetleri giydirebilirdik. Savaş yetenekleri vardı, bu yüzden piskoposluk görevleri sırasında kişisel savunması için onu iyi kullanacağını umuyordum. Gidişata bakılırsa başpiskoposun ona suikast düzenletmeye kalkışması kuvvetle muhtemeldi.</p>
+<p>O gün eve döndüğümde Claire’in keyfi yerindeydi. Anlaşılan Lara, onun yaklaşık bir yıl önce kaybettiği bir madalyonu bulmuştu. Tatlı bir hikâye, değil mi? Kızımın ne yaptığını duymak bir ebeveyn olarak beni gururlandırdı… gerçi madalyonu muhtemelen Leo bulmuş olsa da. Roxy de ebeveynlik konusunda ekstra motive olmuş görünüyordu. Bütün çocuklar okula başladığı için onlara daha yakından göz kulak olmanın kendisine düştüğünü söylüyordu. Roxy enerjik olduğunda çok sevimliydi ama aynı zamanda aşırı heveslenip hata yapacak tiplerdendi, bu yüzden beni geriyordu.</p>
+<div id="model-response-message-contentr_6fe9082e9eece970" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Sylphie ve Norn, Lucie ile Clive’ı Maceracılar Loncası’na götürmüşlerdi. Lucie, öğle yemeğinde yedikleri muhteşem yemeği ışıl ışıl parlayan gözlerle anlatıyordu, ama loncanın kendisiyle pek de ilgilenmiş gibi görünmüyordu.</p>
+<p>Altıncı günden sekizinci güne kadar özel bir plan yapmadım. Alışverişe çıktık, çocuklara gezilecek yerleri gösterdik ve bir at arabasıyla şehrin dışına çıkarak yakındaki çiftlikleri görüp derelerde oynadık. O gün kimin canı ne istiyorsa onu yaptık.</p>
+<p>Dokuzuncu gün, kralla bir görüşmem vardı. Millis kralı, iyi kalpli bir yüze sahip yaşlı bir adamdı. Burada kilise çok fazla güce sahipken hükümdar nispeten zayıftı. Kilise ile aram iyi olduğu için görüşme beklenen formalitelerin ötesine geçmedi. Çocuklara kalenin içini göstermek istemiştim ama sonunda vazgeçtim. Her istediğin olmuyor işte.</p>
+<p>Millishion’daki zamanımızı sonuna kadar değerlendirdiğimizi söylemek yanlış olmazdı.</p>
+<p>Onuncu gün yola çıktık. Planımız, Kutsal Kılıç Yolu boyunca kuzeye doğru at arabalarıyla gidip kaplıcalara ulaşmaktı.</p>
+<p>Tam ayrılmak üzereyken Claire başımın etini yemeye devam etti. <b>“Büyük Orman’ın sınırında canavarlar olmaz ama han kasabalarının tekin olmayan tiplerle dolu olduğunu duyuyor insan. Senin için zor olmayabilir ama çocuklara karşı dikkatli olmayı ihmal etmemelisin.”</b></p>
+<p>Son görüşmemizde ona işime karışmamasını söyledikten sonra epey sessiz kalmıştı. Onuncu güne gelindiğinde ise çok daha fazla nutuk çekiyordu. Yine de o kadar da zahmetli değildi. Sanki sınırı nasıl aşmayacağını çözmüş gibiydi.</p>
+<p>Ancak ayrılık vakti geldiğinde bir kez daha Norn’a döndü.</p>
+<p><b>“Seninle bu ziyaret sırasında pek konuşma fırsatımız olmadı,”</b> dedi. <b>“Bir şey söylememde sakınca var mı?”</b></p>
+<p>Norn, yüzünde <i>‘Hah, başlıyoruz yine’</i> der gibi bir ifadeyle, sesli bir şekilde, <b>“Pekâlâ,”</b> dedi.</p>
+<p>Son on gündür Claire’den kaçınıyordu. Ruijerd’in ona ailesine değer vermesi yönündeki talimatları da bir işe yaramamıştı anlaşılan. Onu suçlayamazdım. Claire ile bir sohbete girerse, Claire Ruijerd’e hakaret edebilirdi ve o zaman Norn’un da karşılık vermekten başka çaresi kalmazdı. Claire’in ne kadar inatçı olduğu düşünülürse, söylediklerini geri almayı reddetme ve tüm olayın büyük bir kavgaya dönüşme ihtimali yüksekti.</p>
+<p><b>“Sen artık ne bir Latria ne de bir Greyrat’sın,”</b> dedi Claire.</p>
+<p><b>“Evet.”</b> Norn’un gözlerinde sert bir bakış vardı. Hiç şüphe yok ki bir iblisle evlendiği için fena halde azarlanacağını düşünüyordu. Claire’in ses tonu kesinlikle yeterince iğneleyiciydi. Ben bile korkunç bir şey söyleyeceğinden emindim.</p>
+<p><b>“Superdia ailesine gelin gittin ve artık bir annesin. Ona göre, vakarla hareket et ve kendini tamamen kocana ve ailene ada.”</b></p>
+<p><b>“Ne?”</b> Beklenmedik bir şekilde, Claire’in söyledikleri son derece makuldü. Gerçi söyleyiş tarzı bunu biraz emir gibi göstermişti. Sözlerine devam etti: <b>“İblis gelenekleri hakkında pek bir şey bilmiyorum, ama bir iblisin karısının da tıpkı bizimkiler gibi çocuk doğurma ve aileyi gözetme sorumluluklarını taşıması gerektiğini tahmin ediyorum.”</b></p>
+<p>Norn sessiz kaldı.</p>
+<p><b>“Anladın mı?”</b> diye sordu Claire.</p>
+<p><b>“E-evet!”</b> Norn yelkenleri suya indirmiş gibi ağzı açık kalmıştı ama sonunda Claire’e ciddi bir baş selamıyla cevap verdi.</p>
+<p>Claire de omuzlarından bir yük daha kalkmış gibi tatmin olmuş bir halde başıyla onayladı. Son on günde Claire’in biraz değiştiğini hissettim. Ayrıca son birkaç günde Roxy ve Lilia’nın da çok rahatladığını sezmiştim; belki de Claire’deki bu değişime bir tepki olarak. Ben evde yokken aralarında kesinlikle bir şeyler geçmişti. Özellikle Roxy ve Claire, geldiğimiz zamankinden çok daha yakın görünüyorlardı.</p>
+<p>Claire’in artık iblislere karşı ayrımcılık yapmıyor olmasına sevinmiştim. Ne de olsa ayrımcılık, birini sadece konuşarak vazgeçirebileceğiniz bir sorun değildi. Neyse ki, Aisha ile aralarındaki durum her zamanki gibi kötü olsa da, Norn ile arasındaki kötü hislerin bir kısmı çözülmüş gibiydi.</p>
+<p style="text-align: center;">***</p>
+<div id="model-response-message-contentr_5ba927228d2f8ff3" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Millishion’dan kuzeye doğru yarım günlük bir yolculuktan sonra Mavi Ejderha Dağları’nın eteklerine vardık. Orada at arabalarını durdurup çocukları dışarı çıkardık. Bir an dinlenmek için durup geldiğimiz yöne geri baktık.</p>
+<p>Göz alabildiğine yeşil tarlalar uzanıyordu. Tarlaların arasından mavi bir nehir akıyor ve son on günümüzü geçirdiğimiz Millishion şehrine ulaşıyordu. Kralın Beyaz Saray’ını, katedralin parıldayan altın rengini ve Maceracılar Loncası’nın ışıldayan gümüşünü görebiliyordum. Eris ve Ruijerd’le bu manzaraya baktığımdan bu yana neredeyse yirmi yıl geçmişti. O zamandan bu yana küçük binalar ve orada yaşayan insanlar değişmiş olmalıydı ama manzara neredeyse tamamen aynı görünüyordu.</p>
+<p><b>“Fena değil, ha?”</b> dedim. Bu dünyada böyle geniş manzaralar nadir değildi ama insanın az önce yürüdüğü yerleri uzaktan görme fırsatı pek olmazdı.</p>
+<p><i>Bu kesinlikle derin bir deneyim olacak</i>, diye düşündüm çocukların tepkilerini görmek için arkamı dönerken. Her birinin kendine özgü bir tepkisi vardı.</p>
+<p><b>“Aahh!”</b> Lucie saf bir şaşkınlık nidası attı ve yüzünde bir gülümseme belirdi. Son zamanlarda ablalık rolünü ciddiye alıyordu ama böyle anlarda yine masum küçük bir kıza dönüşüyordu.</p>
+<p>Ve—bak sen! Görünüşe göre Clive onun elini tutup tutmamakta tereddüt ediyordu. Sonunda tutmadı. Bunun yerine, Lucie gülümseyerek ona dönüp, <b>“Harika değil mi?”</b> dediğinde, kıpkırmızı kesilip, <b>“Y-yok canım, o kadar da değil,”</b> diye ağzından kaçırdı. Tam bir erkek çocuğu işte.</p>
+<p>Onu izlerken gülümsemeden edemedim. Bir zamanlar ben de böyleydim… ya da değil miydim? Aslında, muhtemelen değildim.</p>
+<p>Aslında Cliff de bizimle gelmişti. Resmi olarak, resmi ziyaretinden önce han kasabasındaki kiliseye bir göz atması söylenmişti ama bunun sadece bir bahane olduğundan oldukça emindim. Papa, Elinalise ile biraz vakit geçirebilmesi için işleri ayarlamıştı.</p>
+<p><b>“Büyüyünce burada yaşamak istiyorum,”</b> dedi Lara, baygın gözlerini birkaç saniyeliğine irileştirerek. <b>“Çok fazla tatlı var.”</b></p>
+<p>Daha önce at arabasındayken Roxy, Claire’in onu şımarttığını söylemişti. Her gün tatlı ikramlarıyla beslenerek gezinin o kısmını keyifli bir hülya içinde geçirmişti. Yola çıkmadan öncesine göre biraz daha yuvarlaklaşmış gibiydi. Tek kelime etmeden önünüze ikramların geldiği bir cennette kim yaşamak istemezdi ki?</p>
+<p><b>“Hey, baba. Sen ve Kızıl Anne daha önce buraya gelmiştiniz, değil mi?”</b> diye sordu Arus.</p>
+<p><b>“Doğru. Ben şimdiki yaşından biraz daha büyüktüm.”</b></p>
+<p><b>“Hımm.”</b> Yumruklarını sıkarak başını salladı. Muhtemelen bir maceracı olarak geleceğinin hayalini kuruyordu.</p>
+<p><b>“Hey, Anne! Anne! Şu Nikolaus Nehri, değil mi?”</b> diye sordu Sieg. <b>“Ve şu da goblinlerin olduğu orman!”</b></p>
+<p><b>“Doğru,”</b> dedi Roxy. <b>“Peki şunun ne olduğunu biliyor musun?”</b></p>
+<p><b>“O, şey, o Zafer Takı, değil mi? Savaş’tan sonra Aziz Millis’in geri döndüğü kapı! Bu yüzden diğerlerinden daha büyük!”</b></p>
+<p><b>“Doğru. Çok şey biliyorsun, değil mi?”</b></p>
+<p>Sieg, manzaradan kendinden geçmiş bir halde Roxy’yi soru yağmuruna tuttu. Son zamanlarda Alec’ten dinlediği kahramanlık destanlarından sonra esrarengiz bir şekilde bilgiliydi. Bana kalırsa, maceracı olma olasılığı Arus’tan daha yüksekti.</p>
+<p><b>“Baba, kucağına al.”</b> Chris bana doğru uzandı.</p>
+<p><b>“Sanırım bu senin için henüz bir anlam ifade etmiyor, ha?”</b> dedim.</p>
+<p><b>“Mırmır,”</b> diye mırıldandı.</p>
+<p>Manzara hiç ilgisini çekmiyor gibiydi. Onu kucağıma aldım ve çenesini omzuma yasladı. Chris’in sevimliliği hiç azalmıyordu. Sylphie’nin kollarında, birkaç gün önce bir sokak tezgâhından aldığı büyülü bir aletle oynayan Lily’ye baktım. O da ilgilenmiyor gibiydi. Manzaradan keyif almak için çok mu küçüktüler? Yoksa Lucie ve diğerleri mi yaşlarına göre olgun tepkiler veriyordu? Aksine, Chris ve Lily’nin tepkileri kendi yaşları için normaldi.</p>
+<p>Aniden Eris yanımda belirdi. <b>“İnsanı eskilere götürüyor, değil mi? O zamanlar işlerin böyle sonuçlanacağını hiç düşünmezdim.”</b></p>
+<p>Sanki geçmişi görüyormuş gibi Millishion’a baktı. Rüzgâr kızıl saçlarını savurarak ensesini ortaya çıkardı. Hâlâ gençti ama yüz ifadesinde çocuksu hiçbir iz kalmamıştı. Artık sevimli olmayabilir ama inanılmaz derecede güzeldi.</p>
+<p><b>“Nasıl sonuçlanacağını düşünüyordun ki?”</b></p>
+<div id="model-response-message-contentr_25b2659b9db6bac1" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p><b>“Ben… ben o zamanlar dünyanın daha basit bir yer olduğunu sanıyordum.”</b></p>
+<p><i>Bu, şimdi basit olmadığını düşündüğü anlamına mı geliyordu?</i> Eris kafasını pek kullanmazdı ama bu düşünmediği anlamına gelmezdi. Belki de çocuk sahibi olmak onu olgunlaştırmıştı—zaman insanları gerçekten değiştiriyordu.</p>
+<p>Sonra tam karşıma dönüp gözlerimin içine baktı ve, <b>“Seni seviyorum, Rudeus,”</b> dedi.</p>
+<p>Aman Tanrım, kalbim güp güp atıyordu! Kesinlikle kıpkırmızı kesilmiştim.</p>
+<p><b>“Ben de seni seviyorum, Eris,”</b> diye cevap verdim sakin kalmaya çalışarak. Bana biraz daha yaklaştı. Onu okşamak için bir fırsattı ama ne yazık ki ellerim biraz doluydu. Chris’in başını okşadım.</p>
+<p>Tatlı bir ses çıkardı ama yüzünü buruşturdu. <b>“Baba, gıdıklamayı kes!”</b></p>
+<p><b>“Hop! Pardon.”</b></p>
+<p><b>“Gıdıklamak yok mu?”</b></p>
+<p><b>“Gıdıklamak yok.”</b></p>
+<p>Eris kıkırdadı, sonra beni yanağımdan öptü. Chris’in de başının üstünü öptükten sonra uzaklaştı.</p>
+<p><b>“Hadi, hareket edin!”</b> diye seslendi. Bu komutla birlikte at arabalarına geri döndük.</p>
+<p>Mavi Ejderha Dağları’nı yaran bir vadi boyunca ilerledik. Eğer Kutsal Kılıç Yolu Büyük Orman’ı kesiyorsa, burası da kılıcın kabzasıydı. İki yanda sarp kayalıklar yükseliyordu ama düşen kaya yoktu. Loş vadi sonsuza dek uzanıyormuş gibiydi. Başlangıçta çocuklar heyecanlıydı. Lara bile nadiren duyulan bir <b>“Ooo!”</b> nidası atmıştı. Macera başlamıştı. Sırada nerenin olacağını kim bilebilirdi ki? Canavarlar olacak mıydı? Buralarda mavi ejderhaların olması gerekiyordu—belki bir tane görebilirlerdi!</p>
+<p>Ancak birkaç gün içinde umutları söndü. Manzara hiç değişmiyordu ve mavi ejderhaları görmek için doğru mevsim değildi. Doğal olarak başka canavar da ortaya çıkmadı. Sonsuz vadiden başka bir şey yoktu. Üç gün sonra çocuklar bu durumdan sıkılmıştı.</p>
+<p>Lara utanmazca kendi kendine sıkıldığını tekrarlamaya başladı. Arada bir Leo’yu gezdireceğini söylüyor, sonra da arabadan inip onun sırtına biniyordu. Eğer izin verseydik, kayalıklara tırmanmayı bile deneyebilirdi. Arus, Sieg ve Clive bir şey söylemiyordu ama arabanın durduğu molaları iple çekiyorlardı. Böylece Eris ile kılıç antrenmanı yapabiliyor, birbirleriyle antrenman amaçlı düello edebiliyor veya Roxy ile büyü çalışabiliyorlardı. Bu, arabada oturup sallanmaktan kesinlikle daha iyiydi.</p>
+<p><b>“Kapana kısıldık!”</b> diye ağladı Chris, gözlerinden yaşlar süzülürken. O sırada Lily yepyeni büyülü aletini parçalara ayrılacak şekilde sökmeyi başarmıştı. Sessiz olan tek kişi, Latria evinde hediye aldığı bir kitaba dalmış olan Lucie’ydi. Hareket eden bir arabada bu şekilde kitap okurken nasıl midesinin bulanmadığını bilmiyordum.</p>
+<div id="model-response-message-contentr_3efadb4cd0f243d7" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Sonunda, biz yetişkinlerin çocukları yatıştırmak için elimizden geleni yapmamıza rağmen at arabalarının içi tam bir curcunaya döndü. Bu rota güvenliydi ama tatilde olduğumuzu düşünürsek, belki de daha heyecanlı bir güzergâh seçmeliydim.</p>
+<p>Vardığımızda çocuklar o kadar sıkılmış ve gerilmişlerdi ki anormal derecede hareketliydiler. Hatta vadiden çıkıp kasaba göründüğü anda Arus, Sieg ve Lara arabadan atlamaya çalıştılar.</p>
+<p><b>“Geldiiiiik!”</b></p>
+<p><b>“O kadar hızlı değil!”</b> Eris ve Sylphie peşlerinden koşarak, Arus ve Sieg’i kasabaya kadar koşamadan enselerinden yakaladılar. Sırtında Lara ile Leo, onların yanından sıyrılarak hafif yüksek bir kayanın üzerine tırmandı ama bu endişelenecek bir şey değildi. Kutsal Kılıç Yolu’nda o kadar tehlikeli bir şey yoktu.</p>
+<p><b>“Lara!”</b> diye bağırdı Eris. <b>“Hana varana kadar hepimiz bir arada duruyoruz!”</b> Günlerdir biriken hayal kırıklığının altında ezildiği için o da yerinde duramıyor gibiydi. İnsanların temel doğası değişmiyordu. Eskisinden daha olgun ve yumuşamış olabilirdi ama sessizce oturup hiçbir şey yapmayan tiplerden değildi.</p>
+<p>Arus ve Sieg isteksizce at arabalarına geri döndüler. Ama Lara dönmedi. Önündeki Büyük Orman’ın sonsuz genişliğine bakıyordu.</p>
+<p><b>“Lara, buraya gel,”</b> diye seslendi Sylphie. Lara arkasını döndü ama Leo hareket etmedi. Lara bir Sylphie’ye bir Leo’ya baktı, sonra Leo’nun sırtından inip sırtına bir tane patlattı. O hâlâ kımıldamayınca hafifçe kaşlarını çattı.</p>
+<p>Sabrı tükenen Sylphie onlara yaklaştı. Tam uzanırken Lara onu durdurmak için elini kaldırdı.</p>
+<p><b>“Henüz değil,”</b> dedi Lara.</p>
+<p><b>“Yarın istediğin kadar vaktin olacak. Şimdi acele et.”</b></p>
+<p><b>“Leo, evini ilk kez böyle gördüğünü söylüyor. Biraz daha kalmak istiyor.”</b></p>
+<p><b>“Ah…”</b> Sylphie çaresizce bana geri baktı.</p>
+<p>Leo’nun kalıp evine bakmasına izin vermek ne kadar hoş olsa da, grup olarak hareket ediyorduk ve çocuklar çıldırmanın eşiğindeyken hızlı hareket etmek daha iyi olurdu. Bu bir ikilemdi. Leo yanında olsa bile Lara’yı öylece geride bırakamazdık.</p>
+<p>At arabasından indim ve onlara doğru yürüdüm. <b>“Sylphie, Lara’yı ben getiririm.”</b></p>
+<p>Bu sözler üzerine Sylphie anlamış gibiydi. Başını sallayıp, <b>“Peki. Çok geç olmadan bize yetişin,”</b> dedi ve at arabalarına geri döndü.</p>
+<p>Leo’nun üzerinde durduğu kayanın yanına oturdum. Sonra Lara da benim yanıma oturdu. Yan yana, Büyük Orman’ı izledik. Yol çoğunlukla düz ve engebesiz olsa da dağlara doğru devam ediyordu, bu yüzden kendimizi ormanı yukarıdan izlerken bulduk. Yeşilliklerin arasından uzanan tek ve düz kahverengi bir çizgi, oldukça görkemli bir manzara oluşturuyordu. Buradan en son geçtiğimde arkama bakmamıştım.</p>
+<p><b>“Lara,”</b> dedim.</p>
+<div id="model-response-message-contentr_d910b02b06fca166" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p><b>“Ne?”</b></p>
+<p><b>“Leo evini özlüyor mu?”</b></p>
+<p>Lara duraksadı, sonra, <b>“Hayır, özlüyor gibi görünmüyor,”</b> dedi.</p>
+<p><i>Öyle görünmüyordu, ha?</i> <b>“Anlıyorum.”</b></p>
+<p>Lara başka bir şey söylemedi. O zaman Leo ne hissediyordu? Lara gibi ‘hav-lıca’ bilmeden onu anlayamazdım ama o da pek ayrıntılı cevaplar vermiyordu. Birkaç kez daha sormayı denedikten sonra bana, ‘Beni çeviri makinesi gibi kullanmayı kes,’ diye bas bas bağıran bir bakış attı.</p>
+<p>Haklıydı. Konuyu değiştirmeye karar verdim.</p>
+<p><b>“Lara…”</b> dedim tekrar.</p>
+<p><b>“Ne?”</b></p>
+<p><b>“Sana söylemek için on yaşına gelmeni bekleyecektim ama reşit olduğunda, Doldia Köyü’nde Kutsal Ağaç ritüelini gerçekleştireceksin.”</b></p>
+<p><b>“Biliyorum. Duydum.”</b></p>
+<p><b>“Kimden?”</b></p>
+<p><b>“Leo’dan.”</b></p>
+<p>Bizzat kutsal canavarın ağzından! <b>“Pursena’yı tanıyorsun, değil mi?”</b></p>
+<p><b>“Aisha Abla’nın köpeği.”</b> Bu korkunç bir tanımdı; yine de yanlış sayılmazdı.</p>
+<p><b>“Onunla gideceksin,”</b> dedim. Bunun üzerine Lara şaşkın bir şekilde bana baktı.</p>
+<p><b>“Benimle gelmeyecek misin?”</b></p>
+<p><b>“İsterim ama bu canavar halkı için özel bir ritüel, o yüzden insanların izlemesine izin vermeyebilirler.”</b> Yoksa yanılıyor muydum? Belki de Lara utanıyordu ve babasının gelmesini istemiyordu? Asi dönemine girmesi için biraz erken gibiydi.</p>
+<p>Tam o sırada Leo bana bakmak için döndü. <b>“Hav!”</b></p>
+<p><b>“Leo sorun olmadığını söylüyor.”</b></p>
+<p>Eh, eğer Leo söylüyorsa, öyledir. Ve Lara’nın benim için tercüme etmiş olması, en azından o an için onu rahatsız etmediğim anlamına geliyordu. Büyüdüğünde muhtemelen benden nefret etmeye başlayacaktı. <b>“Baba’nın donlarını benimkilerle birlikte yıkama!”</b> Bu tür şeyler işte. O meseleye gelirsek, Chris şimdilik babasının küçük kızı olmaktan mutlu olabilirdi ama büyüdüğünde ne olacağını kim bilebilirdi ki?</p>
+<p><b>“Baba,”</b> dedi Lara.</p>
+<p><b>“Hm?”</b></p>
+<p><b>“Sorun değil. Beklentini yüksek tutabilirsin.”</b></p>
+<p><b>“Tamam. Öyle yapacağım,”</b> dedim, ne beklemem gerektiği hakkında hiçbir fikrim olmamasına rağmen başımı sallayarak.</p>
+<p>Lara memnun bir ifadeyle başını salladı, sonra ayağa kalktı. Ben de ona katıldım, gitme vaktinin gelip gelmediğini merak ederek omzumun üzerinden bakarken— <b>“Vay!”</b></p>
+<p>Aniden sırtıma ağır bir şey bindi. Gözümün önünde sallanan küçük ayakkabıları görünce Lara’nın omuzlarıma atladığını anladım.</p>
+<p><b>“Beni sırtında taşı,”</b> dedi.</p>
+<p><b>“Leo’nun yerini mi alıyorum?”</b></p>
+<p><b>“Şu an babamı istiyorum.”</b></p>
+<p><i>İstiyor muydu?</i> Bu isteği yerine getirmekten fazlasıyla mutluydum. Ben, Rudeus, kızlarıma hayır diyemezdim.</p>
+<p><b>“Auuuuuu!”</b></p>
+<p>Ben ayağa kalkarken Leo, Büyük Orman’ın ağaçları üzerinde uzaklara yayılan bir uluma kopardı.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum2parca3.html" class="nav-btn">←Önceki Bölüm</a>
+            <a href="bolum2parca5.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei Cilt 1, Bölüm 1 (Kısım 1) | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b; /* Mushoku Tensei Kırmızı Tema */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #cc0000;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c1b1b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        body.theme-light .nav-btn:hover, 
+        body.theme-light .action-btn:hover, 
+        body.theme-light .theme-select:hover,
+        body.theme-sepia .nav-btn:hover, 
+        body.theme-sepia .action-btn:hover, 
+        body.theme-sepia .theme-select:hover {
+            color: #ffffff;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+        }
+
+        /* Resimler için özel stil */
+        .novel-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 6px;
+        }
+
+        /* Ayrıştırıcı Çizgi */
+        .divider {
+            text-align: center;
+            margin: 2em 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="bolum2parca1.html" class="nav-btn">←Önceki Bölüm</a> 
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="bolum2parca3.html" class="nav-btn">Sonraki Bölüm →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Mushoku Tensei Cilt 2, Bölüm 2</h1>
+            <div class="subtitle">Millis Seyehatnamesi (Kısım 2)</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <img src="bolum2foto1.png" alt="Kitap Çizimi 1" class="novel-image">
+            <p>Arus’un kendi başına takılmaya karar vermesine sebep olan şey resmen can sıkıntısıydı. Şehre ulaştıklarında, gözüne ilk çarpan şey koskocaman kulelerdi. Beyaz Anne’ye göre bunlar devasa büyülü aygıtlardı ve Millishion’un tüm yıl boyunca yaşayacak kadar rahat olmasını onlara borçluydunuz. Bir de büyük, parıldayan gümüş renkli bir bina vardı. Kırmızı Anne de oranın Maceracılar Loncasının merkezi olduğunu ve çoğu maceracının oraya en az bir kere gittiğini söylemişti. Arus, o kuleleri ve gümüş binayı yakından görmeyi çok istiyordu.</p>
+<p>Aslında babasına söylese, onu götürürdü. O gün mesela, Arus parlak altın binayı görmek istediğini söylemişti, babası da gayet keyifle kabul edip onu oraya götürmüştü. Ama oraya varınca, Arus istediği gibi dolaşamadı. İçeri girdiklerinde Arus etrafı keşfetmek için koşturmaya heveslendi ama babası onu durdurup, <strong>“Bunu yapma”</strong> veya <strong>“Oraya giremezsin”</strong> diye uyardı. Bu kısıtlamalar, Arus’un canını fazlasıyla sıkmıştı.</p>
+<p>Arus’un bilmediği şey, Rudeus’un Millis Kilisesi’nin merkezine saygılı davranmaya çalıştığıydı. Burası kilisenin katedraliydi ve özellikle iç kısma izinsiz girilmezdi. Hele meraklı bir çocuğun sağa sola koşturmak isteyeceği bir yer hiç değildi.</p>
+<p>Arus hâlâ çocuktan farksızdı ve böyle kuralların ne kadar önemli olduğunu bilmiyordu. Kuleleri ya da gümüş binayı gezmek istediğini söylese, babası yine götürürdü. Ama Arus’un mantığı basitti—babasıyla gittiğinde hep bir sınır konuyor, o da gene kısıtlanmış hissediyordu.</p>
+<p>Babası ve diğerleri, büyük göğüslü ve sıkı korunan bir kadınla birlikte altın binanın merkezine geçip çocuklara iç bahçede oynamalarını söylediklerinde, Arus işte o an fırsatı yakaladı. <em><strong>Ben gidip şu parlak gümüş binayı ve kuleleri yakından göreceğim</strong></em> diye düşündü. Şöyle bir bakınca da aslında hayatı boyunca anne babasının onu sürekli engellediğini fark etti.<em> <strong>“Oraya gitme, buraya gitme, şehirde tek başına dolaşma.”</strong></em> Hep aynı laflar.</p>
+<p>Ne zaman dışarı oynamaya çıksa, yanında Aisha veya Leo olurdu. Küçükken uslu uslu uyuyordu bu kurallara. Hemen bir asiye dönüşecek hali de yoktu tabii. Annesinin söylediklerini tam anlamasa bile, o talimatlara uymanın önemli olduğunu biliyordu. Yalnız başına dolaşmaması gerektiğini, dünyanın tehlikelerle dolu olduğunu anlamıştı. Aslında Aisha’yla dışarı çıkmaktan genelde rahatsız olmazdı, ama bazen de birilerinin gözünün sürekli üzerinde olmadığı şeyler yapmak istiyordu.</p>
+<p><strong>“Hey Lara, şu parlak gümüş binayla kulelere doğru gidelim mi ne dersin?”</strong> diye sordu Arus, yanına bir ortak alması gerektiğini düşünerek. O gün garip bir şekilde Lara tek başına takılıyordu. Leo bir yerlere gitmişti—kutsanmış çocuk dedikleri kadını koruyan beyaz baykuş muhafız yaratıkla konuşmaya falan gitmiş olabilirdi.</p>
+<p>Lara da bu durumu fırsat bildi. Küçüklüğünden beri Leo’yla çok iyi anlaşırlardı ama Leo’nun her hareketini kontrol ediyor gibi davranmasından bıkmıştı. O yüzden Arus ona bu teklifi yapınca, ağzının kenarı hafifçe yukarı kıvrıldı ve başını salladı.<br>
+<strong>“Ben de onu düşünüyordum.”</strong></p>
+<p>Aisha’nın gözü onlarda değilken beklediler, sonra ikisi usulca sıvışıp planı uygulamaya başladılar. Chris <strong>“Baba gitti!”</strong> diye ağlayıp ortalığı velveleye verince, tam da o kargaşadan yararlanıp çalıların arasına daldılar. Sonra yaprakların arasında saklanarak çıkışa yöneldiler—ama Sieg’e yakalandılar.</p>
+<p><strong>“Nereye gidiyorsunuz?”</strong> diye sordu Sieg.<br>
+<strong>“Sadece biraz dışarı çıkacağız, Sieg.”</strong> dedi Arus.<br>
+Sieg’in suratı asıldı. <strong>“Bir yetişkin olmadan dışarı çıkarsanız başınız belaya girer.”</strong><br>
+Arus da hemen lafı yapıştırdı: <strong>“Kendin son zamanlarda tek başına gizlice arkaya kaçıp duruyorsun. Bizim bilmediğimizi mi sanıyorsun?”</strong><br>
+<strong>“Ş-şey, öyle bir şey yapmıyorum…”</strong></p>
+<p>Arus her şeyi gayet iyi biliyordu. Sieg her fırsatta tek başına dışarı sızardı ve nedense onun başı hiç belaya girmezdi! Bunun, Aisha veya Leo’nun onu göz hapsine almıyor olmasıyla ilgili olduğunu düşünüyordu. Küçük kardeşinin dilediği gibi girip çıkabilmesi onu sinir ediyordu.</p>
+<p>Gerçekte ise Sieg tek başına değildi. Arus’un da, Sieg’in de haberi olmadan, Sieg arka kapıdan tek başına çıkarken gölgelerden onu gözetleyen Ruquag paralı askerleri vardı. Her daim tedirgin Rudeus’un talimatlarını yerine getiriyorlardı.</p>
+<p>Arus, Sieg’e <strong>“Sırrını saklıyorum,”</strong> dedi, <strong>“o yüzden sen de bizim hakkımızda ağzını sıkı tut.”</strong></p>
+<p><strong>“Tamam, peki…”</strong> diye mırıldandı Sieg.</p>
+<p>Arus omuz silkti. <strong>“Çok önemli bir şey değil ki. Sadece şu parlak gümüş bina ile devasa kuleyi görmeye gideceğiz.”</strong></p>
+<p><strong>“Ha? Maceracılar Loncası’na mı gideceksiniz?”</strong> Sieg’in gözleri bir anda parladı. Alec ona kahramanlarla ilgili bir sürü hikâye anlatmıştı ve bu hikâyelerde Maceracılar Loncasının merkezi de sık sık geçiyordu. O zamandan beri orayı merak ediyordu.</p>
+<p><strong>“Evet,”</strong> dedi Arus.</p>
+<p>Sieg <strong>“Ben de geliyorum!”</strong> diye atıldı.</p>
+<p>Böylece Arus ve kardeşleri, içlerinde kocaman bir merak ve biraz da yaramazlık hevesiyle Millis Katedrali’nden dışarı adım attılar.</p>
+<p style="text-align: center;"><strong>***</strong></p>
+<p>Arus, Sieg ve Lara’yı peşine takıp şehirde dolaşmaya koyuldu. Sharia’dakilere hiç benzemeyen evler ve daha önce görmediği tarzlarda inşa edilmiş binalar kalbinin hızla çarpmasına sebep oluyordu. Arabada giderken şehri incelemişti ama kendi ayaklarıyla sokaklarda dolaşmak bambaşkaydı. Nedenini tam açıklayamazdı—belki de taş döşemelerdeki desenlerdi.</p>
+<p>Her neyse, bilmediği bir şehirde dolaşmak heyecan vericiydi; ama üç çocuğun tek başına ortalıkta gezindiğini görenler onlara meraklı gözlerle bakmadan edemiyordu—özellikle de Sieg ve onun yeşil saçlarına. Arus’a göre sorun değildi bu bakışlar. Sharia’da da insanların onlara bakmasına alışmıştı.</p>
+<p><strong>“Lara, önüne baksana,”</strong> dedi. <strong>“Tehlikeli.”</strong><br>
+<strong>“Mm,”</strong> diye karşılık verdi Lara, gözleri çevredeki her şeye hayranlıkla parlıyor. Düzenli ve temiz bu şehre, Arus’tan bile daha fazla büyülenmiş gibi görünüyordu.</p>
+<p><strong>“Hey, Lucie’yi niye davet etmedik?”</strong> diye atıldı Sieg. <strong>“Bize dışladık diye kızacak şimdi.”</strong><br>
+<strong>“Yok ya, Lucie gelmezdi ki.”</strong><br>
+Sieg her zamanki gibi biraz ürkek davranıyordu. Son zamanlarda gizli gizli kılıç eğitimi yaptığı için epey gelişmişti ama hâlâ bu kadar tedirgin olmasına Arus anlam veremiyordu.</p>
+<p><strong>“Hey Lara! Şu nedir?”</strong> diye sordu Arus, garip bir nesneyi işaret ederek. Daha önce altın binada gördükleri büyük beyaz baykuşa benzeyen bir baykuş heykeliydi, ama bariz şekilde gerçek değildi. Biraz da tuhaf duruyordu.</p>
+<p>Lara kısaca göz atıp kendinden emin bir şekilde, <strong>“O bir çeşme,”</strong> dedi.<br>
+<strong>“Kim öyle garip bir çeşme yapar ki?”</strong><br>
+Lara omuz silkti. <strong>“Evet, öyle işte.”</strong><br>
+<strong>“Hadi ya, hiç öyle çeşme mi olur?”</strong> Arus tam bunu demişken, baykuş heykelinden su fışkırmaya başladı. <strong>“Vay canına, bayağı da çeşmeymiş! Yok artık! Bunu nasıl anladın ki?!”</strong><br>
+<strong>“Julie’nin evinde buna benzeyen bir tane görmüştüm.”</strong></p>
+<p>Böylece Arus ve kardeşleri, merakla dolu yürekleri ve ufak tefek yaramazlık hevesleriyle, Millis Katedrali’nden uzaklaşarak şehri keşfetmeye devam ettiler.</p>
+<p>Rudeus’un <strong>“yan ürünlerinden”</strong> biriydi bu çeşme; esin kaynağı ise Singapur Merlion’uydu. Kutsanmış Çocuk’un koruyucu yaratığı şeklinde tasarlamış, bittikten sonra da ona hediye etmişti. Sonra bunu kilisenin içinde nereye koyacaklarını bilememişlerdi—daha doğrusu, Kutsanmış Çocuk, tüyleri yüzülmüş bir baykuşu andırıyor diye sevmediğinden onu yakınında istememişti. En sonunda da kilisenin yakınındaki bir sokakta, gelip geçenleri eğlendiren bir süs olarak yerini buldu.</p>
+<p><strong>“Vay be…”</strong><br>
+Lara, Arus ve Sieg’in şaşkın bakışlarını hafif bir gururla karşıladı; üçü beraber köprüyü geçerken onlara kıkırdadı. Karşı tarafa ulaştıklarında ise etrafları bir anda değişti. Binalar küçülmüş, sokaklardaki insan sayısı artmıştı. Çoğunun elinde kılıçlar, üstünde zırhlar vardı; Arus onlara bakınca daha kaslı, daha haşin tipler gördüğünü düşünüyordu. Bu da demek oluyordu ki İlahi Bölge’den çıkıp Maceracılar Bölges<strong>i</strong>’ne gelmişlerdi!</p>
+<p><strong>“Buralar daha normal, değil mi?”</strong><br>
+<strong>“Evet.”</strong><br>
+Büyü Şehri Sharia’da yaşayan Arus ve diğerleri için bu tarz bir yer kendilerini daha çok evde hissettiriyordu. Öfkeli suratlı, kaslı tipler bile Ruquag paralı askerlerinin yanında narin çiçek gibi kalıyordu—Kırmızı Anne’yle kıyaslamaya zaten gerek yoktu!</p>
+<p><strong>“Hey Lara, şu gümüş bina hangi taraftaydı?”</strong><br>
+<strong>“Hmm. Şu yönde.”</strong><br>
+<strong>“Süper, öyleyse hadi gidelim!”</strong> diye coşkuyla öne atıldı Arus. Arkasında, heyecanlı gözüken Sieg ve yüzünde gülümseme olsa da sıkılmış gibi duran Lara ilerliyordu.</p>
+<p><strong>“Vay canına, müthiş!”</strong> dedi Arus, Sieg de ona katılarak aynısını yineledi.</p>
+<p data-start="0" data-end="197">Önlerinde gümüş gibi parıldayan, kocaman bir bina duruyordu. Ana caddeye varmışlar ve Maceracılar Loncası’yla karşılaşmışlardı. Cadde doğrudan oraya uzandığı için, binayı görmemek imkânsızdı zaten.</p>
+<p data-start="199" data-end="478"><strong data-start="199" data-end="222">“Hadi, Arus, hadi!”</strong>&nbsp;diye seslendi Sieg, heyecanla koşmaya başlayarak. Bundan birkaç dakika önce bu fikre tamamen karşı olduğuna inanmak zordu doğrusu. Ne derse desin, bu kadar çok kahramanlık destanının başladığı yer olan Maceracılar Loncası’nın cazibesine karşı koyamıyordu.</p>
+<p data-start="480" data-end="619"><strong data-start="480" data-end="497">“Hey, bekle!”</strong>&nbsp;diye seslendi Arus; o ve Lara da heyecanla Sieg’in peşine takıldılar. Orayı yakından görmeyi sabırsızlıkla bekliyorlardı.</p>
+<p data-start="621" data-end="1104">Üç çocuğun bir anda koşmaya başladığını gören çevredeki insanlar, bunun tehlikeli olabileceğini düşündü. Aniden koşan çocuklar birine çarpabilir ya da at arabalarının tekerlekleri altında kalabilirdi. Ama endişeleri çabucak yatıştı, çünkü bu üçlü kalabalığın arasından aynı hızla ve kontrollü biçimde geçiyordu, diğer çocuklara hiç benzemiyorlardı. Üstelik at arabalarının geçmediği caddenin kenarında kalmayı da ihmal etmiyorlardı. Günlük antrenmanlarının faydasını gördükleri kesindi.</p>
+<p data-start="1106" data-end="1526" data-is-last-node="" data-is-only-node="">Sieg, loncanın girişindeki merdivenlere vardığında tekrar şaşkınlıkla hayranlığını dile getirdi. Böylesine büyük ve gösterişli bir bina görmemişti. Gerçi bu tam olarak doğru sayılmazdı; Büyü Şehri Sharia’daki büyü üniversitesi de epey büyüktü ama aynı şey değildi işte! Maceracılar Loncası’nın merkezi gümüş gibi parlıyor, ışıl ışıl duruyordu; oysa büyü üniversitesi patates renginde kırmızı ve kahverengi tonlarındaydı.</p>
+<p><strong>“Burası Maceracılar Loncası mı, ha, Arus!”</strong><br>
+<strong>“Evet!”</strong><br>
+<strong>“Evimizin yakınındakine hiç benzemiyor!”</strong><br>
+<strong>“Evet, bizimkisi neredeyse yıkılacak gibi duruyor!”</strong><br>
+<strong>“Ama ikisi de pis kokuyor aslında.”</strong><br>
+<strong>“Valla kokuyor, di mi?”</strong></p>
+<p>Bu laubali yorumlarla birlikte üçü de girişi fazla ses çıkarmadan geçerek loncanın kapısını ittiler. Mavi Anne onlara, loncaya girip çıkan çocuklara kavgacı ve kalın kafalı maceracıların musallat olabileceğini söylemişti. Arus, bir kavga olsa memnuniyetle atlayacaktı ama izinsiz kaçıp geldikten sonra iş çıkarması Kızıl Anne’yi kesin kızdırırdı. Kızıl Anne kızınca bayağı korkutucu oluyordu! Poposunu kıpkırmızı olana kadar pataklardı. Hem Sieg’le Lara da incinseydi, Kızıl Anne’den başka Mavi Anne’yle Beyaz Anne de ona çok fena öfkelenirdi…</p>
+<p>Bu düşünce, Arus’un tüylerini diken diken etti.</p>
+<p>Öte yandan, babasının ona sinirlenebileceği fikri, içten içe onu kavgaya girmeye kışkırtmıyor da değildi. Babası genelde onu ödüllendirip şımartırdı ama pek az azar çekmişti Arus’a. Babasının gerçekten öfkelendiğini hiç görmemişti.</p>
+<p><strong>“Vay be!”</strong>&nbsp;dedi Arus, etrafa bakınırken. Maceracılar Loncası’nın içi, dışından hayal ettiğinden de ihtişamlıydı. Dekorasyon eski tarz ama gösterişliydi ve bir sürü kayıt masası vardı. Buradaki maceracıların sayısı evdekinden katbekat fazlaydı; hem de hepsi bambaşka kıyafetler giyiyordu. Sharia’daki Maceracılar Loncası yeni yetme büyücülerle tecrübeli savaşçılar ve şifacılarla doluydu. Millis’te ise işler tam tersiydi.</p>
+<p><strong>“Arus,”</strong> diye seslendi Lara, Arus etrafı seyre dalmışken. <strong>“</strong><strong>Dört katın olduğunu söylüyor.”</strong> Merdivenlerin önündeki bilgi panosunu işaret etti. Haklıydı! Birinci katta kayıt ve bekleme alanı, ikinci katta malzemelerle birlikte silah ve ekipman satan lonca dükkânı, üçüncü katta hafif yiyecek içecek servisi yapan bir restoran, dördüncü katta ise büyük klanlara ait odalar vardı.</p>
+<p><strong>“Hadi yukarı çıkalım!”</strong>&nbsp;dedi Arus, merdivenlere doğru hevesle yönelirken. Tam o sırada üzerlerine bir gölge düştü. Başını kaldırıp baktığında, kalın makyajı bulunan ve oldukça büyük göğüsleri olan bir kadın gördü.</p>
+<p><strong>“Burası bir oyun alanı değil,”</strong>&nbsp;dedi kadın. <strong>“</strong><strong>Burada ne yapıyorsunuz?”</strong><br>
+<strong>“Ş-şey, biz turist gibi geziyoruz!”</strong>&nbsp;diye atıldı Arus, babasının kendisine söylediklerini tekrarlayarak. <strong>“</strong><strong>Ranoa’dan geldik.”</strong><br>
+<strong>“Aileniz nerede peki?”</strong><br>
+<strong>“Şey, yani… Sadece biz geldik.”</strong><br>
+<strong>“Öyle mi?”</strong>&nbsp;dedi kadın. <strong>“</strong><strong>O zaman ne dersiniz, size ben biraz burayı gezdireyim? Görünüşe aldanmayın—burada çalışıyorum, öğlene kadar da boşum. Ne diyorsunuz?”</strong>&nbsp;Omzundaki yamayı gösterdi. Resepsiyondaki görevlilerdekinin aynısıydı.</p>
+<p><strong>“Ş-şahane olur!”</strong>&nbsp;dedi Arus, nefesi kesilecek gibi hissederek. Arus büyük göğüsleri çok severdi. Küçük göğüslerden de hoşlanmıyor değildi ama en çok büyük göğüslerden etkilendiği kesindi. Karşısındaki kadının göğüsleri Aisha’nınkiler kadar büyüktü—Arus’un yüreğini gümbür gümbür attırmaya yetecek kadar!</p>
+<p><strong>“Süper, o halde size ben bakarım. Hazır mısınız? Birinci kat kayıt alanıdır.”</strong>&nbsp;Kadın onlara sıcacık bir gülümseme attı ve rehberliğe başladı. Üçü de onu takip ederek lonca binasını gezmeye koyuldular. Birinci kattan ikinci kata, oradan üçüncüye, sonra da dördüncü kata çıktılar. Tüm bu süre boyunca kadın, onlarla yetişkinmiş gibi kibar ve detaylı bir şekilde ilgilendi.</p>
+<p>Arus aslında kafasına göre gezmek istiyordu ama kendilerini rehberli bir turda bulmuşlardı. Planladığı şey bu değildi fakat gördükleri her şey yeni ve acayip heyecan vericiydi. Özellikle klan odası, Sharia’daki Maceracılar Loncası’nda olmayan bir şeydi ve öyle gösterişli süslenmişti ki, maceracılara ait olduğuna inanmak zordu. Bu bile Arus ve diğerlerinin içini kıpır kıpır etmeye yetmişti.</p>
+<p>Bütün binayı dolaştıktan sonra, kadın onlara dönüp <strong>“İşte bu kadar,”</strong> dedi. Ardından Arus’un yanına eğildi: <strong>“Eğlendin mi?”</strong></p>
+<p><strong>“Evet! Çok teşekkür ederim!”</strong></p>
+<p><strong>“Teşekküre gerek yok, </strong><strong>Peki şimdi ne yapacaksın? Annen ya da baban gelip seni alacak mı?”</strong></p>
+<p><strong>“Şey, hayır…”</strong></p>
+<p><strong>“Öyle mi? O zaman seni eve ben bırakayım mı?”</strong></p>
+<p>Arus <strong>“Yok, sağ ol. Biz kendimiz döneriz!”</strong> dedi. Çünkü hâlâ kuleleri görmek istiyordu. Eve bırakılacaklarını söyleyip sonra şehrin dış mahallelerine doğru yürüseler, kadın mutlaka fark ederdi. Arus, aklındaki o son yeri görmeden eve dönmeye hiç niyetli değildi.</p>
+<p>Böylece Arus ve kardeşleri loncadan ayrıldılar. Planlarından biraz sapmışlardı ama yine de oldukça eğlenceli geçmişti.</p>
+<p>Arus ufukta, öğleden sonrası güneşinin batmaya doğru hafifçe eğildiğini görüp kuleyi işaret ederek coşkuyla <strong>“Hadi, sıradaki yere!”</strong> diye bağırdı.</p>
+<p style="text-align: center;"><strong>***</strong></p>
+<p>Kuleye giden yolda türlü türlü çeşitli şeylerle karşılaştılar. Önce, içinden ufak teknelerin geçtiği karmaşık bir kanal ağı gördüler. Ardından, canavarlardan elde edilen malzemelerle tepeleme doldurulmuş arabalar ve onlara eşlik ederek koruyan maceracı gruplarıyla karşılaştılar.</p>
+<p>Üç kardeş, her yeni şey gördüklerinde hayranlıkla <strong>“Vay be!”</strong> diye iç geçiriyor ve etrafa bakınmanın tadını doya doya çıkarıyordu. Ancak ya bu kadar çok şey görmeye vakit ayırdıkları için ya da başta yakın gibi görünen kule beklenmedik derecede uzakta olduğu için, kuleye vardıklarında akşam iyice çökmüştü.</p>
+<p>Arus, kuleye bakıp <strong>“Vay canına, bu da kocamanmış!”</strong> diye seslendi. Gün batımının ışığında, kuleyi yakından gören üçü de hayretler içinde kalmıştı. Çocukların etrafını dolaşmasının dakikalar süreceği kadar geniş bir sütun gibi uzanıyordu ve öyle yüksekti ki, tepesine bakabilmek için boyunlarını iyice yukarı kaldırmak zorunda kalmışlardı. Dahası, yaklaşınca yüzeyinde kazılı arma desenlerini zor da olsa seçebilmişlerdi.</p>
+<p>Kulenin kendisi aslında bir büyü aracı değildi. İçindeki büyü aracını korumak için etrafına güçlü koruyucu bir büyü uygulanmıştı. Arus tabii ki bunun farkında değildi ama Lily’nin bu kuleyi görse çok hoşuna gideceğini düşündü; Lily böyle şeyleri seviyordu.</p>
+<p>Sieg etrafa göz gezdirip <strong>“Görünüşe göre içeri giremiyoruz, ha?”</strong> dedi.</p>
+<p><strong>“Evet, aynen. Yazık oldu.”</strong></p>
+<p>Sieg, giriş gibi duran bir yer bulmuştu ama iki asker orada nöbet tutuyor, kimseyi içeri almıyordu. Arus buna pek şaşırmamıştı. Kuleye tırmanıp manzarayı görmek isterdi ama mümkün olmadığını anlayınca vazgeçmek zorunda kaldı.</p>
+<p><strong>“Eeh, ne yapalım.”</strong> diye iç çekti, sonra <strong>“Hadi, eve gidelim!”</strong> diye seslendi.</p>
+<p><strong>“Aynen!”</strong></p>
+<p>Arus neşeyle başını sallayıp geldikleri yoldan geri dönmeye başladı. Lara ve Sieg de peşine takıldı.</p>
+<p>Sieg, <strong>“Keyifli oldu, değil mi, Lara?”</strong> diye sordu.</p>
+<p><strong>“Evet, çok eğlendim. Klan odasındaki gibi bir ejderha başı ben de istiyorum,”</strong></p>
+<p><strong>“Tamam, ben büyüyünce sana bir tane bulurum!”</strong></p>
+<p><strong>“Sana yardım ederim,”</strong></p>
+<p>Gündelik hayatlarında pek rastlamadıkları onca şeyi görmek üç kardeşi de mest etmişti. Özellikle Sieg çok heyecanlanmıştı ve durmadan Lara’yla konuşuyordu. Ama Arus yürürken birden bir huzursuzluk hissetti. Ha…? Yok, olamazdı.</p>
+<p>O sırada Sieg <strong>“Hey, Arus, Maceracılar Loncası’ndaki o kocaman kılıç var ya, ne olduğunu biliyor musun?”</strong> diye sordu.</p>
+<p><strong>“Hayır…?”<br>
+</strong><strong>“O kırk sekiz büyü kılıcından biriymiş,”<br>
+</strong><strong>“Vay be, bayağı şey biliyorsun, Sieg,”<br>
+</strong><strong>“Bence sergilendiğine göre sahtedir ama Alec bana bir keresinde resmini çizmişti,”<br>
+</strong><strong>“Hımm…”<br>
+</strong><strong>“Hey, Arus, yavaşla!”</strong></p>
+<p>Arus adımlarını iyice hızlandırdı, Sieg’in dediklerine pek kulak asmıyordu. Arus’un aniden suskunlaşması Sieg’in de kafasını karıştırdı; o da çareyi Lara’yla muhabbet etmekte buldu. Arus’un bu tavır değişikliği Lara’yı da rahatsız etti ama konuyu açmadan Sieg’i dinlemeye devam etti. Üçü de yürüyüşlerini sürdürdü.</p>
+<p>Sieg, düzenli antrenmanları sayesinde oldukça sağlamdı; “Ayaklarım ağrıdı” diye şikâyet edip durmadı, ama önünde sessiz sedasız ilerleyen Arus’u izlerken o da yavaş yavaş sustu. Sonunda tamamen konuşmayı kesti. Üçü, gün batarken, sessizlik içinde yola devam etti. Çok geçmeden güneş battı.</p>
+<p>Yirmi, otuz dakika sonra, üçü ıssız bir sokakta durdu. Etrafta kimsecikler yoktu, her yer sessizdi.<br>
+<strong>“Hey, Arus?”</strong>&nbsp;dedi Sieg. <strong>“Eve dönmemize ne kadar kaldı?”</strong><br>
+<strong>“Bilmiyorum,”</strong></p>
+<p>Bu, planladığı şey değildi. Eve nasıl döneceklerini hesap etmeyi asla atlamamıştı. Yol boyunca kocaman kuleye doğru yürüye yürüye gitmişlerdi; o hâlde geri dönüşte yapmaları gereken tek şey, altın binaya doğru yürümekti. Sonuçta bina devasa ve göz alıcı bir altındı, uzaktan da hemen fark ediliyordu. Geldikleri yolun tersini takip edip rahatça buluruz, diye düşünmüştü.</p>
+<p>Derken alacakaranlık şehri sarıya boyadı. Bu da yetmezmiş gibi, batan güneşin uzun gölgeleri sokakları tanınmaz hâle getirdi. O kuleye giderken gördükleri her şey, aslında nerelerden geçtiklerini hatırlamayı zorlaştırıyordu.</p>
+<p><strong>“Ne demek bilmiyorum—?”</strong><br>
+<strong>“Kapa çeneni! Bilmiyorum dediysem bilmiyorum!”</strong>&nbsp;diye öyle bir bağırdı ki Arus, Sieg istemsizce geri çekildi. Güvendiği abisi bile böylesine bağırıyorsa, ciddi bir durum var demekti. Gözleri dolmaya başladı. Alec’le antrenmanlara başlasa da sonuçta hâlâ ufak bir veletti. Hem de uslu bir çocuk olduğundan, biri ona bağırdığında ne yapacağını bilemiyordu.</p>
+<p><strong>“Arus,”</strong>&nbsp;diye sakin bir sesle seslendi Lara. Arus irkilip döndü. Gözyaşlarını tutmaya çalışan Sieg, Lara’nın yanında duruyordu. Lara her zamanki gibi ifadesiz görünse de duruşundan öfkeli olduğu belliydi.</p>
+<p><strong>“Özür dilerim, Lara. Kayboldum.”</strong><br>
+<strong>“Evet.”</strong><br>
+<strong>“Dönüş yolunu biliyor musun?”</strong><br>
+Lara cansız bir şekilde başını salladı. <strong>“</strong><strong>Hayır.”</strong></p>
+<p>Normalde cesur ve kendinden emin olan Lara’yı bile böyle çaresiz görmek, Arus’un yavaş yavaş umutsuzluğa kapılmasına neden oldu. Yine de mızmızlanmadı ya da ağlamadı; sadece ellerini yumruk yaptı.</p>
+<p><strong>“Ş-şey, tamam ya! Halledeceğim!”</strong>&nbsp;dedi Arus, işi berbat etmiş olsa da bunu telafi etmeye kararlıydı. Lara’yla Sieg’in ellerini tuttu ve sıkıca sıktı. Sonra elinde avucunda ne bilgi varsa hepsini düşündü.</p>
+<p>Bir keresinde Mavi Anne ona, <strong>“</strong><strong>Zorda kalırsan sakın paniğe kapılma. Sahip olduğun seçenekleri düşün,”</strong>&nbsp;demişti.</p>
+<p><strong>“Hımm… Tamam,”</strong> dedi Arus. <strong>“</strong><strong>Ana caddeye geri dönersek, orada insanlara yol sorabiliriz. Mutlaka birileri biliyordur—öyle çok fazla parlayan altın bina yok sonuçta.”</strong>&nbsp;Henüz gece tam anlamıyla bastırmamıştı, ana cadde muhtemelen hâlâ kalabalıktı. Birilerini bulup soruvermek kolay olacaktı.</p>
+<p>Mavi Anne’nin ona söylediği başka bir şeyi hatırladı Arus:<br>
+<strong>“Eğer bilmediğin bir şey varsa, sormaktan utanma.”</strong></p>
+<p><strong>“Ya eğer sorduklarımız kötü davranırsa?”</strong> diye sordu Sieg, gözleri dolu dolu. <strong>“</strong><strong>Ya bize söylemezlerse?”</strong><br>
+Onun bu karamsarlığı, Arus’u çaresiz bıraktı. Gerçi şehirde birileri mutlaka yolu biliyor olacaktı, ama yardım ederler miydi, orası şüpheliydi.</p>
+<p>Mavi Anne’nin nasihatleri burada bitmiyordu: <strong>“</strong><strong>Dikkatli ol,”</strong>&nbsp;demişti, <strong>“</strong><strong>çünkü herkes her sorunuza cevap vermek zorunda değil; hatta yalan bile söyleyebilirler.”</strong></p>
+<p><strong>“Eğer öyle olursa,”</strong>&nbsp;dedi Arus, <strong>“</strong><strong>o zaman… Aa, aklıma geldi! Baba bana, eğer şehirde anneden ayrı düşersem, bir kilise bulup Cliff Dayı’nın adını söylememi, o zaman yardım edeceklerini anlatmıştı. Bir rahip yalan söylemez, değil mi?”</strong></p>
+<p><strong>“Aa, iyi fikir!”</strong><br>
+Gerçi rahipler de insan, onlar da yalan söyleyebilirdi ama Sieg’in aklına direkt Clive’ın babası Cliff geldi. Onunla çok sık görüşmese de Cliff’in son derece dürüst biri olduğunu biliyordu.</p>
+<p><strong>“O zaman evimize dönebiliriz,”</strong>&nbsp;dedi Lara.<br>
+<strong>“Evet ya, kesin toparlarız. O yüzden ağlama artık, Sieg. Çedar Adam ağlamaz ki.”</strong><br>
+<strong>“B-ben ağlamıyorum!”</strong>&nbsp;dedi Sieg, gözlerinde yavaş yavaş yeniden bir cesaret belirdi. Onu böyle görünce Arus da biraz rahatladı. Lara’yı yatıştırmasına yardım ettiği için ona da güven dolu bir gülümseme attı.</p>
+<p><strong>“Peki, tamam,”</strong>&nbsp;dedi Arus. Ana caddeye gidip yol sorabilirler ya da kilise bulabilirlerdi. Etrafta kimsecikler görünmüyordu ama yolda birilerine rastlarlarsa direkt soracaklardı. Kolaydı sonuçta. Arus böyle düşünürken aklına başka bir endişe takıldı. Bu karmaşayı başlatan oydu: kendi kafasına göre dışarı fırlayıp izinsiz ortadan kaybolmuş, Lara’yla Sieg’i de yanında sürüklemişti. Anneleri kesin küplere binecekti. Kırmızı Anne çılgınca öfkelenirdi, Mavi Anneyle Beyaz Anne de muhakkak kızardı. Genelde başı belaya girdiğinde araya girip onu kurtaran Aisha’ydı ama bu sefer Aisha’yı atlatıp kaçmıştı. Onun desteğine de güvenemezdi yani.</p>
+<p>Burnunu çekti. O anda Lara ona dikkat kesilerek baktı.<br>
+<strong>“Arus, ağlıyor musun?”</strong>&nbsp;diye sordu. Arus, gözpınarlarında biriken yaşları koluyla silip suratını ekşitti.<br>
+<strong>“H-hayır ya, gözüme toz kaçtı! Yakın dur, Lara! Ayrılırsak çuvalladık demektir!”</strong><br>
+<strong>“Mm. Tamam,”</strong> dedi Lara. <strong>“Sana güveniyorum, Arus.”</strong><br>
+<strong>“Böyle deme. Bütün kabahat benim yüzümden.”</strong><br>
+<strong>“Benim de suçum var,”</strong>&nbsp;dedi Lara ve Arus’un başını okşadı. Arus hafifçe kızardı, gözlerini ileriye dikti.</p>
+<p>Artık yola koyulma vaktiydi. Bu karanlık ve tekin olmayan yerde daha fazla dururlarsa cidden ağlayacaktı. Başı fena halde beladaydı ama bu duruma olgunlukla yaklaşacaktı. Aisha ona sırt çevirebilirdi bile ama o, ondan adamakıllı özür dileyecekti.</p>
+<p>Tam bunları düşünürken Arus köşeyi döndü.</p>
+<p><strong>“</strong>Hoppala!<strong>”</strong> Neredeyse bir kadına tosluyordu. Dolgun göğüslü bir kadındı bu. Göğüslerinin boyutu hafızasını canlandırdı ve istemeden ağzından <strong>“</strong>Aaa!<strong>”</strong> diye bir ses kaçırdı.</p>
+<p><strong>“Vay vay, sabahki bizim üçlü değil mi bu?”</strong><br>
+Bu kadın, o gün Arus ve diğerlerine Maceracılar Lonası Karargâhı’nı gezdiren kişiydi.<br>
+<strong>“A-Abla? Senin ne işin var burada?”</strong><br>
+<strong>“Ben mi? İşten çıkmış eve gidiyorum. Peki ya siz? Hava çoktan karardı. Eve gitmezseniz başınız belaya girmez mi?”</strong></p>
+<p>Arus, tam o anda tanıdık birine denk geldikleri için içi bir anda rahatlamıştı. Sanki cehennemde karşılarına çıkan bir Hızır gibiydi… Gerçi Arus, Hızır’ın ne olduğunu bilmiyordu. Her halükârda, kadın onlar için bir umut ışığıydı.</p>
+<p><strong>“Biz, ııı, yani, kaybolduk. Acaba ana yolun nerede olduğunu… ya da aslında, bir kilisenin veya şu parlak altın rengi binanın nerede olduğunu biliyor musun?”</strong><br>
+<strong>“Parlak altın rengi bina mı? Katedrali mi demek istiyorsun?”</strong><br>
+<strong>“Evet, o! Şu ka-ted-ral!”</strong><br>
+<strong>“Elbette biliyorum. Millishion’da yaşayan herkes katedrali bilir.”</strong></p>
+<p>Arus ve Sieg birbirlerine baktılar. Ama sonra Arus kendine çeki düzen verip boğazını temizledi. Beyaz Anne’sinden birinden bir iyilik isterken nasıl davranılması gerektiğini öğrenmişti.</p>
+<p><strong>“Şey, ııı, eğer zahmet olmazsa, bize yolu gösterir misiniz? Eminim babam size bir ödül verecektir.”</strong><br>
+<strong>“Seni şapşal şey. Kaybolmuş çocuklarsınız, bu kadar resmi olmanıza gerek yok. Hadi, takılın peşime.”</strong></p>
+<p>Arus, Beyaz Anne’sinin insanlar arasındaki bağların önemli olduğunu söylediğini hatırladı. Neredeyse hiç tanımadığın biri, başın sıkıştığında yardımına koşabilirdi. Kesinlikle şu anda olan şey tam olarak buydu.</p>
+<p>O gün, Arus biraz büyümüştü.</p>
+<p style="text-align: center;">***</p>
+<div id="model-response-message-contentr_c58b6f590939d802" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<div id="model-response-message-contentr_55c69427e5f57406" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<div id="model-response-message-contentr_d0b8b7aa5bbd0f06" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p><strong>“Ve işte geldik!”</strong></p>
+<p>Arus ve diğerleri loncadaki kadının peşine takıldı ve böylece gidecekleri yere kolayca varacaklardı.</p>
+<p><strong>“Ha?”</strong></p>
+<p>Ya da en azından öyle umuyorlardı. Ama ne yazık ki Arus kendini karanlık bir ara sokağın derinliklerine bakarken buldu. Etrafta kimsecikler yoktu. Duvarlar müstehcen grafitilerle karalanmış, yerlere çöpler saçılmıştı ve her yere kötü bir koku hakimdi. Karanlık olsun ya da olmasın, bir şey kesindi; Burası o parlak altın rengi bina değildi.</p>
+<p>“Şey? Neredeyiz…? Ha?<strong>”</strong></p>
+<p><strong>“Daha akıllı olmalıydın,”</strong> diye azarladı kadın. <strong>“Baban sana yabancıların peşinden gitmemen gerektiğini öğretmedi mi?”</strong></p>
+<p>Arus duyduğu adım sesleriyle aniden arkasını döndü. Orada durmuş, onlara pis pis sırıtan birkaç adam vardı. İnsan kaçakçıları! Bunu fark ettikten sonra bile zihni hâlâ karmakarışıktı. Bu kadın Maceracılar Loncası’nda çalışıyordu ve hatta onlara nazikçe etrafı gezdirmişti. Nasıl kötü biri olabilirdi ki? Sonra birden aklına geldi. Kadın işten eve döndüğünü söylemişti ama bu sabah da işinin öğlen biteceğini söylemişti.</p>
+<p><strong>“Loncada çalıştığın hakkında yalan söyledin!”</strong></p>
+<p>“Öyle bir şey yapmadım. Bu benim ek işim. Biraz fazladan cep harçlığı çıkarmanın bir yolu. Bu şehir senin gibi çocuklarla dolu; maceracı olmayı hayal eden yetimlerle. Loncaya gelirler, sonra hayallerini yaşayamadan tekrar ayrılırlar. Ben de onları takip ederim. Gece olup da hâlâ evlerine gitmemişlerse sonları böyle olur.<strong>”</strong></p>
+<p><strong>“Kahretsin!”</strong> Arus yerden bir sopa kaptı, ardından kardeşlerini korumaya hazır bir şekilde dövüş pozisyonu aldı.</p>
+<p><strong>“Arus?”</strong> diye titreyerek kıyafetinin eteğine yapıştı Sieg. Lara her zamanki gibi ifadesizdi ve biraz solgun görünüyordu. Onları korumak zorundaydı. Bu onun suçuydu. Yanlış kararı vermişti. Ama böyle bir zamanda ne yapabilirdi ki? Annesi ne demişti? Neydi o…?</p>
+<p><strong>“İmdat! Kimse yok mu?! Kaçırılıyoruz! Yardım edin!”</strong> diye bağırdı Arus.</p>
+<p><strong><em>Bir şey olursa, dövüşmeden önce yardım çağır.</em></strong> Bunu ona Mavi Anne ya da Beyaz Anne söylemişti—yoksa Aisha mıydı? Hatta babası bile söylemiş olabilir.</p>
+<p><strong>“İstediğin kadar ağla veya bağır. Kimse gelmeyecek,”</strong> dedi kadın. Elbette gelmez, diye düşündü Arus bir sonraki dersi düşünürken. Bu ders Kırmızı Anne’dendi.</p>
+<p><strong><em>İlk olarak, düşmanını dikkatlice gözlemle</em></strong>.</p>
+<div id="model-response-message-contentr_1fc98c1fdef8b6cb" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Arus dövüşe hazırlanırken etrafına sakin bir bakış attı. Çıkmaz bir sokaktaydılar, önlerinde bir, arkalarında iki kişi vardı. Üçünün de kılıcı vardı. Yine de, Kırmızı Anne’den çok daha zayıftılar. Yüzlerinde ne bir ateş ne de kan dökme arzusu vardı. Sharia’da bunların seviyesinde bir sürü adam vardı—karşılarındaki Kırmızı Anne olsaydı altlarına işeyip kaçacak olan çerezler. Arus’un elindeki tek şey, birine vursa kırılacak gibi duran bir sopaydı, ama çıplak elle dövüşmeyi öğrenmişti ve biraz da büyü yapabiliyordu. Tıpkı alıştırma yaptığı gibi dövüşürse onları yenebilirdi. Bundan emindi. Yani neredeyse emindi.</p>
+<p><strong>“Arus, d-dövüşecek misin?”</strong> diye sordu Sieg. <strong>“Ben de d-d-dövüşeceğim.”</strong></p>
+<p>Keskin bir dille <strong>“Sen geride dur!”</strong> dedi Arus. Kararını vermişti ama sopayı tutarken bacakları ve eli titriyordu. Nefesi kesik kesikti, gözlerinin kenarlarında yaşlar birikmişti. Karanlığın perdesi altında üç yetişkinle dövüşecekti ve aynı zamanda kardeşlerini de korumak zorundaydı. Daha önce hiç bu kadar büyük bir baskı hissetmemişti.</p>
+<p><strong>“Vaaay, ne kadar da cesur bir abisin sen,”</strong> dedi kadın. <strong>“Ama karşı koymanın sana bir faydası olmaz. Bu adamlar maceracılık için biraz yıpranmış olabilirler—artık devirleri geçmiş yani—ama yine de işlerini bilirler.”</strong></p>
+<p><strong>“Kapa çeneni! Sakın Lara’ya ya da Sieg’e dokunmaya cüret etme!”</strong></p>
+<p>Kadın iç çekti, sonra adamlara baktı. <strong>“Onları çok hırpalamayın. Görünüşe göre iyi bir aileden geliyorlar. Üç beş kuruş kazanabilirsiniz.”</strong></p>
+<p>İki adam mırıldanarak onayladı, sonra da harekete geçtiler. Midesinde iğrenç bir kasılma hissederken, Arus toplayabildiği kadar manayı yumruğuna odakladı. Onları kör edecek bir darbe indirmeye hazır bir şekilde arkasını döndü—</p>
+<p><em>Şak, şak, şak.</em></p>
+<p>Aniden duyulan bir alkış sesi sessizliği bozdu. Ses, iki adamın arkasından geliyordu. Herkes donakaldı. Aynı anda, beyaz bir şekil iki adamın üzerinden atlayıp Arus’un yanına sıçradı. Üçünün etrafında bir tur attı, Lara’nın yaralanmadığından emin olmak için onu özellikle uzun uzun kokladı, sonra dişlerini göstererek adamlara döndü.</p>
+<p><strong>“Hırrrrr…”</strong></p>
+<p><strong>“Leo!”</strong> diye bağırdı Arus, köpeği gördüğüne minnettar bir şekilde. Ama alkışlayan başka biri olmalıydı. Leo’nun elleri yoktu.</p>
+<p><img src="bolum2foto2.jpeg"Kitap Çizimi 1" class="novel-image"></p>
+<div id="model-response-message-contentr_24b1d1b79a4487e0" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p><strong>“Tamamdır çocuklar, eğlence bitti!”</strong> diye bir ses duyuldu—Arus’un çok iyi bildiği bir sesti bu. Hayatı boyunca sabah uyanmasından gece yatmasına kadar bu sesi günde en az bir kere duyardı.</p>
+<p>Koyu kahverengi saçlı ve sivri, sevimli bir köpekdişine sahip bir kadın gölgelerin arasından çıktı. Büyük göğüsleri hizmetçi üniformasının altından fırlıyordu ve elinde kabaca yapılmış bir fener tutuyordu.</p>
+<p><strong>“Aisha Abla!”</strong> diye seslendi Arus. Aslında onun ablası değildi ama ona teyze derse kızıyordu.</p>
+<p><strong>“Selam Arus. Kurtarma ekibi benim.”</strong> Aisha, Arus’un ağlayasını getiren bir sırıtışla gülümsedi. Ama rahatlamış görünenler sadece Arus ve kardeşleri değildi; karanlıktan çıka çıka bir hizmetçi ve büyük bir köpek çıktığını gören adamlar her zamanki gibi pişkin bir tavır takındılar.</p>
+<p><strong>“Kimin hizmetçisisin sen, ha?”</strong> diye hırladı biri.</p>
+<p><strong>“Greyrat ailesi için çalışıyorum,”</strong> diye cevapladı Aisha. <strong>“Ah, nerede olduğumuzu düşünürsek, belki de Latria ailesi demeliyim. Tapınak Şövalyeleri’nden Yüzbaşı Carlisle Latria gibi. Hani o Latrialar. Tanırsınız, değil mi?”</strong></p>
+<p>Aisha, Tapınak Şövalyeleri’nden bahsedince adamlar irkildi. Soyluların isimleri onlar için pek bir şey ifade etmiyordu ama Tapınak Şövalyeleri’ni tanıyorlardı; Millis Kilisesi’nin dini fanatizmleriyle ünlü özel ordusu.</p>
+<p><strong>“Bu veletleri kaçırıp fidye istemekten vazgeçmenizi tavsiye ederim. Sonu sizin için iyi bitmez.”</strong></p>
+<p><strong>“T-Tapınak Şövalyeleri bizi korkutsaydı insan kaçakçısı olmazdık.”</strong></p>
+<p>Ah, ama korkmuşlardı. Tapınak Şövalyeleri’nin sapkınlara uyguladığı işkenceler hakkında söylentiler vardı. Onların elini kolunu bağlar, sonra ayak parmaklarından başlayarak bir çekiçle yavaşça ezerlerdi. Sadece sadist olsalardı daha anlaşılır olurdu ama şövalyeler eylemlerinin doğru olduğuna tüm kalpleriyle inanıyorlardı.</p>
+<p>Tutsaklarının bacakları hamur gibi ezilirken attıkları çığlıklara karşılık şövalyeler gülümser ve şöyle derlerdi: <em><strong>“Tanrı’ya olan samimi yakarışlarınız şüphesiz duyulacaktır. Bu, O’nun sizi kendi yanına kabul edeceği anlamına gelir. Sevinin!”</strong></em></p>
+<p>Elbette hepsi zırvalıktı ama bu adamlar buna inanıyordu.</p>
+<p><strong>“Tapınak Şövalyeleri’nden korkmuyor musunuz?”</strong> diye sordu Aisha. <strong>“O halde, Ruquag Paralı Asker Grubu’na ne dersiniz? Onların süper seksi muhasebe danışmanı, peşinizi asla bırakmamalarını sağlayacaktır. Sizi yakaladıklarında, ölmüş olmayı dileyeceksiniz.”</strong></p>
+<div id="model-response-message-contentr_b438c735ff4e1a70" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p><strong>“R-Ruquag Paralı Asker Grubu’nun bununla ne ilgisi var?”</strong> diye sordu içlerinden biri zorlukla.</p>
+<p><strong>“Onların en büyük patronu bu çocukların babası!”</strong></p>
+<p>İki adam ağızları bir karış açık bir şekilde Arus’a ve diğerlerine baktı.</p>
+<p><strong>“Aynen öyle, benim abim—<em>öhöm</em>, yani demek istediğim, Rudeus Greyrat, Ruquag Paralı Asker Grubu’nun başkanı, Ejderha Tanrısı Orsted’in sağ kolu ve dünyanın dört bir yanında dostları olan olağanüstü yetenekli bir büyücü. Normalde uysal bir adamdır. Bir partide kafasından aşağı içkinizi dökseniz bile sadece güler geçer. Ama ailesi onun için çok önemlidir ve kendi çaresiz çocuklarını kaçıranlara… Size ne yapacağını hayal bile edemiyorum.”</strong></p>
+<p><strong>“B-bunu uyduruyorsun.”</strong></p>
+<p><strong>“Emin misin? Biliyor musun, size laf anlatmaktan biraz sıkılmaya başladım.”</strong></p>
+<p><strong>“Hah,”</strong> diye alay etti adamlardan biri.<strong> “Sen öldükten sonra bunların hiçbirinin bir önemi kalmayacak.”</strong></p>
+<p><strong>“Öyle mi dersin? Tamam, Leo, yakala.”</strong></p>
+<p>Bunu söyler söylemez, devasa beyaz canavar bir kasırga gibi üzerlerine çöktü. Önce, karşısındaki adamın bacağını kaptığı gibi onu sertçe sarstı. Yüksek bir çatırtıyla kemikleri kırıldı ve ardından Leo onu bırakarak duvara doğru fırlattı. Diğer adam gürültünün ne olduğunu görmek için arkasını döndü ama artık çok geçti. Kılıcını çekmeye fırsat bile bulamadan köpeğin dişleri bir çatırtıyla eline gömüldü. Gözünü açtığında Leo onu yere sermişti. Çenesiyle adamı kafasından yakaladı, bilincini kaybedene kadar sarstı ve sonra ne olur ne olmaz diye duvara fırlattı.</p>
+<p><strong>“İik!”</strong> Loncadaki kadının kaçacak hiçbir yeri kalmamıştı. Sokağın sonundaki duvara tırmanmaya çalıştı ama Leo onun kalçasını ağzıyla yakaladı ve diğer ikisine yaptığı gibi, onu bir kez sallayıp duvara fırlatarak bayılttı.</p>
+<p>Arus her şeyi sersemlemiş bir halde izliyordu. Leo’nun oldukça güçlü olduğunu biliyordu ve babasıyla annelerinin neden ona köpeğin yanından ayrılmamasını söylediklerini az çok anlamıştı. Ama bunu ilk kez kendi gözleriyle görüyordu. Dahası, Leo’nun kendini tuttuğunu anlayabiliyordu. Bu kadar güçle, köpek kafalarını koparabilirdi. Ama yapmamıştı. Bunun yerine, Arus’un ölesiye korktuğu insanları sanki oyun oynuyormuş gibi yakalamış, kemiklerini kırmış, etrafta savurmuş ve bayıltmak için sert bir yüzeye fırlatmıştı.</p>
+<p><strong>“Hepiniz iyi misiniz, kimse yaralanmadı değil mi?”</strong> dedi Aisha, baygın bedenlere göz ucuyla bile bakmadan üç çocuğun yanına çömelmişti. Fenerini kaldırdı ve onları baştan aşağı dikkatlice kontrol etmeye başladı.</p>
+<p><strong>“H-hayır,”</strong> diye kekeledi Arus. <strong>“Biz iyiyiz.”</strong></p>
+<div id="model-response-message-contentr_70d70e6abe733b1a" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p><strong>“Hıı, eve gidelim mi?”</strong></p>
+<p>Arus’un kafası hâlâ allak bullak olsa da başıyla onayladı. Aisha da sivri dişlerini göstererek gülümsedi.</p>
+<p>Yollar zifiri karanlıktı. Arus, Lara ve Sieg, Leo’nun sırtına atladılar ve Aisha’nın fenerinin rehberliğinde yola koyuldular. Onları kaçırmaya çalışan üç kişiyi, Aisha’nın köpek düdüğüne yanıt olarak aniden ortaya çıkan Ruquag paralı askerleri çoktan götürmüştü. Adamlar yetkililere teslim edileceklerdi. Yolda giderlerken Arus ne kadar büyük bir belanın içinde olduğunu düşünüyordu.</p>
+<p><strong><em>Neden tek başıma kaçtım ki? Neden Lara’yı ve Sieg’i de bu işe bulaştırdım?</em></strong></p>
+<p>Bu işin sonu çok kötü olabilirdi.</p>
+<p>Arus ne haltlar karıştırırsa karıştırsın, hatta başkalarının başına bela açtığında bile Aisha neredeyse hiç kızmazdı. Sadece <em><strong>“Yapacak bir şey yok,”</strong></em> der, sonra Arus’un arkasını toplardı. Sonrasında da <em><strong>“Bir daha böyle bir şey yapma,”</strong></em> ya da <em><strong>“Hatanı anladın, değil mi?”</strong></em> diyerek onu tatlı bir dille uyarırdı.</p>
+<p>Aisha ona hep böyle kol kanat gererken, o bunu umursamamıştı. Onları aramaya gelen kişi Aisha olsa da anne babasının ona da kızdığına emindi. Babası ve diğerleri dönene kadar Arus’a göz kulak olması gerekirken, Aisha onu gözünden kaçırmıştı. Göz kulak olduğu çocukların elinden kaçmasıyla başı belaya girince, o gamsız Aisha’nın bile küplere binmiş olması lazımdı.</p>
+<p>Korkmuş bir çocuk olduğu için Arus’un düşünceleri pek de tutarlı sayılmazdı ama yine de Aisha’nın kızgın olması gerektiğini tahmin edebiliyordu.</p>
+<p>Bu yüzden özür diledi.</p>
+<p><strong>“Aisha Abla, özür dilerim.”</strong></p>
+<p><strong>“Hı? Ne için?”</strong></p>
+<p><strong>“Sana haber vermeden sıvıştım ve herkesin başını belaya soktum…”</strong></p>
+<p><strong>“Hmm? Ne dediğini anlamadım ki.”</strong> Arus neye uğradığını şaşırırken Aisha sırıtıp saçlarını karıştırdı. Hal ve hareketlerinde kızgın olduğuna dair hiçbir iz yoktu. Acaba beni affetti mi, diye düşündü Arus. Ama… niye ki?</p>
+<p><strong>“Bak, geldik bile.”</strong></p>
+<p>Arus irkilerek Latria malikanesinin kapısına geldiklerini fark etti. Yukarıdaki konağa bakıp yutkundu. Aisha onu affetmiş olabilirdi ama anneleri kesin fena kızacaktı. Onlar ona kardeşlerini korumasını tembihlemişti, o ise onların yüzünü kara çıkarmıştı. Kızıl Anne’den okkalı bir dayağa hazırlıklıydı. Babası da kızmış olabilirdi ama onun kızgın halinin nasıl bir şey olacağını hayal bile edemiyordu.</p>
+<div id="model-response-message-contentr_dc34b0afabacc72f" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Aisha kapıdaki nöbetçiye, <strong>“İyi akşamlar,”</strong> dedi. Hizmetli kapısından içeri girerek onu takip ettiler, ardından geniş bir koridordan ilerlediler. Aisha ailenin kaldığı odanın kapısını açtı. İşte oradaydılar. Üç annesi ve iki büyükannesi, sarışın teyzesi ve suratı bir karış olan büyük-büyükannesi. Babası da oradaydı.</p>
+<p><strong>“Biz geldik,”</strong> dedi Aisha eğilerek. Bunu duyan büyüklerin hepsi Arus ve diğerlerine baktı.</p>
+<p>Her an Kızıl Anne’nin kaşları çatılabilir ve sinirlendiğini belli edebilirdi. Her zaman ilk o patlardı. İlk kızan Kızıl Anne olurdu.</p>
+<div id="model-response-message-contentr_025b608d16991577" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Ama nedense konuştuğunda sesi gayet sakindi. <strong>“Aa, dönmüşsünüz. Biraz geciktiniz sanki, ha?”</strong></p>
+<p><strong>“Maceracılar Loncası’nda eğlendiniz mi bakalım?”</strong> diye sordu Mavi Annem yumuşak bir sesle.</p>
+<p><strong>“Bu saatte öyle başıboş dolaşmamalısınız. Aisha ve Leo yanınızda olsa bile gece dışarısı tehlikeli.”</strong></p>
+<p><strong>“Doğru söze ne denir. Aisha, sen varsın diye bu kadar geçe kalmaları olacak iş değil. Onları eve daha erken getiremez miydin?”</strong></p>
+<p>Beyaz Annem ve Lilia biraz daha iğneleyici konuşsalar da onlar bile kızgın değildi. Norn ve Claire bir şey demediler ama bakışlarından onlarla aynı fikirde oldukları belliydi.</p>
+<p><strong>“Neyse canım, biraz geç olmuş ama bir kerelik görmezden gelelim, olur mu? Daha akşam yemeği yemedik. Baktınız mı etrafa, ilginç bir şeyler var mıymış?”</strong> Babası, her zamanki gibi pamuk gibiydi.</p>
+<p>Büyükanne Zenith her zamanki gibi sessizdi ama Arus onun kendisini azarladığını hissetmedi. Zaten konuşmasa bile ne zaman sinirlendiğini anlardı.</p>
+<p><strong>“Şey…”</strong> Neler döndüğünü çözemeyen Arus, ne diyeceğini bilemeyip kekeledi. Kısa bir sessizlik oldu.</p>
+<p><strong>“Maceracılar Loncası’ndaki klan odasının duvarında bir ejderha kafası vardı,”</strong> dedi Lara aniden. Yüzündeki ifadeden, Arus’un kaçırdığı bir şeyi onun anladığı belliydi. Muhtemelen Leo, Arus fark etmeden ona fısıldamıştı.</p>
+<p><strong>“Aaa, baba, şey, Maceracılar Loncası’nda!”</strong> diye neşeyle söyledi Sieg, yüzü aydınlanarak. <strong>“Şey, büyülü bir kılıç vardı!”</strong> diyerek lonca hakkında heyecanla bir şeyler anlatmaya başladı. Az önceki tatsızlık anlaşılan aklından tamamen silinip gitmişti.</p>
+<p><strong>“Tamam, durun bakalım, hepsini sonra anlatırsınız. Şimdilik Lucie ve diğerlerini çağıralım da bir şeyler yiyelim.”</strong></p>
+<p>Odadaki hava bir anda yumuşamıştı. Akşam yemeği vaktiydi.</p>
+<p style="text-align: center;">***</p>
+<div id="model-response-message-contentr_a40291077be75577" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Akşam yemeği bittikten sonra Arus, o kocaman yemek salonundan ayrılarak kendisine tahsis edilen odanın yolunu tuttu. Arkasına dönüp baktığında, sanki hiçbir şey olmamış gibi peşinden gelen Aisha’yı gördü.</p>
+<p>Yalnız kaldıklarında ağzından dökülen ilk kelime <strong>“Neden?”</strong> oldu.</p>
+<p>Neden kimse kızmamıştı? Maceracılar Loncası’na gittiğini hepsi nereden biliyordu? Bu tek kelime aslında bir sürü farklı soruyu barındırıyordu.</p>
+<p>Aisha hafifçe gülümseyerek, <strong>“Merak mı ediyorsun?”</strong> dedi.</p>
+<p><strong>“Evet.”</strong></p>
+<p>Aisha, başarılı bir yaramazlığın altından kalkmış gibi bir ifade takınsa da Arus’un şakası yoktu.</p>
+<p><strong>“Sizi katedralin bahçesinden sıvışırken gördüm,”</strong> diye açıkladı. <strong>“Canınızın sıkıldığını ve bir hinlik peşinde olduğunuzu anladım, bu yüzden diğerlerine Maceracılar Loncası’na şöyle bir bakıp geleceğimi söyleyip peşinize takıldım.”</strong></p>
+<p>Bunu duyunca Arus ne olduğunu anlamıştı. Aisha onun planını en başından beri biliyordu. Onlara katılmak yerine, kardeşleriyle birlikte canlarının istediğini yapmalarına göz yummuştu. Sürekli arkalarındaydı ve <strong><em>“bir şey olursa ortaya çıkar, durumu hallederim”</em></strong> diye düşünüyordu.</p>
+<p><strong>“Ama ta büyü kulesine kadar gideceğinizi de beklemiyordum,”</strong> diye ekledi.</p>
+<p>Aisha onları hep uzaktan izlemişti. Arus kaybolmuş ve ağlamak üzereyken bile duruma el koymak yerine gizlenmeye devam etmişti.</p>
+<p><strong>“O zaman kaybolduğumuzu bildiğin halde neden bize yardım etmedin?”</strong></p>
+<p><strong>“Hımmm? Bence bunun cevabını sen de biliyorsun, değil mi Arus?”</strong> diye takıldı Aisha. Bu cevap Arus’un dişlerini sıkmasına neden olmuştu.</p>
+<p>Cevabı gerçekten de biliyordu. Aisha yardım etmemişti çünkü bu belayı başlarına açan kendisiydi. Tıpkı annelerinin ona öğrettiği gibi, kendi düşen ağlamazdı. Aslına bakarsan Arus, kaybolduğunu fark ettiğinde pes etmemişti. Korkmasına rağmen yılmamıştı.</p>
+<p>Aisha, müdahale etme zamanının henüz gelmediğini anlayıp izlemeye devam etmişti. Sadece gerçekten zarar görecek gibi olduklarında onları kurtarmak için kendini göstermişti. Eğer loncadaki kadın bir kaçırma planının parçası olmasaydı ve sırf iyi niyetinden onlara yolu gösterseydi, Aisha belki de hiç ortaya çıkmayacaktı. Aisha’nın yaptığına kızamazdı, çünkü kabahat ondaydı.</p>
+<p>Aisha, her zamanki gibi onun arkasını toplamıştı.</p>
+<p><strong>“Aisha Abla, ben… ben özür dilerim…”</strong> dedi.</p>
+<p><strong>“Sadece <em>‘özür dilerim’</em> demek yetmez. Ne için özür diliyorsun?”</strong></p>
+<div id="model-response-message-contentr_331d16f8646d07fb" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p><strong>“Sana haber vermeden sıvıştığım için—”</strong></p>
+<p><strong>“Hayır, o değil.”</strong></p>
+<p>Arus şaşkınlıkla arkasını döndü. Aisha’nın ona böyle akıl vermesi hiç alışıldık bir şey değildi. Genellikle Arus bir hata yaptığında omuz silker ve yardım ederdi ama asla oturup böyle uzun uzun konuşmazdı.</p>
+<p>Arkasını döndüğünde, Aisha her zamanki rahat gülümsemesiyle tepeden ona bakıyordu. <strong>“Arus, sen bana gıcık olmuştun ve sadece kardeşlerinle ortadan kaybolmak istiyordun, değil mi?”</strong></p>
+<p><strong>“Ben… ben senin gıcık olduğunu düşünmüyorum… yani, belki birazcık, ama… ama ben seni seviyorum, Abla.”</strong></p>
+<p><strong>“Öyle mi?”</strong> Aisha kıkırdadı. <strong>“Eee, sağ ol bakalım. Arus beni seviyormuş ha? Galiba yüzüm kızardı.”</strong> Yanaklarına ellerini götürüp utançla kıvranır gibi yaptı. <strong>“Neyse. Ben etrafa bakmazken sıvışıp Maceracılar Loncası’nı ve büyü kulesini görmeyi planlıyordun, değil mi?”</strong></p>
+<p><strong>“Evet.”</strong></p>
+<p><strong>“O zaman başarmalıydın.”</strong></p>
+<p><strong>“Ne? Ama herkesi endişelendirdim…”</strong></p>
+<p><strong>“Herkesi endişelendirmek iyi bir şey değil, dimi?”</strong></p>
+<p><strong>“Evet.”</strong></p>
+<p><strong>“Ama Arus, mesele şu ki, sen onları endişelendirmeye çalışmıyordun, yani? Sen öyle art niyetli bir çocuk değilsin.”</strong></p>
+<p>Arus başını salladı. Üzerine çok kafa yormamıştı ama kimseyi endişelendirmek gibi bir niyeti de yoktu.</p>
+<p><strong>“Maceracılar Loncası’nı ve kuleyi görecek, sonra da geri dönecektiniz. Sonra ben size <em>‘Neredeydiniz?’</em> diye sorduğumda, sen, Lara ve Sieg masum masum birbirinize bakıp <em>‘Bu bir sır,’</em> diyecek, sonra da gülecektiniz. Plan buydu, değil mi?”</strong></p>
+<p>Aynen böyle yaparlardı. Arus bu kadar detayını düşünmemişti ama Aisha’dan duyunca, hayalindeki ideal sonun bu olduğunu fark etti. Kısa bir süreliğine tüymek, biraz eğlenmek, sonra kimse endişelenmeye fırsat bulamadan geri dönmek. Belki Aisha onları bulamayınca biraz meraklanırdı ama hemen geri döndüklerinde derin bir nefes alır ve “Şükürler olsun, meğer burnumun dibindeymişsiniz!<strong>”</strong> derdi.</p>
+<p><strong>“Senin yanlış yaptığın şey,”</strong> dedi Aisha açık bir şekilde, <strong>“bu işi eline yüzüne bulaştırmandı.”</strong></p>
+<p>Arus bir hedef belirlemişti; Aisha ya da Leo gibi bir kuyruk olmadan Maceracılar Loncası’na gitmek istiyordu. Lara ve Sieg’i neden yanına aldığı meselesini bir kenara bırakırsak, bu hedef o arzuyu hissettiği anda doğmuştu. Aisha’nın demek istediği, bir hedefin varsa, onun sonunu getirmeliydindi.</p>
+<p><strong>“Söylemesi kolay tabii,”</strong> dedi Arus, <strong>“peki sen olsan nasıl yapardın?”</strong></p>
+<div id="model-response-message-contentr_df36105370b56d5f" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p><strong>“Hımmm,”</strong> diye mırıldandı Aisha. <strong>“Doğrusunu söylemek gerekirse, bu kadar kısa sürede hem Maceracılar Loncası’na hem de kuleye gitmek benim için bile zor olurdu. İkisi birbirinden çok uzakta.”</strong></p>
+<p><strong>“Ben olsam bugün loncaya gider, kuleyi başka bir güne bırakırdım. Aslında senin bu kadar az vaktin olduğundan haberin yoktu, değil mi? Bu yüzden dün programın ne olduğunu öğrenir, ona göre sağlam bir strateji kurardım.”</strong></p>
+<p><strong>“Aa, mantıklı.”</strong></p>
+<p><strong>“Yanımda muhtemelen bir silah ve birileriyle iletişim kurabileceğim bir şeyler de götürürdüm. Bazı işlerin üstesinden tek başına gelemezsin, bu yüzden anında yardım çağırabileceğin bir yolun olmalı.”</strong></p>
+<p>Aisha’nın fikirlerini böyle bir bir duyunca, Arus nerede yanlış yaptığını anladı. Sakin kafayla düşününce, gerçekten de çok dikkatsiz ve fevri davrandığını, olayları hiç etraflıca düşünmediğini fark etti. Böyle bir belaya bulaşmasına şaşmamalıydı.</p>
+<p>Aisha harika biriydi.</p>
+<p><strong>“Anladım,”</strong> dedi. <strong>“Bir dahaki sefere daha dikkatli olacağım ve işleri batırmamaya çalışacağım.”</strong></p>
+<p><strong>“Güzel, güzel. İşte bu! Ama hata yapmaktan korkacak kadar da dikkat kesilme, yoksa elin kolun bağlanır, hiçbir şey yapamaz olursun. Hata yapmaya devam et!”</strong></p>
+<p><strong>“Ne? Ama… ama ya yine bugünkü gibi olursa…?”</strong></p>
+<p><strong>“Hiç sorun değil!”</strong> dedi Aisha elini kalbine koyarak. <strong>“Sen ne zaman batırırsan, ben anında orada olacağım!”</strong></p>
+<p>Arus nedenini tam olarak çözemediği bir utangaçlık hissetti ama Aisha’ya gülümsedi. <strong>“Tamam, anlaştık Abla! Teşekkür ederim”</strong></p>
+<p><strong>“Rica ederim! Sen ne kadar tatlı bir şeysin böyle?”</strong></p>
+<p>Aisha, duymak istediği sözleri duyunca onu kucağına aldı. O saçlarını karıştırırken, Arus da onun yumuşak göğüslerine sokulup o gün olanları ciddi ciddi düşündü.</p>
+            
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum2parca1.html" class="nav-btn">←Önceki Bölüm</a>
+            <a href="bolum2parca3.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

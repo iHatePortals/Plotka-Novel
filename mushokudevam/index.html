@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei - Cilt Seçimi</title>
+    
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            /* Mushoku Tensei Özel Kırmızı Tema Renkleri */
+            --accent-color: #e53935; /* Canlı Kırmızı */
+            --border-color: #2a2a2a;
+            --btn-bg: #2d323e;
+            --btn-hover: #e53935; /* Buton hover Kırmızı */
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cilt-container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .top-nav {
+            margin-bottom: 25px;
+        }
+
+        .top-nav a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            display: inline-block;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .top-nav a:hover {
+            opacity: 0.8;
+            transform: translateX(-3px);
+        }
+
+        /* Duyarlı Grid: Esnek Kolon Yapısı */
+        .grid-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+            align-items: stretch;
+        }
+
+        .cilt-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cilt-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            /* Kırmızı gölge efekti */
+            box-shadow: 0 10px 20px rgba(229, 57, 53, 0.2); 
+        }
+
+        /* Resim Alanı: Tam Görsel Boyutu (Kırpma Yok) */
+        .image-container {
+            position: relative;
+            width: 100%;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* Hover & Mobil Açılır Özet Katmanı */
+        .summary-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(18, 18, 18, 0.94);
+            color: #d1d5db;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 5;
+            overflow-y: auto;
+        }
+
+        /* Masaüstünde Üzerine Gelince Göster */
+        @media (hover: hover) {
+            .cilt-card:hover .summary-overlay {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        /* Mobilde 'active' Class'ı Alınca Göster */
+        .summary-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .summary-text {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+            margin: 0;
+        }
+
+        /* Kart İçeriği (Başlık ve Butonlar) */
+        .card-content {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+            gap: 12px;
+            background-color: var(--card-bg);
+            z-index: 6;
+        }
+
+        .cilt-title {
+            color: var(--accent-color);
+            font-size: 1rem;
+            margin: 0;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .read-btn {
+            display: block;
+            flex: 1;
+            padding: 12px 0;
+            background-color: var(--btn-bg);
+            color: #ffffff;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .read-btn:hover {
+            background-color: var(--btn-hover);
+            color: #ffffff; /* Buton hover yazısını beyaz tutmak kırmızıda daha iyi durur */
+        }
+
+        /* Mobilde Özet Aç/Kapat Butonu */
+        .info-btn {
+            display: none;
+            padding: 12px 14px;
+            background-color: #2a2a2a;
+            color: var(--accent-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .info-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cilt-container">
+        <div class="top-nav">
+            <a href="../index.html">← Ana Sayfa</a>
+        </div>
+
+        <div class="grid-wrapper">
+
+            <!-- 1. CİLT -->
+            <div class="cilt-card">
+                <div class="image-container">
+                    <img src="cilt1.jpg" alt="1. Cilt" class="card-image">
+                    <div class="summary-overlay" id="summary-cilt1">
+                        <p class="summary-text">
+                            Karar savaşının ardından yaşananlar... Biheiril Krallığı'ndaki belirleyici savaşın ardından, Rudeus Greyrat galip geldi. Etrafındaki insanların savaş sonrası yaşamlarını anlatan öykülerden oluşan bir derleme!
+                        </p>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="cilt-title">Light Novel Extra Edition Volume 1</h2>
+                    <div class="button-group">
+                        <button class="info-btn" onclick="toggleSummary('summary-cilt1')">ℹ️</button>
+                        <a href="cilt1bolumler.html" class="read-btn">OKUMAK İÇİN TIKLA!</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. CİLT -->
+            <div class="cilt-card">
+                <div class="image-container">
+                    <img src="cilt2.jpg" alt="2. Cilt" class="card-image">
+                    <div class="summary-overlay" id="summary-cilt2">
+                        <p class="summary-text">
+                           Serinin ikinci cildi, bir otomatın yapım sürecini ve bununla birlikte ortaya çıkan sorunları anlatır 
+                        </p>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="cilt-title">Light Novel Extra Edition Volume 2</h2>
+                    <div class="button-group">
+                        <button class="info-btn" onclick="toggleSummary('summary-cilt2')">ℹ️</button>
+                        <a href="cilt2bolumler.html" class="read-btn">OKUMAK İÇİN TIKLA!</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. CİLT -->
+            <div class="cilt-card">
+                <div class="image-container">
+                    <img src="cilt3.jpg" alt="3. Cilt" class="card-image">
+                    <div class="summary-overlay" id="summary-cilt3">
+                        <p class="summary-text">
+                           Serinin üçüncü cildi, Rudeus’un oğlu Ars’ın kaçışını konu alan uzun öyküyü içeriyor. Bu özel baskı, ailenin yaşadığı en büyük krizi hem Rudeus’un hem de Ars’ın bakış açılarından anlatıyor!
+                        </p>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="cilt-title">Light Novel Extra Edition Volume 3</h2>
+                    <div class="button-group">
+                        <button class="info-btn" onclick="toggleSummary('summary-cilt3')">ℹ️</button>
+                        <a href="cilt3bolumler.html" class="read-btn">OKUMAK İÇİN TIKLA!</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Mobil Özet Açma/Kapama Scripti -->
+    <script>
+        function toggleSummary(id) {
+            const target = document.getElementById(id);
+            document.querySelectorAll('.summary-overlay').forEach(el => {
+                if (el.id !== id) el.classList.remove('active');
+            });
+            target.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

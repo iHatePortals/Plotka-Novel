@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei Cilt 1, Bölüm 1 (Kısım 1) | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b; /* Mushoku Tensei Kırmızı Tema */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #cc0000;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c1b1b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        body.theme-light .nav-btn:hover, 
+        body.theme-light .action-btn:hover, 
+        body.theme-light .theme-select:hover,
+        body.theme-sepia .nav-btn:hover, 
+        body.theme-sepia .action-btn:hover, 
+        body.theme-sepia .theme-select:hover {
+            color: #ffffff;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+        }
+
+        /* Resimler için özel stil */
+        .novel-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 6px;
+        }
+
+        /* Ayrıştırıcı Çizgi */
+        .divider {
+            text-align: center;
+            margin: 2em 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="bolum3parca1.html" class="nav-btn">←Önceki Bölüm</a> 
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="bolum3parca3.html" class="nav-btn">Sonraki Bölüm →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Mushoku Tensei Cilt 2, Bölüm 3</h1>
+            <div class="subtitle">Kılıç Tapınağında Yaşayan Tanrı (Kısım 2)</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+                                    <img src="bolum3foto1.png" alt="Kitap Çizimi 1" class="novel-image">
+<p>O gün, Kılıç Tapınağı’nın antrenman salonunu ziyaret ettim; duyduğuma göre buraya “Fani Salon” deniyormuş.</p>
+<p>Sağımda Alec vardı. Gülümsüyordu ve zerre kadar düşmanlık belirtisi göstermiyordu. Belinde, benim yarattığım kara taştan bizzat Cevher Tanrısı’nın dövdüğü iki elli kılıcı taşıyordu. Özel bir gücü yoktu ama—yapımcısının adındaki “tanrı”dan bekleneceği üzere—kaliteli bir kılıçtı. Alec, neredeyse iki metrelik bu kılıcı beğenmişti ve artık düzenli olarak yanında taşıyordu. Solumda ise Orsted duruyordu. Siyah miğferini çıkarmamıştı ve tek kelime etmiyordu. O kadar hareketsizdi ki onu bir karton maket sanabilirdiniz. Üzerine bir sinek konmasını falan bekledim ama o kadar göz korkutucuydu ki bir sivrisinek bile yanına yaklaşmaya cesaret edemezdi. Bizim dışımızda burada olan diğer insanlar ne bana, ne Alec’e ne de Orsted’e bakıyordu. Bakışları önümdeki kişiye sabitlenmişti: Eris. Elinde tahta bir antrenman kılıcıyla duruyordu. İfadesi ciddiydi ve kızgın görünmüyordu ama kılıcını ne kadar sıkı kavradığını herkes görebilirdi.</p>
+<p>Fani Salon’un ortasında Eris. Ayaklarının dibinde ise bileği kırılmış bir Kılıç Azizi yatıyordu.</p>
+<p><em><strong>“Pes ediyorum,”</strong></em> diye mırıldandı en sonunda. Acı bir ifadeyle ayağa kalkıp başını eğdi. Eris’in cevabını beklemeden salonun kenarına geri çekildi.</p>
+<p>Antrenman salonunun kenarında bir dizi Kılıç Tanrısı savaşçısı duruyordu, görünüşe göre yaklaşık yirmi kişiydiler. Hepsinin Kılıç Azizi olduğunu düşününce dünya ne kadar da küçük geliyordu. Sanki küçücük bir alana koca bir dünya sıkıştırılmış gibiydi.</p>
+<p>Eris’in karşısında genç bir adam ve kadın oturuyordu. Adam muhtemelen benimle aynı yaştaydı, ama emin değildim. Böyle söyleyince ona “genç” deyip diyemeyeceğimden de pek emin olamadım. Yine de, Kılıç Azizlerinin çoğu otuzlu ve kırklı yaşlarındaydı, o yüzden sanırım genç sayılırdı. Yanında oturan kadının omzuna kolunu atmıştı ve Kılıç Azizlerine kıyasla—Orsted karşısında olmasına rağmen—rahat görünüyordu. Miğferi lanetin etkisini azaltıyor olsa da Orsted yine Orsted’di ve bu adam rahat davranıyordu.</p>
+<p>Kılıç Tanrısı Gino Britz’den de bu beklenirdi zaten. Kolunda bir kızla otorite saçarken bizim aynı yaşta olduğumuza inanmak zordu. En azından ben, karımın omzuna kolumu atıp sırtını okşarken Orsted’in karşısına çıkamazdım. Zaten böyle bir şey yapsam yumruğu yerdim—çoğunlukla Eris’ten. Arada sırada göğüslerine uzandığımda Eris’in bana patlatmasından rahatsız olduğum söylenemezdi gerçi.</p>
+<p>Kadının adı Nina’ydı ve Eris’in Kılıç İmparatoru rütbesine sahip bir arkadaşıydı. Ancak pek de “Kılıç İmparatoru” havası vermiyordu. Aksine, kocası Gino’ya mutlulukla yaslanmış, sadece eli göğsüne fazla yaklaştığında eline vuruyordu. Sanki bizi görmüyorlardı bile. Mide bulandıracak kadar aşıklardı.</p>
+<p>Evet, bu kadar gergin bir duruma nasıl düştüğümüzü açıklamalıyım.</p>
+<p><em>Mushoku Tensei’nin önceki bölümünde!</em></p>
+<p>Toplanın kızlar ve erkekler! Benim adım Rudeus Greyrat! Hadi biraz eğlenelim!</p>
+<p>Bugün, Kuzey Kıtası’nın en havalı ve ilgi çekici turistik noktasını ziyaret ediyorduk: Kılıç Tapınağı! Geleceği düşününce, Kılıç Tanrısı ile bir konuşma yapmam gerekiyordu, ayrıca Eris’in eski Kılıç Tanrısı ile olan geçmişiyle yüzleşmek vardı! Bu yüzden saygılarımı sunmaya ve tabiri caizse hesabı kapatmaya karar verdim. Geçen sefer şimdiki Kılıç Tanrısı ile konuşma fırsatım olmamıştı, bu yüzden bu benim resmi ziyaretimdi.</p>
+<p>Bu yolculukta yanımda olan kişi—tahmin ettiniz—Eris’ti! Kılıç Tanrısı Stili hakkında bildiğim kadarıyla, bu ekolün uygulayıcılarının önce seni ikiye ayırıp sonra soru soran tipler olma eğilimindeydi. Geçen seferki gibi mümkün olduğunca az büyücü getirmenin en iyisi olacağını düşündüm. Elbette hepsinin ahlaklı insanlar olduğundan emindim ama Eris, Biheiril Krallığı’nda, şimdiki Kılıç Tanrısı’nın kayınpederi olan Gall Falion’u öldürmüştü!</p>
+<p>Ne düşünüyorsunuz? Bundan sonra, içeri dalıp ondan bir iyilik isteyebilir miydim?</p>
+<p>Doğrusunu söylemek gerekirse, oradaki atmosfere bağlı olarak konuyu hiç açmadan eve dönmeye hazırdım. Her şey olabilirdi! Bu yüzden sadece ikimizin gitmesini planlamıştım.</p>
+<p>En azından planım buydu ama beni bekleyen şok edici bir gelişme oldu. Kılıç Tapınağı’na gideceğimi söylediğimde, Orsted oldukça anlamlı bir tavırla kendisinin de geleceğini söyledi. Bu anlam muhtemelen, benim çenemi tutamayıp Kılıç Tanrısı’nı kızdıracağımdan endişeleniyor olmasıydı. Başka bir deyişle, işleri berbat etme ihtimalime karşı geliyordu. Her iki durumda da hayır demek için bir sebebim yoktu, bu yüzden kabul ettim. Orsted yanımda olması güven veren biriydi.</p>
+<p>Orsted gittiği için, Alec de gitmekte ısrar etti. Hani şu kahraman olma takıntısı biraz fazla olan, ortamı okumakta en az Cliff’in eski hâli kadar kötü olduğunu kanıtlamış olan adam mı? Evet, o Alec!</p>
+<p>Kişisel olarak, <em><strong>“Üzgünüm, sorun çıkaracak kimseyi alamam,”</strong></em> demek isterdim. Sieg ile sık sık ilgilendiği için Alec’e minnettardım ama bu bambaşka bir konuydu.</p>
+<p>Orsted-sama, <strong>“Nasıl istersen,”</strong> dedi. Böylece karar verilmiş oldu. Eris, Orsted, Alec ve ben, hep birlikte Kılıç Tapınağı’na gidecektik.</p>
+<p>Ve gittik! Vardığımızda, bizi karla kaplı sakin bir köy manzarası karşıladı. İçimde biraz gerginlik vardı ama daha önce de buraya gelmiştim ve bu sefer yanımda üç güvenilir yoldaşım vardı.</p>
+<p><strong>“Ne harika bir manzara. Bir köy için oldukça iyi bir kılıç seçkisine sahipler. Ah, işte ilk köylüyü gördüm!”</strong></p>
+<p>Metanetli yoldaşlarımın yanında titrerken, Kılıç Tanrısı’nın ana antrenman salonuna varana kadar kendi kendime konuşarak ilerledim.</p>
+<div id="model-response-message-contentr_a3cd6870b5453b35" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Gülümseyen bir grup Kılıç Azizi bize Fani Salon’u gösterdi. Herkes hoştu ve ortam dostane görünüyordu. Ama nedense sırtımdan aşağı bir ürperti inmişti.</p>
+<p><em>Hepsi senin kuruntun!</em> diye geçirdim içimden. Kılıç Tanrısı’na odaklan!</p>
+<p>Tam o sırada Kılıç Azizlerinden biri konuştu. <strong>“Eğer bir sakıncası yoksa, önce önceki Kılıç Tanrısı’nı katleden Vahşi Kılıç Kralı Eris’in kılıcını görmek isterim.”</strong></p>
+<p><em>“Merhaba” demek için ne güzel bir yol ama?!</em></p>
+<p>Ben daha arkamı dönemeden Kılıç Tanrısı omuz silkti. <strong>“Nasıl isterseniz,”</strong> dedi.</p>
+<p>Kıyamet o an koptu.</p>
+<p>Gülümsemeye devam etseler de gözlerinin arkasından düşmanlık saçan Kılıç Azizleri, Eris’e meydan okumak için harekete geçti. Evet, dostane görünüyorlardı ve alıştırma kılıçları kullanıyorlardı ama kötü niyetlerini görebiliyordum. O tahta kılıçları, alıştırma bahanesiyle Eris’i öldüresiye dövmek için kullanacaklardı. Hiç geri durmayacakları bir bakışta belliydi.</p>
+<p>Ama Eris de teknik olarak bir Kılıç Tanrısı sayılırdı. Birkaç Kılıç Azizi’nden fazlası gerekirdi onu alt etmek için. Kendisine saldırmaya kalkanların karşısında durumu kolayca lehine çevirdi. Birini, sonra bir diğerini yere serdikçe Kılıç Azizleri’nin gülümsemeleri nefret dolu hırlamalara dönüştü. Kötü niyetlerini artık saklamıyorlardı. Tüm bu karmaşanın ortasında sadece tek bir kişi tamamen sakindi: Gino. Nina bile Kılıç Azizleri’nin gözlerindeki öldürme arzusundan biraz rahatsız görünüyordu ama Gino’nun yüzünden zerre kadar umrunda olmadığı okunuyordu.</p>
+<p>Neyse, ben yüzüme neşeli bir ifade takınıp neler olduğunu açıklamak için elimden geleni yaptım. Ne faydası olduysa!</p>
+<p><em>Haaah. Midem ağrıyor. Nasıl bu hale geldi?</em></p>
+<p>En başından batırdığımı hissediyordum. Buradaki havaya bakılırsa, bu işin sonu yoktu. Sadece açıklama yapmak için bir şans istemiştim ama artık konuşma ihtimali tamamen ortadan kalkmıştı.</p>
+<p><em>Onu durduracak vaktim olmadı! Bilirsiniz, o gerçekten çok hızlı!</em></p>
+<p>Cidden, Gino’nun “Nasıl isterseniz” demesi bitmeden, Eris elinde tahta kılıcıyla tereddüt etmeden öne atılmıştı. Eğitim salonunun ortasında daha fazla Kılıç Azizi bekliyordu. Ben şimdi durduğum yere çömelene kadar geçen kısa sürede, Eris onlardan birini çoktan indirmişti bile. Sonra bir grup Kılıç Azizi daha öne çıktı.</p>
+<p><strong>“Sıra bende!”</strong></p>
+<p><strong>“Sıradaki rakibin benim!”</strong></p>
+<p>Biri devriliyor, diğeri öne atılıyordu. Bu neydi böyle?</p>
+<p>Bu küçük maskaralığı bitirme vaktinin geçtiğini hissettim. Yirmiden biraz fazla Kılıç Azizi vardı ve Eris neredeyse hepsini indirmişti. Hayır, aslında sonuncusuyla dövüşüyordu, bu da sıranın Kılıç Tanrısı Gino’ya geleceği anlamına geliyordu. Şimdilik her şeyin üzerinde oturuyordu ama adamları saf dışı bırakılırsa kendisi öne çıkmaktan başka çaresi kalmayacaktı. Kılıç Azizleri muhtemelen Kılıç Tanrısı’nın kızıl saçlı kılıç ustasını öldüreceği anı bekliyorlardı. Önceki Kılıç Tanrısı’nı öldüren kişiden intikam almak istiyorlardı. Bunun için can attıklarını açıkça ilan etmişlerdi. Bu, bir infazın başlangıcıydı.</p>
+<p>Seçimlerimden pişmanlık duyuyordum. Belki de buraya gelmek kötü bir fikirdi. Eris bile Kılıç Tanrısı ile yapacağı bir dövüşten yara almadan kurtulamazdı ve bu mesafeden onunla dövüşmemin imkânı yoktu. En azından her şey kötü değildi. Benim reflekslerim çok yavaş kalabilirdi ama Orsted ve Alec benim için Kılıç Tanrısı’nın kılıcını durdururdu. Eris biraz yara alabilirdi… ama yaşadığı sürece şikâyet etmezdim. Eris ne olursa olsun hazırlıklıydı. Her halükârda, bizimle geldikleri için minnettardım.</p>
+<p>Tek sorun, Eris ile Kılıç Tanrısı arasındaki bir düelloya müdahale edersem, müzakere diye bir şeyin söz konusu olamayacağıydı. Tam olarak ne olacağından emin değildim… ama ne olursa olsun, şimdiden midemin ağrımaya başladığını hissedebiliyordum. Bu işi durdurmalı, sonra da konuşabileceğimiz bir zemin hazırlamanın bir yolunu bulmalıydım. Benim görevim buydu.</p>
+<p><em>Dinle beni, Rudeus. Onlar fevri bir grup olabilir ama onlarla gerçekten konuşmaya çalışırsan dinlemelerini sağlayabilirsin. Elinden gelenin en iyisini yap, anladın mı? Haydi bakalım!</em></p>
+<p><strong>“Öf… teslim oluyorum.”</strong></p>
+<p>Tam o sırada son Kılıç Azizi de düştü. Tıpkı bir öncekiler gibi o da bileğini tutuyordu. Düşününce, hepsi aşağı yukarı bileklerini tutuyordu. Bazıları sol, bazıları sağ bileğini ama Eris teknik değiştirmeye bile tenezzül etmemişti. Bu yüzden fazladan öfkeli olmalarına şaşmamalı.</p>
+<p>Sırada Nina mı vardı? Ama Nina pek yakında hareket edecek gibi görünmüyordu. Nedenini söyleyemezdim ama sıradakinin Kılıç Tanrısı olacağını hissediyordum. Kılıç Tanrısı harekete geçtiğinde, işte o zaman ben de hamlemi yapacaktım.</p>
+<p><em>İyi izle. Bu Go-no-Sen (karşı saldırı) sanatıdır. Kılıç Tanrısı ayağa kalkar kalkmaz, işte o an kendimi yerlere atmaya hazır bir şekilde araya gireceğim! “Vay canına, ne kadar da muhteşem dövüşlerdi. İzlerken susadım valla. Bir mola verip bir fincan çay içmeye ne dersiniz?”</em></p>
+<p>İşte böyle bir giriş yapacaktım. Yeterince pürüzsüz müydü? Onu kışkırtmaya çalışıyormuşum gibi görünmezdi, değil mi? Yenilen Kılıç Azizlerini öven bir şeyler söylemek daha iyi olurdu.</p>
+<p><em>Vay be, siz Kılıç Tapınağı’ndakiler antrenmanlarınıza gerçekten de canla başla sarılıyorsunuz!</em></p>
+<p>Evet, bunu kullanacaktım. Bu şekilde kendilerine, <em>“Eh, bu bir antrenman. Bazen kaybedersin,”</em> diyebilirlerdi.</p>
+<p><em>Tamam, tamam. Hadi gidelim. Bu işi halledelim.</em></p>
+<p>Bir anlık sessizlik oldu. Kılıç Tanrısı hareket etmedi, Nina da öne çıkmadı.</p>
+<p><strong>“Bitti mi?”</strong> diye sordu Kılıç Tanrısı Gino Britz, çıtırtılarla dolu gerginliğin ortasında havai bir tonla. “Şimdi, beni ne için görmeye gelmiştiniz?”</p>
+<p>Ha? Sanki dövüşten önce beni dinleyecek gibiydi. Bu pek Kılıç Tanrısı Stili’ne uygun değildi ama benim işime gelirdi. Bir adım öne çıktım.</p>
+<div id="model-response-message-contentr_70441c011a7e006f" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p><strong>“Öncelikle özür dilemek isterim,”</strong> dedim.</p>
+<p><strong>“Ne için?”</strong> diye sordu Gino.</p>
+<p><strong>“Önceki Kılıç Tanrısı mevzusu için.”</strong> Bunu söyler söylemez, Kılıç Azizleri’nin etrafındaki havada bir değişiklik oldu, sanki nihayet bekledikleri konuya gelmişiz gibiydi.</p>
+<p>Bize bir fırsat verdi! İşte an bu an! İntikam zamanı! Köpek olsalardı, havlayıp üzerimize atlamaya hazır olurlardı. Bir an için daha dolaylı mı olmalıydım diye düşündüm ama sonuç yine aynı olurdu. Gerçeklerden kaçış yoktu.</p>
+<p>Kılıç Tanrısı’nın yüzünde şüpheli bir ifade vardı. Bunu görmek beni de tereddüde düşürdü. Garip bir şey mi söylemiştim? Neredeyse gergin bir şekilde etrafıma bakmaya başlayacaktım. Sonra, Gino anlamış bir tavırla başını salladı.</p>
+<p><strong>“Sen şimdi bahsedince aklıma geldi, sanırım Nina uzun zaman önce sana yardım etmekle ilgili bir şeyler söylemişti. Sanırım bir müttefikinin babasını öldürürsen, özür dilemen gerekir, ha?”</strong></p>
+<p>Sanki konuyla hiç alakası yokmuş gibi konuşuyordu. Kılıç Azizleri benden daha şaşkın görünüyordu.</p>
+<p><strong>“Ama ustam… yani önceki Kılıç Tanrısı Gal Farion, sizinle kendi özgür iradesiyle dövüşmeye gitti, değil mi? Asıl özür dilemesi gereken biz değil miyiz? Eğer bu tüm Kılıç Tanrısı Stili’ni ilgilendiriyorsa ve o size saldırdıysa, o zaman anlaşmayı bozan taraf biz oluruz. Bu arada, o iş ne oldu? Benim hiçbir şeyden haberim yok.”</strong></p>
+<p>Ona neler olduğunu sormak isterdim. Şu an gerçekten Kılıç Tanrısı Stili’nin başındaki adamla mı konuşuyordum? Ben daha çok, bilirsiniz, Atofe gibi laftan anlamayan birini bekliyordum. Bu adam belki de fazla rahattı. Garip bir histi, daha çok Kuzey Tanrısı Stili’nden biriyle konuşuyor gibiydim. Tabii Atofe hariç.</p>
+<p><strong>“Şey…”</strong> <em>Sakin ol. Önce sorusuna cevap ver.</em></p>
+<p><strong>“O sadece Nina ve Eris arasında bir konuşmaydı—herhangi bir resmi anlaşmaya varılmadan önceydi. Aslında buraya daha önce bir kez geldim ama meşgul olduğunuz söylendiği için geri döndüm… Nina’nın size bundan bahsettiğini sanmıştım?”</strong></p>
+<p><strong>“Bahsettim,”</strong> dedi Nina belli belirsiz başını sallayarak, <strong>“ama o zamandan beri konusu açılmadı.”</strong></p>
+<p><strong>“Mm,”</strong> diye onayladı Gino. <strong>“Ejderha Tanrısı Orsted’e karşı durduğumuzla ilgili hiçbir şey duymadım. Bununla birlikte, eğer sizinle dövüştüyse…”</strong> Gino’nun gözleri kısıldı.<strong> “Görünüşe göre selefim size karşı çıkmış, öyle mi?”</strong></p>
+<p>Kılıç Azizleri’nin şevki kabardı. Zihinlerinden geçenleri adeta duyabiliyordum: <em>Tamam, duydunuz onu! Kılıçlarınızı çekip dövüşme zamanı! Hadi, acele edin!</em></p>
+<p><strong>“Bekleyin,”</strong> dedim aceleyle. <strong>“Sakin olursanız…”</strong></p>
+<p>Gino kaşlarını kaldırdı. <strong>“Sana sinirli mi görünüyorum?”</strong></p>
+<p>“<strong>Hiç de değil! Tam bir sükûnet abidesisiniz! Bakın, mesele şu ki, biz buraya özür dilemek ve sizinle düşman kalmadığımızdan emin olmak için geldik. Kılıç Tanrısı Stili’nin güçlü savaşçılarıyla düşmanca bir ilişki içinde olmak hiç istediğimiz bir şey değil. Güçlü insanlarla dostane ilişkiler kurmayı severiz. Size dostluk sunmaya hazır bir şekilde buradayız. Kılıçların ve yiyecek malzemelerinin dağıtım kanalları, altyapı bakımı ve hatta inşaat konularında yardım sunabiliriz. Buna karşılık, bize karşı durursanız, bu şeyleri kesebiliriz. Bu her açıdan kötü olur. Değil mi?”</strong></p>
+<p>Tüm bunları bir çırpıda söyledikten sonra Gino iç çekti.</p>
+<p>Belki biraz fazla uzatmıştım. Aklımda Atofe’yi canlandırdığım için, daha kısa kesmeliydim. Ama bu adam, sırf ona çok nadir bir şişe şarap buldum diye,<em> “Elbette, müttefikin olacağım!”</em> deyip dönecek kadar basit biri gibi görünmüyordu.</p>
+<p>Gino beni süzdü, sonra konuştu. <strong>“Anlaman için hecelemem mi gerekiyor? Selefim bana bir kin meselesinden bahsetmedi. Bu, sizinle dövüşme kararının tüm Kılıç Tanrısı Stili adına değil, kişisel olduğu anlamına gelir. Bizimle hiçbir ilgisi yok ve bu yüzden dövüşmeye niyetim yok. Bu benim için bundan daha önemli.”</strong></p>
+<p>Bunu söylerken Nina’yı kendine doğru çekti ve yüzünü saçlarına gömdü. Nina’nın yanakları pembeleşti ama onu durdurmadı.</p>
+<p><em>Onun için deli olduğunu anlıyorum ama belki bunu toplum içinde yapmamayı düşünebilirsin? Baksana, Eris kıpkırmızı oldu! Gözleri yuvalarından fırlayacak gibi.</em> Ayrıca kollarını kavuşturmuş ve ayaklarını iki yana açmış, dövüşmeye hazır bir haldeydi.</p>
+<p>Cidden, konuştuğum kişi Kılıç Tanrısı mıydı? Zeki cevapları beni ürkütüyordu. Bu tüyler ürperticiydi. Yüksek rütbeli Kılıç Tanrısı Stili uygulayıcıları daha çok “Ne saçmalıyorsun lan sen? Kes zırvalamayı! Babama yaptığının bedelini canınla ödeyeceksin!” diye bağıracak tipler olurdu. Sonra da sana saldırırlardı. Değil mi? Dur, onu boş ver. O Atofe’ydi—yani, Kuzey Tanrısı Stili. Ama aşağı yukarı aynıydılar, değil mi?</p>
+<p>Aklıma bir düşünce geldi. Belki de karşımdaki bu adam, diplomatik ilişkilerden sorumlu ofisten biri gibi bir dublördü.</p>
+<p>Ne olursa olsun, böyle hissetmesine minnettardım. Akrabalarından birinin öldürülmesini bu kadar umursamaması garip olsa da… Sanırım durumu değerlendirmiş ve kendi hisleri yerine geleceğe öncelik vermeye karar vermişti. Bu bana mantıklı geldi. Bahse girerim ki her şeyi enine boyuna düşünmüş ve kararını çoktan vermişti.</p>
+<p><strong>“Bu durumda, izin verin de—”</strong></p>
+<p><strong>“Bekle!”</strong> diye bağırdı Kılıç Azizlerinden biri ayağa fırlayarak. Yüzü kıpkırmızıydı ve bizi—hayır, Orsted’i işaret ediyordu.</p>
+<p><strong>“Hepimiz eski Kılıç Tanrısı’na hürmet ederdik! Onun kılıcını kullanışını izleyerek öğrendik, çalıştık ve güçlendik! Ve onlar onu öldürdü! Tam şuradaki insanlar! Öylece duracak mıyız?! Her şeyimizi borçlu olduğumuz adamı öldürdüler! Kılıç Tanrısı Stili’ni aleme rezil mi etmek istiyorsun?!”</strong></p>
+<p><strong>“Pekâlâ, o zaman devam et,”</strong> dedi Gino hiç duraksamadan. <strong>“Git gerçek bir kılıç al. Ben de seni izleyeceğim.”</strong></p>
+<p>Kılıç Azizi donakaldı. <strong>“Ne…?”</strong></p>
+<p><strong>“Eminim buraya bir dövüşe hazır olarak geldiler. Bak, orada Vahşi Kılıç Kralı Eris, Ejderha Tanrısı Orsted ve Kuzey Tanrısı Kalman III var; arkalarında da onlara büyüyle destek olacak Rudeus Greyrat duruyor. Hepiniz aynı anda saldırsanız bile, tek bir darbe bile indiremeden sizi silip süpürürler.”</strong></p>
+<p><strong>“Ama…”</strong></p>
+<div id="model-response-message-contentr_fe469d8fbc11a24c" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p><strong>“Hadi, işe koyul. Bedeninle güzelce ilgileneceğimden emin olabilirsin, hatta sana bir cenaze töreni bile düzenlerim. Ölümlerinizin Kılıç Tanrısı Stili’nin onurunu korumaya bir faydası olur mu bilemem ama eminim cesetleriniz tatmin olacaktır.”</strong></p>
+<p>Kılıç Azizi bir an sessizce orada durdu, sonra bastırılmış bir hüsranla yumrukları titreyerek geri oturdu. Ardından, titrek bir sesle, “<strong>Bizim… onlara uymaktan başka çaremiz yok mu? Dövüşmeden, eski Kılıç Tanrısı’nın intikamını almadan…”</strong> dedi.</p>
+<p><strong>“Ben de sana onu söylüyorum işte—eğer hoşuna gitmiyorsa, git kılıcını al. Hiçbirinize hiçbir şeyi zorla yaptırmayacağım. Ne isterseniz onu yapın. Tıpkı babam ve diğerleri gibi.”</strong> Gino bu konudan bıkmış gibiydi.</p>
+<p>Herhangi bir kinin kök salmasına izin vermek yerine onları çabucak yola getirme fikri hoşuma gitmişti—gerçi bunun bir ölüm kalım meselesi olması biraz sert görünüyordu.</p>
+<p>Tam o sırada Eris konuştu.<strong> “Bütün Kılıç İmparatorları gitmiş, ha?”</strong></p>
+<p>Gino ona doğru döndü. <strong>“Babam diğerleriyle birlikte Kılıç Tapınağı’nı terk etti. Görünüşe göre benim Kılıç Tanrısı olmamdan hoşnut kalmamışlar.”</strong></p>
+<p>Anlaşılan “Kılıç İmparatorları” tanımına Nina dâhil değildi. Gino’nun ifadesi, önceki Kılıç Tanrısı’nın doğrudan öğrencileri olan iki Kılıç İmparatoru’ndan bahsettiğini düşündürüyordu. Eris söyleyince, bu tanıma uyan kimseyi göremediğimi fark ettim.</p>
+<p><strong>“Şu an itibarıyla Asura’da, Milis’te ya da belki de Kral Ejderha Krallığı’nda kendi eğitim salonlarını açmışlardır diye tahmin ediyorum. Yani, sanırım ben de gidebilirdim.”</strong> Gino omuz silkti. <strong>“Neyse, sadece özür dilemek için mi geldiniz? Bunu yapmanız nazikçeydi ama dürüst olmak gerekirse neden zahmet ettiğinizi pek anlamadım.”</strong></p>
+<p>Ah, be adam. Kimseyi kötülemek gibi olmasın ama Gino biraz fazla—nasıl desem? Soğuk, felsefi ya da sadece tuhaftı.</p>
+<p><strong>“Hayır, dahası var,”</strong> dedim. <strong>“Uzun bir hikâye ama aslında İnsan-Tanrı denilen bir varlıkla savaşıyoruz…”</strong></p>
+<p>Bizimle İnsan-Tanrı arasındaki savaşın detaylarını anlattım. Her şey bir yana, Gino mantıkla konuşabileceğim bir adama benziyordu. Eğer kan dökülmeden bir anlaşmaya varabilirsek, ne âlâ! Heyecanı kaçmıştı ama olsun. Ona Kılıç Tanrısı gözlükleriyle bakmayı bıraktığımda, Gino aklı başında, hoş bir genç adamdı. İş birliğini sağladıktan sonra oturup bir fincan çay içebilir ve birbirimizi daha iyi tanıyabilirdik. O zaman o kadar ürkütücü görünmekten vazgeçeceğinden emindim.</p>
+<p><strong>“Sonuç olarak,”</strong> dedim,<strong> “gelecekteki girişimlerimizde Kılıç Tanrısı Ekolü’nün iş birliğini resmen talep etmek istiyorum.”</strong></p>
+<p><strong>“Reddediyorum.”</strong></p>
+<p><em>Sen… ha? Cidden mi?</em></p>
+<p><strong>“Sizinle çalışmayacağım.”</strong></p>
+<p>Kılıç Azizleri’nden bir <strong><em>“Ooh!”</em></strong> sesi yükseldi ama onlar da benim kadar şaşkın görünüyorlardı.</p>
+<p><strong>“Yani, İnsan-Tanrı’nın tarafında olacaksınız, öyle mi?”</strong> diye sordum çekinerek.</p>
+<p><strong>“Hayır. Size karşı da çalışmayacağım.”</strong></p>
+<p><em>Pekâlâ…?</em> <strong>“Yani tarafsız kalıyorsunuz? Nedenini sorabilir miyim?”</strong></p>
+<p><strong>“Ustamin öğretilerine sadık kalmak niyetindeyim.”</strong></p>
+<p><strong>“Ne öğretisi?”</strong></p>
+<p><strong>“Ustam her zaman kendi çıkarın için güçlü ol derdi. Dürüst olmak gerekirse, uzun süre ne demek istediğini anlamadım. Buradaki kimsenin anladığını da sanmıyorum. Babam gibi Kılıç İmparatorları bile anlamadı. Nina’yı istediğimi fark ettiğimde, her şey benim için netleşti. Kılıç, kendin için kullandığın bir şeydir—tamamen kendi amacını yerine getirmek uğruna. Başka hiçbir şey için değil.”</strong></p>
+<p>Gino hızlı ve akıcı bir şekilde konuşuyordu ve sesinde, bilgeliğinin sarsılmaz gerçeğine inandığını gösteren bir kararlılık vardı.</p>
+<p><strong>“Bu yüzden,”</strong> diye devam etti, <strong>“sizinle çalışmayacağım. Kılıcımı yalnızca kendim için kullanırım. Yaptığım her şeyi kendim için yaparım.”</strong></p>
+<p><strong>“Ailen tehlikede olsa bile kılıcını eline almaz mısın?”</strong> diye sordum.</p>
+<p><strong>“Alırdım. Eğer onları sevseydim, alırdım,”</strong> dedi Gino. Sonra, ilk defa, dosdoğru bana baktı. Bakışları güçlü ve emrediciydi, Eris’in anlattıklarının çizdiği resimle hiç alakası yoktu. <strong>“Yoksa benimle çalışmayı reddedersem ailemi öldüreceğini mi söylüyorsun?”</strong></p>
+<p>Eğitim salonuna buz gibi bir hava çöktü. Gino’nun sesi buz kadar soğuk ve neredeyse öldürücüydü. Bütün vücudumu soğuk bir ter bastığını hissettim. Yalnız olsaydım, muhtemelen altıma kaçırırdım. Bu, Kılıç Tanrısı Gal Farion’u bir anda yenerek o unvanı alan Kılıç Tanrısı’ydı. Tuhaf bir adamdı, evet, ama dünyanın en iyi kılıç ustalarından biriydi—hesaba katılması gereken bir güç. Bunu hissetmiştim.</p>
+<p><strong>“Hayır,”</strong> dedim ona. <strong>“Ben de ailemi seviyorum.”</strong></p>
+<p><strong>“Oh? Bunu duyduğuma sevindim.”</strong> Sesindeki öldürücü ton kayboldu. <strong>“Görünüşe göre hakkında duyduğum her şeysin, Rudeus.”</strong></p>
+<p><strong>“İnsanlar sana ne anlattı?”</strong></p>
+<p><strong>“Ailen uğruna Ejderha Tanrısı’nın takipçisi olduğunu ve koca bir ülkeyi yerle bir ettiğini.”</strong></p>
+<p><strong>“Hmm, genel hatlarıyla doğru sayılır. Gerçi hiçbir ülkeyi yerle bir etmedim.”</strong></p>
+<p><strong>“Beklediğimden daha cesursun.”</strong> Gino’nun bakışları yanımdaki Eris, Alec ve Kılıç Azizleri’ne kaydı. Hepsinin eli kılıçlarındaydı. Hatta bazıları kılıçlarını çoktan çekmişti. Arkama bakmak için döndüm ama Orsted’in kılına bile dokunmadığını gördüm. Beklediğim gibiydi. Ben de hareket etmemiştim ama bu sadece Gino yüzünden hâlâ sarsılmış olmamdandı.</p>
+<p><strong>“Başka bir deyişle, güvenebileceğim bir adamsın,”</strong> diye devam etti Gino.</p>
+<div id="model-response-message-contentr_051eee2ad87c97f1" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p><em>“Başka bir deyişle” ne anlama geliyordu ki?</em></p>
+<p><strong>“Tam da böyle bir adam olduğun için seninle çalışmayacağımı gönül rahatlığıyla söyleyebiliyorum. Kılıcım kendim ve sevdiklerim için savaşır, başka hiç kimse için değil.”</strong></p>
+<p><strong>“Oh… Pekâlâ.”</strong></p>
+<p>Gino Britz’i şimdi daha iyi anlıyordum. O sadece sevdiği insanları kendi elleriyle korumak istiyordu—benden pek de farklı sayılmazdı. Ben bunu başaramamış ve kendimi Orsted’in merhametine atmıştım ama eminim Gino bunu başarabileceğini düşünüyordu. Dahası, haksız da sayılmazdı. Sadece başka bir şey yapmak için motive olmuş gibi görünmüyordu. Elbette, o hâlâ Kılıç Tanrısı’ydı; tarafsızlığını ilan etse bile bu, düşmanların ona gelmesini engellemezdi ama görünüşe göre daha fazlasını yaratacak bir yapısı yoktu.</p>
+<p>Önceki Kılıç Tanrısı’nı neden sevdiği insanlar arasına dâhil etmediğinden emin değildim ama sanırım o farklı bir durumdu. O adam kendi kurallarına göre yaşamış ve ölmüştü. Gino’nun buna bir itirazı yok gibiydi.</p>
+<p><strong>“Hmm…”</strong></p>
+<p>Bu işi ona başka nasıl satacağımı bilemiyordum. Gino kendi içinde tamamdı. Biz İnsan-Tanrı ile savaşmaktan vazgeçmedikçe veya o da—benim gibi—tek başına gücüyle ailesini koruyamayacağını hissetmedikçe fikrini değiştirmezdi. Onu ikna etmeye ne kadar çalışırsam çalışayım, sadece havayı dövmüş olurdum. Kararını vermişti ve yerinden oynatılamazdı. Tam da Kılıç Tanrısı ekolünün başındaki kişiden bekleneceği gibiydi.</p>
+<p><strong>“Tamam,”</strong> dedim. <strong>“O halde, en azından İnsan-Tanrı rüyalarına girerse dikkatli ol. Her şeyin ailen için olduğunu söyleyerek yalan söyleyecektir ama onu dinlersen her şeyini kaybedersin.”</strong></p>
+<p><strong>“Anladım,”</strong> dedi Gino.</p>
+<p>İstemiyordum ama… geri çekilme zamanı gelmişti. Gino bize karşı çalışmayacaktı, bu da bir şeydi. Müttefikimiz olmayacaktı ama bir düşman da edinmemiştim. Nasıl bir adam olduğunu öğrendikten sonra, bana dürüst olacak kadar güvendiği sözüne inandım. Bu benim için yeterliydi.</p>
+<p><strong>“Eğer ben ölürsem ve yerime başkası geçerse,”</strong> diye ekledi Gino, <strong>“mutlaka geri gel. Bu benim kişisel kararımdan başka bir şey değil, anlıyorsun ya.”</strong></p>
+<p><strong>“Teşekkürler, öyle yaparım.”</strong> Orsted’e bakmak için arkamı döndüm. O kaskın altında neler olup bittiğini kim bilebilirdi ki?<strong> “Bu size uyar mı, Lord Orsted?”</strong></p>
+<p>Yavaşça başını salladı. <strong>“Uyar.”</strong></p>
+<p>Bu iş bittikten ve Kılıç Azizleri’nin yaralarını iyileştirdikten sonra, sıra Alec ile bir antrenman seansına geldi. Bu da benim şeref konuğu olarak eğitim salonunun ön kısmına oturtulmuş, Alec’in Kılıç Azizleri ile serbest stil antrenman yapmasını izlediğim anlamına geliyordu. Kılıç Azizleri’nin elinde sadece alıştırma kılıçları vardı ama açıkça öldürmek için dövüşüyorlardı. Bahse girerim ki antrenmanın hararetiyle Alec’i öldürürlerse paçayı sıyırabileceklerini düşünüyorlardı.</p>
+<p>Alec onları hiç zorlanmadan savuşturdu. Bununla birlikte, belki de bunlar Kılıç Azizleri olduğu için ya da belki dikkati dağıldığı için, bazıları ara sıra Işık Kılıcı ile ona bir darbe indirmeyi başardı. Ancak sonuçta kılıçları hâlâ sadece tahtaydı. Vurdukları anda tahta parçalandı ve Alec sıfır hasar aldı. O savaş aurası haksızlık derecesinde güçlüydü.</p>
+<p>Ancak Kılıç Tapınağı’nda alışılmadık alıştırma kılıçları kullanıyorlardı. Görünüşe göre doğru ağırlığa daha yakın olmaları için demir gibi bir şeyden yapılmış bir çekirdekleri vardı. Savaş aurası olmadan, yanlış bir yere isabet eden bir darbe muhtemelen öldürmeye yeterdi. Hey! Bu, neden burada sadece Kılıç Azizleri olduğunu açıklıyordu. Sadece ileri seviye ve üzerindekiler bir savaş aurası oluşturabilirdi.</p>
+<p><strong>“Bu arada, Lord Orsted, neden benimle geldiniz?”</strong> diye fısıldadım yanımda duran Orsted’e.</p>
+<p><strong>“Gino Britz’e bir göz atmak istedim.”</strong></p>
+<p><strong>“Yani onda her zamankinden farklı bir şey olup olmadığını mı?”</strong></p>
+<p><strong>“Aynen öyle.”</strong></p>
+<p>Gino, her zamanki gibi yanında Nina ile birlikte sessizce antrenmanı izliyordu. Onun yanında Eris oturuyordu ve ikisi bir şeyler konuşuyorlardı. Ara sıra “Gal Farion” adını duyuyordum. Önceki Kılıç Tanrısı’nın ölümü hakkında konuştuklarını varsaydım.</p>
+<p><strong>“Ne düşünüyorsunuz?”</strong> diye sordum.</p>
+<p>“<strong>Değişmemiş. Sadece kendisi için yaşama konusundaki kararlılığında tek düze bir inatçılık sergiliyor.”</strong></p>
+<p><strong>“Ha.”</strong></p>
+<p><strong>“Çocukken Gino dengesizdi, İnsan-Tanrı’nın sözlerinden etkilenmeye müsaitti. Şimdi, burada gördüklerimden sonra, endişelenmemize gerek yok.”</strong></p>
+<p><strong>“Anlaşıldı.”</strong> Düşünüş şekline göre, düşman olmayan tarafsız bir parti, bir nevi müttefik gibiydi. Örneğin, bir mürit olma olasılığını azaltıyordu. Geleceğe hazırlanmamıza yardım etmeyecekti ama diğer ulusların hepsi de bu işe tüm enerjilerini vermiyordu. Önemli olan, İnsan-Tanrı’nın bir piyonu haline gelmeyecek olmasıydı. Elbette, istese de istemese de yine de bize karşı dönebilirdi… ama bir kere böyle düşünmeye başlayınca sonu gelmiyordu.</p>
+<p><strong>“Be-ben teslim oluyorum…!”</strong> Kılıç Azizlerinden biri yere yığılırken bir gümbürtü koptu.</p>
+<p><strong>“Sıradaki benim!”</strong> dedi bir diğeri, hemen ayağa kalkıp eğitim salonunun merkezine doğru ilerleyerek…</p>
+<p>Bir sonraki an, tüm Kılıç Azizleri ya oturuyor ya da yere serilmiş durumdaydı. Her bir Kılıç Azizi yere devrilmişti. Bugün ikinci kez. Kuzey Tanrısı Kalman III gerçekten de bir başkaydı, ha?</p>
+<p>Salonu bir sessizlik anı doldurdu.</p>
+<p>Sonra, tam sonunda, <strong>‘güçlüler özgür yaşar,’</strong> dedi. Eris’in sesi sessizliğin içinde net bir şekilde çınladı. Kendi sesinin tınısıyla irkilerek başını kaldırdı. Ağzı anında sıkı bir çizgi halini aldı ve kendisine yaklaşan Kılıç Azizleri’ne tehditkâr bir şekilde baktı.</p>
+<div id="model-response-message-contentr_35d259a1087b04c0" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Yere bakarak mırıldanıyor ve Gino’ya yan gözle bakıyorlardı. <strong>“<em>Çıraklarını kendi savaşlarında dövüştürüyor…”</em></strong> ve <em><strong>“Kılıç Tanrısı Stili’nin onuru umurunda mı sanki?”</strong></em> gibi yorumlar duydum.</p>
+<p>Gino’nun ifadesi her zamanki gibi umursamazdı. Belki de her gün böyle şeyler duyuyordu.</p>
+<p><strong>“Antrenmanımıza katılmaz mısınız, Kılıç Tanrısı?”</strong> diye sordu Kılıç Azizlerinden biri, Gino’nun sessizliğinden faydalanarak. Yüzünde kocaman bir morluk yayılan bu adam, Alec’e ilk meydan okuyan kişiydi. Aynı zamanda daha önce Gino’dan beklemesini isteyen de oydu.</p>
+<p><strong>“Hayır. Ben burada iyiyim,”</strong> diye cevapladı Gino.</p>
+<p><strong>“Neden?!”</strong></p>
+<p><strong>“Neden yapayım ki? Siz benden talep ettiğiniz için ondan sizinle antrenman yapmasını istedim. Eğer hepiniz yeterince dövüştüyseniz, o zaman bu iş bitmiştir.”</strong></p>
+<p>Kılıç Azizi’nin yüzü kasıldı ve öfkeyle titredi. Daha fazla dayanamayarak bağırdı:<strong> “Eski Kılıç Tanrısı ile işler daha iyiydi! O, Kılıç Tanrısı Stili’nin onurunu korurdu! Kim olurlarsa olsunlar buraya böyle fütursuzca girmelerine izin vermezdi! Kılıç İmparatorları’nın gitmesine şaşmamalı! Kılıç Tanrısı’sın ama bize yeteneklerini bile öğretmiyorsun! Bütün antrenmanlarını yapmak için tek başına gizlice kaçıyor, sonra da günlerce eğitim salonunda oturup kadın arkadaşınla flört ediyorsun! Bu insanlarla olan durumda da aynı şey! İntikamını kendin alman gerekirken, sana hizmetkârları olmanı istediklerinde onları ağırlıyorsun! Gururunu yutup daha güçlü bir düşmana boyun eğseydin, bu durumdan yine de daha iyi olurdu! Onun yerine, yarım yamalak bir tarafsızlık ilanı mı yapıyorsun?! Biz takipçilerini de mi düşman edinmek istiyorsun?! Senin neyin var?! Senin gibi bir Kılıç Tanrısı ne işe yarar ki?!”</strong></p>
+<p>Eğitim salonuna bir sessizlik çöktü. Gino’nun ifadesi değişmemişti. Eskisi kadar umursamaz görünüyordu—hatta boş bakıyordu. Sanki bu adamın neden bahsettiğini merak ediyor gibiydi.</p>
+<p>Adam ise, aksine, çok fazla konuştuğunu anlamış gibi bembeyaz kesilmişti.</p>
+<p><strong>“Herkesin kılıcı kendisinindir. Benim için bir zafer sizin için bir zafer değildir, ne de sizin onurunuzu korur,”</strong> dedi Gino yumuşak bir sesle. <strong>“Önceki Kılıç Tanrısı’nı yendim çünkü Nina ve benim şu an sahip olduğumuz şeyi istiyordum. Bu yüzden böyle davranıyorum. Bunu kimsenin onurunu korumak için yapmadım ve sizin dadınız olmak istediğim için de yapmadım. Eğer hoşunuza gitmiyorsa, gitmekte serbestsiniz. Kılıç Tanrısı olmaktan vazgeçmek benim için sorun olmaz ama unvanı size devretsem, beni sürersiniz, değil mi? Gitmeye pek bir itirazım yok ama çocuklarımız henüz çok küçükken benim için kötü bir zaman.”</strong></p>
+<p>Kılıç Azizleri tekrar yere bakarken iç çektiler. Birinin, <strong>“Sorun bu değil! Neden anlayamıyorsun?!”</strong> diye bağırmasını bekledim. Salondaki enerji berbattı. Anlaşılan, Kılıç Tanrısı ile öğrencileri arasında işler pek iyi gitmiyordu. Gino’nun kendisinin de hâlâ genç olmasından mı kaynaklanıyordu? Bu adamlarla arasını düzeltmezse, kendini kolayca düşmanlarla çevrili bulabilirdi.</p>
+<p><strong>“Böyle yapmana gerek yok. Onlara en azından bir gösteri sunabilirsin.”</strong> Sessizliği bozan Nina oldu. Başını Gino’nun omzundan kaldırdı, dik oturdu ve bacaklarını altına topladı.<strong> “Ben de senin dövüşünü görmek istiyorum,”</strong> dedi.</p>
+<p><strong>“Pekâlâ! Sırf senin için, Nina.”</strong> Aynen böyle, Gino ayağa kalktı, sanki şimdiye kadarki tüm isteksizliği bir oyundan ibaretmiş gibiydi. Nina onu bu kadar mı parmağında oynatıyordu? Daha da önemlisi, bu şekilde değişebiliyorsa, akli dengesi yerinde miydi? En azından bana hiç de öyle görünmüyordu. Bu adam iyi miydi?</p>
+<p><strong>“Sen ne dersin, Eris?”</strong> dedi Nina. <strong>“Gino eskisinden daha güçlü.”</strong></p>
+<p>Buna karşılık, Eris de ayağa kalktı. <strong>“Tamam,”</strong> dedi. Bana baktı, sonra bir şey fırlattı. Düşünmeden yakaladım, sonra onun kılıcı—büyülü kılıç Windpipe—olduğunu gördüm. Önceki Kılıç Tanrısı’nın kullandığı kılıçtı.</p>
+<p>Gino ve Eris, Alec’in durduğu eğitim salonunun merkezine doğru ilerlediler.</p>
+<p>Omuz silkti.<strong> “Pekâlâ, önce kiminle dövüşüyorum?”</strong></p>
+<p><strong>“Belli ki zayıf olanla,”</strong> dedi Eris, Alec’i geri iterek. Kabul edercesine başını salladı, sonra yanımıza geri geldi. Üzerinde bir damla ter yoktu. Onu hiç terlemiş görmemiştim, hatta… Dur, bu doğru değildi. Biheiril Krallığı’nda sırılsıklam olduğunu görmüştüm.</p>
+<p><strong>“Ne kadar da işe yaramaz bir sürü,”</strong> diye fısıldadı yanıma otururken.<strong> “Burada kendilerinden daha iyilerden öğrenme şansları var ama öğrenmeye niyetli değiller.”</strong></p>
+<p><strong>“Evet, bunu ben bile görebildim.”</strong></p>
+<p><strong>“Değil mi? Büyükannemin etrafında takılan o çeteden bile daha kötüler.”</strong></p>
+<p>Dürüst olmak gerekirse, Atofe’nin kişisel muhafızları için durum biraz farklıydı. Onlar için öğren ya da öl durumu vardı, bu yüzden güçlenmekten başka çareleri yoktu.</p>
+<p>Bu düşünceyle başımı kaldırdığımda tam zamanında Eris’in tahta kılıcını kaldırdığını gördüm. Her zamanki gibi, kılıcını saldırgan bir duruşla başının üzerinde tutuyordu. Kılıç Tanrısı Gino arka ayağının üzerine çöktü, eli kılıcındaydı. Duruş Ghislaine’inkini anımsatıyordu ama Gino’nunki çok daha dingindi. Ghislaine o duruşa geçtiğinde, gözlerinde korkunç bir parıltıyla kuyruğunu sallar, avına dişlerini geçirmek için doğru anı bekler gibi olurdu. Gino ise aksine boştu. Tıpkı daha önceki Orsted gibi, o kadar hareketsizdi ki sanki zaman durmuş gibiydi. Hiçbir şey onu geçemezdi.</p>
+<p>Eris yavaşça ona doğru ilerledi. Eğer daha önceki konuşmamız olmasaydı, yüreğim ağzıma gelirdi. Ona vurabilirdi ama ölmezdi.</p>
+<p>Bu iş sorunsuz bitecekti, değil mi?</p>
+<p>Belki de her ihtimale karşı Öngörü Gözü’mü açmalıyım. Ama iblis gözüyle bile onun kılıcının hareketini göremezdim. Ölümcül bir darbe indirmek üzere olsaydı Orsted’in onu durduracağına güvenebilir miydim?</p>
+<p><strong>“Başlama sinyaline ihtiyacın yoktur sanırım?”</strong> diye sordu Gino, Eris’e.</p>
+<p><strong>“Yok,”</strong> dedi.</p>
+<p>Ve sonra, her şey bitmişti.</p>
+<div id="model-response-message-contentr_a3a5083809e0c8db" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p><em>Eris, kılıç tutan eline bir darbe alarak tek dizinin üzerine çöktü. Tahta kılıcı havada dönerek eğitim salonunun duvarına tak diye çarptı.</em></p>
+<p>İblis gözüyle görebildiğim tek şey buydu ve bir saniyeden kısa bir süre sonra bu gerçek oldu. Bana göre ilk hareket eden Eris’ti. <em>“Yok”</em> demesini bitiremeden kılıcının ucu çoktan bulanıklaşmıştı ama kaybetmişti. Gino daha hızlıydı ve vuruşu onun kılıç kolunu kırmıştı. Ama sadece kılıç kolu da değil. Eris’in ön ayağının başparmağı yanlış yöne bükülmüştü. Yani iki kez mi vurmuştu? Çoklu vuruşlu bir saldırı mı?</p>
+<p>Eris’in kolu ve parmağı kırılmıştı ama geri adım atmadı. Onu durdurmak için bundan daha fazlası gerekirdi. Sağlam bacağıyla ileri atıldı, yüzünde vahşi bir sırıtış vardı… ve sonra, aniden gevşedi ve teslim oldu.</p>
+<p><strong>“Bu kadar yeter,”</strong> dedi Orsted, sesi salonda çınlayarak. Bunun üzerine insanlar hayranlıkla <em><strong>“Vay be”</strong></em> gibi sesler çıkarmaya ve<strong><em> “İnanılmaz!”</em></strong> gibi şeyler söylemeye başladılar. Ama onlar azınlıktaydı ve o zaman bile seslerinde bir şaşkınlık notası vardı.</p>
+<p>Kılıç Azizleri kendi aralarında fısıldaştılar.</p>
+<p><strong>“Ne oldu? İlk darbeyi savuşturdu mu?”</strong></p>
+<p><strong>“Önce ayak bileğine vurdu. Tam olarak savuşturamadı, bu yüzden parmağı…”</strong></p>
+<p><strong>“Peki ya ikinci darbe?”</strong></p>
+<p>O kadar çabuk bitmişti ki kazananın kim olduğunu anlayamamışlardı ama bir bakışta belliydi. Eris sırılsıklam ter içinde yere yığılırken, hâlâ ayakta olan Kılıç Tanrısı yavaşça kılıcını indirdi. Gino, Kılıç Azizleri’nin bir gösteri talebini kabul etmişti ama onlar ne yaptığını bile çözememişlerdi. Ne anlamı vardı ki? Belki de tam da bu yüzden hüsrana uğrayan Kılıç Azizleri’nin yüzleri taş gibiydi. Bunun altında bir rahatlama ipucu gördüm. Kılıç Tanrısı ekolünün onuru güvendeydi. Eğer egoları tatmin olduysa, bu benim için bir kazançtı.</p>
+<p><strong>“İnanılmaz, Kılıç Tanrısı!”</strong> dedi Alec biraz fazla yüksek sesle. <strong>“İlk darbeniz ayak bileğine yönelikti ama sonra mümkün olan en kısa yoldan yukarı doğru savrularak bileğine vurdunuz. Ayak bileğine vurmanız ya da onun darbeyi atlatması fark etmezdi. Her iki durumda da, onun ilk darbesini, bileğinde karşı saldırı yapabileceğiniz bir açık yaratacak kadar geciktirdiniz. Sadece kılıcının hızına tam güvenen bir dövüşçü böyle bir başarıyı gerçekleştirebilir!”</strong></p>
+<p>Görünüşe göre Kılıç Azizleri’nin kafa karışıklığını duymuştu. Onlar da <strong><em>“Ah, şimdi anladım,”</em></strong> diyerek başlarını salladılar.</p>
+<p><em>Yorumların için teşekkürler, Alec.</em></p>
+<p>Alec oturmaya devam etti ama Gino’ya bakarken gözlerinde bir sitem ifadesi vardı. Bu, Sen onların ustasısın. Onlara öğretmelisin, diyen bir bakıştı.</p>
+<p>“<strong>Eski günlerde, bu haldeyken bile bana saldırmaya devam ederdin,”</strong> dedi Gino.</p>
+<p><strong>“Eğer geri adım atmamam gereken bir zaman olsaydı, hâlâ dövüşüyor olurdum,”</strong> diye cevapladı Eris.</p>
+<p><strong>“Gerçekten de bir başkasın, Eris.”</strong> Hafif bir gülümsemeyle Gino yavaşça başını salladı.</p>
+<p>Buna karşılık Eris güldü ama alnında ter damlaları vardı. Kırık bir bilek ya da ayak bileği Eris’i ağlatacak bir şey değildi ama yine de canı acıyor olmalıydı. Ayağa kalkıp ona doğru koştum.</p>
+<p><strong>“İyi misin?”</strong> diye sordum.</p>
+<p><strong>“Evet,”</strong> dedi yavaşça. <strong>“İyiyim. Acele et ve beni iyileştir. Ama başka bir yere dokunmak gibi bir fikre kapılma! Halkın içindeyiz.”</strong></p>
+<p><strong>“Emredersiniz, hanımefendi.”</strong></p>
+<p>Hemen bir iyileştirme büyüsü yaparak Eris’in kırık kemiklerini onardım. Usulünce uyarıldığım için, ellemeye falan kalkışmadım. Bir deneme dövüşü olmasına rağmen, Gino kemik kıracak kadar sert vurmuştu. Başına ya da boynuna vursaydı ne olacağını düşünmek bile istemiyordum. En azından Orsted buradaydı, bu yüzden kafasını omuzlarından ayırmadığı sürece kalıcı bir hasar oluşmazdı.</p>
+<p>Kılıç Tanrısı gerçekten de bir başkaydı. Tıpkı selefi gibi, onun da kılıcının hareketini hiç görmemiştim. Bu adamı düşmanım olarak istemiyordum.</p>
+<p><strong>“Peki?”</strong> diye sordum Eris’e.</p>
+<p><strong>“Yıkıcıydı. Bunu söylemekten nefret ediyorum ama hiç şansım olmadı.”</strong> Yaralarını sormuştum ama aldığım cevap buydu. Sesi gerçekten pişmanlık doluydu ve kaşlarını çatıyordu. Anne olmak Eris’i kılıç işinde daha az ciddi yapmamıştı. Bu bağlamda, o—ah, kimi kandırıyordum? Sadece kaybettiği için hüsrana uğramıştı. Eris kaybetmekten her zaman nefret ederdi.</p>
+<p><strong>“O halde sıra bende olmalı.”</strong></p>
+<p>Ben Eris’i geri götürürken Alec ayağa kalktı, yüzü heyecanla parlıyordu—ama öne atılmadan önce Orsted’e geri baktı.</p>
+<p><strong>“Lord Orsted, izninizle?”</strong></p>
+<p><strong>“Nasıl istersen.”</strong></p>
+<div id="model-response-message-contentr_6a15ad02e4641a95" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Orsted, Gino’nun pestilini çıkarması için ona izin mi veriyordu? Bu, Yedi Büyük Güç’ün sıralamasını değiştirebilirdi. Gino tarafsızlığını ilan etmişti ve Eris’in az önceki yenilgisi Kılıç Azizleri’nin egosunu tatmin etmişti. Şu an itibarıyla Kılıç Tapınağı tarafsızdı. Eğer Kılıç Tanrısı kaybederse, denklem değişirdi. Sadece Gino değil, Kılıç Tapınağı’nın çoğu bize karşı dönebilirdi. Bu çok riskliydi. Buna bir son vermeli miydim?</p>
+<p>Hayır! Orsted yeşil ışık yaktıktan sonra hiçbir şey söyleyemezdim. Tek yapabileceğim, işler ters giderse nasıl düzelteceğimi düşünmekti.</p>
+<p><strong>“Hazır ol!”</strong> Alec öne çıktı. Bu, tahta kılıçlarla yapılan bir deneme dövüşüydü ama dövüşçüler yine de bir Kuzey Tanrısı ve Kılıç Tanrısı’ydı. Buna Büyük Güçler arasında bir savaş demek abartı olmazdı. Yedi sadece keyfi bir sayıydı. Kim kazanacaktı?</p>
+<p>Deneyim açısından Alec’in avantajı vardı. Kılıç Tanrısı selefini yenmişti ama hâlâ gençti. Henüz yeterince şey yapmamıştı. Ve Alec’in Kuzey Tanrısı Kalman III olarak bir gururu vardı. Ayrıca rakibinin bir ön izlemesini yapmıştı ve hareketlerini takip edebiliyordu.</p>
+<p>Alec kılıcını önünde tutarak duruyordu. Gino arka ayağının üzerine çöktü. İlk kim hareket edecekti? Genellikle Kılıç Tanrısı Stili dövüşçüsü olan Gino’nun saldırmasını ve Kuzey Tanrısı Stili dövüşçüsünün karşı saldırı yapmasını beklersiniz. Ama tam tersinin olabileceğine dair bir hissim vardı.</p>
+<p>İlk hareket eden Alec oldu.</p>
+<p>Bu sefer gördüm: merkezden gelen bir dürtme, o kadar hızlı hareket ediyordu ki yavaş çekimden ziyade hareketsizlik gibiydi. Gino’nun kılıcı daha da hızlıydı. Kılıcını, Alec’in dürtmesinin ucuyla buluşacak şekilde mükemmel zamanladı, onu sadece birkaç derece saptırdı… ve görebildiğim tek şey bu kadardı. Bir sonraki an, Gino’nun kılıcı ortadan kaybolmuştu. Bir an sonra, Alec’in sol elinin gevşek ve kırık bir şekilde sarktığını gördüm. Eş zamanlı olarak, Alec geri adım attı. Eğitim salonunun zemininde, durduğu yerde siyah bir çizgi kalmıştı. Gino, Eris’i yendiği aynı eş zamanlı saldırıyı kullanmış olmalıydı ama bu sefer önce bileğe vurmuştu.</p>
+<p>
+                           <img src="bolum3foto2.jpg" alt="Kitap Çizimi 1" class="novel-image">
+ 
+</p>
+<div id="model-response-message-contentr_80b79de7d353ae25" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Alec kırık eliyle kılıcındaki tutuşunu düzeltti. Yani, ben kırıldığını sanmıştım ama neredeyse anında iyileşmişti. Bu, onun ölümsüz iblis kanının marifeti olmalıydı. Gözlerinde <em>“Kuzey Tanrısı Stili’nde, asıl dövüş şimdi başlar,”</em> der gibi bir ateş vardı.</p>
+<p>Öne atılan Gino, şiddetli bir saldırıya geçti. Kılıcının her savuruşunda Alec’in bir kolunu ya da bacağını kırdı. Alec’in toparlanması bir saniyeden fazla sürmüyordu, bu yüzden saldırılar onu saf dışı bırakmadı ama tek iyi yanı da buydu. Alec muhtemelen pek çok hamle deniyordu ama hiçbiri rakibini etkilemedi. Gino, Alec’in saldırıya geçmesi için tek bir açık bile bırakmadı.</p>
+<p>Sonunda, Alec kılıcını indirdi ve <strong>“Teslim oluyorum,”</strong> dedi.</p>
+<p>Yarasızdı ama kıyafetleri paramparçaydı ve tahta kılıcının ucu kıymık doluydu. Gino ise hasarsızdı. Terden nemliydi ama yine de ezici bir zaferdi. Alec kadar güçlü bir rakibe karşı bu kadar büyük bir fark olmasını beklemiyordum. Gino, Büyük Güçler’e rakip olabilirdi—dur, onu boş ver. O zaten Büyük Güçler’den biriydi.</p>
+<p><strong>“Vay canına, çok güçlüsünüz!”</strong> diye haykırdı Alec. <strong>“Bu, ne kadar güçlü olursanız olun, her zaman daha güçlü birinin olduğunu hatırlatan bir ders oldu.”</strong></p>
+<p><strong>“Ah, ama siz tek elle dövüştünüz. Gerçek bir savaşta ne olacağını kim bilebilir?”</strong></p>
+<p><strong>“Eğer bu gerçek bir savaş olsaydı, sanırım paramparça olurdum,”</strong> dedi Alec, yenilgisini zarifçe kabul ederek.</p>
+<p>İşte Kılıç Tanrısı’nın kınsız bir alıştırma kılıcıyla yapabildiği buydu. Gerçek bir kılıçla daha da hızlı olurdu. Aralarındaki fark o zaman daha da büyük olabilirdi.</p>
+<p><strong>“Evet.”</strong> Hâlâ tahta kılıcını tutan Alec, oturduğumuz yere geri geldi. Kaybetmesine rağmen ifadesi parlaktı. Orada bir parça hayal kırıklığı vardı ama Biheiril Krallığı’nda bağırıp ağladığı zamanki gibi değildi. Sanırım o da büyümüştü.</p>
+<p><em><strong>“Hm?”</strong></em> Şöyle bir baktım ve eğitim salonundaki tüm gözlerin üzerimde olduğunu gördüm. Antrenman bitmiş olmasına rağmen Gino hâlâ salonun ortasındaydı. O da beni izliyordu.</p>
+<p>Kılıç Azizleri’nin fısıltıyla konuştuklarını duydum.</p>
+<p><strong>“Yedinci Büyük Güç…”</strong></p>
+<p><strong>“İki Büyük Güç arasındaki bir savaşa tanık olacağız!”</strong></p>
+<p><strong>“Kılıç Tanrısı kaybetmez tabii ki.”</strong></p>
+<p><strong>“Ejderha Tanrısı Orsted’in güçlerinden bazılarını bile görebiliriz.”</strong></p>
+<p><em>Ha? Hı? Ne diyorsunuz yahu?</em></p>
+<p><strong>“Lord Rudeus,”</strong> diye fısıldadı Alec kulağıma, <strong>“lütfen onlara beni yendiğiniz Büyülü Zırh’ın kudretini gösterin!”</strong></p>
+<p>Bunun üzerine otomatik olarak cevap verdim. Konuşmam çoktan hazırdı.</p>
+<p><strong>“Vay be, siz Kılıç Tapınağı’ndakiler antrenmanlarınıza gerçekten de canla başla sarılıyorsunuz! Ama şuna da bir bakın hele? Güneş batmak üzere ve ben açlıktan ölüyorum! Bu işi burada bitirmeye ne dersiniz?!”</strong></p>
+<p>Pek de iyi karşılanmadı.</p>
+<p>Kılıç Tapınağı ziyaretimi tamamladım. Bütün Kılıç Azizleri benim bir korkak olduğumu düşündü ama umurumda mıydı? Kılıç Tapınağı—ya da daha doğrusu, Gino Britz—yaşadığı sürece tarafsız kalacaktı. Bu benim için yeterliydi.</p>
+            
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum3parca1.html" class="nav-btn">←Önceki Bölüm</a>
+            <a href="bolum3parca3.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

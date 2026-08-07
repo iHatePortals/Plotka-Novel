@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei Cilt 1, Bölüm 2,3 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #cc0000;
+            --border-color: #e5e7eb;
+        }
+
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c1b1b;
+            --border-color: #d8c8b4;
+        }
+
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        body.theme-light .nav-btn:hover,
+        body.theme-light .action-btn:hover,
+        body.theme-light .theme-select:hover,
+        body.theme-sepia .nav-btn:hover,
+        body.theme-sepia .action-btn:hover,
+        body.theme-sepia .theme-select:hover {
+            color: #ffffff;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+        }
+
+        .novel-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 30px auto;
+            border-radius: 6px;
+        }
+
+        .section-break {
+            text-align: center;
+            margin: 30px 0;
+            color: var(--accent-color);
+            letter-spacing: 4px;
+        }
+
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <div class="controls">
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="bolum2parca2.html" class="nav-btn">←Önceki Bölüm</a>
+            </div>
+
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <div class="nav-right">
+                <a href="bolum3parca1.html" class="nav-btn">Sonraki Bölüm →</a>
+            </div>
+        </div>
+
+        <header>
+            <h1>Mushoku Tensei Cilt 1, Bölüm 2,3</h1>
+            <div class="subtitle">"Lucie ve Babası / Lucie'nin Ailesi (Kısım 3)"</div>
+        </header>
+
+        <main class="novel-text" id="text-content">
+            <img src="bolum2foto1.png" alt="Bölüm 2 Çizimi 1" class="novel-image">
+            <p>BENİM ADIM LUCIE GREYRAT. Greyrat ailesinin en büyük kızıyım.</p>
+            <p>Ailem çok geniş. Üç annem, üç kız kardeşim, üç erkek kardeşim, iki büyükannem, iki teyzem ve üç evcil hayvanımız var.</p>
+            <p>Toplamda on üç kişi ve üç hayvan! Ne kadar geniş bir aile değil mi?</p>
+            <p>Önce annelerimi tanıtayım. Üç tane annem var.</p>
+            <p>Birinin saçları beyaz, birinin mavi, diğerinin ise kırmızı. Beyaz Annem, beni doğuran annem.</p>
+            <p>Babamın ilk eşiymiş. Annelerimin en küçüğü, babam da en çok onun ilgiye ihtiyacı olduğunu söylüyor.</p>
+            <p>Beyaz Annem çok konuşur. Bana hep “Arkadaş edinmek önemlidir ve asla güçsüzleri ezmemelisin,” der.</p>
+            <p>Arkadaşlarımı değerli görmem gerektiğini öğretti. Mavi Annem, Lara’nın annesi.</p>
+            <p>Babamın ikinci eşiymiş. Diğer annelerimden daha genç görünüyor, ama aslında en yaşlısı o.</p>
+            <p>Babam onun en güvenilir kişi olduğunu söylüyor. Mavi Annem pek konuşkan değildir ama eskiden bazen, “Canının istediği gibi yaşa, anlamadığın bir şey olursa birine sor,” derdi.</p>
+            <p>Bana doğrudan öğrettiği bir şey yok, fakat her şeyi bilir ve ne sorsam cevaplar. Kırmızı Annem, Arus’un annesi.</p>
+            <p>Babamın üçüncü eşiymiş. Annelerimin en yaşlısı gibi görünse de, babam onun en çocuk ruhlu kişi olduğunu söylüyor.</p>
+            <p>Kırmızı Annem pek güzel konuşamaz, ama bana hep, “Birini korumak… Önemli olan budur.</p>
+            <p>Bunu yapabilmek için güçlü olmalısın,” der. Bana bunu söyledikten sonra beni eğitti.</p>
+            <p>Üç anneminde öğrettiklerini takip etmek istiyorum. Arkadaşlar edineceğim, sonra onları koruyacak kadar güçlü olacağım.</p>
+            <p>Asla güçsüzleri ezmeyeceğim. Bir sorun yaşarsam Mavi Anneme ne yapmam gerektiğini sorarım.</p>
+            <p>Bunu yaparsam hata yapmam ve beni överler. Babam da över.</p>
+            <p>Bana, “Ne kadar akıllısın, Lucie. Harika bir ablasın,” der.</p>
+            <p>Dört kardeşim var. En büyüğü kız kardeşim Lara.</p>
+            <p>Çok kibar birisi. Saçları, Mavi Annem’inkine benzeyen uzun ve mavi renkli.</p>
+            <p>Saçını tek bir örgü yapar. Lara biraz tuhaf biri.</p>
+            <p>Sarı Büyükannem ve evcil hayvanımız Byt’la konuşuyor. Büyükanne ve Byt konuşamıyor, ama Lara onlarla konuşabiliyor.</p>
+            <p>Çoğu zaman dalgın olduğu için meydanda oynarken diğer çocuklar onunla dalga geçip saçını çekiyorlar. Ona yardım etmeye çalışıyorum, ama o çok umursamıyor gibi görünüyor.</p>
+            <p>Bu çok kafa karıştırıcı. En sevdiği şey ise şekerleme yapmak.</p>
+            <p>Leo’nun sırtına oturduğu anda derin bir uykuya dalıyor. En büyük erkek kardeşim Arus.</p>
+            <p>Cesur bir çocuk. Saçları, Kırmızı Annem’in saçlarıyla aynı renkte ama kısa.</p>
+            <p>Biraz ukala olsa da, her zaman beni ve Lara’yı korumaya çalışıyor. Bence annesinin ona öğrettiklerini yapıyor, benim gibi.</p>
+            <p>Kırmızı Annem, onun her şeyi başarabileceğini düşünüyor. Son zamanlarda her gün koşu ve kılıç antrenmanı yapıyorlar.</p>
+            <p>Arus, Aisha Teyze ile en yakın arkadaş. Birlikte olduklarında çok mutlu görünüyor.</p>
+            <p>En küçük erkek kardeşim ise Sieg. Tam bir ağlak.</p>
+            <p>Arus’un peşinden koşarken geride kalırsa hemen ağlamaya başlıyor. Her seferinde Arus’a kızıyorum.</p>
+            <p>Ondan sonra Sieg’in elinden tutup onu Leo’nun sırtına bindiriyor. Sieg, Leo’nun sırtına çıkmaya çalışırken Lara biraz geri çekilip onu öne doğru çekiyor.</p>
+            <p>Ona tutunuyor ki düşmesin, sonra da hemen uyuyakalıyor. Aslında bunu sadece ben biliyorum ama Sieg aslında çok güçlü.</p>
+            <p>Hiç zorlanmadan çok ağır kutuları kaldırabiliyor. Bir de Clive adında küçük bir erkek kardeşim var.</p>
+            <p>Lara’yla aynı yaşta, ama aslında benim gerçek kardeşim değil. O, Beyaz Annem’in büyükannesinin oğluymuş.</p>
+            <p>Annem, onun benim kuzenim gibi olduğunu söylüyor. Ona ne diyeceğimi bilmiyorum, ama benim küçük kardeşim.</p>
+            <p>Sık sık bizim eve oynamaya geliyor ve Arus’la arkadaş. Sürekli bana sarılıyor.</p>
+            <p>Başını okşadığımda, utanmış gibi gülümsüyor. En küçük kız kardeşlerim Lily ve Christina.</p>
+            <p>Daha yeni doğdular. Çok küçücükler, bu yüzden nasıl olduklarını bilmiyorum, ama iyi kızlar olacaklarına eminim.</p>
+            <p>Ben onların hepsinin ablasıyım. Ablaları olduğum için, annelerim bana her zaman “büyümüş gibi davranmam gerektiğini” söylüyor.</p>
+            <p>Ben de öyle yapıyorum. Küçük kardeşlerim çok iyi çocuklar ve onları korumak istiyorum.</p>
+            <p>İki büyükannem var. Sarı Büyükannem, Babamın annesi.</p>
+            <p>Adı Zenith. Çok güzel bir kadın, ama konuşmuyor ve ona bir şey söylesen bile cevap vermiyor.</p>
+            <p>Her zaman bahçede Byt’la birlikte oturuyor ve boşluğa bakıyor. Ne zaman üzgün ya da kızgın olsam, saçımı okşar.</p>
+            <p>Garip bir büyükanne. Kahverengi Saçlı Büyükanne, Aisha’nın annesi.</p>
+            <p>Adı Lilia. Eskiden Büyükbabam’ın evinde hizmetçi olarak çalıştığını söylüyorlar.</p>
+            <p>Hâlâ bir hizmetçi gibi davranıyor. Üç annem de onu çok seviyor, ama ben küçükken onun nasıl büyükanne olabileceğini anlamıyordum.</p>
+            <p>Bir gün sokakta, birinin “Hizmetçi senin aşağında biridir, ona emir ver,” dediğini duydum. Ben de öyle yaptım.</p>
+            <p>Kırmızı Annem yakındaydı ve bana çok kızdı. Popomu kıpkırmızı olana kadar dövdü, sonra beni evden dışarı çıkartıp o geceyi yaptığım hatayı düşünerek geçirmemi söyledi.</p>
+            <p>Ben de Leo’ya sokulup bağdaş kurarak oturdum. Kahverengi Saçlı Büyükanne sonunda beni eve geri aldı.</p>
+            <p>Bana olan biteni anlattı. O zaman öğrendim ki o bir hizmetçi, ama aynı zamanda benim büyükannemdi ve ona asla emir vermemem gerekiyordu.</p>
+            <p>İki teyzem var. İkisi de hâlâ genç, bu yüzden onlara “Teyze” dediğimde kızıyorlar.</p>
+            <p>Her ne kadar teyze olsalar da, bana daha çok abla gibi geliyorlar. Büyük teyzem, Sarı Büyükannem’in kızı ve babamın küçük kız kardeşi.</p>
+            <p>Adı Norn. Her zaman elinden gelenin en iyisini yapmaya çalışır, benimle bol bol oynar ve bana pek çok şey öğretir.</p>
+            <p>Onu çok seviyorum. Büyüyünce onun gibi olmak istiyorum.</p>
+            <p>Bir süre önce evlendi ve taşındı. Artık neredeyse hiç eve gelmiyor.</p>
+            <p>Geldiğinde ise hep küçük teyzemle tartışıyor. Birbirlerini sevmiyorlarmış gibi görünüyorlar, ama bazen tartışırken gülümsüyorlar.</p>
+            <p>Bence oyun oynuyorlar. Küçük teyzem, Kahverengi Saçlı Büyükannem’in kızı.</p>
+            <p>Farklı anneleri var, ama o da babamın küçük kız kardeşi. Adı Aisha.</p>
+            <p>Her zaman hizmetçi kıyafetleri giyer, tıpkı Kahverengi Saçlı Büyükannem gibi, ve evi çekip çevirir. Evde ne yapmaya çalışsam, bana yardım eder.</p>
+            <p>Yemek yapmayı, çamaşır yıkamayı veya ne istersem onu öğretir. Annem, Aisha’nın her işte çok iyi olduğunu söylüyor.</p>
+            <p>Babama bile işlerinde yardımcı olduğunu duydum. Ama nedense Kahverengi Saçlı Büyükannem bazen ona kızıyor.</p>
+            <p>Çok garip. Üç tane evcil hayvanım var.</p>
+            <p>Leo, kocaman beyaz bir köpek ve aynı zamanda bir koruyucu canavar. Çok akıllı ve söylediklerimizi anlıyor.</p>
+            <p>Ailedeki herkesi gözetip duruyor ve babam, başım derde girerse Leo’nun yanına gitmem gerektiğini söylüyor. En çok Lara’yı seviyor ve evde olduğu zaman ondan bir saniye bile ayrılmıyor.</p>
+            <p>Resmen yapışık ikiz gibiler. Dillo, Armadillo, Mavi Annemin binek hayvanı.</p>
+            <p>Biraz ürkek, azar işittiği zaman ya sırt üstü dönüp karnını açıyor ya da top gibi kıvrılıyor. Dışarıdayken bir şey olursa bazen hırlayıp karşısındakileri korkutup kaçırıyor.</p>
+            <p>Kendi çapında bizi korumaya çalışıyor işte. Byt adındaki Ağaç Adam, Aisha Teyzemin sebze bahçesini koruyor.</p>
+            <p>O bir bitki canavarı, dolayısıyla ne düşündüğünü asla anlayamıyorum. Genelde Sarışın Büyükannemle ve Lara’yla takılıyor.</p>
+            <p>Bahçedeki mahsule zarar veren hiçbir şeye acımıyor. Babamın en sevdiği “pirinci” çalan küçük kuşları yakalayarak besleniyor.</p>
+            <p>Evet, biraz korkutucu ama aileden kimseye bir zarar vermedi şimdiye kadar. Bahçeye yaklaştığımızda bize kapıyı açıyor ve ağaçlardan meyve ikram ediyor.</p>
+            <p>O da aileden biri. Ailemde çok fazla insan var.</p>
+            <p>Bir sürü annem ve bir sürü küçük kardeşim var ama sadece bir tane babam var. Babamı gerçekten çok seviyorum.</p>
+            <p>Bebekken ondan kaçtığımı söylediklerini duymuştum ama artık öyle değilim. Kokusu bana inanılmaz bir güven veriyor.</p>
+            <p>Bazen sakalı batıyor ama onu da seviyorum. Babam, sakalına çok dokunmamı istemiyor.</p>
+            <p>Sakalı uzadığı zaman dokunmaya çalışsam bile elimi nazikçe tutup, “Üzgünüm, şimdi tıraş olayım, tamam mı?” diyerek banyoya gidiyor. Neden böyle yaptığını bilmiyorum ama sanırım babam öyle olmasını istiyor.</p>
+            <p>Keşke sakalına dokunmama izin verse ama yine de onu çok seviyorum. Bazen babam, pek bir şey yapabileceğimi düşünmüyor gibi hissediyorum.</p>
+            <p>Neden böyle olduğunu bilmiyorum ama hislerim bu yönde. Beni çok seviyor ve benim için endişeleniyor ama sanki hâlâ çok küçük olduğumu düşünüyor.</p>
+            <p>Belki de bunun nedeni, babamın inanılmaz biri olması. O nasıl böyle bilmiyorum ama herkes onu öyle görüyor.</p>
+            <p>Benim yaşlarımdayken bile Aziz Seviyesi büyü yapabiliyormuş. Üstelik sadece okula gitmekle kalmamış, bir noktada öğretmenlik bile yapmış.</p>
+            <p>Beş yaşına gelip de kasabada ve parkta oynamaya başladığımda, herkese günaydın demeye alışmıştım. Dikkat ettim de herkes babamı tanıyor.</p>
+            <p>En önemli görünen insanlar bile onu en çok övenlerdi. Annelerim de çok harika ama küçükken bile babamın gerçekten özel biri olduğunu anlamıştım.</p>
+            <p>Babam… benden pek bir şey beklemiyor, kimseden beklemediği gibi.</p>
+            <p>Ama ben onun beni övmesini istiyorum. Annelerimin öğrettiği her şeyi yapıyorum ve küçük kardeşlerimi koruyorum.</p>
+            <p>Annelerim bu yüzden beni bol bol övüyor. Ama babamın da beni övmesini istiyorum.</p>
+            <p>Artık yedi yaşındayım. Bugün okula başlıyorum.</p>
+            <p>Burası yetişkinlerin de gittiği bir okul. Beyaz Annem, Mavi Annem ve babamın gittiği okul.</p>
+            <p>Kırmızı Annem gitmemiş ama arada bir orada kılıç eğitimi verdiğini duydum. “Seni tanıyorum Lucie, senin için her şey yolunda gidecek.</p>
+            <p>Sana öğrettiğimiz her şeyi hatırla ve harika olacaksın” demişti Mavi Annem. Ama yine de içimde bir tedirginlik var.</p>
+            <p>Yetişkinlerle dolu bir yerde gerçekten başarılı olabilecek miyim? Arkadaş edinebilecek miyim?</p>
+            <p>Hem mutlu hem de heyecanlıyım. Ama en çok da babamı düşünüyorum.</p>
+            <p>Elimden gelenin en iyisini yaparsam, babam beni kesinlikle övecek. “Harikasın Lucie.</p>
+            <p>İşte benim kızım!” diyecek. Onun benden beklentilerinin yüksek olacağını düşünüyorum.</p>
+            <p>O beklentilere ulaşmak için elimden gelenin en iyisini yapacağım.</p>
+        </main>
+
+        <div class="bottom-nav">
+            <a href="bolum2parca2.html" class="nav-btn">←Önceki Bölüm</a>
+            <a href="bolum3parca1.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

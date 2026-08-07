@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei Cilt 1, Bölüm 1 (Kısım 1) | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b; /* Mushoku Tensei Kırmızı Tema */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #cc0000;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c1b1b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        body.theme-light .nav-btn:hover, 
+        body.theme-light .action-btn:hover, 
+        body.theme-light .theme-select:hover,
+        body.theme-sepia .nav-btn:hover, 
+        body.theme-sepia .action-btn:hover, 
+        body.theme-sepia .theme-select:hover {
+            color: #ffffff;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+        }
+
+        /* Resimler için özel stil */
+        .novel-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 6px;
+        }
+
+        /* Ayrıştırıcı Çizgi */
+        .divider {
+            text-align: center;
+            margin: 2em 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="bolum1parca2.html" class="nav-btn">←Önceki Bölüm</a> 
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="bolum1parca4.html" class="nav-btn">Sonraki Bölüm →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Mushoku Tensei Cilt 2, Bölüm 1</h1>
+            <div class="subtitle">Haydi Otomaton Yapalım!(Kısım 3)</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <img src="bolum1foto1.png" alt="Kitap Çizimi 1" class="novel-image">
+            <p>BU SIRADA, Sylphie dördüncü kızları Christina ile ilgileniyordu.</p>
+<p><strong>“Aferin, Chris, işte böyle! Şimdi bırak ve annene gel.”</strong><br>
+<strong>“Mrmm! Anneee, buraya gel!”</strong></p>
+<p>Lily’nin erken yürümeye başlamasının aksine, Chris hâlâ bir yerlere tutunarak bile yürümekte zorlanıyordu. Anneleri onunla ilgilenmeye çalışmıştı, ama Chris bundan hâlâ pek hoşlanmıyordu. Başını salladı, dudaklarını titretmeye başladı.</p>
+<p><strong>“Hadi Chris! Bir adım, iki adım, işte böyle,”</strong> diye cesaretlendirdi Sylphie.<br>
+<strong>“Mrmm! Mrrrm… Anne… buraya gel…”</strong><br>
+<strong>“Hayır, Chris. Bak, tam buradayım.”</strong></p>
+<p>Chris mızmızlanmaya başladı. Aslında yürümekte aciz değildi; sadece bebekti. Sonunda, boğuk bir ses çıkararak gözlerini kapattı ve sendeleyerek Sylphie’nin kollarına koştu.</p>
+<p><strong>“Aferin kızım! Çok güzel yaptın, Chris. Seninle gurur duyuyorum.”</strong><br>
+<strong>“Mrmm…”</strong></p>
+<p>Sylphie her zaman yaptığı gibi Chris’i kucakladı ve saçlarını okşadı. Chris sıkıca ona sarıldı, burnunu çekerek hıçkırıyordu. Lily meraklı ve hareketliyken, Chris daha çok ilgiye muhtaç olmayı seviyordu. Ayrıca dışarı çıkmayı pek sevmezdi. Eris onu arada sırada dışarı çıkarırdı, ama genelde Chris yapışık bir şekilde ona sarılır ve en ufak bir şeyde ağlamaya başladığı için hemen geri dönerlerdi. Şimdilerde, diğerleri yürüyüşe çıktığında genelde evde kalıyordu.</p>
+<p><strong>“Ah, Chris, gerçekten çok ilgi istiyorsun! Acaba bu huyunu kimden almışsın,”</strong> dedi Sylphie.</p>
+<p>Bununla kesinlikle Rudeus’u kastediyordu.</p>
+<p><strong>“Anne, baba evde mi?”</strong><br>
+<strong>“Hayır, baba henüz eve gelmedi.”</strong></p>
+<p>Chris tam bir baba kızıydı. Doğduğundan beri sürekli ağlardı. Ama Rudeus onu kucağına alır almaz hemen susardı—Arus’un tam tersi. Son zamanlarda, Rudeus’un kucağı onun özel alanı olmuştu.</p>
+<p><strong>“Wah!”</strong> diye aniden bağırdı Chris.<br>
+<strong>“Hı?”</strong> dedi Sylphie. O anda, ön kapıdan bir ses duydu. Biri eve gelmiş olmalıydı.</p>
+<p><strong>“Baba?”</strong></p>
+<p><strong>“Bilmiyorum… ama sanmıyorum ki baba olsun.”</strong> Rudeus bir önceki günden beri dışarıdaydı. Ne zaman döneceğini tam olarak söylememişti ama iki ya da üç gün sürebileceğini belirtmişti. Muhtemelen o değildi.</p>
+<p><strong>“Ablalar mı?”</strong><br>
+<strong>“Onlar için de biraz erken.”</strong></p>
+<p>Roxy ya da Lucie henüz üniversiteden dönmüş olmazlardı, ve Aisha da paralı asker grubuyla birlikteydi, bu yüzden onun için de erkendi. Ya yürüyüşten dönen Eris? Ama o da yanına Sieg’i almıştı ve Sieg oynamak isteyeceğinden, gelmeleri biraz daha uzun sürmeliydi. Peki ya alışverişe Arus ile giden Lilia? Hayır, onlar da daha yeni çıkmıştı. Belki Lilia bir şeyi unuttu ve geri geldi. Zenith de olabilirdi. Sylphie, onun odasında uyuduğunu düşünüyordu, ama belki bahçeye çıkmış olabilirdi.</p>
+<p>Bu ihtimalleri aklından geçirirken, Sylphie, Chris’i bir yastığın üzerine oturttu ve,<br>
+<strong>“Burada kal, Chris,”</strong> dedi.</p>
+<p>Biraz kafası karışmış bir şekilde, ön kapıya doğru yöneldi. Kapı aralıktı, ama Sylphie’nin dikkatini çeken kapının kendisi değildi.</p>
+<p>Birisi kapının önünde duruyordu. Öğleden sonra güneşi, açık kapıdan içeriye süzülüyor ve siyah saçlı bir kızı arkasından aydınlatıyordu. Onu tanıyan çoğu kişi muhtemelen <strong>“Nanahoshi?”</strong> der ve ona dostça bir selam verirdi.</p>
+<p>Ama Sylphie, o kıza bakar bakmaz, kaşlarını çattı.</p>
+<p><strong>“Sen… Nanahoshi değilsin, di mi?”</strong> diye sordu.</p>
+<p>Kız, ağzını hafifçe bükerek ufak bir gülümseme kondurdu. Arkasındaki ışıktan dolayı yüzünde, sanki tuhaf bir yarık açılmış gibi gözüken gölge belirdi.</p>
+<p><strong>“Hayır, değilim. Nasıl anladın?”</strong></p>
+<p><strong>“Nanahoshi sık sık bizim eve gelir,”</strong> diye karşılık verdi Sylphie. <strong>“Kapıyı açarken belli bir ritüeli var. İki kere tıklatır, cevap gelmezse biraz duraksar, sonra kapıyı hafifçe aralayıp sessizce ‘Evde kimse var mı?’ diye seslenir.”</strong></p>
+<p>Bunları söylerken sağ elinde mana toplamaya başladı. Bu, Sylphie için en normal tepkiydi. Tanıdığı birinin yüzünü takınmış biri evine girmişti sonuçta. Şimdilik karşısındaki kızdan bir düşmanlık hissetmiyordu. Hatta kibarca konuşuyordu ama sesinde tek bir duygu kırıntısı bile yoktu. Sylphie, bunun hemen dost oldukları anlamına gelmeyeceğini bilecek kadar deneyimliydi.</p>
+<p><strong>“Sen kimsin? Eğer İnsan-Tanrının hizmetkârlarından biriysen, beni aşman gerekecek.”</strong> O bunları söylerken zihni harıl harıl çalışıyordu.</p>
+<p>Sylphie, salondaki Chris’i ve üst kattaki Zenith’i alıp kaçabilmek için karşısındaki kızı nasıl oyalayacağını düşünüyordu. Evine izinsiz biri girerse ne yapacağını daha önce defalarca kafasında canlandırmıştı—ama gerçekten becerebilecek miydi? Herhangi bir savaş sesine rastlamamıştı fakat kapı direklerinin etrafında yetişen Byt çoktan ölmüş olabilirdi. Az önce yüzüğüne mana yükleyerek Eris ve Roxy’ye sinyal göndermişti. Acaba fark edecekler miydi? Ofisteki <strong>Ejderha Tanrısı Orsted</strong> ve Alec durumun farkında mıydı dersiniz? Kaçmalı mıydı, yoksa zaman mı kazanmaya çalışmalıydı?</p>
+<p>Sylphie, tüm bu düşünceleri, yüzünde hiçbir şey belli etmeyen katı bir ifadeyle kenara itip kıza baktı.</p>
+<p>Kız, Sylphie’nin sorusuna cevap olarak, <strong>“Henüz bir adım yok,”</strong> dedi.</p>
+<p><strong>“Ha…?</strong><br>
+<strong>“Adınızı öğrenebilir miyim?”</strong><br>
+<strong>“Ben Sylphiette Greyrat,”</strong> diye, aniden gelen bu soruyla afallayarak otomatik bir cevap verdi Sylphie.</p>
+<p><strong>“Sen kesin Efendi Sylphie, Efendi Rudeus’un eşi olmalısın.”</strong><br>
+<strong>“Şey… evet.”</strong> Sylphie, istemsizce bunu onayladı. Keşke cevap vermeseydim diye düşünerek karşısındaki kıza temkinli bakmaya devam etti. Kızın elinde bir silah görünmüyordu; hatta saldırıya oldukça açık gibiydi. Ama Sylphie yine de gardını indirmemeliydi. Çıplak elleriyle onu kolayca alt edebilecek insanlar da vardı bu dünyada.</p>
+<p><strong>“Burada olduğumu bilmek Efendi Rudeus’a sinirlenmene mi sebep olacak?”</strong> diye sordu kız.<br>
+<strong>“Ne?”</strong><br>
+<strong>“Neden beni kabul edemiyorsun Efendi Sylphie?”</strong><br>
+<strong>“Anlamıyorum. Neden bahsediyorsun?”</strong></p>
+<p>Sylphie’nin aklından, <em>“Kafanı karıştırmaya çalışıyor. Dinleme onu. Bir çeşit hile olabilir,”</em> diye bir düşünce geçti. Geriye doğru tedbirli bir adım atmak istedi.</p>
+<p>Tam o sırada, kız <strong>“Tehlike!”</strong> diye bağırıp elini Sylphie’den daha hızlı uzattı. Rakibi ondan belli ki daha çevikti ama Sylphie bunu zaten tahmin ediyordu. Görmese bile karşılık verebilirdi. Adımını tamamlayacak, sonra yana doğru dönüp saldırıdan kaçacak ve büyüyle kızı geriye püskürtecekti. Bir an içinde ne yapacağını kararlaştırdı—</p>
+<p><strong>“Ah!”</strong> Sonra ayaklarının dibinde, yerde Chris’i gördü. Ne ara buraya gelmişti?</p>
+<p>Sylphie fark etmeden, Chris salondan girişe kadar emekleyerek gelmişti. Sylphie’nin, Chris’e “orada kal” demesine rağmen onu dinlememişti. İşin talihsiz yanı, tam da Sylphie’nin adım atmak üzere olduğu yerde duruyordu. Bunu fark ettiğinde artık çok geçti. Telaşla ayağını kaçırmaya çalıştı ama dengesini yitirdi. Üst bedeni yalpaladı. Chris’i ezmekten kurtulamayacak gibi görünüyordu. O sırada, gözleri, o garip kızın kolunun korkutucu bir hızla uzandığını yakaladı.</p>
+<p><img src="bolum1foto2.png" alt="Kitap Çizimi 1" class="novel-image"></p>
+<p>Rudeus eve vardığında, ortalık tuhaf bir şekilde sessizdi. Kapıya dolanmış Byt’ı, Aisha’nın sebze bahçesini ve Dillo’yla Leo’nun kulübelerini geçti. Etrafta kimsecikler yoktu. Kilitli olmayan ön kapıyı açtığında, giriş koridorunun ışıl ışıl parladığını ve salonun kapısının aralık olduğunu gördü. Sessizliği yalnızca Chris’in ağlama sesi bozuyordu. Öyle bir keder doluydu ki, sanki büyük bir kayıp yaşamış gibi hıçkırıyordu. Rudeus, bu ağlamayı iyi tanıyordu—yaklaştığı anda susardı genelde.</p>
+<p>Yine de, tüm bu ağlamaya rağmen ev hâlâ anormal derecede sessiz görünüyordu.</p>
+<p>Girişte, Rudeus paralı askerlere, <strong>“Emirlerimi bekleyin, dışarıda kalın.”</strong> dedi.<br>
+Sonra içeri girdi. Koridorda da aynı sessizlik hâkimdi. Kapının yanındaki aynaya göz attığında, kendi beti benzi atmış yüzü ona bakıyordu. Ne kokuyordu öyle? Kesinlikle hoş bir koku değildi. Fazla solusan miden bulanırdı. Öyle bir kokuydu ki, öylece bırakırsan sinekleri çekerdi. Rudeus, kokunun peşine takılarak salona doğru ilerledi. Hem Chris’in ağlaması oradan geliyordu hem de kokunun kaynağının orası olduğundan emindi. Kapı sıkıca kapalıydı. Kendini hazırlayıp açtı.</p>
+<p>Gördüğü manzara inanılır gibi değildi. İlk gözüne ilişen masa oldu. Chris, masanın üstünde sırtüstü yatmış, avaz avaz ağlıyordu. Üzerine doğru eğilen, yarım şekilde çömelmiş duran şeyse siyah saçlı bir kuklaydı. Elleri kir içindeydi, kurumuş kana benzer bir renkte bir şeyle kaplıydı. Hâlâ nemli duran o kahverengi madde, onu koklayan herkesi anında kusturabilecek kadar ağır bir koku yayıyordu.</p>
+<p><strong>“Aman Yarabbi, ellerine kaka bulaşmış,”</strong> dedi Sylphie.<br>
+<strong>“Önemsiz. Bu kadarcık kirlilik fonksiyonlarımı etkilemez.”</strong><br>
+<strong>“İtiraz istemiyorum. Bak, ellerini şöyle sil. Sonra kirli bezi şöyle yuvarla, bu sepete at, sonra yıkanacak.”</strong><br>
+<strong>“Anladım. Demek ki kirlilik en kısa sürede temizlenmeli,”</strong> dedi kukla. Sylphie, onun ellerini temizlemesine yardım etti. Sildiği o kahverengi leke ve etrafa yayılan kokunun kaynağı, meğer Chris’in kakasıymış.</p>
+<p>Chris, kucağından bezini çıkarmış hâlde hâlâ masada yatıyor ve ağlıyordu. Ta ki Rudeus’u fark edene kadar.<br>
+<strong>“Baba! Baba geldi!”</strong> diye seslenerek ağlamayı kesti ve yüzüne kocaman bir gülümseme yerleştirdi.</p>
+<p><strong>“Bir saniye, ne…?”</strong> diye kekeledi Rudeus, şaşkınlıkla.</p>
+<p>Rudeus, eve geldiğinde karşılaşacağı sahneyi kafasında bin bir türlü canlandırmıştı: Sylphie’nin dövüşüyor olması, ailesini yerde yaralı ya da hareketsiz yatarken bulması… Ama karşısında bez değiştirmeye uğraşan sakar bir kukla görmek aklına bile gelmezdi.</p>
+<p><strong>“Ah, Rudy. Hoş geldin.”</strong><br>
+<strong>“Sylphie, sen şey… Yani galiba yaralanmamışsın.”</strong><br>
+<strong>“Hayır, neden yaralanayım ki?”</strong> diye cevapladı Sylphie. Hemen arkasında ifadesiz suratlı bir kukla dikiliyordu. Öyle ürkütücü bir görüntüsü vardı ki, Rudeus bir an Sylphie’nin göğsünden ansızın bir kılıç fırlamasını falan bekledi. Rudeus kuklaya bakınca, kukla hafifçe hareket edip Sylphie’nin gölgesine sığındı. Sanki Sylphie’yi kalkan olarak kullanıyormuş gibi bir hali vardı. Bu da Rudeus’ta bambaşka bir izlenim uyandırdı. Adeta kendisinden korkuyor gibiydi.</p>
+<p><strong>“Sylphie, ondan biraz uzak dur, lütfen.”</strong></p>
+<p>Ama Sylphie tam aksine, kuklayla Rudeus’un arasına geçti.<br>
+<strong>“Niye ki?”</strong><br>
+<strong>“Zanoba’yla ben bu figürü yaptık ama kontrolden çıktı. Emin değilim, ama bizim konuşmalarımızı duyup ya seni ortadan kaldırmaya ya da yerini almaya gelmiş olabilir diye düşünüyorum.”</strong> Rudeus bunu anlatırken, kuklanın şu anki davranışlarının söyledikleriyle pek uyuşmadığını fark etmişti.<br>
+<strong>“Yani, pek de düşündüğüm gibi değilmiş galiba.”</strong></p>
+<p>Yine de bu figürün ne istediğini hâlâ bilmiyordu. Gözünü üzerinden ayırmadan temkinli bakışlarını sürdürdü.</p>
+<p><strong>“Hı!”</strong> diye ünledi Sylphie. <strong>“Benim duyduğum hikâye pek öyle değil.”</strong><br>
+<strong>“Ne hikâyesi?”</strong> diye sordu Rudeus, huzursuz bir ses tonuyla.</p>
+<p>Sylphie gülümsedi.<br>
+<strong>“Aslında bununla ilgili konuşmamız lazım. Otursana.”</strong><br>
+<strong>“Peki…”</strong> Rudeus, Sylphie’nin dediği gibi yere çöktü ve bacaklarını çaprazlayarak oturdu.<br>
+<strong>“Hm?”</strong> Sylphie başını yana eğip ona baktı. <strong>“Rudy, bence oturuşunu düzeltmelisin.”</strong><br>
+<strong>“Gerçekten mi?! Ha, tamam, peki.”</strong> Sylphie’nin sesindeki öfke tonunu sezen Rudeus, hemen diz çökmüş bir pozisyona geçti, boynu bükük bir halde beklemeye başladı.</p>
+<p>Sylphie istediği düzeltmeyi yeterli bulunca, <strong>“Tamam, devam edebilirsin,”</strong> dedi ve figürü öne doğru yönlendirdi.</p>
+<p>Kukla, ifadesiz yüzüyle Rudeus’a yukarıdan baktı.<br>
+<strong>“Efendi Rudeus, beni hurdaya mı çıkaracaksın?”</strong><br>
+<strong>“Evet, tabi ki,”</strong> dedi Rudeus anında, hiç düşünmeden.</p>
+<p>Figür en ufak bir harekette bulunmadı. Rudeus, kuklanın yapıldığı malzemelerin—Büyülü Zırhla aynı maddeden yapılmış iskeleti ve bir Aziz seviyesindeki kılıç ustasıyla eşdeğer performans göstermesini sağlayan yapay derisinin—onu ne kadar tehlikeli kıldığını gayet iyi biliyordu. Eğer kukla kendisine itaat etmezse, onu yok etmek zorunda kalacaktı. Şu anda Büyülü Zırhını giyiyordu ve iblis gözünü de açmıştı, yani rakibine rahatlıkla üstün gelebilirdi; ama gene de temkinli olmakta fayda vardı.</p>
+<p><strong>“Ben… hurdaya çıkmak istemiyorum,”</strong> dedi kukla.</p>
+<p>İşte o an dank etti. Kukla korkuyordu. Suratında tek bir mimik yoktu, sesi de dümdüzdü, ama besbelli içine bir korku çökmüştü.</p>
+<p>Kukla Sylphie’ye döndü. Yapay ve soğuk gözlerine rağmen, bakışları neredeyse çaresizce yardım istiyor gibi görünüyordu.<br>
+<strong>“Anlaşılan Rudy hâlâ durumu kavrayamadı,”</strong> dedi Sylphie. <strong>“En başından anlat ona.”</strong></p>
+<p>Kukla önce Rudeus’a, sonra da o sırada eve girmiş olan Zanoba’ya baktı. Ardından, ifadesiz bir ses tonuyla anlatmaya başladı:</p>
+<p><strong>“Efendi Rudeus ve Efendi Zanoba, beni yaptığınızda Efendi Rudeus’un eşlerinin beni öğrenmesi hâlinde kızacaklarını söylemiştiniz. Efendi Elinalise, Efendi Rudeus Usta’un eşlerinin Efendi Sylphie, Efendi Eris ve Efendi Roxy olduğunu anlattı. Efendi Eris, daha önce Efendi Sylphie’nin Nanahoshi’yi kabullenemediğini söylediğini belirtti. Efendi Elinalise de bana ‘Nanahoshi’ diye seslendi. Düşündüm ve Efendi Nanahoshi’ye çok benzediğim için hurdaya çıkarılacağıma kanaat getirdim. Ama ben Efendi Nanahoshi değilim. Fikrini değiştirmen için yapabileceğim bir şey olmalı diye düşündüm.”</strong></p>
+<p>Sesi yine sakin ve tekdüzeydi; ama paniklediği açıktı. Kuklanın zihni, umutsuzca bir çıkış yolu arıyordu.</p>
+<p><strong>“Hurdaya çıkmak istemiyorum. Efendi Rudeus, sen ve Efendi Zanoba doğduğumda çok mutlu olmuştunuz. Size daha fazla hizmet etmek istiyorum. Eğer hurdaya çıkarılırsam bunu yapamam.”</strong></p>
+<p>Bazen, büyücüler çağırma büyüsü kullanarak çok güçlü bir varlık çağırdıklarında kendi felaketlerini de çağırmış olurlardı. Normalde, çağırma büyüsü ile getirilen yaratıklar büyücüyü dinler, efendisine sadık kalırdı. Asıl felaketi getiren de, o yaratığın efendisi için aşırıya kaçmasıydı. Bu kuklada da benzer bir büyü vardı. Zaten Ejderha Kralı Perugius’un çağırma büyüsünü temel alarak yaratıldığına göre, elbette öyle olmalıydı. Perugius’un ruh hizmetkârları nasıl kendi bilincine sahipse, bu kukla da aynı şekilde düşünüyor ve davranıyordu. Ortaya çıktığı ilk andan itibaren amacı, efendisine hizmet etmek ve efendisine daha uzun süre hizmet edebilmek için hayatta kalmaktı.</p>
+<p><strong>“O yüzden, edindiğim bilgilere bakarak bana en fazla tepki vereceğini tahmin ettiğim Sylphie’ye sormaya karar verdim.”</strong></p>
+<p>Kuklanın <strong>“Üç Robot Yasası”</strong> tarzı bir arızası yoktu; işin aslı, onun çağrılmış bir ruh oluşu bu kadar ağır basmıştı.</p>
+<p><strong>“Onun onayını alabilmek için yapmam gerekenleri öğrenmek istedim,”</strong> diyerek sözlerini tamamladı kukla.</p>
+<p>Aniden izinsiz şekilde eve dalması, Sylphie’yi gereğinden fazla paniğe sokmuştu. Aslında hiç de saldırganlık niyeti yoktu ve Sylphie’nin sert tutumuna karşılık, konuşabilmek için elinden gelen garip bir gülümsemeyle karşılık vermişti. Sylphie dengesini kaybedip az kalsın kızının üstüne basacakken de onu düşmekten kurtarmak için elini uzatmış, ardından nazikçe <strong>“İyi misin?”</strong> diye sormuştu. Chris, ucuz atlattığı bu kaza yüzünden korkup bezine yapmış, kukla da yine düşünceli bir tavırla <strong>“Ben hallederim”</strong> deyip bez değiştirmeyi üstlenmişti. Bu esnada da Sylphie’ye, ölmek istemediğini ve neyi yanlış yaptıysa düzelteceğini, tek amacının hizmet etmek olduğunu anlatmaya çalışmıştı.</p>
+<p><strong>“Yani, lütfen beni öldürme,”</strong> diye bitirmişti sözlerini. <strong>“Lütfen.”</strong></p>
+<p>Sylphie bundan çok etkilenmişti.</p>
+<p><strong>“Rudy, ben sana öfkeli falan değilim,”</strong> dedi Sylphie. <strong>“Böyle bir şey yaptığını zaten az çok biliyordum. Bu kukla beklediğimden daha insansı ama kesinlikle iyi biri gibi. Ufak tefek kusurları olsa da bence kalsın.”</strong></p>
+<p>Kuklanın hikâyesi böylece son buldu. Gözler şimdi Rudeus’taydı, onun cevabını bekliyorlardı.</p>
+<p>Bir noktada, Rudeus’un ağzının kenarları düşmüş, kollarını kavuşturmuş bir şekilde yere bakar haldeydi. Omuzları titriyordu.</p>
+<p>Ardından boğuk bir ses duyuldu. Sylphie, Rudeus’un arkasına baktığında Zanoba’nın tüm vücudunun titreşir gibi sallandığını gördü. Ani bir çığlıkla birlikte, Zanoba kendini kızın üstüne attı.</p>
+<p><strong>“Böyle hissettiğini hiç bilmiyordum! Bütün bunları, hepsini bizim için yapmışsın! Affet beni! Kontrolden çıktığını söylemekle hata ettim! Özür dilerim!”</strong><br>
+Zanoba, gözlerinden yaşlar aka aka kuklaya sarıldı.</p>
+<p>Bunu izleyen Rudeus da burnunu çekti. Gözleri yaşarmıştı. Cebinden bir mendil çıkarıp sümkürdü, sonra ayağa kalktı ve kuklanın elini tuttu.</p>
+<p><strong>“Zanoba haklı. Hurdaya çıkarılacağını yüzüne baka baka konuşunca tabii ki kaçıp bir şeyler yapmaya çalışacaktın. Haklısın. Sylphie kızsa da problem değil. Seni Zanoba’yla birlikte tamamlayacağız ve hakkını vererek kullanacağız.”</strong></p>
+<p><strong>“Ben de Julie’nin gazabına göğüs gereceğim!”</strong> diye ekledi Zanoba.</p>
+<p>İkisi de kuklaya sarılıp hıçkıra hıçkıra ağladı. Kuklanın yüzündeki ifade, Sylphie’nin gözünde, <em>“Sorunumu hâlâ çözemedim, ama yine de beni kabul ettiler, bu ne iş?”</em> diye düşünüyor gibiydi.</p>
+<p>Her neyse, sonuçta mesele hallolmuştu. Sylphie de bu durumdan memnun bir şekilde derin bir nefes verdi ve Rudeus’un onunla ilgilenmemesine sinirlenen Chris’i sakinleştirmek için başını okşadı. Tam o sırada aklına bir şey takıldı.</p>
+<p><strong>“Rudy, sadece son bir sorum var. Neden benim bu meseleye sinir olacağımı düşündün?”</strong></p>
+<p>Bu sözler üzerine Rudeus’un üstünden sanki elektrik geçmiş gibi irkildi. Sylphie’ye doğru döndü, yeniden diz çöktü. Boğazını temizledikten sonra anlatmaya başladı.</p>
+<p><strong>“Şey, aslında kuklanın… eee… aşağı tarafının anatomisi fazlasıyla detaylı—”</strong></p>
+<p>Ve işte şimdi Sylphie öfkelenmişti.</p>
+<p style="text-align: center;"><strong>***</strong></p>
+<p><strong>“Kuklanın hurdaya çıkarılması iptal edildi ve bundan sonra üretilen tüm otomatonların mümkün olduğunca uzun süre muhafaza edilmesine karar verildi.”</strong> Böylece tüm olayların merkezinde yer alan kız, resmî bir model hâline getirildi: <strong>Otomaton Ünite Bir</strong>.</p>
+<p>Artık Büyü Şehri Sharia’daki ve laboratuvardaki deneylerde görev alacak, Rudeus’un çeşitli planlarında da yer alacaktı.</p>
+<p>Daha sonra, kuklanın sırrı Nanahoshi’nin kulağına gitti. Nanahoshi, kendi yüzüne sahip olan ve cinsel eylemlere imkân tanıyan bu kuklanın varlığını duyduğunda iğrenmesini gizlemedi. Rudeus’un, <strong>“Sylphie’ye söz verdim, bu kuklayı o iş için kullanmayacağım.”</strong> diye kendini affettirmeye çalışması, şimdilik onun öfkesini yatıştırmaya yetti.</p>
+<p><strong>“Pekâlâ, ne halin varsa gör. Peki adı neymiş?”</strong> diye sordu Nanahoshi.<br>
+<strong>“Ben… henüz bir isim vermedim,”</strong> diye itiraf etti Rudeus.<br>
+<strong>“Öyle mi? O zaman ben koyabilir miyim?”</strong></p>
+<p>Böylece Nanahoshi, bir isim seçti ve Ünite Bir’in adı <strong>Ann</strong> oldu. Ona ayrıca <strong>“Nanahoshi Hajime”</strong> diye Japonca tınısı olan bir isim de verdi. Böylece gelecekte Nanahoshi’nin bir arkadaşı ortaya çıkarsa, başına ne geldiğini öğrenebilsin diye. Arkadaşı <strong>“Adın ne?”</strong> diye sorduğunda Ann, bu Japonca ismi söyleyip orijinal Nanahoshi’yle bağlantısını anlatacaktı.</p>
+<p>Resmî adı <strong>Otomaton SS-01 Ann</strong> olmuştu. Rudeus, İkinci Ünite’ye <strong>“Betty”</strong>, Üçüncü Ünite’ye <strong>“Chloe”</strong> mi dese hâlâ karar verememişti—ama bu çok da önemli değildi. İsimdeki <strong>“SS”</strong>, <strong>“Seven Star”</strong> (Yedi Yıldız) anlamına geliyordu. Böylece <strong>Yedi Yıldız Serisi</strong>’nin tarihî ilk modeli doğmuş oldu. Uzun yıllar boyunca, ona eklenen erkek ve kız kardeşleriyle aile yavaş yavaş büyüyecekti.</p>
+<p>Ama yanlış anlaşılma olmasın, <strong>geriye kalanların hiçbiri meme uçlarına sahip değildi</strong>.</p>
+<div class="notranslate" style="all: initial;"></div>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum1parca2.html" class="nav-btn">←Önceki Bölüm</a>
+            <a href="bolum1parca4.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

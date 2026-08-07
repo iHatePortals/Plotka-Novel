@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei Cilt 1, Bölüm 1 - Parça 2 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b; /* Mushoku Tensei Kırmızı Tema */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #cc0000;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c1b1b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        body.theme-light .nav-btn:hover, 
+        body.theme-light .action-btn:hover, 
+        body.theme-light .theme-select:hover,
+        body.theme-sepia .nav-btn:hover, 
+        body.theme-sepia .action-btn:hover, 
+        body.theme-sepia .theme-select:hover {
+            color: #ffffff;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+        }
+
+        /* Resimler için özel stil */
+        .novel-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 30px auto;
+            border-radius: 6px;
+        }
+
+        /* Yazar ve Çevirmen Notu */
+        .author-note {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--border-color);
+            text-align: center;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="bolum1parca1.html" class="nav-btn">←Önceki Bölüm</a> 
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onclick="applyTheme(this.value)" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="bolum1parca3.html" class="nav-btn">Sonraki Bölüm→</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Mushoku Tensei Cilt 1, Bölüm 1 Parça 2</h1>
+            <div class="subtitle">"Norn'un Düğünü"</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            
+            <!-- Bölüm Başı Görseli -->
+            <img src="bolum1foto1.png" alt="Bölüm 1 Görsel 1" class="novel-image">
+
+            <p>Bu sözleri söyledikten sonra düğün hazırlıkları için işe koyuldum. Norn zaten bu işe dünden razıydı, geriye sadece Ruijerd’in durumu kalıyordu. Yaşı düşünüldüğünde, küçük kız kardeşimle evlenme fırsatını kaçırmaması gerekirdi. Ayrıca bu evlilik, Superd halkı için de avantajlı olurdu. Geçmişten beri evlilikler genellikle ittifakları güçlendirmek için yapılırdı. Norn ve Ruijerd’in evlenmesi, Superd’lerin Ejderha Tanrısı’na karşı düşmanca bir tavır takınmayacağını garantilerdi. Bizim tarafımızda ise, Superd halkını yüzüstü bırakmayacağımız anlamına gelirdi. Tam bir kazan-kazan durumu.</p>
+
+            <p>Ama bu kadarı yeterli miydi? Ve Norn’u mutlu eder miydi? Ya Ruijerd, evlenmek zorunda kaldığı için bu ilişkiye girerse? Norn, Ruijerd’in onu sevmediğini fark ettiğinde gözyaşlarını içine akıtabilir miydi?</p>
+
+            <p>Şu an Ruijerd, Biheiril Krallığı ile yürütülen müzakerelerden sorumluydu. Bu da demek oluyordu ki, Norn büyü şehri Sharia’da değil, Superd köyünde yaşayacaktı. Neyse ki orada olanlardan sonra köy halkı onun yüzünü ve adını biliyordu; muhtemelen onu sıcak bir şekilde karşılayacaklardı. Ama Norn, bambaşka bir türden insanlarla ve Sharia’dan tamamen farklı bir kültürle çevrili yaşamayı kaldırabilir miydi? En kötü ihtimalle, Norn yakın bir kasabada tek başına yaşamaya bile başlayabilirdi.</p>
+
+            <p>Bu durum beni endişelendiriyordu. Gerçekten endişelendiriyordu. Eşlerime danıştığımda,</p>
+            <p>Roxy “Norn bu. Eminim üstesinden gelir,” dedi.</p>
+            <p>Eris ise, “Ruijerd bu. İkisi de iyi olur,” dedi.</p>
+            <p>Sylphie ise, “Sen এই işi fazla kafaya takıyorsun,” diyerek kestirip attı.</p>
+
+            <p>Onlara göre her şey yolunda olacaktı, ama yine de içim rahat etmiyordu. Norn’un mutsuz olmasına dayanamazdım. Eğer ağlarsa, Paul’un rüyalarımda bana lanet okuyan bakışlarıyla yüzleşmek zorunda kalırdım, Zenith ise yatağımın yanında oturup beni tokatlardı. Onların hatırası için de, Norn’un mutlu olmasını sağlamak zorundaydım. Elimden geleni yapacaktım, ama son kararı yine Norn verecekti.</p>
+
+            <p>Ruijerd’e ise güvenebilirdim, tabii. Onun Norn’u gerçekten sevip sevmemesine bakmaksızın, eşine karşı tüm sorumluluklarını yerine getireceğini biliyordum. Norn’un ağlamasına asla izin vermezdi. Ama yine de emin olmak istiyordum. Belki ikisini yakınlaştıracak bir olay düzenleyebilirdim. Ruijerd’in Norn’a karşı hislerini yönlendirmeyi başarırsam, ikisinin mutluluğunu garantileyebilirdim.</p>
+
+            <p>“Tamam,” dedim kendi kendime.</p>
+
+            <p>İşte bu yüzden kendimi Superd köyünde, Biheiril Krallığı’nda buldum. Sadece birkaç ay önce köy ağır bir inşaat altındaydı, ama şimdi yeniden bir köye benziyordu. Yüksek bir palisadeyle çevriliydi, içinde evler ve henüz ekilmemiş sebze tarlaları vardı. Superd savaşçıları beni görünce başlarını eğip sıcak bir şekilde karşıladılar. Onlara selam vermek için hafifçe başımı eğdim ve hızla Ruijerd’in evine doğru yola koyuldum. Tabii ki ev yepyeniydi.</p>
+
+            <p>Ruijerd’in evi büyüktü. Muhtemelen köyde artık epey önemli bir figür olduğu için böyleydi. Evet, bu ev ikisi ve birkaç çocuk için gayet yeterliydi.</p>
+
+            <p>“Ruijerd,” diye seslendim, biraz tereddütle, “evde misin?”</p>
+
+            <p>“Rudeus?” diye cevap verdi. Muhtemelen yeni yemek yemişti—ocağın önünde bağdaş kurmuş, gözleri kapalı bir şekilde meditasyon yapıyormuş gibi oturuyordu.</p>
+
+            <p>Hiçbir şey demeden karşısına oturdum. Diz çökerek yerimi aldım. Bunun üzerine Ruijerd gözlerini açtı ve bana meraklı bir ifadeyle baktı.</p>
+
+            <p>“Ne oldu?” diye sordu.</p>
+
+            <p>Elimi kaldırıp, “Bir saniye,” dedim. “Ne söyleyeceğimi toparlamaya çalışıyorum.”</p>
+
+            <p>“Peki,” diye cevapladı.</p>
+
+            <p>Sonra bir süre sessizlik oldu. Ocağın titrek alevlerine bakarak, sanki bir saat geçmiş gibi hissettim. Garip ama, ne söylemem gerektiğini önceden hiç düşünmemiştim. Soracağım şeyi biliyordum: Norn hakkında ne hissediyordu? Onu seviyor muydu? Nefret mi ediyordu? Onunla evlenebileceğini hayal edebiliyor muydu?</p>
+
+            <p>Ama işin püf noktası, bunu nasıl söyleyeceğimdi.</p>
+
+            <p>“Ruijerd, Norn’la evlenmek ister misin?” gibi bir şey mi demeliydim? Hayır, hayır, bunu geçelim. Evlenmek ve hissetmek iki farklı şeydi. Bunu unutmamam gerekiyordu.</p>
+
+            <p>Sessizliğimi korudum ama Ruijerd de konuşmaya çalışmadı. Sanki sonsuz vaktimiz varmış gibi, sabırla benim konuşmamı bekledi. O gün ne yapması gerektiğini bilmiyordum ama kesin yoğun programı vardı. Norn’a da böyle davranacağından emindim. Belki Norn bu durumdan sıkılırdı. Belki bir noktada patlayıp ona, “Bir şey söylesene!” derdi.</p>
+
+            <p>Ama yok, sanırım Norn’un Ruijerd’e âşık olmasının sebebi tam da bu yanıydı. Yanında rahatça sessiz kalabileceğin biri bulmak nadir bir şeydi. Gerçi şu an bu durum beni biraz huzursuz etmişti.</p>
+
+            <p>“Geçen gün Norn bana çay yaptı, aslında oldukça iyiydi,” dedim, biraz tepkisini ölçmek için.</p>
+
+            <p>“Öyle mi? Norn çay yapmış ha,” diye karşılık verdi Ruijerd.</p>
+
+            <p>Hah, bir kıpırdanma! Belki de gerçekten Norn’la ilgileniyordu. İlk engeli aşmış mıydım acaba?</p>
+
+            <p>Ama dur bir dakika. Bir saat sessiz kaldıktan sonra biri bir şey söylerse, ne dediği fark etmeksizin dikkatini çekerdi zaten.</p>
+
+            <p>Sakin ol, Rudeus. Muhabbet akışında ilerlemeli.</p>
+
+            <p>“Meğer iş yerinde hep çay yapıyormuş, orada geliştirmiş yeteneğini,” dedim.</p>
+
+            <p>“Anladım… Köye geldiğinde yaptığı çayı içmiştim bir kere. Çok iyiydi,” diye yanıtladı Ruijerd, o anıyı hatırlayıp hafifçe gülümsedi.</p>
+
+            <p>Demek daha önce Norn’un çayını içmişti. Belki de bir kez daha içmek istiyordu. Belki de her gün onun için çay yapmasını isteyebileceğini düşünüyordu…</p>
+
+            <p>Kahretsin, soruyu nasıl soracağım? Birkaç seçeneğim olsa keşke. Orsted benimle konuşurken de böyle mi hissediyor acaba? Bunu nasıl yapacağım ki?!</p>
+
+            <p>“Çay yapmanın yanı sıra, yemek yapma konusunda da fena değil.”</p>
+
+            <p>Kararsızlığımı sürdürürken muhabbet kendi kendine akmaya devam ediyordu.</p>
+
+            <p>Bir saniye… Ne dedin sen? Ev yapımı yemek mi?</p>
+
+            <p>“Norn’un yemeklerini mi denedin?” diye sordum.</p>
+
+            <p>“Evet, denedim.”</p>
+
+            <p>Norn’un yemeklerini mi? Daha ben tatmamışken?!</p>
+
+            <p>“Yapma ya…”</p>
+
+            <p>Acaba ne yapmıştı? Etli patates haşlaması mı? Köri mi? Belki de dana stroganoff? Ben de istiyordum! Norn’un evde yaptığı yemekleri tatmak istiyordum!</p>
+
+            <p>Ama dur, konu bu değil.</p>
+
+            <p>Ruijerd’in dediğine göre, yemekleri “fena değilmiş.” Bu da demek ki tamamen bir felaket değildi. Kalbine midesiyle ulaşamayabilir, ama mutfakta tamamen beceriksiz olmadığı da belliydi. Demek düğünden sonra Ruijerd’in açlıktan bir deri bir kemik kalma riski yoktu.</p>
+
+            <p>Tam bu düşüncelerle boğuşurken, Ruijerd birden araya girdi:</p>
+
+            <p>“Norn’la ilgili bir şey mi oldu?”</p>
+
+            <p>Ne kadar dikkatlisin, Ruijerd!</p>
+
+            <p>Tamam, kabul. Buraya bu kadar ciddi bir suratla gelip aniden Norn’dan bahsedince, sorması gayet mantıklıydı.</p>
+
+            <p>“Hayır, şey… Öyle pek bir şey yok aslında. Sadece, bilirsin işte, laflıyoruz,” dedim, kıvranarak.</p>
+
+            <p>Ne yazık ki hâlâ ona doğrudan soracak cesareti kendimde bulamıyordum.</p>
+
+            <p>Norn’u seviyor musun? Ona âşık mısın? Şu an onu kollarına alıp öpebilir misin?</p>
+
+            <p>Ya sorduğumda, “Hayır, hiç hoşlanmıyorum,” derse? “Evlenemem, evlensem bile onu sevemem,” derse?</p>
+
+            <p>Bu ihtimali düşündükçe içim içimi yiyordu. Böyle bir cevap benim için büyük bir darbe olurdu. Hatta belki burada bir kavga çıkarırdım: “Norn’um sana layık değil mi, ne demek istiyorsun?!”</p>
+
+            <p>“Norn artık bir yetişkin. İşe bile girdi. Ama bazı yönlerden hâlâ çocuk gibi… Mesela erkeklere hiç ilgi duyuyor gibi görünmüyor. Bazen bir koca bulup bulamayacağını merak ediyorum,” dedim ve Ruijerd’e baktım. Fazla mı açık ettim acaba? Ruijerd’in yüzüne şüpheci bir ifade yerleşmişti.</p>
+
+            <p>Bir süre sonra, “İnsanların geleneği değil midir, evlilik partnerinin seçimini ailenin reisi yapar? Norn’un eşini seçmek senin sorumluluğun değil mi?” diye sordu.</p>
+
+            <p>“Yok, yok, yok! Biz soylu değiliz, biliyorsun? Norn’un kendi kocasını seçmesine izin vermek daha iyi olabilir diye düşünüyorum… şey… hani…”</p>
+
+            <p>Bir yandan Ruijerd’in yüzüne bakıyordum, ama ifadesi hiç değişmemişti. Aslında hayır, yüzündeki şüpheye bir de sertlik eklenmişti. Acaba sorumluluktan kaçtığımı mı düşünüyordu?</p>
+
+            <p>“Hah, endişelenme!” dedim hızla. “Eğer Norn bir işe yaramazla geri dönerse, onu kapı dışarı ederim. Ona derim ki, ‘Norn’u istiyorsan önce beni geçmek zorundasın!’ Norn’u öyle herhangi birine bırakacak değilim!”</p>
+
+            <p>Hızla bir bahane uydurdum. Ruijerd, Norn’u ona teklif etmeden hemen önce beni sorumsuz biri olarak görürse, felaket olurdu. Tam olarak nasıl kötü bir durum oluşacağını kestiremiyordum ama kesinlikle bir şekilde kötüye giderdi.</p>
+
+            <p>“Yani diyorsun ki, Norn’u eş olarak almak isteyen herkes önce seni yenmek zorunda mı?” diye sordu Ruijerd.</p>
+
+            <p>“Hayır! Yani ille de güçlü olmak zorunda değil! Ama! Yani şey… Nasıl söylesem… Cesaret! Evet, aynen, cesaretini bana göstermesini isterim.”</p>
+
+            <p>Bende korkak biriydim ama kaçmazdım. Norn’la evlenmek isteyen biri, kazanamayacağını bilse bile ayağa kalkıp savaşma cesaretine sahip olmalıydı. İşte aradığım buydu.</p>
+
+            <p>“Demek öyle,” dedi Ruijerd.</p>
+
+            <p>“Aynen.”</p>
+
+            <p>Elbette, Ruijerd’in bu konuda endişelenmesine gerek yoktu. Ona bunu gizlice bir bakışla anlatmaya çalıştım, ama yüz ifadesi taş gibi değişmeden duruyordu—o sert bakışı bir milim bile oynamamıştı…</p>
+
+            <p>Belki de Norn’a gerçekten ilgi duymuyordu. Bu gayet doğal olabilirdi. Ona göre, Norn bir çocuktu. Küçüklüğünden beri tanıyordu ve hep zayıf bir çocuk olarak görmüştü. Ruijerd, bir çocuğa karşı arzu duyacak biri değildi. Öyle bir adam olmadığını biliyordum.</p>
+
+            <p>“Ruijerd, şey… Açık açık soracağım,” dedim sonunda.</p>
+
+            <p>“Pekâlâ.”</p>
+
+            <p>Sonuçta sormam gerekiyordu. Ne olursa olsun. Norn için kötü bir cevap alma ihtimali olsa bile. Sadece yüz ifadesine bakarak bir sonuca varamazdım. Artık gerçeği öğrenmek için cesaretimi toplama vakti gelmişti.</p>
+
+            <p>“Norn hakkında ne hissediyorsun?” diye sordum.</p>
+
+            <p>Ruijerd sessiz kaldı. Bana gözlerini dikmiş, tek kelime etmeden taş gibi sert bir ifadeyle bakıyordu. Yüzündeki şüphe tamamen kaybolmuştu.</p>
+
+            <p>Hımm. Bu garipti. Normalde Ruijerd’in hemen cevap vermesini beklerdim. Norn’u bir çocuk mu yoksa bir yetişkin mi olarak görüyordu acaba?</p>
+
+            <p>Kendimi hazırladım.</p>
+
+            <p>“Norn’a karşı… bir şeyler hissediyor musun?” diye pat diye sordum. Belki hata yapmıştım. Belki bu soruyu Norn’un kendisinin sorması daha iyi olurdu.</p>
+
+            <p>“Ah,” diye mırıldandı Ruijerd. Ardından, kararını vermiş gibi ayağa kalktı. Duvara dayalı duran mızrağını aldı.</p>
+
+            <p>Sonunda konuştu:</p>
+
+            <p>“Rudeus,” dedi. “Dışarı çık.”</p>
+
+            <p>Anlamadım. Ona şaşkın bir şekilde baktım.</p>
+
+            <p>Benim tereddüdüm üzerine, Ruijerd daha güçlü bir tonla tekrarladı:</p>
+
+            <p>“Çık dışarı.”</p>
+
+            <p>“Tamamdır.”</p>
+
+            <p>Sesindeki yoğunluk tartışmaya yer bırakmıyordu. Hiç itiraz etmeden dediğini yaptım.</p>
+
+            <p>Superd köyünden ayrıldıktan sonra, Yeryüzü Ejderhası Yarığı’nın ormanına doğru on beş dakika kadar yürüdük. Ağaçların arasında ilerlerken, orman birdenbire bir açıklığa dönüştü. İşte orada, Ruijerd’le karşı karşıya geldik.</p>
+
+            <p>Ruijerd, tüm yol boyunca ciddi ve kararlı bir ifadeyle yürümüştü. Belki onu bir şekilde kızdırmıştım. Görünüşe göre, Norn hakkında hislerini sormak büyük bir hataydı. Sanırım, Norn’u politik bir hamle olarak önerdiğimi düşünmüştü. Ruijerd bu. Böyle bir durumda kesin şöyle derdi: “Ağabeyi olarak, Norn’u korumak senin görevin. Onu bir yabancının gözünde değer kazanmak için kullanamazsın.” Onun güvenilirliğinden şüphem yoktu.</p>
+
+            <p>“Uzun zaman önce fark ettin demek.” dedi birden.</p>
+
+            <p>Hiç beklemediğim bir şeydi. Boş boş ona baktım. Ne fark etmişim? Fark etmiş olmam gereken şey neydi? Ben mi fark etmişim? Şu anda tamamen kaybolmuş ve kafası karışık olan ben mi? Şu an ne olduğunu algılamanın yanına bile yaklaşamayan şu halim mi?</p>
+
+            <p>“Neyi fark ettim?” diye sordum.</p>
+
+            <p>“Daha fazla konuşmana gerek yok. Kendini hazırla!”</p>
+
+            <p>“İtiraz etmeye vakit kalmaması” tam olarak böyle bir şeydi. Tabii ki Öngörü Gözü’m açık değildi, ve açık olmadan Ruijerd’e ayak uydurmam mümkün değildi.</p>
+
+            <p>“Yovv!” diye bağırdım. Ruijerd anında üzerime atıldı ve beni yere serdi. Yine de, on yıl kadar önceki hâlime kıyasla artık biraz daha iyi bir seviyedeydim. Günlük antrenmanlarımın faydasını gördüm; tepki verebilmiştim, ama sadece zar zor.</p>
+
+            <p>Ruijerd’in mızrağı sağdan hızla üzerime gelirken, Büyülü Zırh Versiyon 2’nin eldiveniyle savurdum. Hemen ardından alçak bir tekme salladı, tek bacağımı kaldırarak engelledim ve tek ayağım üzerinde dengede kalmaya çalıştım. Ancak o sırada mızrağını çevirip destek ayağımı hedef aldı.</p>
+
+            <p>“Ee, nasıl?” diye sordu Ruijerd, mızrağının ucunu boğazıma dayarken. İfadesi hâlâ taş gibi soğuktu, bana yukarıdan bakıyordu.</p>
+
+            <p>“Teslim oluyorum. Kazandın,” dedim. Onun ne istediğine dair hiçbir fikrim yoktu. Söyleyebileceğim başka bir şey yoktu. Ruijerd’in beni boğazımdan delmeyeceğine emindim, ama bu değişmez bir gerçeği değiştirmezdi: kaybetmiştim.</p>
+
+            <p>“Bu yeterli miydi?” diye sordu.</p>
+
+            <p>Ne hakkında konuştuğunu anlamıyordum. Neyin yeterli olup olmadığını soruyordu?</p>
+
+            <p>“Bence, yeterli olmayan asıl kişi benim” diye mırıldandım.</p>
+
+            <p>“Yani… Yeterli miydi?” diye tekrar sordu.</p>
+
+            <p>Ne için yeterli olmalıydı? Beni yere sermesi mi? Daha fazla konuşursam yalnızca kendimi daha da küçük düşürürdüm.</p>
+
+            <p>“Sanırım öyle” dedim. Bunun üzerine Ruijerd mızrağını geri çekti. Yere oturdum. Ruijerd yukarıdan bakarken ne kadar zavallı göründüğümü ben bile fark etmiştim.</p>
+
+            <p>Sonra Ruijerd, kafamı iyice karıştıran bir şey söyledi:</p>
+
+            <p>“Anlaşmamız gereği, kız kardeşini talep ediyorum.”</p>
+
+            <p>Kız kardeşimi talep etmek mi? Evlenmekten mi bahsediyor? Yani Norn’dan mı bahsediyoruz? Ben böyle bir söz mü verdim? Dur bir dakika, biz ne konuşuyorduk ki az önce?</p>
+
+            <p>Konu bir şekilde benim elimden kaymış gitmişti.</p>
+
+            <p>“Senin de şüphelendiğin gibi,” dedi Ruijerd.</p>
+
+            <p>Ben neyin şüphesindeydim ki?</p>
+
+            <p>“Norn ile evleneceğim,” dedi.</p>
+
+            <p>“Ev…lilik mi…” Kelimenin anlamını hatırlamak için beynimi zorladım. Evet, evlilik. Birlikte yaşama durumu.</p>
+
+            <p>“Ha?” Ruijerd, Norn’a mı âşık olmuştu?</p>
+
+            <p>Dur bir dakika, hemen olayları kafanda büyütme! Senin böyle şeyleri yanlış anlama huyun var.</p>
+
+            <p>“Yani, sen… Norn hakkında…”</p>
+
+            <p>Uzun bir sessizlik oldu. Sonra Ruijerd, “Onu seviyorum,” dedi.</p>
+
+            <p>Acaba şaka mı yapıyordu? Belki de planı beni o kadar sevindirmekti ki, anında “Evet, hemen evlenin!” diyecektim. Ama sonra, Norn’u gelin kimonosu içinde karşısına getirir getirmez Ruijerd, “Şaka yaptım!” diye patlayacaktı. Bu, benim için duygusal bir yıkım olurdu. Norn bile yatağa düşebilirdi. Bu kesinlikle O Adam’ın, yani İnsan Tanrısı’nın işi olmalıydı.</p>
+
+            <p>Kahretsin, Ruijerd İnsan Tanrısı’nın bir uşağı mı olmuştu?</p>
+
+            <p>“Şaka mı bu? Yoksa bir tür dalga mı geçiyorsun?” diye sordum.</p>
+
+            <p>“Şaka değil,” dedi Ruijerd, biraz alınıp. Zaten o asla şaka yapmazdı, bu da bir istisna değildi.</p>
+
+            <p>“Peki, ne zamandan beri böyle hissediyorsun?” diye sordum.</p>
+
+            <p>“Birkaç ay önce, Biheiril Krallığı’ndaki savaş sırasında. O zaman beni kendini hiç düşünmeden iyileştirdi.”</p>
+
+            <p>Doğru, o dönemde ayrılmaz ikili gibiydiler. Hatta neredeyse aile gibi görünüyorlardı. Ama bu, gerçekten de karşılıklı bir şey miydi? Yoksa ben mi yanılmıştım? Belki de Norn sadece kendi hislerinin peşinden gitmişti ve Ruijerd’in haberi bile olmamıştı.</p>
+
+            <p>“Tabii ki hislerime göre hareket etmedim,” dedi Ruijerd.</p>
+
+            <p>Eğer Norn benim kardeşim olmasaydı, hislerini belli eder miydi? Muhtemelen evet. Orsted’in anlattığı döngülerde öyle oluyordu; Norn bir kadın, bir gelin ve sonunda bir anne oluyordu.</p>
+
+            <p>“Sen bunu fark etmiştin, anladım. Sanırım bu yüzden buraya gelip böyle bir anda konuya girdin,” dedi Ruijerd.</p>
+
+            <p>Sessiz kaldım.</p>
+
+            <p>Şaka olmalıydı. Tek bildiğim, Norn’un Ruijerd’e âşık olduğuydu—bu hislerin karşılıklı olduğunu hiç bilmiyordum. Zekâ konusunda bir tuğlayla yarışabilirdim, ama bu kadarı bile bana ağırdı.</p>
+
+            <p>“Tekrar ediyorum: Norn’u eşim olarak almak istiyorum,” dedi Ruijerd. Boynuma dayadığı mızrağı kaldırdı. “Bunu göstermek için sana kararlılığımı kanıtladım.”</p>
+
+            <p>Demek mesele buydu? Bir düello… bana kararlılığını göstermek içinmiş. Ama nasıl desem? Fazla basitti. Her şey fazla kolay ilerliyordu. Bu bir tuzak mıydı? Kim kimi tuzağa düşürmeye çalışıyordu? Hiçbir fikrim yok. Ne dönüyor burada?</p>
+
+            <p>Yerden kalkmadan, oturduğum yerden Ruijerd’e bakarak konuştum. “…Peki ya önceki eşin ve oğlun? Onlar için bir sorun olmaz mı?” Hiçbir şey anlamadığım için sorularımı sormaya devam ettim.</p>
+
+            <p>“Geçmişe bağlı değilim.”</p>
+
+            <p>Bir keresinde bana “doğru kişiyi bulamadığını” söylediği aklıma geldi.</p>
+
+            <p>Ben hâlâ yerimden kalkmamışken, Ruijerd mızrağını yere sapladı ve yanıma bağdaş kurarak oturdu. Ben de diz çökerek oturdum. Şimdi göz seviyemiz eşitlenmişti.</p>
+
+            <p>“Başka bir deyişle…” dedi Ruijerd, sonra yüzünü ekşitip aşağı baktı ve dudaklarını sıktı.</p>
+
+            <p>Ben birdenbire çıkıp gelip onun duygularını ifşa edince, anlaşılan o ki bir karar almıştı. Karşı atağa geçip kararlılığını göstermek için beni buraya kadar getirmişti. Ama iş konuşmaya geldiğinde Ruijerd pek yetenekli değildi. Ne söylemesi gerektiğini ya da nasıl ifade edeceğini hâlâ kafasında oturtmaya çalışıyor olmalıydı.</p>
+
+            <p>Belki bu konuda aceleci davranmıştım. Orsted’in söylediklerinden dolayı ikisini hemen bir araya getirmem gerektiğini düşünmüştüm. Daha dolaylı bir yaklaşım mı geliştirseydim acaba? Mesela, Norn kaçırılmış olsa ve Ruijerd’den onu kurtarmasını istesem? Yok yok, bu planı hemen unut. Bu sadece Norn’un kalbini kazanmasına yol açardı. Belki de Ruijerd’i bir şekilde tuzağa düşürmeliydim? Ama bu da işe yaramazdı; Norn beni sonsuza dek nefretle anardı.</p>
+
+            <p>Ben kafamda bu tür saçma fikirler çevirirken, Ruijerd konuşmaya başladı: “Bir gün bir insanla evleneceğimi tahmin ediyordum.”</p>
+
+            <p>“Ne demek istiyorsun?”</p>
+
+            <p>“Senin sayende, Superdler yeniden kabul görüyor. Biheiril Krallığı’nın halkı ve ogre kabilesi bizi sıcak karşıladı. Tıpkı ogrelerde olduğu gibi, bir gün bir Superd ile kraliyet ailesi ya da soylular arasında bir kan bağı kurulacak. Böyle bir durumda, ilk kişinin ben olmam gerektiği önerildi.”</p>
+
+            <p>“Ha.” Bunun konuşulmuş olması mantıklıydı. Ruijerd’in köydeki konumu, köy liderine danışmanlık yapan biri gibiydi. Eski, saygı duyulan bir savaş kahramanıydı. Köyün idolü gibiydi… Tam olarak ifade edemesemde daha çok koruyucu bir melek misaliydi. Biheiril Krallığı’ndan bir prensesle ya da bir soyluyla evlenebilirdi. Bu, Superdlerin krallığı koruyacağının bir garantisi olurdu.</p>
+
+            <p>“Ama seçim bana bırakılmış olsaydı… Rudeus, ben senin ailenin bir parçası olmak isterdim.”</p>
+
+            <p>İçimde bir sıcaklık hissettim. Biheiril Krallığı ile dostluk, Superdler için çok daha faydalı olurdu. Bundan hiç şüphe yok. Ama Ruijerd, benim ailemi seçmişti. Beni seçmişti!</p>
+
+            <p>Dur bir dakika, beni değil! Şükürler olsun. Kız-deus’a dönüşüyordum neredeyse. (Kız-deus, Rudeus’un kız hali)</p>
+
+            <p>Tam o anda bir şey aklıma geldi.</p>
+
+            <p>“Yani, Norn’la mutlu olacaksın, değil mi?”</p>
+
+            <p>“Ne demek istiyorsun?” diye sordu Ruijerd, kaşlarını hafifçe çatarak.</p>
+
+            <p>“Norn… nasıl desem, biraz bencil biri. Bazen düşünmeden pat diye bir şey söyler ve söylediği şeyin sonuçlarını pek düşünmez. Diyelim ki karı koca olarak bir tartışma yaşadınız, geçmişinle ilgili takıntılı bir şey söyleyebilir.”</p>
+
+            <p>Ruijerd sessiz kaldı. Bu sözlerin ağzımdan çıkacağını hiç beklememiştim ve söylediğim an pişman olmuştum. Buraya Norn’u desteklemek için gelmiştim, ama onun eksik yönlerinden bahsediyordum. Oysa güçlü yanlarını öne çıkarmalıydım. Ama işte, gerçekler ortadaydı.</p>
+
+            <p>“Ev işlerini öğrenmiş durumda, ama bunu ana görevi yaparsa ne kadar iyi olur, emin değilim. Öğrenir, ama öğrendiğini uygulama konusunda o kadar başarılı değil. Çoğu zaman bir şeyi ilk denemesinde eline yüzüne bulaştırır. Şaria’da bu kolaydır, ama Superd köyünde yeni şeyler öğrenmesi gerekecek. Bu durum belki de sana yük olabilir.”</p>
+
+            <p>Bir de şöyle bir şey var: evlenebilecek başka kadınlar da var bizim ailede. Mesela Aisha. Aisha, dürüst olmam gerekirse, Norn’dan daha yetenekli. Ev işlerini yapabilir, çocuk bakabilir. Norn’un yapabildiği her şeyi Aisha da yapabilir, hatta belki daha iyisini. O yüzden Ruijerd’in Norn’la gerçekten mutlu olup olmayacağını merak ediyorum.</p>
+
+            <p>Aslında Norn’u desteklemek istiyordum, ama Ruijerd’i de seviyordum. İkisinin de mutlu olmasını istiyordum. Bu yüzden hiçbirinin memnuniyetsizlik yaşamayacağından emin olmam gerekiyordu.</p>
+
+            <p>“Ama bu, onun elinden gelenin en iyisini yapmasının bir sonucu değil mi?” diye karşılık verdi Ruijerd. “Norn’u tanıyorum. Onun güçlü ve zayıf yönlerini biliyorum.”</p>
+
+            <p>Cevap veremedim. Ruijerd ısrarla devam etti:</p>
+
+            <p>“Sen de tanıyorsun, değil mi?”</p>
+
+            <p>“Elbette.”</p>
+
+            <p>Norn’un çok fazla iyi yanı vardı. Son zamanlarda nasıl biri olduğuyla ilgili detayları bilmiyor olabilirdim, ama insanlara değer vermeyi öğrenmişti. İnsanlar artık onu Aisha ile karşılaştırmayı bırakmıştı ve o da bu yüzden gereksiz yere alttan almayı bırakmıştı. Eskisi kadar histerik değildi ve Aisha’yla kavga etmiyordu. Norn aynı zamanda düşünceli biriydi. Evde bunu pek hissettirmese de okulda, arkadaşları ve genç öğrenciler ona hayranlık duyuyordu. On beşinci yaş günü partisinde pek çok arkadaşı vardı. Hatta şu an bile, genç öğrenciler bazen evimize gelip dersleri ya da öğrenci konseyi hakkında Norn’dan tavsiye istiyordu.</p>
+
+            <p>Norn, her şeyde elinden gelenin en iyisini yapıyordu. Hiçbir zaman en iyisi olmayabilirdi ama yeterince iyiydi. Pek çok şey onun için doğal gelmiyordu, bu yüzden “ideal eş” gibi görünmeyebilirdi. Ama neden Aisha ile kıyaslayalım ki? Norn çalışkan biriydi ve sürekli olarak ilerleme kaydediyordu. Hayatı boyunca da böyle devam edecekti çünkü o böyle bir insandı. O iyi bir çocuktu—gurur duyabileceğim bir küçük kardeşti.</p>
+
+            <p>Ruijerd onun ne kadar çabaladığını biliyordu. Ona, Norn’un güçlü ya da zayıf yönlerini anlatmama gerek yoktu. Onu olduğu gibi sevmişti.</p>
+
+            <p>“Her zaman Norn’u koruyacağına söz veriyor musun?” diye sordum sonunda.</p>
+
+            <p>“Elbette,” dedi Ruijerd kararlı bir sesle. Tabii ki söz verirdi. Ölüm onları ayırana dek onu koruyacaktı.</p>
+
+            <p>“Norn evlendikten sonra zorlanabilir. Farklı bir ırktan insanlarla çevrili olacak ve ailesinden uzakta olacak. Ona destek olabilecek misin?”</p>
+
+            <p>“Evet,” diye söz verdi Ruijerd. Hayatı boyunca destek olacaktı.</p>
+
+            <p>“Hiçbir sebep yokken surat astığında ve kırıcı şeyler söylediğinde bile onu sevmeye devam edeceğine söz veriyor musun?”</p>
+
+            <p>“Evet.”</p>
+
+            <p>Bahse girerim böyle zamanlarda onu sarıp sarmalardı.</p>
+
+            <p>“Norn Millis inancına bağlı biri… Sadık kalacağına söz veriyor musun?”</p>
+
+            <p>“Evet.”</p>
+
+            <p>Bu zaten barizdi. Ruijerd’i hiçbir kadının cazibesi etkileyemezdi.</p>
+
+            <p>“Norn benden bile daha fazla sulu gözlü biri. Bu seni rahatsız etmez mi?”</p>
+
+            <p>“Etmez. Ne senin ne de onun ağlaması için bir sebep bırakmam.”</p>
+
+            <p>Geç kaldın. Büyük gözyaşları yanaklarımdan aşağı süzülüyordu. Ruijerd fazla konuşmuyordu, ama gözleri her şeyi anlatıyordu. “Bunların hiçbirini sorun etmem. Hepsini anlıyorum.”</p>
+
+            <p>Yer değiştirme olayından sonra Orta Kıta boyunca yaptığımız yolculuğun hatıraları zihnimde canlandı. Ruijerd yanımda olduğu sürece güvende hissediyordum. Ne tür canavarlar üzerimize gelirse gelsin, Ruijerd bizi hep korudu.</p>
+
+            <p>Kabul etmek gerekirse, canavarlarla savaşmadığı zamanlarda bazı zayıf yönleri vardı, ama kimde yok ki? Bu tür durumlarda Norn’un ona destek olması yeterliydi. Şimdiki haliyle, bunu yapabileceğinden emindim. Eğer yapamayacak biri olsaydı, Ruijerd asla onunla evlenmek istediğini söylemezdi zaten.</p>
+
+            <p>Omuzlarımdaki gerilim, yerini büyük bir rahatlamaya bıraktı.</p>
+
+            <p>“Kardeşime iyi bak,” dedim. Sonunda başımı eğip ona saygıyla selam verdim.</p>
+
+            <!-- Bölüm Sonu Görseli -->
+            <img src="bolum1foto3.png" alt="Bölüm 1 Görsel 3" class="novel-image">
+
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum1parca1.html" class="nav-btn">←Önceki Bölüm</a>
+            <a href="bolum1parca3.html" class="nav-btn">Sonraki Parça →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

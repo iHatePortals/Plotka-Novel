@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei Cilt 1, Bölüm 1 (Kısım 1) | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b; /* Mushoku Tensei Kırmızı Tema */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #cc0000;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c1b1b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        body.theme-light .nav-btn:hover, 
+        body.theme-light .action-btn:hover, 
+        body.theme-light .theme-select:hover,
+        body.theme-sepia .nav-btn:hover, 
+        body.theme-sepia .action-btn:hover, 
+        body.theme-sepia .theme-select:hover {
+            color: #ffffff;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+        }
+
+        /* Resimler için özel stil */
+        .novel-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 6px;
+        }
+
+        /* Ayrıştırıcı Çizgi */
+        .divider {
+            text-align: center;
+            margin: 2em 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="bolum2parca5.html" class="nav-btn">←Önceki Bölüm</a> 
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="bolum3parca1.html" class="nav-btn">Sonraki Bölüm →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Mushoku Tensei Cilt 2, Bölüm 2</h1>
+            <div class="subtitle">Millis Seyehatnamesi (Kısım 6)</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <img src="bolum2foto1.png" alt="Kitap Çizimi 1" class="novel-image">
+            <p>HAŞİN, GENİŞ DAĞ ZİRVESİ’NİN TALHAND’I, elli bir kardeşin otuz yedincisiydi. Sıradan bir cüce ailesinde doğmuş ve etrafı çok sayıda erkek ve kız kardeşiyle çevrili olarak büyümüştü. Elbette, elli birinin hepsi aynı anneden değildi. Cüceler hakkında az bilinen bir gerçek, köylerinin aynı neslin tüm çocuklarını birlikte büyütmesiydi. Bu bir okula benziyordu, tek farkı hayatlarının geri kalanında birbirlerini kardeş olarak görmeleriydi. Köyler bunu yapıyordu ki hiçbir çocuk kimin ailesinin zengin ya da fakir olduğunu bilmesin, bu da gelecekte köyde sorumluluk gerektiren pozisyonlara geldiklerinde herkesin anlaşmasını kolaylaştırıyordu. Biri şef olacak, bazıları şefi destekleyecek, diğerleri de eş olacaktı. Bu durum sadece bir köyde yaşayacak kadar ayrıcalıklı olanlar için geçerliydi. Köylerden ayrılan cücelerin böyle adetleri yoktu.</p>
+<p>Her neyse, Talhand düzinelerce erkek ve kız kardeşiyle sıradan bir çocuk olarak büyüdü. Toprak ve demirle ilgileniyordu, alkolün tadını seviyordu ve demircilere ve inşaatçılara hayranlık duyuyordu. Onunla ilgili biraz sıra dışı olan tek şey, kadınlar yerine erkekleri tercih etmesiydi. Ancak kardeşlerinden biri çok daha az sıradandı.</p>
+<p>Bu tuhaf olan, küçük kardeşi, elli bir kardeşin otuz sekizincisiydi: Mağrur Semavi Zirve’nin Godbard’ı. Godbard yetenekliydi. Tüm cüce çocukları daha beşikten yeni çıkmışken demircilik, zanaatkârlık ve temel toprak büyüsü öğrenmeye başlardı ama Godbard hepsini gölgede bırakıyordu. Ona bir çekiç verin, herhangi bir yetişkininki kadar sert çelik döverdi. Zanaat yapmasını isteyin, inanılmaz derecede harikulade süs eşyaları üretirdi. Ona bir bina gösterin, göz açıp kapayıncaya kadar tüm yanlışlarını düzeltirdi.</p>
+<p>Cüceler insanlardan daha uzun yaşardı. Godbard’ın yeteneklerinin ortaya çıkmaya başladığı zamanlarda, Laplace Savaşı’nı hatırlayan yaşlılar hâlâ hayattaydı. Godbard’da, o savaşta ölen Cevher Tanrısı’nın ta kendisini görüyorlardı. Bu yüzden Godbard müstakbel Cevher Tanrısı olarak kabul edildi ve özel muamele gördü. Diğer çocuklara, gelecekteki liderleri olarak ona itaat etmeleri gerektiği aşılanmıştı.</p>
+<p>Ondan sonra Talhand değişti. Demircilik ve zanaatkârlığa olan ilgisi buharlaştı. Ne kadar özenli bir çaba gösterirse göstersin, işinin her zaman Godbard’ın düşünmeden bir araya getirebileceği şeylerin gerisinde kalacağını fark etti. Elbette kimsenin onları karşılaştırdığı falan yoktu. Karşılaştırma yapabilmek için yetişkinlerin Godbard’ın eserlerinden başka bir şeye bakmaları gerekirdi. Peki, en iyi olmak için mi hırslanmıştı ya da Godbard’ın gölgesinde yaşamaktan nefret mi ediyordu? Hayır, ikisi de değildi.</p>
+<p>Aslında, Talhand ve Godbard iyi anlaşıyorlardı. Hepsi kardeş olduğunda, Godbard onun ilk arkadaşı ve ilk aşkı olmuştu. Talhand, Godbard’ın Cevher Tanrısı olmasından memnundu ve tek istediği ona faydalı olmaktı. Godbard’ın eksikliklerini telafi edebileceğini, onun sağ kolu olarak hareket edebileceğini hayal ediyordu.</p>
+<p>Bunu aklında tutarak, Talhand kendini büyüye adadı. Özellikle cücelerin gerek görmediği su ve rüzgâr büyüsünde ustalaşmaya odaklandı. İlk Cevher Tanrısı’nın, kendi büyüsüyle ürettiği cevherden harikulade bir kılıç yaratan Kutsal seviye bir toprak büyücüsü olduğu söylenirdi. Ancak, o büyük kılıç için rüzgâr ve su büyüsünde yetenekli bir elfin de elzem olduğu söylenirdi. Bir demircinin topraktan ve ateşten daha fazlasına ihtiyacı vardı. Alevleri körüklemek için hava ve çeliği söndürmek için su olmalıydı, ancak yetişkinler bu diğer elementleri anlamakla ilgilenmiyordu. Talhand’ı su ve rüzgâr büyüsü peşinde koşmaktan vazgeçirmek için akla gelebilecek her bahaneyi öne sürdüler: bu gelenek değildi; adaba aykırıydı; atalarının hiçbiri bunu yapmamıştı; cüceler bu işte iyi değildi.</p>
+<div id="model-response-message-contentr_0539f6e499fae90f" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Talhand toprak büyüsünde su veya rüzgâr büyüsünden daha doğal yetenekliydi ama Godbard ona, <b>“Bence harika bir fikir. Köyün yetişkinleri kendi bildiklerine çok saplanmışlar,”</b> deyince Talhand cesaretlendi ve kendini büyüsüne daha da adadı.</p>
+<p>Sonuç olarak, Talhand kendini diğer cüce erkeklerden uzaklaşırken buldu ve bazı kardeşleri onu eleştirmeye başladı. Yumuşak olduğunu, demircilik yapmamanın kadınsı olduğunu, bir cüce erkeğine yakışmadığını söylüyorlardı. Bir cücenin büyüye tek ihtiyacının sert ana kayayı kırmak olduğunu, demircilik için ise doğanın ihtiyaç duydukları her şeyi sağladığını söylüyorlardı. Talhand bu hakaretleri sıkıcı bulsa da, becerilerini yavaş yavaş geliştirmeye devam etti. Tüm bunları Godbard için yapıyordu. Godbard büyüyüp Cevher Tanrısı olduğunda, Talhand’ın güçlerine ihtiyacı olacaktı. Bundan emindi.</p>
+<p>Reşit olduktan sonra, eleştirel rehberlik yerini kabullenmiş bir güvensizliğe bıraktı. Kardeşleri ona bir dışlanmış gibi davrandı ve köyün en tuhaf garibi olarak ün saldı. O zaman bile, kesinliği hiç sarsılmadı.</p>
+<p>Sonunda o gün geldi—Godbard’ın Cevher Tanrısı olarak atanacağı gün. Gelenek, Cevher Tanrısı unvanını alacak olanın beş kılıç dövmesini gerektiriyordu. Her biri için, diğer herkesten daha çok güvendiği kişilerden birini kendisine yardım etmesi için seçerdi. Bunu yaparak, Cevher Tanrısı olduktan sonra cüce köyünü destekleyecek çekirdek liderleri kendisi belirlerdi.</p>
+<p>Doğal olarak, Talhand adını öne sürdü. Becerilerini işte bunun için geliştiriyordu. Şok edici bir şekilde, Godbard onu seçmedi. Önce, o zamanlar köyün en yeteneklileri olarak kabul edilen üç kişiyi seçti, sonra da sevgilisini. Bunlar o kadar da kötü değildi. Talhand’ı üzen, Godbard’ın seçtiği son kişiydi: ona aptal diyen yaşlı adam.</p>
+<p>Talhand protesto etti. Bunun çok çirkin olduğunu söyledi. Hayatını Godbard’a adamıştı!</p>
+<p>Godbard ona, <b>“Doğru düzgün bir kılıç dövebilir misin ki?”</b> diye sordu.</p>
+<p>Elbette. Talhand, <b>“Bir kılıç da neymiş. Yapabilirim. Sadece bana bir şans ver,”</b> dedi.</p>
+<p>Godbard bu durumdan pek memnun görünmüyordu ama Talhand’ın ricasını kırmamayı kabul etti. Dar görüşlü yaşlı adam ve Talhand birer kılıç dövecekti. Kim daha iyi kılıcı yaparsa o kazanacaktı. Tarafsızlığı sağlamak için Godbard, yarışmayı kazanabileceğini düşünen herkese açtı.</p>
+<p>Talhand’ın endişesiyle, yarışmaya çok sayıda insan geldi. Bu an için su ve rüzgâr büyüsünde eğitim görmüş olmasına rağmen, çocukluğundan beri bir demirci aleti eline almamıştı. Dövdüğü düzgün kılıçların sayısını bir elin parmaklarıyla sayabilirdi. Dezavantajı çok büyüktü.</p>
+<p><b>“Bekle,”</b> diye yalvardı. <b>“Sana bir kılıç dövmede yardım etmek istiyorum.”</b></p>
+<p>Şok edici bir şekilde, Godbard onu reddetti. <b>“Kendi başına düzgün bir kılıç bile dövemeyen bir adam benim ne istediğimi nasıl anlayabilir? Eğer bunu anlayamıyorsan, bana yardım edemezsin.”</b></p>
+<p>Bu Talhand’a hiç mantıklı gelmedi. Godbard’ı herkesten daha iyi tanıdığını sanıyordu. Bu nasıl olabilirdi?</p>
+<p>Aklı hâlâ karışıktı yarışmaya girdiğinde. Hiçbir planı yoktu—ve kaybetti. Talhand, diğerlerinin soğuk bakışlarını omuzlarında bir yük gibi hissederek, yıkılmış bir halde yarışmadan ayrıldı. Birkaç gün sonra, Cevher Tanrısı’nı adlandırma törenini uzaktan izledikten sonra köyü terk etti.</p>
+<p>Zamanla bir maceracı oldu, asla tek bir yerde kalmadı. Godbard’ın ihanetinin ardından kimseye güvenmekte zorlandı, bu yüzden zamanını yalnız geçirdi. Bu kadar uzun süre dışlanmış olmak kimseyle ilişki kurmayı zorlaştırıyordu ve ayrıca erkekleri tercih etmesi nedeniyle diğerlerinden aşağılık hissediyordu.</p>
+<p>Etraftaki en berbat cüce demircilerinden biri olmasına rağmen, yıllarca becerilerini geliştirmesi onu, büyük bir yetenek olmasa da, orta karar bir büyücü yapmıştı. Becerilerine uygun olması için, bir savaşçı ile bir büyücü tarzı arasında bir yerde ağır zırh giyerek savaşmak zorundaydı. Yine de, yalnız bir maceracının hayatı o kadar da zorlu değildi.</p>
+<p>Talhand, B-seviyeye yükseldiği sıralarda Elinalise Dragonroad ile tanıştı. Başlangıçta, onun ilgisi fizikseldi. Değişiklik olsun diye yatağına genç bir cüce almayı düşünmüştü ama Talhand, Elinalise ile ilgilenmiyordu. Onu ne kadar baştan çıkarmaya çalışırsa çalışsın, yemi yutmadı. Ama Elinalise pes etmeyecek kadar ısrarcıydı, bu yüzden Talhand sonunda ona kadınlarla ilgilenmediğini söyledi.</p>
+<p>Elinalise ağzı açık ona baktı, sonra kahkahalarla güldü. Bu onu rahatsız etmişti ama bu çapkın elften şimdi kurtulacağını düşünerek katlandı. Sadece, Elinalise gitmedi. Nedenini bilmiyordu ama Elinalise’in en azından onun kendisine dokunmayacağından endişelenmesine gerek kalmayacağını düşündüğünü sandı.</p>
+<p>Bunun ardından, Talhand ve Elinalise birkaç kez ekip oldular. Yetenekli bir dövüşçü olan Elinalise, Talhand gibi ağır zırhlı bir büyücü için iyi bir ortaktı. Tuhaftı ama, onu sinir bozucu bulmasına rağmen, Talhand onunla bir partide olmaktan rahatsız değildi. Belki de bunun nedeni Elinalise’in hiçbir norm, gelenek, anane veya kuralla kısıtlanmadan yaşamasıydı.</p>
+<p>Yine de, genç bir adamın ortaya çıkıp işleri biraz sarsmasına kadar partilerini kalıcı hale getirmeyi hiç konuşmadılar: Paul Greyrat. O zamanlar, Elinalise, Talhand, Geese ve Ghislaine hepsi yalnız takılıyordu ama Paul onları bir araya getirerek bir parti kurdu ve adını Kara Kurdun Dişleri koydular. O isim üzerinde biraz tartışma yaşanmıştı ama bu başka zamanın hikâyesi.</p>
+<p>Kara Kurdun Dişleri’nin tüm üyeleri eski hayatlarından dışlanmıştı. Talhand erkeklerden hoşlanan tek erkek olmasına rağmen, arzularının peşinden gitmekte özgürdüler. Özellikle Paul pervasız ve özgür düşünceliydi. Talhand’ın erkeklerden hoşlandığını öğrendiğinde, sadece gülüp geçmişti.</p>
+<div id="model-response-message-contentr_afbafcf40454898c" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p><b>“Ben kadınlarla yatarım, Elinalise erkeklerle, sen de geri kalanını alırsın—kimse boşa gitmez!”</b> dedi Paul.</p>
+<p>O bir haylazdı, okunması kolaydı ve sürekli Talhand’ın başını elleri arasına almasına neden olan maskaralıklar yapardı ama davranışları hiçbir şeyle kısıtlanmazdı ve alışılmadık hayaller kurmayı severdi. Toplum yaptığının yanlış olduğunu söylediğinde bile, Paul sadece içgüdülerini takip eder, yere tükürür ve <b>“Zerre umrumda değil,”</b> derdi.</p>
+<p>Paul, her şeye Talhand’a aydınlatıcı gelen bir gülümsemeyle katlanırdı. Davranışları Kara Kurdun Dişleri’ni kötü şöhretli yapsa da, Talhand bunu eğlenceli buluyordu. Tam bir cüce tarzıyla, Paul’ün yaptığı her şeye kahkahalarla gülerdi. Diğer adama karşı hisleri aşık olmaya benziyordu ama tam olarak aynı değildi. Bu güven olmalıydı. Partisinin bu üyeleri, güvendiği ilk arkadaşlarıydı.</p>
+<p>Ancak güveni sonunda kırıldı. Zenith partiye katıldığında paramparça oldu. Eskiden pervasız olan Paul, Zenith’i kazanmak için toplumsal olarak kabul edilebilir olana bağlı kalmaya başladı. Şüphesiz, bu değişiklikler Paul’ün bir insan olarak büyümesine yardımcı oldu. Ama ondan sonra hiçbir şey aynı olmadı. Zenith ile evlenerek neden olduğu çekişme, ilgili herkesin kalbinde derin yaralar bıraktı.</p>
+<p>Dışarıdan birine önemsiz görünebilirdi ama bu, Talhand’ın bir daha asla bir partiye katılmamaya karar vermesine neden oldu. Ondan sonra bir süre kendi başına seyahat etti. Sonra Fittoa’yı yerle bir eden olay geldi. Elinalise ile yeniden bir araya geldi, Roxy ile tanıştı ve birlikte bir parti kurdular. Bir partide olmama kararlılığı zayıfladı… ama Paul hakkındaki hisleri her zamanki gibi tazeydi.</p>
+<p>Paul’ü tekrar görmesi, İblis Kıtası’na gidip gelene kadar mümkün olmadı. O kadar zaman sonra Paul’ü gördüğünde, Talhand’ın tanıdığı genç haylazdan hiçbir iz yoktu. Paul bir adam, bir baba olmuştu ve şimdi sahip olduğu her şeyi ailesini aramak için adıyordu. <i>Değişmişti,</i> diye düşündü Talhand. <i>Büyümüştü.</i></p>
+<p>Paul’ün oğlu Rudeus ile ilk kez Begaritt Kıtası’nda tanıştı. Babası Paul olunca, çocuğun biraz işe yaramaz olmasını beklemişti ama beklenmedik bir şekilde olgun çıkmıştı. Gerçi, belki de bu o kadar şaşırtıcı değildi—babası, büyümüş olan Paul’dü.</p>
+<p>Talhand, Paul ve Rudeus’a baktığında göğsünün sıkıştığını hissetti ama nedenini asla anlayamadı.</p>
+<p>Sonra Paul öldü. Gösterişsiz bir sondu. Talhand şok olmuştu ama Rudeus için şokun daha da büyük olduğunu fark etti, bu yüzden belli etmekten kaçındı. Hiçbir şey olmamış gibi devam etti, her zamanki gibi içti. Olayların ardından Begaritt Kıtası’nı terk etti.</p>
+<p>Daha sonra Rudeus’un ailesiyle tanıştı. Çocuğun, inşa ettiği bir evde, kurduğu güzel bir aileyle iyi yaşadığını gördü. Talhand, Paul’ün mezarını ziyaret etti ve orada bir kadeh içti, sonra Büyü Şehri Sharia’dan bir kez daha yola çıktı.</p>
+<p>Seyahat ederken, içindeki bir şey sonunda ruhunu teslim etti. Maceracı olarak yola çıktığından beri onunla olan bir şeydi. Geride kaldığı boşluğun ortasında, Talhand’ın aklına bir fikir geldi.</p>
+<p>Demirciliği öğrenecekti.</p>
+<p>Fikrin nereden geldiğini tam olarak söyleyemezdi ama hemen Asura Krallığı’na yöneldi. Oraya vardığında, bir maceracı olarak çalışmaya devam ederken eğitim yapmak için bir demirci ocağı kiraladı. Geese’in kumar oynamaktan tutuklanmasıyla neredeyse her şeyini kaybettikten sonra biraz para kazanmak için Millis’e doğru yola çıktığında bile ara vermedi.</p>
+<p>Demirciliğinde elindeki tüm büyüleri kullandı—ateş, toprak, su, rüzgâr. Yaptığı her şeyi bunlarla destekledi. Kılıçlar, eldivenler, kalkanlar, daha fazla kılıç, zırhlar, miğferler ve daha da fazla kılıç dövdü. O zamanlar Godbard’ın ona ne söylediğini anlamaya başladı. Nefes alıp verme, zamanlama ve ritim, kullanılacak doğru kuvvet miktarı gibi kelimelerle ifade edilemeyen daha ince ayrıntıları kavradı. Talhand hızla gelişti. Godbard’ın demircilik yapma şekli zihninin gözüne kazınmıştı ve bir maceracı olarak hayatı sayesinde, bazı silahları ve ekipmanları neyin üstün kıldığını biliyordu. Büyü ustalığı da köyde olduğundan bir seviye yukarıdaydı. Talhand’ın maceracılıkla geçen zamanı onu daha güçlü yapmıştı.</p>
+<p>Becerileri üzerinde çalışmaya devam ederken, Ruquag Paralı Asker Birliği onun mallarını sormaya başladı. Rudeus ile olan tanışıklığı sayesinde, paralı asker şubesi şefi onun hamisi oldu ve Talhand’ın Millishion’da kendi ocağını kurmasına izin verdi.</p>
+<p>Ama tıpkı daha önce olduğu gibi, Talhand tüm bunları neden yaptığını bilmiyordu. Boş zamanlarında demircilik oynayan bir maceracının ne anlamı vardı ki? Her şey ancak Rudeus’un tüm ailesini Sharia’dan ziyarete getirmesiyle anlam kazandı.</p>
+<p>Paul’ün oğlunu (hem de onca insanın arasından) Latria’larla eşit-daha iyi bir konumda, kendi çocuklarını yetiştirirken görünce, her şey netleşti.</p>
+<p>Köye geri dönmek zorundaydı. Yarım kalmış bir işi vardı. İşte bu yüzden demircilik yapıyordu.</p>
+<p style="text-align: center;">***</p>
+<div id="model-response-message-contentr_78d705dca686c03f" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Rudeus ona siyah taş parçalarını verdikten sonra Talhand ocağına geri döndü. Uzun zamandır, bu tür bir taşı işleyebilirse ne yapacağına dair bir fikri vardı. Teorisini enine boyuna düşünmüştü. Bir zamanlar bu bir hayalden öteye gitmezdi ama şimdi, ihtiyacı olan tüm deneyime sahipti.</p>
+<p>Önce, Rudeus’un siyah taşını toprak büyüsü ve bir çekiçle parçaladı. Bunu demir kumuyla karıştırdı, sonra bu karışımı ocakta ısıttı. Ocağın normal ısısı yeterli olmayacağı için, sıcaklığı olabildiğince yükseltmek üzere ateş ve rüzgâr büyüsü uyguladı. Aşırı ısıtılmış tozu kullanarak, hem kılıcın çekirdeğini hem de dış yüzeyini oluşturacak metali yaptı. Oranlar farklıydı ama temelde aynı malzemelerdi. Bir kızıl ejderhanın pulları veya bir hidranın sert kemikleriyle daha da müthiş bir kılıç dövebilirdi ama Talhand bunları kullanmadı—eğer kullansaydı, tüm bu çaba anlamsız olurdu. Sonra, kılıcı iyice su verip tavladı, ardından bütün gece boyunca dinç bir şekilde çalışarak içine sürekli bir enerji ve mana akışı sağladı.</p>
+<p>Sonunda, elinde hem güçlü hem de siyah bir namluya sahip tek bir kılıç kalmıştı. Özel bir süslemesi veya özelliği olmamasına rağmen, Talhand eserinden memnundu. Ona bir kın yaptı, sonra ince yünden bir beze sardı ve sırtına bağladı. Bunu yaptıktan sonra, kalan siyah taş bloklarını bir çantaya doldurdu ve Millishion’dan ayrıldı. Hedefi, geldiği cüce köyüydü.</p>
+<p>Uzun zamandır uzaktaydı ama köy hiç değişmemişti. Taştan oyulmuş binaları bir uçurumun yamacına yerleştirilmişti ve etrafını saran yüksek taş duvarların içinden çelik üzerine inen çekiç sesleri geliyordu. Kapıda kimse Talhand’a meydan okumadı ve o da içeri girdi. Artık onlardan biri değildi ama cüceler, tanımadıkları bir cüceyi sorgulayacak kadar sıkı bir güvenlik tutmazlardı.</p>
+<p>Talhand, uçurumda makaraların sürekli hareket halinde çalıştığı büyük bir delik gördü. Bellerinden yukarısı çıplak ve ter içinde kalmış adamlar kömür ve demir cevheri çıkarırken, kadınlar omuzlarında dengelenmiş dağ gibi buharda pişmiş tatlı patateslerle madenin önündeki dinlenme alanına yürüyorlardı. Bu sahne onu nostaljiyle doldurdu. Zaman, çoğunu yabancıya dönüştürmüş olsa da onları değiştirmemişti. Etrafta dolaşırken birkaç meraklı bakışla karşılaştı ama buz gibi bakışlar yoktu. Ya hiçbiri onu tanımıyordu ya da hepsi onu unutmuştu. Her iki durumda da Talhand’ın keyfi kaçmadı. Tek bir hedefi vardı ve oraya doğru acele etti: şefin evi.</p>
+<p>Ama tabii ki, onu hatırlayanlar da vardı.</p>
+<p><b>“Haşin, Geniş Dağ Zirvesi’nden misin? Epeydir ortalarda görünmüyordun. Burada ne yapıyorsun?”</b></p>
+<p>Kardeşlerinden biri önünde durmuş, yolunu kesiyordu. Bu adam, çocukken Talhand’a gülenlerden ve Cevher Tanrısı’nın yakın çevresi için seçilenlerden biriydi.</p>
+<p><b>“Cevher Tanrısı’nı görmeye geldim.”</b></p>
+<p><b>“Havalara girme. Senin gibilerle görüşmeye tenezzül etmez.”</b></p>
+<p>Talhand tek kelime etmeden sırtındaki bohçaya uzandı. İnce yünlü kumaşı açtı, sonra kılıcı kınından çekti. Adamın nefesi kesildi. Namlu simsiyahtı, o kadar siyahtı ki sanki her bir ışık parıltısını emiyor gibiydi. Buna rağmen, hiç de pis veya uğursuz hissettirmiyordu. Aksine, gurur ve serin bir esintinin ferahlığını yayıyordu. Güzelliği tüylerini diken diken etti.</p>
+<p><b>“Bu da ne?”</b> diye sordu adam.</p>
+<p><b>“Ben dövdüm.”</b></p>
+<p><b>“Hadi oradan be!”</b></p>
+<p>Bir cüce demircisi için kılıçlar her şeydi. Büyük cüceler büyük kılıçlar döverdi. Bu asla <em>Talhand</em>‘sın eseri olamazdı.</p>
+<p><b>“Bu bir adak,”</b> dedi Talhand.</p>
+<div id="model-response-message-contentr_990a72d73abeb5a3" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>“Cevher Tanrısı” unvanı, dünyanın en büyük demircisinin bir diğer adı ve cüce halkı için bir gurur kaynağı olarak kabul edilirdi. Dünyadaki herhangi bir demirci, olağanüstü olduğunu düşündüğü bir şey dövdüğünde, Cevher Tanrısı’nın onu görmesi bir zorunluluktu—gerçi tüm sunumlar önce, vasat olan her şeyi geri çeviren başka bir cücenin uzman gözlerinden geçerdi. Şimdi Talhand’ın önünde duran adam işte o cüceydi. Talhand’a karşı hiç sevgisi yoktu ama kılıçlar doğruyu söylerdi. Siyah namlunun hiçbir süslemesi yoktu, ne de herhangi bir kestirme yola başvurulmuştu. Muhtemelen son derece sertti ve kolayca kırılabilecek bir namlu değildi. Kısacası, bir başyapıttı. Hiçbir cüce böyle bir kılıcın karşısında yalan söyleyemezdi.</p>
+<p><b>“İzin veriyorum. Geçebilirsin, Haşin, Geniş Dağ Zirvesi’nin Talhand’ı.”</b></p>
+<p><b>“Teşekkür ederim, Alevli Bıçak Çeliği’nin Doutor’u,”</b> diye cevap verdi Talhand, eski kardeşinin adını hafızasında bularak. Bir selamla kılıcı kınına geri koydu, yünlü beze sardı ve tekrar sırtına taktı. Cevher Tanrısı’na ulaşmadan önce birkaç kez daha böyle durduruldu ama kılıç her zaman geçişini sağladı.</p>
+<p>Cevher Tanrısı—Mağrur Semavi Zirve’nin Godbard’ı—Talhand’ın hatırladığından biraz daha yaşlı görünüyordu. Bu şaşırtıcı değildi. Talhand köyden ayrıldığından beri nice aylar geçmişti.</p>
+<p><b>“Yaşlanmışsın, Talhand,”</b> dedi Godbard.</p>
+<p><b>“Aynısını senin için de söyleyebilirim,”</b> diye cevap verdi Talhand.</p>
+<p><b>“Uzun zaman önce bir hendekte ölüp gittiğini sanmıştım.”</b></p>
+<p><b>“Denemediğimden değil.”</b></p>
+<p>Sadece kısa selamlaşmalarla yetindiler. Godbard’ın yanında karısı ve yakın çevresi oturuyordu. Köyün en büyük garibini bunca zaman sonra geri görmenin şaşkınlığını gizlemediler ama Talhand ve Godbard arasında gergin bir hava yoktu. Talhand, Godbard’la yüzleşirken kalbi huzur içindeydi.</p>
+<p>İkisi de konuşmadı. Talhand sakin olabilirdi ama Godbard’la konuşmaya niyeti yoktu. Söyleyebileceği pek çok şey olabilirdi—gördüğü şeyler, köyün dışında edindiği deneyimler, ama kelimelere gerek yoktu. Bunun yerine, sessizce kılıcı Godbard’a sundu, o da aldı ve aynı sessizlikle namlusuna bakmak için kınından sıyırdı.</p>
+<p><b>“Aman Tanrım.”</b> Godbard onu görür görmez bir hayranlık nidası attı. Değerlendirmek için siyah namluyu ışığa kaldırdı. <b>“İyi bir kılıç, inanç dolu… Yapımında hiçbir belirsizlik veya yarım kalmışlık yok ama tecrübesizliğin her parçasında kendini gösteriyor. Aynı malzemeler ve yöntemlerle dövdüğüm bir kılıç çok daha üstün olurdu.”</b></p>
+<p>Bunun üzerine Talhand hafifçe gülümsedi. Doğal olarak. Son birkaç yıldır dövme ve demirciliğe ne kadar emek vermiş olursa olsun, zanaatını yüz yılı aşkın süredir geliştiren Cevher Tanrısı ile boy ölçüşebileceği fikri gülünçtü. Talhand bunu iyi biliyordu. Kıkırdadı.</p>
+<p><b>“Komik bir şey mi var?”</b> diye sordu Godbard.</p>
+<p>Mesele şu ki, Talhand için asıl nokta bu değildi.</p>
+<p><b>“O malzemelerin ve yöntemlerin ne olduğunu bilmek ister misin?”</b></p>
+<p><b>“Merak ediyorum. Garip bir kılıç.”</b></p>
+<p>Bir demircinin Cevher Tanrısı’na adaklarını hangi malzemeler ve yöntemlerle dövdüğünü söylemesi normaldi. Kılıçları ona sunmalarının nedeni, tekniklerinin gelecek nesillere aktarılmasıydı. Hangi metalleri kullandıklarını, süreçlerini, ince ayarlarını ve iyileştirmelerini gelecek nesiller için bir kayıt olarak bırakmak isteyen çok kişi vardı.</p>
+<p><b>“Onu toprak büyüsüyle yaratılan taş çubuklardan yaptım,”</b> dedi Talhand. <b>“Büyüyle onları toza dönüştürdüm, demir kumuyla karıştırdım. Ateş ve rüzgâr büyüsüyle ocağımı tozu eritecek kadar sıcak bir sıcaklığa getirdim. Ondan sonra, onu dövdüm ve her zamanki gibi su verdim. Su büyüsüyle soğuttum.”</b></p>
+<p><b>“Toprak büyüsüyle yapılmış taş, ha?”</b> Bu sözler Godbard’ın dikkatini çekti ve aniden nedenini hatırladı: bu, daha önce duyduğu bir işlemdi. Önündeki çatlak cüce, gençken ona bundan defalarca bahsetmişti. <b>“Bu senin intikamın o zaman?”</b></p>
+<p><b>“Hayır,”</b> diye cevap verdi Talhand. <b>“Sadece aramızdaki bir şeyi halletmek istedim.”</b></p>
+<p><b>“Bu kılıcı gördüğümde sana geri dönmeni söyleyeceğimi mi sandın?”</b></p>
+<p><b>“Hayır. Ama duymak istediğim şeyi söyledin ve bu benim için yeterli.”</b></p>
+<div id="model-response-message-contentr_cb5c820814bb252f" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Godbard çok daha üstün bir kılıç dövebileceğini söylemişti ve bu tek başına Talhand’ı tatmin etmişti. Sanki çocukluğundan beri kalbinde irin bağlamış duygular kesilip atılmış gibiydi. Ah, evet, eğer aynı malzemeleri ve yöntemi kullansaydı, Godbard şüphesiz çok daha ince bir kılıç üretirdi. Ama büyü olmadan taşı ezemezdi ve ısıtılmış demir sadece suyla tam olarak soğutulamazdı. Gerçekten de, gerekli beceriye sahip bir büyücü olmadan kaybolurdu. Yine de, Godbard gibi dahi bir demirci muhtemelen Talhand’ın yöntemlerini kullanmadan taşı işlemenin zekice bir yolunu bulabilirdi.</p>
+<p><b>“Ve bu ‘taşı’,”</b> diye devam etti Godbard, <b>“sen yapabilir misin, Talhand?”</b></p>
+<p><b>“Hayır,”</b> diye itiraf etti Talhand. <b>“Onu arkadaşımın oğlu yaptı.”</b></p>
+<p>Çantasından üç parça taş çıkardı ve Godbard’ın önüne koydu. Godbard bir tanesini almak için uzandığında, ağırlığı karşısında gözleri büyüdü. Kesitine bakmak için onu yarmaya çalıştı ama başaramadı ve bir çekiçle ezmeye çalışırken de daha fazla başarı elde edemedi. Malzemenin sertliği ve dayanıklılığı onu hayrete düşürmüştü.</p>
+<p>Talhand, içinde onu kullanma arzusunun kabardığını görebiliyordu. Godbard’ın ağzında bir gülümseme belirdi.</p>
+<p>Talhand bunu gördü ve memnuniyetle başını salladı. Godbard’ın ifadeleri çocukluklarından beri değişmemişti. Yüzünü okumakta hiç zorlanmadı.</p>
+<p><b>“Birkaç gün içinde gelip kendini size takdim edecek.”</b> Godbard sessizdi. Rudeus’un yüzü zihninin gözünde canlanırken, Talhand yumuşakça sordu: <b>“Onunla görüşür müsünüz?”</b></p>
+<p>Yapmak için yola çıktığı şeyi zaten başarmıştı. Duymayı umduğu sözleri, duymak istediği kişiden duymuştu. Şimdi, sadece bunu mümkün kılan adama borcunu ödemesi gerekiyordu.</p>
+<p><b>“Pek güvenilir görünmediğini itiraf etmeliyim ve zahmete değmeyecek canavarca bir isteği olacağından emin olabilirsiniz… ama yine de cesur bir adam,”</b> diye devam etti Talhand. <b>“Onunla görüştüğünüze pişman olmayacaksınız. O kılıç üzerine yemin ederim.”</b></p>
+<p>Godbard kılıçtan taşlara ve tekrar geriye baktı. Yanındaki karısı ve danışmanları kendi fikirlerini içlerinde tutuyorlardı ama Godbard onlara sormayı planlamıyordu. Talhand, eski halinden neredeyse tanınmaz haldeydi. Godbard, taşı yaratan bu büyücünün işin içinde olduğundan şüpheleniyordu. Merakı kabarmıştı.</p>
+<p><b>“Pekâlâ,”</b> dedi. <b>“Adı ne?”</b></p>
+<p><b>“Rudeus Greyrat.”</b></p>
+<p><b>“Anlıyorum.”</b> Adı hafızasına kazıyarak, Godbard başını salladı.</p>
+<p>Bununla, Talhand ayağa kalktı. Bu sadece sözlü bir anlaşmaydı ama bu onu tatmin etti. Godbard sözünü çiğneyecek biri değildi. Talhand bir zamanlar öyle hissetmişti ama aralarında kırılacak bir söz olmamıştı. Talhand tecrübesizdi ve haddini aşmıştı. Hepsi bu.</p>
+<p><b>“Gidiyor musun?”</b> diye sordu Godbard.</p>
+<p><b>“Evet.”</b></p>
+<p><b>“Buradaki varlığına kimse itiraz etmez.”</b></p>
+<p><b>“Millishion’da kendi ocağım var. Kalan günlerimi orada geçirmeyi düşünüyorum,”</b> dedi Talhand.</p>
+<p>Bununla, Cevher Tanrısı’nın evinden ayrıldı. Bir noktada, eski kardeşleri dışarıda toplanmıştı. Bakışları sertti ve bazıları küçümsemelerini gizleme zahmetine bile girmedi.</p>
+<p><b>“İzninizle,”</b> dedi Talhand. Yürümeye başladığında, yolunu açmak için ikiye ayrıldılar. Köyden çıkarken onu şaşkınlık ve aşağılama dolu bakışlar takip etti. Kimse onunla konuşmadı. Kimse peşinden gelmedi. Yine de Talhand, adımları yaylanarak yürüyordu, kalbi bulutsuz bir gökyüzü kadar berraktı. Sonunda, laneti kalkmıştı.</p>
+<p>Bir ay sonra, Cevher Tanrısı, büyük miktarda karanlık taş karşılığında Ejderha Tanrısı ile bir ittifak kurmayı kabul edecekti.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum2parca5.html" class="nav-btn">← Cilt İçeriği</a>
+            <a href="bolum3parca1.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei Cilt 2, Bölüm 3, Parça 2 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #cc0000;
+            --border-color: #e5e7eb;
+        }
+
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c1b1b;
+            --border-color: #d8c8b4;
+        }
+
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        body.theme-light .nav-btn:hover,
+        body.theme-light .action-btn:hover,
+        body.theme-light .theme-select:hover,
+        body.theme-sepia .nav-btn:hover,
+        body.theme-sepia .action-btn:hover,
+        body.theme-sepia .theme-select:hover {
+            color: #ffffff;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+        }
+
+        .novel-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 30px auto;
+            border-radius: 6px;
+        }
+
+        .section-break {
+            text-align: center;
+            margin: 30px 0;
+            color: var(--accent-color);
+            letter-spacing: 4px;
+        }
+
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <div class="controls">
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="bolum3parca3.html" class="nav-btn">←Önceki Bölüm</a>
+            </div>
+
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <div class="nav-right">
+                <a href="../cilt2/bolum0.html" class="nav-btn">Sonraki Bölüm →</a>
+            </div>
+        </div>
+
+        <header>
+            <h1>Mushoku Tensei Cilt 2, Bölüm 4</h1>
+            <div class="subtitle">"Çılgın Köpek Dedikleri Kadın"</div>
+        </header>
+
+        <main class="novel-text" id="text-content">
+            <img src="bolum4foto1.png" alt="Bolum 3 Foto 1" class="novel-image">
+           <p>Arkadaşım Dohga’nın yakın zamanda evlendiğini duydum. <strong>Kuzey İmparatoru Dohga</strong>—hayatımı borçlu olduğum o nazik güçlü adam. Açıkçası, başta biraz endişelendim. O saf yürekli adam mı evlenmiş? Kesin bir yılan ruhlu kadın onu kandırmıştır. Eğer öyleyse, gidip onu kurtarmak bana düşerdi tabii.</p>
+<p>Ariel’den bir şeyler öğrenmeye karar verdim. Adam avcısını araştırmaya kafayı iyice takmışken <strong>Eris</strong>’e bir mektup geldi. Mektubu gönderen, <strong>Isolde Cluel</strong>’di. <strong>Su İmparatoru Isolde</strong>—Biheiril Krallığı’ndaki savaşta bize yardım eden o masum güzellik. Mektubunda Su Tanrısı unvanını aldığından ve <strong>Reida</strong> ismini miras bıraktığından bahsetmişti. Ayrıca, aşık olduğunu ve evlendiğini yazmıştı… Hem de <strong>Dohga</strong> ile.</p>
+<p>Şaka gibi, o narin güzellik <strong>Dohga</strong>’nın karısı olmuştu. Kutlamak gerekirdi tabii. Ama Biheiril Krallığı’nda bize yardım etmiş olsa da, geceleri ne işler çevirdiğini kim bilebilirdi? Bu ihtimali göz ardı edemezdim.</p>
+<p><strong>Eris</strong>’e, <strong>Isolde</strong>’nin nasıl biri olduğunu sordum. Eris, <strong>“Kötü biri değil,”</strong> dedi. Ama bu beni pek tatmin etmedi. O yüzden Asura Krallığı’na gidip <strong>Ariel</strong>’in bu konudaki fikrini bir öğreneyim dedim. <strong>Luke</strong>’la arayı yapıp, <strong>Ghislaine</strong>’den ufak ufak bilgi topladım. Hatta bir süre gölgelerde pusuya yatıp <strong>Dohga</strong>’yı gözlemledim, Su Tanrısı eğitim salonuna gidip kendimi tanıttım, ardından <strong>Cluel</strong> ailesinin başına da ufaktan sorular sormayı ihmal etmedim.</p>
+<p><strong>“Vay,” </strong>dedi Ariel alaycı bir şekilde,<strong> “ne kadar boş vaktin varmış senin.”</strong></p>
+<p>Öyle bir şey yoktu! Bunu sırf vakit öldürmek için yapmıyordum—<strong>Dohga</strong>’ya hayatımı borçluydum ve onun üzülmesine izin veremezdim!</p>
+<p>Her neyse, sonunda bir gerçek ortaya çıktı: <strong>Isolde</strong>, adam seçerken dış görünüşe önem veren bir tipti.</p>
+<p><em>Demek gerçekten kara kalpli bir şeytansın, <strong>Isolde</strong>… Ama bunu öylece kabul edeceğimi sanma…</em></p>
+<p>Tabii araştırmamın sonucunda ikisinin de birbirine sırılsıklam aşık olduğunu öğrenmem biraz tatsız oldu.</p>
+<p><strong>Dohga</strong> gerçekten mutlu görünüyordu. Söylentiye göre etrafta kimse yokken, Isolde ona <strong>“aşkım”</strong> diyormuş ve onu öpücüklere boğuyormuş. <strong>Isolde</strong>’nin tipine göre adam seçtiğini düşündüğümden, <strong>Dohga</strong>’nın yüzünden başka bir şey bulmuş olmalı ki onu seçmiş. Karmaşık bir yol izleyerek de olsa sonunda ruh eşini bulmuştu.</p>
+<p>Aynı şekilde, <strong>Dohga</strong> hayatımı kurtarana kadar onu tamamen işe yaramaz bir odun sanıyordum. Kendi içimde kötü niyetli biriydim, kötü adam rolündeydim. Öyleyse, <strong>Isolde</strong>’yi nasıl yargılayabilirdim ki? Bu sonuca vardıktan sonra çifti kutsayıp eve doğru yola koyuldum.</p>
+<p><em>Ama <strong>Isolde</strong> ve <strong>Dohga</strong> ha?</em> İnsan kimin kiminle olacağını gerçekten kestiremiyor. Düşünsene, ben bile üç kişiyle evleneceğimi hayal edemezdim. Kendi evliliklerim yüzünden duygusallaşarak eve dönerken içimden böyle düşündüm.</p>
+<p>Üç gün sonra:</p>
+<p>“Canım canım canım, ben beastfolk köyüne gitmek istiyorum!” Bu, <strong>Eris</strong>’ti. <strong>Isolde</strong>’nin evlilik haberi neşesini yerine getirmişti ve bu da bizim alışıldık koltukta yayılma zamanımızdı.</p>
+<p><strong>“Ne oldu şimdi durduk yere?”</strong> diye sordum. <strong>Eris</strong>’in sağ tarafına oturmuştum. Sol tarafında ise <strong>Pursena</strong> vardı; kafasını <strong>Eris</strong>’in kucağına koymuş, kıvrılmış bir şekilde kitap okuyordu. İkisi arasında bana yeterince yer kalmamıştı.</p>
+<p><strong>Linia</strong> ve <strong>Pursena</strong> son zamanlarda <strong>Eris</strong>’in maiyetinde takılan tipler olmuştu, ama Pursena <strong>Leo</strong>’nun yardımcısı olduğu için genelde buradaydı ve şu anda olduğu gibi <strong>Eris</strong>’e yapışıyordu. <strong>Pursena</strong> biraz köpek gibiydi, bu yüzden <strong>Eris</strong>’in ilgisini seviyordu. Ama <strong>Linia</strong>, Eris’i pek sevmezdi. O daha çok bir kedi gibiydi ve Eris’in abartılı tavırları ona fazla geliyordu. Şu anda <strong>Leo</strong>, Eris’in ayaklarının dibinde kıvrılmış yatıyordu ve <strong>Lucie</strong> ile <strong>Sieg</strong> onun üstüne tünemiş uyuyordu. Eris’in bağırmalarına rağmen hiçbiri kımıldamadı. Sanırım alışmışlardı.</p>
+<p>Bayağı bir aile ortamı gibiydi.</p>
+<p>Ama beastfolk köyü mü? Eris için o yer hem bir uyuşturucu hem de bir cennet gibiydi. Büyük ihtimalle şu şekilde giderdi: <strong>Beastfolk köyündeyiz! Beastfolk çok tatlı! Bak şu bebeğe! Bebeğe bak! Aman Allahım, ne şirin bir bebek! Biri benim olabilir mi?</strong></p>
+<p>Oldukça tehlikeli!</p>
+<p><strong>“Hatırlasana, geçen sefer gittiğimizde Linia’nın küçük kız kardeşleriyle arkadaş olmuştum. Ne durumda olduklarını görmek istiyorum!”</strong></p>
+<p><strong>Minitona</strong> ve <strong>Tersena</strong>‘ydı değil mi? Aynen öyle, ikisi de şimdiye kadar savaşçı şefi adayı olacak kadar büyümüş olmalı, hatta ablalarını geride bırakmışlardır bile. Pursena konumunu kaybetmemiş olsaydı, şimdi bir aday değil de bir danışman olabilirdi. Belki de savaşçı şefi olarak çalışan yüksek profilli bir kariyer kadını olurdu. Ama şu an benim kanepemde yayılmaktan başka bir şey yapmıyor.</p>
+<p>Evet, konumunu kaybetmişti, ama hâlâ <strong>Ruquag’ın Paralı Askerler Birliği</strong>’nin ikinci komutanıydı. Bu görevde canını dişine takarak çalışıyordu. Paralı askerlerin sayısı artmıştı ve Linia ile Pursena, yönettikleri insan sayısı arttıkça daha saygın bir konuma yükselmiş gibi görünüyorlardı. Hayatta bulundukları yer konusunda çok da endişeli değillerdi sanki.</p>
+<p><strong>“Hani hatırlıyor musun? Lara biraz büyüyünce gideceğiz demiştin!”</strong></p>
+<p><strong>“Yani, on beşine geldiğinde falan dedim…”</strong></p>
+<p><strong>“Daha erken gitsek ne olur?”</strong></p>
+<p><strong>“Eh, olabilir sanırım.”</strong></p>
+<p><strong>Lara</strong> onların kurtarıcısı olacaktı. Bunu garanti altına almak için <strong>Leo</strong> ile o kadar yakınlardı ki, neredeyse birbirlerinin aklını okuyacak duruma gelmişlerdi. Küçük yaştan itibaren hayvan insanlarla yakın bağlar kurmak kötü bir fikir olmayabilir.</p>
+<p>Ama! <strong>“Pat diye birden gidemeyiz”</strong> diye itiraz ettim.</p>
+<p><strong>“Bir şey olmaz! Değil mi Pursena?”</strong></p>
+<p><strong>“Sorun olmaz,”</strong> dedi umursamazca.</p>
+<p><strong>“Yok, sen de geleceksin.”</strong></p>
+<p><strong>“Gelirim, ama bu işe yaramaz ki.”</strong></p>
+<p><strong>“Ne, umurunda değil mi?”</strong></p>
+<p>Geçen sefer <strong>Pursena</strong> köyün erzak deposundan bir şeyler aşırdığı için tutuklanmıştı. Haklı gerekçeler vardı, bu yüzden ceza olarak <strong>Leo</strong>’nun yardımcısı olmaya mahkûm edilmişti. Teoride, bu işi <strong>Lara</strong> ergenlik çağına gelene kadar sürdürürse, kabile liderliği için yeniden aday olabilirdi. Ama kariyer basamaklarından düştüğü açıktı. Gururlu hayvan insanların, yıllar sonra köye dönüp elini kolunu sallayarak liderliğe soyunan bir <strong>Pursena</strong>’yı kabul edeceğini düşünmek zordu.</p>
+<p><strong>“Patron, ben Ruquag’ın Paralı Askerler Birliği’nin ikinci komutanıyım… Yani, sürünün alt lideriyim diyebiliriz. Linia’nın alt sıralarında olmaktan hoşlanmasam da, diğer sürülerin yanında bir duruş sergilemek zorundayım.”<br>
+</strong><br>
+<strong>“Dur bir dakika, sen hâlâ Doldia Kabilesi’nin liderliği için aday değil misin ya?”</strong></p>
+<p>Yok artık. Yoksa pes mi etmişti? Lider olamasa bile, <em>“Ya, ikinci komutanlık da iyi bir şey sonuçta”</em> gibi bir düşünce mi vardı aklında?</p>
+<p>Ama dünyaya göre bizimki hâlâ küçük çaplı bir girişim, biliyorsun, değil mi?</p>
+<p><strong>“Heh heh. Anlamıyor musun Patron? Ruquag’ın Paralı Askerler Grubu’nun ikinci adamı olarak Doldia kabilesinin lideri olacağım. Doldialar güçlü bir grupla bağlantı kuracak. Lider seçildiğinde kendimi diğerlerinden ayırmam böyle olacak işte. Buna muzaffer dönüşüm diyebiliriz!”<br>
+</strong><br>
+Şimdi, <strong>Doldia</strong>lar zaten benimle bağlantılıydı, dolayısıyla dolaylı olarak <strong>Ruquag</strong>’ın grubuyla da ilişkileri vardı… Ama bu bağ ne kadar sağlamdı? Kendi kanlarından birinin iki grupta birden bulunması, onların da işine gelirdi.</p>
+<p><strong>“Ah, ama kutsal canavar ve Lara Hanım’ı alıp gitmek için biraz daha beklemek daha iyi olabilir.”</strong></p>
+<p><strong>“Niye ki?”</strong></p>
+<p><strong>“Çünkü, canavar halkı için kutsal canavarın yolculuğa çıkması özel bir anlam taşır. Bunun büyük bir olay olmasını isterler, bir tören ya da festival gibi. O gün, kurtarıcıyı ilk kez görecekleri gün olur. Önemlidir.”</strong></p>
+<p>Demek <strong>Lara</strong>’yı şimdiden sahneye çıkarmak pek akıllıca olmazdı.</p>
+<p><strong>“Doldia kabilesi bu iş için yıllarını harcar. Ormandaki tüm kabileleri yardıma çağırıp işi büyük bir şölene dönüştürürler.”</strong></p>
+<p><strong>“Anladım… Yani, maddi destek sağlamak konusunda elimden geleni yapmaya hazırım.”</strong></p>
+<p>Cebimdeki harçlık bir canavar halkı festivalinde fazla işe yaramazdı, ama sonuçta ben <strong>Greyrat</strong> ailesinin reisiydim. Kızımın büyük günü için ne gerekiyorsa yapar, gerekirse patronumdan borç istemeye bile cesaret ederdim.</p>
+<p><strong>“Olmaz. Doldia kabilesi gururludur. Canavar halkının lideri olmalarının sebebi de budur. Her şeyi kendileri halleder.”</strong></p>
+<p>Demek bu da bir gelenek ya da alışkanlık meselesiydi, ha? Pekala, Doldialar yardım kabul etmeyecek kadar gururluysa, onların işine karışacak değilim.</p>
+<p><strong>“Yine de, en azından şimdiden düzenlemeleri konuşabilirsin.”</strong></p>
+<p><strong>“Doğru.”</strong></p>
+<p>Törenin nasıl bir şey olacağını bilmezsem, <strong>Lara</strong>’nın buna nasıl hazırlanması gerektiğini de bilemezdim. Tehlikeli olacağını sanmıyordum ama önceden bir fikrim olması içimi rahatlatırdı.</p>
+<p><strong>“Öyleyse, oraya bir uğrayalım.”</strong></p>
+<p><strong>“Tamamdır!”<br>
+</strong></p>
+<p><strong>Eris</strong> bir anda ayağa fırladı, <strong>Pursena</strong> da bir çığlıkla yere kapaklandı. Görünüşe göre bu sırada <strong>Leo</strong>’nun kuyruğunu ezmişti çünkü Leo homurdanıyordu. Eris hemen özür üstüne özür diledi. Bu sırada, gözleri mahmur <strong>Lara</strong> başını kaldırıp bana doğru kollarını uzattı. Onu kucağıma aldım.</p>
+<p><strong>“Hadi gidelim!”</strong></p>
+<p><strong>“O kadar acele etme. Önce Orsted’den onay almamız lazım. Meşgul olabilir.”</strong></p>
+<p><strong>“Ne?!”</strong> diye sızlandı Eris.</p>
+<p>Ama işimi bırakıp eğlenceye dalacak bir adam değildim. Yine de, CEO’nun <strong>Lara</strong> ile ilgili bir konuda beni geri çevirmesi pek olası değildi. Daha önce hiç <strong>“Eğer buna zamanın varsa, çalışmaya da zamanın var,”</strong> dediğini duymamıştım. Ama bu duruma fazla güvenmek de doğru olmazdı.</p>
+<p>Eris çoktan oturma odasının kapısına varmıştı ama birden durakladı.</p>
+<p><strong>“Ghislaine’i de götürelim!”</strong></p>
+<p><strong>“O gelir mi ki?”</strong></p>
+<p>Ghislaine’in Doldia köyünde nasıl bir muamele gördüğünü tam olarak bilmiyordum, ama <strong>Gyes</strong>’in tutumunu hatırladığım kadarıyla, aralarında bir gerginlik olduğu kesindi.</p>
+<p><strong>“Neden gelmesin ki?”</strong> diye sordu Eris diklenerek. <strong>“Ghislaine Asura’nın şövalyesi! Geçen sefer altın zırhı bile vardı! Bu tam bir zafer dönüşü olur!”</strong></p>
+<p><strong>“Doğru,”</strong> diye mırıldandı Pursena. Gözlerini kimseyle buluşturmadan, kuyruğunun ucunu garip bir şekilde oynatıyordu. Suratından, Ghislaine’in köyde nasıl muamele gördüğünü çok iyi bildiği anlaşılıyordu.</p>
+<p>Ghislaine’in kendisi ise Doldia kabilesiyle ilgili pek de çatışmalı bir hava sergilemiyordu. <strong>Gyes</strong> de onun hakkındaki fikrini gözden geçirmiş gibi görünüyordu. Belki de aralarındaki meseleleri düzeltmeleri için güzel bir fırsat olurdu. Bu gidişle <strong>Ghislaine</strong> bir daha köye dönmeyecek, ömrünün sonunda yatakta mırıldanarak, <strong>“Keşke bir kere olsun eve gitseydim…”</strong> diye hayıflanacaktı.</p>
+<p><strong>“Tamam. Onu da çağıralım.”</strong></p>
+<p><strong>“Yaşasın!”</strong> diye zafer kazanmış gibi odadan çıktı Eris. Leo da arkasından, sırtında Sieg ile birlikte onu takip etti. Geriye Pursena ve kucağımda tekrar uyuyakalmış olan Lara kalmıştı. Kızımı uyandırmamak için kendimi yavaşça kanepeye bıraktım. <strong>Pursena</strong> hiçbir şey olmamış gibi yanımıza oturdu ve başını dizlerime koydu. Hafifçe dizlerimi oynatıp onu kaldırmaya çalıştım.</p>
+<p><strong>“Ay, canım acıdı.”</strong></p>
+<p><strong>“Bir adamın karısının dizlerine kafanı koyamazsın.”</strong></p>
+<p><strong>“Ne kadar bencilsin! Hem sen kocasısın.”</strong></p>
+<p><strong>“Hayır, ben aslında Eris’in utangaç geliniyim.”</strong></p>
+<p><strong>“Defol git!”</strong></p>
+<p><em>Bu bencillik değil. Ama bebeğimin yanında feromon saçmaya başlarsan ne olacak, ha?</em></p>
+<p>Pursena başını yana eğdi ve bu sefer ayaklarını dizlerime koydu. Eh, o kadar da kötü değildi. Bugün etekleriyle dolaşmıyordu, yani bacakları kapalıydı. Üstelik, <strong>Pursena</strong>’nın kuyruğunun bana değmesi fena hissettirmiyordu.</p>
+<p><strong>“Sadece bir şey soracağım…”</strong> dedim. <strong>“Siz Ghislaine hakkında ne düşünüyorsunuz?”</strong></p>
+<p><strong>“Bence babam ve diğerlerinde bazı takıntılar var, ama bizim için o havalı bir teyze gibi. Sonuçta her gün köyden ayrılıp kılıcıyla geçinen ve kılıç ustası olan birini görmüyoruz. O bizim neslimize ilham veriyor.”</strong></p>
+<p><strong>“Hmm. Anladım.”</strong></p>
+<p>Bu konuda hâlâ tam rahat hissedemesem de, Pursena öyle diyorsa mantıklıydı herhalde. Belki biraz anlayış gösterip destek olabilirdim. <strong>Ghislaine</strong>, eğer gitmek istemediğini söylerse mesele kapanırdı. Ama Eris onu davet ederse hayır diyeceğini pek sanmıyordum. O yüzden, geleceğini varsayıp ona göre hareket edecektim.</p>
+<p style="text-align: center;">***</p>
+<p>CEO hemen onayı verdi. Üstüne bir de bana yanında götürmem için bir hediye verdi. Yeni çocuksa durmadan konuşuyordu: <strong>“Nereye gidiyorsun?! Kiminle?! Kılıç Kralı Ghislaine mi?! Dövüş ne zaman?!”</strong> Ne dersem diyeyim anlamayacak gibiydi, o yüzden geçiştirdim. Bu da ona yetti gibi. Çocuk tahminimden de saf çıkmıştı.</p>
+<p>O gün geldi çattı. Linia ve Pursena, Ghislaine ile burun buruna geldiler.</p>
+<p><strong>“Sizinle tanışmak büyük bir onur, miyav! Ben Liniana Dedoldia, miyav!”</strong></p>
+<p><strong>“Hakkınızda çok şey duyduk! Ben de Pursena Adoldia!”</strong></p>
+<p>Hayatlarında hiç bu kadar düzgün davrandıklarını görmemiştim. Resmen mezun olmuş bir üst sınıf öğrencisi Spor Günü’ne geri gelmiş gibi saygılılardı.</p>
+<p><strong>“Sizin adınızı duyurmak için dışarı çıkışınıza hep hayran kaldık, miyav!”</strong></p>
+<p><strong>“Biz de bir gün kendimizi kanıtladıktan sonra gelip tanışırız diye düşünüyorduk!”</strong></p>
+<p><strong>Ghislaine</strong> ise tam bir emekli mafya babası havasındaydı. Kendini ezdirmezdi, ama ukalalık da yapmazdı. Büyük bir bekçi köpeğinin o sessiz duruşu… İşte o eski bildiğim <strong>Ghislaine</strong>’in aynısıydı.</p>
+<p><strong>“Gerçekten gelebiliyor musun? Halletmen gereken işler var gibiydi…”</strong></p>
+<p>Ghislaine, <strong>Sandor</strong> ve <strong>Isolde</strong>’la birlikte geçit alanında bir şeyler konuşuyordu. Oldukça meşgul görünüyordu…</p>
+<p><strong>“Şövalyelere yeni teknikler öğretiyorum.”</strong></p>
+<p><strong>“Ha, doğru ya. O iş vardı değil mi?”</strong></p>
+<p>Bu konuyu <strong>Ariel</strong>’den duymuştum. Asura Krallığı şu anda üç kılıç ustasına sahipti: biri <strong>Kılıç Tanrısı Stili</strong>‘nden, biri <strong>Su Tanrısı Stili</strong>‘nden, diğeri de <strong>Kuzey Tanrısı Stili</strong>‘nden birer usta. Fakat bu üçünden biri, öğretmenlikten hiç hoşlanmayan, çocukları sıraya sokmaktan başka derdi olmayan yaşlı bir çocuktu. Üç farklı savaşçı ve üç farklı stil bir araya gelince tahmin edebileceğin gibi sık sık çatışıyorlardı.</p>
+<p><strong>Sandor</strong>’un önerisiyle yeni bir şey deniyorlardı: Kılıç Tanrısı Stili, Su Tanrısı Stili ve Kuzey Tanrısı Stili’nin en iyi yönlerini alıp Asura Krallığı’nın şövalyeleri için yeni bir kılıç dövüşü stili geliştirmek. Bir Kılıç Kralı, şu anki Su Tanrısı ve eski Kuzey Tanrısı, kendi stillerini öğretiyor; eski Kuzey Tanrısı da bu stilleri bir araya getiriyordu. Bence sonunda sadece yeni bir Kuzey Tanrısı mezhebi çıkacaktı ama <strong>Ghislaine</strong>, <strong>“Ben bildiğim şekilde öğrettim. Ayrıntıları ona bırakıyorum,”</strong> dedi. Ghislaine’in varlığı beklenmedik bir şekilde olumlu bir etki yaratmıştı. İşini ciddiye alıyordu ama aşırı ince eleyip sık dokuyan biri değildi. Asura şövalyelerinin dövüş stili, ağırlıklı olarak Kılıç Tanrısı Stili’ne dayalı, biraz da Su Tanrısı ve Kuzey Tanrısı stilleriyle harmanlanmış bir şey olmuştu.</p>
+<p><strong>“Bununla zaten yeterince meşgul değil misin?”</strong></p>
+<p><strong>“Ah, kesinlikle öyle. Ama küçük Eris’e hayır diyemiyorum,”</strong> dedi <strong>Ghislaine</strong>. Gözlerini takip ettim ve tabii ki, Eris’te oradaydı. Kollarını kavuşturmuş, huysuz bir şekilde bekliyordu.</p>
+<p><strong>“Ben artık küçük hanım değilim!”</strong></p>
+<p><strong>“Doğru, şimdi evlisin,”</strong> diye gülerek yanıtladı Ghislaine. Linia ve Pursena ise sinsi sinsi kıkırdadılar.</p>
+<p><strong>“Ne var?”</strong> diye çıkıştı Eris.</p>
+<p><strong>“Bugün pek bir keyifli görünüyorsun, miyav!”</strong></p>
+<p><strong>“Tam bir çocuk gibisin.”</strong></p>
+<p><strong>“Boşver…”</strong> Eris, pozunu bozmadan başını çevirdi, dudaklarını büzerek homurdandı.</p>
+<p>Eris hâlâ Ghislaine’e hayrandı. Yeni bir yuvası ve ailesi olsa da, <strong>Roa Kalesi</strong>’nden, <strong>Fittoa</strong>’daki çocukluk evinden geriye kalan tek ailesi <strong>Ghislaine</strong>’di. Ona sanki uzaktaki sevilen bir akrabası gibi yaklaşıyordu. Ghislaine ile yeniden bir yolculuğa çıkma fikri, Eris’i heyecanlandırıyordu.</p>
+<p><strong>“Öyleyse yola çıkalım mı?”</strong> dedim. Ve böylece, Büyük Orman’daki Doldia Köyü’ne doğru bir kez daha yola koyulduk.</p>
+<hr>
+<h2 class="Para05" style="margin: 5pt 0cm; text-align: center;"><span lang="EN">Ghislaine</span></h2>
+<p>HAYATA PEK DE KOLAY BİR BAŞLANGIÇ YAPTIĞIMI SÖYLEYEMEM.</p>
+<p>Arada sırada, canavar insanlarında <em>“yavru canavar”</em> diye bilinen çocuklar doğar. Bunun kozmik bir nedeni falan yoktur. Bu çocuklar keskin dişlerle doğar, saldırgan ve korkmuş hayvanlar gibi her şeye saldırır. Konuşmayı asla öğrenemezler.</p>
+<p>Ben de onlardan biriydim. Çocukluğuma dair pek bir şey hatırlamıyorum ama en eski anılarımda bile kalbimi öfke dolduruyordu. Vücudumun her yanı sıkıştırıyor, işkence gibi geliyordu. Bu öfkeyi çevremdeki herkese yönelttim—onlar benim düşmanımdı. Niye böyle hissettiğimi hiç sorgulamadım. Şimdi bile bilmiyorum. Bugün bile o öfke içimin derinliklerinde gizleniyor, her sinir bozucu durumda başını kaldırıyor. Hatırladığım tek şey, yetişkinlerin öfkeli bağırışları ve kardeşlerimin yüzlerindeki korkuydu.</p>
+<p>Çoğu yavru canavar büyüdükçe sakinleşir. Beş yaşına geldiklerinde tek belirtileri biraz yavaş ve huysuz olmaktır. Ama ben farklıydım. Beşinci yaş günüm gelip geçti, ama hâlâ ortalığı kasıp kavuruyordum. Tam bir dehşet kaynağıydım. Beş yaş, az çok akıl yürütmeye başladığın bir çağdır, ama benim kafamda tek bir düşünce bile yoktu. Sürekli öfke nöbetlerine giriyor, diğer çocukları neredeyse öldürecek kadar ileri gidiyordum.</p>
+<p>Bunun bir nedeni yoktu; birinin yüzünü sevmezsem, harekete geçiyordum. Doldia Köyü’nde benim gibi başına buyruk çocukları çırılçıplak soyup buz gibi suyla yıkarlar. Bazen de karanlık bir ahıra bir gece boyunca kapatırlardı. Bu genelde çocuğu yola getirirdi—belki de içgüdüsel bir şey. Ama yavru canavarlar farklıdır. Ya da en azından ben öyleydim. Bilmiyorum. Belki başkaları böyle bir muamele karşısında kırılmıştır.</p>
+<p>Benim gibi çocuklar o kadar zorlayıcıdır ki, bazen <em>“kazalarla”</em> karşılaşırlar. Gece, ormanın canavar kaynadığı bir yerine bırakılırlar. Böyle şeyler olur.<br>
+Bana da denediler… Hayır, aslında yaptılar. Ne olduğunu tam anlamıyordum, ama tüm köyün beni uzaklaştırmaya çalıştığını bir şekilde anladım—sonuçta hayatta kalma içgüdüm vardı. Ama ölmedim, çünkü savaş eğitimi için gezen bir kılıç ustası beni kurtardı—<strong>Gall Falion</strong> beni yanına aldı.</p>
+<p><strong>“Çocuğu istemiyor musunuz? O zaman bana verin,”</strong> dedi. Beni terk edilmiş bir sokak hayvanı gibi evlat edindi ve köyden aldı. Ama sakın onu kurtarıcım olduğu için sevdiğimi sanma. Şirin bir çocuk değildim. Isırır, tırmalar, ulurdum, ama <strong>Gall Falion</strong> bunu pek takmadı. Beni alt etti, boynuma bir tasma taktı ve elime bir kılıç verdi.</p>
+<p>Sonra da şunu söyledi: <strong>“Bana sorarsan, sen kılıç sallamak için yaratılmışsın. Kavga mı edeceksin, o zaman bunu kullan.”</strong></p>
+<p>Geriye dönüp baktığımda, ustam <strong>Gall Falion</strong>’un tam anlamıyla deli olması gerektiğini düşünüyorum. Bir düşünün—bana bir kılıç verdi ve ne istersem onun üzerinde kullanabileceğimi söyledi. Bahsettiğimiz kişi benim. Bana asla bir kılıç teslim etmezdim.</p>
+<p>Yine de, tamamen başkalarının hayatını tehlikeye atacak kadar dikkatsiz değildi. Bir süre, insanların yaşadığı yerlerden uzak durduk. Ormanda dolaşıp vahşi hayvanlar ve canavarlar avladık.</p>
+<p>Sabahları ustam beni pestilim çıkana kadar döverdi. İş bittiğinde beni bir canavarın önüne sürükler ve onunla dövüşmeye zorlardı. Hayatta kalmak için savaşıyordum. Bazen yaralanıyordum ama hiç ciddi bir şekilde yaralanmadım ve ölmedim. Ustam, savaştığımız canavarların gücüne kıyasla ne kadar dayanabileceğimi hissediyor olmalıydı, çünkü beni hep zar zor yenebileceğim canavarlarla karşı karşıya getirirdi. Öğleden sonra, öldürdüğümüz canavarları yerdik. Günün geri kalanında ise ne istersem yapabilirdim.</p>
+<p>Başlarda ustama saldırdım ve onu öldürmeye çalıştım. Elbette ki beni hep ezip geçti. Beni bir kenara fırlatır, sonra biraz hırpalardı. Ama bu bile beni korkutmaya yetmezdi. Ayağa kalkar ve tekrar saldırırdım. Kural olarak, saldırılarımı yüzünde bir sırıtışla karşılardı. Bana kılıcı nasıl kullanacağım konusunda hiçbir resmi eğitim vermedi, zaten verse de dinlemezdim. Ancak kılıcı elimden bırakıp ona kılıçsız saldırdığım durumlarda farklılaşırdı. Eğer dövüş sırasında kılıcı bırakacak olursam, diliyle bir “tık” sesi çıkarır, ardından her zamankinden daha sert bir yumruk atar ve beni bayıltırdı. Uyandığımda kılıcım elime sıkıca bağlı olurdu.</p>
+<p>Gerizekalıydım, ama bir yıl boyunca bu böyle devam edince ben bile bir şeyler öğrenmeye başlamıştım. Onu yenemeyeceğimi ve rastgele saldırmanın bana yalnızca dayak olarak döneceğini anlıyordum. Bu kadarını bile düşünebilmem inanılmazdı, ama sanırım bir canavar bile ne zaman yenileceğini bilirdi.</p>
+<p>Bu benim hayattaki ilk dersimdi. O sıralarda, kılıç eğitimi de başladı. Ustam kelimelerle anlatıyordu: “Şunu yap, bunu yap. Mantıklı düşün. Rakibini yavaş yavaş, hamle hamle yıprat…”</p>
+<p>Zeki biri değilim. Yüz dersin onunu hatırlayabiliyordum. Dürüst olmak gerekirse hâlâ bu durum pek değişmedi.</p>
+<p>Ustam çok sabırlıydı. Muhtemelen, aynı şeyi tekrar tekrar çalışırsak benim bile bir gün ilerleyeceğimi biliyordu. Sanırım biraz yetenekliydim, çünkü hızla gelişim gösterdim. Aynı zamanda, belki de bu eğitim sayesinde, içimdeki o hayvansı etkilerin yavaş yavaş kaybolmaya başladığını fark ettim.</p>
+<p>Belki de her gün canavarları avlayıp durarak içimdeki dürtülerimi dışa vurduğum içindir, çünkü başka insanlarla karşılaştığımda, eskisi kadar öfkelenmiyordum. Ya da en azından, kimse benimle konuşmaya kalkmadığı sürece böyleydi—konuşmaya çalışırlarsa saldırıyordum. Sonunda ustam, artık beni kasabaya götürmenin güvenli olduğunu düşündü. İnsanlara biraz daha alışmıştım, ama başta boğucu bir histi. Çoğunlukla düşmanlıkla karşılanıyordum. Hâlâ öyle hissediyorum.</p>
+<p>Ustam, <strong>“Takma kafanı. Güçlü olursan hepsi susar. Sana yaranmak için birbirlerini ezerler. Hatta bazıları köpek yavrusu gibi peşine takılır,”</strong> demişti.<br>
+Bir yabancının köpek gibi peşime takılması fikri midemi bulandırmıştı.</p>
+<p>Sonra Eris’le tanıştım.<br>
+Yanılmışım. Sevilmek, nefret edilmekten iyiymiş.</p>
+<p>Her neyse, sonunda toplumun kenarına köşesine karışmayı başarmıştım. Ama hâlâ kimseyle gerçek bir sohbet yapmamıştım. Çok fazla kelime de bilmiyordum zaten. Yani, şöyle açıklayayım: Ustam hep bana beastfolk dilinde konuşuyordu ve on yaşıma kadar Doldia köyünde yaşamıştım, bu yüzden dili biliyordum. Ama kimseyle sohbet etmişliğim yoktu. İlk gerçek konuşmamın ne zaman olduğunu hatırlamıyorum, ama muhtemelen ustamlaydı. Belki ona küfür ediyordum ya da bir şey soruyordum—tam olarak hatırlamıyorum. Ama ustam böyleydi işte. Durumu büyütmeden cevap verirdi, bu yüzden benim için pek de fark etmemişti.</p>
+<p>İnsanlarla nasıl konuşacağımı öğrendiğim sıralarda, yolculuğumuz sona erdi. <strong>Kılıç Mabedi</strong>’ne vardık ve orası benim yeni yuvam oldu. Konuşmaya gerek yoktu, canımı sıkanları yere serebiliyordum. Doldia köyünde bunun için bana kötü bakarlardı, ama burada saygı kazandırıyordu. Kimse şikâyet etmiyordu, ben de istediğimi yapıyordum. Sadece insanları yere sermeye devam ettiğim sürece, <strong>Kılıç Mabedi</strong> tam bir cennetti. Basit bir hayat.</p>
+<p>Ama sonra, belki de fazla rahatladığım için, ustam beni kulağımdan tutup dışarı attı. <strong>Kılıç Mabedi’</strong>nin bir kuralı vardı: <strong>Kılıç Azizliği</strong> seviyesini geçen herkes, savaşçı eğitimini tamamlamak için dışarı çıkarılırdı. Belki de bu yüzdendi. Kimse bana bu konuda bir şey söylememişti. Sadece dışarı atıldım ve dış dünyayı görmem söylendi.</p>
+<p>Dış dünyaya çıktım, maceracı oldum, <strong>Paul</strong>’le tanıştım. Sonra yollarımız ayrıldı.</p>
+<p style="text-align: center;">***</p>
+<p><strong>“Sonra da benimle tanıştın!”</strong> dedi Eris neşeyle.</p>
+<p><strong>Kılıç Mabedi</strong>’ne giden yolda, Büyük Orman’dan geçen bir arabada hayat hikâyemi anlatıyordum. Hikâyem gerçekten ilginç miydi emin değildim, ama Eris pür dikkat dinliyordu. Linia ve Pursena da merakla kulak kesilmişlerdi.</p>
+<p><strong>“Doğru,”</strong> dedim. Eris, hikâyenin geri kalanını bildiği için kendinden gayet memnun bir şekilde sırıttı. <strong>Kılıç Mabedi</strong>’nden bahsettiğimde, kendinden emin bir şekilde, <strong>“Evet! Yeterince kişiyi dövünce sana saygı duyuyorlar!”</strong> demişti.</p>
+<p>Kılıç Mabedi, hem benim hem de Eris için bir nevi ikinci yuva gibiydi. Gerçi Eris için <em>üçüncü</em> yuva sayılırdı. Benim içinse… ilkti.</p>
+<p>Linia ve Pursena’nın gözleri hafiften kaymaya başlamıştı, ağızları biraz aralanmıştı. Eskiden bu durum beni çileden çıkarırdı. Ama artık pek umursamıyordum.</p>
+<p><strong>“Miyav, ne kahramanca bir hayat! Ben olsam, üzerime su döktükleri an uslu bir kız olurdum, miyav. Hatta şimdi düşününce, kesinlikle oldum da, miyav.”</strong></p>
+<p><strong>“Bana gelince, yapmaları gereken tek şey beni akşam yemeğinden mahrum bırakmaktı. Ama Linia’nın aksine, ben her zaman uslu bir kızdım, bu yüzden zaten doğal olarak doğru olanı yapıyordum.”</strong></p>
+<p><strong>“Ben de uslu bir kızım, miyav.”</strong></p>
+<p><strong>“İkiniz de bana kıyasla uslu kızlarsınız,”</strong> dedim. İkisi de mahcup bir şekilde enselerini kaşıdı.</p>
+<p><strong>“Sonrasında Rudeus’la tanıştım. Tam ayaklarımın üzerinde durmaya başlamıştım ki, Yer Değiştirme Olayı oldu.”</strong></p>
+<p><strong>“Evet! Fittoa’da Eris’le yeniden buluştun, sonra Kılıç Mabedi’ne geri dönüp eğitimine devam ettin, miyav?”</strong></p>
+<p><strong>“Evet, doğru,”</strong> dedim.</p>
+<p><strong>“Eğitimini bitirince, sen ve patron Asura’ya gittiniz ve Ariel’in hizmetkârı oldun, değil mi?”</strong></p>
+<p><strong>“Aşağı yukarı öyle. Her şey bittiğinde, Majesteleri kalmamı istediğini söyledi ve bana bu zırhı verdi.”</strong></p>
+<p>Şimdi altın bir zırhla kaplıydım. Doldia köyüne gideceğimi söylediğimde Kraliçe Ariel bu zırhı çıkartmış ve kesinlikle giymem gerektiğini söylemişti. Yolculuk sırasında çıkarmıştım ama şimdi köye neredeyse vardığımız için tekrar giydim.</p>
+<p><strong>“Ariel akıllıca davranmış, miyav.”</strong></p>
+<p><strong>“Evet. Gücünü göstermek önemli.”</strong></p>
+<p><strong>Linia</strong> ve <strong>Pursena</strong> genç Doldialılardı. Ah, doğru—Linia, <strong>Gyes</strong>’in kızıydı. İkisi de okula gitmiş ve sınıflarını birincilikle bitirmişlerdi. Şimdi bir paralı asker grubunu yönetiyorlardı ve beş yüzün üzerinde adamları vardı. Bu grup Rudeus için çalışıyordu, bu da dolaylı olarak Orsted için çalıştıkları anlamına geliyordu. Büyük bir gücün emrine verilmiş sorumluluk sahibi, zeki kızlardı. Gerçek birer başarı hikâyesiydiler. <strong>Gyes</strong>’in gurur duyduğuna emindim. Keşke onun yüzünü hatırlayabilseydim.</p>
+<p><strong>“Kimse tanıdığı o eski Ghislaine’in Asura’nın Yedi Şövalyesi’nden biri olduğunu hayal edemez, miyav.”</strong></p>
+<p><strong>“Evet. Ama şu parlak altın zırha bir bakan, durumu hemen anlar. Üzerinde Asura arması bile var. Bu, senin zafer dolu dönüşün. Herkes sana artık farklı gözle bakacak.”</strong></p>
+<p><strong>“Öyle mi?”</strong> Bu konuda pek bir fikrim yoktu, ama bu yetenekli Doldialılar böyle diyorsa, doğru olmalıydı.</p>
+<p><strong>“Evet! Kimse aksini söyleyemez!”</strong> dedi Eris. Ben bu zırhı giydiğimden beri nefesi daha hızlı çıkıyordu. Zırhın bana yakıştığını söylüyordu, ama bana göre fazla parlaktı… Yine de karanlıkta işe yarar diye düşündüm.</p>
+<p>Ama yalan söylemeyeceğim, hâlâ biraz gergindim. Hatırladığım Doldia Köyü beni reddetmişti.</p>
+<p><strong>“Hrm?”</strong></p>
+<p><strong>“Ah.”</strong></p>
+<p><strong>“Yaklaştık,”</strong> dedi Linia. Henüz hiçbir şey göremiyorduk ama havada tanıdık bir koku vardı: <strong>Doldia Köyü</strong>’nün kokusu. Kötü anılar. Kuyruğumun dip kısmı kaşınmaya başladı, boğazımdan bir hırıltı yükseldi. Koşma dürtüsü içimi kapladı.</p>
+<p><strong>“Ne düşünüyorsun, Rudeus?”</strong> diye sordum. <strong>“Sence sorun çıkmaz mı?”</strong></p>
+<p>Eski ben böyle bir soru sormazdım. Belki <strong>Kara Kurt’un Dişleri</strong> ekibindeyken <strong>Paul</strong>’e benzer bir şey sormuştum. O zaman ne demişti, hatırlamıyordum.</p>
+<p><strong>“Ha?”</strong> dedi Rudeus, arabanın sürücü koltuğunda oturduğu yerden. <strong>“Ah, evet, sorun olmaz herhalde? Eğer işler karışır gibi olursa, ben hallederim. Bana bırak.”</strong></p>
+<p>Şimdi hatırladım. Paul genelde şöyle cevap verirdi. <strong>“Eh, sorun olmaz. Olsa bile bir şekilde yoluna girer.”</strong></p>
+<p><strong>Geese</strong>, <strong>Talhand</strong> ve <strong>Elinalise</strong>’in gözlerini devirip iç çektiği günler daha dün gibi geliyordu, ama sonuçta <strong>Paul</strong> haklı çıkardı. Bir tek <strong>Zenith</strong>’le evlenip sonra ölmesi dışında işler hep bir şekilde yoluna girmişti.</p>
+<p><strong>“Evet, sorun olmaz… Bay Orsted’in onlar için verdiği hediyeyi ve bir kutu tatlıyı da getirdik… Ah! Hmm, bir de Linia ve Pursena yanımızda…”</strong> Sürücü koltuğundan gelen bu sözleri duyuyordum.</p>
+<p>Rudeus biraz dağılmış gibiydi. Karnını tutuyordu. Geçmişimi anlattığımda bu hareketi yapardı hep. Bunun sebebi neydi, kim bilir?</p>
+<p>Gerçekten de çok iyi bir şekilde büyümüştü. Zeki bir çocuktu, büyüdüğünde de zekâsını korumuştu ve hayatta kalmayı iyi biliyordu. Şimdi <strong>Yedi Büyük Güç</strong>’ten biriydi ve <strong>Orsted</strong>’in sağ koluydu. Eğer işleri yoluna koyacağını söylüyorsa, yapardı.</p>
+<p><strong>“Demek sen de bazen gerginleşiyorsun, Ghislaine, miyav.”</strong></p>
+<p><strong>“Anlıyorum. Baba ve diğerleri biraz katıdır. Şehir hayatına alışmış olan bizim gibileri kabul etmeleri zor oluyor sanırım.”</strong></p>
+<p><strong>“Merak etmeyin, Rudeus harikadır!”</strong> dedi Eris. Onu tam da hatırladığım gibi konuşurken duymak beni gülümsetti.</p>
+<p>Pencereden dışarı bakarken, arabanın yanında koşan birkaç savaşçı gördüm. Ağaçların gölgesine saklanmışlardı, hem kedi kadar çevik hem de kaplan gibi vahşiydiler. Rüzgâr ters yönden estiği için kokularını alamıyordum, ama tüm bölgeye sinmiş olan koku tek bir kabileye aitti. <strong>Doldia Köyü</strong>’ne, evime dönmüştüm.</p>
+<hr>
+<h2 class="Para05" style="margin: 5pt 0cm; text-align: center;"><span lang="EN">Gyes</span></h2>
+<p>BENİM JENERASYONUMDAKİ DOLDİALILAR İÇİN, Ghislaine Dedoldia korku ve küçümsemenin simgesiydi. O, gördüğümüz her şeyden daha anormaldi. Onun gibi çocuklara geleneksel olarak “küçük canavarlar” denirdi, ama o? Bambaşka bir şeydi—insan bile sayılmazdı.</p>
+<p>Sadece onunla konuşmanın imkânsız olması değildi mesele. Ne yaparsak yapalım, onunla iletişim kurmayı başaramıyorduk, ne istediğini anlamak mümkün değildi. Sürekli öfke ve hayal kırıklığı kokuyordu, gözlerinin içine bakmaya kalksanız bile size saldırıyordu. Beni defalarca neredeyse öldürüyordu.</p>
+<p>Her saldırı girişiminde bulunmasından sonra onu çıplak bırakıp şehirden getirilmiş suyla yıkıyor ve bir ahıra kilitliyorduk, ama hiçbir şey işe yaramıyordu. Bu ceza öfkeyi söndürmekte garantili bir yöntemdi; insanları öyle hızlı sakinleştirirdi ki, sonunda onlara acımaya başlardınız. Herkes üzerinde işe yarardı.</p>
+<p>Ama onun üzerinde yaramadı.</p>
+<p>Üzerine ne kadar su dökerseniz dökün, onu karanlıkta günlerce kapalı tutun, o sadece daha da öfkeleniyor, taşkınlıkları daha da şiddetleniyordu. Babamız onu öldürmeye karar verdiğinde bile hiçbir şey değişmedi; sadece başarısız oldu. Sonunda garip bir gezgin kılıç ustası onu alıp götürdüğünde derin bir rahatlama hissettim. Doldia Köyü’nde ölmemişti, ama en azından artık huzur bulabilirdim. O yaratık uzun süre hayatta kalamazdı diye düşündüm. Muhtemelen yalnız başına bir hendekte ölecekti.</p>
+<p>Bu yüzden, <em><strong>“Kılıç Kralı Ghislaine”</strong></em> adını rüzgâr bize taşıdığında, pek de ciddiye almadım. Ghislaine, Doldia kabilesinin kılıç ustası mı? İmkânsız. Adını bilen bir aptal, ününü parlatmak için bu ismi çalmış olmalı diye düşündüm.</p>
+<p>Bizim jenerasyon, korku ve dehşet karışımı bir hisle bu gerçeği reddetmeye devam etti. Çocuklar Ghislaine’in hikâyelerini duyduklarında, gözleri heyecanla parlıyordu. Onu tanımadıkları için, onlara köyden ayrılıp servetini kazanan birisi gibi geliyordu herhalde. Her durumda, onun yetişkinliğe kadar yaşayabileceğini hiç düşünmemiştim. Böylesine yıkım bırakan bir yaratığın hayatta kalması mümkün değildi. Şimdi büyüdüğümde, o dönemdeki halinin ne kadar acınası olduğunu anlayabiliyordum, ama yine de içimdeki öfke derinlere kök salmıştı. Ne zaman adını duysam, <em><strong>“Ghislaine, dünyada başarı mı kazanmış? Hadi oradan,”</strong></em> diye düşünüyordum.</p>
+<p>On yılı aşkın bir süre önce, insan çocuklar bize bir iblis savaşçı getirmişti. O zaman, Ghislaine’in inanılmaz hayat hikâyesini duymuştum. <em>Ghislaine, çocuklara kılıç kullanmayı öğretirken bir yandan da okumayı ve matematik yapmayı mı öğrenmiş? Şaka mı bu?</em> diye düşündüm. Çocukları gördüğü an yutacak biriydi. Doğası buydu.</p>
+<p>Ama o çocuklardan biri—<strong>Rudeus Greyrat</strong>—bana bir şey söyledi. <strong>“İnsanlar değişebilir,”</strong> dedi.<br>
+İmkânsız. Adını alan başka biri olmalıydı. Ya da öyle olmasını umuyordum.</p>
+<p>Şimdi, Ghislaine karşımdaydı.</p>
+<p>Yanında Usta <strong>Rudeus</strong> ve Bayan <strong>Eris</strong> vardı. Üstüne üstlük, aptal kızlarım da gelmişti. Neden geldiklerini sorduğumda, bunun, kutsal canavarın seçilmiş kurtarıcısı olan Rudeus’un kızı <strong>Lara</strong>’nın reşit olduğunda ne olacağına dair konuşmak için olduğunu söylediler.</p>
+<p>Gerçekten de Doldia kabilesi, kutsal canavarın yoldaşı ve kurtarıcı olarak seçilen çocuğun doğumunda bir tören düzenlerdi. Bu, Büyük Orman’ın tamamını kapsayan ve birkaç yıl süren hazırlıklar gerektiren büyük bir işti. Usta <strong>Rudeus</strong> başka bir türdendi ve Doldia kabilesi hakkında derin bir bilgiye sahip olduğunu sanmıyordum, ama yine de yardımını teklif etti. Bu çok değerliydi. Muhtemelen <strong>Linia</strong> ve <strong>Pursena</strong> onu bu işe dâhil etmişti.</p>
+<p>Kutsal canavara hizmet etmek için köyden ayrıldıktan sonra onlardan bir daha haber almamıştım, ama görünüşe göre işleri yolundaydı. Köyde kaldıkları süre boyunca, Usta <strong>Rudeus</strong>’a <strong>Ruquag’ın Paralı Askerler Grubu</strong> adlı bir sürünün liderleri olarak hizmet ediyorlardı. Bir ebeveyn olarak gururluydum. Önceki hatalarını telafi etmeye yetmezdi belki, ama bu, bir sonraki şefin seçimi konusunda gerginliği artan <strong>Minitona</strong> ve <strong>Tersena</strong>’yı tatmin edecek kadar büyük bir başarıydı. <strong>Minitona</strong> ve <strong>Tersena</strong> hırslıydı. Kızların başarısını gördükten sonra daha da sıkı çalışacaklardı.</p>
+<p><strong>“Kurtarıcı… Yani Lara, Kutsal Canavar’la yolculuğuna çıktığında, Büyük Orman’da yaşayan tüm kabilelerin bu törene rıza göstermesi ve törene katılması gerekir. Usta Rudeus, tüm bağlantılarınızla yardımınızdan çok memnuniyet duyarız.”</strong></p>
+<p><strong>“Bunu duymak güzel. Tüm işi kendiniz yapacağınızı ve bana sadece Lara’yı teslim etmemi söyleyeceğinizi düşünmüştüm.”</strong></p>
+<p><strong>“Ha ha. Başka bir insana böyle diyebilirdim belki, ama Doldia kabilesi için bu törenin ne kadar önemli olduğunu anlayan birine asla.”</strong></p>
+<p><strong>Rudeus</strong>’la konuşmam hoştu. Belki sadece hayal ediyordum, ama sanki <strong>Ghislaine</strong> konusunu dikkatlice geçiştiriyordu. Ortamda o türden bir koku vardı.</p>
+<p><strong>“Tamam, tüm kabilelere bildirimde bulunacağım ve hazırlıkları siz yapacaksınız. Peki Lara’nın kıyafeti dışında hazırlanması gereken bir şey var mı?”</strong></p>
+<p><strong>“Gerek yok; geleneksel kıyafetler var. Sadece…”</strong></p>
+<p><strong>“Ne oldu?”</strong></p>
+<p><strong>“Kullanılacak malzemenin canavarları Büyük Orman’ın derinliklerinde yaşıyor. Nesillerdir bu canavarları avlamak savaşçı şefin görevidir. Ama şu an köyde bir savaşçı şef yok…”</strong></p>
+<p><strong>“Ah…”</strong></p>
+<p>Kızlarıma bir bakış attım. Biri başka tarafa bakıp hiçbir şey duymamış gibi davrandı. Diğeri ise getirdiği koca bir kemiği kemiriyordu. İşe yaramazlar.</p>
+<p><strong>“Henüz detayları netleştirmedim, ama birkaç yıl içinde bu canavarları avlamak için bir ekip göndermek ve bunu savaşçı şefin seçimi için bir ritüel olarak kullanmak istiyorum.”</strong></p>
+<p><strong>“Bu epey baş ağrıtıcı olacak.”</strong></p>
+<p><strong>“Beni anlıyorsunuz, değil mi?”</strong></p>
+<p>Usta <strong>Rudeus</strong> derin bir şekilde başını salladı. Onun ne kadar büyüdüğünü son karşılaşmamızda da fark etmiştim. Aynı çocuğun, kızlarım banyodayken tahta bir sandığa saklanıp onları gözetleyen o çocuk olduğuna inanmak zordu. Kızlarım ise onun yanında tam bir utanç kaynağıydı. İnsanlarla daha fazla işimiz olacağını düşündüğümde, onları toplumu öğrenmeleri için uzak bir okula göndermiştim. İşte bu eğitimi böyle heba etmişlerdi. Ama bana göre işe yaramaz gibi görünseler de, insan toplumunda bir paralı asker grubunun lideri ve ikinci komutanıydılar—sürünün liderleri. Belki de sorun bendim.</p>
+<p><strong>“Bu şekilde yapmak sana uyar mı, Pursena?”</strong> diye sordum.</p>
+<p><strong>“Bana uyar. Aslında hemen şimdi yapmaya razıyım. Minitona ve Tersena’yı yere sererim.”</strong></p>
+<p><strong>“Kendine bayağı güveniyorsun.”</strong></p>
+<p><strong>“Niye güvenmeyeyim? Kiminle antrenman yaptığımı sanıyorsun?”</strong> Gözlerini Bayan <strong>Eris</strong>’e çevirdi… Yoksa <strong>Ghislaine</strong>’e mi baktı? <strong>Ghislaine</strong> sadece <strong>Eris</strong>’i değil, <strong>Pursena</strong>’yı da mı eğitmişti yoksa…?</p>
+<p><strong>“Uzun zamandır Büyük Orman’da olmadım, bu yüzden canavarları bulmam biraz zaman alabilir. Ama bu büyük bir engel değil.”</strong></p>
+<p><strong>Pursena</strong>’nın yanında, <strong>Linia</strong> bilmiş bir sırıtışla başını sallıyordu. Eskiden <strong>Pursena</strong> böyle bir tavır sergilediğinde, <strong>Linia</strong> hemen onu alaya alır ya da kendisinin daha iyi olduğunu iddia ederdi. Ama şimdi sadece sessizce başını sallıyordu. Bu işte bu kadar ciddi olmaları beni hem şaşırttı hem de memnun etti.</p>
+<p>Demek ki <strong>Pursena</strong>’nın savaşçı şef olma ihtimali vardı. Bu konuda ne hissettiğime emin değildim.</p>
+<p><strong>“O zaman, gün belirlenince haber göndereceğim.”</strong></p>
+<p><strong>“Anlaşıldı. Paralı asker grubundan bir büyücüyü burada irtibat için bırakırım.”</strong></p>
+<p>Usta <strong>Rudeus</strong>, köye büyülü bir mesaj tableti bırakmayı planlıyordu ve bu yolla iletişimde kalmam gerekiyordu. <strong>Linia</strong> ve <strong>Pursena</strong>’nın böyle şeyleri kullanabilecek bir konumda olmaları ne kadar da kullanışlıydı. İkisi de uzun zamandır Doldia Köyü’nden uzakta oldukları için düşünce alışkanlıkları bana pek doğal gelmiyordu. Ancak yeni bilgiler ve eşyalar, köye yeni bir soluk getirebilirdi. Bu kötü bir şey olamazdı.</p>
+<p>Sohbet tıkandı. Töreni ve savaşçı şefin seçimini konuşmuştuk. Artık konuşacak bir şey kalmamıştı. Onlara gidip bir yemek yemelerini ve geceyi burada dinlenerek geçirmelerini söylemek istedim, ama…</p>
+<p><strong>Ghislaine</strong>’in tüm bu süre boyunca sessizce oturması beni huzursuz ediyordu. Tanıdığım <strong>Ghislaine</strong>, bu kadar uzun süre sessiz kalamazdı—bir noktada mutlaka çılgına dönerdi. Birileri zarar görürdü. Gerçekten o olduğuna dair bir sorgulama yapmak istedim, ama kendine has kokusunu inkar etmek mümkün değildi. Kuyruğumun dibi kaşınıyordu. Eskiden bu kokuyu hissettiğim anda kaçıp giderdim…</p>
+<p><strong>“Ghislaine.”</strong> İsmi dudaklarımdan kendiliğinden döküldü. Sessizce oturup hiçbir yere varamazdık. Şimdi Doldia kabilesinin şefiydim. Sessiz kalmam utanç verici olurdu.</p>
+<p><strong>“Ne?”</strong> Ghislaine’in kuyruğu hafifçe kıpırdadı ve bana baktı.</p>
+<p><strong>“Bu köye yüzünü göstermeye nasıl cüret edersin?”</strong></p>
+<p>Sözlerimle sırtımdan soğuk bir ter aktı. Eski <strong>Ghislaine</strong>, bu lafıma beni yarı ölü bırakana kadar döverdi. Açıktı ki, bu yılları kendini bir bıçak gibi keskinleştirerek geçirmişti. Eğer bu bizim ilk karşılaşmamız olsaydı, ona saygı duymam gerektiğini düşünürdüm. Ama eski <strong>Ghislaine</strong>, bu güce sahip olsaydı, bunu kullanarak kafamı uçururdu. Köyden herhangi birini öldürmüş bile olabilirdi. Zarar vermeden önce onu buradan kovmam gerekirdi.</p>
+<p>Ama Bayan Eris, Ghislaine’i buraya getirmek için özel bir çaba göstermişti. Onunla yüzleşmek zorundaydım—hem ne olduğunu unutmayı reddeden biri olarak, hem de mevcut şef olarak.</p>
+<p><strong>Eris</strong>, kılıcına uzanarak ayağa kalkmaya niyetlendi, ama sonra vazgeçti. Kaşlarını çatarak tekrar yerine oturdu. <strong>Ghislaine</strong>, elini uzatarak onu durdurmuştu.</p>
+<p>Sonunda Ghislaine konuştu. <strong>“Kılıç Tapınağı’nda eğitim aldım ve Kılıç Kralı unvanını kazandım. Gücüm tanındı. Şimdi Asura Krallığı’nın hükümdarına hizmet ediyorum. Zırhıma bak. Bu çok iyi bir mevki. Bana iyi davranıyorlar… İşte bu yüzden buradayım.”</strong> Konuşurken biraz duraksıyordu, ama yüzünde en ufak bir duygu belirtisi yoktu.</p>
+<p><strong>“Bu köye kin güttüğünü düşünmüştüm…”</strong></p>
+<p><strong>“Kin mi? Neden?”</strong> Ghislaine başını yana eğdi.</p>
+<p><strong>“<em>Neden mi?</em> Seni buradan kovduk. Seni öldürmeye çalıştık. Hatırlamıyor musun?”</strong></p>
+<p>Ghislaine bir an durdu, sonra sakince konuştu: <strong>“Dil bilmeyen bir hayvanla başka ne yapılırdı ki? Buna kin güdemem.”</strong> Ardından tamamen duygusuz bir şekilde devam etti: <strong>“Kılıç Kralı unvanı bana verildiğinde, ustam bir şey söyledi. Dedi ki, ‘Sen Doldia kabilesinden Kılıç Kralı Ghislaine’sin. Bu ismi gururla taşı. Ne zaman bir yemin edersen, Doldialılar adına etmiş olursun.’”</strong></p>
+<p><strong>“Gurur mu?”</strong></p>
+<p><strong>“Evet.”</strong></p>
+<p><em>Cehenneme kadar yolun var. Kendine Doldialı deme hakkını nereden buluyorsun</em>, diye bağırmak istedim, ama yapamadım. Neden? Bilmiyorum. Ghislaine’in sözleri tuhaf bir şekilde içimi rahatlatmıştı.</p>
+<p><strong>“Doldia kabilesinin adı bana hep fayda sağladı, asla engel olmadı. Kin gütmüyorum.”</strong></p>
+<p>Henüz savaşçı şefi olmadan önceki gençlik günlerim aklıma geldi. <strong>Kılıç Kralı Ghislaine</strong> hakkındaki dedikoduların köye yayıldığı dönem… Bu isim bir dereceye kadar kötü üne sahipti, ama anlatılan hikâyeler utanç verici değildi. Aksine, çoğu övgü doluydu. Bir tanesi, zorlu bir labirenti fethetmesinden bahsediyordu. Bir maceracı için bu büyük bir onurdu. Doldia kabilesinden <strong>Ghislaine</strong> bunu başarmıştı.</p>
+<p><em>Bu asla doğru olamaz. Kesinlikle bir sahtekâr</em>, demiştim o zamanlar. Ve benim kuşağımdakiler de aynı fikirdeydi. Ama bir an için bile olsa gurur duymamış mıydım? Doldia kabilesinin bir parçası olmaktan gurur duymuyor muydum? İçimizden birinin adını duyurmasından memnun olmamış mıydım? Onu kovalayıp atmış olsak bile…</p>
+<p><strong>“Her şeyden çok, utanıyorum. Bu kadar aptal olduğum için üzgünüm.”</strong> Ghislaine başını eğdi.</p>
+<p><em>Ghislaine özür dilemişti.</em> Gerçekten özür dilemişti.</p>
+<p>“Ben… anlıyorum.” dedim gözlerimi kapatarak.</p>
+<p>Asıl aptal olan bendim. <strong>Ghislaine</strong> sadece bir canavar ırkı çocuğunun en kötü belirtilerini yaşıyordu. Hatta kendi ebeveynlerimiz bile onu ümitsiz bir vaka olarak görmüştü, ama canavar ırkından olanlar zaman isterdi. Ve o zamanı bulunca, <strong>Ghislaine</strong> olgunlaşıp harika bir kadına dönüşmüştü. Köy onu dışlamıştı, ama o aklını toparlamış ve büyümüştü. Üstelik, hala bir Doldialı olmaktan gurur duyuyordu. Şöhret kazandıktan sonra bile kökenini gururla duyuruyordu. Başını dik tutuyordu. Ve bugün, bu gün, evine geri dönmüştü.</p>
+<p>Bu, iyi niyetle yapılmış bir çabaydı. Ona ne söylemem gerektiğini biliyordum.</p>
+<p><strong>“Kılıç Kralı Ghislaine Dedoldia. Seni tekrar Doldia köyünde görmekten mutluluk duyuyorum ve köyün şefi olarak, Gyes Dedoldia olarak, seni memnuniyetle karşılıyorum.”</strong></p>
+<p><strong>“Çok naziksin,”</strong> dedi Ghislaine. Ayağa kalktı, sonra bir dizinin üzerine çöktü ve başını eğdi. Bu, Kılıç Tanrısı Tarzı kılıç ustalarının daha yüksek bir rütbeye sahip kişiye saygı göstermek için kullandığı selam biçimiydi. Benim için bu hem doğru bir selamlaşmaydı hem de büyük bir onurdu—hem de <strong>Ghislaine</strong>’den gelen bir onur.</p>
+<p>Ghislaine beni kendisinden üstün biri olarak mı görüyordu…?</p>
+<p>“Bu gece burada kal, yarın da seyahatlerini bana anlatırsın.”</p>
+<p>“Nasıl isterseniz. Anlatacak birçok ilginç hikâyem var.”</p>
+<p>Onu memnuniyetle karşıladım. Aramızda olanları unutamıyordum ama bir sonraki nesil için kenara çekilme vakti gelmişti. O kuşaktan olan kızlarım için endişelenmeden edemiyordum… Ama Ghislaine değişebildiyse, belki onlar da değişebilirdi. Sonuçta, babam ve dedem de benimkine benzer endişeler taşımış olmalıydı. Ama şef olarak kendi zamanlarını tamamlamışlardı. Şimdi benim zamanım gelmişti ve onlarınki de gelecek…</p>
+<p><strong>Ghislaine Dedoldia</strong>’nın eve dönüşü böyle gerçekleşti.</p>
+<img src="bolum4foto2.png" alt="Bolum 3 Foto 1" class="novel-image"></main>
+
+        <div class="bottom-nav">
+            <a href="bolum3parca3.html" class="nav-btn">← Cilt İçeriği</a>
+            <a href="../cilt2/bolum0.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

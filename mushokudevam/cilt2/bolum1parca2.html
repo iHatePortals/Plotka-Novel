@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei Cilt 1, Bölüm 1 (Kısım 1) | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b; /* Mushoku Tensei Kırmızı Tema */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #cc0000;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c1b1b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        body.theme-light .nav-btn:hover, 
+        body.theme-light .action-btn:hover, 
+        body.theme-light .theme-select:hover,
+        body.theme-sepia .nav-btn:hover, 
+        body.theme-sepia .action-btn:hover, 
+        body.theme-sepia .theme-select:hover {
+            color: #ffffff;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+        }
+
+        /* Resimler için özel stil */
+        .novel-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 6px;
+        }
+
+        /* Ayrıştırıcı Çizgi */
+        .divider {
+            text-align: center;
+            margin: 2em 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="bolum1parca1.html" class="nav-btn">←Önceki Bölüm</a> 
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="bolum1parca3.html" class="nav-btn">Sonraki Bölüm →</a>
+                  </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Mushoku Tensei Cilt 2, Bölüm 1</h1>
+            <div class="subtitle">Haydi Otomaton Yapalım! (Kısım 2)</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <img src="bolum1foto1.png" alt="Kitap Çizimi 1" class="novel-image">
+            <p>O GÜN, Elinalise, oğlu Clive ile alışverişe çıkmıştı. El ele mağazaları dolaşıyorlardı. Elinalise, daha önce birkaç çocuk doğurmuş ve büyütmüş olsa da, çocuğunun elini tutarak dışarı çıkmayı hâlâ seviyordu. Clive, babası Cliff’e çok benziyordu. Saç rengi aynıydı ve ağzı da Cliff’in ağzıydı. Hatta kendini hiçbir özel durumu olmadan en iyisi sanma biçimi bile tıpatıp aynıydı. Elinalise, Cliff’i ilk tanıdığı zamanki hâlini hatırladı ve ağzının suyu akmaya—pardon, gülümsemeye başladı.</p>
+<p><strong>“Anneee! Bu bir bal kabağı! Hadi bir bal kabağı alalım! Bal kabağı!”</strong> diye bağırdı Clive.<br>
+<strong>“Gerçekten de öyle,”</strong> diye cevap verdi Elinalise. <strong>“Bu mevsimde bal kabakları çok lezzetlidir.”</strong><br>
+<strong>“Beni ilgilendirmez! Bal kabağı yemek boyunu uzatır!”</strong><br>
+<strong>“Bunu sana kim söyledi?”</strong><br>
+<strong>“Lucie!”</strong></p>
+<p>Elinalise’nin oğlu, çok güzel bir çocuktu. Gözleri tıpkı Elinalise’nin gözleri gibiydi ve gelecekte elf kızlarının yanı sıra insan kızlarının da ona hayran olacağından hiç şüphe yoktu. Tek sorun boyuydu: Babası gibi, ortalamadan daha kısaydı. Clive, bu konuda biraz kompleks geliştirmiş gibi görünüyordu. Evde sürekli daha uzun olmak istediğini söylüyordu.</p>
+<p><strong>“Bu kadar büyük olmak istemenin sebebi ne?”</strong> diye sordu Elinalise.<br>
+<strong>“Bu bir sır!”</strong> dedi Clive, yanakları hafifçe kızararak.</p>
+<p>Elinalise, sebebin kendisinden iki yaş büyük bir kız olduğunu zaten biliyordu: bahsi geçen Lucie. Clive, onun kendisini havalı bulmasını istiyordu.</p>
+<p><strong>“Umarım yakında uzarsın,”</strong> dedi Elinalise, oğlunun tipik bir küçük çocuk gibi davranmasından hoşlandığını hissederek. Sonra birden durdu. <strong>“Hah?”</strong></p>
+<p>Elinalise’nin uzun kulakları, tanıdık bir sesi yakalamıştı.</p>
+<p><strong>“Hadi ama tatlım, dünya böyle işler. Ben senin için bir şeyler yaparım, sen de benim için bir şeyler yaparsın. Çok merak ediyorum, o ağızdan nasıl sesler çıkacak.”</strong></p>
+<p>Sesler, bir ara sokaktan geliyordu. Elinalise içeri baktığında, bir tavernanın arkasında iki adam tarafından tutulan bir kız gördü. Aralarından biri, Elinalise’nin tanıdığı bir yüzdü. Şaşırtıcı bir şekilde, bu yüz iki adamdan birine ait değildi.</p>
+<p><strong>“Ama bu sadece benim sesim. Nasıl çıktığını duyuyorsunuz.”</strong><br>
+<strong>“Sen öyle san. İçinde çok daha güzel bir ses var.”</strong></p>
+<p>Kız, görünüşe göre bu durumdan rahatsız olmuş gibi görünmüyordu, ama Elinalise’nin onun hakkında bildiklerine göre, böyle bir tavrı hoş karşılayacak biri değildi. Yüzüne yansımasa da muhtemelen başı beladaydı.</p>
+<p>Elinalise, alışveriş çantalarını yere koydu ve seslendi:<br>
+<strong>“Bir dakika, siz ikiniz.”</strong></p>
+<p>Adamlar bir anda döndü.<br>
+<strong>“Sorunun ne senin?”</strong> dedi biri.<br>
+<strong>“O kız Rudeus’un bir arkadaşı,”</strong> dedi Elinalise. <strong>“Ben olsam gidip başka birini rahatsız ederdim.”</strong></p>
+<p>İki adam yavaşça Elinalise’yi baştan aşağı süzdü.<br>
+<strong>“Mesela sen mi?”</strong><br>
+<strong>“Heh, bir de yanında küçük kardeşinle geziyorsun. Ufaklık seni koruyacak mı, küçük sürtük?”</strong></p>
+<p><strong>“Küçük kardeşim! Ah, ne kadar kibar bir adamsınız,”</strong> diye mırıldandı Elinalise, yanağına elini koyup alaycı bir şekilde gülümseyerek. Şakalaşmasına rağmen, bu iki adamın buralı olmadığını hemen fark etmişti. Muhtemelen başıboş dolaşan maceracılardı. Eğer buralı olsalardı, Rudeus’un adını duydukları an geri çekilirlerdi.</p>
+<p><strong>“Siz ikiniz… sizinle ne yapacağız bakalım?”</strong> diye düşündü Elinalise yüksek sesle.</p>
+<p>Birden Clive, yüzü kıpkırmızı olmuş bir şekilde onun önüne çıktı. Elinalise bakmazken bir sopa bulmuş ve almıştı.<br>
+<strong>“Annemin yanına yaklaşmayın!”</strong> diye bağırdı.</p>
+<p><strong>“Clive, bu tatlı bir davranış ama anne bu ikisiyle tek başına başa çıkabilir. Şimdi geri gel, hadi.”</strong><br>
+<strong>“Gerçekten mi?”</strong> diye sordu Clive, şaşkın bir şekilde bakarken. Elinalise onu kucağına alıp arkasına koydu. Daha sonra onu övgülere boğmayı aklının bir köşesine yazan Elinalise, elini kalçasındaki kılıcına koydu.</p>
+<p><strong>“Ne demek tek başına başa çıkabilirsin? Biz A rütbesiyiz, biliyor musun?”</strong> diye küçümseyerek konuştu adamlardan biri.<br>
+<strong>“Vay, ne kadar etkileyici. Bu kadar genç yaşta A rütbesine ulaşmak için gerçekten yetenekli olmalısınız.”</strong><br>
+<strong>“Peh, kolaydı. Görünüşe bakılırsa kendine bayağı güveniyorsun.”</strong><br>
+<strong>“Ah, hayır. Ne yazık ki ben oldukça sıradan biriyim,”</strong> dedi Elinalise.</p>
+<p>Adamlar kılıçlarını çekti. Bıçaklar oldukça aşınmış görünüyordu. Elinalise, kendini savunmak için yanında bir kılıç taşıyordu, ancak güvendiği kalkanını yanında getirmemişti. Bu talihsiz bir durumdu. Rakiplerinin ne kadar yetenekli olduğuna bağlı olarak, ikiye karşı bir mücadelede dezavantajlı olabilirdi.</p>
+<p><strong>“Merak etme, tatlım,”</strong> dedi adamlardan biri. <strong>“Sana biraz sert davrandıktan sonra sana güzel zamanlar yaşatacağım.”</strong></p>
+<p>Elinalise kılıcını çekmedi. Adamlar, onun korktuğunu sanarak, sırıtarak yavaşça yaklaştılar. Elinalise, onların kızdan uzaklaşmasını bekledi, sonra derin bir nefes aldı.</p>
+<p><strong>“İiiiiik! Yardım ediiiin! Kaçırılıyorum!”</strong> diye bağırdı. Çığlığı ara sokakta yankılandı. İki adam şaşırdı.<br>
+<strong>“Hey!”</strong><br>
+<strong>“B-biz kimseyi kaçırmıyoruz!”</strong></p>
+<p>Ama bu çığlık sadece sokakta yankılanmaktan öteye gitmedi. Elinalise ve Clive’ın olduğu yoldan kimse gelmedi. Kısa süre sonra sokak tekrar sessizliğe büründü.</p>
+<p><strong>“Heh, bağır bağır, ama birahanenin arkasındayız ve bu gün ortasında oluyor. Kimse gelmeyecek.”</strong><br>
+<strong>“Odaya gel de seni istediğin kadar bağırtayım.”</strong></p>
+<p>Tam o sırada, çevredeki binaların kapıları birer birer açıldı: pat, pat, pat. Üzerleri kıllarla kaplı, siyah paltolar giymiş ve sırtlarında sarı bir kaplan desenine benzeyen bir sembol taşıyan bir grup adam sokağa çıktı. Bunlar Ruquag Paralı Asker Birliği’nin askerleriydi ve görevlerinden biri birahanelere içki teslim etmekti. Elinalise’yi görür görmez, adamlar hep bir ağızdan bağırmaya başladılar.</p>
+<p><strong>“Elinalise Hanımefendi!”</strong><br>
+<strong>“İki kafasız, kiminle uğraştığını sanıyor?!”</strong><br>
+<strong>“Ruquag Paralı Askerlerine bulaşmayı mı düşündünüz?”</strong><br>
+<strong>“Size gereken dersi vermeye geldik!”</strong></p>
+<p>Yasadışı kişiler veya kendi insanlarına tehdit olan kişilerle karşılaştıklarında, normalde kibar ve düzeni sağlayan bu paralı askerler, sert bir tavır sergilerdi. Onlardan biraz fazlası, yani on kişi civarındaydılar. Eğer bu Rudeus olsaydı, tehdit edilir edilmez özür dilerdi. Evet, şu anda yerde sürünerek af diliyor olurdu.</p>
+<p>Adamlar, oldukları yerde donup kalmış bir şekilde, kılıçlarını yere atmak için iki saniyeden fazla düşünmediler.<br>
+<strong>“Şey, kusura bakmayın!”</strong><br>
+<strong>“Sizin bu kadar önemli biri olduğunuzu bilmiyorduk. Daha dün geldik şehre, anlıyorsunuz ya.”</strong></p>
+<p>Yaşasın! Rudeus’un onuru kurtulmuştu. Eğer bu adamlar geri adım atıyorsa, Rudeus korkak değildi. Tabii ki, koca bir grup kıllı adam üzerlerine doğru koşarken kim özür dilemezdi ki?</p>
+<p><strong>“Onlarla ne yapmamı istersiniz, Hanımefendi?”</strong></p>
+<p><strong>“Bana bir zarar vermediler, bu yüzden onlara fazla sert davranmayın. Burada işlerin nasıl yürüdüğünü öğretin,”</strong> dedi Elinalise.<br>
+<strong>“Emredersiniz!”</strong> diye cevap verdi paralı askerlerden biri. <strong>“Evet, siz ikiniz, benimle gelin.”</strong><br>
+<strong>“Şey, aslında biz—”</strong><br>
+<strong>“Gel dedim.”</strong><br>
+<strong>“Bizim bir randevu—”</strong><br>
+<strong>“Çırpınmayı bırakın.”</strong></p>
+<p>Beastfolk adamlar, iki maceracıyı birahaneye doğru götürdüler. Elinalise onların gidişini izledi, ardından kıza doğru yöneldi.</p>
+<p><strong>“Nanahoshi, seni uzun zamandır görmedim. Uyanma günün bugün mü? Şehirde olman pek alışılmadık bir şey, değil mi?”</strong></p>
+<p>Elbette, bu kız Nanahoshi’ydi.</p>
+<p>Nanahoshi başını salladı, tamamen sakin bir şekilde. <strong>“Dün gece uyandım,”</strong> dedi.<br>
+<strong>“Öyle mi? Şimdilik başka bir yere gidelim. Burası pek sıkıcı.”</strong> Elinalise, Nanahoshi’nin elini tuttu, ancak sonra garip bir şey fark etti. <strong>“Nanahoshi, aman tanrım. Saçını mı kestin?”</strong></p>
+<p>Nanahoshi’nin saçlarını uzun hatırlıyordu, ama şimdi ensesine kadar kısaltılmıştı. Elinalise şaşırmıştı. Sorusu üzerine, Nanahoshi’nin dudaklarının köşeleri yukarı doğru kıvrıldı. Ama bu, pek de doğal bir gülümseme değildi. Sanki konuşmak istemediği bir şeyi gülerek geçiştirmeye çalışan birinin ya da bir şey planlayan birinin gülümsemesiydi.</p>
+<p>Elinalise, keskin zekasıyla hemen bir şeylerin ters gittiğini fark etti.<br>
+<strong>“Bir şey mi oldu? İstersen benimle konuşabilirsin. Şimdi müsait misin?”</strong><br>
+<strong>“Önemli bir işim yok.”</strong><br>
+<strong>“O zaman bir kafe bulup oturalım mı?”</strong> Elinalise, alışveriş çantalarını aldı ve Clive’ın elinden tuttu. Clive biraz somurtuyordu. <strong>“Aman tanrım, Clive, bu surat ne için? Beni koruyamadığın için mi hayal kırıklığına uğradın? Annene değil, hoşlandığın kızı korumalısın—bekle, Nanahoshi! Ne yapıyorsun? Gelmiyor musun?”</strong></p>
+<p>Nanahoshi’yi yanlarına alarak, yakındaki bir kafeye doğru yola çıktılar.</p>
+<p style="text-align: center;"><strong>***</strong></p>
+<p><strong>“Orada gerçekten de ince bir çizgideydik. Neyse ki, her zaman birilerinin olduğu bir yerdeydik.”</strong></p>
+<p>Birkaç dakika sonra, Elinalise ve Nanahoshi bir kafede karşılıklı oturuyorlardı. İkisinin de önünde aynı türden meyve suyu dolu bardaklar vardı. Nanahoshi, Elinalise’nin siparişini kopyalamıştı. Bu arada Clive, biraz daha lüks tatlılar—şeker fiyatlarının son düşüşü sayesinde artık uygun hale gelen şekerlenmiş meyveler—sipariş etmişti.</p>
+<p>Nanahoshi, başını ve gözlerini sağa sola çevirerek dükkâna bakınıyordu. Belki de buraya ilk gelişi olabilirdi.<br>
+<strong>“Şimdi, ne oldu?”</strong> diye sordu Elinalise.<br>
+<strong>“Birçok olayın varlığı nedeniyle, tek bir yanıt veremiyorum. Lütfen sorununuzu netleştirin.”</strong><br>
+<strong>“Sen… hep böyle mi konuşurdun?”</strong> Elinalise şaşırmıştı, ama travmatik bir deneyim yaşayan insanların sonrasında farklı konuşabileceklerini düşündü. İnsanlar inatçı bir halde olduklarında daha resmi konuşurdu.<br>
+<strong>“O zaman baştan başlamalısın.”</strong><br>
+<strong>“Baştan mı?”</strong> diye sordu Nanahoshi.<br>
+<strong>“Evet, en başından.”</strong></p>
+<p>Nanahoshi iki kez göz kırptı. Ardından hikâyesine başladı.<br>
+<strong>“Dün gece uyandım. Uyandığımda, Efendi Zanoba ve Efendi Rudeus oradaydı.”</strong><br>
+<strong>“Aman tanrım. Ne kadar da uygunsuz, bir genç kızın yatak odasına izinsiz girmişler.”</strong><br>
+<strong>“İkisi, çıplak bedenimi inceledi. Oldukça memnun görünüyorlardı.”</strong><br>
+<strong>“Ne… yaptılar?”</strong><br>
+<strong>“Ardından, vücudumun her bir noktasını incelediler, bacaklarımı açmamı istediler ve göğsüme dokundular. Daha sonra beni kullanıp kullanmamayı tartıştılar ve tatmin olduktan sonra beni atmaya karar verdiler. Beni yatağıma uzandırdılar, sonra gidip uyudular.”</strong></p>
+<p>Bu sözleri duymak, Elinalise’nin düşüncelerini bir anlığına dondurmaya yetti. Aklında, Rudeus ve Zanoba’nın Nanahoshi’yi soyarken sırıtıp, ardından onu hizmet etmeye zorladıkları bir sahne canlandı. Elinalise böyle adamları iyi tanıyordu, bu yüzden hayal etmek zor değildi.</p>
+<p><strong>“S-sen karşı koymadın mı?”</strong><br>
+<strong>“Direnç faydasız.”</strong><br>
+<strong>“Evet, eğer söz konusu Rudeus ve Zanoba ise, sanırım öyle olurdu… Peki Lord Perugius orada değil miydi?”</strong><br>
+<strong>“Sadece ikisi vardı.”</strong></p>
+<p>Elinalise, Perugius’un günlük hayatının nasıl olduğunu tam olarak bilmiyordu, ama onun bazen kalesinden ayrıldığını varsayabilirdi.<br>
+<strong>“B-bu ilk kez mi oldu?”</strong> diye sordu.</p>
+<p><strong>“Evet. Ancak, Efendi Zanoba ve Efendi Rudeus’un önceden plan yapıp hazırlandığı görülüyor, bu yüzden—”</strong><br>
+<strong>“Yani uzun zamandır bunu planlamış olabilirler mi?”</strong></p>
+<p>Perugius’un ne zaman dışarı çıkacağını öğrenmek Rudeus ve Zanoba için zor olmazdı. Eğer şanslılarsa ve Perugius’un dışarıda olduğu gün Nanahoshi’nin uyanış günüyle örtüşürse, bunu kolayca öğrenebilirlerdi.</p>
+<p>Elinalise sessiz kaldı. Mantıklı bir kadındı. Geniş deneyimi sayesinde, soğukkanlı düşünebilme ve öfkesine kapılmadan hareket edebilme yetisi geliştirmişti. Ancak, güvendiği insanların ihanetine uğrama fikri bile onu sarsmadan edemedi.</p>
+<p><em>Rudeus olamaz. Kesinlikle o olamaz.</em></p>
+<p>Zanoba, kadınlarla arası hiçbir zaman iyi olmayan biriydi; bu kabul edilebilirdi. Ama Rudeus? Eşleri ve kendisini seven çocuklarıyla mutlu bir aile adamı olan Rudeus? Ve o da onları sevmiyor muydu? Ailesini korumak için Orsted’e karşı savaşmayı göze almış olan Rudeus? Yatak odasında Eris’e itaat eden Rudeus? O mu, Nanahoshi’ye böyle şeyler yapmış olabilirdi? Zavallı Nanahoshi, çaresizce evine dönmenin bir yolunu ararken mi?</p>
+<p>Elinalise’nin bir yanı, bu absürtlüğe gülmek istiyordu. Bir hata olmalıydı. Rudeus, onun zorlu çabalarına tam destek vermemiş miydi? Sylphie kıskanmasına rağmen ona yardım etmeye devam etmemiş miydi? Onu kurtarmak için İblis Kıtası’na gitmiş ve Şeytan Kral Atofe ile savaşmamış mıydı?</p>
+<p><em>Ama Nanahoshi’nin yüzüne bak</em>, diye düşündü Elinalise. Az önceki garip gülümsemesi dışında, bütün bu süre boyunca bir bebek kadar ifadesizdi. Nanahoshi ne gülüyor ne de ağlıyordu ve saçları omuzlarına kadar kısaltılmıştı. Görünüşe göre öyle biri gibi durmasa da, Nanahoshi aslında saçına oldukça iyi bakardı. Şimdi ise saçları darmadağınıktı.</p>
+<p>Elinalise, Nanahoshi ile hiçbir zaman yakın olmamıştı ama uzun zamandır birbirlerini tanıyorlardı. Nanahoshi’nin ifadelerini bildiğinden emindi. Onu hiç bu kadar şok olmuş görmemişti. Tabii ki, Nanahoshi’nin böyle bir hikâyeyi uydurması düşünülemezdi. Elinalise neye inanacağını bilemiyordu. Belki de bu, Rudeus ve Zanoba’yı tuzağa düşürmek için kurulmuş bir plandı.</p>
+<p><em>Evet, elbette!</em></p>
+<p>Bir kişinin görünümünü değiştirebilecek çok sayıda büyülü eşya vardı. Ama böyle bir eşyayı kullansalar bile, Chaos Breaker’ın kalbine sızıp Nanahoshi’ye bir şey yapmak imkânsız olurdu. Bunu başarmak için Perugius’un hareketlerini bilmek ve yüzen kaleye özgürce girip çıkabilmek gerekirdi. Bu da geriye çok az aday bırakıyordu.</p>
+<p>Elinalise, yıllardır olmadığı kadar kafası karışmış hissediyordu. Tek bildiği bir şey vardı.<br>
+<strong>“Bu gerçekten korkunç olmalı,”</strong> dedi. Yanına oturup Nanahoshi’ye sıkıca sarıldı. Kızın kalbinin zarar gördüğünü anlayabiliyordu.</p>
+<p><strong>“Elinalise Hanımefendi, daha fazlası da var…”</strong><br>
+<strong>“Tamam, daha fazla bir şey söylemene gerek yok. Bana tüm bu korkunç şeyleri anlattığın için çok cesursun. İnanması biraz zor olsa da…”</strong> diye sustu. <strong>“Ah, ben ne diyorum? Böyle bir güven ihanetinin affı olmaz. Rudeus ve Zanoba’nın cezalandırılmasını sağlayacağım.”</strong></p>
+<p>Böylece Elinalise, şimdilik Nanahoshi’nin acısını teselli etmeye karar verdi ve gerçeği öğrenme işini sonraya bıraktı.</p>
+<p><strong>“Efendi Rudeus bir suç mu işledi?”</strong><br>
+<strong>“Evet, çok kötü bir şey yaptı.”</strong><br>
+<strong>“Ne tür bir şey?”</strong><br>
+<strong>“Seni incitti. Aslında, sadece seni değil. Belki de eşleri… Sylphie, Roxy ve Eris de incinmiştir.”</strong><br>
+<strong>“Ben zarar görmedim.”</strong><br>
+<strong>“O senin kalbini incitti.”</strong><br>
+<strong>“Kalbimi…”</strong> diye tekrarladı Nanahoshi.</p>
+<p>Elinalise, Nanahoshi’ye sarılırken bir şeylerin ters gittiğini fark etti—kızda yanlış bir his vardı. Elinalise, pek çok insana sarılmıştı, bu yüzden fark edebiliyordu. Daha önce kimseye böyle sarılmamıştı. Tam olarak ne olduğunu açıklayamasa da, sanki sarıldığı kişi bir insan değilmiş gibi hissediyordu.</p>
+<p>Bir çığlık, kafenin sessizliğini böldü.<br>
+<strong>“Buldum onu!”</strong></p>
+<p>Elinalise kapıya baktığında, koyu gri bir cübbe giymiş bir adamın, onların oturduğu masayı işaret ettiğini gördü. Bu kişi Rudeus’tu. Hemen arkasında Zanoba vardı ve onlarla birlikte bir grup Ruquag paralı askeri gelmişti.</p>
+<p><strong>“Onu yakalayın!”</strong> diye bağırdı Rudeus.</p>
+<p>Elinalise, Nanahoshi’yi daha sıkı kavradı ve Rudeus’a beklemesini söylemek için bağırmak üzereydi ki, kollarındaki kız harekete geçti.</p>
+<p>Nanahoshi, Elinalise’nin hayal bile edemeyeceği bir güçle sarılmayı olayını bitirmişti, ardından masayı ters çevirip yakındaki bir pencereden dışarı atladı. Camların kırılmasıyla birlikte Nanahoshi de gitmişti.</p>
+<p>Hızı korkutucuydu, bir Aziz-seviye kılıç savaşçısı kadar hızlıydı. Orada bulunan hiç kimse onun hızına yetişemezdi. Paralı askerler bile şaşkın bir şekilde bakakaldılar.</p>
+<p><strong>“Başkan, Bay Zanoba, o çok hızlı,”</strong> dedi paralı askerlerden biri. <strong>“Onu yakalayamayız.”</strong><br>
+<strong>“T-tabii ki hayır!”</strong> diye cevap verdi Zanoba. <strong>“O, ustamın yarattığı bir bebektir. Hiçbir sıradan savaşçı onun gücüne veya hızına yetişemez.”</strong><br>
+<strong>“Tamam, şu an önceliğimiz bu değil,”</strong> diye araya girdi Rudeus. <strong>“Henüz gizlice hareket etmeyi öğrenememiş gibi görünüyor. Şimdilik, insanları onu aramaya gönderin. Onu bulduğumuzda, Zanoba ve ben bir yolunu bulup yakalarız.”</strong></p>
+<p>Rudeus, paralı askerlere emirlerini verirken, yorgun bir ifadeyle Elinalise’ye doğru geldi. Clive, elinde boş bir çatal tutarak gözlerini kocaman açmış bir şekilde ona bakıyordu. Rudeus, onun başını okşadı ve herhangi bir yarası olup olmadığını kontrol etti.</p>
+<p>Sonra Elinalise’ye dönüp elini uzattı.<br>
+<strong>“Bunun için üzgünüm, Elinalise. İyi misin? Sana zarar vermedi, değil mi?”</strong><br>
+<strong>“Hayır, tabii ki hayır,”</strong> dedi Elinalise yavaşça. Rudeus’un elini tutarak ayağa kalktı ve ardından sordu: <strong>“Bu neydi böyle?”</strong><br>
+<strong>“Anlatacak pek bir şey yok aslında…”</strong></p>
+<p>Rudeus açıklama yaparken, Elinalise biraz rahatladı.</p>
+<p><em>Bir şeyleri yanlış anladığımı biliyordum,</em> diye düşündü.</p>
+<p style="text-align: center;"><strong>***</strong></p>
+<p>Eris, evdeyken Leo ve çocukları yürüyüşe çıkarmaktan sorumluydu. Çocuklara ve üniversitedeki bazı öğrencilere kılıç sanatını öğretse de, ev işlerinde yaptığı tek şey yürüyüşe çıkarmaktı. Başka bir işi olmadığı zaman, genellikle öğle yemeğinden sonra onlarla birlikte dışarı çıkardı. Tabii ki, bütün çocukları birden götürmek tehlikeli olurdu, bu yüzden genellikle en fazla iki ya da üç çocuğu yanına alırdı. Leo yanlarında olduğu zaman, Lara doğal olarak onun sırtına tırmanırdı, bu yüzden aslında Eris’in bir ya da iki çocuğa göz kulak olması yeterliydi.</p>
+<p>O gün, Lara ve Sieg Leo’nun sırtındaydılar, küçük Lily ise Eris’in omuzlarındaydı. Şehre doğru yürüyüp, çocukların favori oyun yerlerinde oynamalarını izlerdi. Bu, onun rutiniydi.</p>
+<p>Çok uzun bir süre önce değildi ki, Lucie, Lara ve Arus’u—bazen Clive’ı da—yanına alıyordu. O zamanlar, mahallenin çocukları Lara’nın saçını çekmekten hoşlanırdı, ta ki Lucie onları durdurana kadar. Ancak son zamanlarda, belki de Eris’in eğitimi sayesinde, Lara karşılık vermeye başlamıştı.</p>
+<p>Eris bir an için başka yöne dönerdi, ardından tekrar baktığında Lara’yı yüzünde bir çizikle ya da kanayan bir burunla dururken bulurdu. Ona sataşan çocuk ise yakında çömelmiş bir şekilde ağlıyor olurdu. Lara’nın gözleri Eris’inkilerle buluşurdu; yüzü ifadesiz ama meydan okur gibi olurdu ve zafer işareti yapmak için iki parmağını kaldırırdı.</p>
+<p>Eris, buna nasıl tepki vereceğini hiçbir zaman bilemezdi. Küçükken, kavgalara karıştığı ve rakiplerini ağlattığı için sık sık azar işitirdi. Ona, soylu kızlarının kavga etmemesi gerektiği söylenmişti. Biri ona kötü bir şey söylerse, en iyisi kelimeleri kullanmaktı.</p>
+<p>Bu yüzden, Lara bir kavgaya karıştığında, Eris bir an tereddüt ederdi. Ona disiplin mi uygulamalıydı?</p>
+<p>Sonunda, Eris genellikle onu övmekle yetinirdi. Sessiz Lara’yı, bir zorbayı püskürttükten sonra kendisiyle gurur duyan hâlini görmek, <strong>“Aferin! İşte benim kızım!”</strong> dememeyi imkânsız kılıyordu.</p>
+<p>Öte yandan, Lara kendisinden daha zayıf birini, mesela Sieg’i ağlatırsa, Eris buna çok kızardı. Bunu yaparsa, poposu parlayana kadar onu döverdi. Ancak parkta oynayan çocuklar Lara’dan daha büyük ve yaşça daha ileriydi, bu yüzden Eris, onların karşısında kendini savunduğu için övgüyü hak ettiğini düşünüyordu.</p>
+<p>Belki de, Lara’nın gelecek yıl okula başlayacağını düşünerek, sadece kendini savunduğu için onu övmenin iyi bir fikir olmadığını dikkate alması gerekirdi—ama Eris böyle bir öngörüye sahip değildi.</p>
+<p>Bugün, Lara için kavga olmayacaktı çünkü alışılmış parklarına gitmiyorlardı. Eris, bu değişikliği özel bir nedenle yapmamıştı; sadece bugün öyle yapmak istemişti.</p>
+<p><strong>“Çok uzağa gitmeyin!”</strong> diye seslendi.</p>
+<p>Şehrin kenarındaki nehre gelmişlerdi. Lara ve Sieg, Leo ile birlikte nehirde çıplak bir şekilde oynayıp su sıçratıyorlardı. Eris, dikkatinin çoğunu henüz ilk adımlarını yeni atmaya başlamış olan Lily’ye vermişti.</p>
+<p>Lily, nehir ona yeni olduğu için biraz tedirgin görünüyordu. Elini uzatıp suya çekingen bir şekilde dokundu ve ardından suyun soğukluğu karşısında çığlık attı.</p>
+<p><strong>“Aaaah! Anne! Anne!”</strong><br>
+<strong>“Ne oldu? Korktun mu?”</strong><br>
+<strong>“Soğuk!”</strong> Bu net olmayan cevap, Eris’i güldürdü. Lily’nin başını okşadı. Lily, görünüş olarak tıpkı Lara’ya benziyordu, ama biraz daha sessiz bir yapıya sahipti. Bununla birlikte, daha meraklıydı. Yeni olan ya da daha önce görmediği her şeye hayran kalıyordu.</p>
+<p><strong>“Anne! Parlıyor!”</strong> Örneğin, tam şu anda bir şey bulmuştu.<br>
+<strong>“Hmm… Parlıyor mu?”</strong><br>
+<strong>“Evet, parlıyor!”</strong></p>
+<p>Eris, Lily’nin işaret ettiği yöne baktı ve nehrin yüzeyindeki ışıklardan daha parlak bir şey gördü. Bir balık. Eris’in orta parmağı uzunluğunda, sağa sola kıvrılarak hareket eden bir balık.</p>
+<p><strong>“Bu bir balık.”</strong><br>
+<strong>“Lıklık!”</strong><br>
+<strong>“Lıklık değil, balık. Balık, anladın mı? Söyle bakalım. Balık.”</strong><br>
+<strong>“Balık! Anne, yakala! Balığı yakala!”</strong><br>
+<strong>“Tamam, tamam… Beni izle.”</strong></p>
+<p>Eris kollarını sıvadı ve gözlerini nehre dikti. Birkaç saniye sonra, nehir yüzeyinden bir su sıçraması eşliğinde bir vınlama ve bir şapırtı sesi geldi. Lily göz açıp kapayıncaya kadar, Eris balığı yumruğunda tutuyordu. Balık neler olduğunu anlamış gibi görünmüyordu. Gözleri kocaman açılmış, ağzı açılıp kapanıyordu.</p>
+<p><strong>“Al bakalım.”</strong><br>
+<strong>“Oh! Oh!”</strong> diye bağırdı Lily, Eris balığı ellerine koyarken. Ancak bu sırada balık nihayet durumun ciddiyetini fark etmiş gibiydi. Kıvrılarak bir zıplamayla Lily’nin ellerinden fırladı ve suya bir şapırtıyla geri düştü.<br>
+<strong>“Balık kaçtı…”</strong><br>
+<strong>“Heh heh, haklısın.”</strong></p>
+<p>Tam o anda, Eris arkasında bir varlık hissetti. Döndü ve baktı.<br>
+<strong>“Bekle. Bir şey geliyor.”</strong></p>
+<p>Bir şey, şehir yönünden hızla yaklaşıyordu. Ya <strong>Büyülü Zırh Versiyon İki</strong> içindeki Rudeus’tu ya da en az onun kadar hızlı biri olmalıydı.</p>
+<p><strong>“Leo, o ikisini sudan çıkar ve giydir!”</strong> diye bağırdı Eris. Leo da durumu anlamış gibi havladı ve ardından burnunu Lara’nın sırtına doğru uzattı. Lara itaatkâr bir şekilde hareket etti. Leo ile iletişim kurabildiği için durumu hemen anlamıştı. Sieg, biraz daha oynamak istediğini söylenerek mızmızlandı, ama Lara elinden çekiştirince isteksizce sudan çıktı ve getirdikleri havlularla kurulanmaya başladı.</p>
+<p><strong>“Lara, Sieg’e giyinmesi için yardım et!”</strong></p>
+<p>Sieg henüz kendi başına giyinmeyi yeni öğrenmişti. Düğmelerde hâlâ zorlanıyordu, bu yüzden yardım olmadan bir ömür alabilirdi.</p>
+<p>Eris gergindi. Kendilerine doğru yaklaşan kişiden herhangi bir düşmanlık sezmemişti, ama o kadar hızlıydı ki, çocuklarla birlikte bu hızla ondan kaçması zor olurdu. Eğer bu kişi bir düşman çıkarsa, muhtemelen onu yenebilirdi, ama öncelik her zaman çocukları güvende tutmaktı.</p>
+<p>Üçünü birden Leo’nun sırtına bindirir, ardından düşmanı kendisi oyalardı. Ayrıca, Kuzey Tanrısı Kalman III ve Ejderha Tanrısı Orsted’in yaşadığı Orsted’in ofisine de çok uzak değillerdi. Oraya ulaşabilirlerse, kesinlikle güvende olurlardı.</p>
+<p>Eris, yaklaşan figürü gördüğünde, siyah saçlı tanıdık bir kızın yüzünü fark edince rahat bir nefes aldı.<br>
+<strong>“Ah, sen miydin? Hey, Nanahoshi.”</strong></p>
+<p>Nanahoshi, tam onların yanından hızla geçip gidecekmiş gibi görünüyordu, ama adını duyunca bir anda durdu ve Eris’e baktı.</p>
+<p><strong>“Günaydın. Eğer bir sakıncası yoksa, adınızı öğrenebilir miyim?”</strong><br>
+<strong>“Eris. Ne, unuttun mu?”</strong><br>
+<strong>“Efendi Eris. Hatırlayacağım.”</strong></p>
+<p>Eris, bir şeylerin ters gittiğini hissetmişti. Nanahoshi’nin saçı kısaydı, inanılmaz hızlıydı ve konuşma tarzı farklıydı. Ama Eris, Nanahoshi’ye çok yakın da biri değildi, bu yüzden onun normal davranışlarının tam olarak nasıl olduğunu bilmiyordu. Büyük bir mesele olmadığını düşündü. Zaten detaylara takılan biri değildi.</p>
+<p><strong>“Gerçekten çok hızlı gidiyordun. Neler oluyor? Biri seni mi kovalıyor?”</strong><br>
+<strong>“Evet… Düzeltme, hayır,”</strong> dedi Nanahoshi, omzunun üzerinden geriye bakarak. Arkasında geniş ve boş bir ova vardı. <strong>“Görünüşe göre onları geride bırakmışım.”</strong></p>
+<p><strong>“Whoa! Anne, anne!”</strong> Eris aşağı baktığında, Lily’nin Nanahoshi’nin bacaklarına sarıldığını gördü. Lily, Nanahoshi’nin baldırlarını sevecen bir şekilde okşuyor, gözleri parlıyor ve Nanahoshi onu kaldırırken mutlulukla bağırıyordu.</p>
+<p><strong>“Günaydın,”</strong> dedi Nanahoshi.<br>
+<strong>“Ah ha ha!”</strong> diye kıkırdadı Lily. Ardından Nanahoshi’nin saçını çekti, yanaklarını okşadı ve burnunu sevdi.</p>
+<p>Eris, Lily’nin neden Nanahoshi’ye bu kadar ilgi gösterdiğini anlamıyordu. Ama ne olursa olsun, Nanahoshi’ye yük olmak istemedi, bu yüzden Lily’yi geri alıp omuzlarına oturttu.</p>
+<p><strong>“Hey, anne! Onu istiyorum,”</strong> dedi Lily, ellerini Nanahoshi’ye doğru uzatarak.<br>
+<strong>“Kaba olma,”</strong> dedi Eris.</p>
+<p>Lily mızmızlanmıştı ama Eris onu yere indirmedi.</p>
+<p>Nanahoshi, onları izledikten sonra saçından bir tutam kaldırdı.<br>
+<strong>“İstediğin bu mu?”</strong> diye sordu.<br>
+<strong>“Evet,”</strong> diye mırıldandı Lily, hafifçe başını sallayarak.</p>
+<p>Nanahoshi, bir anda birkaç saç telini koparıp Lily’ye uzattı.<br>
+<strong>“Al bakalım.”</strong><br>
+<strong>“Yaşasın!”</strong> Lily, onları sevinçle aldı. Eris, neden böyle yaptığını hiç anlamadı. Siyah saçın nadir olması gerektiğini düşündü.</p>
+<p><strong>“Efendi Eris, size bir şey sorabilir miyim?”</strong> diye sordu Nanahoshi, ona bakarak.<br>
+<strong>“Sor bakalım.”</strong><br>
+<strong>“Siz, Efendi Rudeus’un eşi olan Eris misiniz?”</strong><br>
+<strong>“Evet, benim,”</strong> diye cevap verdi Eris, göğsünü gururla kabartarak. Bu şekilde çağrılmak, onu gerçekten gururlandırıyordu. Rudeus’un ilk oğlunu doğurmuştu ve burada çocuklarla ilgileniyordu. Evet, kesinlikle öyleydi!</p>
+<p><strong>“Benim varlığımı bilmek, Efendi Rudeus’a kızmanıza neden olur mu?”</strong> diye sordu Nanahoshi.<br>
+<strong>“Senin varlığın mı? Yani, sadece orada olduğun için kızacak değilim,”</strong> diye yanıtladı Eris biraz tereddütle, Nanahoshi’nin tam olarak ne sorduğundan emin olmayarak. Nanahoshi, Rudeus’un arkadaşıydı. Onunla konuştuğu için kızacak değildi. Ama eğer Nanahoshi’ye asılacak olursa ya da onu dördüncü eşi olarak almak istediğini söylerse, işte o zaman biraz kızabilirdi. Sadece biraz, tabii.</p>
+<p><strong>“Peki ya Efendi Sylphie ve Efendi Roxy?”</strong><br>
+<strong>“Onlar kızmaz… Ah, bekle.”</strong> Sylphie ile ilgili eski bir anısı birden aklına geldi. <strong>“Sylphie bir keresinde Nanahoshi’yi, nasıl desem, ‘kabul edemediğini’ söylemişti.”</strong><br>
+<strong>“Kabul etmek? Hangi anlamda kabul etmek?”</strong><br>
+<strong>“Hiçbir fikrim yok. Ama o kız Rudeus’u gerçekten seviyor, bu yüzden bir nedeni olmalı.”</strong></p>
+<p>Eris, Rudy’yi seviyordu ve bunu söylemekte hiçbir sakınca görmüyordu, ama Sylphie’nin saf bağlılığını takdir etmek zorundaydı. Sylphie, Rudeus için kendi benliğinden bile vazgeçecek kadar her şeye katlanabilirdi. Eris, savaşta Rudeus için ölebilirdi, ama bu onun kimliği ve istediği şeydi. İstemediği bir şeyi yapmakta pek iyi değildi, hatta Rudeus için bile. Sylphie ise farklıydı. Sylphie, Rudeus için kendi isteklerini bir kenara koyardı. Eris, bunu saygıyla karşılıyordu.</p>
+<p><strong>“Pekâlâ,”</strong> dedi Nanahoshi. <strong>“Efendi Sylphie ile konuşmak istiyorum. Onu nerede bulabilirim?”</strong><br>
+<strong>“Sanırım bugün evde.”</strong><br>
+<strong>“Anladım. Sorularımı yanıtladığınız için çok teşekkür ederim.”</strong></p>
+<p>Nanahoshi, başını eğdi, ağzına garip bir gülümseme yerleştirdi, ardından döndü ve kasabaya doğru yürüyerek ilerlemeye başladı.</p>
+<p><strong>“Bu da neydi şimdi?”</strong> diye kendi kendine düşündü Eris. Kollarını göğsünde kavuşturdu, ayaklarını omuz genişliğinde açtı ve burnundan soludu. Son zamanlarda Arus, bu pozu taklit etmeye başlamıştı.</p>
+<p><strong>“Anne…”</strong></p>
+<p>Eris arkasına döndü. Leo’nun arkasından mavi ve yeşil saçların göründüğünü fark etti. Tabii ya, Lara ve Sieg’di. Nanahoshi’nin bir aile dostu olduğunu söyleyip onlara <strong>“merhaba”</strong> demeleri gerektiğini unuttuğunu fark etti. Bu yanlış mıydı? Genelde Leo, tanıdıkları birine kendi başına gider ve o zaman Eris, çocukların kibar bir selam vermesi gerektiğini hatırlardı. Ama bu sefer Leo geride durmuştu.</p>
+<p>Eris bunu düşünürken, Lara, <strong>“O Nanahoshi değildi,”</strong> dedi.</p>
+<p>Bu sözler, Eris’in içine tarif edemediği bir huzursuzluk hissi yerleştirmişti. Dudaklarını sıktı. Omuzlarında oturan Lily, Nanahoshi’nin ona verdiği saç tellerini bir yay gibi gererek çekiştiriyordu. Hemen eve gitmeliydi. Hayır—çocuklar onun yanındaydı.</p>
+<p>Plan değişikliği.</p>
+<p><strong>“Ofise gidiyoruz. Siz ikiniz Leo’nun sırtına çıkın.”</strong></p>
+<p>Şimdilik çocukları güvenli bir yere götürmeli, ardından eve dönmeliydi. Bu kararı veren Eris, Lara ve Sieg’i Leo’nun sırtına yerleştirdi ve ofise doğru yürümeye başladı.</p>
+<p style="text-align: center;"><strong>***</strong></p>
+<p>Eris ofise vardığında, orada etkileyici bir atmosfer hâkimdi. Tanıdığı bir grup Ruquag paralı askeri dışarıda oyalanıyordu. Onların yanı sıra, Zanoba, Julie, Elinalise, Clive ve Kuzey Tanrısı Kalman III Alexander Rybak’ı da gördü. Ancak, genellikle hissettiği rahatsızlık duygusu bu kez yoktu. Orsted dışarıda olmalıydı.</p>
+<p><strong>“Eris?! Burada ne işin var?!”</strong> Rudeus kalabalığın arasından aceleyle çıktı. Eris onu gördüğünde rahatladı. Aynı anda, daha önce hissettiği huzursuzluğun sırrını birazdan çözeceğinden artık emindi.</p>
+<p><strong>“Yürüyüşte garip biriyle karşılaştık,”</strong> dedi, onun sorusunu yanıtlamadan. Rudeus’un gözlerinde temkinli bir ifade belirdi.</p>
+<p><strong>“Kimdi?”</strong> diye sordu.<br>
+<strong>“Nanahoshi’ye çok benziyordu.”</strong></p>
+<p>Rudeus, <strong>“Bu Lupin’di!”</strong> diye bağırmak ister gibi bir yüz ifadesi yaptı. Ne olduğunu sormak için sabırsızlanıyordu, ama önce Eris için endişelendi.<br>
+<strong>“Peki, size bir şey olmadı, değil mi? Yaralanmadınız?”</strong><br>
+<strong>“Çocukların hepsi iyi.”</strong></p>
+<p>Rudeus, Lara, Sieg ve hâlâ siyah saç tellerini gerip oynayan Lily’ye endişeyle baktı.</p>
+<p><strong>“Ya sen, Eris? Sen yaralanmadın değil mi?”</strong> Çocukların iyi olduğunu gördükten sonra, Rudeus, Eris’i baştan aşağı yaralanma belirtisi için kontrol etmeye başladı. Yüzünü inceledi, omuzlarından tutup onu çevirdi, baştan aşağı süzdü. Tam göğüslerini sıkmak için elini uzatmıştı ki, Eris’in yumruğu çenesine sert bir şekilde indi.</p>
+<p><strong>“İyiyim! Gördüğün gibi!”</strong><br>
+<strong>“Mmm, evet.”</strong></p>
+<p><strong>“Bize bir şey yapmadı. Leo onun sahte olduğunu fark etti, bu yüzden şimdilik buraya geldik.”</strong> Eris, Leo’ya baktı. Nedense, Lara kendinden memnun bir ifade takınmıştı. Burnunu hışımla şişirdi. Eris, Lara’nın başını okşadı, ardından tekrar Rudeus’a döndü.<br>
+<strong>“Peki, o kimdi?”</strong><br>
+<strong>“Şey, yani…”</strong></p>
+<p>Rudeus, olanları açıkladı. Kendisi ve Zanoba’nın üzerinde çalıştıkları bebek kaçmıştı. Teleportasyon çemberinin kullanıldığına dair izler bulmuşlar ve bu yüzden bebeğin Büyü Şehri Sharia’da olduğuna karar vermişlerdi. Teleportasyon çemberini kullanarak Julie’yi uyandırmışlar—Julie o sırada atölyede tüm günü pinekleyerek geçiriyordu—ve Ruquag Paralı Asker Birliği’ni aramaya göndermişlerdi. Elinalise’nin yaşadığı ufak çaplı kargaşa sayesinde bebeği bulmuşlar, ama hemen ardından tekrar kaybetmişlerdi. Şehir dışına çıktığına dair bir haber alınca, Rudeus, Şehir Duvarlarından Bakış Gözü’nü kullanarak durumu gözlemlemişti. O sırada, bebeğin ofis yönüne doğru ilerlediğini görmüştü. Ofisin hedef olduğu tahmininde bulunarak buraya gelmişti. Daha sonra, bekledikleri yönde bebeği izlerken, Eris ortaya çıkmıştı.</p>
+<p><strong>“Bana o kadar kötü gibi görünmedi,”</strong> dedi Eris.<br>
+<strong>“Belki şu an değil. Ama onu hızlıca bulamazsak, ne olabileceğini kimse bilemez.”</strong> Rudeus’un sesi kararlıydı.</p>
+<p>Aslında, Rudeus bebeğin bir kusuru olduğundan emindi. Çekirdeğine insan güvenliği, emirlere itaat ve kendini koruma konularında birkaç yasa kazınmıştı—bunlar meşhur <em>Üç Robot Yasasıydı</em>. Ama bebek, emirlere uymamış ve kaçmıştı. Bu da en azından <em>“emirlere itaat”</em> kısmında bir sorun olduğunu gösteriyordu. Şimdilik, yaptığı tek şey Elinalise ve Eris’le konuşmaktı. Kimseye zarar vermemişti, ama bunun “insan güvenliği” yasasının düzgün çalıştığı anlamına geldiğini düşünmek safça olurdu. Eğer o yasa da çalışmıyorsa, katliamı tetikleyecek bir durumun ne olacağını kimse kestiremezdi.</p>
+<p><strong>“Eris, sizin aranızda geçen konuşmayı biraz daha anlatabilir misin?”</strong><br>
+<strong>“Yani, pek bir şey konuşmadık. Sanırım şunları söyledi…”</strong> Eris, bebekle yaptığı konuşmayı hatırlamaya çalışarak cevap verdi.</p>
+<p>Rudeus, Eris konuşmaya devam ederken giderek daha gergin bir ifade takındı. Bebeğin onunla, Elinalise’yle ve Eris’le yaptığı konuşmaları bir araya getirdiğinde, davranışını açıklayabilecek bir teori kafasında şekillenmişti.</p>
+<p>Elinalise ile konuşmasında, bebek defalarca Rudeus’un eşleri hakkında sorular sormuştu. Dün gece, Rudeus, eşlerinin sinirlenebileceğini söyleyerek bebeği hurdaya ayırmaları gerektiğini ifade etmişti. Bebek bunu duymuştu. <em>“Emirlere itaat”</em> yasası çalışmıyor olabilirdi, ama <em>“kendini koruma”</em> yasası devredeydi. Bu nedenle, savunma eylemine geçmesi mantıklıydı. Bu nasıl bir savunma olabilirdi? Onu yok etmeye çalışanları ortadan kaldırmak?</p>
+<p>Bebeğin bildiği kadarıyla, onu yok etmeye çalışan düşmanlar Rudeus’un eşleriydi. Bebeği yok edecek kişiler aslında Zanoba ve Rudeus’tu, ama belki de bebek, onları saldırı hedefi yapmamıştı çünkü ikisi de kayıtlı <em>efendileri</em> olarak tanımlanmıştı. Bu çelişkili görünüyordu, ama bir bug veya yazılım hatası varsa, çelişkili davranışlar beklenebilirdi.</p>
+<p>Bebek, Rudeus’un eşlerini tanımlıyor ve yerlerini tespit ediyordu. Öncelikle onları ortadan kaldırmayı düşünüyor olabilirdi. Öte yandan, Eris de bir hedef olmalıydı, ama onunla sadece konuşmuştu. Bu, teorinin yanlış olduğu anlamına mı geliyordu?</p>
+<p>Rudeus’un aklı karışmıştı. Eğer teori doğruysa, zaman daralıyordu, çünkü bebek harekete geçmek üzere olabilirdi. Ancak, bebek Eris’i hedef almamıştı. Bu, bir başka bilinmezdi.</p>
+<p>Bebeğin Eris’e sorduğu sorular, Rudeus’un eşleri arasından hangisini ortadan kaldıracağını—başka bir deyişle, onun için en büyük engel olan kişiyi—araştırdığını gösteriyordu. Muhtemelen, diğerlerinden önce bu kişiyi halletmek istiyordu. Eris ile yaptığı konuşma, tehdidin kim olduğunu fazlasıyla açık hale getirmişti.</p>
+<p><strong>“En sonunda Sylphie ile konuşmak istediğini söyledi ve şehre geri döndü,”</strong> dedi Eris. Rudeus’un yüzü bir anda bembeyaz oldu.</p>
+<p><strong>“Sylphie tehlikede!”</strong> diye bağırarak eve doğru deli gibi koşmaya başladı, ancak kısa süre içinde geri dönüp ofise geldi ve derin bir nefes aldı.</p>
+<p>Rudeus, etrafına bakarak kendisini sakinleşmeye zorladı. Ofisin dışında, Ruquag Paralı Asker Birliği, Zanoba, Julie, Alec, Elinalise, Clive ve çocuklar vardı. Önce Alec’e baktı; Alec boşta gibi görünüyordu.</p>
+<p><strong>“Alec, çocukları ve Julie’yi sana bırakıyorum. Sorun olur mu?”</strong><br>
+<strong>“Hayır, sorun değil.”</strong></p>
+<p>Çocukların güvenliği her şeyden önce geliyordu. Orsted burada olsaydı, Rudeus belki ondan yardım ister ve Alec’e farklı bir görev verirdi, ama şu an burada olmadığı için bu şekilde idare etmek zorundaydı. Alec’in gözetiminde çocuklar güvende olmalıydı. Julie de büyük olasılıkla güvende olacaktı; bebek, Julie uyurken yanından geçmişti. Ancak Rudeus, atölyedeki konuşmaları sırasında Julie’nin bebeğe karşı olduğunu söylediğini de hatırlıyordu. Bu yüzden onun burada kalması daha iyiydi.</p>
+<p><strong>“Eris ve Elinalise, okula gidin,”</strong> dedi Rudeus. <strong>“Bebek, Roxy’ye gidebilir. Paralı askerlerden bazıları zaten oraya yönlendirildi, onlarla buluşabilirsiniz.”</strong><br>
+<strong>“Anlaşıldı.”</strong><br>
+<strong>“Pekâlâ.”</strong></p>
+<p>Linia, paralı askerlerden oluşan bir arama ekibiyle birlikte okula doğru gidiyordu. Eris, bebeğin Sylphie’yi bulmak istediğini söylemişti, ama aslında ne yapacağını kestirmek imkânsızdı. Her ihtimale karşı takviye göndermek daha iyiydi.</p>
+<p><strong>“Paralı askerlerin yarısı Aisha’ya dönsün ve olanları bildirsin. Ona, işlerin daha kötüye gitmesi durumunda Bay Perugius’tan yardım isteyebileceğimi söyleyin.”</strong><br>
+<strong>“Emredersiniz!”</strong></p>
+<p>Eğer Perugius’tan yardım alırsa, Arumanfi muhtemelen bebeği saniyeler içinde yakalayabilirdi. Sorunun bu kadar çabuk büyüyeceğini hiç beklememişti! Kendi hatasıydı, durumu insanlara, özellikle evdekilere, haber vermekte gecikmişti.</p>
+<p>Ancak, Perugius’un yardım etmeyi kabul edeceğinin garantisi yoktu.</p>
+<p><strong>“Paralı askerlerin diğer yarısı Zanoba’nın atölyesine dönsün,”</strong> diye devam etti Rudeus.<br>
+<strong>“Anlaşıldı.”</strong></p>
+<p>Bebek her yerde dolaşırken, bunun bir dikkat dağıtma taktiği olması ve asıl amacının Rudeus’tan kaçmak olması mümkündü. Bir yanı, tehlikenin sadece uzaklaşmasına izin vermek istiyordu… ama onu o yaratmıştı. Bu işi sonuna kadar götürmek onun sorumluluğuydu.</p>
+<p><strong>“Zanoba, benimle eve gel. Sylphie ve diğerlerinin güvende olduğundan emin olalım.”</strong><br>
+<strong>“Pekâlâ, Usta.”</strong></p>
+<p><strong>“Tamam millet! Hareketlenin!”</strong> Rudeus’un emriyle herkes dağıldı.</p>
+<p>Ofiste geriye sadece çocuklar, Leo, Julie ve Alec kaldı. Anne babaları ortadan kaybolduktan sonra çocuklar tedirgin görünüyorlardı.</p>
+<p><strong>“Babanız dönene kadar bir oyun oynasak nasıl olur, çocuklar?”</strong> dedi Alec, onlara gülümseyerek.</p>
+          
+            
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum1parca1.html" class="nav-btn">←Önceki Bölüm</a>
+            <a href="bolum1parca3.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

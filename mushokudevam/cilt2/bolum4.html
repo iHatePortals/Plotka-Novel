@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei Cilt 1, Bölüm 1 (Kısım 1) | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b; /* Mushoku Tensei Kırmızı Tema */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #cc0000;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c1b1b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        body.theme-light .nav-btn:hover, 
+        body.theme-light .action-btn:hover, 
+        body.theme-light .theme-select:hover,
+        body.theme-sepia .nav-btn:hover, 
+        body.theme-sepia .action-btn:hover, 
+        body.theme-sepia .theme-select:hover {
+            color: #ffffff;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+        }
+
+        /* Resimler için özel stil */
+        .novel-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 6px;
+        }
+
+        /* Ayrıştırıcı Çizgi */
+        .divider {
+            text-align: center;
+            margin: 2em 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="bolum3parca3.html" class="nav-btn">←Önceki Bölüm</a> 
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="../cilt2bolumler.html" class="nav-btn">Cilt İçeriği→</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Mushoku Tensei Cilt 2, Bölüm 4</h1>
+            <div class="subtitle">Greyrat Çocukları</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+                                    <img src="bolum4foto1.png" alt="Kitap Çizimi 1" class="novel-image">
+<p>Bir dizi takırtı yankılandı. Ahşabın ahşaba çarparken çıkardığı net ses, nefes alışverişlerine karışıyordu.</p>
+<p><strong>“Off!”</strong></p>
+<p><strong>“Hup!”</strong></p>
+<p>Greyrat evinin bahçesinde, ellerinde tahta kılıçlar olan iki genç karşı karşıya gelmişti. Biri kestane rengi saçlı bir kızdı. Yaşına göre şaşırtıcı bir vahşilikle kılıcını savuruyor, açısal momentumunu sonuna kadar kullanırken pelerini etrafında dalgalanıyordu. Dikkat çeken bir diğer şey, kılıcı tutmayan sol eliydi. Eli hafifçe açıktı ve ara sıra havayı tokatlamak için kullanıyordu. Bunu yaptığında, duvara çarpan bir top gibi sekiyordu, bu da hareketlerini tahmin etmeyi imkânsız kılıyordu. Yanlara doğru kıvrılarak, zaman zaman alçalıp yükselerek yaklaşıyor ve rakibine bir, iki iyi darbe indiriyordu. Sürekli değişen hareketleri hem tahmin edilemez hem de zarif ve güzeldi.</p>
+<p>Rakibi, kızıl saçlı bir çocuktu ve üzerinde biraz kirli bir antrenman kıyafeti vardı. Kılıcını kararlılıkla kavramıştı. Kızın aksine hareketleri biraz daha katıydı. Onun gibi büyü kullanmak yerine sadece kılıcıyla onu savuşturmaya çalışıyordu. Ayaklarını yere sağlam basıyor, kızı savuştururken sabit ve güçlü duruyor, sonra cesurca karşılık veriyordu. Hareketleri Kılıç Tanrısı Stilini taklit ediyordu: temel, dolaysız bir teknik. Ayrıca kızdan daha hızlı vuruyordu. Buna rağmen ona hiç isabet ettiremiyordu. Bazen kız kaçıyor, bazen de saldırısını karşılayıp kritik bir açığı akıllıca değerlendirerek geri vuruyordu.</p>
+<p><strong>“Bu bir puan bana.”</strong></p>
+<p><strong>“Daha değil!”</strong> Aralarındaki bariz beceri farkına rağmen çocuk yılmamış, tekrar kıza doğru koşmuştu.</p>
+<p>Yakınlarda, diğer üç çocuk onları izliyordu, çoğunun gözleri dalgındı. Mavi saçlı bir kız ve yeşil saçlı bir çocuk yan yana oturuyordu, yanlarında ise sarışın bir çocuk ayakta duruyordu. Ayrıca büyük beyaz bir köpek de vardı. Mavi saçlı kız yüzünü köpeğin tüylerine gömmüş uyukluyordu. Dövüşle pek ilgileniyor gibi görünmüyordu.</p>
+<p>Kestane saçlı kız ve kızıl saçlı çocuk bir süre daha karşı karşıya kaldılar, ta ki kız ileri atılana kadar.</p>
+<p><strong>“Yah!”</strong> diye vahşice bağırarak tahta kılıcını dosdoğru çocuğun alnına indirdi. Tatmin edici bir <em>‘tak’</em> sesi duyuldu.</p>
+<p><strong>“Ayyy!”</strong> Çocuk acıyla yerde yuvarlanırken, alnındaki yarıktan çenesine doğru parlak kanlar süzülüyordu.</p>
+<p><strong>“Eyvah, özür dilerim, tam isabet oldu.”</strong> Kız hızla yanına koştu ve tek kelime etmeden elini çocuğun alnına koydu. Yeşil bir ışık parladı ve yara kapandı.</p>
+<p><strong>“Ahhh,”</strong> diye iç geçiren çocuk, iyileştirme büyüsünü itirazsızca kabul etti. Kendini yere bıraktı. <strong>“Sana hâlâ rakip olamıyorum, Lucie.”</strong></p>
+<p><strong>“Ne bekliyordun ki?”</strong> diye cevapladı kız. <strong>“Sen daha on yaşındasın, Arus.”</strong></p>
+<p><strong>“Sadece üç yaş fark var…”</strong></p>
+<p><strong>“Üç yaş yeterince büyük bir fark. Sieg’e karşı kaybetmezdin, değil mi?”</strong></p>
+<p>Bunlar Lucie ve Arus’tu. Milis’ten döndüğünden beri Arus, kendini eskisinden daha büyük bir yoğunlukla kılıç antrenmanlarına vermişti. Eris bütün çocuklara kılıç sanatını öğretiyordu, ama Arus dövüşme hevesine kapıldığından beri gururla dolup taşmış ve bildiği her şeyi ona öğretmek için büyük çaba sarf etmişti. Arus’un yeteneği boldu, bu yüzden özel ilgi görüyordu. Eris’in öğrettiği her şeyi kapıyor ve tam teşekküllü bir kılıç ustası olma yolunda ilerliyordu—ama bundan daha azı ona yeterli gelmiyordu. İşte bu yüzden Arus, çocuklar arasında bunun gibi gizli antrenman seansları düzenlemeye başlamıştı.</p>
+<p>Eris muhtemelen, dövüş tecrübesi edinmeyi düşünmeden önce kılıç savuruşunun daha fazla çalışılması gerektiğini söylerdi, ama Arus onun oğluydu—sadece kılıç sallamayı sıkıcı buluyor ve bir partner istiyordu. Eris de onun yaşındayken böyleydi, bu yüzden bu çok doğaldı.</p>
+<p><strong>“Hey, Lucie,”</strong> dedi Arus, <strong>“elinden rüzgâr fırlatıp dönerek yaptığın o şeyde çok iyisin. Beyaz Anne mi öğretti?”</strong></p>
+<p><strong>“Hayır. Babanın eskiden yaptığını duymuştum, kendi kendime öğrendim.”</strong></p>
+<p><strong>“Vay canına. Sence baba da böyle mi dövüşüyordur?”</strong></p>
+<p><strong>“Muhtemelen şimdi değil. Çocukken yaptığını söylemişti.”</strong></p>
+<p><strong>“Sence ben de denemeli miyim?”</strong></p>
+<p><em><strong>“Hmm,”</strong></em> diye düşündü Lucie. <strong>“Bence sen Kılıç Tanrısı tekniğini geliştirmeye odaklansan daha iyi olur. Benim yaptığım şey gerçek kılıçlarla yapılan ciddi bir dövüşte yeterince güçlü olmaz. Kılıç antrenmanı yapmıyor olsaydım bunu yapmazdım. Yani, ben bir büyücüyüm.”</strong></p>
+<p><strong>“Ama çok havalı. Lucie’nin büyülü kılıç sanatı! Clive da çok etkilenmişti, biliyorsun.”</strong></p>
+<p><strong><em>“Mm…”</em></strong> Lucie oralı olmamış gibi davrandı, ama göz ucuyla izleyicilerin arasındaki sarışın çocuğa baktı; çocuk, yanında oturan Sieg ile neşeyle sohbet ediyordu.</p>
+<p>Adı Clive’dı. O da bir akrabaydı, bu yüzden zaman zaman sadece çocukların katıldığı bu gizli antrenmanlara takılıyordu. Lucie’nin antrenman yapmalarına rağmen üniformasının üzerine en sevdiği pelerinini giymesinin ve kılıcına odaklanmak yerine pelerininin dalgalanması için büyü kullanmasının sebebi buydu. Bir rüzgâr perisi gibi görünmek istemişti—bir sylph, babasının ona uzun zaman önce anlattığı bir masaldaki dört büyük ruhtan biri. Babası, güzel sylph’in yeşil saçları olduğunu ve havada dans ederek daima rüzgâra büründüğünü söylemişti.</p>
+<p>Lucie okuldaki arkadaşlarıyla konuştuğunda, böyle bir şey hiç duymadıklarını söylemişlerdi. Öğretmenlerine sorduğunda onlar da bir şey bilmiyordu. Kütüphaneyi talan etmiş ama bu isme dair hiçbir şey bulamamıştı. O ana kadar sylph’in gerçek olduğuna inanmıştı. Meğer sylph de en az Cheddar Adamı kadar hayal ürünüydü—ne büyük bir şok! Yine de Lucie hâlâ rüzgâr perilerine hayrandı ve hoşlandığı çocuğun onu o şekilde görmesini hayal ediyordu.</p>
+<div id="model-response-message-contentr_4b24e9b20af2065d" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p><strong>“Bu kadar yeter. Şınav!”</strong> diye bağırdı Lucie. <strong>“Kaybedenin şınav çekeceği konusunda anlaşmıştık, hatırladın mı?”</strong></p>
+<p><strong>“Off ya.”</strong> Arus, Lucie’nin önünde şınav pozisyonu aldı ve sonra bağırarak başladı: <strong>“Bir! İki…!”</strong></p>
+<p>Bu, çocukların gizli antrenmanlarının bir kuralıydı: kaybeden temel bir egzersiz yapmak zorundaydı.</p>
+<p><strong>“Tamam, sıradaki sensin, Lara! Acele et!”</strong></p>
+<p>Kaybeden egzersizlerini yaparken bir sonraki rakibin ortaya çıkması gerekiyordu, ama Lara uykulu bir şekilde, <strong>“Zaten beş tur yaptın. Biraz ara verelim,”</strong> dedi.</p>
+<p>Leo’ya yaslanmış, dövüşmekle ilgilenmiyordu, gerçi dürüst olmak gerekirse uyuyormuş gibi yaparak onları görmezden gelmesi daha iyiydi. Son derece yetenekli bir büyücü olan Lara, rakiplerini alt etmek için kurnazlığını kullanarak dövüşürdü. Öte yandan, konu kılıç sanatı olduğunda hiç motive değildi. Bu, hareket etmeyi sevmediği anlamına gelmiyordu; kendi muzipliklerinin peşindeyken oldukça enerjikti. Sadece kılıç dövüşü ona göre değildi.</p>
+<p>Yine de, ne kadar isteksiz olsa da gelmişti. Belki de kendine göre sebepleri vardı.</p>
+<p><strong>“Peki ya sen, Sieg?”</strong></p>
+<p><strong>“Mm, ben de pas geçiyorum.”</strong> Sieg sadece sekiz yaşındaydı ve dördü arasında en düşük kazanma oranına sahipti. Bununla birlikte, yaşına göre inanılmaz bir gücü vardı ve dövüş başa baş gittiğinde, bu gücün onu zafere taşıdığı anlar oluyordu. Onun stili de Lucie ve Arus’tan farklıydı. Tıpkı Arus gibi onun dövüş stili de kılıç oyununa öncelik veriyordu, ama zaman zaman Eris’in onlara öğrettiğinden açıkça farklı şekillerde hareket ediyordu.</p>
+<p>Elbette, diğer üçü ona kılıç sanatını kimin ve nerede öğrettiğinin farkındaydı.</p>
+<p><b>“Peki, mola zamanı,”</b> dedi Lucie. Hâlâ şınav çeken Arus’un yanına oturdu. Clive’ın yanına gitmek kelimelerle ifade edilemeyecek kadar utanç verici olurdu. Hayatının o dönemindeydi. Ayrıca, tam o anda Clive, Sieg ile konuşuyordu. Lucie ne dediklerini bilmiyordu ama yaşına göre sakin olan Clive, son derece bilgiliydi ve onunla konuşmak ilginçti. Muhtemelen son zamanlarda okuduğu herhangi bir kitapla Sieg’i eğlendiriyordu.</p>
+<p><strong>“Hey, Lucie,”</strong> dedi Arus aniden şınav çekmeye devam ederken, <strong>“Okulu bitirdikten sonra ne yapacaksın?”</strong></p>
+<p><strong>“Bir sonraki okula gideceğim,”</strong> diye umursamazca cevap verdi Lucie, Arus’un ciddi sorusuna. <strong>“Babanın dediği gibi. Ranoa Büyü Üniversitesi’nden mezun olduktan sonra Asura Kraliyet Akademisi’ne başlayacağım. Oraya neden gitmem gerektiğini bilmiyorum ama sanırım Asuralı soylular olduğumuz için soyluluk hakkında bir şeyler öğrenecekmişim.”</strong></p>
+<p><strong>“Hayır, ondan sonrasını kastediyorum.”</strong></p>
+<p>Lucie tekrar Arus’a baktı. Çocuk şınav çekmeye devam ederken gözleri yerdeydi.</p>
+<p><strong>“Babanın izinden gideceksin, değil mi?”</strong> diye sordu ona.</p>
+<p><strong>“Bilmiyorum ama annelerimiz öyle söylüyor.”</strong></p>
+<p>Bunu çoğunlukla Eris söylüyordu. Arada bir, “Arus, Greyrat varisidir!” diye ilan ederdi. O zamandan beri öyle olduğu varsayılmıştı. Sylphie ve Roxy’nin bu durumla bir sorunu yok gibiydi. Ne yapması gerektiği ise belli değildi. Rudeus gibi Orsted için mi çalışacaktı?</p>
+<p><strong>“<em>‘Bilmiyorum’</em> ne demek? Arus, herkes senin varis olmanı bekliyor. Ve Lara’nın da önemli bir rolü olması gerekiyormuş. Bu ciddi bir konu.”</strong></p>
+<p><strong>“Madem öyle düşünüyorsun, neden sen varis olmuyorsun? Kılıç dövüşünde ve büyüde bizden daha iyisin.”</strong></p>
+<p><strong>“Değilim. Kimse benden bir şey beklemiyor.”</strong></p>
+<p><strong>“Bu doğru değil,”</strong> diye ağzından kaçırdı Arus.</p>
+<p><strong>“Doğru!”</strong> dedi Lucie, sesi yükselerek. <strong>“Babam bana bir kez bile benden bir şey beklediğini ya da gelecekte ne yapmamı istediğini söylemedi. Öyle bir şey yok! Siz ikiniz doğum günlerinizde kılıçlar ve büyü asaları aldınız, ama ben… ben…!”</strong></p>
+<p>Sadece Arus değil, onlardan uzakta duran diğer üçü de gözleri fal taşı gibi açılmış ona bakıyordu. Anında bir utanç dalgası hissetti. Bütün bunları küçük kardeşine de ne diye söylüyordu ki? Babası ondan bir şey beklemiyordu çünkü yeterince sıkı çalışmıyordu. Olay bu kadar basitti.</p>
+<p><em><b>“Ah…!”</b></em> Lucie’nin gözleri doldu. Ağlamak hiçbir işe yaramayacaktı ama gözyaşları yine de yanaklarından süzülüyordu. Babası neden ondan bir şey beklemiyordu? Bunu hiç anlamamıştı. Hem kılıç sanatında hem de büyüde çok çabalıyordu. Okulda iyi notlardan başka bir şey almıyordu. İyi bir ablaydı, ama babası ona bir kez bile ne yapmasını istediğini ya da ne olmasını istediğini söylememişti. Onu her zaman, istediği hayatı yaşaması gerektiğini ya da en büyük olduğu için bu konuda endişelenmesine gerek olmadığını söyleyerek geçiştirirdi.</p>
+<p><strong>“B-baba bana bir şey beklediğini söylemedi ki,”</strong> diye kekeledi Arus, çaresizce etrafına bakınarak. Ona göre ablası mükemmeldi.</p>
+<p>Kardeşleri arasında en başarılısı oydu. Ondan tam üç yaş büyük olması, onu bir yetişkin gibi gösteriyordu. Arus, onun kendi yaşındayken yapabildiği şeyleri yapamıyordu ve küçük kız kardeşleri Lily ve Chris’e nasıl bakacağını da bilmiyordu. Kılıç sanatı dışında, Lucie’den daha iyi yaptığı hiçbir şey olduğunu düşünmüyordu. Onda bile, ablası büyü kullandığında bir deneme maçında onu yenemiyordu. Eğer kimse Lucie’den bir şey beklemiyorsa, kesinlikle diğer çocuklardan da hiçbir şey beklemiyorlardı.</p>
+<p>Ama eğer babası gerçekten Lucie’den bir şey beklemiyorsa, bu Arus’tan da bir şey beklemediği anlamına gelmez miydi? Babası Arus’a asla varisi olmasını istediğini söylememişti. Bunu bir nevi varsayıyordu çünkü Kızıl Anne ve Aisha böyle söylüyordu ve diğer anneler de onların yalan söylediğini belirtmiyordu. İşler böyle yürürdü. Asuralı soylularda en büyük erkek çocuk varis olurdu.</p>
+                                    <img src="bolum4foto2.jpg" alt="Kitap Çizimi 1" class="novel-image">
+
+<div id="model-response-message-contentr_6e620d8f5d087bdd" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Normalde, biri onunla Lucie’nin konuştuğu gibi konuşsa, Arus ateşli bir karşılık verirdi. Dışarıdan sinirli görünmese bile içten içe köpürürdü; bu onun doğasıydı. Ama Lucie’nin daha önce hiç böyle konuştuğunu duymamış, onu hiç bu kadar üzgün görmemişti. Lara ona bir şaka yaptığı için sinirlendiğinde, sanki rol yapıyor gibiydi, sadece Lara’yı azarlayacak kadar kızgın kalıyordu. Lucie mükemmel bir ablaydı. Duygularını asla dışa vurmayan, hiç kötü bir şey yapmayan, sızlanmayan ya da şikâyet etmeyen o son derece havalı tiplerdendi.</p>
+<p><b>“Hey, şey, Lucie?”</b> Arus, bu patlamaya öfkelenmekten çok kafası karıştığı için tereddüt etti. Nasıl cevap vereceğini bilmiyordu. Eğer bu, ağız dalaşı yapmaya alışkın olduğu Lara ya da Sieg olsaydı, bir şeyler söylerdi ama şimdi ne yapması gerekiyordu?</p>
+<p>O sırada Clive yanlarına gelip Lucie’nin yanına oturdu. <strong>“İyi misin, Lucie?”</strong></p>
+<p>Lucie sessizdi. Diğer çocuk Arus’tan sadece bir yaş büyüktü ama çok daha olgun görünüyordu. Çalışkandı ve okulda iyi notlar alırdı, ayrıca nazikti ve insanlarla arası iyiydi—gerçi gerektiğinde kendinden küçük öğrencilere karşı katı olabiliyordu. Kendiyle aynı yaşta olan Lara’dan çok daha yetişkin duruyordu.</p>
+<p><strong>“Hepimiz ne kadar çok çalıştığını biliyoruz,”</strong> dedi Clive.</p>
+<p><strong><em>“Mm.”</em></strong> Lucie burnunu çekti. Clive bir kolunu onun omzuna atıp başını okşadı.</p>
+<p><strong>“Daha sonra Arus’tan özür dilersin, değil mi?”</strong></p>
+<p><strong>“Hayır, şimdi daha iyi.”</strong> Lucie burnunu bir kez daha çekti, sonra şınav pozisyonunda donakalmış Arus’a dönüp başını eğdi. <strong>“Özür dilerim, Arus. Kaba davrandım.”</strong></p>
+<p><strong>“Hayır! Yani… ben de özür dilerim,”</strong> dedi. Ne hata yaptığından emin değildi, ama birinin ona bir kızı ağlatırsa özür dilemesi gerektiğini söylediğinden oldukça emindi. Belki Mavi Anne ya da Beyaz Anne’ydi. Aisha olabilir miydi? Her halükârda, Lucie’ye okulu bitirdikten sonra ne yapacağını sormamalıydı. Sadece merak etmiş ve havalı ablasının gelecek için aklında ne olduğunu duymak istemişti. Belki de onun mükemmel-abla cevabından kendisi için bir fikir edineceğini ummuştu. Milyon yıl düşünse onun kendisine böyle bağıracağı aklına gelmezdi.</p>
+<p><strong>“Kusura bakma, Arus,”</strong> dedi Clive. <strong>“Ben Lucie’yi alıp eve döneyim.”</strong></p>
+<p><strong>“Ah, şey, evet. Tamam.”</strong></p>
+<p>Clive, kolu Lucie’nin omuzlarında, içeri girdi.</p>
+<p>Geride kalan Arus’un dili tutulmuştu. Sadece donakalmış, inanamaz bir halde duruyordu. Tam o sırada, Lara ve Sieg, Lucie ile Clive’ın olduğu yere geldiler. Leo da endişeli bir ifadeyle onlara katıldı.</p>
+<p><strong>“Bu biraz ağırdı,”</strong> dedi Lara.</p>
+<p><strong>“Lucie’nin böyle sinirlenebildiğini bilmiyordum,”</strong> diye katıldı Sieg.</p>
+<p>Arus, erkek ve kız kardeşiyle yakındı ve onlarla konuşmak genellikle bir şeyler hakkında düşünmesine yardımcı olurdu. Başını salladı. <strong>“Sanırım, bilmiyorum, Lucie de gelecek hakkında endişeleniyor olmalı.”</strong></p>
+<p>Lucie’nin herhangi bir şey için endişelenemeyecek kadar mükemmel olduğunu varsaymıştı. Belli ki öyle değildi.</p>
+<p>Lara ağzını açtı. <strong>“Lucie…”</strong> diye başladı.</p>
+<p>Arus, ablalarından küçük olanının ne düşündüğünü asla bilemezdi, ama bazen öyle bir şey söylerdi ki tam meselenin özüne dokunurdu. Arus önemli bir şeyi kaçırmamak için dikkatle dinledi.</p>
+<p><strong>“…kesinlikle Clive’la evlenecek,”</strong> dediği tek şey bu oldu.</p>
+<p><strong>“Ah, doğru,”</strong> diye başını salladı Arus, hayal kırıklığına uğramış hissederek. Lara aynı sıklıkla yavan bir şey de söylerdi. Arus ve diğerleriyle aynı şeylerle ilgilenmiyordu. O kendi dünyasındaydı.</p>
+<p><strong>“Konumuz bu değildi,”</strong> dedi Sieg.</p>
+<p>Ama Lara henüz bitirmemişti. <strong>“Clive tek çocuk, yani evlendiklerinde Lucie Millis’te yaşayacak.”</strong></p>
+<p>Şimdi onun akıl yürütme şeklini anladığı için, ne demek istediğini biliyordu. <strong>“Yani, evlendiğinde gidiyor mu?”</strong></p>
+<p><strong>“Aynen,”</strong> dedi Lara.</p>
+<p>Onların ailesi ve Clive’ın ailesi Grimorlar, akraba olmalarının da yardımıyla iyi geçiniyorlardı. Arus nedenini tam olarak anlamıyordu ama soylu aileler daha güçlü bağlar kurmak için çocuklarını birbirleriyle evlendirirlerdi. Büyükler şimdiden Lucie ve Clive için planlar yapıyor olabilirdi. <em>“Nişanlı”</em> olacaklardı.</p>
+<p><strong>“Sence Lucie bu durumdan mutsuz mu?”</strong> diye sordu Arus.</p>
+<p><strong>“Bahse girerim bu duruma kızgın değildir.”</strong></p>
+<p><strong>“Evet, Clive’dan hoşlanıyor ama o zaman neden öyle bağırdı ki?”</strong></p>
+<p><strong>“Kızlar karmaşıktır.”</strong></p>
+<p>Arus kendini epey kaybolmuş hissetti. Lucie belli ki bir şeyden mutsuzdu. Hatta Greyrat varisi olması gereken kişinin kendisi olduğunu düşünüyor gibiydi. Gerçi bu belki de kendi yetersizliğinin bir yansımasıydı ama Arus da bunu hak edenin o olduğunu düşünüyordu.</p>
+<p>Daha sonra bunu Aisha’ya sorarım diye düşünerek konuyu değiştirmeye çalıştı. <strong>“Peki ya sen, Lara?”</strong></p>
+<p><strong>“Yemek yapacak, temizlik yapacak ve diğer her şeyi halledecek becerikli bir adamla evleneceğim, böylece bütün gün tembellik edebileceğim.”</strong></p>
+<p><strong>“‘Evleneceğim’ mi? Dur bakalım, biriyle nişanlı mısın?”</strong></p>
+<p><strong>“Hayır.”</strong></p>
+<p><strong>“Ah.”</strong> Ona böyle birini nerede bulmayı düşündüğünü sormak istedi ama kendini tuttu.</p>
+<p><strong>“Çok zor olmayacak,”</strong> diye ekledi Lara.</p>
+<p><strong>“Tabii. Bol şans.”</strong> Daha az havalı olan ablası sinirine dokunmaya başlamıştı, bu yüzden küçük kardeşine döndü. <strong>“Peki ya sen, Sieg?”</strong></p>
+<div id="model-response-message-contentr_bbccfeefd4333790" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Sieg elindeki tahta kılıca baktı. <strong>“Dünyanın en güçlü kılıç ustası olacağım.”</strong> Lara’dan bile daha saçma konuşuyordu. <strong>“En güçlü olduğumda, dünya barışını koruyacağım.”</strong></p>
+<p>Evet, Sieg Cheddar Adamı’nı ve Kuzey Tanrısı Destanı’nı seviyordu, ama Arus bebek hayalleri hakkında değil, ciddi şeyler hakkında konuşmaya çalışıyordu. İç çekti ve, <strong>“Önce beni yenmeyi dene bakalım,”</strong> dedi.</p>
+<p><strong>“Yeneceğim.”</strong></p>
+<p><strong>“Öyle mi? Ne zaman?”</strong></p>
+<p><strong>“Bir gün!”</strong></p>
+<p><strong>“Peki, acele etme, ama bunu yapana kadar kendine en güçlü deme!”</strong></p>
+<p>Sieg surat asarak yanaklarını şişirdi. Arus bir süre daha Sieg’e yenileceğini düşünmüyordu ama kardeşi günden güne güçleniyordu. Şu anda saçma görünse de Sieg gerçekten bir gün onu yenebilirdi. Belki de Sieg’in kahramanlık hayalleri o kadar da çocukça değildi. Elbette, Arus’u yenmek Sieg’i en güçlü yapmazdı. Dışarıda bir sürü ciddi anlamda güçlü kılıç ustası vardı.</p>
+<p><strong>“Varis olmak istemiyor musun?”</strong> diye sordu Sieg aniden.</p>
+<p>Arus ağzını büzdü ve mırıldandı, <strong>“Nereden bileyim?”</strong></p>
+<p>Greyrat ailesinin varisiydi… ama bunun iyi mi kötü mü olduğu da dahil olmak üzere ne anlama geldiğinden emin değildi. Ancak, konuşmaları ona bu konuda farklı bir bakış açısı kazandırmıştı. Greyrat ailesi Ejderha Tanrısı Orsted’e hizmet ediyordu, ama aynı zamanda Asuralı soyluların bir koluydu. Ailenin varisi olmak, diğer soylularla iç içe olmak anlamına gelirdi. Bu, Lucie’nin sadece Ranoa Büyü Üniversitesi’ne değil, aynı zamanda Asura Kraliyet Akademisi’ne de gitmek zorunda olduğu hakkındaki sözleriyle örtüşüyordu.</p>
+<p><b>“Hmm.”</b> Zaten soylular ne yapardı ki? Arus, cevabı okulda öğreneceğini tahmin ediyordu ama şimdilik bu bir gizemdi. Aileler arasındaki bağlar önemliydi, belki de tanımadığı bir kadınla evlenmek zorunda kalacaktı.</p>
+<p>Sonunda, <strong>“Sanırım pek istemiyorum,”</strong> dedi. Arus’un hoşlandığı belli tipte kızlar vardı, bu yüzden sırf evlenmek için herhangi biriyle evlenmek istemiyordu. Aslında, itiraf edemeyecek kadar utansa da, şimdiden hoşlandığı biri vardı.</p>
+<p>Yine de, eğer bu zaten kararlaştırılmış bir şeyse, istemediği konusunda yaygara koparamazdı. Lucie bu yüzden ona kesinlikle kızardı. ‘Ben bütün bunlara katlanıyorum,’ derdi, ‘seni bu kadar özel kılan ne de bundan kaçabiliyorsun?’ Başka hiçbir şey olmasa bile, en iyi varis olmak için her şeyini ortaya koymazsa Lucie mutsuz olurdu, ama bunu nasıl yapacağını bilmiyordu. Onun kendisinden nefret etmesini istemiyordu.</p>
+<p>Eğer sorarsa Aisha ona ne yapması gerektiğini söyleyebilirdi, ama on yaşına girdiğinden beri ona neredeyse hiç net bir cevap vermiyordu. Genellikle ona sadece bir ipucu verir ve sonra kendi başına düşünüp çözmesini söylerdi—ki bu, Arus’un iyi olmadığı bir şeydi. Millis’e gittikten sonra çok düşünmüş ve biraz daha derin düşünmeye başlamıştı, ama zorlanıyordu. Aklı hemen bir şeyleri kılıcıyla ya da büyüsüyle çözmeye gidiyordu.</p>
+<p>Arus sessizce ellerine baktı. Lucie’nin büyüsü çok güzeldi ve onu ustalıkla kullanıyordu. Sadece basit bir rüzgâr büyüsü olmasına rağmen çok etkiliydi. Tıpkı onun gibi sürekli değişiyor ve şekil alıyordu. O güçlüydü. Eğer Arus o büyüyü öğrenebilirse, o da güçlü olabilirdi.</p>
+<p><b>“Pekâlâ,”</b> dedi kararlılıkla. Hâlâ ne yapması gerektiğinden emin değildi, ama bugünlük Lucie’yi taklit etmeye çalışacaktı. Hâlâ düşünerek, Arus elinde kılıcıyla ayağa kalktı.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum3parca3.html" class="nav-btn">← Önceki bölüm</a>
+            <a href="../cilt2bolumler.html" class="nav-btn">Cilt İçeriği →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

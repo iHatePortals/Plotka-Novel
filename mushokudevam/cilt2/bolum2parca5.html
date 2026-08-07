@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei Cilt 1, Bölüm 1 (Kısım 1) | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b; /* Mushoku Tensei Kırmızı Tema */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #cc0000;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c1b1b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        body.theme-light .nav-btn:hover, 
+        body.theme-light .action-btn:hover, 
+        body.theme-light .theme-select:hover,
+        body.theme-sepia .nav-btn:hover, 
+        body.theme-sepia .action-btn:hover, 
+        body.theme-sepia .theme-select:hover {
+            color: #ffffff;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+        }
+
+        /* Resimler için özel stil */
+        .novel-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 6px;
+        }
+
+        /* Ayrıştırıcı Çizgi */
+        .divider {
+            text-align: center;
+            margin: 2em 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="bolum2parca4.html" class="nav-btn">←Önceki Bölüm</a> 
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="bolum2parca6.html" class="nav-btn">Sonraki Bölüm →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Mushoku Tensei Cilt 2, Bölüm 2</h1>
+            <div class="subtitle">Millis Seyehatnamesi(Kısım 5)</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <img src="bolum2foto1.png" alt="Kitap Çizimi 1" class="novel-image">
+<p>Dağlara yapılan hiçbir gezi, bir kaplıcaya girmeden tamamlanmış sayılmazdı.</p>
+<p>Han kasabasına girdik ve Leo’yu görünce başımıza üşüşen canavar halkı kalabalığının arasından bir yol açarak hanımıza ulaştık.</p>
+<p>Kasabada bir tur attıktan sonra rehberimiz olmasını istediğim cüce Talhand ile buluştuk. O gece, çocuklar yattıktan sonra sadece yetişkinlere özel bir eğlence için bir tavernaya gittik.</p>
+<p>Orada bir gece kaldık, sonra ertesi sabah erkenden Talhand’ın önderliğinde kaplıcalara doğru yola çıktık. Kaplıca bölgelerinde canavarların ortaya çıktığını duymuştum ama beklediğimden daha yakındılar kasabaya. Güzel, süt beyazı suyun fışkırarak doldurduğu doğal bir vadi gibi görünen yer aslında kaplıcanın ta kendisiydi ve canavarları dışarıda tutmak için inşa edilmiş bir duvarla çevriliydi. Tırmandığımız yola geri baktığımızda, kasabayı çok aşağıda görebiliyorduk.</p>
+<p>Banyonun kendisi muhteşemdi, açık havadaydı ve karma banyoya izin veriliyordu. Çok fazla insan yoktu ve başka insan da yoktu. Gözüme çarpan neredeyse herkes bir cüce, buçukluk ya da bir tür canavardı. Kaplıca kültürü insanlar veya elfler için olan bir şey değildi. İnsanlarda ise sadece soylular sıcak suda banyo yapardı.</p>
+<p>Yani oldukça tenhaydı—ama erkekler vardı. Kadınlar da vardı ama asıl mesele bu değildi. Karımın ve kızlarımın çıplak bedenlerini yabancı erkeklerin gözleri önüne sermem gerçekten doğru muydu? Kesinlikle değildi. Dahası, yanımda başkasının kadını vardı: Elinalise buradaydı. Elbette, bir zamanlar maceracılık dünyasını kasıp kavuran seksi bir striptizciydi, ama şimdi Cliff’le birlikteyken, benim onun seksi vücuduna gözlerimi dikmem doğru olur muydu?</p>
+<p>Hayır, asla.</p>
+<p>Bu yüzden banyo kıyafetleriyle hazırlıklı gelmiştim. Koyu renkli kumaştan yapılmış basit tuniklerdi. Su geçirmez olmamalarına rağmen, bir mayonun doğal rahatlığını sunuyorlardı. Tasarım Aisha Greyrat’a aitti.</p>
+<p><b>“Aisha Abla, orada bir şelale var!”</b></p>
+<p><b>“Öyle mi? Nerede?”</b></p>
+<p><b>“Orada, Aisha, şurada!”</b></p>
+<p><b>“Hey, Anne, bekle—!”</b></p>
+<p>Aisha, ilk kez bir kaplıcaya geldikleri için heyecanlı olan Eris, Arus ve Sieg ile birlikteydi. Suyun içinde yürüyerek büyük banyoları keşfediyorlardı. Kumaşın koyu rengi, içinin görünmesini engelliyordu ama ıslandığında vücutlarına yapışarak her bir hatlarını vurguluyordu. Aisha ve Eris, vücutları tamamen sergilenir halde orada burada dolaşıyorlardı. Eris muhtemelen fark etmemişti ama Aisha—o utanmıyor muydu?</p>
+<div id="model-response-message-contentr_a47dd793d2079dfc" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Neyse, boş ver. Önemli yerler kapalı olduğu sürece sorun yoktu. Utanç verici olan, sadece utandığını hissetmektir. Umarım diğer banyo yapanlara sorun çıkarmazlardı. Sonuçta böyle bir yerin bile uyulması gereken bir adabı vardı.</p>
+<p><b>“Hey, Mavi Anne? Sen de daha önce buraya geldin mi?”</b> diye sordu Lucie.</p>
+<p><b>“Evet, geldim. Çok uzun zaman önce,”</b> diye cevapladı Roxy.</p>
+<p><b>“Anlat bana!”</b></p>
+<p><b>“Ah, pekâlâ. Tam da İblis Kıtası’ndan ayrıldığım, sonunda acemi bir maceracı olmaktan mezun olduğum zamanlardı…”</b></p>
+<p>Roxy, kollarında Lily’yi tutarak Lucie’ye eski hikâyeler anlatırken Clive da yanlarında dinliyordu. Yüzünün bu kadar pembe olmasının sebebinin, Lucie’nin ince kıyafetleriyle yanında olması olup olmadığını merak ettim.</p>
+<p><i>Delikanlım Clive, bu tür düşünceler için biraz erken. Baban ve ben bu kadar genç yaşta bir aşk yaşamana izin vermeyeceğiz.</i></p>
+<p><b>“O zaman bu bizim Hanım Kurtarıcımız mı, Ey Yüce Kutsal Canavar?”</b></p>
+<p><b>“Hav!”</b></p>
+<p><b>“Aman Tanrım!”</b></p>
+<p>Lara ve Leo’nun etrafı canavar halkı tarafından sarılmıştı. Lara her zamanki donuk ifadesini takınıyordu ama içinde bir bıkkınlık akıntısı gördüm. Anlaşılabilirdi. Han kasabasına girdiğimizden beri bu durum devam ediyordu.</p>
+<p><b>“Çok sıcaklarsanız söyleyin, Chris Hanım,”</b> dedi Lilia. <b>“İçeceklerim hazır.”</b></p>
+<p>Chris sadece homurdanan bir ses çıkardı. Lilia, Zenith’i bir ayak banyosuna oturtmuş, Chris’i izliyordu. Başta Chris suya benim kucağımda girmişti ama sıcak sudan hoşlanmamış olacak ki hemen çıkmıştı. Şimdi Zenith’e sıkı sıkı yapışıyordu. <i>Neyse! Muhtemelen sorun yoktur.</i></p>
+<p><b>“Ahhh, bundan daha iyisi olamaz!”</b></p>
+<p><b>“Daha önce hiç cüce alkolü içmemiştim. Bayağı sertmiş, ha? Ama lezzetli…”</b></p>
+<p>Bu sırada Sylphie, Elinalise, Cliff, Talhand ve ben banyonun bir köşesinde bir daire oluşturmuş birlikte içiyorduk. İçeceklerimiz, han kasabasındayken aldığım, buzla soğutulmuş gizli bir cüce içkisiydi. Daha önce hiç böyle bir şey tatmamıştım. Neyden yapıldığını tahmin edemezdim ama kahretsin iyiydi; hafif bir kokusu, keskin bir bitişi ve kalıcı çiçeksi notaları vardı. Soğuk içecek kızarmış vücudumdan süzülüp beni içeriden nazikçe ısıtıyordu.</p>
+<p><b>“Rudy, hey, bir tane daha doldur. Kocamın bana içki ısmarlamasının sakıncası yok.”</b> Sylphie’nin sarhoş olması uzun sürmemişti. Yüzünde baygın bir bakışla bana yaslanıyordu. Böyleyken her zaman çok sevimliydi ama çocuklarımızı o ağızla öpüyordu! Bunun aramızda kalmasını sağlamalıydık.</p>
+<p><b>“Hemen geliyor,”</b> dedim.</p>
+<p>Bir kaplıcada ıslanıyor, belimde güzel bir kadının koluyla lezzetli bir içki paylaşıyordum. Gerçekten de bundan daha iyisi olamazdı. Burası cennetti.</p>
+<p>Ya da siz öyle sanın.</p>
+<p>Görüyorsunuz ya, sürekli bir ürperti hissediyordum.</p>
+<p>Gerçekten de inatçı bir ürperti.</p>
+<p>Nereden geldiğini de biliyordum. Kaynak, tam karşımda sessizce içkisini yudumlayan adamdı: Talhand, babam Paul’ün eski partisi Kara Kurdun Dişleri’nin eski bir üyesi. Hâlâ S-seviye bir maceracı olarak aktifti. Tam bir iş bitirici tipti.</p>
+<p>Bir beyefendi olarak ondan şüphelenmek için hiçbir nedenim yoktu. Eğer bir şeye kalkışırsa, halledebilirdim. Ayrıca İnsan-Tanrı’nın müritlerinden biri olmadığından emin olmak için onu iyice sorgulamıştım. Elbette, Geese’i fark edememiştim. O pislik onu sorguladığımda gözümün içine baka baka yalan söylemiş, sonra da neşeyle hayatlarımızda bir delik açmıştı. Bunu bildiğim için Talhand’a tamamen güvenemezdim ama böyle düşünmeye başlarsam hiç arkadaşım kalmazdı. Ona güvenmeye karar vermiştim.</p>
+<p>Geriye şu soru kalıyordu: Beni rahatsız eden neydi? Talhand bana baktığında, sırtımdan aşağı bir ürperti iniyordu. Kaplıcalara giden yolda da böyle olmuştu. Çocuklar at arabasındayken, geri kalanımız muhafızlık yapıyorduk. Eris benimle ve Elinalise ile birlikte önden gidiyor, Talhand hemen arkamızdan yürüyor, Sylphie ve Roxy de arkayı kolluyordu. At arabasının rahatça geçebilmesi için toprak büyüsüyle yolu düzeltirken yürürken sürekli ürperiyor, arkama baktığımda ise Talhand’ın beni izlediğini görüyordum.</p>
+<p>Yani, tamam, aynı yönde yürüyorduk. Tam önünde olduğum için arkama baktığımda göz göze gelmemiz şaşırtıcı değildi. Hatta çocukları canavarların bazen ortaya çıktığı bir bölgeden geçirdiğimiz için fazladan gergin olup olmadığımı bile merak ettim. Ama şimdi hâlâ beni izliyordu ve ben hâlâ ürperiyordum. Hiç mantıklı gelmiyordu.</p>
+<p>Sonunda daha fazla dayanamayıp sordum: <b>“Şey. Her şey yolunda mı?”</b></p>
+<p><b>“Neden sordun?”</b></p>
+<p><b>“Yola çıktığımızdan beri bana çok bakıyorsunuz da…”</b></p>
+<p><b>“Ha, o mu. Sadece bu aralar Paul’ü ne kadar çok andırdığını düşünüyordum. Gözlerimi ayıramadım.”</b></p>
+<p><b>“Babamı mı?”</b></p>
+<p><b>“Evet. Seni Elinalise ile yan yana yürürken görmek bazı eski anıları canlandırdı.”</b> Talhand sakalını sıvazladı, ses tonu hasret doluydu. <b>“Elinalise, Ghislaine ve Paul’ün önümdeki sırtları, arkamdan gelen Geese ve Zenith’in sesleri… Kara Kurdun Dişleri ile labirentleri keşfetmek…”</b></p>
+<p>Benzerlikten o kadar emin değildim ama kendi sırtımı göremediğim için ne bilebilirdim ki? Zaten bakışları neden beni ürpertiyordu ki? Bu tuhaftı.</p>
+<p><b>“O cüceye dikkat etsen iyi olur, Rudeus,”</b> dedi Elinalise, başı Cliff’in omzuna yaslanmışken. <b>“Erkeklerden de hoşlanır.”</b></p>
+<p>Kendimi tutamadan, <b>“Ne?”</b> dedim.</p>
+<div id="model-response-message-contentr_2c834713f89f7c0f" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Talhand’ın suratı asıktı. <b>“Öyle şeyler söyleme. Yanlış anlamasına sebep olacaksın.”</b></p>
+<p>Cidden, Elinalise’in aklı fikri neden hep seksteydi? Şu pis elf.</p>
+<p>Talhand devam etti, <b>“Ben sadece erkeklerden hoşlanırım.”</b></p>
+<p><i>Şu pis cüce!</i> Ama bir dakika. Ürpertilerin sebebi bu muydu? Talhand’ın gözü bende miydi?!</p>
+<p><i>Ben tatlı Eris’ime aitim, dokunmak yok! Seni ortadan ikiye ayırır!</i></p>
+<p>Düşünmeden, titreyerek Sylphie’ye sarıldım. Sylphie, Talhand’a sert, korumacı bir bakış attı.</p>
+<p><b>“Sakin ol, delikanlı,”</b> dedi Talhand. <b>“Evli adamlardan veya buna meyilli olmayanlardan hoşlanmam.”</b></p>
+<p>Oh, ne yani, ahlakı mı vardı? Eh, düşününce, sadece diğer insanlardan biraz farklı tercihleri vardı. Flört havuzu farklı ve daha küçüktü, hepsi bu— bunda o kadar da garip bir şey yoktu.</p>
+<p><b>“Ama yine de erkek kalçalarını dikizlersin, değil mi?”</b> dedi Elinalise. Alay ediyordu ama Talhand kaşlarını çattı.</p>
+<p>Elinalise’e, <b>“Bir erkek güzel bir popoyu takdir etmekten kendini alamaz,”</b> dedi, sonra da bana dönerek, <b>“Anlıyorsun, değil mi?”</b> diye sordu.</p>
+<p>Elbette anlıyordum. Az önce Eris banyoda gezinirken onun poposuna bakıyordum. Eyvah, Eris bu tarafa baktı. Ürpermedi, değil mi? Olamaz, göğsünü kapattı! Yaptı!</p>
+<p><i>Hah ha, ama tuzağıma düştün! Yanlış zayıf noktayı kapatıyorsun!</i></p>
+<p><b>“Bana Paul’ü ve eski günleri hatırlattığını söylediğimde doğruyu söylüyordum,”</b> dedi Talhand. <b>“Ama, yani, eğer seni rahatsız ediyorsa…”</b></p>
+<p><b>“Ah, hayır, eğer sadece nostaljiyse, keyfine bak.”</b></p>
+<p><b>“Ha ha ha. Özür dilerim.”</b> Talhand gülümsedi, sonra bir şişe aldı. <b>“Şimdi, bir tura daha ne dersiniz?”</b></p>
+<p><b>“Neden olmasın.”</b></p>
+<p>Zevkler ve renkler tartışılmazdı. Bana karşı erdemli davranacağını söylüyorsa, ona güvensizlik duymaya gerek yoktu. Dokunmadan bakmanın zararı olmazdı. Gerçi aramızda kıyaslama yapmaya başlarsa kaybeden ben olurdum. Talhand kas yığını, ayı gibi bir adamdı!</p>
+<p>Aniden Elinalise, <b>“Biliyor musun, bize rehberlik etmeyi kabul etmeni beklemiyordum,”</b> dedi.</p>
+<p><b>“Şimdi bununla ne demek istiyorsun?”</b> diye cevap verdi Talhand.</p>
+<p><b>“Şey, eve dönmekten kaçınıyordun, değil mi? Bu kaplıca cüce toprakları içinde. Tanıdığın birine rastlarsan senin için sıkıntı olur, değil mi?”</b></p>
+<p>Görünüşe göre Talhand’ın kendine ait bazı meseleleri vardı. Düşününce, Paul’ün eski parti üyeleri arasında pek tanımadığım tek kişi oydu. İlgilenmemiştim.</p>
+<p>Uzun bir sessizlik oldu, sonra Talhand, <b>“Hmph. Birlikte seyahat ettiğimiz zamanlarda, asla tek bir adama bağlanamayacağını söylerdin. Ne oldu?”</b> dedi.</p>
+<p><b>“Hayatı yaşamak insanı değiştirir.”</b></p>
+<p><b>“Benim için de durum böyle. Artık meseleleri çözmek için tam zamanı diye düşündüm.”</b></p>
+<p><b>“Aman Tanrım! Ne kadar da erkekçe.”</b></p>
+<p><b>“Yaltaklanmanı istemiyorum. Hepinize bakmak, kendi ailemden bu kadar uzun süre kaçarak ne kadar büyük bir kepazelik içinde olduğumu görmemi sağladı. Hepsi bu.”</b> Talhand yüzünde ekşi bir ifadeyle içkisini bir dikişte bitirdi.</p>
+<p><b>“Eve gidiyorsun o zaman?”</b> diye sordum.</p>
+<p><b>“Öyle de denilebilir.”</b></p>
+<p><b>“Hey, Rudeus?”</b> dedi Elinalise, sesinde bir soru tonuyla.</p>
+<p>Bir an nedenini anlayamadım, sonra bunun ona sormak için mükemmel bir fırsat olduğunu söylediğini fark ettim. Ailesiyle ilgili ne olup bittiğini düşününce, sormam gerekip gerekmediğini merak ettim. Ağzını aramanın bir zararı olmazdı, değil mi?</p>
+<p><b>“Aslında, Talhand, Cevher Tanrısı’nı görmeye gitmeyi planlıyordum,”</b> dedim.</p>
+<p><b>“Öyle mi?”</b></p>
+<p><b>“Evet, ve… yani, sadece eğer sen de istersen, benim—yani, Ejderha Tanrısı’nın müridinin—onunla görüşmek istediği mesajını iletebilirsen çok minnettar olurum.”</b></p>
+<p>Talhand’ın memleketinde ne tür bir etkisi olduğunu bilmiyordum. Onu aracı yapmam bir dayatma olabilirdi. Dikkatli davranmalıydım.</p>
+<p>Talhand homurdandı. <b>“Mesele şu ki, pek arkadaş canlısı bir adam değildir.”</b></p>
+<p>Orsted de bunu söylemişti. Cevher Tanrısı ile başa çıkmak zordu ve onu kazanmak daha da zordu. Alkolü, mücevherleri ve demirciliğe uygun cevherlerle metalleri severdi ama ona birkaç parlak hediye göstermek bir ittifakı kabul etmesini sağlamak için yeterli olmazdı.</p>
+<p><b>“Ben sorsam bile evet demeyebilir,”</b> dedi Talhand.</p>
+<p><b>“Onu tanıyor musun?”</b></p>
+<p>Yüzünü asarak başını salladı. <b>“Öyle de denilebilir.”</b></p>
+<p>Akraba olabilirler miydi? Belki de evdeyken, toplantımız sırasında Orsted’e sormalıydım.</p>
+<p><b>“Hiçbir şey talep etmeyeceğim. Biliyorum, senin de kendine ait meselelerin var.”</b></p>
+<p><b>“Gerçekten de.”</b> Talhand bunu düşünceli bir şekilde söyledi, sonra bir içki daha devirdi. Yüzü kızarmış, alkol kokan bir iç çekti. Sonra bana gülümsedi. <b>“Üzerine biraz düşünmemin sakıncası var mı?”</b></p>
+<p><b>“Hiç de değil. Bunu sana yüklediğim için üzgünüm.”</b> Tam eğilip selam verecektim ki, Talhand bir şişe alıp ağzını bana doğru çevirdi. Görünüşe göre özür dilemeyi bırakıp içmemi istiyordu. Kadehimi doldurmasına izin verdim.</p>
+<div id="model-response-message-contentr_a3860fee9eb91f48" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Banyodan çıktıktan sonra han kasabasına geri döndük. Ailenin konakladığımız yerde beklemesini istedim, sonra bir ışınlanma çemberi kuracak bir yer bulmak için Roxy, Talhand ve Elinalise ile dışarı çıktım. Dağları ve ormanları aşmaya alışkın yoldaşları dikkatle seçmiştim. Eris de gelmek istemişti ama ondan aileyi korumak için geride kalmasını istemiştim.</p>
+<p>Dördümüz, kaplıcaların biraz ötesine, dağların daha derinliklerine doğru yola çıktık. Bir ışınlanma çemberi için en iyi yer, ücra bir yerdi. Ariel, büyük ulusları birbirine bağlamak için ışınlanma kapıları yaratmak istediğini söylemişti ve bunun planları yapılıyordu ama daha çok uzun bir yol vardı. İlk adım ışınlanma büyüsü yasağını kaldırmaktı ama bunun gerçekleşip gerçekleşmeyeceğini henüz bilmediğim için, insanların sık uğramadığı bölgelere kendi kişisel çemberlerimi kuruyordum. Eğer çok yükseğe çıkarsak, mavi ejderha bölgesine girme riskiyle karşılaşırdık, bu yüzden insanların gezindiği sınırlar içinde kaldık.</p>
+<p>“Buralar iş görür…”</p>
+<p>İyi bir yer bulduktan sonra sıra bir bina inşa etmeye gelmişti. Onu, dört odalı ejderha halkı kalıntılarından sonra modelleyecektim; odalardan birinde, ışınlanma çemberini kuracağımız yere inen gizli bir merdiven olacaktı. Roxy ve Elinalise’in dışarıda nöbet tutmasını sağladım, sonra toprağa bir delik açmak için toprak büyüsü kullandım ve odayı oymaya başladım.</p>
+<p>Talhand iç mekan ve boyut özellikleri konusunda yardım etti. Burayı bulmak kolay değildi ama çember ofise bağlanacaktı—birinin tesadüfen bulması durumunda başımız belaya girerdi. Bu yüzden onu sıradan eski bir harabe gibi gösterdik ama aynı zamanda gezginlerin daha derine inmesini engellemek için ön odalardan birinin köşesine bir hazine sandığı koyduk. Ayrıca insanların orada dinlenebileceği şekilde düzenledik ve ona, “Eski zamanlardan kalma gezginler için yıkık bir mola yeri, burada görülecek bir şey yok!” havası verdik. İşte bu yüzden Talhand’ın yardımına ihtiyacım vardı.</p>
+<p>Beklendiği gibi, bir cüce el işçiliğinden anlıyordu. Yaptığım süper sert bir keskiyi kullanarak taşı oydu ve tüm odaya antika bir görünüm kazandırdı. Güneş batarken, sanki yüz yıldır orada duruyormuş gibi görünüyordu.</p>
+<p>Ona, <b>“Harika iş,”</b> dedim. <b>“Bu herkesi kandırır.”</b></p>
+<p><b>“Pöh. Yosun ya da küf yok. Neye bakacağını bilen herkes anlar.”</b></p>
+<p>Eyvah. Görünüşe göre zanaatkâr sahtekârlığından tam olarak memnun değildi. Ama kimse tam şu anda oraya gelmeyecekti, bu yüzden biri burayı bulana kadar otantik bir şekilde kirlenmiş olmalıydı. Kimse bakımını yapacak değildi ya.</p>
+<p><b>“Düşününce, sormak için biraz geç oldu ama buraya öylece bir bina dikmemizde bir sakınca var mı? Burası cüce bölgesi, değil mi?”</b></p>
+<p><b>“Cüceler dağların tanrılara ait olduğuna inanır ve binalar da onlara sunduğumuz adaklardır. Herkes istediği her şeyi inşa edebilir. Sorun olmaz.”</b></p>
+<p>Demek böyle işliyordu? O zaman belki de her şeyi yerin üstüne inşa etmeliydik. Girişi yeraltına yapmak, sanki orada saklanacak bir şey varmış gibi hissettiriyordu ama iş bitmişti, bu yüzden endişelenmenin bir anlamı yoktu.</p>
+<p><b>“İşin bittiyse, gidelim,”</b> dedi Talhand.</p>
+<p><b>“Sadece bir dakika.”</b> Yaptığım son şey büyü çemberini etkinleştirmek, sonra da ışınlanmayı test etmekti. Beni kesinlikle ofise bıraktığından emin olduktan sonra geri geldim.</p>
+<p><b>“Her şey yolunda,”</b> dedim. Talhand sessizdi. <b>“Eğer bir gün ihtiyacın olursa çemberi kullanabilirsin, Talhand.”</b></p>
+<p>Başını salladı. <b>“Teşekkürler, kalsın. Yürümeyi tercih ederim.”</b></p>
+<p><i>Neyse.</i> Işınlanma çemberi tamamlanmıştı, yani eve gitme zamanı gelmişti.</p>
+<p>Ertesi gün şafak söktü. O sabah erkenden han kasabasından ayrılmaya karar verdik. Burası Cliff ve Talhand ile yollarımızı ayıracağımız yerdi. Onlar kenarda dururken, geri kalanımız at arabalarına doluşup vedalaştık.</p>
+<p>Cliff günü kiliseyi gezerek geçirecek, sonra da Millishion’a geri dönecekti.</p>
+<p><b>“Uslu dur, Clive,”</b> dedi Cliff.</p>
+<p><b>“Duracağım, Baba!”</b></p>
+<p>Cliff oğlundan ayrılmak istemiyordu. Yıllarca ayrı kalacak değillerdi ama aileye veda etmek her zaman zordu. Devam etti: <b>“Derslerine ve kılıç çalışmalarına sıkı sıkı sarıl. Ha, bir de hoşlandığın kızı ağlatma. Ona iyi davran.”</b></p>
+<p><b>“B-benim hoşlandığım bir kız yok!”</b></p>
+<p><b>“O zaman hoşlanabileceğini düşündüğün bütün kızlara iyi davran. Anlaşıldı mı?”</b></p>
+<p><b>“Evet, Baba…”</b></p>
+<p>Cliff, Clive’ın başını okşadı, sonra bana döndü. <b>“Rudeus, birkaç yıl daha Elinalise ve Clive’a göz kulak olman için sana güveniyorum.”</b></p>
+<p><b>“Merak etme, biliyorum. Sen elinden geleni yap, Cliff.”</b></p>
+<p><b>“Evet.”</b> Başka söze gerek yokmuş ve endişeli değilmiş gibi geri çekildi.</p>
+<p>Umarım bu tür bir güvene layıktım. En azından Elinalise aklı başında biriydi, bu yüzden pek bir şey yapmam gerekmeyecekti. Clive’ın iyi bir adam olarak büyümesi için en azından ona rehberlik edebilirdim, olur da reşit olduğunda Lucie’nin elini isterse diye—gerçi yardımdan çok zararım dokunacak gibi bir his vardı içimde. Başı belaya girdiğinde yardım eli uzatmakla yetinecektim. Bu yeterli olmalıydı.</p>
+<p>Sonra, biraz ötede Talhand’ın Elinalise ve Roxy ile konuştuğu yere gittim. Talhand da şimdilik Millishion’a geri dönüyordu. Cücelerin yanına gitmeden önce hazırlaması gereken bazı şeyler vardı. Bu şeylerin fiziksel mi yoksa duygusal mı olduğunu söyleyemezdim.</p>
+<p><b>“Teşekkür ederim, Talhand.”</b></p>
+<p><b>“Eyvallah.”</b></p>
+<div id="model-response-message-contentr_2ef1cf479f227146" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p><b>“Umarım her şey yolunda gider… ailenle ve memleketinle.”</b></p>
+<p><b>“Hmph. Paul’ün oğlunun benim için endişelenmesinden memnun olduğumu söyleyemem…”</b> diye mırıldandı Talhand. Sonra bana doğru eğilip baktı, ama gerçekten dik dik baktı. Özellikle kasıklarıma odaklandığı hissine kapıldım.</p>
+<p><b>“Bu sabah aklıma bir fikir geldi. Eğer ona o tek şeyi gösterirsen, bu aslında Cevher Tanrısı’nı seninle görüşmeye ikna etmek için yeterli olabilir.”</b></p>
+<p><b>“Ne şeyi?”</b></p>
+<p><b>“Dün bana gösterdiğin o siyah, sert şey.”</b></p>
+<p><b>“Ne?!”</b></p>
+<p>Kasıklarımın etrafındaki siyah, sert bir şey mi?! Cevher Tanrısı da eşcinsel olabilir miydi?!</p>
+<p>Bir saniye. Benimki siyah değildi. Ama oldukça sert olduğundan emindim. Öyleydi, değil mi? Gerçi hiç kimseninkiyle karşılaştırmış değildim.</p>
+<p><i>Roxy, kızarmayı kes de bir şey söyle. “O benim” falan de!</i></p>
+<p><b>“Talhand, sadece siyah, sert ve kalın dediğinde ne demek istediğini anlamıyoruz,”</b> dedi Elinalise. <b>“Daha açık konuş.”</b></p>
+<p><b>“Kalın hakkında hiçbir şey söylemedim. Biliyorsun işte. Rudeus’un toprak büyüsüyle yaptığı o taş şey. Cevher, kaya, metal, ne diyeceğimi tam olarak bilmiyorum…”</b></p>
+<p>Taş! Taşı kastediyordu. Dün inşaat için bir sürü siyah taş yapmıştım—sağlam olacağından emin olmak için gerçekten sert bir taş.</p>
+<p><i>Oo, Roxy kızarıyor. Ne hayal ettin bakalım, hımm? Ooo, Roxy utandı… Gerçi ben de farklı bir şey hayal etmemiştim.</i></p>
+<p><b>“Eğer bir numunen varsa, ona götürebilirim. Ne dersin?”</b></p>
+<p><b>“Hemen hallederim!”</b> Anında, toprak büyüsü kullanarak taştan bir çubuk yaptım. Siyah, sert ve kalındı. Doğal olarak ağırdı da. On beş santimetrede muhtemelen on kilodan daha ağırdı. Biraz altın kaplama ile birini gerçek olduğuna inandırabilirdiniz ama altından veya platinden çok ama çok daha sert olduğu için aldatmaca uzun sürmezdi.</p>
+<p><b>“Bu iş görür mü?”</b> diye sordum.</p>
+<p><b>“İşte bu. Bana birkaç tane daha yapabilir misin?”</b></p>
+<p>Ona beş çubuk daha yaptım, o da ağırlıklarına gülümseyerek aldı. Beş çubuk cidden ağırdı ama Talhand tecrübeli bir maceracıydı.</p>
+<p><b>“Hayırlı yolculuklar,”</b> dedi.</p>
+<p>Tam arkasını dönüp gidecekken Roxy öne çıktı. <b>“Kendine iyi bak, Talhand.”</b></p>
+<p><b>“Sen de sağlığına dikkat et, Roxy.”</b></p>
+<p><b>“Edeceğim.”</b></p>
+<p>Talhand ona gülümsedi, Roxy de arkadaşına veda ederken gülümsemesine karşılık verdi.</p>
+<p>Böylece aile tatilimiz sona erdi. Sanırım tamamını çalışarak geçirdim ama yine de iyi bir gezi olduğunu düşündüm. Umarım çocukların gelişimi için değerli bir deneyim olur, onların mükemmel, topluma katkıda bulunan bireyler olmalarını sağlar ve… Bir dakika, bu hiç de bana benzemedi.</p>
+<p>Umarım hepsi mutlu büyür.</p>
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum2parca4.html" class="nav-btn">←Önceki Bölüm</a>
+            <a href="bolum2parca6.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

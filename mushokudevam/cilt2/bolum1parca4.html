@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei Cilt 1, Bölüm 1 (Kısım 1) | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b; /* Mushoku Tensei Kırmızı Tema */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #cc0000;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c1b1b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        body.theme-light .nav-btn:hover, 
+        body.theme-light .action-btn:hover, 
+        body.theme-light .theme-select:hover,
+        body.theme-sepia .nav-btn:hover, 
+        body.theme-sepia .action-btn:hover, 
+        body.theme-sepia .theme-select:hover {
+            color: #ffffff;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+        }
+
+        /* Resimler için özel stil */
+        .novel-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 6px;
+        }
+
+        /* Ayrıştırıcı Çizgi */
+        .divider {
+            text-align: center;
+            margin: 2em 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="bolum1parca3.html" class="nav-btn">←Önceki Bölüm</a> 
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="bolum2parca1.html" class="nav-btn">Sonraki Bölüm →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Mushoku Tensei Cilt 2, Bölüm 1</h1>
+            <div class="subtitle">Haydi Otomaton Yapalım!(Kısım 4)</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            <img src="bolum1foto1.png" alt="Kitap Çizimi 1" class="novel-image">
+            <p>Uyandığımda capcanlı, güzel bir sabaha gözlerimi açtım. Eskiden, bu an beni en çok korkutan şeydi. Eğer uykumda öldürülürsem, yattığım yerde değil, karanlık bir ormanın ortasında uyanırdım. Güvenli bir yer bulamadıkça da uyumaktan korkardım. Öte yandan, bazen de yeterince uyuyamadığım için dikkatimi toplayamayıp ölüyordum; gerçi uyurken bile tetikte kalmayı öğrendiğimden bu sonradan o kadar sorun olmadı…</p>
+<p>Neyse, o zamanlar asla böyle bir yerde yaşayıp uyuyacağımı hayal edemezdim.</p>
+<p>Nefesime odaklanarak ofisime doğru yöneldim. Masada dağ gibi birikmiş kâğıtlar vardı. Bunlarda, bu döngüyle “normal” kabul ettiğim döngü arasındaki farklı noktaları kaydediyordum. “Temeller” ve “sapmalar” şeklinde not aldığım şeylerdi bunlar.</p>
+<p>“Temeller,” benim hiçbir şey yapmadığımda tarihin nasıl ilerlediğini gösteriyordu. “Sapmalar” ise benim müdahalemle ortaya çıkan olaylar ve değişen sonuçlardı. Bütün bunları, <strong>İnsan-Tanrı</strong>’yı alt etmek için kaydediyordum. Bunun için de mümkün olduğunca az mana harcamam gerekiyordu. Özellikle de 80 yıl sonraki İkinci Laplace Savaşı kritik bir noktaydı. O savaşta mana kullanımımı en aza indirmem, <strong>İnsan-Tanrı</strong>’nın devrilmesine yol açacaktı. Bu yüzden tarihi istediğim gibi yönlendirmeli ve manayı korumak için her yolu denemeliydim. Tabii bir sonraki döngüye bu belgeleri yanımda götüremeyeceğimden, döngü bitmeden hemen önce yaptığım her şeyi belgeliyor, sonra da defalarca okuyup ezberlemeye çalışıyordum.</p>
+<p>Ama bu sefer işler farklı. Bu defa, <strong>Rudeus Greyrat</strong> da burada. Her hareketi, her etkileşimi dünyayı değiştiriyor. Başta sadece sapma noktalarını yazmayı planlamıştım ama bir noktada bu kayıtlar, onun hakkında tuttuğum günlük gibi oldu. Adı neredeyse her sayfada geçiyor; o kadar çok şey yaşanıyor ki yetişemiyorum. Döngü bitene kadar kaydetmeyi sürdüreceğim ama pek çok şey gözümden kaçabilir. Aslında bunu yapmanın pek bir anlamı olduğunu düşünmüyorum. Bu döngüde garip bir şeyler var gibi, sanki özel bir şey olacak.</p>
+<p>Ayrıca, Rudeus’un bir sonraki döngüde olma ihtimali düşük. Bütün bu kaydettiklerim belki de boşa gidecek. Belki de bu, <strong>İnsan-Tanrı</strong>’yı yenmem gereken döngü. Belki benim kaderim bu.</p>
+<p>Güçlerimi toparlayacak, gelecekteki zaman için manamı saklayacak ve Laplace’ı mümkün olduğunca az mana kullanarak alt edecektim. Sonrasında da tüm manamı <strong>İnsan-Tanrı</strong>’yla yapacağım son savaşa saklayacaktım. Planım buydu.</p>
+<p>Yine de kayıt tutmanın zararı yoktu. Bu döngüde yenilirsem ve Rudeus bir sonraki döngüde yer alırsa, bu bilgiler kesinlikle zafer yolunda bana bir silah olacaktı. Ama onları Rudeus’a gösteremezdim. Onu biliyorum; okusa, mutlaka tuhaf bir şekilde yanlış yorumlardı.</p>
+<p>O günkü işime başladım. Önce, gece gelen bilgi aktarım tabletinden aldığım bilgilere baktım. Bu tablet, bilgi toplama işini çok kolaylaştırmıştı. Önceki döngülerde ne zaman bir şey değiştirmeye kalksam, sonucun ne olduğunu bizzat görmek için o yere gitmem gerekirdi. Buna alışkındım ama üzerimde taşıdığım lanet yüzünden çok zorlu bir işti. Şimdiyse yerimden kalkmadan bol bol bilgi edinebiliyordum—tek bir değişikliğin sonucunu görmek için birkaç döngü harcadığım zamanlardan eser kalmamıştı.</p>
+<p>Öte yandan, Rudeus olmasaydı bu kadar geniş bir bilgi ağına da ihtiyaç duymazdım. Yalnız olsaydım, işler asla bu kadar değişmezdi. O kadar şey değişti ki, bir sonraki adımımın ne olacağı hakkında hiçbir fikrim yok.</p>
+<p>Bir de onun yarattığı <strong>otomaton</strong>la ne yapacağımı hiç bilemiyordum. <strong>“Ann.”</strong> adını verdiği o kuklayı gördüm. İnsan ellerinin böyle bir şey üretebileceğini aklım almazdı. <strong>Ejderha Kralı Perugius</strong> da şaşırdı. Kendi ruh hizmetkârlarından bile daha insansı olduğunu söyledi. Sadece tahminde bulunuyorum ama sanırım bu, <strong>Çılgın Ejderha Kralı Chaos</strong>’un hayalini kurduğu şeydi. Chaos çoktan ölmüş gitmiş olsa da eğer yaşıyor olsaydı, muhtemelen bu kuklayı onlarla birlikte yapardı.</p>
+<p>Bir sonraki döngü olursa, belki Chaos’tan o kutsal emaneti geri alma işini biraz erteleyebilirim.</p>
+<p><strong>“Hmm.”</strong></p>
+<p>Bunu düşünürken, iletişim tabletine göz attım ve ilginç bir habere rastladım. Ariel’den gelmişti: Isolde ve Dohga evlenmiş. Bildiğim kadarıyla bu ikisi daha önce hiçbir döngüde evlenmemişti. Isolde’nin evlenme ihtimali zaten yok denecek kadar azdı—hele çocuk sahibi olması neredeyse imkânsız gibi bir şeydi! Bu da kesin Rudeus’un işe karışmasının bir sonucu olmalı. Bunu yeniden yaşatmak için ne yapmam gerektiğini düşündüm ama aklıma bir cevap gelmedi.</p>
+<p>Bunu tekrar yaratma çabası, ancak onların çocuğunun nasıl biri olduğunu ve dünyadaki rolünü gördükten sonra gündeme gelebilir. Olanlara göre, bir sonraki döngüde o çocuğun doğmasını engelleyebilirim de.</p>
+<p>Rudeus’un buna karşı çıkacağını tahmin ediyorum; Ama yapacak bir şey yok. Ona artık yalan söylemek ya da onu kandırmak istemiyorum, bir sonraki döngüye gitsem ve her şeyi unutsa bile.</p>
+<p style="text-align: center;"><strong>***</strong></p>
+<p>&nbsp;</p>
+<p><strong>“Günaydın!”</strong><br>
+Ben kâğıtlarımı düzenlemekle uğraşırken Rudeus çıkageldi.</p>
+<p><strong>“Hm,”</strong> diye cevap verdim.</p>
+<p><strong>“Bugün de evrak işleri ha? Vay be, çok disiplinlisin, Ejderha Tanrısı Orsted!”</strong></p>
+<p><strong>“Ben hep bunu yaparım.”</strong></p>
+<p><strong>“Hep bir şeylerle meşgul olmak önemli tabii! Hayat uzun sonuçta! Ağır ağır, sindire sindire! Sen bilirsin bu işleri, Ejderha Tanrısı Orsted!”</strong></p>
+<p>Rudeus bazen böyle tuhaf hallere giriyordu. Normalde daha sakindir ama ruh hâlinde belli bir mantık var. Mesela böyle coştuğunda, başına iyi bir şey geldiği belli olur. Öte yandan, sessiz ve mahcup görünüyorsa, söylemek istemediği bir şey var demektir. Onu anlamak gayet kolay.</p>
+<p><strong>“Ne oldu?”</strong> diye sordum.</p>
+<p><strong>“Senden hiçbir şey saklanamıyor, CEO! Eheh, şey, hani Lara var ya? Bugün ‘Baba’yla bütün gün birlikte olmak istiyorum!’ dedi. Hehe. Chris zaten bana çok düşkün ama Lara’dan bunu duyacağımı hiç beklemiyordum. Biraz gururumu okşadı açıkçası.”</strong></p>
+<p><strong>“Onu da getirdin mi?”</strong></p>
+<p><strong>“Getirdim. Lara’yla Sieg’i Leo’nun sırtına bindirdim.”</strong></p>
+<p><strong>“Sieg de mi?</strong> Bu biraz beklenmedik bir durumdu. Sanırım yüz ifademe yansıdı ki Rudeus’un suratı bir anda ciddileşti.</p>
+<p><strong>“Şey… Yani Sieg, Alec’e çok hayran olduğunu söylüyor! Geçenlerde olanlar sırasında Alec, Biheiril Krallığı’yla ilgili bir şeyler anlatmış galiba. ‘Kuzey Tanrısı’ burada olacaksa, yine gelir o hikâyeyi dinlerim dedi. Şu anda Alec’le beraber.”</strong></p>
+<p><strong>“Anladım.”</strong></p>
+<p><strong>“Ya, şey, çocuğumu işe getirmesem miydim acaba…”</strong></p>
+<p><strong>“Benim için sorun olmaz.”</strong></p>
+<p>Rudeus’un ailesi onun zayıf noktasıydı. Onlar onun için çok önemliydi—yaşama sebebiydi. Onlar için her şeyi yapardı. Onlara zarar veren herkesi de gözü kapalı düşman belliyordu. Ne sonuç doğuracağını umursamadan saldırıya geçerdi. Maalesef, kaybedeceği belli olursa, nefes alıp vermek kadar doğal bir şekilde taraf değiştirirdi. Karşısındaki kişi <strong>İnsan-Tanrı</strong> bile olsa, onları korumak için başını eğer, tüm gururunu hiçe sayardı.</p>
+<p>Benzer insanları çok gördüm. Rudeus’u müttefik olarak tutmak için ailesine özenli davranmak zorundaydım. En azından onlara kötü davranmaktan kaçınmam gerekiyordu. Onları gözümün önünden ayırmıyor, elimden geldiğince koruyordum. Rudeus’un en değer verdiği şeyi muhafaza ettiğim sürece beni satmayacağını biliyordum. Sonuçta, İnsan-Tanrı ona aynı güvenceleri pek veremezdi.</p>
+<p>Tüm bu hesapların ötesinde, üzerimdeki lanetin Rudeus’un çocuklarını etkilemediğini fark etmiştim ve o ufaklıklara karşı içten içe bir sevgi besliyordum. Biraz canlılık hiç de fena gelmiyordu. Hatta kendimi neredeyse normal biri gibi hissetmemi sağlıyordu.</p>
+<p><strong>“Çocukların harika,”</strong> diyerek gülümsemeye çalıştım. Onun çocuklarına iltifat ettiğimi düşünüyordum ama Rudeus’un ifadesi bir anda ciddileşti. <em>“Kahretsin,”</em> içimden geçirdim, galiba onu tedirgin ettim. Bu adam bir dakika önce sıradan bir şekilde sırıtıyor, sonraki dakikada akıl almaz bir planı uygulamaya koyabiliyordu. Bana muhtemelen zarar veremezdi ama garantisi de yoktu—kimbilir, ansızın uykumda toprağa gömülüversem şaşırmazdım. Şu anda onu alt etmek kolay olurdu ama beni savunmasız yakalarsa…</p>
+<p><strong>“Kızlarımı kimseye vermem, Bay Ejderha Tanrısı Orsted, sana bile.”</strong><br>
+<strong>“Demek istediğim o değildi.”</strong></p>
+<p>Rudeus eski sakin haline döndü. <strong>“İkisini de sonra getirip sana ‘merhaba’ dedirteceğim.”</strong><br>
+<strong>“Bana uyar, şart değil. Öyle resmiyete falan gerek yok.”</strong><br>
+<strong>“Tamam. Zaten Lara bazen biraz kaba olabiliyor, en iyisi böyle.”</strong> dedi ve sonra koltuğa oturdu.</p>
+<p><strong>“Pekâlâ, yine yoğun bir güne başlayalım! Bugün ne yapsak dersin? Büyülü Zırh Versiyon Bir’le bir prova dövüşü mü yapsak, yoksa laneti bastıran kaskı mı kalibre etsek? Versiyon üç üzerinde yaptığım geliştirmeleri ya da versiyon sıfırdaki ayarlamaları anlatabilirim. Belki sonrasına dair planlarımızı görüşürüz…”</strong></p>
+<p>Öne sürdüğü her şeyin baş kahramanı kendisi olacaktı. Muhtemelen kızının ve oğlunun gözü önünde havalı görünmek istiyordu. Ama ben az önce kâğıtları düzenlerken aklıma ufak bir şey gelmişti. Çok büyük bir mesele değil ama <strong>Laplace</strong>’la savaşacaksak yapılmasında fayda vardı.</p>
+<p><strong>“O konuda…”</strong></p>
+<p>Bu sene, Orta Kıta’nın güney tarafındaki bir ülkede inatçı bir kuraklık yüzünden kıtlık baş gösterecekti. Sayısız aile açlıktan ölecekti. Kaderin doğasında var olan bir şeydi bu. Beni ilgilendiren şey ise o ailelerden sadece biriydi. Ailenin pek bir özelliği yoktu, en küçük oğulları hariç. İleride yetenekli bir komutan olacaktı. İkinci Laplace Savaşı’nda Eastport’u savunmak için orduları kumanda edecekti. Bu olağanüstü liderlik yeteneği sayesinde <strong>Kral Ejderha Krallığı</strong> ordusunun uzun süre direnmesini sağlayacaktı. Normalde, Laplace’la olan savaşa gitmesini önleyecek şekilde hareket ederdim ve kalan manamı korumak için o çocuğu kendi hâline bırakırdım. Ama bu sefer Laplace’la savaş olacaktı ve yanımda Rudeus vardı. Zaman varken gidip ailesini kurtarmak daha iyiydi.</p>
+<p><strong>“Durum bu,”</strong> diyerek bitirdim anlatmamı. Rudeus hayal kırıklığına uğramış gibi baktı.<br>
+<strong>“Lara’ya işimin nasıl bir şey olduğunu gösteremeyeceğim, çünkü iş gezisine çıkmamız gerekecek…”</strong><br>
+<strong>“İstersen yarına kadar bekleyebilir,”</strong> dedim.<br>
+Rudeus başını salladı. <strong>“Hayır. Eğer bu ailenin tam olarak hangi gün açlıktan öleceğini hatırlamıyorsan, ertelememeliyiz. Muhtemelen geç kalmayız ama insanlar çok narin—ne zaman düşüp öleceklerini bilemezsin. Her ihtimale karşı hep seyahat malzemesi hazır tutarım. Hemen çıkabilirim.”</strong><br>
+<strong>“Eğer senin için de uygunsa,”</strong> dedim, sonunda ikna olarak.<br>
+<strong>“Tamam, ben hazırlıkları şimdi yaparım.”</strong> deyip Rudeus, ofisin depo kısmında tuttuğu ekipmanları almak için odadan fırladı. Yaklaşık on beş dakika sonra, sırt çantası, erzak, büyü parşömeni ayar aleti ve daha birçok malzemeyle seyahat kıyafetlerini kuşanmış olarak geri döndü.</p>
+<p>Bana dönüp, parmaklarını hızlı bir hareketle alnına götürdü. <strong>“Bunu sorduğum için kusura bakma ama, fırsatın olursa çocukları eve götürebilir misin? Leo oradayken güvende olacaklarından eminim ama yine de başlarında biri olsun isterim.”</strong><br>
+<strong>“Tabii,”</strong> dedim. Bunu söylemesine bile gerek yoktu. Rudeus’u sadık tutan sebebi asla göz ardı edemezdim.</p>
+<p><strong>“O hâlde ben çıkıyorum,”</strong> dedi Rudeus ve doğruca alt kattaki teleportasyon dairelerine yöneldi.</p>
+<p>Son birkaç yılda, gerektiğinde çok daha hızlı harekete geçmeyi öğrenmişti ve ona verdiğim görevleri neredeyse her zaman eksiksiz yerine getiriyordu. Önceki döngülerde de takipçilerim, piyonlarım olmuştu. Ama hiçbir zaman, söylediklerimi bu kadar sadakatle ve beceriyle yerine getiren birine rastlamamıştım. Şimdi, <strong>İnsan-Tanrı</strong> ve müritlerinin nasıl bir ilişki yaşadığını biraz daha iyi anlıyordum. Bu düşünceyle kaşlarımı çattım. Rudeus güvenilirdi, ama ona fazlasıyla bel bağlamak da iyi bir fikir değildi. Sonuçta, <strong>İnsan-Tanrı</strong>’yı anlamak bile içimde kötü bir his yaratıyordu. Yine de şu an başka pek seçeneğim yok. Rudeus’la olan ittifakım, manamı çarçur etmem için bir sebep değildi. Bu döngüde zaten yeterince harcamıştım.</p>
+<p>Şimdilik lanet bastırıcı kaskımı taktım ve çalışma odasından çıktım.</p>
+<p>Resepsiyonun oradan geçerken Faliastia bir anda irkildi.</p>
+<p><strong>“Ah! CEO, siz miydiniz!”</strong> diye cıyakladı. Sanırım onu biraz korkutmuştum. Ama kask sayesinde sadece zıplamakla yetindi. Kaskı takılıyken ve takılı değilken aradaki fark gerçekten çok büyüktü. Yapım yöntemini zaten belgelemiştim. Geliştiremiyor olsam bile tekrar üretebilirdim. Bir sonraki döngüde bunu yine yapacaktım.</p>
+<p><strong>“Rudeus Başkan az önce çıktı. Siz de dışarı mı çıkacaksınız, Efendi Orsted? Size eşlik edeyim mi?”</strong></p>
+<p><strong>“Gerek yok. Sadece kısa bir işim var, hemen dönerim.”</strong></p>
+<p><strong>“Peki efendim.”</strong></p>
+<p>Dışarı adım atar atmaz, biraz ilerideki yükselen sesleri duydum.</p>
+<p><strong>“İşte o an—şlak!—Vahşi Kılıç Kralı Eris, küçük bir boşluk buldu ve üçüncü Kuzey Tanrısı’nın kolunu kesti!”</strong><br>
+Böyle tiyatral bir ses tonuyla konuşan kişi, ofisin arkasındaki gölgede bir köşede duruyordu.<br>
+<strong>“Üçüncü Kuzey Tanrısı’nın tek kolu gitti. Karşısında Kuzey Tanrısı Kalman II ve İblis Kralı Atofe vardı! Arkasında da Vahşi Kılıç Kralı Eris ve Büyücü Kral Rudeus! Hiçbiri söylediği şeyle ilgilenmiyordu! Lafın bittiği yerdi artık! Savaş bitmişti! Herkes üçüncü Kuzey Tanrısı’nın işinin bittiğini düşündü! Ama sonra, vuşş! Kaçıp Yeryüzü Ejderhası’na daldı!”</strong></p>
+<p>Gölgede, kayanın üstünde oturan adam Alexander Rybak’tı, yani Kuzey Tanrısı Kalman III. Önünde yerde oturan küçük çocuk ise Sieghart Saladin Greyrat’tı. Onu en son gördüğümden bu yana epey büyümüş.</p>
+<p>Zaman gerçekten su gibi akıp gidiyor.</p>
+<p><strong>“Yani üçüncü Kuzey Tanrısı kaçtı. Yaşadığı sürece, sonunda hâlâ kazanma şansı olduğunu biliyordu. Vadiye daldı gitti! O vadinin içine atlayacak tek bir insan bile yoktu orada. Bunu yapabilecek tek kişiler babası Alex veya İblis Kralı Atofe’ydi!”</strong></p>
+<p><strong>“Onlar insan değil mi?”</strong></p>
+<p><strong>“O ikisi mi? Yoo, onlar ölümsüz iblislerin kanını taşıyan dehşet savaşçılar! Ama üçüncü Kuzey Tanrısı, peşine takılsalar bile onlardan hızlı kaçabileceğini düşünüyordu! Sonra—kabum! Gümbür gümbür bir ses koptu, kocaman bir gölge havada uçtu! Kimdi bu acaba?! İkinci Kuzey Tanrısı mı? Atofe mi? Berserker Kılıç Kralı mı?! Hayır! O, Rudeus Greyrat’tı!”</strong></p>
+<p><strong>“Baba!”</strong></p>
+<p>Sieg, Alec’in hikâyesine büyülenmiş gibiydi ama ya Lara neredeydi?</p>
+<p>Etrafı taradım ve ofis bahçesindeki saman yığınının üstünden bir varlık hissettim. Oraya baktığımda, mavi saçlı küçük bir kızın samanların üzerinde rahatça uyuduğunu gördüm. Yığının tabanında ise devasa beyaz bir canavar dolaşıyor, yukarıya, ona bakıyordu. Lara Greyrat ve kutsal canavar Leo. Kutsal canavar, Lara’yı kurtarıcı olarak kabul etmişti, ama Lara tahmin edilemez bir çocuktu. Rudeus’la birlikte olmak istediğini söyledikten sonra bu rahat tavırları biraz tuhaftı. Ofisin girişinde Rudeus’u bırakmasından bu yana henüz bir saat bile geçmemişti.</p>
+<p>Aslında, onun yaramazlıklardan hoşlandığını duyduğumu hatırlıyorum. Belki de babasını, yaptığı muzipliklerin sonuçlarından kaçmanın bir yolu olarak kullanıyordu. Eğer öyleyse, Rudeus için üzülürdüm. Ne de olsa az önce ne kadar mutlu görünüyordu.</p>
+<p><strong>“Büyülü zırh zaten ağır hasar almıştı ama Rudeus motoru ateşledi ve tek başına benim peşime düştü! Tek başına! İkimiz de havadaydık, üçüncü Kuzey Tanrısı hareket edemiyordu! Bam, bam! Büyülü zırhın dev yumrukları tekrar tekrar vurdu! Kabuuum! Rudeus ve üçüncü Kuzey Tanrısı, Yeryüzü Ejderhası vadisinin zeminine çakıldı! Toz bulutlarının içinden, sadece bir kolu ve bir bacağı kalmış üçüncü Kuzey Tanrısı yükseldi, ardından çatlamış ve kırılmış büyülü zırhıyla Rudeus! Peşlerinden kimse gelmemişti! Bu, teke tek bir savaştı!”</strong></p>
+<p><strong>“Teke tek savaş!”</strong> diye tekrarladı Sieg. Alec, Biheiril Krallığı’ndaki savaşı anlatıyordu. Sanırım Lara, onu buraya getirdikten hemen sonra uyuyakalmıştı ve Alec de Sieg’i oyalıyordu.</p>
+<p><strong>“Ama Rudeus, üçüncü Kuzey Tanrısı’nı alt edecek kadar güçlü değildi! Yumrukları Kuzey Tanrısı’nı hazırlıksız yakalamıştı ama bu dövüşü bitirmek için yeterli değildi. Kuzey Tanrısı, bunun Rudeus’un sonu olacağını düşündü! Onu dikkatlice izliyordu ama rakibini küçümsedi. Eğer savaşa girerse, büyücü Rudeus’un mesafesini koruyup favori saldırısı Taş Fırlatışı’nı kullanacağını varsaydı. Savaşmaya gönüllü olmayan bir rakibe Kuzey Tanrısı yenilmezdi! Sonra, Rudeus onu şaşırtmıştı! Taş Fırlatışı yaparken ona doğru koştu! Üçüncü Kuzey Tanrısı, Rudeus’u küçümsemiş olabilirdi ama hâlâ birçok savaşta çarpışmış kudretli bir savaşçıydı! Anında taşın yolundan çekildi—ama taş gözlerinin önünde kayboldu! Bu bir aldatmacaydı!”</strong></p>
+<p><strong>“Bir aldatmaca! Bir aldatmaca!”</strong></p>
+<p><strong>“Şiiiiing! Kuzey Tanrısı kılıcını savurdu! Fakat yeterince uzağa ulaşamadı! Rudeus’un yaptığı aldatmaca yüzünden, geri adım atıp ölümcül bir darbe indirmeyi başaramadı! Hâlâ umut vardı. Tam geriye sıçramak üzereydi ki… ayağı bir anda yerden kesildi! Evet, Rudeus’un hala sakladığı son bir numarası daha vardı—yerçekimini kontrol edebiliyordu! Kuzey Tanrısı’nı yerden azıcık havaya kaldıracak kadar bir büyü kullandı, neredeyse Kral Ejderha Kılıcı Kajakut’unkine denk bir güçle! Sonra—bam! Bir anda, Rudeus’un yumrukları adama çarptı! Bam bam bam bam! Yumruklar durmadan iniyordu! Hepsi art arda! Resmen bir saldırı sağanağıydı! Rudeus’un o müthiş büyülü mekanizması Kuzey Tanrısı’nı paramparça ediyordu! Ka-blam blam blam! Kuzey Tanrısı’nın bilinci kararmaya başladı. Ayağı onu artık taşıyamıyordu. Kral Ejderha Kılıcı, metalik bir sesle elinden düştü. Rudeus kazanmıştı!”</strong></p>
+<p><strong>“Yaşasın!”</strong> diye bağırdı Sieg, Alec kendi yenilgisini bu keyifli edayla anlattığında.</p>
+<p><em>Bu oldukça iç ısıtan bir sahneydi</em>; ben de Alec’e yaklaşırken <strong>“Alexander Rybak.”</strong> diye seslendim.</p>
+<p><strong>“Aa! Efendi Orsted! Dışarı mı çıkıyorsunuz?”</strong></p>
+<p><strong>“Hayır. Rudeus biraz önce gitti.”</strong></p>
+<p><strong>“Evet, çocukları bana bıraktı. Uygun bir vakitte onları eve götürmemi, eşlerine de durumu anlatmamı istedi.”</strong></p>
+<p>Demek Rudeus çocukları Alec’e emanet etmişti. O halde onlara eşlik etmeme gerek kalmamıştı.</p>
+<p><strong>“Peki,”</strong> dedim. <strong>“Onları sana bırakıyorum.”</strong><br>
+<strong>“Emredersiniz!”</strong> diye karşılık verdi. Ben de başımı sallayarak ofise geri döndüm.</p>
+<p style="text-align: center;"><strong>***</strong></p>
+<p>Gün batımına az kalmıştı; notlarımın bir kısmını tamamladıktan sonra ofisimden tekrar çıktım. Alec hâlâ çocukları eve götürmemişti. Resepsiyon da boştu; anlaşılan Faliastia mesaisini bitirmişti.</p>
+<p>Tam yanlarına döndüğümde Alec hâlâ konuşuyordu, ama anlatıcı tonunu bırakmış, daha çok ders veren bir havaya bürünmüştü. Sieg, kelimelerini can kulağıyla dinliyordu.</p>
+<p><strong>“Genelde senin baban, omurgasız bir kaybeden gibi davranıyor. Bence yüreğinde bir korkak yatıyor. Ama öfkelendi mi, ondan daha ürkütücüsü yok.”</strong></p>
+<p><strong>“Beni ruhuyla alt etti. Duyduğuma göre, Ejderha Tanrısı Orsted de benzer bir şey yaşamış. Tabii o benim gibi ezilmedi, ama Rudeus’un ruhunu fark etti ve sanırım bu yüzden senin babanı kendine müttefik yaptı. Sence Ejderha Tanrısı Orsted’le benim, senin babana bu kadar hayran olmamızın sebebi nedir?”</strong></p>
+<p><strong>“Bilmiyorum.”</strong></p>
+<p><strong>“Cevap delikanlı, onun güçlü olması”</strong></p>
+<p><strong>“Baba, güçlü mü? Ama her zaman Kızıl Anne’ye yeniliyor.”</strong></p>
+<p><strong>“Evet, şey… Onun gücü diğerlerinin biraz farklı.”</strong></p>
+<p>Alec’in Rudeus hakkındaki düşüncelerini merak ettiğimden, kenarda oyalanıp dinlemeye devam ettim.</p>
+<p><strong>“Babanın koca bir mana havuzu dışında övüneceği pek bir şeyi yok. Savaş aurası kullanamaz, durumları okumakta müthiş değildir, işler planladığı gibi gitmeyince panik yapar. Görüş kabiliyeti de ortalama. İblis Gözünü kullanmasına rağmen benim ve Ejderha Tanrısı Orsted’in biraz altında kalıyor. Üstelik refleksleri de yavaş, gözün gördüklerine bedeni yetişemiyor. Yaşayan canlılara son darbeyi indirmekte de çok zorlanıyor; bu işi pek midesi almıyor. Büyüleri sessizce kullanabilmesi ve büyüleri muazzam bir hızla atabilmesi onu kurtarıyor; ama yine de benim gibi bir kılıç ustasıyla aynı hızda hareket edemiyor. </strong><strong>Gerçekte, beni öldürebilecek güçte bir Taş Fırlatışı hazırlayana dek geçen sürede, ben onu üç kez öldürebilirim. Yani ne kadar akıllıca taktikler düşünürse düşünsün, istersek onu durdurabiliyoruz. Hem ben de dünyanın en hızlısı sayılmam; ham hız bakımından zirvedekilerin bir-iki tık altındayım. Baban uzakta durup rakibini büyülerle dikkatlice vurabilir tabii, ama o fırsatı yakalamak her zaman kolay değildir. Bütün şartlara bakınca, baban ‘dövüşçü’ olacak yapıda değil.”</strong></p>
+<p><strong>“Baba… zayıf mı…?”</strong> Sieg, duyduklarından hoşnutsuz görünüyordu. Zaten hangi çocuk, babası hakkında böyle aşağılayıcı sözler duyunca mutlu olur ki? Hele Rudeus gibi sevgi dolu bir babaya sahipken.</p>
+<p><strong>“Hey, öyle surat asma,”</strong> dedi Alec. <strong>“Henüz bitirmedim. Şimdi, babanın asıl gücü şudur: kendi eksiklerini biliyor. Bu sayede zayıf noktalarını kapatıp güçlü yönlerini öne çıkaracak bir yöntem buldu.”</strong></p>
+<p><strong>“Nasıl bir yöntem?”</strong></p>
+<p><strong>“Hızını katlayan Büyülü Zırhı yaptı. Böylece benim gibi bir kılıç ustası onu gafil avlasa bile ayakta kalabilir oldu. Artık onu kolay kolay durduramıyoruz. Tabii hâlâ bire birde eşit şartlarda bir dövüş olduğu söylenemez. Avantaj yine kılıçtan yana, ama en azından ‘bizim seviyemize’ girebildi — savaş aurası kullanamayan, sadece büyük mana rezervine sahip bir büyücü olarak. Üstelik kaçmak yerine dikilip savaşmaya başladı. Bazen direkt cepheden saldırıyor, bazen de korkakça arkadan vuruyor. Kimi zaman müttefiklerini yardıma çağırıyor, kimi zaman tek başına mücadele ediyor. Peki sence neden, şartlar ona karşı olsa bile bizimle boy ölçüşebiliyor?”</strong></p>
+<p>Sieg başını iki yana salladı.</p>
+<p><strong>“Seni ve ailenizi korumak için. O sizi o kadar çok seviyor ki, sizi korumak uğruna canını vermekten çekinmez.”</strong></p>
+<p>Bunu duyan Sieg’in gözleri parladı. Heyecandan yumruklarını sıktı, sonra Alec’e gülümseyerek bakıp:</p>
+<p><strong>“Baba gerçekten tam bir Çedar Adamı!”</strong> dedi.</p>
+<p><strong>“Aynen öyle! Çedar Adamı, gerçek bir kahraman!”</strong></p>
+<p>Bir anda, anlamadığım bir kelime kullanmaya başladılar. “Çedar Adamı” olmak da ne demekti? Bir insanın ismi miydi acaba? Binlerce yıllık hayatımda böylesine denk gelmemiştim. Belki de Rudeus’un uydurduğu bir şeydi. Sürekli yeni kelimeler türetiyordu zaten. Onu bir dahaki görüşümde soracaktım, aklımın bir kenarına “Çedar Adamı”nı not aldım.</p>
+<p><strong>“Bay Kuzey Tanrısı! Ben de Çedar Adamı olmak istiyorum!”</strong></p>
+<p><strong>“Olabilirsin. Çok çalışırsan, sen de gerçek bir kahraman olursun. Ben de bunu, bizzat kendisi de gerçek bir kahraman olan babamdan duymuştum. Baban hiç söylemedi mi?”</strong></p>
+<p><strong>“Baba asla öyle bir şey demedi.”</strong></p>
+<p><strong>“Öyle mi? Büyüyünce kesin anlatır ama.”</strong></p>
+<p><strong>“Peki, çok çalışmak nasıl olur?”</strong></p>
+<p><strong>“Güçlenerek.”</strong></p>
+<p><strong>“Nasıl?”</strong></p>
+<p><strong>“Fiziksel antrenman, biraz da kılıç ve büyü çalışarak.”</strong><br>
+Alec bunları sanki çok basitmiş gibi sakin sakin açıkladı.</p>
+<p>Sonra Sieg, cesaretini toplamış gibi Alec’e bakıp:</p>
+<p><strong>“Anladım. Bay Kuzey Tanrısı. Lütfen bana kılıç kullanmayı öğretir misin?”</strong> dedi.</p>
+<p><strong>“Huh? Ben mi?”</strong></p>
+<p><strong>“Öğretmek istemiyor musun?”</strong></p>
+<p><strong>“Annen sana Kılıç Tanrısı Stili öğretmiyor mu?”</strong></p>
+<p><strong>“Ben Kuzey Tanrısı Stili öğrenmek istiyorum! Babamla Annemi şaşırtacağım!”</strong></p>
+<p><strong>“Ama ben… Yani, iyi bir hoca olmayı denedim ama galiba bu iş için doğuştan gelen yeteneği gerek. O kadar beceriksizdim ki, çıraklarım genelde babamdan ders almak isterdi.”</strong></p>
+<p>Kuzey Tanrısı Kalman III Alexander Rybak’ın gençliğinden acı hatıraları vardı. Kuzey Tanrısı olduğunda, yirmiden fazla öğrencisi olmuştu. Ancak birkaç yıl içinde hepsi kendi yollarına gitmişti. O günden beri de Alec’in tek bir çırağı olmamıştı.</p>
+<p><strong>“Ama dövüşürken çok havalısın. Ben Kuzey Tanrısı Stili öğrenmek istiyorum.”</strong></p>
+<p><strong>“Bu konuda başkasına öğretecek kadar bilgim var mı emin değilim…”</strong></p>
+<p>Alec’in bocaladığını görürken, aklıma Rudeus geldi. Sürekli <em>“Daha öğrenecek çok şeyim var,”</em> dese de, öğrendiklerini başkalarına aktarmaktan asla çekinmezdi ve herkes de ona minnettar olurdu. Ben de dahil.</p>
+<p><strong>“Alexander Rybak,”</strong> dedim, <strong>“çocuğa kılıç kullanmayı öğreteceksin.”</strong></p>
+<p>Alec, şaşkınlıkla kafasını kaldırdı. Beni fark etmemiş gibi davrandı ama bu mümkün değildi.</p>
+<p><strong>“Ama Ejderha Tanrısı Orsted, b-ben hâlâ Kuzey Tanrısı olmayı öğreniyorum.”</strong></p>
+<p><strong>“Tam da bu yüzden ona öğretmelisin. Tek bir çırağa eğitim verirken, hem Kuzey Tanrısı Stilini hem de kendindeki eksikleri daha iyi anlarsın.”</strong></p>
+<p>Normalde tarihin akışında, Kuzey Tanrısı Kalman III Alexander Rybak, Kılıç Tanrısı Gino Britz’e yenildikten sonra tavrını değiştiriyordu. Sonra da hevesini kaybedip sadece tek bir öğrenci alıyordu. O çocuk çok yetenekli sayılmazdı ama Alec onu yetiştirirken kendini de sorgulayıp gerçek bir Kuzey Tanrısına dönüşmüştü. İkinci Laplace Savaşı’na katılan Kuzey Tanrısı Kalman III, gelmiş geçmiş en güçlü Kuzey Tanrısı olarak bilinir. Bu döngüde o çocuk ne durumda, bilmiyorum, ama Alec zaten yenilmiş ve davranışlarını şimdiden değiştirmişti. O yüzden bu süreci öne çekip ona şimdi birini yetiştirmesini söylemek gayet mantıklıydı.</p>
+<p>Üstelik Sieg’in de kılıç kullanma konusunda bir yeteneği var. Laplace Faktörü sayesinde yaşıtlarından daha güçlü. Kutsal Çocuk Zanoba kadar aşırı güçlü olmayabilir ama ileride iki elli kılıcı tek elle sallayabilecek hâle gelmesi pekâlâ mümkün. Böylesine sıra dışı bir yeteneğe sahip biri, Kuzey Tanrısı Stiline tam uyacaktır. Yani böylece Sieg de faydalı bir şeyle meşgul olacak.</p>
+<p>Bir de şu var: Alec, Rudeus’un tek gücünün manası olduğunu sanıyor ama Rudeus’un bir diğer gücü de, ihtiyacı olduğunda koşa koşa yardıma gelen dostları. O arkadaşları savaş meydanında değil, bambaşka şartlarda kazanıyor. Alec, Rudeus’la teke tek kapışıp yenildiğinden bunu görememiş olabilir. Fakat çocuklarıyla zaman geçirince belki durumu daha net kavrayacaktır. Bu gücü fark ederse ve onu benimserse, olağan tarihteki hâlinden bile daha soylu, daha güçlü bir Kuzey Tanrısına dönüşebilir.</p>
+<p><strong>“Rudeus’a bir bahane uydururum,”</strong> dedim.<br>
+<strong>“Peki, Ejderha Tanrısı Orsted sen söylüyorsan yaparım,”</strong> dedi Alec, gülümseyip yine Sieg’e döndü. <strong>“Tamam Sieg, yarın başlıyoruz. Eğer anneni ve babanı şaşırtmak istiyorsan, bu sırrımız olarak kalacak, anlaştık mı?”</strong></p>
+<p><strong>“Anlaştık!”</strong> Sieg, gözleri parlayarak Alec’e baktı.</p>
+<p>Alec, minik çırağı yüzünden endişelenmek yerine daha çok heyecanlanmış gibiydi. Uzun zamandır ilk kez gerçek kılıç ustalığı eğitimi verecekti ve belli ki ikisi de iyi bir ikili olacaktı. Ama yine de içimde bir soru işareti vardı.</p>
+<p><strong>“Alexander Rybak, sana bir şey soracağım.”</strong></p>
+<p><strong>“Tabii, Efendi Orsted!”</strong></p>
+<p><strong>“Sırtındaki de ne?”</strong></p>
+<p>Alec’in sırtı çengelli tohumlarla (çocukların oyun oynarken birbirlerine fırlattıkları, tutturdukları küçük şeyler) doluydu. Küçükler onlara <em>“yolcu” </em>gibi bir isim takıyorlardı.</p>
+<p><strong>“Bunlar Lara Hanım’dan yadigâr,”</strong> dedi Alec. <strong>“Sanırım canı sıkılmış olmalı. Arkadan sessizce yaklaşıp bunları sırtıma yapıştırdı durdu.”</strong></p>
+<p>Bende sessizce kabul ettim.</p>
+<p><strong>“Çocukların klasik muzırlıkları işte. Sonra temizlerim,”</strong> diye güvence verdi Alec.</p>
+<p>Ah, evet. Lara’nın yaramazlıkları. Mantıklı.</p>
+<p><strong>“Peki, nerede şimdi?”</strong> diye sordum.</p>
+<p><strong>“Ofise girmedi mi o…?”</strong></p>
+<p>Bir an için bodrum kata inip teleportasyon çemberinin üstüne atlamış olabileceğinden endişelendim. Neyse ki etrafta hâlâ varlığını hissedebiliyordum. Ofisten çıkıyordu. Yanında Leo vardı, umursamaz bir ifade takınmıştı. İçeride de Faliastia’nın varlığını sezdim. Muhtemelen Lara’yı üst katta eğlendirmişti.</p>
+<p><strong>“Lara Hanım! Efendi Leo! Eve dönme vakti!”</strong> diye seslendi Alec.</p>
+<p><strong>“Tamam,”</strong> diye cevap verdi Lara. Sieg’in elini tuttu, onu Leo’nun sırtına yerleştirdikten sonra kendi de tırmanıp hemen arkasına oturdu, kollarını ona doladı.</p>
+<p><strong>“Ben şimdi onları geri götüreyim,”</strong> dedi Alec. Önden yürümeye başladı, Leo ise arkasında hafifçe tıngır mıngır ilerliyordu. Tam yanımdan geçerlerken Lara, zafer kazanmış gibi bir gülümsemeyle bana bakıp kısık sesle kıkırdadı. Nedenini hiç anlayamadım.</p>
+<p>Onlar gittikten sonra, ofise dönüp resepsiyonda duran Faliastia’yı buldum. Herhâlde Lara’yı aşağıya kadar o indirmişti. Ona artık çıkabileceğini söyledim ve sonra çalışma odama doğru yol aldım.</p>
+<p><em>“Hmm”</em>, işte tam o anda Lara’nın o sinsi gülümsemesinin sebebini çözmüştüm. Her zamanki koltuğumun üzerinde bir sürü dikenli tohum vardı. Fark etmeseydim, koltuğa oturur oturmaz hepsi sırtıma yapışacaktı. Tam bir yaramazlık işi.</p>
+<p>Bu dikenleri toparlayıp bir torbaya koyarken hafifçe gülümsemeye başladım. Ama torbayı çekmeceye kaldırmadan önce içime bir huzursuzluk çöktü. Öyle çok güçlü bir his değildi ama zamanında bir suikastçı tarafından zehirlendiğimde hissettiğime benziyordu. Büyülü eşyalar ve Ejderha Aziz dövüş aurasıyla korunmuş olsam da, o zehri hafiften hissetmiştim.</p>
+<p>Yine de pek umursamadan çekmeceyi açınca beş tane canlı çekirge aniden fırlayıp üstüme atladı. Meğer bu iki aşamalı bir şakaymış: Önce dikenleri koyarak beni hazırlıksız yakalayacak, sonra esas saldırıyı yapacaktı. Muhtemelen resepsiyon civarında bir yere saklanıp, ofisten çıktığımı görünce içeri sızmış ve yapacaklarını yapmıştı.</p>
+<p> <img src="bolum1foto3.png" alt="Kitap Çizimi 1" class="novel-image"></p>
+<p>Bu, onun zafer dolu bakışını açıklıyordu. Bir an durup düşündüm. Gerçekten, Lara’nın nasıl biri olacağını kestiremiyordum. <strong>İnsan-Tanrı</strong>’nın ondan neden korktuğunu merak ediyordum.</p>
+<p style="text-align: center;"><strong>***</strong></p>
+<p>Rudeus birkaç gün sonra döndü. Sadece aileyi kurtarmakla kalmamış, aynı zamanda çevredeki tüm bölgeye yağmur yağdırarak kıtlığı sona erdirmişti. Gerçekten de etkileyici. Onun ayrıntılı raporunu dinledikten sonra Sieg meselesini açtım.</p>
+<p><strong>“Sieghart’ın buraya düzenli olarak gelmesini istiyorum.”</strong></p>
+<p><strong>“Şey… nedenini sorabilir miyim?”</strong> Rudeus, şüpheyle bana baktı.</p>
+<p>Bunu nasıl açıklayabileceğimi düşündüm.<br>
+<strong>“İlgimi çeken bir şey var ve yakından gözlem yapmak istiyorum.”</strong></p>
+<p>Rudeus uzun bir süre sessiz kaldı.<br>
+<strong>“Tehlikeli mi?”</strong></p>
+<p><strong>“Hayır.”</strong></p>
+<p><strong>“Sokağa çıkma saatini ben belirleyebilir miyim?”</strong></p>
+<p><strong>“Tabii.”</strong></p>
+<p><strong>“Peki. Eşlerime haber veririm.”</strong></p>
+<p>Pek net olmayan açıklamama rağmen Rudeus kabul etmişti. Bana güveniyordu ya da benden kesin bir cevap alamayacağına iyice kanaat getirmişti, bilmiyorum.</p>
+<p><strong>“Başka soruların yok mu?”</strong> diye sordum.</p>
+<p><strong>“Hayır. Sieg’e kimin ne öğreteceğini tahmin edebiliyorum… ama neden benden gizlenmesi gerektiğini pek anlamadım.”</strong></p>
+<p><strong>“Ah.”</strong></p>
+<p><strong>“Bence bu iyi bir şey. Alec’e, Sieg’e iyi bakmasını söyle.”</strong></p>
+<p>Numaramı fark etmişti. Yaklaşımı beni memnun etmişti. Rudeus ve benim birlikte çalışmaya devam etmemiz için birbirimizin düşüncelerini anlamamız bizim için iyiydi. Şeffaflık, aramızda arzu edilen bir durumdu.</p>
+<p><strong>“Pekâlâ, ben de artık eve gideyim.”<br>
+</strong><br>
+<strong>“Tamam. İyi iş çıkardın.”</strong></p>
+<p>Rudeus tam kapıdan çıkarken bir şey aklıma geldi.<br>
+<strong>“Rudeus.”</strong></p>
+<p><strong>“Evet?”</strong></p>
+<p><strong>“Çedar Adamı nedir?”</strong></p>
+<p>Rudeus, bir an için ağzı açık şekilde bana baktı. Sonra,<br>
+<strong>“Yüzü peynirden yapılma bir kahraman. Acıkan çocuklar yesin diye yüzünden parçalar koparıyor, kötü adamları tek yumrukta dize getiriyor, öyle bir şey işte.”</strong><br>
+dedi.</p>
+<p><strong>“Senin geldiğin dünyada böyle bir kahraman mı vardı?”</strong><br>
+<strong>“Benim dünyamda yüzünde anko fasulyesi ezmesi olan bir ekmek kahramanı vardı ama burada anko diye bir şeyi kimse bilmiyor. Ben de peynire çevirdim. Çocuklara anlatıp uyutuyorum.”</strong></p>
+<p>Çedar Adamı, yüzünden parçalar koparıp insanlara veriyordu. Gerçekten kafa karıştırıcı bir şeydi.</p>
+<p><strong>“Niye sordun?”</strong> diye devam etti Rudeus.<br>
+<strong>“Sebepsiz. Sadece merak ettim.”</strong><br>
+<strong>“Peki. Ben gidiyorum o zaman.”</strong></p>
+<p>Rudeus giderken onu izledim, sonra çalışma odama döndüm. Masamda hâlâ Lara’nın bıraktığı dikenli tohumların olduğu torba duruyordu. Çekirgeler ise ortalıkta yoktu; muhtemelen dışarı kaçmışlardı. Lara eve varınca kesin muziplikleri için sağlam bir azar işitecekti.</p>
+<p>Derin bir iç çektim.</p>
+<p>Lara ve Faliastia, Alexander ve Sieg, şimdi de Rudeus ve onun Çedar Adamı. Bu döngü sürprizlerle dolup taşıyordu.</p>
+            
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum1parca3.html" class="nav-btn">←Önceki Bölüm</a>
+            <a href="bolum2parca1.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

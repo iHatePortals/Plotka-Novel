@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt 2 - Bölümler | Mushoku Tensei Redundant</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b; /* Mushoku Tensei Kırmızı Tema */
+            --border-color: #333;
+            --hover-bg: #2a2a2a;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        /* Üst Başlık ve Geri Butonu */
+        .header-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .back-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+
+        .back-btn:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        .main-title {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Bölüm Listesi Yapısı */
+        .chapter-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .chapter-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .chapter-item:hover {
+            transform: translateX(5px);
+            border-color: var(--accent-color);
+            background-color: var(--hover-bg);
+        }
+
+        .chapter-number {
+            font-weight: bold;
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            min-width: 100px; /* Bölüm yazılarının hizalı durması için eklendi */
+        }
+
+        .chapter-title {
+            color: #aaa;
+            font-size: 0.95rem;
+            text-align: right;
+            flex-grow: 1;
+        }
+
+        @media (max-width: 600px) {
+            .header-area {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .chapter-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            .chapter-title {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="header-area">
+            <a href="../index.html" class="back-btn">← Serilere Dön</a>
+            <h1 class="main-title">CİLT 2 BÖLÜMLERİ</h1>
+        </div>
+
+        <div class="chapter-list">
+
+            <a href="cilt2/bolum0.html" class="chapter-item">
+                <span class="chapter-number">Bölüm 0</span>
+                <span class="chapter-title">Başlangıç Kitap Fotoğrafları</span>
+            </a>
+
+            <a href="cilt2/bolum1parca1.html" class="chapter-item">
+                <span class="chapter-number">Bölüm 1.1</span>
+                <span class="chapter-title">Haydi Otomaton Yapalım! / Oyuncak Bebeğin Yürüdüğü Gün (Kısım 1)</span>
+            </a>
+
+            <a href="cilt2/bolum1parca2.html" class="chapter-item">
+                <span class="chapter-number">Bölüm 1.2</span>
+                <span class="chapter-title">Haydi Otomaton Yapalım! / Oyuncak Bebeğin Yürüdüğü Gün (Kısım 2)</span>
+            </a>
+
+            <a href="cilt2/bolum1parca3.html" class="chapter-item">
+                <span class="chapter-number">Bölüm 1.3</span>
+                <span class="chapter-title">Haydi Otomaton Yapalım! / Oyuncak Bebeğin Yürüdüğü Gün (Kısım 3)</span>
+            </a>
+
+            <a href="cilt2/bolum1parca4.html" class="chapter-item">
+                <span class="chapter-number">Bölüm 1.4</span>
+                <span class="chapter-title">Haydi Otomaton Yapalım! / Ofiste Bir Gün (Kısım 4)</span>
+            </a>
+
+            <a href="cilt2/bolum2parca1.html" class="chapter-item">
+                <span class="chapter-number">Bölüm 2.1</span>
+                <span class="chapter-title">Millis Seyahatnamesi / Latria Hanesine Ziyaret (Kısım 1)</span>
+            </a>
+
+            <a href="cilt2/bolum2parca2.html" class="chapter-item">
+                <span class="chapter-number">Bölüm 2.2</span>
+                <span class="chapter-title">Millis Seyahatnamesi / Arus'un Millis'teki Tatili (Kısım 2)</span>
+            </a>
+
+            <a href="cilt2/bolum2parca3.html" class="chapter-item">
+                <span class="chapter-number">Bölüm 2.3</span>
+                <span class="chapter-title">Millis Seyahatnamesi / Roxy'nin Görevi (Kısım 3)</span>
+            </a>
+
+            <a href="cilt2/bolum2parca4.html" class="chapter-item">
+                <span class="chapter-number">Bölüm 2.4</span>
+                <span class="chapter-title">Millis Seyahatnamesi / Kutsal Kılıç Yolu’na Doğru (Kısım 4)</span>
+            </a>
+
+            <a href="cilt2/bolum2parca5.html" class="chapter-item">
+                <span class="chapter-number">Bölüm 2.5</span>
+                <span class="chapter-title">Millis Seyahatnamesi / Kaplıcalar (Kısım 5)</span>
+            </a>
+
+            <a href="cilt2/bolum2parca6.html" class="chapter-item">
+                <span class="chapter-number">Bölüm 2.6</span>
+                <span class="chapter-title">Millis Seyahatnamesi / Haşin, Geniş Dağ Zirvesi'nin Talhand'ı (Kısım 6)</span>
+            </a>
+
+            <a href="cilt2/bolum3parca1.html" class="chapter-item">
+                <span class="chapter-number">Bölüm 3.1</span>
+                <span class="chapter-title">Kılıç Tapınağında Yaşayan Tanrı / Kılıç Tanrısı Gino Britz (Kısım 1)</span>
+            </a>
+
+            <a href="cilt2/bolum3parca2.html" class="chapter-item">
+                <span class="chapter-number">Bölüm 3.2</span>
+                <span class="chapter-title">Kılıç Tapınağında Yaşayan Tanrı / Fani Salonda (Kısım 2)</span>
+            </a>
+
+            <a href="cilt2/bolum3parca3.html" class="chapter-item">
+                <span class="chapter-number">Bölüm 3.3</span>
+                <span class="chapter-title">Kılıç Tapınağında Yaşayan Tanrı / Nina Britz (Kısım 3)</span>
+            </a>
+
+            <a href="cilt2/bolum4.html" class="chapter-item">
+                <span class="chapter-number">Bölüm 4</span>
+                <span class="chapter-title">Greyrat Çocukları</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

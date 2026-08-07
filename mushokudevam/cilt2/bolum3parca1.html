@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei Cilt 1, Bölüm 1 (Kısım 1) | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b; /* Mushoku Tensei Kırmızı Tema */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #cc0000;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c1b1b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        body.theme-light .nav-btn:hover, 
+        body.theme-light .action-btn:hover, 
+        body.theme-light .theme-select:hover,
+        body.theme-sepia .nav-btn:hover, 
+        body.theme-sepia .action-btn:hover, 
+        body.theme-sepia .theme-select:hover {
+            color: #ffffff;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+        }
+
+        /* Resimler için özel stil */
+        .novel-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 6px;
+        }
+
+        /* Ayrıştırıcı Çizgi */
+        .divider {
+            text-align: center;
+            margin: 2em 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="bolum2parca6.html" class="nav-btn">←Önceki Bölüm</a> 
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="bolum3parca2.html" class="nav-btn">Sonraki Bölüm →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Mushoku Tensei Cilt 2, Bölüm 3 </h1>
+            <div class="subtitle">Kılıç Tapınağında Yaşayan Tanrı (Kısım 1)</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+                        <img src="bolum3foto1.png" alt="Kitap Çizimi 1" class="novel-image">
+<p>KILIÇ TANRISI GINO BRITZ’in gelmiş geçmiş en zayıf Kılıç Tanrısı olduğu söylenirdi. Kılıç Mabedi’nden bir kez bile ayrılmamış, ne de güçlü düşmanları yendiğine dair herhangi bir hikâye anlatılmıştı. Tüm Kılıç Tanrıları arasında adı en az bilineniydi ve gelecek nesiller bu unvanı sadece eski neslin yaşlanması sayesinde kazandığını söylerdi. Gerçekten en zayıf olup olmadığının gerçeğini bulmak için çok az kişi çaba gösterdi ama bir şey şüphe götürmezdi: tarihteki tüm Kılıç Tanrıları arasında en uzun yaşayanı oydu.</p>
+<p>Gino Britz, Kılıç Mabedi’nde doğdu. Babası bir Kılıç İmparatoru, annesi ise Kılıç Tanrısı’nın küçük kız kardeşiydi. En eski anısı, üç yaşındayken yaptığı kılıç antrenmanıydı; elinde bir çocuğun ahşap antrenman kılıcı tutarken babası ona nasıl savuracağını öğretiyordu. Bu anı, kılıcın hakim olduğu çocukluğunun geri kalanının bir planı gibiydi. Uyandıktan sonra koşuya çıkar, sonra kılıç savurma antrenmanı yapardı; kahvaltıdan sonra antrenmanı vardı; öğle yemeğinden sonra daha fazla antrenmanı vardı; güneş battıktan sonra akşam yemeğinden önce kısa bir mola verir, sonra yatmadan önce yine kılıç savururdu. Hayatı buydu.</p>
+<p>Gino aslında kılıç dövüşünü pek sevmezdi. Antrenmanlarına devam ediyordu ama sadece ailesi ona yaptırdığı için. Kendi kendine bir kez bile, <b>“Bunu istiyorum,”</b> dememişti.</p>
+<p>Küçükken bu önemli değildi. Etrafındaki herkes ya bir kılıç dövüşçüsüydü ya da bir zamanlar öyleydi. Diğer tüm çocuklar bunu yapıyordu ve ne zaman yeni bir teknik öğrense, annesi ve babası onunla gurur duyardı. Yakınlarda yaşayan emekli yaşlı adam bile, Gino antrenman kılıcını taşıyarak koştuğunda ona iyi bir çocuk derdi. Bunu sorgulamak için hiçbir nedeni yoktu; kılıç hayattı.</p>
+<p>Yıllar geçtikçe ve rütbesi yükseldikçe işler değişmeye başladı. Kılıç İmparatoru babası, o çocukken elinde bir kılıç görmekten mutluydu ama Gino ileri seviyeye ulaştığında daha katılaştı, <b>“Kılıcını savurduğunda, rakibini yenmeye çalışmalısın,”</b> ve <b>“Hâlâ zayıfsın. Biraz yeteneğin olabilir ama şımarma,”</b> diyordu. Gino’yu her zamankinden daha sıkı eğitti.</p>
+<p>Başlangıçta, doğup büyüdüğü antrenman salonundaki yetişkinler ona sevgiyle yaklaşıyordu ama Gino istikrarlı bir şekilde önce orta seviyeye, sonra da ileri seviyeye yükseldi. Düellolarda ona yenildikçe, ona bariz bir hoşnutsuzlukla bakmaya başladılar. O sıralarda Gino kılıç işinden zevk almayı bıraktı.</p>
+<p>Hayatında başka bir şey yapmak istediği falan da yoktu. Başka bir ülkeden bir çocuk maceracı olmak istediğini söyleyebilirdi ama “evden ayrılma” fikri aklına hiç gelmedi, çünkü ailesi ona böyle bir şeyin mümkün olduğunu hiç öğretmemişti. Gerek de yoktu. Kılıç Mabedi’nin dışındaki tüm dünya, Gino’nun hakkında hiçbir şey bilmediği bir yerdi—ve bu yüzden kılıca devam etti.</p>
+<p>Kılıç Tanrısı’nın kızı Nina, onunla birlikte büyüdü ve tek arkadaşıydı. Kılıç Mabedi’nde, Kılıç Azizi seviyesinin altındakilerin ana antrenman salonuna girmesine izin verilmezdi. Çocuklar da dahil olmak üzere diğer herkes, evlerine yakın bir yerde antrenman yapardı. Nina, soyuna rağmen bir istisna değildi, bu yüzden Gino ile birlikte antrenman yapardı. Gino’nun yaşındaki tek çocuk o değildi ama kılıçtaki becerisi kendisininkiyle eşleşen tek kişi oydu. İkisi de aynı dili konuşuyordu ve her sohbet kılıç dövüşü hakkındaydı. Gino’nun kılıç işine karşı kararsızlığına rağmen, aşağı yukarı bir dahiydi. Çocukken bile, biraz tuhaf savaş teorileri ortaya atardı ve akranları arasında ona ayak uydurabilen tek kişi Nina’ydı.</p>
+<p>Nina çocuklar arasında elebaşıydı, kendi yaşındaki diğer çocukları toplayıp onlara hükmederdi. Bu sadece aynı antrenman salonundaki çocuklar anlamına gelmiyordu, Kılıç Mabedi’ndeki tüm antrenman salonlarındaki herkes demekti. Kılıç Mabedi çocuklarının her şeyi yargılamak için kullandığı ölçüt kılıçtaki beceriydi ve o, hepsinin en güçlüsüydü. Nina, kısmen babası sayesinde, otoritesini destekleyecek yeteneğe sahipti.</p>
+<p>Boş zamanlarında, kılıç becerilerini geliştirmediğinde, diğer çocukları sadece çocuklara özel gizli bir organizasyonda toplardı. Gino da bir üyeydi ve kısmen en güçlü ikinci olduğu için, ama aynı zamanda Nina ile birbirlerini en iyi anladıkları için Nina’nın yaveri olmuştu.</p>
+<p>Nina ve Gino, kılıç dövüşünü diğerlerinden farklı bir şekilde görüyor gibiydiler. Örneğin, Nina’nın komutasındaki diğer çocuklardan hiçbiri Kılıç Azizi rütbesinin ötesine geçemedi. Nina’nın organizasyonu yaklaşık beş yıl sürdü ama Nina, Gino ile hemen hemen aynı zamanda bir Kılıç Azizi olduğunda sona erdi. Tarihte bunu en erken başaranlar arasındaydılar. Gino olağanüstü derecede gençti—sadece on iki.</p>
+<p>Olduğunda, insanlar şok oldu. <b>“En genci o mu?!”</b> diye haykırdılar ve annesiyle babası onu göklere çıkardı—ama Gino bu konuda pek de mutlu hissetmedi. Söylenenleri yapmak pek bir başarı gibi gelmiyordu. Ayrıca, dört yaş büyük olan Nina ondan daha güçlüydü.</p>
+<p>Nina ve Gino Kılıç Azizi olduklarında, ana antrenman salonunda pratik yapmalarına izin verildi. O zaman bile, gerçekten hiçbir şey değişmedi. Kılıç eğitimleri günlerce devam etti.</p>
+<p>Daha önce olduğu gibi, yaşları ve becerileri yakın olduğu için o ve Nina her zaman birlikte antrenman yaparlardı. Her zamanki gibi, Nina ona astı gibi davranır, onu her yere yanında sürüklerdi. Nina hâlâ elebaşıydı, etrafındaki grup şimdi daha yaşlı kadın kılıç ustalarından oluşsa bile. Değişen tek şey, yeni antrenman salonunun evinden ne kadar uzakta olduğuydu. Aslında, bir şey daha vardı. Nina’nın babası Kılıç Tanrısı Gall Falion’dan öğrenmek için daha fazla fırsatı olmuştu.</p>
+<p>Gino’nun babası akşam yemeği masasında her zaman, <b>“Güçlü olmak için kılıcını kullan,”</b> gibi şeyler söylerdi. Gall’in Gino’ya söylediği ise babasının söylediklerinin tam tersiydi. Gall’in söylediklerinin özü şuydu: <b>“Kılıcını kendin için kullan.”</b></p>
+<div id="model-response-message-contentr_faacf269b65cea0c" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Gino aradaki felsefe farkını aşağı yukarı kavrayabiliyordu ama ayrıntılardan ya da hangisinin doğru olduğundan pek emin değildi. İkisi de tam olarak kafasına yatmıyordu. Ne seçerse seçsin, kendisine verilen antrenmanı yaptığı sürece kimse ona kızmıyordu ve ara sıra yapılan antrenman düellolarında çok fazla kaybetmediği sürece kimse onu rahatsız etmiyordu. Ana antrenman salonuna geçtiğinden beri antrenman düellolarını eskisi kadar sık kazanamıyordu ama kendisinden on yıldan fazla büyük yetişkinlere karşı savaşıyordu. Kimse onu ara sıra bir düello kaybettiği için suçlamıyordu. Değişiklikler olmuştu ama Gino’ya göre çoğunlukla her şey aynıydı.</p>
+<p>Bu durum, onun geldiği gün değişti: Eris Greyrat.</p>
+<p>Eris muhteşem bir başlangıç yapmak için hiç vakit kaybetmedi. Gino ve Nina’yı neye uğradıklarını anlamadan yere sererek, orada bulunan herkesi şaşkına çevirdi. Ezici bir yenilgiydi.</p>
+<p>Bu kendi başına Gino’ya büyük bir değişiklik gibi gelmedi; kaybetmek günlük bir olaydı. Akranları onun dehasına saygı duyuyordu ama o Nina’ya sürekli kaybediyordu. Daha önce hiç böyle gafil avlanmamıştı ama babasıyla ya da Kılıç Tanrısı’yla kılıçlarını çaprazlasa benzer şekilde sonuçlanırdı, bu yüzden bundan daha kötü hissettirmedi. Tamamen acı hislerden yoksun değildi ama o gece Kılıç Tanrısı’nın ona dobra dobra, <b>“Çok toy’sun,”</b> demesiyle ve babasının onu azarlamasıyla bu hisler çabucak kayboldu. Eris’in onu yenerek tam olarak yapması gerekeni yaptığını öğrendi.</p>
+<p><i>Yine de,</i> diye düşündü, <i>antrenman salonunda onu taklit etmeme iyi gözle bakmazlar, o yüzden en iyisi yapmayayım.</i></p>
+<p>Asıl değişen Nina’ydı. Gino’nun aksine, morarmış yüzü utançla kıpkırmızı kesildi ve o gün başka tek kelime etmedi. Gino antrenman salonundaki antrenmanını bitirdikten sonra eve gittiğinde, onu saklanmış ve kılıcını savururken hıçkıra hıçkıra ağlarken buldu, sürekli aynı şeyi mırıldanıyordu: <b>“Bunun bedelini ödeyeceksin, ödeyeceksin, ödeyeceksin…”</b></p>
+<p>Gino onun sözünü kesmekten korktu. Kendi yaşlarındaki birine kaybetme deneyimi Nina için yeniydi. Daha da kötüsü, sıradan bir kılıçla kaybetmemişti. Demir çekirdekli ahşap antrenman kılıçlarıyla dövüştüklerini duymuştu. Zarif bir yenilgi bile değildi. Eris onu yere sermiş, sonra üzerine atlayıp Nina korkudan ve acıdan altını ıslatana kadar iki yumruğuyla ona girişmişti. Hiçbir yenilgi bu kadar aşağılayıcı olamazdı ve Nina daha önce hiç böyle bir şey yaşamamıştı.</p>
+<p>Bunun ardından Nina’nın Eris’e yönelik saldırısı başladı. Başlangıçta, Eris’i dışlamak için diğer kadın kılıç ustalarıyla iş birliği yaptı ama Eris zaten en başından beri onlarla bir arada olmayı umursamadığı için bu başarısız oldu. Eris güçlü olmak istiyordu ve Kılıç Mabedi’nin iç dinamiklerini zerre kadar umursamıyordu.</p>
+<p>Eris’in dikkatini çekemeyen Nina, gün geçtikçe daha da hüsrana uğradı. Eris’i halka açık bir şekilde kötüleme fırsatını hiç kaçırmadı ve bazen Gino’ya bile ondan şikâyet etti. Gino bu yeni Nina’yı pek sevmiyordu. Onların elebaşıyken daha dürüst ve doğrudan biriydi. Sırf sevmediği için birini dışlamazdı. Yıllardır Nina’yı tanıyan Gino bile onu dayanılmaz bulmaya başladı.</p>
+<p>Sonra bir gün, kimseye tek kelime etmeden Nina aniden ortadan kayboldu. Yine de kimse onun için endişelenmedi. Nina Kılıç Mabedi’nden neredeyse hiç ayrılmamış ve dünya hakkında hiçbir şey bilmiyordu ama o bir Kılıç Azizi’ydi. İnsanlar, belki de Eris’in onun içinde bir savaşçı olarak büyümek için bir yolculuğa çıkma arzusunu ateşlediğini söyledi. Endişelenmek yerine, çoğu etkilendi.</p>
+<p>Gino’nun babası ona, <b>“Acaba senin de gidip dışarıdaki dünyaya bir göz atma vaktin gelmedi mi?”</b> dedi. <b>“Bir iki kızıl ejderha kesmek yüzündeki o aptal aptal bakışı silebilir.”</b></p>
+<p><i>Belki yaparım,</i> diye düşündü Gino, ama aslında bunu gerçekleştirmedi.</p>
+<div id="model-response-message-contentr_09d9d64235b20e15" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Daha önce hiç dış dünyayı görmemişti ve bu onu pek de ilgilendirmiyordu. Ayrıca, biraz da korkuyordu. Kılıç Mabedi’ndeki yetişkinlerin çoğu o “dış dünya” hakkında bir şeyler biliyordu ama bilgileri sadece komşu ülkelerle veya yaşadıkları ülkelerle sınırlıydı. Dünyayı gerçekten gezmiş biri nadirdi. Bazen bu insanlar Gino’ya hikâyelerini anlatırlardı ama çoğunlukla sadece övünürlerdi—falanca yerde filanca rakibi alt etmişlerdi.</p>
+<p>Sadece övünmekle kalmayıp, ona başarısızlıklarını da anlatan tek bir kişi vardı. O da Kılıç Kralı Ghislaine Dedoldia’ydı. Ona, bir maceracı olarak dünyayı gezdiğini ama kendi aptallığı yüzünden birçok kez neredeyse öldürüldüğünü anlatmıştı.</p>
+<p><b>“En büyük kılıç ustası bile öldürülebilir. Büyü ya da aritmetik, ya da en azından harfleri bilmiyorsan, ne olduğunu anlamadan ölüp gidersin.”</b> Ghislaine bunu son derece ciddi bir ifadeyle söylemişti, bu yüzden Gino ona inandı.</p>
+<p>Kılıç Mabedi’ndeki diğer çocuklar gibi, Gino da okuma yazma bilmiyordu, ne aritmetik ne de büyü yapabiliyordu. Bunları öğrenmeye hiç ilgi duymuyordu; sadece kılıcıyla tek başına hiç şansı olmayacağı korkusunu hissediyordu. Uzaklara gitmeye hiç arzusu yoktu.</p>
+<p>Günler geçti ve Gino, Nina’nın peşinden gitmedi. Sonra, iki ay sonra, geri döndü.</p>
+<p>Gino ona yolculuğunda ne olduğunu sordu ama Nina ona hiçbir şey anlatmadı. Ancak, bir şeyler olmuş olmalıydı çünkü Nina değişmiş olarak geri döndü. Eris’i taciz etmeyi bıraktı ve kılıcına daha da sadık hale geldi. Kibirli tavrı kayboldu ve diğer kadın kılıç ustalarıyla neredeyse hiç vakit geçirmemeye başladı.</p>
+<p>Nina ayrıca neredeyse tüm boş zamanını yoğun antrenmanlara harcamaya başladı—eğer buna öyle denilebilirse. Gino ile sonsuz dövüşler simüle etti. Patronuymuş gibi onu buna zorladı. Birbirlerine tek kelime etmeden, sadece dövüşerek defalarca kılıçlarını çaprazladılar.</p>
+<p>İşler bir süre bu şekilde devam etti ve Gino’nun Nina’ya karşı hisler geliştirmeye başlaması da bu dönemde oldu.</p>
+<p>Aşık olduğunu fark etmesi yıllar sürdü. Bu arada çok şey oldu. Kuzey İmparatoru Auber onlara geldi, Su Tanrısı Reida da öyle. Bunların hiçbiri Gino’nun ilgisini çekmedi. Nina ise farklıydı. Eris içindeki o kıvılcımı ateşledikten sonra hızla güçlendi. Yoğun antrenmanlarındaki partneri olarak Gino da güçlenmekten kendini alamadı.</p>
+<p>Sonunda, onunla rekabet etmeyi imkânsız buldu. Genellikle onu daha önce de yenerdi ama şimdi zar zor kazandığı zaferlerin sayısı düştü. Yavaş yavaş aralarında büyük bir uçurum açıldı. Bu kendi başına Gino’yu rahatsız etmedi—Nina’ya kaybetmek kolay geliyordu. Beş dövüşte bir kazanmaktan on dövüşte bir kazanmaya geçmek o kadar da büyük bir değişiklik değildi.</p>
+<p>Yine de komikti. Onu geride bırakmış gibi hissediyordu.</p>
+<p>Sonra bir gün, Eris, Nina ve Gino, Kılıç Tanrısı Gall Falion tarafından çağrıldı. Onlara bir Kılıç Azizi, bir Kılıç Kralı ve bir Kılıç İmparatoru’nu neyin ayırdığı sorusunu sordu, sonra da cevaplarını vermelerini istedi. Gino’nun kesinlikle hiçbir fikri yoktu. Nina ise dikkatle düşünülmüş bir cevap verdi. Eris, cevabının yanlış olduğu söylendiğinde, haklı olduğu konusunda ısrar etti. Kılıç Tanrısı bunu kabul etti, sonra Nina ve Eris’i dövüştürdü. Kim kazanırsa, onun Kılıç Kralı yapılacağını ilan etti.</p>
+<p>Savaşı Eris kazandı.</p>
+<p>Nina hıçkırırken, Eris Kılıç Kralı yapıldı. Gino, onun ağlayışını izlerken garip bir şey hissetti. Farkına varmadan yumrukları sıkılmış ve ağzı ince bir çizgi haline gelmişti. Bu duyguyu tanımıyordu. Neden hissettiğini bilmiyordu. Sinir mi? Hayal kırıklığı mı? Neden orada duranın kendisi olmadığını merak etti. Neden diğer ikisiyle dövüşme hakkı bile verilmemişti? Böyle devam ederse ona ne olacaktı?</p>
+<p>Gino bu yeni duygularla ne yapacağını bilmiyordu ama bir şey fark etti. Kılıç Tanrısı Gall’in Nina’ya, “Sana Gino ile evlenmek ve Kılıç Kralı olmak arasında bir seçim yapman gerektiğini söylesem, hangisini seçerdin?” diye sorduğunu duyduğunda, Gino yüzünün sıcakladığını hissetmişti—inkâr edecek hiçbir şey söyleyemeyeceğini.</p>
+<p>Ona aşık olmuştu.</p>
+<p>Gino ondan sonra biraz farklıydı. Yeni bir adama dönüşmedi ve babasının ve Kılıç Tanrısı’nın ona verdiği antrenmanları ve Nina ile olan yoğun antrenmanları yapmaya devam etti. Dışarıdan bakıldığında, Eris’in Kılıç Mabedi’nden ayrılması Gino için hiçbir şeyi değiştirmedi. Nina ile olan dövüşleri daha ileri seviyeye geldi, ama hepsi bu kadardı. Değişiklik içseldi; bu şeyler hakkında düşünme şekli yeniydi. Çok daha motive olmuştu. Düzenli antrenmanlarının amacını ve her bir tekniği ciddi bir şekilde düşündü ve deneyler yapmaya başladı.</p>
+<p>Sonuçlar dramatikti. Kısa sürede Nina ile eşit bir seviyeye geldi. Bu şaşırtıcı değildi. Gino’nun her zaman bir yeteneği vardı ve günlük antrenmanları ona sağlam bir temel vermişti. Nina da değişti. Eris Kılıç Mabedi’nden ayrıldıktan sonra, şimdi kendisi de bir Kılıç Kralı olan Nina, yakındaki köyleri ve kasabaları sık sık ziyaret etmeye başladı. Sadece kendi kılıç becerilerini geliştirmek yerine, kendini canavar avlamaya ve daha büyük kasabalardaki antrenman salonlarında ders vermeye adadı.</p>
+<p>Gino ise Kılıç Mabedi’ne kapanmış halde kaldı. Dış dünya onu artık korkutmuyordu ama hâlâ ayrılmaya hiç ilgi duymuyordu. Nedenini söyleyemezdi. Ayrılması için bir neden yokken kalmak için bir nedene ihtiyacı var mıydı? Nina etrafta olmadığında, kendini antrenmana adadı, bazen Kılıç İmparatoru babasıyla antrenman yaparak çalıştı. Antrenmana olan artan ilgisine rağmen, babasına rakip değildi. Kılıç Tanrısı Gall ona yakında bir Kılıç Kralı olarak tanınacağını söyledi, ama hepsi bu kadardı. Teknik olarak, babasını zaten yakalamıştı—aynısı Nina ve muhtemelen yine kılıç kralı olan Eris ve Ghislaine için de geçerliydi—ama onları yenemiyordu. Bir son adımı kaçırdığına inanıyordu.</p>
+<div id="model-response-message-contentr_206d44dd30bc6338" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Kazanmak için ne yapması gerektiğini bilse de harekete geçmiyordu. Her ne kadar daha girişken hâle gelmiş olsa da kendini nahoş durumlara atmaktan hâlâ çekiniyordu.</p>
+<p>Geçmişte kendini bu tür durumlara sokmayı denemişti ama her seferinde, Bu, uğruna acı çekilecek kadar neden önemli ki? diye düşünmüştü.</p>
+<p>Hiçbir zaman bir cevap bulamamıştı.</p>
+<p>O sıralarda, Asura Krallığı’ndaki taç giyme törenini izlemeye giden Nina, Sword Sanctum’a geri döndü.</p>
+<p><strong>“Hey, Gino,”</strong> dedi. <strong>“Ne dersin, evlenelim mi?”</strong></p>
+<p>Gino, pek düşünmeden kabul etti. Zaten bir gün bunun olacağına dair bir hissi vardı. Sonuçta Nina’ya karşı hisleri vardı ve onun başka bir erkekle ilişkisi olduğuna dair hiçbir işaret görmemişti.</p>
+<p>Nina, her zamanki fevriliğiyle onu odasına götürdü ve hemen yatağa girdiler. İkisi için de ilk sefer olduğundan, bu deneyim pek de matah bir şey değildi ama bütün gece birbirlerini meşgul etmeye yetecek kadar uyumluydular.</p>
+<p>Baş döndürücü bir zevkin sersemliği içinde, Gino Bundan daha fazlasını istiyorum, diye düşündü.</p>
+<p>Bu, belki de bir şeyi bu kadar çok istediği ilk andı.</p>
+<p>Ertesi gün Gino, Kılıç Tanrısı’nı görmeye giderken Nina’yı da yanına aldı. Nina onu değil, o Nina’yı götürmüştü. Gino’nun böyle bir inisiyatif alması nadir görülen bir durumdu ama onunla evlenmek istiyordu.</p>
+<p>Kılıç Tanrısı anında, <strong>“Hayır,”</strong> dedi.</p>
+<p>Kılıç Tanrısı daha önce kızının yetiştirilmesine hiç karışmamıştı ama şimdi, ilk kez, hayır diyordu. Sebebi kendince basitti: Gino’nun hiçbir çekici özelliği yoktu. Zerre kadar bağımsızlık, maceracı ruh veya hırs kırıntısı bile yoktu. Kendisine ne denirse onu yapan bir paspastı. Kılıç Tanrısı, onların geceyi birlikte geçirdiklerini bilmiyordu ama evlilik fikrini ortaya atanın da Nina olduğunu tahmin etmişti. Gino’nun kendine ait hiçbir arzusu, uğruna çabaladığı hiçbir şey yoktu ve evlenmek mi “istiyordu”? Saçmalık.</p>
+<p>Yine de Gall, bunun iyi bir gelişme olabileceğini düşündü.</p>
+<p><strong>“Onunla evlenmek mi istiyorsun? Beni yen. Bunu yaparsan sana izin veririm.”</strong></p>
+<p>Kılıç Tanrısı, Gino’yu ateşlemeye çalışıyordu. Yoluna bir engel koymanın çocuğu biraz motive edebileceğini düşünmüştü.</p>
+<p>Ah, demek buydu, diye düşündü Gino. Başından beri mesele buydu. Bu kadar basitti.</p>
+<p>Her şey yerine oturmuştu; Kılıç Tanrısı’nın her zaman ne söylediği, kendisinde neyin eksik olduğu ve şüphelerinin kaynağı… Sis dağılmıştı ve aradığı şeyi bulmuştu; eksik olan o son adımı… Artık bir amacı vardı.</p>
+<p><strong>“Kabul ediyorum!”</strong> dedi.</p>
+<p>Gerisi kolaydı.</p>
+<p>Gino tamamen değişti. Yepyeni bir adam olmuştu. Her zaman emredildiği için yaptığı antrenmanları bıraktı. Nina ile yaptığı yoğun antrenmanları bile kesti. Tembellik mi yapıyordu? Asla. Hayır, Gino tek başına antrenman yapmaya başlamıştı. Yaptığı şey için bir partnere ihtiyacı yoktu. Nina ile yaptığı yoğun antrenmanlar, babasıyla yaptığı pratikler ve katıldığı sayısız deneme dövüşü sayesinde, ihtiyacı olan tüm dövüş talimini zaten yapmıştı.</p>
+<p>Gino kazanmanın bir yolunu teorileştirmişti; Kılıç Tanrısı’na karşı zafere giden kesin bir yolun vizyonuna sahipti. Bu vizyonu gerçekleştirmek için önündeki günlerde inanılmaz derecede sıkı çalışması, zorlukların ve acının üstesinden gelmesi gerekiyordu. Daha önce bunu yapmamasının sebebi buydu. Yapması için bir neden yoktu. Sebepsiz yere duyulan hayal kırıklığı ve sabırsızlık dayanılmaz olurdu. Ama şimdi bir amacı vardı—Nina’yı istiyordu. Onu her şeyden çok istiyordu. Acı çekmesi gerekse bile onu istiyordu. Amaç, zorluğu ve acıyı zevke ve beklentiye dönüştürdü.</p>
+<p>Geriye sadece kendini bilemek kalmıştı. Teorisini kanıtlamak için, kılıç savuruşunun hızını ve ağırlığını artırmak üzere vücudunu şekillendirmesi gerekiyordu. Bunun için pek çok kelime vardı—alıştırmalar, yoğun antrenman, pratik—ama hiçbiri Gino’nun yaptığını tam olarak karşılamıyordu. Bir kelime seçmesi gerekseydi, buna <em>“iş”</em> derdi.</p>
+<div id="model-response-message-contentr_9bb27276f8e3d819" class="markdown markdown-main-panel stronger enable-updated-hr-color" dir="ltr">
+<p>Gino, Kılıç Tanrısı’nı yenmesine olanak tanıyacak bir vücuda kavuşmak için yapması gerekenleri sakince yerine getiriyor, günlerini işini yaparak geçiriyordu. Kendini sınırlarının en ucuna kadar zorladı. Çabaları sıradan bir adamın pes etmesine veya fiziksel olarak çökmesine neden olabilirdi ama Gino bunun üstesinden gelebiliyordu. Eğer bir yeteneği varsa, o da buydu. Bir motivasyonu, saatlerce düşünüp hazırladığı bir planı, kusursuz çalışması ve tüm bunları bir araya getirmesini sağlayan o inanılmaz azmi vardı. Bu dört unsur bir araya gelerek kılıcını bileyip keskinleştirdi.</p>
+<p>O kader günü geldi çattı. O sabah Gino kalktı ve bir kez daha evlenme teklif etmek için yan evde oturan çocukluk arkadaşının evine gitti.</p>
+<p>Tahta kılıçlarını kaldırmış, karşı karşıya duruyorlardı. Nina’yı tamamen darmadağın ettikten sonra, onunla evlenmek istediğini söyledi. Nina kabul etti, ardından Gino da Kılıç Tanrısı’yla görüşmeye gitti.</p>
+<p>Öğleden sonraydı ve o sırada ana antrenman salonunda bir deneme düellosu yapılıyordu. Bu, Kılıç Tapınağı’nda düzenli olarak yapılan, gerçek bir savaşın simülasyonuydu. Bunlar sadece kişinin tekniğinin ne kadar geliştiğini gösterme fırsatı değil, aynı zamanda iki kişilik grupların daha yüksek rütbeli bir rakibe meydan okumasına izin verilen bir yerdi. Gino, rahat bir tavırla salona süzüldü. Bir Kılıç Kralı olarak Gino, ya iki Kılıç Azizi’ne karşı ya da kendisiyle aynı rütbede olan Nina’ya karşı dövüşmüş veya bir Kılıç İmparatoru’na meydan okumak için Nina ile ekip olmuştu. Nina burada değildi, bu durumda normalde otomatik olarak iki Kılıç Azizi ile dövüşmesi gerekirdi.</p>
+<p>Ancak Gino, antrenman salonunun ortasına adımını atar atmaz tahta kılıcını Kılıç Tanrısı’na doğrulttu. Bir anlığına salon sessizliğe büründü.</p>
+<p><strong>“Gino! Bu ne demek oluyor?!”</strong></p>
+<p>Gino’nun babası Kılıç İmparatoru Timothy Britz, herkesten önce ayağa fırladı. Yanındaki tahta kılıcı kaptı ve Gino’ya vurdu—ya da vurmaya çalıştı. Ayağa kalkmak için dizlerinden birinin üzerinde doğrulduğu anda kılıcı tuzla buz oldu. Aynı anda kılıç tutan kolu kırıldı ve tahta kılıç takırdayarak yere düştü. Gözleri şaşkınlıkla fal taşı gibi açılmıştı. Acıya alışkındı, bu yüzden yüzünde başka bir iz belli olmuyordu ama yine de ter içinde kalmıştı. Gino’nun kılıcını savurmayı bitirdiğini gördü. Gino babasına bir göz attı, sonra tekrar Kılıç Tanrısı’na döndü.</p>
+<p><strong>“Yüce Kılıç Tanrısı. Nina’nın elini istemeye geldim,”</strong> dedi, daha önce olduğu gibi kılıcını Kılıç Tanrısı’na doğrultarak. Kılıç Tanrısı Gall Falion kılıca bir baktı, sonra kahkahalarla güldü.</p>
+<p><strong>“Bana uyar. Gel bak—”</strong></p>
+<p>Gall sözünü bitiremeden Gino çoktan harekete geçmişti. Ama Gall de hareket etti, hem de daha hızlı. Zaten duruşunu almış, hazır bekliyordu. Kılıç İmparatoru yere serildiğinde, Gall yerden bir tahta kılıç almış, çömelir pozisyona geçmiş ve elini kılıcının üzerinde tutarak alçak bir duruşa geçmişti. Bu daha zayıf bir pozisyondu ama Gall için bir dezavantaj değildi. Hangi duruşta olursa olsun, kılıcı rakibinden daha hızlıydı—bir Kılıç Tanrısı’nı Kılıç Tanrısı yapan da buydu.</p>
+<p>Ancak bir şekilde, kılıcını Gino’dan daha hızlı savuramamıştı; genç adam neredeyse aynı hızla ona karşılık vermişti. Neredeyse eşdeğer hızlarda hareket eden iki kılıç çarpıştığında, havada Gino’ya biraz daha yakın bir noktada karşılaştılar. İşte o an. Kılıç Tanrısı avantajı ele geçirmişti. Daha da hızlı bir şekilde tekrar vurdu.</p>
+<p>Ama bir şeyler yanlıştı.</p>
+<p>Kılıçlarının karşılaşma şekli, Kılıç Tanrısı’nın bakış açısına göre mükemmele yakındı. Kılıç Tanrısı Stili’nin mottosu “tek vuruşta öldürmek”ti, bu yüzden vuruşunuz engellenirse bu, yanlış oynadığınız anlamına gelirdi. Ama aynı zamanda başka bir felsefeleri daha vardı: bir sonraki vuruşla işlerini bitirmeyi garantilemek için ilk darbeyle düşmanın dengesini bozmak. Gall Falion ilk vuruşla avantajı ele geçirdikten sonra kimse ona karşılık veremezdi. Her zaman böyle olurdu. Ama Gino’nun kılıcı, Gall’in daha önce hiç hissetmediği bir ağırlıkla vurdu ve dengesini korumayı başardı.</p>
+<p>Bu, Gall’in dengesini kaybettiği anlamına gelmiyordu. Başa baştılar. Gall ile birinin vuruşa vuruş kapışmasından bu yana uzun zaman geçmişti.</p>
+<p>Gall, vuruşunu yaparken daha fazla öne eğilmişti, bu yüzden bir sonraki vuruş farklı gelişti. Gall’in kılıcı tamamen uzanmıştı ve onu geri çekmesi zaman alacaktı. Gino’nunki ise öyle değildi. Gall’in kılıcını savuşturup hemen kendi kılıcını geri savurabilecek şekilde pozisyon almıştı. Ne Gall ne de Gino dengesini kaybetmişti ve aralarında sadece saniyenin binde biri kadar bir fark vardı. Gino, iğneye iplik geçirir gibi bir hassasiyetle bu farkı yaratmıştı.</p>
+<p>Gall Falion ikinci bir darbe vuramadı.</p>
+<p>O gün Gino, istediği her şeyi elde etti.</p>
+<p>Kılıç Tanrısı Gino Britz, Nina Falion’u kazandığında hayallerine kavuşmuştu. Nina, onun tüm arzularının toplamıydı. Yaşayan en büyük kılıç ustası olduğunu gösteren Kılıç Tanrısı unvanını almak, bir bonustan ibaretti.</p>
+<p>Yaşadığı sürece Kılıç Tapınağı’ndan hiç ayrılmadı ve bu yüzden adı, tüm Kılıç Tanrıları arasında en az bilineniydi. Hatta en zayıfı olduğu bile söylendi. Eski Kılıç Tanrısı’nın altında eğitim gören Kılıç Azizleri bile ona aşağılayarak davrandı. Gino buna aldırış etmedi. Söylentilerin hiçbir anlamı yoktu, çünkü ona meydan okumaya gelen rakipleri yendi. Onlar sadece kimliği belirsiz rakiplerdi—bir sonraki Kılıç Tanrısı olmayı uman kılıç savaşçıları veya gelmiş geçmiş en zayıf Kılıç Tanrısı olduğunu duydukları adama meydan okumaya gelenler. Gino hepsini ezdi geçti.</p>
+<p>Kılıç Tanrısı olduğu andan itibaren yenilmezdi. Eğer Kılıç Tapınağı’ndan ayrılsaydı, Su Tanrısı Reida ve Ölüm Tanrısı Randolph gibi kudretli düşmanları bile yenebilirdi, ama ayrılmadı. Kılıç Tapınağı onun dünyasıydı ve dışından hiçbir şey istemiyordu.</p>
+<p>Bununla birlikte, Kılıç Tanrısı olduktan sonra dünyasının ufkunun genişlediği inkâr edilemezdi. Sadece rakipler değil, birçok insan Kılıç Tanrısı Gino Britz ile dostluk bağlarını güçlendirmek için geldi. Dövüşmek istemiyorlar, bunun yerine ondan kılıç dövüşü dersi vermesini veya kendileriyle iş yapmasını istiyorlardı.</p>
+<p>Bu ziyaretçilerden biri de Rudeus Greyrat’tı. Bir gün habersizce geldi—yanında Vahşi Kılıç Kralı Eris’in o fazlasıyla tanıdık yüzüyle. Sadece bu da değil, yanında Kuzey Tanrısı Kalman III ve Ejderha Tanrısı Orsted’i de getirmişti.</p>
+            
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum2parca6.html" class="nav-btn">←Önceki Bölüm</a>
+            <a href="bolum3parca2.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

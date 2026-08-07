@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei Cilt 1, Bölüm 1 (Kısım 1) | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b; /* Mushoku Tensei Kırmızı Tema */
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        /* 1. BEYAZ TEMA */
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #cc0000;
+            --border-color: #e5e7eb;
+        }
+
+        /* 2. SEPYA (KİTAP SEÇENEĞİ) TEMASI */
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c1b1b;
+            --border-color: #d8c8b4;
+        }
+
+        /* METİN KUTUSU GÖRÜNÜMÜ */
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        /* Simetrik Kontrol Barı Layout'u */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        body.theme-light .nav-btn:hover, 
+        body.theme-light .action-btn:hover, 
+        body.theme-light .theme-select:hover,
+        body.theme-sepia .nav-btn:hover, 
+        body.theme-sepia .action-btn:hover, 
+        body.theme-sepia .theme-select:hover {
+            color: #ffffff;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tipografi ve Metin Alanı */
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+        }
+
+        /* Resimler için özel stil */
+        .novel-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 6px;
+        }
+
+        /* Ayrıştırıcı Çizgi */
+        .divider {
+            text-align: center;
+            margin: 2em 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+
+        /* Alt Navigasyon Barı */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <!-- Üst Kontrol Barı -->
+        <div class="controls">
+            <!-- Sol Taraf -->
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="bolum0.html" class="nav-btn">←Önceki Bölüm</a> 
+            </div>
+
+            <!-- Orta Taraf (Ayarlar) -->
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <!-- Sağ Taraf -->
+            <div class="nav-right">
+                <a href="bolum1parca2.html" class="nav-btn">Sonraki Bölüm →</a>
+            </div>
+        </div>
+
+        <!-- Başlık -->
+        <header>
+            <h1>Mushoku Tensei Cilt 1, Bölüm 1</h1>
+            <div class="subtitle">Norn’un Nişanı (Kısım 1)</div>
+        </header>
+
+        <!-- Bölüm Metni -->
+        <main class="novel-text" id="text-content">
+            
+            <img src="bolum1foto1.png" alt="Bölüm 1 Fotoğraf 1" class="novel-image">
+
+            <p>BIHEIRIL KRALLIĞI’NDAKİ savaştan bu yana birkaç ay geçmişti. İnsan-Tanrı, olanlardan sonra sessiz kalmıştı ve zaman geçtikçe yeni düşmanlar da ortaya çıkmamıştı. Ama bu benim işimi değiştirmiyordu tabii. Sessizce yolculuklarıma devam ediyor, seksen yıl sonra gerçekleşecek Laplace savaşı için hazırlıklarımı yapıyordum.</p>
+
+            <p>Yine de son zamanlarda daha çok evdeydim, çünkü öğrendiğim kadarıyla Eris ve Roxy aynı anda hamile kalmıştı! Geese’i yendikten sonra biraz ipin ucunu kaçırmıştım galiba, eh, ektiğini biçersin sonuçta! İşlerin bu şekilde ilerlemesinden memnundum ama hamileliğin onların kaderlerini zayıflatıp İnsan-Tanrı’nın hedefi haline getirebileceği söyleniyordu. Bu yüzden eşlerim hamileyken onların yanında olabildiğim kadar çok kalmak istiyordum.</p>
+
+            <p>Bu arada, günlerimi dünyadaki paralı asker üslerinden gelen istihbaratı işleyerek, Orsted’le bir sonraki hamlelerimizi konuşarak ve uzun zamandır ertelediğim aile zamanını yaşayarak geçiriyordum.</p>
+
+            <p>Bu, işte o günlerden birinin hikayesi. Orsted’le bir sonraki hedefim hakkında bildiklerimizi konuştuğumuz bir toplantı yapıyorduk. Görünüşe göre o krallığın tahtına geçecek olan kişi henüz gençti ama umut vaat ediyordu. Şimdiden bazı adımlar atıp gelecekte onu iyi bir şekilde kullanmak mantıklı görünüyordu.</p>
+
+            <p>Orsted, sıradaki hükümdarı kazanmanın yoluna dair herhangi bir yorum yapmadan sessiz kaldı. Bunun bir nedeni olmalıydı. Belki bu işi başarmada kilit rol oynayacak biri henüz devrede değildi. Ya da şu anda kesin bir yöntem olmadığını düşünüp beklemek gerektiğine inanıyordu.</p>
+
+            <p>Peki ben ne yapmalıydım?</p>
+
+            <p>Orsted’in bu muhteşem varis hakkında çizdiği portreye dayanarak aldığım notlara bakarak düşüncelere daldım.</p>
+            <p>Tam o sırada konuştu.</p>
+
+            <p>“Norn Greyrat’i evlendir.”</p>
+            <p>“Ne…?”</p>
+
+            <p>Bir anda, Orsted bu tuhaf cümleyi patlattı.</p>
+            <p>Orsted’in yanında konuşurken dikkatli olmaya çalışıyordum ama az kalsın “Ne saçmalıyorsun sen?!” diye bağırıyordum. Bu kadar garip gelmişti.</p>
+
+            <p>Şu an muhteşem varisi kazanmaktan bahsediyorduk. Orsted’in söyledikleri tamamen alakasız görünüyordu. Ama sonra düşünmeye başladım… Gerçekten alakasız mıydı?</p>
+
+            <p>Ve o an kafama dank etti.</p>
+
+            <p>“Yani,” dedim yavaşça, “siyasi bir evlilik mi diyorsun?”</p>
+            <p>Konuştuklarımız bağlamında en mantıklı şey buydu.</p>
+
+            <p>“Buna politik diyemem, ama geleceği düşündüğümde… Eh.”</p>
+            <p>“Yani demek istediğin… Bunu tek başıma başaramam mı?”</p>
+
+            <p>Bunu duymak sinir bozucuydu. Bu, Orsted’in benim bu inanılmaz varisi ittifaka ikna edemeyeceğime karar verdiği anlamına geliyordu. Bunu açık açık söylese rahatsız olmazdım—yani, tek başıma yapabileceğime ben bile pek güvenmiyordum. Onu nasıl ikna edeceğim hakkında hiçbir fikrim yoktu. Eğer Paul gibi etek düşkünü biri olsaydı ve onu yanımıza çekmenin tek yolu bir kadın vermek olsaydı, o zaman Orsted’in önerisi mantıklı olurdu.</p>
+
+            <p>Ama Norn söz konusu bile olamazdı.</p>
+
+            <p>Norn’un bir gün evleneceğini biliyordum, ama onu Paul gibi bir çapkına asla teslim etmezdim. Norn daha… dürüst biriyle evlenmeliydi. Ve o kişiyi ben onaylamalıydım—onu rastgele birine göndermem asla söz konusu olmazdı. Paul’un yüzüne bir daha bakamazdım. Aileyi, ne kadar yüce bir hedef için olursa olsun, asla bir kenara atamazsın.</p>
+
+            <p>“Hayır,” dedi Orsted.</p>
+            <p>“O zaman neden?”</p>
+            <p>“Norn Greyrat’ın çocuğu bana yardımcı oldu.”</p>
+            <p>“Yardım mı…? Yani bu Norn’la ilgili değil de, onun çocuğuyla mı ilgili?”</p>
+            <p>“İhtiyacım yok. O çocuk bu döngüde büyük bir öneme sahip olmayacak.”</p>
+
+            <p>Orsted dolambaçlı konuşuyordu. Hep bilmecelerle konuşurdu, ama şimdiye kadar olan konuşmalarımızdan ne demek istediğini çıkarabilmiştim. Temelde, bu bir ön hazırlıktı. Norn’un çocuğu bu döngüde önemli olmayabilirdi, ama önceki döngülerde Orsted’e faydası dokunmuştu, bu yüzden işi garantiye almak istiyordu—bunun gibi bir şeydi.</p>
+
+            <p>“Pekala.” Ayağa kalktım. Hala oturmakta olan Orsted’e yukarıdan baktım. Kaskını takmamıştı. Yine de her zamanki gibi ürkütücü görünüyordu, ama eminim ki benim yüzüm onunkinden bile daha korkutucuydu.</p>
+            <p>“Bunu bu kadar ısrarla istiyorsan, o zaman üç gün sonra öğlen, kuzey ormanında ol.”</p>
+
+            <p><i>Korkma, Norn. Onurunu koruyacağım. Orsted’le yüzleşmek zorunda kalsam bile geri adım atmayacağım. Paul, lütfen… Bana güç ver. Bu güçlü düşmanı alt edip hayatta kalmam için bana güç ver.</i></p>
+
+            <p>“Bekle. Yanlış anladın.”</p>
+            <p>“Öyle mi?”</p>
+            <p>“Bu iki asırdır tekrar eden döngüde bile umursadığım insanlar var. Norn Greyrat’ın çocuğu onlardan biri. Bana defalarca yardım etti. Bu yüzden onun bu dünyada yaşam hakkına sahip olmasını istiyorum. Ama şu anki şartlarda bu mümkün olmayacak.”</p>
+
+            <p>Gerçekten de Norn’u erkeklerle hiç görmemiştim. Mezun olmuştu, ama hala evde yaşıyordu, her zamanki gibi. Bu, tembellik yaptığı anlamına gelmiyordu elbette. Okul bağlantıları sayesinde büyü loncasına katılmıştı ve merkezi şubede idari işlerle uğraşıyordu. Loncada bir sürü erkek vardı, ama Norn onlarla pek ilgileniyor gibi görünmüyordu. Boş günlerinde bile dışarı çıkmıyordu; aksine, her zaman evde çocuklara veya ev işlerine yardım ediyordu. Öğrenciyken bile kimseyle çıktığını düşünmemiştim.</p>
+
+            <p>Açıkçası, Norn’un hayatı boyunca hiç evlenmeden yaşayacağını düşünüyordum.</p>
+
+            <p>Hmm. Bu dünyada statüsü olan insanlar genelde görücü usulü evleniyordu. Benimki biraz tartışmalı bir evlilikti, ama bana bağlantılar ve nüfuz kazandırmıştı. Belki de bu öneri o kadar da uçuk değildi.</p>
+
+            <p>“Tamam da, bir çocuk tek bir kişiden olmaz. Rastgele biriyle olacak çocuk aynı çocuk olmaz, değil mi?”</p>
+
+            <p>Sonuçta bir kraldan bahsediyorduk, yani bolca statüsü vardı, ama ben bunu hemen kabul etmeyecektim. Önce onu kendi gözlerimle görüp nasıl bir adam olduğunu anlamam gerekiyordu.</p>
+
+            <p>“Yoksa bu inanılmaz varis gelecekte Norn’un eşi mi oluyor?” diye sordum, Orsted’e sert bir bakış atarak. O ise kaşlarını çatmıştı. İfadesi her zamanki gibi ürkütücüydü, ama bu bakışı daha önce görmüştüm. Bu onun “Neden bahsediyorsun sen?” bakışıydı.</p>
+
+            <p>Kaşlarının uçları şaşkınlıkla kıpırdadı ve şöyle dedi:</p>
+            <p>“Hayır… Affedersin. Bunun o konuyla bir ilgisi yok.”</p>
+            <p>“Ha?”</p>
+            <p>“Bu başka bir mesele.”</p>
+
+            <p><i>Başka bir mesele mi…?</i> Ah, demek istediği buydu.</p>
+
+            <p>“Yani bu bir sonraki ülke için stratejimizle ilgili değil mi? Sadece Norn’un aşk hayatından mı konuşuyoruz?”</p>
+            <p>“Evet.”</p>
+
+            <p>Hımm. Pekala, o zaman.</p>
+
+            <p>“Orsted Bey.”</p>
+            <p>“Evet?”</p>
+            <p>“Konuyu değiştirdiğinizde, ‘Bu arada…’ ya da ‘Konu değişik ama…’ gibi bir giriş yapmanız iyi olur.”</p>
+            <p>“Doğru söylüyorsun. Gelecekte buna dikkat ederim.”</p>
+
+            <p>Bu mesele hallolduğuna göre, yeniden koltuğuma yaslandım.</p>
+
+            <div class="divider">***</div>
+
+            <p>Kendimi toparladıktan sonra sohbete geri döndüm.</p>
+            <p>“Peki, Norn kiminle evleniyor? Hep aynı kişiyle mi evleniyor?”</p>
+            <p>“Evet. Bildiğim kadarıyla, Norn Greyrat’ın eşi hiç değişmez.”</p>
+
+            <p>Yani Norn ve bu kişi kaderin bir cilvesiyle birbirine bağlıydı. Şanslı herif. Hayatını yaşarken birdenbire gidip benim Norn’umla evleniyor. Eğer tembel bir serseri çıkarsa, onu kaçırır ve adam ederim—Spartalı usulü. Sabah uyanır uyanmaz yatana kadar tek yaptığı şeyin eğitim olmasını sağlarım. İşim bittiğinde ağzından sadece “evet,” “lütfen” ve “teşekkür ederim” kelimeleri çıkardı. O zaman Norn’u aldatmayı aklından bile geçiremezdi.</p>
+
+            <p>En azından, Norn’la evlenmek isteyen biri Eris’ten bir yumruk yemeden geçemezdi—</p>
+
+            <p>“Ruijerd Superdia.”</p>
+
+            <p>Düşüncelerim aniden durdu. Gözümün önünde beş yüz yaşlarında, kel bir adamın yüzü belirdi.</p>
+            <p><i>Durun, artık kel değil.</i></p>
+            <p>Yeşil saçlı, yakışıklı bir adam.</p>
+
+            <p>“Onların çocuğu, son Superd savaşçısı olur. Ruijerd ileriki yaşlarında vebaya yenik düştüğünde, Norn onun Superd’lerin onurunu geri kazandırma arayışını devralır ve iblislere karşı insanların safına katılır. Laplace’a son darbeyi indirendir. Kaderi ağır, acı dolu ve herkes tarafından unutulmuş bir hikaye… Ama bu döngüde birçok Superd hayatta kaldı. Büyük ihtimalle onun omuzlarına böyle bir yük düşmeyecek.”</p>
+
+            <p>Zihnim donmuşken, Orsted geçmiş döngülerde kızın hayatını hatırlayıp anlatıyordu. Laplace’ı yendiğine göre, muhtemelen Orsted’le birlikte çalışmıştı. Öyleyse… Evet, Orsted’in neden bunu gündeme getirdiğini anlayabiliyordum.</p>
+
+            <p>Ama şimdi ne olacak? Bu sefer işler farklıydı. Ben buradaydım ve yer değiştirme olayı yaşanmıştı.</p>
+
+            <p>Norn ve Ruijerd’in önceki döngülerdeki ilişkisi nasıl gelişmiş olursa olsun, bir şeyden emindim ki bu döngüde onların Orsted’in bildiği aşk hikayesine dönüşmesi henüz mümkün olmamıştı. Norn’a durup dururken böyle bir evlilik önersem, muhtemelen karşı çıkardı. Sonuçta arada beş yüz yıllık bir yaş farkı vardı. Ruijerd de bu duruma şaşırabilirdi.</p>
+
+            <p>Ruijerd’in aileye katılmasından şikayetçi değildim ama böyle bir kararı tek başıma veremezdim. Kesinlikle olmaz.</p>
+
+            <p>“Eğer bana sorarsanız,” dedim yavaşça, “bu kararı Norn’un vermesi gerektiğini düşünüyorum.”</p>
+            <p>“Pekala. Acele etmeye gerek yok,” diye cevapladı Orsted başını sallayarak.</p>
+
+            <p>Bundan sonra, bana geçmiş döngülerdeki Norn’u anlattı. Benim var olmadığım dünyalarda Norn bir maceracı olmuştu. Maceralarında şarkılar söyleyip baladlar yazan, şarkı söyleyip dans edebilen ve dövüşebilen bir ozandı. Aynı ilgi alanlarına sahip kişilerle bir grup kurmuş ve Kuzey Kıtası’nda yolculuk etmişti. Kılıç ve büyü becerileri en iyi ihtimalle orta seviyedeydi. B-Seviye onun sınırıydı. Bu yüzden, bir görev sırasında partisi canavarlar tarafından tamamen yok olmuştu.</p>
+
+            <blockquote><i>(Otomatik Çevirmen Notu: Balad, şiirin müziğe uyarlanmış halidir. Bu müzik türü, tamamen efsaneler hakkında veya önemli olaylar hakkında olabileceği gibi, aşk veya sevgiyi konu alan bir şiir de olabilir.)</i></blockquote>
+
+            <p>Norn, ölümden sadece bir adım uzaktayken kim çıkageliyor dersiniz? Tabii ki bizim Ruijerd. İlerleyen canavarları bir bir parçalayıp Norn’un hayatını kurtardı. Norn için bu ilk görüşte aşktı. O andan sonra Ruijerd ile beraber Superd ırkını bulma yolculuğuna katıldı.</p>
+
+            <p>Başta Ruijerd pek bir karşılık vermemişti, ama sonra Superd’ların bir salgınla yok olduğunu öğrenip kendini umutsuzluğa kaptırdı. Norn, kendini onu teselli etmeye adadı ve bu sayede Ruijerd’in kalbini kazandı. Evlenip Biheiril Krallığı’nın bir köşesinde birlikte yeni bir hayat kurdular. Bir süre sonra çocukları oldu ama ardından Ruijerd, diğer Superd’lara bulaşan aynı hastalığa yakalanıp hayatını kaybetti ve Norn yalnız kaldı. Çocuklarını büyüttü ve yaşlılıkla hayata gözlerini yumdu.</p>
+
+            <p>Hikaye biraz yalnız ve buruk gibi görünüyordu, ama Orsted, yüzünde huzurlu bir ifade olduğunu söylemişti. Aşk hikayesi olarak kulağa tuhaf geliyordu ama sonuçta bir erkekle bir kadının arasındaki şeyleri yalnızca onlar bilir.</p>
+
+            <p>Bu sefer işler Norn için böyle gitmemişti. Acaba Ruijerd ile onu tekrar bir araya getirmek doğru olur muydu? Norn, sevmediği biriyle mutlu olabilir miydi? Ruijerd buna açık olur muydu?</p>
+
+            <p>Bunu kendi kendime dert etmenin bir anlamı yoktu. Önemli olan Norn’un nasıl hissettiğiydi. O yaşta biri için aşk vakti gelmiş sayılırdı, ama Norn hiç erkeklere ilgi gösteriyor gibi görünmüyordu. Bir gün aniden birini eve getirip, “Norn’un babasından onun elini istemeye geldim,” derse ne olurdu? O zaman da ben, “Kime baba diyorsun sen?” ya da “Ben onun abisiyim,” falan derdim.</p>
+
+            <p>Ama konu dağılmaya başladı.</p>
+
+            <p>Bu tarz şeyleri Norn’a sormak için doğru kişi ben değildim. Bana içini açabileceğini sanmıyordum. Başka bir kadın daha iyi olurdu—ama Aisha değil. Onu göndersem kesin bir sorun çıkardı. Sylphie veya Roxy mi? Norn, özellikle Roxy’ye saygı duyuyordu; o yüzden belki de Roxy en iyisi olurdu.</p>
+
+            <p>Eğer saygıdan bahsediyorsak, Eris de iş görürdü. Uzun zamandır Norn’a kılıç eğitimi veriyordu. Mezun olduğundan beri her sabah beraber koşuya çıkıyor, dövüş pratiği yapıyorlardı. Onlara baktığınızda Norn’un Eris’e ne kadar hayran olduğunu görebilirdiniz. Ama maalesef Eris’in repertuarında “dolaylı soru sorma” gibi bir yetenek yoktu.</p>
+
+            <p>Hayır, bu işi Roxy yapmalıydı. Bir saniye, durun. “Dolaylı soru” konusunda yüksek istatistikleri olan Sylphie’ydi. Saygıdan çok başka bir şeydi belki, ama Norn, Sylphie’yi bu evde bir nevi lider olarak görüyor gibiydi.</p>
+
+            <p>Ya da hepsine birden danışmalı mıydım? Evet, dördümüz bu iş için kimin daha uygun olduğuna karar verebilirdik. Sylphie, Roxy ve Eris’in fikirlerini almak daha iyi olurdu. Ama üçü yeterli miydi? Lilia ve Zenith’e de danışmalı mıydım?</p>
+
+            <p>Bu düşüncelerle oturma odasındaki kanepede oturmuş kafa patlatıyordum.</p>
+
+            <p>“Ooo.” O sırada oturma odasına giren birine gözüm takıldı—Norn.</p>
+            <p>“Döndüm, Abi,” dedi.</p>
+            <p>“Hoş geldin.”</p>
+
+            <p>Büyüdükçe ne kadar güzel bir kadın olmuştu. Gençliğinde Zenith nasıl görünüyorsa, Norn da öyleydi: dolgun bir göğüs yapısı ve ipek gibi sarı saçlarıyla. Muhtemelen okulda erkekler arasında oldukça popüler olmuştur.</p>
+
+            <p>“Ne…?” diye sordu Norn bir süre sonra.</p>
+            <p>“Bir şey… Yok bir şey. Şey, Norn, bir çay ister misin?”</p>
+            <p>“Evet, lütfen.”</p>
+
+            <p>Masadaki bardaklardan birini kaptım, içine hızlıca çay doldurup ona uzattım. Norn bardağı alırken yüzünde şüphe dolu bir ifade belirdi.</p>
+
+            <p>“Bu soğuk.”</p>
+            <p>“Ne?!”</p>
+
+            <p>Daha az önce Lilia’dan bir demlik çay hazırlamasını istememiş miydim? Demliğe dokundum, haklıydı. Elimdeki bardak da soğuktu. Ne oluyor burada? Birisi bana saldırıyor olabilir mi?!</p>
+
+            <p>“Dur bir dakika.” Aklıma bir şey geldi. “Bu arada, bugün işin yok muydu?”</p>
+            <p>“Evet, yeni geldim zaten.”</p>
+
+            <p>Pencereden dışarı baktım. Artık akşam olmuştu. Orsted ile olan toplantım bitmiş, eve dönüp Lilia’ya çay hazırlatmıştım. Bu öğleden sonra olmuştu, demek ki aradan iki saat kadar geçmiş.</p>
+
+            <p>“Doğru, pardon. Sanırım dalıp gitmişim.”</p>
+            <p>“Yaşlanıp bunamadan önce biraz beklesen iyi olur…” diye takıldı Norn. “Yeni bir demlik hazırlayayım. Sen otur, Abi.”</p>
+            <p>“Evde başka kimse yok mu?”</p>
+
+            <p>Sylphie ve Eris’in az önce burada olduklarına emindim. Roxy ise… Bu saatte muhtemelen hâlâ evde olmazdı.</p>
+
+            <p>“Sylphie ve Eris, ben gelirken çocukları yürüyüşe çıkarmak için evden çıktılar. Lilia da alışverişe gitti.”</p>
+            <p>“Aisha?”</p>
+            <p>“Bilmiyorum. Muhtemelen hâlâ paralı asker grubuyla birliktedir, değil mi?” dedi Norn, çaydanlığı mutfağa taşırken.</p>
+
+            <p>Doğru ya, anlaşılan evde kimse yoktu. Sadece ben ve Norn… Aslında, daha iyi bir fırsat isteyemezdim. Evet, bunu doğrudan halledecektim. Lafı dolandırmaya gerek yoktu. Eğer bu işe yaramazsa, başka bir yol denerdim. Norn’a karşı dürüst olmanın yolu buydu.</p>
+
+            <p>Evet, tam olarak böyle. Norn’un hoşuna gitmezdi, sırf her şeyi ayarladıktan sonra gelip onunla konuşmam. Sonuçta evlenecek olan oydu.</p>
+            <p>İşe Norn’dan başlamalıydım.</p>
+
+            <p>“Al bakalım.”</p>
+            <p>Düşüncelere dalmışken Norn geri döndü ve önüme bir fincan çay koydu.</p>
+            <p>“Sağ ol.” Gözlerimi Norn’a çevirdim, karşımda tam karşıma otururken ona baktım, sonra çaydan bir yudum aldım. “Çay demleme konusunda bayağı ustalaşmışsın, ha?”</p>
+            <p>“Okulda öğrendik.”</p>
+            <p>“Lilia’dan değil mi?”</p>
+            <p>“Lilia… Sanmıyorum, bana öğretirdi.”</p>
+
+            <p>E, doğru tabii. Çay demlemeyi Lilia’dan öğrenmek istese, muhtemelen <i>“Gerek yok, bu benim işim,”</i> derdi.</p>
+
+            <p>“Eminim sorsan öğretirdi.”</p>
+            <p>“Belki. Ama madem okulda böyle bir imkan vardı, onu değerlendirdim. Ayrıca, evde çay yapma fırsatım pek olmuyor.”</p>
+            <p>“Öyle tabii.”</p>
+
+            <p>Okuldayken öğrenci konseyi toplantıları, yatakhanedeki odası ve şimdi de muhtemelen iş yeri derken, evde böyle şeyler yapmak pek denk gelmemiştir. Görünüşe göre bu durumdan memnun gibiydi.</p>
+
+            <p>Her neyse, biraz hafif sohbetle ortamı ısıttığıma göre, artık asıl meseleye giriş yapmanın zamanıydı. Ama nasıl? Nereden başlamalıydım?</p>
+
+            <p>“Şey… Hmm, şey yani…” Boğazımı temizlerken Norn, yüzünde hafif bir şüphe ifadesiyle bana baktı.</p>
+            <p>“Bir şeyi unuttun mu yoksa?” diye sordu.</p>
+            <p>“H-hayır, kesinlikle hayır. Çay çok güzel olmuş,” dedim ve fincanımdaki sıcak çaydan bir yudum daha aldım. Tadı öyle olağanüstü değildi ama tükürtecek kadar kötü de değildi. Sıradan bir çaydı, tıpkı Norn gibi. Güzel ama göz alıcı değil.</p>
+            <p>Yani, hoş. Ama bunu bir kenara bırakalım…</p>
+
+            <p>“Bu arada, Norn, şey… Son zamanlar nasıl geçiyor, ha?”</p>
+            <p>“Hangi konuda?”</p>
+            <p>“İşin, mesela. Nasıl gidiyor?”</p>
+            <p>“Her şey normal. Bir üst düzey çalışan hâlâ bana işi öğretiyor… ama sanırım fena gitmiyorum. Tabii, eminim Aisha olsa benden çok daha iyi yapardı.”</p>
+
+            <p>“Kendini onunla kıyaslamayı bırakmalısın,” dedim. Norn itaatkâr bir şekilde başını salladı. Aisha’nın kendi işi vardı. Aynı işi yapmadıkları sürece kıyaslamalar kimseye bir fayda getirmezdi.</p>
+
+            <p>“Peki, bu üst düzey çalışan…” dedim, konuyu değiştirmeye çalışarak. “Nasıl biri? Havalı biri mi?”</p>
+            <p>“Çok zarif biri. Sanırım sen de onunla bir kere konuşmuştun, Abi. Hatırlıyor musun, ben öğrenci konseyi başkanıyken başkan yardımcısı olan kişi?”</p>
+            <p>“Şey… Şu iri yarı, hayvan ırkından olan çocuk muydu?”</p>
+            <p>“O değil. Kadın olan.”</p>
+
+            <p>Ah, bir kadın. Evet, tamam, hatırladım. Adını çıkaramıyordum ama böyle biri vardı. Aslında, Norn bu işi aldığı zaman ondan bahsetmiş olmalıydı. Aynı departmanda olduklarından söz ettiğini hatırlıyorum.</p>
+
+            <p>“Kadın ha… Ama hiç erkek yok mu etrafta, hı?”</p>
+            <p>“Elbette var.”</p>
+            <p>“Peki, bu erkeklerden biri… şey… havalı mı?”</p>
+            <p>“Bazıları öyle, bazıları değil.”</p>
+
+            <p>Demek havalı biri var. Büyük bir haber bu.</p>
+
+            <p>“Abi, ne demeye çalışıyorsun?”</p>
+            <p>“Sakin ol Norn, hemen sonuçlara atlama.”</p>
+            <p>“Sakin olmayan sensin,” diye karşılık verdi.</p>
+
+            <p>Tabii ki sakindim! Her zaman soğukkanlı ve topluyumdur. RRR Rudeus! (Rahat, Refah İçinde, Rüzgar Gibi!) Ve hiçbiri delirmiş anlamına gelmiyor!</p>
+
+            <p>“Norn, şey… Mesela, diyelim bu havalı kişi… Sence ne kadar havalı?”</p>
+            <p>“Benden hoşlanıp hoşlanmadığını mı soruyorsun?”</p>
+            <p>“Şey, evet?”</p>
+            <p><i>Lanet olsun. Direkt sordum.</i></p>
+
+            <p>“Hayır, hoşlanmıyorum diyebilirim.”</p>
+            <p>Ah, salla gitsin.</p>
+            <p>“Peki, tesadüfen hoşlandığın biri var mı?”</p>
+
+            <p>Uzunca bir duraksama oldu ve sonra—</p>
+
+            <p>“Evet.”</p>
+            <p>Var! Biri olduğunu söyledi!</p>
+
+            <p>“Ş-şaka yapıyorsun! Var yani? E tabii, artık yetişkin bir kadınsın. Olması gayet normal. Hiçbir gariplik yok bunda. Tabii ki.”</p>
+            <p>“Sen ise gayet garip davranıyorsun,” dedi Norn.</p>
+            <p>“Ne?”</p>
+
+            <p>Ben garip değilim. Garip olan dünya! Bu dünya bana göre tuhaf, ben değilim!</p>
+
+            <p>“Şey, peki… Nasıl biri bu hoşlandığın kişi?” diye devam ettim.</p>
+            <p>“O… daha yaşlı biri.”</p>
+            <p>“Hmm, anladım.”</p>
+            <p>“Güvenebileceğim biri.”</p>
+            <p>“Hmm…”</p>
+            <p>“Ve her zaman benimle ilgileniyor.”</p>
+
+            <p>Bu üç kriteri alırsak, bu kişi…</p>
+
+            <p>“Beni mi kastediyorsun?”</p>
+            <p>“Senin kafanda bir problem mi var?”</p>
+            <p>“Affedersin, biraz kaptırdım kendimi.”</p>
+            <p>“O, senden çok daha yaşlı Abi. Kriz anlarında asla soğukkanlılığını kaybetmez. Sakin ve ağırbaşlı birisi.”</p>
+            <p>“Biliyor musun, son zamanlarda senin abin de kriz anlarında soğukkanlılığını kaybetmemeyi başarıyor.”</p>
+            <p>“Bu şekilde davrandığını düşünürsek bunu söylemen pek doğru olmaz.”</p>
+
+            <p>Oof…</p>
+
+            <p>Ama tamam, şöyle bir toparlayalım: Benden çok daha yaşlı ve ağırbaşlı biri mi? Kahretsin…</p>
+
+            <p>“Benden çok daha yaşlı derken… Mesela, on yıl falan mı daha yaşlı?”</p>
+            <p>“Daha yaşlı.”</p>
+            <p>“Şey… Sanırım, bir ‘baba kompleksi’nden bahsediyoruz?”</p>
+            <p>“Baba kompleksi mi…? Eh, yaşlı erkekleri sevdiğim doğru.”</p>
+
+            <p>Yaşlı dediğine göre, yirmi yıldan fazla bir farktan bahsediyor olmalıydı. Yani kırklı ya da ellili yaşlarda biri. Ağırbaşlılık kısmını da eklersek, aklımda biraz daha toplu, ağırlık merkezi aşağıda olan, ciddi görünümlü bir adam canlanıyordu. Geçmiş hayatımda “ağırbaşlılık” kelimesinin yanına bile yaklaşamamıştım tabii.</p>
+
+            <p>Gözümde, yağlı suratlı, kötü bir ticaret şirketinin CEO’su gibi bir yaşlı adam belirdi. Yaş farkına laf edecek değilim ama ne şekilde düşünürsem düşüneyim, Norn’un bir “sponsor” peşinde olduğunu düşündürecek bir tablo ortaya çıkıyordu.</p>
+
+            <p>Hayır, buna izin veremem! Kesinlikle hayır!</p>
+
+            <p>Ama dur, ya bu adam düşündüğümden daha samimi çıkarsa? Aslında yaş farkı bir şey ifade etmeyebilir. İnsanları dış görünüşlerine göre yargılayamazsınız.</p>
+
+            <p>“Zaten bu aşktan bir sonuç çıkmayacağını kabul ettim,” dedi Norn.</p>
+            <p>“Ah… Evli mi yoksa?”</p>
+            <p>“Hayır… Eşini kaybettiğini söyledi.”</p>
+
+            <p>“Kaybetti” ha? Belki de boşandığını ima etmek için uygun bir yol bulmuştu. Ya da belki de karısı, adamın yüzüne boşanma evraklarını çarpmıştı.</p>
+            <p>…Gerçeği kabullenmemek için elimden geleni yapıyordum.</p>
+
+            <p>“Anlaşılan, ona eşini hatırlatıyormuşum.”</p>
+            <p>Tamam, bu durumda kesinlikle olamaz. Evet, imkansız. Böyle bir şey nasıl söyler.</p>
+            <p>“Bu, en eski numaralardan biri.”</p>
+
+            <p>Yaşlı bir adam, kendisinden çok daha genç bir kadına gelip, “Bana ölen karımı hatırlatıyorsun,” derse, başka ne olabilir ki? Bu cümlenin altında yatan anlam, “Seni kendime eş olarak görebiliyorum,” değilse neydi?</p>
+            <p>Ama dur bir saniye. Bu aslında bir tavlama cümlesi gibi durmuyor. Daha çok şöyle söyler gibi: “Karım gibi biri değilsin, senin gibi birini daha önce hiç tanımamıştım.” Evet, bu daha iyi bir cümle bu olurdu.</p>
+
+            <p>“…Beni baştan çıkarıp çıkarmadığını mı soruyorsun?” Norn ellerini yanaklarına götürdü, hafifçe kızarmıştı. Bu fikir hoşuna mı gitmişti yoksa? Ah, doğru ya. Norn, ondan hoşlanıyordu.</p>
+
+            <p><i>Ama Norn, belki de sana umut veriyor.</i> Şimdi bunu söylesem kavga çıkar, o yüzden içimden dedim.</p>
+
+            <p>“Neden birden bu kadar çok soru soruyorsun ki?”</p>
+            <p>“Hı? Şey, bu…”</p>
+            <p>“Bir şeyler çeviriyorsun, değil mi?” Norn bana gözlerini dikti. Bakışları, “Ben dürüst davrandım, sıra sende” diyordu. Bu kadar açık olmasını beklememiştim. Onun biriyle ilgilendiğini anlasam bile yeterdi.</p>
+
+            <p>“Bak, sen biraz önce söylediklerinden sonra bunu açmak istemezdim ama…”</p>
+            <p>“Tamam.” Ben hafifçe ona doğru eğildim, o da geri çekildi.</p>
+            <p>“Gerçek şu ki, Norn,” dedim. “Seninle ilgili bir tür evlilik teklifi geldi.”</p>
+
+            <p>Norn birkaç saniye donup kaldı. Gözleri kocaman açılmış, dudakları hafifçe büzülmüş haldeydi. Bana adeta bakışlarıyla meydan okuyordu.</p>
+            <p>“Bir teklif…” diye tekrarladı. “Pekâlâ. Kabul ediyorum.”</p>
+            <p>“Yok, anladım. Daha fazla bir şey söyleme. Az önce söylediklerinden sonra bunu unutalım gitsin.”</p>
+            <p>“Hayır, dediğim gibi, kabul ediyorum.”</p>
+
+            <p>Ona baktım, yüzümdeki şüphe açıkça belliydi.</p>
+
+            <p>“Ama sen… Senin zaten hoşlandığın biri yok mu?”</p>
+            <p>“Fark etmez. Zaten hiçbir yere varacağı yok.”</p>
+
+            <p>Norn bir an düşündü, sonra devam etti.</p>
+
+            <p>“Biz soylu değiliz ama senin bir statün var, ve arkadaşlarım bir gün böyle bir şey olabileceğini söylemişti. Ayrıca, senin dünyanın her yerinde bağlantıların olduğunu öğrendiğimden beri böyle kullanılmayı bekliyordum.”</p>
+
+            <p>“‘Kullanmak’ derken? Ailemi piyon olarak kullanmam,” dedim, biraz sert bir tonla.</p>
+
+            <p>Norn’un gözleri büyüdü, sonra başını eğdi.</p>
+            <p>“Tabii ki… Özür dilerim.”</p>
+            <p>Ne iyi bir kız.</p>
+
+            <p>“Norn, eğer istemediğini söylersen bu fikri hemen rafa kaldırırız.”</p>
+            <p>“Hayır… Karşı değilim. Bana bunu açtığına göre, demek ki diğer kişi kötü biri değil, değil mi?”</p>
+            <p>“Yani, sanırım.”</p>
+
+            <p>Kötü biri değildi… En azından, ben öyle düşünmüyordum. Biheiril Krallığı’ndaki savaş sırasında iyi anlaşmışlardı. Ruijerd onurlu bir adamdı.</p>
+
+            <p>“Şey… Yani, evlenmeye gönüllü değilim ama tamamen karşı da değilim. Eğer bu hiç yaşanmamış gibi davranırsak minnettar olurum, Abi. Ama tabii diğer kişi ısrar ederse, o zaman devam edebilirsin. Benim için endişelenmene gerek yok…”</p>
+
+            <p>Norn bakışlarını başka tarafa çevirdi.</p>
+
+            <p>Pek istekli görünmüyordu. Eğer ben istersem dediğimi yapardı, hepsi o kadar. Bu, benim için kullanışlı bir durum olabilirdi, ama onun için hiç de öyle değildi.</p>
+
+            <p>“Diğer kişiyle henüz konuşmadım, o yüzden sorun değil.”</p>
+            <p>“Anladım… Teşekkür ederim.”</p>
+
+            <p><i>Kusura bakma Orsted, ama Norn’un istediği buysa, bu fikri çöpe atarız.</i></p>
+
+            <p>Bir süre sessizlikten sonra Norn, “Bu arada, nasıl biriydi? Soylular arasından biri miydi? Yoksa Asura asillerinden biri mi?” diye sordu.</p>
+            <p>“Yok, öyle biri değil… Ama tanıyorsun onu, Norn.”</p>
+            <p>“Tanıyorum mu…? Ah, Zanoba’yı mı diyorsun?”</p>
+            <p>“Onun evlenecek biri olduğunu sanmıyorum.”</p>
+
+            <p>Zanoba’yı bu işten uzak tutmak en iyisiydi. Julie ona aşk oklarını yağdırsa da, ne ona ne de Ginger’a en ufak bir ilgi gösteriyordu. Hayatını figürleriyle geçirmeye kararlıydı, belli ki.</p>
+
+            <p>“Ruijerd’di,” dedim, sonunda ismini açıklayarak.</p>
+
+            <p>Ne olduğunu anlamadan Norn birden bana doğru eğildi, iki eliyle masaya dayandı. Yüzünde ciddi bir ifade vardı, yanakları kıpkırmızı kesilmişti. Öfkeli görünüyordu.</p>
+
+            <p>Neydi şimdi bu? Yanlış bir şey mi söyledim?</p>
+
+            <p>Norn’un Ruijerd’e büyük bir saygısı vardı, bu yüzden ona bu tür bir gözle bakmadığı açıktı.</p>
+
+            <p><i>Tamam, anladım. Kusura bakma Norn, abicik hata etti. Artık bana öyle sert bakmayı bırakabilirsin.</i></p>
+
+            <p>“Bak, saçmaladım. Farklı bir tür olmasını bir kenara koy, yaş farkı çok büyük, sen bile—”</p>
+            <p>“Lütfen bu teklifi kabul et!”</p>
+
+            <p>Norn benim sözümü keserek, sesi heyecan ve mutlulukla dolu bir şekilde bağırdı.</p>
+
+            <div class="divider">***</div>
+
+            <p>Tahmin ettiğiniz gibi—ya da doğrusu, beklediğim gibi diyelim—Norn’un gönlünü kaptırdığı kişi Ruijerd’di.</p>
+
+            <p>Meğerse küçükken ona hayranmış ve o çocukça hayranlık zamanla romantik duygulara dönüşmüş. Biheiril Krallığı’nda geçirdikleri süre boyunca da bu hislerini netleştirmiş: Ruijerd’e âşıkmış.</p>
+
+            <img src="bolum1foto2.png" alt="Bölüm 1 Fotoğraf 2" class="novel-image">
+
+            <p>Ama Norn, Ruijerd’in geçmişini bildiği için onun duygularına karşılık vermeyeceğini düşünüyordu. Bu yüzden, gerçek hislerini içinde saklayarak hayatına devam etmeye razı gelmişti.</p>
+
+            <p>Ben ise göğsüme bir elimi koyup, “Tamamdır. Bana bırak bu işi,” dedim.</p>
+
+        </main>
+
+        <!-- Alt Navigasyon -->
+        <div class="bottom-nav">
+            <a href="bolum0.html" class="nav-btn">←Önceki Bölüm</a>
+            <a href="bolum1parca2.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>

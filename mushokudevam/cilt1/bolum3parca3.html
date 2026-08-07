@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushoku Tensei Cilt 2, Bölüm 3, Parça 2 | Plotka Novel</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #d1d5db;
+            --accent-color: #e52b2b;
+            --border-color: #333;
+            --font-size: 18px;
+        }
+
+        body.theme-light {
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+            --text-color: #111827;
+            --accent-color: #cc0000;
+            --border-color: #e5e7eb;
+        }
+
+        body.theme-sepia {
+            --bg-color: #f5efe6;
+            --card-bg: #e8dfd1;
+            --text-color: #433422;
+            --accent-color: #8c1b1b;
+            --border-color: #d8c8b4;
+        }
+
+        body.theme-gray-box .novel-text {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Georgia, serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reader-container {
+            max-width: 750px;
+            width: 100%;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+        }
+
+        .controls-center {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-btn, .action-btn, .theme-select {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--bg-color);
+            padding: 7px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .theme-select {
+            outline: none;
+            font-family: inherit;
+        }
+
+        .nav-btn:hover, .action-btn:hover, .theme-select:hover {
+            background-color: var(--accent-color);
+            color: #121212;
+        }
+
+        body.theme-light .nav-btn:hover,
+        body.theme-light .action-btn:hover,
+        body.theme-light .theme-select:hover,
+        body.theme-sepia .nav-btn:hover,
+        body.theme-sepia .action-btn:hover,
+        body.theme-sepia .theme-select:hover {
+            color: #ffffff;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        .novel-text {
+            font-size: var(--font-size);
+            line-height: 1.85;
+            letter-spacing: 0.2px;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+
+        .novel-text p {
+            margin-bottom: 1.4em;
+        }
+
+        .novel-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 30px auto;
+            border-radius: 6px;
+        }
+
+        .section-break {
+            text-align: center;
+            margin: 30px 0;
+            color: var(--accent-color);
+            letter-spacing: 4px;
+        }
+
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reader-container">
+        <div class="controls">
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Ana Sayfa</a>
+                <a href="bolum3parca2.html" class="nav-btn">←Önceki Bölüm</a>
+            </div>
+
+            <div class="controls-center">
+                <button class="action-btn" onclick="changeFontSize(-1)">A-</button>
+                <button class="action-btn" onclick="changeFontSize(1)">A+</button>
+                <select class="theme-select" onchange="applyTheme(this.value)">
+                    <option value="dark">🌙 Karanlık</option>
+                    <option value="light">☀️ Beyaz</option>
+                    <option value="sepia">📖 Kitap (Sepya)</option>
+                </select>
+                <button class="action-btn" onclick="toggleBox()">🔲 Kutu</button>
+            </div>
+
+            <div class="nav-right">
+                <a href="bolum4.html" class="nav-btn">Sonraki Bölüm →</a>
+            </div>
+        </div>
+
+        <header>
+            <h1>Mushoku Tensei Cilt 2, Bölüm 3, Parça 3</h1>
+            <div class="subtitle">"Dohga ve Isolde"</div>
+        </header>
+
+        <main class="novel-text" id="text-content">
+            <img src="bolum3foto1.png" alt="Bolum 3 Foto 1" class="novel-image">
+<p><strong>“ŞİMDİ KAÇ OLDU?”</strong></p>
+<p>Isolde, eğitim salonundan ayrılmış, evde oturma odasında kardeşi Tantris’in karşısında oturuyordu.</p>
+<p><strong>“Yirmi altı,”</strong> diye mırıldandı, gözlerini kaldırmadan. Tantris onun gözlerini yakalamaya çalıştı, ama Isolde bakışlarını kaçırıyordu.</p>
+<p><strong>“Küçük bir kuş, reddedenin sen olduğunu söyledi.”</strong></p>
+<p><strong>“Evet.”</strong></p>
+<p><strong>“Neden?”</strong></p>
+<p>Isolde dudaklarını sıktı. <strong>“Şey… Bilmiyorum. Hepsi iyi adamlar. İyi huylu, nazik… Ama…”</strong></p>
+<p><strong>“Ama?”</strong></p>
+<p><strong>“Belki de fazla iyiler. Bu da kusurlarını daha belirgin kılıyor.”</strong></p>
+<p>Bu adamlar Ariel aracılığıyla tanıştırılmış <strong>kraliyet üyeleriydi</strong>. Gençtiler, hoş bir görünümleri vardı ve sohbetleri oldukça güzeldi. Ama… fazla açık sözlüydüler. Belki Ariel onlara bir şey söylemişti, çünkü fetihlerinden ve arzularından bahsetmekten çekinmemişlerdi.</p>
+<ul>
+<li><strong>Atole Orpheus Asura</strong>, yakışıklı ve nazikti, evlendikten sonra kendini tamamen Isolde’ye adayacağını söylemişti.</li>
+<li><strong>Basil Venti Asura</strong>, yakışıklı ve güçlüydü, ayrıca Su Tanrısı Stili hakkında derin bir anlayışa sahipti.</li>
+<li><strong>Carlos Siodos Asura</strong>, yakışıklı ve zarifti, evlendikten sonra Su Tanrısı Stili’ni maddi olarak destekleyebileceğini söylemişti.</li>
+<li><strong>Daniel Lapis Asura</strong>, yakışıklı ve komikti, sohbet boyunca Isolde’yi kahkahalara boğmuştu.</li>
+<li><strong>Elliot Skiron Asura</strong>, yakışıklı ve tatlıydı, Isolde’nin içgüdüsel olarak onu koruma isteği uyandırmıştı.</li>
+</ul>
+<p>Ama bu adamlar <strong>her şeyi anlatmışlardı.</strong> Yatakta ve yatak dışında ona neler yapmak istediklerini, onu hangi küçük kıyafetler içinde görmek istediklerini anlatmışlardı. Isolde’nin sınırlı deneyimiyle bunlarla baş etmesi mümkün değildi. Bu adamların kafasında bir gariplik vardı; dürüst olmak gerekirse, bu durum onu rahatsız etmiş ve midelerini bulandırmıştı. Farkına varmadan, hepsiyle bağı kesmişti.</p>
+<p>Bu deneyimler, Isolde’de erkeklere karşı bir miktar güvensizlik geliştirmişti. Tüm erkeklerin böyle olmadığını bilse de, dışarıda azımsanmayacak kadar çok sayıda böyle adam vardı. Neredeyse tamamen evlenmekten vazgeçmek üzereydi.</p>
+<p><strong>“Kusurlar mı? Mesela neler?”</strong></p>
+<p><strong>“Sana söyleyemem. Bahsetmek bile istemediğim şeyler.”</strong></p>
+<p><strong>“Ah… şey, sonuçta onlar Asura’nın kraliyet üyeleri,”</strong> dedi Tantris. Asura soyluları, <strong>sapkınlıklarıyla</strong> ünlüydü. Soyluların en üst tabakası, normal zevkleri çoktan aşmıştı.</p>
+<p><strong>“Bu seni zor bir duruma sokuyor. Ama hepsini reddedeceğini düşünmemiştim.”</strong></p>
+<p><strong>“Hepsini değil… Yani, hâlâ birkaç aday var.”</strong></p>
+<p><strong>“Öyle de olsa, pek umut verici görünmüyor, değil mi?”</strong> dedi Tantris.</p>
+<p>Isolde, kendi kararlarını verdiği durumlarda her zaman fazlasıyla seçici davranmıştı. <strong>“Şunu istemiyorum, bunu da istemiyorum…”</strong> derken en iyi seçenekler başkaları tarafından kapılmış olurdu ve sonunda kalanlarla yetinmek zorunda kalırdı. Evlilik de bundan farklı değildi.</p>
+<p><strong>“Pekâlâ,”</strong> dedi Tantris sonunda. <strong>“Şöyle yapacağız.”</strong> Kız kardeşinin karakterini göz önünde bulundurarak bir karar verdi. <strong>“Bir sonraki adayla evleneceksin.”</strong></p>
+<p><strong>“Ama öyle hemen…”</strong></p>
+<p><strong>“Eminim o da senin standartlarına uymayacak. Ama seçici olabildiğin için kusurlarına takılıyorsun. Bir kez evlenip birlikte yaşamaya başladığınızda, bu kusurlar sana önemsiz gelmeye başlayabilir. Belki zamanla ona değer vermeyi öğrenirsin.”</strong></p>
+<p>Tantris, bu tür zorlama mantığı sevmiyordu. Isolde’nin diğer kişiyi derinlemesine tanımak ve seçimini ona göre yapmak için zamana ihtiyacı olduğunu düşünüyordu. Ama Ariel’in bu işi ayarlamış olması, onun bu yaklaşımın işe yarayabileceğini düşünmesine neden olmuştu. Eğer Ariel bu erkekleri tanıştırdıysa, çok da yanlış bir seçim olamazdı.</p>
+<p>Ona fazla kredi veriyordu.</p>
+<p>Uzun bir sessizlikten sonra Isolde kararını verdi. <strong>“Tamam.”</strong> Gerçekten de fazla seçici davranıyordu. Hayatı boyunca hep böyleydi ve muhtemelen hep böyle olacaktı. Bu özelliği <strong>Su Tanrısı Stili</strong> için uygun bir yapıya sahipti ve Su Tanrısı unvanını almak üzereydi. Ama evlilik söz konusu olduğunda, bu bir problemdi. Bu gidişle hayatının geri kalanını yalnız geçirecekti.</p>
+<p><strong>Su Tanrısı</strong> unvanı itibarlıydı. Onu tanıyan insanlar, ona hayranlıkla bakacak, onu övecek ve takdir edeceklerdi. Isolde de onlara karşı gülümseyip sohbet edecekti. Ama kendini iyi hissettiği bir anda, evine yalnız dönüp tek başına bir yemek yiyecek, yatmaya hazırlanacak ve yalnız uyuyacaktı.</p>
+<p>Bu kulağa ne kadar boş geliyordu.</p>
+<p>Su Tanrısı unvanını almak, sadece takdir görmek için yapılmazdı. Isolde’nin içinde, kılıç ustası kimliğinden ayrı bir başka Isolde vardı. O hep yalnızdı ve bu yüzden kendini boş hissediyordu. Bir koca ve çocuklar bu diğer Isolde’yi teselli eder miydi bilmiyordu, ama dünyadaki tüm övgülere sahip olsa bile, eve döndüğünde birine <strong>“Bugün kendimle gurur duyuyorum,”</strong> demek istiyordu.</p>
+<p>Ve sonra, onunla övünmeyi bitirdiğinde, sapık kocası gelip ondan tuhaf bir şey yapmasını isteyecekti.</p>
+<p>Ama Isolde kararını vermişti.</p>
+<p><strong>“Peki, bir sonraki adayla nerede ve ne zaman buluşacağım?”</strong></p>
+<p><strong>“Bugün. Beni almak için bir arabayla geleceği söylendi.”</strong></p>
+<p><strong>“Kraliyet ailesinden biri… seni almak için mi geliyor?”</strong></p>
+<p><strong>“Evet.”</strong></p>
+<p>Isolde, geriye sadece üç adayın kaldığının farkında değildi. Ancak, beş talibini hiç düşünmeden reddettiğini duyan diğerleri işi ciddiye almıştı. Kimin sırayla Isolde ile görüşeceğini belirlemek için katı bir kura düzenlemişlerdi. Hepsi saldırı için hazırdı.</p>
+<p><strong>“Ha?”</strong> O sırada, Isolde’nin dikkatini bir şey çekti. <strong>“Eğitim salonunda bir tür kargaşa var gibi.”</strong></p>
+<p>Eğitim salonu, Cluel evine bitişikti. Ancak burası <strong>Su Tanrısı Stili</strong>’nin merkeziydi ve zemini buna uygun şekilde sessizdi. Genellikle bulundukları yerden bir şey duymak mümkün değildi. Ama Isolde bir <strong>Su İmparatoru</strong> idi; şiddeti hissedebiliyordu.</p>
+<p><strong>“Acaba çoktan gelmiş olabilir mi?”</strong></p>
+<p><strong>“Henüz erken, ama zamanı karıştırmış olabilirim. Hemen gitmeliyim. Kraliyeti gücendirme riskine giremem.”</strong></p>
+<p><strong>“Doğru. Acele etsen iyi olur.”</strong></p>
+<p>Isolde ve Tantris, kafa sallayarak hızla eğitim salonuna yöneldiler.</p>
+<p>Salon tam bir kaos içindeydi. Eğitim kıyafetleri içindeki öğrenciler, bir adamın etrafında toplanmış, öfkeli bağırışlar ve hakaretler savuruyorlardı.</p>
+<p><strong>“Usta! Rakip bir okuldan bir meydan okuyucu geldi! Aniden çıkageldi ve sizi görmek istediğini söyledi!”</strong></p>
+<p>Isolde ve Tantris’in yüzlerindeki kan çekildi. Eğer öğrencileri bir kraliyet ailesi üyesine böyle bir muamele yapmışsa, tüm eğitim salonu yerle bir edilebilirdi. Acaba adam adını söylememiş miydi?</p>
+<p><strong>“Durun hemen!”</strong> diye bağırdı Isolde. Salon bir anda sessizliğe gömüldü.</p>
+<p><strong>“Yolu açın! O adam benim misafirim!”</strong></p>
+<p><strong>“Ama… ama o—”</strong></p>
+<p><strong>“Hepiniz, salonun kenarında diz çökün!”</strong> Isolde’nin emriyle, öğrenciler minik örümcekler gibi dağıldılar ve sıralar hâlinde yere oturdular. Bu, Isolde’nin büyükannesinin zamanından beri öğrencilerin eğitildiği bir disiplindi.</p>
+<p>Ama şu anda bu önemli değildi. Şu anda özür dilemesi gerekiyordu. Öğrenciler kenara çekilince, Isolde adamı daha net görebildi.</p>
+<p><strong>Ha?</strong> Gözlerini kocaman bir adama dikti. Adam iki metreden uzundu, omuzları neredeyse bir metre genişliğindeydi. Bir kaya gibiydi.</p>
+<p>Isolde o kayayı tanıyordu.</p>
+<p><strong>“Dohga?”</strong></p>
+<p><strong>“Mm.”</strong></p>
+<p>Dohga, Isolde’nin seslenişiyle arkasını döndü. Gerçekten de oydu—<strong>Kraliyet Kapı Bekçisi</strong>, <strong>Asura’nın Yedi Şövalyesi</strong>’nden biri olan <strong>Dohga</strong>. Görüntüsü buraya ait değilmiş gibi duruyordu, hatta neredeyse korkudan geriye çekiliyordu. Ama Isolde’yi gördüğünde, yüzünde rahatlamış bir gülümseme belirdi.</p>
+<p><strong>“Az önce hayatınızı kurtardım,”</strong> dedi Isolde öğrencilerine. <strong>“Bu adam Kuzey İmparatoru Dohga. Eğer isteseydi, hepinizin işini bir…”</strong></p>
+<p>Bu noktada Isolde konuşmayı kesti. Çünkü Dohga’nın üzerindekilere dikkat etmişti. Üzerinde bir şövalyenin <strong>resmi tören kıyafeti</strong> vardı. Isolde, onu daha önce bu kıyafetle hiç görmemişti. Dohga genelde ya altın zırhını ya da gri zırhını giyerdi. Ariel bile bu konuda bir şey söylememişti. Kıyafet, Dohga’nın iri cüssesi üzerinde fazlasıyla dar görünüyordu ve elinde bir <strong>çiçek buketi</strong> tutuyordu. Dohga’nın devasa elinde küçük görünmesine rağmen, aslında oldukça büyük bir buketti.</p>
+<p><strong>“Neden buradasın? Majesteleri’ne bir şey mi oldu? Acil bir durum mu var?”</strong> diye sordu Isolde, kaşlarını çatıp.</p>
+<p>Dohga, yavaşça ona doğru yürüdü ve elindeki buketi uzattı.</p>
+<p><em>Bu olabilir mi?</em></p>
+<p>Resmi tören kıyafeti ve bir çiçek buketi.</p>
+<p>Ama hemen ardından <strong>“Bu olamaz!”</strong> diye düşündü. Yine de ilk düşüncesi ağır bastı.</p>
+<p><strong>“B-ben… Isolde Cluel… Seni seviyorum! Lütfen… b-benimle e-evlen!”</strong></p>
+<p><em>Dohga, Asura kraliyet ailesinin bir üyesi olabilir miydi?</em></p>
+<p>Isolde’nin aklına aniden bir fikir geldi. Dohga, Ariel’in özel odalarını korumakla görevli tek erkekti. Luke özel bir durumdu, ama Sandor bile o odaların yakınında silah taşıyamazdı. Dohga, gece yarısı bile Ariel’in kapısında duruyordu. Bildiği kadarıyla, Dohga hadım değildi. Herkes onun güvenilir ve zararsız olduğunu söylüyordu, ama o hâlâ bir erkekti. <strong>Kuzey İmparatoru</strong> unvanına sahip, devasa bir adam olarak, Ariel’in odasına sızması son derece kolay olurdu.</p>
+<p>Ariel’in neden böyle bir adamı seçtiğini Isolde hep merak etmişti. Eğer Dohga Ariel’in akrabasıysa, çocukluktan beri birbirlerini tanıyorlarsa…</p>
+<p>Dohga’nın krallığın uzak bir köyünden geldiğini duymuştu, ama kraliyet ailesi her yerden çıkabilirdi. Tıpkı Ariel’in bir zamanlar uzak bir diyara kaçması gibi, Dohga da çocukluğunda saklanıyor olabilirdi.</p>
+<p><strong>“Isolde.”</strong></p>
+<p>Tantris’in sesi, Isolde’yi düşünceler denizinden çekip çıkardı.</p>
+<p><em>Belki de az önce kötü bir durumu kıl payı atlatmıştı.</em> Dohga, Asura Krallığı’nın karanlık bir sırrı olabilirdi. Eğer dikkatsiz davransaydı, belki kendisi bile yok edilebilirdi.</p>
+<p><strong>“Bir şey mi oldu?”</strong> diye sordu Tantris.</p>
+<p>Isolde, gerçeğe odaklanmalıydı. <strong>“Hiçbir şey…”</strong> dedi, ardından tekrar Dohga’ya baktı.</p>
+<p>Dohga az önce açıkça <strong>“Benimle evlen,”</strong> demişti. Bunu yanlış duyması mümkün değildi.</p>
+<p>Dohga, kendine güvenle parlamıştı. Ön kapıdan kararlı bir şekilde girmiş, ona bir buket sunmuş ve evlenme teklif etmişti.</p>
+<p>Isolde, her zaman daha romantik bir evlenme teklifi hayal etmişti. Ancak doğru açıdan bakıldığında, belki bu da romantik sayılabilirdi. Bir kalabalığın önünde bir çiçek buketiyle teklif etmek, Isolde’nin romantik teklifler listesinde vardı. Tabii bu sahnenin, bir ter kokusuyla dolu eğitim salonu yerine güzel bir çeşmenin önünde ya da şık bir partide geçmesi gerekiyordu.</p>
+<p>Hayır, bunu kafasından atmalıydı. Ve bununla birlikte başka pek çok şeyi de.</p>
+<p><strong>“Tam zamanında, değil mi?”</strong> dedi Tantris temkinli bir şekilde. <strong>“O da Asura’nın görkemli Yedi Şövalyesi’nden biri. Birbirinize yakışan bir çift olursunuz.”</strong></p>
+<p><strong>“Evet… Ama… Ben…”</strong> Isolde, üzerine çevrilen gözleri fark etti—öğrencilerinin gözlerini.</p>
+<p><strong>“Özel konuşalım. Dohga, lütfen beni takip et.”</strong></p>
+<p><strong>“Mm.”</strong></p>
+<p>Isolde dönüp yürümeye başladı. Buketi almayınca Dohga’nın yüzü bir an için üzüldü, ama ardından hemen onu takip etti.</p>
+<p>Ve böylece <strong>Dohga</strong>, Isolde’nin evine davet edilmiş oldu. Şimdi, oturma odasında bir kanepede oturuyor, olabildiğince küçük görünmeye çalışıyordu. Buket, dizlerinin üzerinde duruyordu. Isolde, tam karşısına oturmuş, asil bir duruş sergiliyordu. Yüzünden hiçbir şey okunmuyordu; sanki zihninde hiçbir düşünce yokmuş gibiydi. Tantris ortalarda yoktu. Onları resepsiyon odasında bırakmış, çay yapmak için gitmişti.</p>
+<p>Isolde, Dohga’nın yüzünü inceledi. Bu dikkatli bakışlar karşısında Dohga ciddileşmeye çalıştı ama yanaklarının titremesi, ne kadar gergin olduğunu açıkça belli ediyordu.</p>
+<p>Ancak Isolde’nin ilgisini çeken bu değildi. Onu Dohga’nın yüzü ilgilendiriyordu. Düz, samimi bir yüzdü. Ama onun tarzı değildi. Isolde, birçok şeye gözlerini kapatabilirdi ama günün sonunda, sevmediği bir şeyi sevmeye zorlanamazdı.</p>
+<p>İçten içe, son beş teklifi yeniden değerlendirme fırsatı olmasını istiyordu. Eğer diğer özellikler az çok aynıysa, sırf yakışıklı oldukları için o beş aday daha cazipti. Ama bir sonraki kraliyet üyesi Dohga’dan bile daha az çekici olabilirdi. Üstelik bir de ağabeyiyle yaptığı anlaşma vardı. İşleri burada ve şimdi çözmeliydi.</p>
+<p>Derin bir nefes aldı ve konuştu: <strong>“Biliyor musun, senin bir kraliyet mensubu olduğunu öğrenmek beni gerçekten şaşırttı.”</strong></p>
+<p>Dohga’nın ağzı bir karış açıldı. <strong>“Ben? K-kraliyetten değilim…”</strong></p>
+<p>Isolde tereddüt etti. <strong>“Ha? Öyleyse evlatlık mı alındın ya da buna benzer bir şey mi?”</strong> diye sordu, üstü kapalı bir şekilde ne sakladığını anlamaya çalışarak.</p>
+<p><strong>“Ben… küçük köyde doğdum. Donati’de. Hep kapı bekçisiydim. Babam köyün askeriydi…”</strong></p>
+<p>Dohga’dan aldığı şey, tamamen sıradan bir askerin nasıl yükseldiğinin hikayesiydi. Gerçi, belki de tam anlamıyla sıradan değildi. Isolde, söylediklerinden bir şeyler çıkarmaya çalışarak dinledi.</p>
+<p>Kız kardeşi evlenince ağladığı kısma geldiğinde, Isolde o kadar içine kapılmıştı ki gözlerinde yaşların biriktiğini hissetti.</p>
+<p><strong>“Sonra duyuyorum ki… sen, Isolde, evleneceksin. Bundan önce… en azından hislerimi söylemek istedim.”</strong></p>
+<p>Isolde sessiz kaldı. Dohga’nın bu olanlarla bir bağlantısı yoktu. Ariel’in tanıştırmak istediği kraliyet üyelerinden biri değildi. Bu durumda, Isolde kararını verdi: Onu reddedecekti. Üzücüydü, ama Ariel’e saygısızlık edemezdi.</p>
+<p><em>Hm? Neden ‘üzücü’ diye düşündüm?</em></p>
+<p>Cevabı belliydi. <strong>Dohga</strong> dürüst, çalışkan ve sadıktı. Söylediklerinden anlaşıldığı kadarıyla korkunç yatak odası tercihleri yoktu. <strong>Kuzey İmparatoru</strong> unvanını alacak kadar yetenekliydi ve <strong>Asura’nın Yedi Şövalyesi</strong>’nden biriydi. İstikrarlı bir geliri vardı. İçki içmeyi seviyordu ama şiddet eğilimli bir sarhoş değildi ve abartılı bir lüks düşkünlüğü yoktu. Tek sorunu yüzüydü, o da çok kötü değildi—sadece Isolde’nin tam tarzı değildi.</p>
+<p><strong>“Ş-şey…!”</strong> Isolde’nin kaşlarını çatmasına karşılık, Dohga büyük bir irade çabasıyla konuştu: <strong>“İlk… seni gördüğümden beri, düşünüyorum ki… Isolde, bu çiçekler kadar… güzel. Hep… seni sevdim!”</strong> Ardından buketi bir kez daha ona uzattı.</p>
+<p><strong>“Gerçekten mi? İlk gördüğün andan beri mi?”</strong> Isolde’nin görüş alanı tamamen çiçeklerle doldu. Çiçekler koyu mavi renkteydi. İsimlerini bilmiyordu ama güzeldiler. Kalbinde küçük bir kıvılcım yandı.</p>
+<p><strong>“Mm.”</strong></p>
+<p>Eğer doğru hatırlıyorsa, Isolde’nin Dohga ile ilk karşılaşması bir <strong>dövüş</strong> olmuştu. Ariel’in güvenliğiyle ilgili bir mesele yüzünden kapışmışlardı. Bunca zaman Dohga böyle mi hissetmişti? Geriye dönüp düşündüğünde, Dohga’nın kendisine karşı biraz yumuşak davrandığını fark etti. Dohga, her zaman ona güvenmişti. Isolde, Ariel’in odalarına girdiğinde silahına el koymamıştı. İkisinin de <strong>Asura’nın Yedi Şövalyesi</strong> olması bunun bir parçasıydı, ama belki de mesele sadece bu değildi.</p>
+<p>Aklı bu düşüncelerle meşgulken, Dohga ona içten bir ifadeyle bakıyordu—yüzü artık %20 daha çekici görünüyordu. O kadar da kötü değildi. Doğru açıdan bakıldığında oldukça etkileyici bile olabilirdi. Üstelik genelde bir miğfer taktığı için yüzü çoğu zaman görünmüyordu bile.</p>
+<p><strong>“Dur, dur…!”</strong> Isolde başını salladı. <strong>“Gerçekten üzgünüm, ama Kraliçe Ariel’in tanıştırdığı bir kraliyet ailesi üyesiyle evleneceğim.”</strong></p>
+<p>Eğer şimdi Dohga ile bir ilişkiye girerse, bu Ariel’e utanç getirebilirdi. Isolde bir şövalyeydi. Mutlak bağlılık yemini etmemişti, ama bağlılık yemini etmişti. Kendi istekleri için bağlılık yemini ettiği kişiyi utandıracak bir şey yapamazdı.</p>
+<p><strong>“Sen de Kraliçe Majesteleri’nin şövalyelerinden birisin,”</strong> diye devam etti. <strong>“Onun isteklerine karşı gelemezsin, değil mi?”</strong></p>
+<p>Dohga biraz üzgün görünüyordu ama yine de <strong>“Mm,”</strong> dedi. Dohga da bir şövalyeydi. Aynı zamanda, Ariel’in kapı bekçisi olacak kadar onun güvenini kazanmış, çalışkan biriydi. Ariel’e ihanet etmezdi.</p>
+<p><strong>“Şimdi evine dönebilirsin,”</strong> dedi Isolde.</p>
+<p><strong>“Mm.”</strong></p>
+<p>Isolde, Dohga’nın en azından biraz itiraz edeceğini düşünmüştü. Ama Dohga hemen ayağa kalktı, ardından Isolde’ye sırtını dönüp uzaklaştı. Bu kadar basit. Hatta, ruh hali iyiymiş gibi görünüyordu. Sanki reddedileceğini en başından biliyormuş ve sadece duygularını dile getirmiş olmaktan memnunmuş gibi bir hali vardı. <span class="--l --r hover:bg-[#B4DAE8] hover:dark:bg-blue-600">Isolde</span> <span class="--l --r hover:bg-[#B4DAE8] hover:dark:bg-blue-600">bu</span> <span class="--l --r hover:bg-[#B4DAE8] hover:dark:bg-blue-600">durum</span> <span class="--l --r hover:bg-[#B4DAE8] hover:dark:bg-blue-600">karşısında</span> <span class="--l --r hover:bg-[#B4DAE8] hover:dark:bg-blue-600">biraz</span> <span class="--l --r hover:bg-[#B4DAE8] hover:dark:bg-blue-600">hayal</span> <span class="--l --r hover:bg-[#B4DAE8] hover:dark:bg-blue-600">kırıklığına</span> <span class="--l --r hover:bg-[#B4DAE8] hover:dark:bg-blue-600">uğradı</span><span class="--l --r hover:bg-[#B4DAE8] hover:dark:bg-blue-600">.</span></p>
+<p>Bir iç çekti ve masaya baktı. Orada bir mavi çiçek yaprağı duruyordu. Buket gitmişti. Dohga muhtemelen buketi yanında götürmüştü.</p>
+<p><strong>“Keşke en azından çiçekleri alsaydım…”</strong> diye mırıldandı, yaprağı eline alırken.</p>
+<p>O gün Isolde, kraliyetten gelen bir sonraki talibini de reddetti.</p>
+<p style="text-align: center;">***</p>
+<p>Isolde, ertesi gün eğitim alanında talim yaptırırken, bir yandan da önceki günü düşünüyordu.</p>
+<p>Dünkü <strong>kraliyet talibi</strong> <strong>Fraser Caecius Asura</strong> idi. Diğerleri gibi onun da sapkınlıkları korkunçtu, ama kötü bir insan değildi. Ancak Dohga ile kıyaslandığında, Fraser ona daha <strong>samimiyetsiz</strong> gelmişti. Yine de, onu tamamen reddetmek yerine kararını erteleyebilseydi, onu gücendirmekten kaçınabilirdi.</p>
+<p>Her halükarda, geriye sadece iki talip kalmıştı. Sadece iki. İkisini de dikkatlice değerlendirmeli ve birini seçmeliydi, diye düşündü. Tam o sırada bir haberci yanına geldi.</p>
+<p><strong>“Bayan Isolde! Majesteleri acilen sizinle konuşmak istiyor!”</strong></p>
+<p>Bunu duyunca Isolde, Ariel’in peş peşe talipleri reddetmesi konusunda onu azarlayacağını düşündü. Hakkı neyse çekecekti. Ariel’e bir özür borçluydu.</p>
+<p><strong>“Pekâlâ,”</strong> dedi ve eğitim alanını terk etti. Çıkıştaki şövalyelere ayrılmış odaya girdi ve üzerindeki tozu silkelerken, <strong>“Su ile yıkanmam gerekirdi ama acil olduğu için bunu atlayabilirim,”</strong> diye düşündü. Hızlı adımlarla kraliyet odalarına doğru yola koyuldu.</p>
+<p><strong>“Hm?”</strong> Sarayın en iç kısımlarına yaklaştıkça bir şeylerin yolunda gitmediğini hissediyordu. Normalde burası sessiz olurdu, etrafta asker ya da şövalye bulunmazdı; sadece boş koridorlar uzayıp giderdi. Ama şimdi heyecanla hareket eden askerler görüyordu. <em>Bir şey mi oldu acaba?</em> diye merak etti. Ama kraliçenin çağrısı öncelikliydi. Onlara bir şey sormadan yoluna devam etti ve kraliyet odalarına doğru hızlandı.</p>
+<p>Isolde’nin kaşları çatıldı. Kapıda olması gereken biri yoktu—kaya gibi iri bir adam ve altın zırhı içinde Asura’nın en güçlü kapı bekçisi olan <strong>Dohga.</strong> Ariel odalarındayken Dohga, bu sarayı terk etmezdi. Ama şimdi ortalıkta yoktu.</p>
+<p>Onun yokluğunu telafi etmek istercesine, saraydaki şövalyeler kraliyet odalarının etrafında sıralanmışlardı. Hepsi silahlıydı. Tam bir kargaşa! Bu şövalyelerin her biri tecrübeli askerlerdi. Normalde, buraya yaklaşmasına bile izin verilmeyen düşük ve orta rütbeli soylu kökenli şövalyeler bile buradaydı. Bu, Sylvester’ın liderliğini gösteriyordu. Sylvester, aldığı kararların sonuçlarını pek düşünmezdi.</p>
+<p><strong>“Lord Ifrit!”</strong> dedi Isolde, tanıdık bir figürü fark ederek. Sarayın muhafız komutanı ve <strong>Kraliyet Kalesi</strong> unvanını taşıyan <strong>Sylvester Ifrit</strong> idi bu.</p>
+<p><strong>“Bayan Isolde, hızlı geldiniz.”</strong></p>
+<p><strong>“Burada neler oluyor?”</strong> diye sordu Isolde. Sylvester, nereden başlayacağını düşünüyormuş gibi yüzünü buruşturdu.</p>
+<p>Birkaç saniye geçti, ardından omuz silkip, <strong>“Majesteleri seninle konuşmak istiyor,”</strong> dedi.</p>
+<p><em>Git içeri sor</em> demekten farksız bir cevaptı bu. Buradan bir açıklama alamayacağını anlayan Isolde, kapıyı tıklattı.</p>
+<p><strong>“Isolde Cluel, Majesteleri’ni görmeye geldi!”</strong></p>
+<p><strong>“Lütfen, içeri gelin.”</strong> Ariel’in sesi her zamanki gibiydi. Ortalıktaki kargaşanın aksine, sesi tamamen sakindi.</p>
+<p><strong>“Afedersiniz,”</strong> dedi Isolde, kapıyı açıp içeri girerken.</p>
+<p>İçeri girdiğinde tuhaf bir manzarayla karşılaştı. <strong>Ariel</strong>, masasında oturuyordu. Yanında kollarını çaprazlamış, yorgun bir ifadeyle <strong>Luke</strong> vardı. Onların yanında ise Ariel’in silahları çekilmiş korumaları duruyordu. Hepsi savaşa hazır görünüyordu. Ve bir de <strong>Dohga</strong>…</p>
+<p><strong>Dohga,</strong> genelde görev yerinden ayrılmazdı, ama işte oradaydı. Altın miğferini bir kolunun altında tutuyordu ve diğer elinde biraz solgun görünen bir çiçek buketi vardı.</p>
+<p><strong>“Hoş geldin, Isolde. Oldukça çabuk geldin,”</strong> dedi Ariel.</p>
+<p><strong>“Merasim alanındaydım… Majesteleri, bu olanlar ne anlama geliyor?”</strong></p>
+<p><strong>“Dohga, şövalyelikten istifa etmeyi düşündüğünü söylüyor,”</strong> dedi Ariel gayet sakin bir şekilde.</p>
+<p><strong>“Ne?!”</strong> Isolde hızla Dohga’ya baktı. Yüzündeki ifade ciddiydi. Bu bir şaka değildi.</p>
+<p><strong>“O… Yani… Neden böyle bir şey yapıyormuş?”</strong></p>
+<p><strong>“Lütfen Dohga’ya sorun,”</strong> dedi Ariel ve ekledi: <strong>“Dohga, lütfen sebeplerini tekrar et.”</strong></p>
+<p>Dohga’nın bakışları Ariel’e döndü ve ardından başını salladı.</p>
+<p><strong>“Isolde…dedi ki… Kraliçe Ariel’in şövalyesi…onunla evlenemez.”</strong></p>
+<p><strong>Ne?!</strong></p>
+<p>Dohga’nın bu kısa açıklamasıyla, Isolde neden çağrıldığını anlamıştı.</p>
+<p><strong>“Hayır! Sadece, ‘Sen de onun isteklerine karşı gelemezsin, değil mi?’ dedim. Çünkü majestelerine utanç getirmek istemedim!”</strong></p>
+<p><strong>“Isolde, sakin ol ve onun konuşmasını bitirmesine izin ver,”</strong> dedi Ariel yumuşak bir sesle.</p>
+<p>Isolde sustu, ama içindeki karmaşa durulmamıştı. Konuşma yanlış bir yere giderse, bu durum sanki Isolde’nin <strong>Dohga’yı Ariel’e ihanet etmeye teşvik ettiği</strong> şeklinde algılanabilirdi. Hatta dışarıdaki kargaşaya bakılırsa, herkesin zaten bu şekilde düşündüğü belliydi.</p>
+<p><strong>“Dohga.”</strong></p>
+<p>Ariel’in seslenmesiyle Dohga, kelimeleri yavaşça seçerek konuşmaya başladı:</p>
+<p><strong>“Ben…çok düşündüm. Babama…kardeşimi koruyacağıma söz verdim. Leydi Ariel dedi ki…krallığı korumak, kardeşimi korumak demek. Leydi Ariel kraliçe, o yüzden onu korumak krallığı korumak demek. Ama kız kardeşim diyor ki…beni yeterince korudun. Artık bir sorunu yok. O yüzden…şimdi sevdiğim kişiyi koruyorum. Leydi Ariel’i seviyorum. Bu krallığı seviyorum. Ama Isolde’ye olan sevgim…daha özel. Bu yüzden istifa ediyorum… Leydi Ariel’in şövalyesi olarak. Sonra…Isolde’yi koruyacağım.”</strong></p>
+<p>Miğferini masaya bıraktı, gümbürtüyle yere indi. Ardından dönüp buketi Isolde’ye doğru uzattı.</p>
+<p>Isolde, önünde duran mavi çiçeklere baktı. Yaprakları biraz solmuştu. Bu, dünkü buketti.</p>
+<p><strong>“Dohga’nın söylemek istedikleri bunlar… Ama sen ne diyorsun, Isolde?”</strong> dedi Ariel.</p>
+<p><strong>“Ha?”</strong></p>
+<p>Isolde, bu ani aşk ilanı karşısında şaşkınlıkla gözlerini kırptı.</p>
+<p><strong>“Hangi şartları belirlemiş olursan ol, görünen o ki, Dohga Asura’nın Yedi Şövalyesi ünvanını&nbsp;bir kenara bırakıp seni seçiyor. Tüm kadınların hayalini kurduğu o an, hm? Peki, ne diyorsun?”</strong></p>
+<p>Ariel, onu ihaneti kışkırtmakla suçlamayacaktı. Dahası, Isolde’den Dohga’ya cevap vermesini istiyordu.</p>
+<p><strong>“A-ama Majesteleri’nin tanıştırdığı tüm o erkekler…”</strong></p>
+<p><strong>“Ah, onlar mı? Boş ver onları,”</strong> dedi Ariel hafifçe.</p>
+<p>Isolde’nin göğsünde hissettiği baskı, Biheiril Krallığı’nda <strong>Dövüş Tanrısı</strong> ile karşılaştığı andaki korkusundan bile daha güçlüydü.</p>
+<p>Dizlerinin titremesine engel olamıyor, neredeyse yere yığılacağını hissediyordu.</p>
+<p><img src="bolum3foto3.png" alt="Bolum 3 Foto 3" class="novel-image"></p>
+<p><strong>“B-ben…”</strong></p>
+<p>Birden, ilk Su Tanrısı’nın efsanesini ve her şeyini bir kenara bırakarak onunla evlenmeyi seçen prensesi hatırladı.</p>
+<p>Dohga’nın dün ona anlattıklarına bakılırsa, Dohga neredeyse hiçbir şeye sahip olmayan bir adamdı. Elinde olanlar: devasa cüssesi, gücü, birkaç akrabası ve <strong>Asura’nın Yedi Şövalyesi</strong>’ndeki göreviydi. Hepsi bu kadardı.</p>
+<p>Ve o, <strong>Isolde’yi seçmişti.</strong></p>
+<p>Ailesini ve görevini bırakmak pahasına bile. Sadece bir gün geçmişti. Çok düşündüğünü söylemişti ama aldığı karar neredeyse anında verilmiş gibiydi. Dohga, Isolde’nin her şeyden daha değerli olduğunu söylemişti. O, Ariel’in gönderdiği diğer soylular ya da kraliyet talipleri gibi değildi. Hiçbiri, sahip oldukları en büyük şeyleri bir kenara bırakacak kadar Isolde’yi göze almazdı. Tıpkı, ilk Su Tanrısı’yla evlenen prenses gibi.</p>
+<p>Belki de dünyada <strong>Isolde</strong>’yi bu kadar sevecek tek kişi <strong>Dohga</strong>’ydı.</p>
+<p>Daha ne isteyebilirdi ki? Görünüş kimin umurundaydı?</p>
+<p>Farkında bile olmadan, Isolde buketi—o devasa mavi çiçek demetini—almıştı. Çiçekler tam olgunluklarını geçmişti, ama yine de güzellerdi. Dohga, çiçekler solsa bile onları sever ve saklardı. Sonuçta, gençlik ve güzellik sonsuza dek sürmezdi.</p>
+<p><strong>“Eğer beni kabul edersen, seninim,”</strong> dedi Isolde.</p>
+<p><strong>“Mm!”</strong></p>
+<p>Dohga’nın yüzünde parlayan bir gülümseme belirdi. Çevrelerinden gelen alkış sesleri havayı doldurdu.</p>
+<p style="text-align: center;">***</p>
+<p>Kraliyet odasındaki evlenme teklifinin hikâyesi, kısa sürede herkesin diline düştü. Bu hikâye, en alt rütbelerdeki askerlere kadar yayıldı. Dohga’nın eski dostları mutluluktan gözyaşı dökerken, Isolde’nin hayranları yastıklarına kapanıp ağladılar. Dohga, <strong>Asura’nın Yedi Şövalyesi’nden</strong> istifa ederek Isolde’nin kocası oldu. Artık “Yedi Şövalye’den Dohga” değil, <strong>“Ev Erkeği Dohga”</strong> olarak anılacaktı… ya da en azından plan buydu.</p>
+<p><strong>“Şövalyelikten istifa etmeyi düşündüğünü söylüyorsun. Isolde de bu krallığın bir şövalyesi. Çok güçlü, evet, ama eğer ben ölürsem ve krallık istikrarsızlaşırsa, o da öldürülebilir. Elbette onu koruyacaksın, ama yine de… Tabii ki ben ölmediğim sürece bu olmayacak. Peki ya sen ne diyorsun, Dohga? Isolde’yi korurken, beni de korumaya devam edebilir misin?”</strong></p>
+<p>Ariel’in bal gibi tatlı sözlerine kapılan Dohga, şövalyeliğe devam etti. Ariel tam bir stratejistti; <strong>Kuzey İmparatoru Dohga</strong>’yı ellerinden kaçırmaya niyeti yoktu. Sarayda yarattığı olay yüzünden Dohga’yı azarladı ve ceza olarak ona bazı görevler verdi. Ancak bu işler zorlayıcı olmaktan uzaktı.</p>
+<p>Böylece, hem Isolde hem de Dohga, kendi köklerini salmaya başladı. <strong>Asura’nın Yedi Şövalyesi</strong>, aralarındaki bağları daha da güçlendirdi, bu da Ariel için büyük bir başarıydı. Ariel, Dohga yüzünden yarı yolda bıraktığı kraliyet taliplerine borçlanmıştı, ama bu <strong>önemli değildi.</strong></p>
+<p>Ancak evlilikleri nedeniyle, Dohga’nın kraliyet odalarını koruma süresi büyük ölçüde azaldı. Her gece tam zamanında evine dönüyordu ve Isolde bir yere gidecekse, ona mutlaka eşlik ediyordu. Bunun bir sonucu olarak, Isolde neredeyse Ariel’in kişisel koruması gibi bir role kaydırıldı.</p>
+<p>Isolde, biraz garip bir şekilde de olsa, Dohga ile evlenmeyi kabul etmişti. Ancak, evlenmeden önce bir flört dönemi şartı koydu, bu yüzden düğünleri ancak bir yıl sonra gerçekleşti. Bu gecikme nedeniyle, evlendikten sonra bile sadece <strong>Dohga</strong>’nın tek taraflı sevgisiyle evlendiği ve <strong>Isolde</strong>’nin ona pek ilgi göstermediği yönünde söylentiler yayıldı. Saraydaki tutumu, Dohga’ya karşı her zamanki kadar mesafeli ve soğuk olduğu için bu dedikodular güçte kazandı.</p>
+<p>Ancak bu söylentiler, bir gün <strong>Isolde</strong>’nin askerlerin önünde kazara <strong>Dohga</strong>’ya <strong>“hayatım”</strong> diye hitap etmesiyle ve ardından kıpkırmızı olup kendini düzeltmeye çalışmasıyla çabucak söndü. İnsanlar, yalnız kaldıklarında <strong>Isolde</strong>’nin <strong>Dohga</strong>’ya daha sıcak davrandığını tahmin etmeye başladılar.</p>
+<p>Ve işte böyle, <strong>Dohga ve Isolde</strong> karı koca oldular.</p>  </main>
+
+        <div class="bottom-nav">
+            <a href="bolum3parca2.html" class="nav-btn">← Cilt İçeriği</a>
+            <a href="bolum4.html" class="nav-btn">Sonraki Bölüm →</a>
+        </div>
+    </div>
+
+    <script>
+        let currentSize = 18;
+        const textElement = document.getElementById('text-content');
+
+        function changeFontSize(delta) {
+            currentSize += delta;
+            if (currentSize < 12) currentSize = 12;
+            if (currentSize > 28) currentSize = 28;
+            textElement.style.fontSize = currentSize + 'px';
+        }
+
+        function applyTheme(themeName) {
+            document.body.classList.remove('theme-light', 'theme-sepia');
+            if (themeName === 'light') {
+                document.body.classList.add('theme-light');
+            } else if (themeName === 'sepia') {
+                document.body.classList.add('theme-sepia');
+            }
+        }
+
+        function toggleBox() {
+            document.body.classList.toggle('theme-gray-box');
+        }
+    </script>
+</body>
+</html>
