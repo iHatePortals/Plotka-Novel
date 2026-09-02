@@ -294,149 +294,6 @@
 
         .hidden { display: none !important; }
 
-        /* --- YORUMLAR BÖLÜMÜ (EN ALTTA TAM GENİŞLİK) --- */
-        .comments-section {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 25px;
-            margin-top: 30px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .comments-title {
-            color: #fff;
-            font-size: 1.2rem;
-            margin-top: 0;
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
-        }
-
-        .comment-form-container {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .comment-avatar {
-            width: 42px;
-            height: 42px;
-            min-width: 42px;
-            font-size: 1.1rem;
-            background-color: var(--accent-cote);
-            color: #121212;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        .comment-input-wrapper {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .comment-input-wrapper textarea {
-            width: 100%;
-            background: #101014;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            color: #fff;
-            padding: 12px;
-            font-family: var(--font-family);
-            font-size: 0.9rem;
-            resize: vertical;
-            box-sizing: border-box;
-            outline: none;
-        }
-
-        .comment-input-wrapper textarea:focus {
-            border-color: var(--accent-cote);
-        }
-
-        .comment-form-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .comment-notice {
-            font-size: 0.8rem;
-            color: #888;
-        }
-
-        .btn-submit-comment {
-            background: var(--accent-cote);
-            color: #121212;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-
-        .btn-submit-comment:hover { opacity: 0.9; }
-
-        .comments-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .comment-item {
-            display: flex;
-            gap: 15px;
-            background: #16161f;
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px solid #2a2a35;
-        }
-
-        .comment-content {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            width: 100%;
-        }
-
-        .comment-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .comment-author {
-            font-weight: bold;
-            color: #fff;
-            font-size: 0.9rem;
-        }
-
-        .comment-date {
-            font-size: 0.75rem;
-            color: #666;
-        }
-
-        .comment-text {
-            font-size: 0.88rem;
-            color: #ccc;
-            line-height: 1.45;
-            margin: 0;
-            word-break: break-word;
-        }
-
-        .empty-comments {
-            text-align: center;
-            color: #666;
-            font-size: 0.9rem;
-            padding: 15px 0;
-        }
-
         /* --- MODAL --- */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -472,6 +329,149 @@
             .extra-sections { grid-template-columns: 1fr; }
             .nav-links { display: none; }
         }
+
+/* --- YORUMLAR BÖLÜMÜ (TAM GENİŞLİK VE YATAY YAPI) --- */
+.comments-section {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 25px;
+    margin-top: 35px;
+    grid-column: 1 / -1; /* Izgara yapısından çıkıp tam genişlik kaplamasını sağlar */
+}
+
+.comments-title {
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 0 0 20px 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.comment-form-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.comment-avatar {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    font-size: 1.1rem;
+    background-color: var(--accent-cote);
+    color: #121212;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.comment-input-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.comment-input-wrapper textarea {
+    width: 100%;
+    background: #101014;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: #fff;
+    padding: 12px;
+    font-family: var(--font-family);
+    font-size: 0.9rem;
+    resize: vertical;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.comment-input-wrapper textarea:focus {
+    border-color: var(--accent-cote);
+}
+
+.comment-form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-notice {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.btn-submit-comment {
+    background: var(--accent-cote);
+    color: #121212;
+    border: none;
+    padding: 8px 22px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-submit-comment:hover { opacity: 0.9; }
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.comment-item {
+    display: flex;
+    gap: 15px;
+    background: #16161f;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #2a2a35;
+}
+
+.comment-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-author {
+    font-weight: bold;
+    color: #fff;
+    font-size: 0.92rem;
+}
+
+.comment-date {
+    font-size: 0.75rem;
+    color: #666;
+}
+
+.comment-text {
+    font-size: 0.88rem;
+    color: #ccc;
+    line-height: 1.45;
+    margin: 0;
+    word-break: break-word;
+}
+
+.empty-comments {
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+    padding: 15px 0;
+}
     </style>
 </head>
 <body>
@@ -602,27 +602,6 @@
                 <p>Bu site herhangi bir ticari amaç gütmemektedir. Sitenin asıl amacı köyde daha rahat bir şekilde novel okumak ve arkadaşlarımında faydalanmasını sağlamaktır. Lütfen telif atmadan önce bana @t4hagrt instagram hesabıma dm atsın en yakın zamanda bakmaya çalışacağım. Eğer sitemin temasını kullanmak istiyorsanız bana yazarsanız yardımcı olabilirim.</p>
             </div>
         </div>
-
-        <!-- EN ALTTA SAYFA GENİŞLİĞİNDE YORUMLAR BÖLÜMÜ -->
-        <div class="comments-section" id="comments-section">
-            <h3 class="comments-title">💬 Yorumlar (<span id="comment-count">0</span>)</h3>
-            
-            <div class="comment-form-container">
-                <div class="comment-avatar" id="commentUserAvatar">?</div>
-                <div class="comment-input-wrapper">
-                    <textarea id="commentInput" placeholder="Bir yorum bırakın..." rows="3"></textarea>
-                    <div class="comment-form-footer">
-                        <span class="comment-notice" id="commentNotice">Yorum yapmak için giriş yapmalısınız.</span>
-                        <button type="button" class="btn-submit-comment" id="btnSubmitComment">Yorum Yap</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="comments-list" id="commentsList">
-                <!-- Dinamik Yorumlar -->
-            </div>
-        </div>
-
     </div>
 
     <!-- GİRİŞ / KAYIT MODALI -->
@@ -646,6 +625,32 @@
             </form>
         </div>
     </div>
+
+<!-- EXTRA SECTIONS BİTİMİNDEN SONRA -->
+        </div> 
+
+        <!-- YORUMLAR BÖLÜMÜ (Tam Genişlikte En Alt Yapı) -->
+        <div class="comments-section" id="comments-section">
+            <h3 class="comments-title">💬 Yorumlar (<span id="comment-count">0</span>)</h3>
+            
+            <div class="comment-form-container">
+                <div class="comment-avatar" id="commentUserAvatar">?</div>
+                <div class="comment-input-wrapper">
+                    <textarea id="commentInput" placeholder="Bir yorum bırakın..." rows="3"></textarea>
+                    <div class="comment-form-footer">
+                        <span class="comment-notice" id="commentNotice">Yorum yapmak için giriş yapmalısınız.</span>
+                        <button type="button" class="btn-submit-comment" id="btnSubmitComment">Yorum Yap</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comments-list" id="commentsList">
+                <!-- Yorumlar buraya eklenecek -->
+            </div>
+        </div>
+
+    </div> <!-- .main-container sonu -->
+</div>
 
     <!-- JAVASCRIPT -->
     <script>
@@ -675,14 +680,6 @@
             const userName = document.getElementById('userName');
             const btnLogout = document.getElementById('btnLogout');
 
-            // Comment Elements
-            const commentInput = document.getElementById('commentInput');
-            const btnSubmitComment = document.getElementById('btnSubmitComment');
-            const commentsList = document.getElementById('commentsList');
-            const commentCount = document.getElementById('comment-count');
-            const commentUserAvatar = document.getElementById('commentUserAvatar');
-            const commentNotice = document.getElementById('commentNotice');
-
             let isRegisterMode = false;
             let currentUser = JSON.parse(localStorage.getItem('plotka_current_user')) || null;
             let showingLibrary = false;
@@ -702,7 +699,6 @@
                     userProfile.classList.add('hidden');
                 }
                 loadFavorites();
-                updateCommentFormUI();
             }
 
             // Auth Modal
@@ -858,87 +854,7 @@
                 });
             });
 
-            // --- YORUM SİSTEMİ MANTIĞI ---
-            function updateCommentFormUI() {
-                if (currentUser) {
-                    commentUserAvatar.textContent = currentUser.username.charAt(0).toUpperCase();
-                    commentNotice.textContent = `${currentUser.username} olarak yorum yapıyorsunuz.`;
-                    commentNotice.style.color = "var(--accent-cote)";
-                } else {
-                    commentUserAvatar.textContent = "?";
-                    commentNotice.textContent = "Yorum yapmak için giriş yapmalısınız.";
-                    commentNotice.style.color = "#888";
-                }
-            }
-
-            function loadComments() {
-                const comments = JSON.parse(localStorage.getItem('plotka_comments')) || [];
-                commentCount.textContent = comments.length;
-                commentsList.innerHTML = '';
-
-                if (comments.length === 0) {
-                    commentsList.innerHTML = '<div class="empty-comments">Henüz yorum yapılmamış. İlk yorumu sen yap!</div>';
-                    return;
-                }
-
-                comments.forEach(c => {
-                    const initial = c.username.charAt(0).toUpperCase();
-                    const commentEl = document.createElement('div');
-                    commentEl.className = 'comment-item';
-                    commentEl.innerHTML = `
-                        <div class="comment-avatar">${initial}</div>
-                        <div class="comment-content">
-                            <div class="comment-header">
-                                <span class="comment-author">${escapeHTML(c.username)}</span>
-                                <span class="comment-date">${c.date}</span>
-                            </div>
-                            <p class="comment-text">${escapeHTML(c.text)}</p>
-                        </div>
-                    `;
-                    commentsList.appendChild(commentEl);
-                });
-            }
-
-            btnSubmitComment.addEventListener('click', () => {
-                if (!currentUser) {
-                    authModal.classList.add('open');
-                    return;
-                }
-
-                const text = commentInput.value.trim();
-                if (!text) {
-                    alert("Lütfen boş yorum göndermeyin!");
-                    return;
-                }
-
-                const comments = JSON.parse(localStorage.getItem('plotka_comments')) || [];
-                const newComment = {
-                    username: currentUser.username,
-                    text: text,
-                    date: new Date().toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })
-                };
-
-                comments.unshift(newComment);
-                localStorage.setItem('plotka_comments', JSON.stringify(comments));
-
-                commentInput.value = '';
-                loadComments();
-            });
-
-            function escapeHTML(str) {
-                return str.replace(/[&<>'"]/g, 
-                    tag => ({
-                        '&': '&amp;',
-                        '<': '&lt;',
-                        '>': '&gt;',
-                        "'": '&#39;',
-                        '"': '&quot;'
-                    }[tag] || tag)
-                );
-            }
-
             updateAuthUI();
-            loadComments();
         });
     </script>
 </body>
